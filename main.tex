@@ -102,7 +102,7 @@ The jet bundle of order q over a given bundle $(F,\pi_F,M)$ will be denoted by $
 
 In general we will label bundle maps that take values in the bundle of volume forms over some base manifold letters in calligraphic font $\mathcal{L}, \mathcal{H}$ and the corresponding representation in terms of the chart induced volume form by the corresponding standard font letter $\mathcal{L}=L \mathrm{d}^4x, \mathcal{H}= H \mathrm{d}^3x$.
 
-As usual $\left[ \ ,  \  \right]$ denotes the commutator of vector fields and $\left \{  \  ,   \   \right \}$ the poisson bracket of phase space functions/functionals. 
+As usual $\left[ \  ,   \  \right]$ denotes the commutator of vector fields and $\left \{  \  ,   \   \right \}$ the poisson bracket of phase space functions/functionals. 
 
 \chapter{Diffeomorphism invariant field theory}
 
@@ -1963,10 +1963,10 @@ Further information regarding regarding the underlying mathematics but also the 
 Finally we would like to emphasise the practical advantage of this approach. When computing power series solutions to (\ref{DiffeoEqnFormal}) the arising linear equations rapidly increas in size. Assuming $F$ has fibre dimension $21$ to provide an example that we will in fact treat in the next chapter the PDE compromises of $136$ equations for a function of $315$ independent variables (when the explicit $x^m$ dependency is discharged from the very beginning and hence the first equation in (\ref{DiffeoEqnFormal}) removed.).  When inserting the power series ansatz into the prolonged PDE obviously some of the obtained linear equations for the expansion constants decouple into sub systems that can be solved independently. Nevertheless due to the shear dimensionality of the expansion constants even solving the obtained subsystems poses a real problem. In our example for instance we would encounter the expression $a^{AIBJCK}$ which no includes $210\cdot 211\cdot212/6=1565620$ constants. Hence even if the obtained linear system decouples in such a way that allows us to treat all expressions that solely involve $a^{AIBJCK}$ independently from the rest we still have to solve a linear system with roughly $1.5$ Mio constants. On the other hand the space of Lorentz invariant expressions that we can obtain for $a^{AIBJCK}$ only has a dimension of several hundred. Hence working with the Lorentz invariant expression from the very beginning reduces the size of the problem from roughly $1.5$ Mio involved constants to several hundreds. 
 
 Furthermore note that we cannot construct expression with an odd total number of spacetime indices from $\eta_{ab}$ and $\epsilon_{abcd}$. As we assumed the gravitational field to be of even rank we can further reduce the power series expansion by discharging all terms that contain an odd number of spacetime derivative indices. In addition to that from the expansion (\ref{LPert}) one can readily compute the contribution the individual terms yield in the EOM.  As we required these to be of second derivative order such the the associated Hamiltonian formulation is free of instabilities we can drop additional terms in the power series. After all we find that the following general expansion remains: 
-\begin{multline}
-     L_{per} = a_0 + a^A H_A + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ABI} H_{A} H_{BI} \\
-    + a^{ABC} H_a H_B H_C
-    + a^{ABCI} H_A H_B H_{CI} + a^{ABpCq} H_{A}H_{BP}H_{Cq} 
+\begin{multline}\label{LperRed}
+     L_{per} = a_0 + a^A H_A + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ApBq} H_{Ap}H_{Bq} + a^{ABI} H_{A} H_{BI} \\
+    + a^{ABC} H_a H_B H_C + a^{ABpCq} H_{A}H_{Bp}H_{Cq} +
+    + a^{ABCI} H_A H_B H_{CI} 
     + \mathcal{O}(4).
 \end{multline}
 Inserting this in the last 3 equations of the PDE (\ref{DiffeoEqnFormal}) and evaluating at the flat expansion point yields:
@@ -2020,9 +2020,28 @@ To lighten the notation we will drop the explicit $k$ dependency in the followin
 \end{align}
 where $(P_{mat})_0 = \mathcal{P}_{mat}(N_A)$ and $(P_{mat})_1^A = \partial^A \mathcal{P}_{mat} \vert _{N_A}$. Of course one readily computes similar expression for expansion up to higher order. 
 Finding the expansion of the gravitational principal Polynomial requires somewhat more work as we do not have access to the full expression for $\mathcal{P}_{grav}$. All we can provide is the perturbative expansion of the Lagrangian. From this we can compute perturbative EOM and also a perturbative expression for the principal symbol of the EOM.
-Note that when expanding the Lagrangian up to order $k$ from applying the variational derivative $\frac{\partial\mathcal L_{grav,per}}{\partial v_A}$ we will get the corresponding EOM up to order $k-1$. They are then necessarily quasi linear and by requirement of second derivative order. According to definition (\ref{PSym}) we can obtain the principal symbol by deriving the EOM w.r.t. the highest occurring derivative  --- as the EOM are linear in the highest derivative this simply admits to taking the coefficients in front of $v_{AI}$ --- and then contracting with $J_I^{pq} k_p, k_q$, for $k_p$ being the components of some one form on the base manifold $M$. In particular observe that the thus obtained principal symbol is now given up to order $k-2$. Therefore we can only compute the principal polynomial up to order $k-2$. In the following we denote the thereby obtained expansion of the principal symbol by 
+Note that when expanding the Lagrangian up to order $k$ from applying the variational derivative $\frac{\partial\mathcal L_{grav,per}}{\partial v_A}$ we will get the corresponding EOM up to order $k-1$. They are then necessarily quasi linear and by requirement of second derivative order. According to definition (\ref{PSym}) we can obtain the principal symbol by deriving the EOM w.r.t. the highest occurring derivative  --- as the EOM are linear in the highest derivative this simply admits to taking the coefficients in front of $v_{AI}$ --- and then contracting with $J_I^{pq} k_p, k_q$, for $k_p$ being the components of some one form on the base manifold $M$. 
+The explicit formula for the EOM corresponding to the expansion (\ref{LperRed}) can be computed as:
+\begin{align}
+    \begin{aligned}
+    E_{per}^A = \frac{\partial L_{per}}{\partial v_A} &= a^A + 2 a^{AB}H_B + 3a^{ABC}H_B H_C \\
+    &\hphantom{=}+ \left [a^{ABI} + a^{BAI} - 2 a^{ApBq}I_{pq}^I  \right ] H_{BI} \\
+    &\hphantom{=}+ \left[a^{ABpCq} -2a^{BApCq} +2a^{BCAI} J_I^{pq} \right]H_{Bp}H_{Cq} \\
+    &\hphantom{=}+ \left [2a^{ACBI} -2a^{CApBq}I_{pq}^I + 2a^{BCAI} \right ]H_C H_{BI} \\
+    &\hphantom{=}+ \mathcal{O}(3),
+    \end{aligned}
+\end{align}
+where we used the symmetries of the expansion coefficients that are enforced by the way they are contracted in (\ref{LperRed}).
+In particular observe that the thus obtained principal symbol is now given up to order $k-2$. Therefore we can only compute the principal polynomial up to order $k-2$. In the following we denote the thereby obtained expansion of the principal symbol by 
 \begin{align}
     T(v_A) = T_0 + T_1^CH_C + T_2^{CD}H_CH_D + \mathcal{O}(3).
+\end{align}
+Reading of the values in constant and linear order from the expansion of the EOM we find:
+\begin{align}
+    \begin{aligned}
+    T_0^{AB} &= \left [a^{ABI} + a^{BAI} - 2 a^{ApBq}I_{pq}^I  \right ]\\
+    (T_0^{AB})^C &= \left [2a^{ACBI} -2a^{CApBq}I_{pq}^I + 2a^{BCAI} \right ]. 
+    \end{aligned}
 \end{align}
 Note that the principal symbol and thus also the principal polynomial could in general also depend on the coordinates $v_{Ap}$ as the EOM would then be still of second derivative order. We could then immediately exclude such contributions containing derivative coordinates $v_{Ap}$ from our discussion as the matter polynomial cannot contain such and in the end we want to require that the two polynomial describe at each $p \in M$ the same vanishing set. Hence from now only we assume that the gravitational principal symbol $T(v_A)$ only depends on $v_A$. If this is not the case for a concrete gravitational Lagrangian the above obviously yields a further condition, namely restricting to the sub theory that does satisfy this.  \\
 
@@ -2085,10 +2104,10 @@ On the other hand using (\ref{diffeoMinor}) we can express the different order c
 Together with the expansion of the prefactor (\ref{prefacExp}) we thus get from (\ref{diffeoMinor}) the following contributions in the different orders
 \begin{align}\label{minorPoly}
     \begin{aligned}
-    &(D_0)_{(A_1...A_4)(B_1...B_4)} &&= (f_0)_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_0 \\
-    &(D_1)^C_{(A_1...A_4)(B_1...B_4)} &&= (f_0)_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})^C_1 + (f_1)^C_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_0  \\
-    &(D_2)^{CD}_{(A_1...A_4)(B_1...B_4)} &&=  (f_0)_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_2^{CD} \\
-    & \hphantom{(D_2)_{(A_1...A_4)(B_1...B_4)}} && \hphantom{=} +
+    &(D_0)_{(A_1...A_4)(B_1...B_4)}  &= (f_0)_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_0 \\
+    &(D_1)^C_{(A_1...A_4)(B_1...B_4)}  &= (f_0)_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})^C_1 + (f_1)^C_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_0  \\
+    &(D_2)^{CD}_{(A_1...A_4)(B_1...B_4)}  &=  (f_0)_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_2^{CD} \\
+    & \hphantom{(D_2)_{(A_1...A_4)(B_1...B_4)}}  & \hphantom{=} +
      (f_1)^C_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_1^D +(f_2)^{CD}_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_0 
     \end{aligned}
 \end{align}
@@ -2203,10 +2222,10 @@ Here we also used that the two intertwiners $I^A_{ab}$ and $J_A^{ab}$ are symmet
     C_{An}^{Bm} = -2 I^B_{nb}J_A^{mb}.
 \end{align}
 As before we define $(H_{AI}) := (v_{AI}) - (\eta_{AI})$ to obtain the most general expansion of the Lagrangian that generates second derivative order EOM by
-\begin{align}
-    L_{GR,per} = a_0 + a^A H_A + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ABI} H_{A} H_{BI} \\
-    + a^{ABC} H_a H_B H_C
-    + a^{ABCI} H_A H_B H_{CI} + a^{ABpCq} H_{A}H_{BP}H_{Cq} 
+\begin{align}\label{LGR}
+    L_{GR,per} =  a_0 + a^A H_A + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ApBq} H_{Ap}H_{Bq} + a^{ABI} H_{A} H_{BI} \\
+    + a^{ABC} H_a H_B H_C + a^{ABpCq} H_{A}H_{Bp}H_{Cq} +
+    + a^{ABCI} H_A H_B H_{CI} 
     + \mathcal{O}(4).
 \end{align}
 As before we only considered the contributions of expansion coefficients with an even number of spacetime indices, as those with an odd number of such cannot be Lorentz invariant and thus are forbidden by diffeomorphism invariance.
@@ -2224,21 +2243,132 @@ Providing an illustrative example we consider the expansion coefficient $a^{AB} 
 \end{itemize}
 Enforcing the symmetries on these three expressions we find that (i) already features the desired symmetries and (ii) and (iii) both provide the symmetry once we symmetrize in $(ab)$. These two terms then are precisely the same. We thus find that 
 \begin{align}
-    a^{AB} = I^{A}_{ab}I^{B}_{cd} \left ( \mu_1 \cdot \eta^{ab}\eta^{cd} + \mu_2 \eta^{c(a} \eta^{b)d}   \right ).
+    a^{AB} = I^{A}_{ab}I^{B}_{cd} \left ( 8\mu_3 \cdot \eta^{ab}\eta^{cd} + 8\mu_4 \eta^{c(a} \eta^{b)d}   \right ).
 \end{align}
-These two expressions are no of course independent. 
-Note that obtaining the remaining expansion coefficients works exactly along the same lines as the above with the only difference being that the expressions will become increasingly involved and thus are best obtained by using computer algebra.
+Here the factor $8$ is a result of the factorless symmetrization that we implement in our computer program, i.e. when symmetrizing the expression w.r.t. $(ab),(cd)$ and $(ab) \leftrightarrow (cd) $ we do not divide by $2$ each time and hence get an overall factor of $2^3=8$. This approach is equivalent to the symmetrization including these factors as we are free to absorb such factors by redefining the constants. It furthermore provides the advantage that we can then deal with integer factors throughout the whole computation. Details are explained in appendix (\ref{LorentzGen}).
+Thus we have obtained an expression that features 2 constants for $a^{AB}$.
+Note that computing the remaining expansion coefficients works exactly along the same lines as the above with the only difference being that the expressions will become increasingly involved and thus are best obtained by using computer algebra.
+Doing this we find the following dimensions, i.e. number of arbitrary constants in the expansion coefficients:
+\begin{center}
+\begin{tabular}{c|c|c}
+    expansion coefficient & dimension & constants   \\
+    \hline 
+    $a_0$ & 1 & $\{\mu_1\}$ \\
+    $a^A$ & 1 & $\{\mu_2\}$ \\
+    $a^{AI}$ & 2 & $\{\nu_1, \nu_2\}$ \\
+    $a^{AB}$ & 2 & $\{\mu_3, \mu_4 \} $ \\
+    $a^{ApBq}$ & 6 & $\{\nu_3,...,\nu_8\}$ \\
+    $a^{ABI}$ & 5 & $\{ \nu_9,...,\nu_{13} \}$ \\
+    $a^{ABC}$ & 3 & $\{ \mu_5,...\mu_7 \}$\\
+    $a^{ABpCq}$ & 21 & $\{\nu_{14},...,\nu_{34} \}$ \\
+    $a^{ABCI}$ & 13 & $\{ \nu_{35},...,\nu_{47}\}$
+\end{tabular}
+\end{center}
+Here we separated the appearing constants in those that appear in front of terms including derivatives of the metric tensor field and those that appear in terms that do not include such. We adopt some terminology more present in QFT related subjects and refer to the former expressions as \textbf{\textit{kinetic terms}} ans the latter as \textit{\textbf{mass terms}}. The constants are then called \textit{\textbf{gravitational constants}} $(\nu_1,...)$ and \textit{\textbf{masses}} $(\mu_1,...)$.   
+The explicit expression for the expansion coefficients can be found in the appendix (\ref{AppGR}). \\
+
+According to (\ref{Algo2}) the next step consists of inserting these expansion coefficients and the previously computed expression for the constant tensor $C_{An}^{Bm}$ into the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}). These are then linear equations for the unknown constants $\{ \mu_1,...,\mu_7\}$ and $\{\nu_1,...,\nu_{47}\}$. The solution we get from the computer program for inserting the expansion coefficients and simplifying the resulting linear equations by using the computer program is displayed in equation (\ref{GRSol}).
+
 \section{Perturbative Area Metric Gravity around a Flat Minkowski Induced Spacetime}
 
 
 \appendix
 \chapter{Developed Computer Algebra Packages}
 \section{SparseTensor: Sparse Tensor Calculus for Multiple Abstract Indices}
-\section{LorentzGenerator: Basis of Lorentz Invariant Tensors with given Valence and Symmetry}
+\section{LorentzGenerator: Basis of Lorentz Invariant Tensors with given Valence and Symmetry}\label{LorentzGen}
 
 %really necessary ??
 \chapter{Perturbative Lagrangians}
-\section{2nd Order Metric Gravity}
+\dictum{
+Here we display the additional results from the two exemplary applications of the developed framework for constructing perturbative diffeomorphism invariant theories of gravity causal compatible with a given matter theory.
+}
+\section{2nd Order Metric Gravity}\label{AppGR}
+In the following the various expressions for the linearly independent Lorentz invariant expansion coefficients with the given index structure and symmetry that we obtained by means of the developed computer program are displayed. In order to allow for a concise notation we display these in terms of the inverse Minkowski metric $\eta^{ab}$ and the contravariant Levi-Civita symbol $\epsilon^{abcd}$ and furthermore do not denote their symmetries explicitly, as these can easily be read of from the way they appear in the expansion (\ref{LGR}). It is however important to keep in mind that their symmetrization yields further factors that therefore are present when we insert these in the perturbative equivariance equations. We find from the developed computer program:
+\begin{align}
+\begin{alignedat}{2}
+\boldsymbol{a_0}&: \ \ \ & a_0  &= \mu_1 \\
+\\
+\boldsymbol{a^{A}}&: \ \ \ & a^{ab}  &= \mu_2 \cdot \eta^{ab} \\
+\\
+\boldsymbol{a^{AI}}&: \ \ \ & a^{abpq}  &=  \nu_1 \cdot \eta^{ab}\eta^{pq} + \nu_2 \eta^{pa} \eta^{bq} \\
+\\
+\boldsymbol{a^{AB}}&: \ \ \ & a^{abcd}  &=  \mu_3 \cdot \eta^{ab}\eta^{cd} + \mu_4 \eta^{ca} \eta^{bd}\\
+\\
+\boldsymbol{a^{ApBq}}&: \ \ \ & a^{abpcdq}  &= \nu_3 \cdot \eta^{ab}\eta^{pc}\eta^{dq}+\nu_4 \cdot \eta^{ab}\eta^{pq}\eta^{cd}+\nu_5 \cdot \eta^{ap}\eta^{bc}\eta^{dq}+\nu_6 \cdot \eta^{ac}\eta^{bd}\eta^{pq} \\ &  &\hphantom{=} & 
++\nu_7 \cdot \eta^{ac}\eta^{bq}\eta^{pd} +\nu_8 \cdot \epsilon^{apcq}\eta^{bd} \\
+\\
+\boldsymbol{a^{ABI}}&: \ \ \ & a^{abcdpq}  &= \nu_9 \cdot \eta^{ab}\eta^{cd}\eta^{pq}+\nu_{10} \cdot \eta^{ab}\eta^{cp}\eta^{dq}+\nu_{11} \cdot \eta^{ac}\eta^{bd}\eta^{pq}+\nu_{12} \cdot \eta^{ac}\eta^{bp}\eta^{dq}\\
+&  &\hphantom{=} & +\nu_{13} \cdot \eta^{ap}\eta^{bq}\eta^{cd}\\
+\\
+\boldsymbol{a^{ABC}}&: \ \ \ & a^{abcdef}  &= \mu_5\cdot \eta^{ab}\eta^{cd}\eta^{ef}+\mu_6\cdot \eta^{ab}\eta^{ce}\eta^{df}+\mu_7\cdot \eta^{ac}\eta^{be}\eta^{df}\\
+\end{alignedat}
+\end{align}
+\begin{align}
+\begin{alignedat}{2}
+\boldsymbol{a^{ABpCq}}&: \ \ \ & a^{abcdpefq}  &= \nu_{14}\cdot\eta^{ab}\eta^{cd}\eta^{pe}\eta^{fq}+\nu_{15}\cdot\eta^{ab}\eta^{cd}\eta^{pq}\eta^{ef}
++\nu_{16}\cdot\eta^{ab}\eta^{cp}\eta^{de}\eta^{fq}\\ &  &\hphantom{=} &
++\nu_{17}\cdot\eta^{ab}\eta^{ce}\eta^{df}\eta^{pq}+ 
+\nu_{18}\cdot\eta^{ab}\eta^{ce}\eta^{dq}\eta^{pf}+\nu_{19}\cdot\eta^{ac}\eta^{bd}\eta^{pe}\eta^{fq} \\ &  &\hphantom{=} &
++\nu_{20}\cdot\eta^{ac}\eta^{bd}\eta^{pq}\eta^{ef}+\nu_{21}\cdot\eta^{ac}\eta^{bp}\eta^{de}\eta^{fq}+ 
+\nu_{22}\cdot\eta^{ac}\eta^{bp}\eta^{dq}\eta^{ef} \\ &  &\hphantom{=} &
++\nu_{23}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fq}+
+\nu_{24}\cdot\eta^{ac}\eta^{be}\eta^{df}\eta^{pq}+\nu_{25}\cdot\eta^{ac}\eta^{be}\eta^{dq}\eta^{pf} \\ &  &\hphantom{=} &
++\nu_{26}\cdot\eta^{ac}\eta^{bq}\eta^{dp}\eta^{ef}+\nu_{27}\cdot\eta^{ac}\eta^{bq}\eta^{de}\eta^{pf}+ 
+\nu_{28}\cdot\eta^{ap}\eta^{bq}\eta^{cd}\eta^{ef} \\ &  &\hphantom{=} &
++\nu_{29}\cdot\eta^{ap}\eta^{bq}\eta^{ce}\eta^{df} + \nu_{30}\cdot\epsilon^{acpe}\eta^{bd}\eta^{fq}+\nu_{31}\cdot\epsilon^{acpe}\eta^{bf}\eta^{dq} \\ &  &\hphantom{=} &
++\nu_{32}\cdot\epsilon^{acpe}\eta^{bq}\eta^{df}+\nu_{33}\cdot\epsilon^{acpq}\eta^{bd}\eta^{ef} 
++\nu_{34}\cdot\epsilon^{acpq}\eta^{be}\eta^{df} \\
+\\
+\boldsymbol{a^{ABCI}}&: \ \ \ & a^{abcdefpq}  &= \nu_{35}\cdot\eta^{ab}\eta^{cd}\eta^{ef}\eta^{pq}+\nu_{36}\cdot\eta^{ab}\eta^{cd}\eta^{ep}\eta^{fq}+\nu_{37}\cdot\eta^{ab}\eta^{ce}\eta^{df}\eta^{pq} \\ &  &\hphantom{=} &
++\nu_{38}\cdot\eta^{ab}\eta^{ce}\eta^{dp}\eta^{fq}+\nu_{39}\cdot\eta^{ab}\eta^{cp}\eta^{dq}\eta^{ef}+\nu_{40}\cdot\eta^{ac}\eta^{bd}\eta^{ef}\eta^{pq}
+\\ &  &\hphantom{=} &
++\nu_{41}\cdot\eta^{ac}\eta^{bd}\eta^{ep}\eta^{fq}+\nu_{42}\cdot\eta^{ac}\eta^{be}\eta^{df}\eta^{pq}+\nu_{43}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fq}
+\\ &  &\hphantom{=} &
++\nu_{44}\cdot\eta^{ac}\eta^{bp}\eta^{dq}\eta^{ef}+\nu_{45}\cdot\eta^{ae}\eta^{bf}\eta^{cp}\eta^{dq}+\nu_{46}\cdot\eta^{ae}\eta^{bp}\eta^{cf}\eta^{dq} \\ &  &\hphantom{=} & 
++\nu_{47}\cdot\epsilon^{acep}\eta^{bf}\eta^{dq}
+\end{alignedat}
+\end{align}
+From inserting these expansion coefficients into the perturbative equivariance equations we get the following solution.
+\begin{align}\label{GRSol}
+\begin{alignedat}{3}
+\mu_{{2}} &= 1/4\cdot \boldsymbol{\mu_1} , \hspace{2cm}    &  \mu_{{3}}   &= 1/32\cdot \boldsymbol{\mu_1} , \hspace{2cm}   & \mu_{{4}}   &= -1/16\cdot  \boldsymbol{\mu_1} , \\
+%
+\mu_{{5}} &= 1/384\cdot \boldsymbol{\mu_1} ,  &  \mu_{{6}}   &= -1/64\cdot \boldsymbol{\mu_1} ,  & \mu_{{7}}   &= 1/48\cdot \boldsymbol{\mu_1} , \\
+%
+\nu_{{2}} &= - \boldsymbol{\nu_1} ,  & \nu_{{3}}   &= -1\cdot \boldsymbol{\nu_1} ,  & \nu_{{4}}   &= 1/4\cdot \boldsymbol{\nu_1} , \\
+%
+\nu_{{5}} &=1\cdot \boldsymbol{\nu_1} ,  & \nu_{{6}}   &= -3/4 \boldsymbol{\nu_1} ,   & \nu_{{7}}    &= 1/2\cdot \boldsymbol{\nu_1} , \\
+%
+\nu_{{8}} &=  0 ,  & \nu_{{9}}   &= 1/4\cdot \boldsymbol{\nu_1} ,   & \nu_{{10}}    &= -1/4 \boldsymbol{\nu_1} , \\
+%
+\nu_{{11}} &= -1/2\cdot \boldsymbol{\nu_1} ,  &  \nu_{{12}}   &= \boldsymbol{\nu_1} ,   & \nu_{{13}}    &= -1/2\cdot \boldsymbol{\nu_1} , \\
+%
+\nu_{{14}} &= -1/4\cdot \boldsymbol{\nu_1} ,  &  \nu_{{15}}   &= 1/16\cdot \boldsymbol{\nu_1} ,   & \nu_{{16}}    &= 1/4\cdot \boldsymbol{\nu_1} , \\
+%
+\nu_{{17}} &= -3/16\cdot \boldsymbol{\nu_1} ,  &  \nu_{{18}}   &= 1/8\cdot \boldsymbol{\nu_1} ,   & \nu_{{19}}    &= 1/2\cdot \boldsymbol{\nu_1} , \\
+%
+\nu_{{20}} &= -1/4\cdot \boldsymbol{\nu_1} ,  & \nu_{{21}}   &= -1\cdot \boldsymbol{\nu_1} ,   & \nu_{{22}}    &= 1/2\cdot \boldsymbol{\nu_1} , \\
+%
+\nu_{{23}} &= -1/4\cdot \boldsymbol{\nu_1} ,  & \nu_{{24}}   &= 3/4\cdot \boldsymbol{\nu_1} ,   & \nu_{{25}}    &= -1/4\cdot \boldsymbol{\nu_1} , \\
+%
+\nu_{{26}} &= 1/2\cdot \boldsymbol{\nu_1} ,  & \nu_{{27}}   &= -1/2\cdot \boldsymbol{\nu_1} ,   & \nu_{{28}}    &= -1/8\cdot \boldsymbol{\nu_1} , \\
+%
+\nu_{{29}} &= 3/8\cdot \boldsymbol{\nu_1} ,  & \nu_{{30}}   &=0 ,   & \nu_{{31}}    &= 0 , \\
+%
+\nu_{{32}} &= 0 ,  & \nu_{{33}}   &= 0 ,   &  \nu_{{34}}    &=  0 , \\
+%
+\nu_{{35}} &= 1/32\cdot \boldsymbol{\nu_1} ,  & \nu_{{36}}   &= -1/32\cdot \boldsymbol{\nu_1} ,   & \nu_{{37}}    &= -1/8\cdot \boldsymbol{\nu_1} , \\
+%
+\nu_{{38}} &= 1/4\cdot \boldsymbol{\nu_1} ,  & \nu_{{39}}   &= -1/8\cdot \boldsymbol{\nu_1} ,   & \nu_{{40}}    &= -1/16\cdot \boldsymbol{\nu_1} , \\
+%
+\nu_{{41}} &= 1/16\cdot \boldsymbol{\nu_1} ,  & \nu_{{42}}   &= 1/4\cdot \boldsymbol{\nu_1} ,   & \nu_{{43}}    &= -1/2\cdot \boldsymbol{\nu_1} , \\
+%
+\nu_{{44}} &= 1/4\cdot \boldsymbol{\nu_1} ,  & \nu_{{45}}   &= 1/4\cdot \boldsymbol{\nu_1} ,   & \nu_{{46}}    &= -1/4\cdot \boldsymbol{\nu_1} , \\
+%
+\nu_{{47}} &= 0  &   &   &    & .
+\end{alignedat}
+\end{align}
+
 \section{2nd Order Area Metric Gravity}
 
 %remove website links from bibliography
