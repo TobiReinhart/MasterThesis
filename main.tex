@@ -1546,7 +1546,7 @@ One can show (\cite{2018PhRvD..97h4036D} and \cite{2009JPhA...42U5402I}) that du
 %
 %
 %
-where $\chi_{Am}(k) = C^{Bm}_{An} v_B k_m$ are the 4 independent vectors that constitute the kernel of the principal symbol. Hence the non trivial zeros of the adjunct matrix are completely determined by the zeros of $\mathcal{P}(k)$. We call $\mathcal{P}(k)$ the \textit{\textbf{principal polynomial}}.
+where $\chi_{Am}(k) = C^{Bm}_{An} v_B k_m$ are the 4 independent vectors that constitute the kernel of the principal symbol. Hence the non trivial zeros of the adjunct matrix are completely determined by the zeros of $\mathcal{P}(k)$. We call this homogeneous degree $2n-16$ polynomial in the components $k_a$ the \textit{\textbf{principal polynomial}}  $\mathcal{P}(k)$ of the EOM.
 This explicit form of the entries of the adjunct matrix of order 4 is also vital for concretely computing the principal polynomial. We simply have to take a $(n-4) \times (n-4)$ sub matrix of the principal symbol with non vanishing determinant by removing 4 rows $(A_1...A_4)$ and 4 columns $(B_1...B_4)$. From the choice of removed rows and columns we can compute the occuring prefactor expression 
 \begin{align}\label{prefacF}
 f_{(A_1...A_4)(B_1...B_4)}(k) := \epsilon^{0123} \epsilon^{0123} \chi_{A_10}(k) \cdot ... \cdot \chi_{A_43}(k) \cdot \chi_{B_10}(k) \cdot ... \cdot \chi_{B_43}(k).
@@ -1557,9 +1557,9 @@ Then we compute the determinant of the chosen sub matrix, i.e. the explicit valu
 \end{align}
 In particular the only technical complexity in this computation is provided by calculating one order 4 subdeterminant of the principal symbol. 
 Note that if the theory at hand incorporates different gauge symmetries than the discussed diffeomorphism invariance one can obtain similar formulae with the concrete order of the appropriate sub matrices and the expression for the prefactor obviously depending on the explicit form of the gauge symmetry.
-\begin{definition}[principal polynomial]
-Given a PDE $R_q$ of derivative order $q$ that is obtained as Euler-Lagrange equations of some Lagrangian and hence can be represented such that the principal symbol takes the form $T^{AB}(k)$. Assume further that the $s$ vectors $\chi_{A1}(k),...,\chi_{As}(k)$ form a basis of $\mathrm{ker}(T^{AB}(k))$. The principal polynomial $\mathcal{P}(k)$
-is the homogeneous degree $(n-s)\cdot q$ polynomial in the components $k_a$ that satisfies the following relation with the components of the adjunct matrix $Q_{(A_1...A_s)(B_1...B_s)}(k)$ of $T^{AB}(k)$:
+\begin{definition}[principal polynomial of EOM]
+Given a field bundle $(F,\pi_F,M)$ with $n$-dimensional fibres and a Lagrangian on $F$ that generates EOM with derivative order $q$. Let  $T^{AB}(k)$ be the principal symbol of the EOM. Assume further that the $s$ vectors $\chi_{A1}(k),...,\chi_{As}(k)$ form a basis of $\mathrm{ker}(T^{AB}(k))$. The principal polynomial $\mathcal{P}(k)$
+is the homogeneous degree $qn - (q+2)s$ polynomial in the components $k_a$ that satisfies the following relation with the components of the adjunct matrix $Q_{(A_1...A_s)(B_1...B_s)}(k)$ of $T^{AB}(k)$:
 \begin{align}
    Q_{(A_1...A_s)(B_1...B_s)}(k) = \epsilon^{i_1...i_s} \epsilon^{j_1...j_s} \chi_{A_1i_1}(k)\cdot ... \cdot \chi_{A_si_s}(k) \cdot \chi_{B_1j_1}(k) \cdot ... \cdot \chi_{B_sj_s}(k) \cdot \mathcal{P}(k).
 \end{align}
@@ -2022,7 +2022,7 @@ where $(P_{mat})_0 = \mathcal{P}_{mat}(N_A)$ and $(P_{mat})_1^A = \partial^A \ma
 Finding the expansion of the gravitational principal Polynomial requires somewhat more work as we do not have access to the full expression for $\mathcal{P}_{grav}$. All we can provide is the perturbative expansion of the Lagrangian. From this we can compute perturbative EOM and also a perturbative expression for the principal symbol of the EOM.
 Note that when expanding the Lagrangian up to order $k$ from applying the variational derivative $\frac{\partial\mathcal L_{grav,per}}{\partial v_A}$ we will get the corresponding EOM up to order $k-1$. They are then necessarily quasi linear and by requirement of second derivative order. According to definition (\ref{PSym}) we can obtain the principal symbol by deriving the EOM w.r.t. the highest occurring derivative  --- as the EOM are linear in the highest derivative this simply admits to taking the coefficients in front of $v_{AI}$ --- and then contracting with $J_I^{pq} k_p, k_q$, for $k_p$ being the components of some one form on the base manifold $M$. 
 The explicit formula for the EOM corresponding to the expansion (\ref{LperRed}) can be computed as:
-\begin{align}
+\begin{align}\label{EOMPert}
     \begin{aligned}
     E_{per}^A = \frac{\partial L_{per}}{\partial v_A} &= a^A + 2 a^{AB}H_B + 3a^{ABC}H_B H_C \\
     &\hphantom{=}+ \left [a^{ABI} + a^{BAI} - 2 a^{ApBq}I_{pq}^I  \right ] H_{BI} \\
@@ -2040,6 +2040,7 @@ Reading of the values in constant and linear order from the expansion of the EOM
 \begin{align}
     \begin{aligned}
     T_0^{AB} &= \left [a^{ABI} + a^{BAI} - 2 a^{ApBq}I_{pq}^I  \right ]\\
+    \\
     (T_0^{AB})^C &= \left [2a^{ACBI} -2a^{CApBq}I_{pq}^I + 2a^{BCAI} \right ]. 
     \end{aligned}
 \end{align}
@@ -2085,8 +2086,10 @@ with the contributions in the individual orders being given as
 \begin{align}
 \begin{aligned}
   (D_0)_{(A_1...A_4)(B_1...B_4)} &=  \mathrm{det}\left((T_0)_{(A_1...A_4)(B_1...B_4)}\right) \\
+  \\
   (D_1)^C_{(A_1...A_4)(B_1...B_4)} &= \mathrm{det}\left((T_0)_{(A_1...A_4)(B_1...B_4)}\right) \cdot \mathrm{Tr} \left ( (T_0)^{-1}_{(A_1...A_4)(B_1...B_4)}
     \cdot (T_1)_{(A_1...A_4)(B_1...B_4)}^{C} \right) \\
+    \\
     (D_2)^{CD}_{(A_1...A_4)(B_1...B_4)} &= \mathrm{det}\left((T_0)_{(A_1...A_4)(B_1...B_4)}\right)
      \cdot \Bigl [ \mathrm{Tr} \left ( (T_0)^{-1}_{(A_1...A_4)(B_1...B_4)}
     \cdot (T_2)_{(A_1...A_4)(B_1...B_4)}^{CD} \right ) \\
@@ -2104,10 +2107,12 @@ On the other hand using (\ref{diffeoMinor}) we can express the different order c
 Together with the expansion of the prefactor (\ref{prefacExp}) we thus get from (\ref{diffeoMinor}) the following contributions in the different orders
 \begin{align}\label{minorPoly}
     \begin{aligned}
-    &(D_0)_{(A_1...A_4)(B_1...B_4)}  &= (f_0)_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_0 \\
-    &(D_1)^C_{(A_1...A_4)(B_1...B_4)}  &= (f_0)_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})^C_1 + (f_1)^C_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_0  \\
-    &(D_2)^{CD}_{(A_1...A_4)(B_1...B_4)}  &=  (f_0)_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_2^{CD} \\
-    & \hphantom{(D_2)_{(A_1...A_4)(B_1...B_4)}}  & \hphantom{=} +
+    (D_0)_{(A_1...A_4)(B_1...B_4)}  &= (f_0)_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_0 \\
+    \\
+    (D_1)^C_{(A_1...A_4)(B_1...B_4)}  &= (f_0)_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})^C_1 + (f_1)^C_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_0  \\
+    \\
+    (D_2)^{CD}_{(A_1...A_4)(B_1...B_4)}  &=  (f_0)_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_2^{CD} \\
+     & \hphantom{=} +
      (f_1)^C_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_1^D +(f_2)^{CD}_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_0 
     \end{aligned}
 \end{align}
@@ -2127,14 +2132,18 @@ And finally from this expression for the linear order we can obtain the quadrati
 In total proceeding as outlined above we there obtain the expansion of the gravitational principal polynomial from the power series expansion of the Lagrangian.
 Note that we could no proceed along the same lines to obtain the corresponding contributions to the principal polynomial in higher order. This is in principal straight forward with the only exception being that the involved expressions get more involved. For that reason we did not provide these here. When tackling practical problems in most constructing the perturbative Lagrangian beyond fourth order is computationally intractable and hence providing the formulae for a computation of the principal polynomial up to second order almost always suffices.\\
 %do this more precise
-Before we proceed further we would like to quickly remark on some consequences of the Lorentz invariance of the chosen expansion point $p_0$ on the possible values that we can obtain for the contributions to the gravitational principal polynomial in the individual orders. Recall that for second derivative order diffeomorphism invariant theories the the principal polynomial is a homogeneous polynomial in the components of some 1-form $k_m$ on $M$ in degree $r := (2\cdot (n-4))$. We hence can write it as 
+Before we proceed further we would like to quickly remark on some consequences of the Lorentz invariance of the chosen expansion point $p_0$ on the possible values that we can obtain for the contributions to the gravitational principal polynomial in the individual orders. Recall that for second derivative order diffeomorphism invariant theories the the principal polynomial is a homogeneous polynomial in the components of some 1-form $k_m$ on $M$ in degree $r := 2n-16$. We hence can write it as 
 \begin{align}
     \mathcal{P}_{grav} = \mathcal{P}_{grav}^{{p_1}...{p_{r}}} k_{p_1} \cdot ... \cdot k_{p_r}.
 \end{align}
 Where $\mathcal{P}_{grav}^{{p_1}...{p_r}}$ is are function on $F$ that is totally symmetric in $(p_1...p_r)$. As a consequence of the required equivariance of the Lagrangian it holds that:
 \begin{align}\label{polyEqn}
-    0 = \partial^A\mathcal{P}_{grav}^{{p_1}...{p_r}}C_{An}^{Bm}v_B + \mathcal{P}_{grav}^{({p_1}...\vert m} \delta_{n}^{\vert p_r) }  + (n-8) \cdot \mathcal{P}_{grav}^{{p_1}...{p_r}} \delta^m_n.
+    0 = \partial^A\mathcal{P}_{grav}^{{p_1}...{p_r}}C_{An}^{Bm}v_B - r \cdot \mathcal{P}_{grav}^{({p_1}...\vert m} \delta_{n}^{\vert p_r) }  + (n-8) \cdot \mathcal{P}_{grav}^{{p_1}...{p_r}} \delta^m_n.
 \end{align}
+%check sign !!!
+%
+%
+%
 This can be seen by starting from the PDE that the EOM have to satisfy as an implication of the equivariance (\ref{EOM}) and applying the total derivative $D_{AI}$ to obtain a similar PDE for sub expression $\left ( \frac{\partial E^A}{\partial V_{BI}} \right )$ that is involved in the principal symbol. Proceeding along the same lines for the remaining steps that are involved in the computation of the principal polynomial one then finds the above PDE. \\
 
 The numerical factor $(n-8)$ in front of the $\delta^m_n$ term is obtained as this factor encodes the density weight of the function at hand. In this language PDE (\ref{EOM}) then states that the EOM $E^A$ defines a density of weight 1 and further prolonging this PDE w.r.t. $v_{AI}$ reveals that also the principal symbol has density weight 1. Computing the determinant of a $(n-4) \times (n-4)$ sub matrix of the principal symbol changes the weight to $n-4-2$. This can for instance be seen when expressing the determinant of the principal symbol w.r.t. the Levi-Civita symbols and then obtain the order $4$ sub determinant by deriving $4$ times w.r.t. the components of the principal symbol as explained in (\ref{MinorDef}). To achieve this  we need $n$ copies of the principal symbol each of which has weight 1 and two covariant Levi-Civita symbols of dimension $n$ that carry density weight $-1$. This yields a total weight of $n-2$. Deriving $4$ times w.r.t. the components of the principal symbol reduces the factor to $n-6$. Finally according to (\ref{diffeoMinor}) this sub determinant equals the product between principal symbol and the corresponding prefactor. This prefactor involves two $4$-dimensional contravariant Levi-Civita symbols that hence contribute $+2$ to the weight. Hence the weight of the principal polynomial is given by $n-8$ which thus explains the origin of the numerical factor in the above PDE. \\ 
@@ -2243,7 +2252,7 @@ Providing an illustrative example we consider the expansion coefficient $a^{AB} 
 \end{itemize}
 Enforcing the symmetries on these three expressions we find that (i) already features the desired symmetries and (ii) and (iii) both provide the symmetry once we symmetrize in $(ab)$. These two terms then are precisely the same. We thus find that 
 \begin{align}
-    a^{AB} = I^{A}_{ab}I^{B}_{cd} \left ( 8\mu_3 \cdot \eta^{ab}\eta^{cd} + 8\mu_4 \eta^{c(a} \eta^{b)d}   \right ).
+    a^{AB} = I^{A}_{ab}I^{B}_{cd} \left ( 8\mu_3 \cdot \eta^{ab}\eta^{cd} + 8\mu_4 \cdot \eta^{c(a} \eta^{b)d}   \right ).
 \end{align}
 Here the factor $8$ is a result of the factorless symmetrization that we implement in our computer program, i.e. when symmetrizing the expression w.r.t. $(ab),(cd)$ and $(ab) \leftrightarrow (cd) $ we do not divide by $2$ each time and hence get an overall factor of $2^3=8$. This approach is equivalent to the symmetrization including these factors as we are free to absorb such factors by redefining the constants. It furthermore provides the advantage that we can then deal with integer factors throughout the whole computation. Details are explained in appendix (\ref{LorentzGen}).
 Thus we have obtained an expression that features 2 constants for $a^{AB}$.
@@ -2267,8 +2276,47 @@ Doing this we find the following dimensions, i.e. number of arbitrary constants 
 Here we separated the appearing constants in those that appear in front of terms including derivatives of the metric tensor field and those that appear in terms that do not include such. We adopt some terminology more present in QFT related subjects and refer to the former expressions as \textbf{\textit{kinetic terms}} ans the latter as \textit{\textbf{mass terms}}. The constants are then called \textit{\textbf{gravitational constants}} $(\nu_1,...)$ and \textit{\textbf{masses}} $(\mu_1,...)$.   
 The explicit expression for the expansion coefficients can be found in the appendix (\ref{AppGR}). \\
 
-According to (\ref{Algo2}) the next step consists of inserting these expansion coefficients and the previously computed expression for the constant tensor $C_{An}^{Bm}$ into the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}). These are then linear equations for the unknown constants $\{ \mu_1,...,\mu_7\}$ and $\{\nu_1,...,\nu_{47}\}$. The solution we get from the computer program for inserting the expansion coefficients and simplifying the resulting linear equations by using the computer program is displayed in equation (\ref{GRSol}).
+According to (\ref{Algo2}) the next step consists of inserting these expansion coefficients and the previously computed expression for the constant tensor $C_{An}^{Bm}$ into the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}). These are then linear equations for the unknown constants $\{ \mu_1,...,\mu_7\}$ and $\{\nu_1,...,\nu_{47}\}$. The solution we get from the computer program for inserting the expansion coefficients and simplifying the resulting linear equations by using the computer program is displayed in equation (\ref{GRSol}). Note that the expansion (\ref{LGR}) in generall features $15.906$ undetermined constants in the $9$ expansion coefficients. The restriction to those that define the components of Lorentz invariant tensor that is demanded by the perturbative equivariance equations restricts these to $54$ constants. Solving the perturbative equivariance equations then further reduces the number of undetermined parametes to $2$. Also observe that in the solution there is no contribution from terms that involve $\epsilon^{abcd}$. In fact the constant parameters in front of expansion coefficients that contain the Levi-Civita symbol are the only ones that the equivariance equations set to zero. \\
 
+Proceeding with the next step in (\ref{Algo2}) inserting the solution for the expansion coefficients (\ref{GRSol}) into the (\ref{LGR}) now yields the most general diffeoorphism invariant perturbative Lagragian. To compute the principal polynomial we simply insert the solved expansion coefficients into the perturbative EOM (\ref{EOMPert}). It is however worth noting that for the simple case of the gravitational field being provided by a metric tensor field it is actually not necessary to follow along the general steps that we laid out in the last chapter. We can actually save ourselves much work by taking a closer look at equation (\ref{polyEqn}) that the principal polynomial has to satisfy as consequence of the diffeomorphism equivariance. For the metric tensor field this equation takes the particular simple form
+\begin{align}\label{metricPoly}
+    0 = \partial^A \mathcal{P}_{GR}^{abcd} C_{An}^{Bm} v_B - 4\mathcal{P}_{GR}^{(abc\vert m} \delta_n^{\vert d)} + 2 \mathcal{P}_{GR}^{abcd} \delta^m_n.
+\end{align}
+We expand $\mathcal{P}_{GR}^{abcd}$ around $\eta_{A}$ and construct a power series solution to (\ref{metricPoly}). From before we know that given the expansion of the Lagrangian up to third order we need to expand the polynomial up to second order and hence also its sub expression $\mathcal{P}_{GR}^{abcd}$. Therefore we write 
+\begin{align}
+    \mathcal{P}_{GR}^{abcd} = (P_0)_{GR}^{abcd} + (P_1)_{GR}^{abcdA} H_A + \mathcal{O}(2).
+\end{align}
+As before from evaluating equation (\ref{metricPoly}) and its first prolongation at the expansion point $\eta_A$ and contracting it against the Lorentz generators we get additional zero and first order equations that state that the expansion constants must be the components of constant Lorentz invariant tensors. One readily finds that for the constant order expansion coefficient there exists exactly one such expression namely:
+\begin{align}
+   (P_0)_{GR}^{abcd} = a \cdot \eta^{(ab} \eta^{cd)}. 
+\end{align}
+For the linear order coefficients we get two possible expression:
+\begin{align}
+    (P_1)_{GR}^{abcdA} = I^A_{ef} \left (b \cdot \eta^{(ab} \eta^{cd)}  \eta^{ef} + c \cdot \eta^{(ab} \eta^{c \vert e} \eta^{f \vert d)} \right ).
+\end{align}
+Upon inserting the thereby obtained expansion in (\ref{metricPoly}) and evaluating at the expansion point $\eta_A$ we get:
+\begin{align}
+    b = a \ \ \text{and} \ \ c = -2a.
+\end{align}
+Inserting this into $\mathcal{P}_{GR}^{abcd}$ and contracting again against $k_a\cdot ...\cdot k_d$ in total we have computed the following expression for the most general linear order expansion of the principal polynomial that is consistent with the diffeomorphism equivariance of $L_{GR,per}$
+\begin{align}
+\begin{aligned}
+    \mathcal{P}_{GR} &= a \cdot  \eta(k) \cdot \left [\eta(k) + H \cdot \eta(k)  -
+    2 \cdot  \eta(k) H(k) \right ] + \mathcal{O}(2)\\
+    &= a \cdot (1 + H) \cdot (\eta(k) - H(k)) \cdot (\eta(k) -H(k)) + \mathcal{O}(2) \\
+    &= -\mathrm{det}\left (I^A_{pq}v_A \right ) \cdot (v^{-1})^{ab} \cdot (v^{-1})^{cd}k_ak_bk_ck_d +  \mathcal{O}(2).
+\end{aligned}
+\end{align}
+where  $H:=\eta^{ab} I^A_{ab} H_{A}$ and $H(k) := \eta^{ap} \eta^{bq} I_{pq}^A H_A k_a k_b$ and $\eta(k) := \eta^{ab}k_a k_p$, $\mathrm{det}\left (I^A_{pq}v_A \right )$ being understood as taking the $4\times4$ determinant of the matrix representation of $\left (I^A_{pq}v_A \right )$  and $(v^{-1})^{ab}$ being the corresponding matrix inverse. Taking a section $g_{ab} = I_{ab}^A \in \Gamma(F_{GR})$ and the corresponding inverse metric $g^{ab} = g^A J^{ab}_A \in \Gamma(F_{GR}^{\ast})$ with the usual relation $g^{ab}g_{bc}= \delta^a_c$ and evalutating the thus obtained most general expression for the principal polynomial we find
+\begin{align}
+    \mathcal{P}_{GR} (g_{ab}) = -a \cdot \mathrm{det}(g) g^{ab} g^{cd} k_ak_bk_ck_d + \mathcal{O}(2).
+\end{align}
+Note in particular that the vanishing set of this principal polynomial is completely independent of the choice of the remaining parameter $a$. Thus the causal structure of the perturbatice metric gravity EOM is already uniquely fixed by requiring diffeomorphism invariance. Hence our construction procedure is finished. \\
+
+%check signs !!
+%
+%
+%
 \section{Perturbative Area Metric Gravity around a Flat Minkowski Induced Spacetime}
 
 
@@ -2335,11 +2383,11 @@ From inserting these expansion coefficients into the perturbative equivariance e
 %
 \mu_{{5}} &= 1/384\cdot \boldsymbol{\mu_1} ,  &  \mu_{{6}}   &= -1/64\cdot \boldsymbol{\mu_1} ,  & \mu_{{7}}   &= 1/48\cdot \boldsymbol{\mu_1} , \\
 %
-\nu_{{2}} &= - \boldsymbol{\nu_1} ,  & \nu_{{3}}   &= -1\cdot \boldsymbol{\nu_1} ,  & \nu_{{4}}   &= 1/4\cdot \boldsymbol{\nu_1} , \\
+\nu_{{2}} &= - \boldsymbol{\nu_1} ,  & \nu_{{3}}   &= - \boldsymbol{\nu_1} ,  & \nu_{{4}}   &= 1/4\cdot \boldsymbol{\nu_1} , \\
 %
-\nu_{{5}} &=1\cdot \boldsymbol{\nu_1} ,  & \nu_{{6}}   &= -3/4 \boldsymbol{\nu_1} ,   & \nu_{{7}}    &= 1/2\cdot \boldsymbol{\nu_1} , \\
+\nu_{{5}} &= \boldsymbol{\nu_1} ,  & \nu_{{6}}   &= -3/4 \cdot  \boldsymbol{\nu_1} ,   & \nu_{{7}}    &= 1/2\cdot \boldsymbol{\nu_1} , \\
 %
-\nu_{{8}} &=  0 ,  & \nu_{{9}}   &= 1/4\cdot \boldsymbol{\nu_1} ,   & \nu_{{10}}    &= -1/4 \boldsymbol{\nu_1} , \\
+\nu_{{8}} &=  0 ,  & \nu_{{9}}   &= 1/4\cdot \boldsymbol{\nu_1} ,   & \nu_{{10}}    &= -1/4 \cdot  \boldsymbol{\nu_1} , \\
 %
 \nu_{{11}} &= -1/2\cdot \boldsymbol{\nu_1} ,  &  \nu_{{12}}   &= \boldsymbol{\nu_1} ,   & \nu_{{13}}    &= -1/2\cdot \boldsymbol{\nu_1} , \\
 %
@@ -2347,9 +2395,9 @@ From inserting these expansion coefficients into the perturbative equivariance e
 %
 \nu_{{17}} &= -3/16\cdot \boldsymbol{\nu_1} ,  &  \nu_{{18}}   &= 1/8\cdot \boldsymbol{\nu_1} ,   & \nu_{{19}}    &= 1/2\cdot \boldsymbol{\nu_1} , \\
 %
-\nu_{{20}} &= -1/4\cdot \boldsymbol{\nu_1} ,  & \nu_{{21}}   &= -1\cdot \boldsymbol{\nu_1} ,   & \nu_{{22}}    &= 1/2\cdot \boldsymbol{\nu_1} , \\
+\nu_{{20}} &= -1/4\cdot \boldsymbol{\nu_1} ,  & \nu_{{21}}   &= - \boldsymbol{\nu_1} ,   & \nu_{{22}}    &= 1/2\cdot \boldsymbol{\nu_1} , \\
 %
-\nu_{{23}} &= -1/4\cdot \boldsymbol{\nu_1} ,  & \nu_{{24}}   &= 3/4\cdot \boldsymbol{\nu_1} ,   & \nu_{{25}}    &= -1/4\cdot \boldsymbol{\nu_1} , \\
+\nu_{{23}} &= -1/2\cdot \boldsymbol{\nu_1} ,  & \nu_{{24}}   &= 3/4\cdot \boldsymbol{\nu_1} ,   & \nu_{{25}}    &= -1/4\cdot \boldsymbol{\nu_1} , \\
 %
 \nu_{{26}} &= 1/2\cdot \boldsymbol{\nu_1} ,  & \nu_{{27}}   &= -1/2\cdot \boldsymbol{\nu_1} ,   & \nu_{{28}}    &= -1/8\cdot \boldsymbol{\nu_1} , \\
 %
@@ -2365,7 +2413,7 @@ From inserting these expansion coefficients into the perturbative equivariance e
 %
 \nu_{{44}} &= 1/4\cdot \boldsymbol{\nu_1} ,  & \nu_{{45}}   &= 1/4\cdot \boldsymbol{\nu_1} ,   & \nu_{{46}}    &= -1/4\cdot \boldsymbol{\nu_1} , \\
 %
-\nu_{{47}} &= 0  &   &   &    & .
+\nu_{{47}} &= 0  &   &   &    & 
 \end{alignedat}
 \end{align}
 
