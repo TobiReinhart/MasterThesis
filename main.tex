@@ -2059,7 +2059,7 @@ Inserting this into (\ref{prefacF}) we denote the thereby induced expansion by
 Recall now that the determinant of a $(n-4) \times (n-4)$ sub matrix of the expansion of the principal symbol with entries being m-th order expressions in $H_A$ will be of order $m\cdot(n-4)$. This would in general pose no problem as we could simply compute the closed form expression of the determinant of this sub matrix end then again expand the result up to the required order in $H_A$. This method however will generate technical problems. After solving the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}) the Lagrangian and therefore also the principal symbol will contain undetermined constants. Hence the entries of the principal symbol are not only expressions that are linear in $H_A$ but also contain additional constants. Using standard computer algebra to calculate an algebraic expression for the determinant of such a matrix that contains symbolic entries one usually reaches a limit of either the available memory or the required computation time once the dimension of the matrix exceeds $15 \times 15$ , with the precise limit obviously depending on the used machine, the precise form of the matrix and the specific algorithms at use. 
 
 Note that all this complications only arise once we try to compute the closed form of the determinant. This is not even what we try to achieve as we are only interested in the expansion of the determinant up to some order. Hence we can at least partly avoid such technical problems by directly expanding the determinant. Recall that when interpreted as a map on the column vectors that specify a given matrix the determinant is multilinear. Therefore we can simply expand it (see for instance \cite{2008CoTPh..49..801Z} and also the following nice collection of matrix formulae \cite{IMM2012-03274}), with an expansion around the identity matrix taking the particularly simple form 
-\begin{align}
+\begin{align}\label{detExp}
     \mathrm{det}(I+M) = 1 + \mathrm{Tr}(M) + \frac{(\mathrm{Tr}(M))^2- \mathrm{Tr}(M^2)}{2} + \mathcal{O}(3). 
 \end{align}
 As we required the chosen $(n-4)\times (n-4)$ sub matrix of the principal symbol\footnote{Obviously concretely finding such a sub matrix involves some trial and error. Nevertheless as here we are only interested in the distinction of whether the determinant is zero or not the involved computations do not yield technical problems. This is true as we can simply evaluate all symbolic entries of the matrix at some random integers and compute its rank using for instance a fraction free implementation of Gaussian elimination. The thus computed rank always provides a lower bound for the true symbolic rank as in the worst case by randomly evaluating the symbolic entries we generate additional linear dependencies of the rows or columns of the matrix. Hence when the randomly evaluated matrix has full rank we know that the symbolic matrix must have non zero determinant. This is a huge advantage over computing the rank symbolically as now the computation only involves integer arithmetic which is not only much more efficient than performing symbolic computations but also remarkably stable, as no round offs are performed.} to have non vanishing determinant, the constant order of this sub matrix will be invertible. We denote the chosen sub matrix and the corresponding expansion by 
@@ -2198,15 +2198,17 @@ Besides of the second main ingredient of our framework we mainly focused on tech
 In this chapter we investigate two concrete examples of possible gravitational fields each one motivated by a certain matter theory that exploits the thereby provided spacetime geometry as background. Concretely we will study the well known case of gravity being described by a metric tensor field but also deviate from this by considering the case of spacetime geometry being provided by a so called area metric. For each case we will then apply the previously developed framework to not only qualitatively examine possible gravitational dynamics but also explicitly construct the most general meaningful perturbative theory of gravity.
 }
 \section{Perturbative Metric Gravity around Minkowski Spacetime}
-As a first example we consider the case where the gravitational field is provided by a symmetric $(0,2)$ tensor field, the metric tensor $g_{ab}$. The field bundle is hence given by the bundle of such tensors and as before labeled as $F_{GR} := S^0_2M \subset T^0_2M$. Not only is this standard example excellent for testing our framework, from the point of view of constructive gravity it is also unique as the metric tensor is the "smallest" structure --- in the sense that the corresponding field bundle has the least dimensional fibres --- that allows for the support of a non trivial matter theory.
+As a first example we consider the case where the gravitational field is provided by a symmetric $(0,2)$ tensor field, the metric tensor $g_{ab}$. The field bundle is hence given by the bundle of such tensors and as before labeled as $F_{GR} := S^0_2M \subset T^0_2M$. For some of the following considerations we might more properly restrict to the sub bundle of $(0,2)$ tensors that non degenerate in the sense that the induced map between tangent and cotangent bundle that is obtained by partially applying the metric to a vector field defines an isomorphism. Furthermore we additionally might restrict to those non degenerate metrics that have signature $(-,+,+,+)$. As both of these restrictions define open conditions this does not cause any problems.
+
+Note that the case of gravity being described by a metric tensor field not only is the standard example and hence excellent for testing our framework, from the point of view of constructive gravity it is also unique as the metric tensor is the "smallest" structure --- in the sense that the corresponding field bundle has the least dimensional fibres --- that allows for the support of a non trivial matter theory.
 
 In the simplest possible case the matter field is described by a scalar field, i.e. a spacetime function $\phi \in C^{\infty}(M,\mathbb{R})$ which corresponds to the trivial matter field bundle $M \times \mathbb{R}$. We again restricting to matter theories that are described by first derivative order Lagrangians and hence generate second derivative order EOM. In the simplest case the matter EOM are linear. This correspond to a quadratic matter Lagrangian. Denoting adapted coordinates on $J^1(M \times \mathbb{R})$ by $(x^m,u,u_m)$ the most general such matter Lagrangian is given as
 \begin{align}\label{KGL}
     \mathcal{L}_{KG} = \frac{1}{2} \left ( B^{ab} u_a u_b - m^2 u^2\right )\omega \mathrm{d}^4x.
 \end{align}
 This is the so called Lagrangian \textit{\textbf{Klein-Gordon}} Lagrangian. It is important to observe that this really described the most general quadratic, first order Lagrangian for a scalar field. 
-In particular note that specifying such a Lagrangian forces us to prescribe $10$ spacetime functions $B^{ab}$ that tell us how the product $u_a\cdot u_b$ has to be contracted and furthermore one scalar density of weight $1$ $\omega$ that ensures that the Lagrangian really defines a map $\mathcal{L}_{KG} \rightarrow \Gamma^4M$ and thus provides us with a well defines action functional and EOM.
-These additional ingredient are precisely provided by a metric tensor field $g_{ab}$. We then simply take $B^{ab}$ as the corresponding inverse metric $(g^{-1})^{ab}$. Furthermore one can in fact show that up to an overall constant there is exactly one scalar density of weight $1$ that can be obtained form the metric, namely $\omega = \sqrt{\mathrm{det}(-g)}$. 
+In particular note that specifying such a Lagrangian forces us to prescribe $10$ spacetime functions $B^{ab}$ that tell us how the product $u_a\cdot u_b$ has to be contracted and furthermore one scalar density of weight $1$ $\omega$ that ensures that the Lagrangian really defines volume form valued bundle map and thus provides us with a well defines action functional and EOM.
+These additional ingredient are precisely provided by a metric tensor field $g_{ab}$. We then simply take $B^{ab}$ as the corresponding inverse metric $(g^{-1})^{ab}$. Note that in the case of non degenerate metrics mapping a metric to its inverse is a smooth bundle isomorphism. Furthermore one can in fact show that up to an overall constant there is exactly one scalar density of weight $1$ that can be obtained form the metric, namely $\omega = \sqrt{ \vert \mathrm{det}(g) \vert }$. 
 Thus we see that the simplest possible non trivial Lagrangian one can write down for a scalar field forces us to additionially provide a metric tensor field. If this metric is not considered to be specified by hand we need further equations that allow us to determine it.  
 
 To that end we are going to apply the previously developed perturbative framework to construct a perturbative expansion of a diffeomorphism invariant gravitational Lagrangian $\mathcal{L}_{GR} = L_{GR} \mathrm{d}^4x$ that is causally compatible with the Klein-Gordon Lagrangian (\ref{KGL}) and generates second derivative order EOM. 
@@ -2320,7 +2322,7 @@ Furthermore one readily finds that the principal polynomial of the Klein-Gordon 
 \end{align}
 To relate the perturbative vanishing sets of $\mathcal{P}_{GR,per}$ and $\mathcal{P}_{KG}$ note that we can change the first factor of the two polynomials $(1+H)$ and $(1+H/2)$ respectively at wish by multiplying with the perturbative expansion of the following non vanishing scalar density of weight $2n$:
 \begin{align}
-    f_{dens}(n) := \mathrm{det}\left (I^A_{pq}v_A \right )^n = 1 + nH + \mathcal{O}(2).
+    f_{dens}(n) := \vert \mathrm{det}\left (I^A_{pq}v_A \right )\vert ^n = 1 + nH + \mathcal{O}(2).
 \end{align}
 This obviously does not alter the vanishing set described by either one of the polynomials. Thus multiplying the gravitational polynomial by $f_{dens}(-1)$ and dividing by the prefactor $a$ and multiplying the matter polynomial by $f_{dens}(-1/2)$ we find
 \begin{align}
@@ -2329,13 +2331,42 @@ This obviously does not alter the vanishing set described by either one of the p
 Therefore the matter and gravitational polynomial $\mathcal{P}_{KG}$ and $\mathcal{P}_{GR,per}$ define the same vanishing set in linear order.
 Hence the two theories are causal compatible and our construction procedure is finished. We are left with a perturbative Lagrangian that contains 2 undetermined constants describing a 2 parameter family of perturbative metric gravity theories.  \\
 
-As mentioned earlier in this section Lovelock has shown that the only diffeomorphism invariant metric theory of gravity with second order EOM is provided by the \textit{\textbf{Einstein-Hilbert}} Lagrangian (\cite{Lovelock1969}, \cite{doi:10.1063/1.1665613}, \cite{doi:10.1063/1.1666069}) that in terms of $g \in \Gamma(F_{GR})$ simply reads:
+As mentioned earlier in this section Lovelock has shown that the only diffeomorphism invariant metric theory of gravity with second order EOM is provided by the \textit{\textbf{Einstein-Hilbert}} Lagrangian (\cite{Lovelock1969}, \cite{doi:10.1063/1.1665613}, \cite{doi:10.1063/1.1666069}) that reads:
 \begin{align}
-    \mathcal{L}_{EH} := \kappa \sqrt{-g}  \left( R(g) + \Lambda \right ),
+    L_{EH} := \kappa \sqrt{\vert \mathrm{det} \left ( I^A_{pq}v_A \right ) \vert }  \left( R + \Lambda \right ),
 \end{align}
-where $R(g)$ is the Ricci scalar obtained from $g$ and the two constant parameters $\kappa$ and $\Lambda$ are called gravitational constant and cosmological constant respectively. In order to compare the computed gravitational Lagrangian with the Einstein-Hilbert Lagrangian we now take $\mathcal{L}_{EH}$ as bundle map on $J^2F_{GR}$ and expand it around the chosen eta-induced expansion point $(N_{AI})$. As computing this expansion is quite laborious we start by only calculating the linear order of the Einstein-Hilbert Lagrangian. We get:
+where the two constant parameters $\kappa$ and $\Lambda$ are called gravitational constant and cosmological constant respectively. Here $R$ is the so called Ricci scalar. As we have mentioned earlier in this thesis one usually first constructs the Riemann tensor, the curvature two form of the unique metric compatible connection on the frame bundle over $M$. From this one obtaines the Ricci tensor by computing its trace. Finally one contracts the Ricci-tensor with the inverse metric to end up with the Ricci scalar $R$. From the point of view of classical field theory all the deeper connections to Riemanian geometry that are present the above procedure are however actually not necessary. The only important fact one really needs is that the Ricci scalar defines a function on $J^2F_{GR}$. To that end reacall that any non degenerate metric defines a smooth bundle isomorphism 
 \begin{align}
-        \mathcal{L}_{EH} = \kappa \cdot (\eta^{ap}\eta^{bq} - \eta^{ab}\eta^{pq}) I^{A}_{ab}I^{I}_{pq} H_{AI} + \kappa \Lambda \cdot (1 + 1/2 \cdot \eta^{ab} I_{ab}^A H_A) + \mathcal{O}(2).
+\begin{aligned}
+\flat : TM \longrightarrow T^{\ast}M\\
+X \longmapsto g(X,-) .
+\end{aligned}
+\end{align}
+Through this construction we therefore also obtain an isomorphism between the field bundle $F_{GR}$ and its dual $F_{GR}^{\ast}$ that with a slight abuse of notation will also be called $\flat$. 
+Using the dual coordinates $(x^m,v^A)$ on $F_{GR}^{\ast}$ we define $v^A_{\flat} := v^A \circ \flat$. Thus applying $v^A_{\flat}$ on any metric exactly yields the components of its inverse. Using this we get the following explicit expression for $R$ understood as a map on $J^2F$ as:
+\begin{align}
+R = v_{\flat}^A J_A^{ab} \left ( D_p \Gamma^p_{ba} - D_b \Gamma^p_{pa} + \Gamma^p_{pq} \Gamma^q_{ba} - \Gamma^p_{bq} \Gamma^q_{pq} \right ),
+\end{align}
+where we also defined the Christoffel symbols that are given by the following functions on $J^1F_{GR}$:
+\begin{align}
+\Gamma^a_{bc} = \frac{1}{2} v_{\flat}^A J_A^{ap} \left ( I^B_{bq}\delta^p_b + I^B_{cq}\delta^p_c - I^B_{bc}\delta^p_q  \right ) v_{Bq}.
+\end{align}
+In order to compare the computed gravitational Lagrangian with the Einstein-Hilbert Lagrangian expand $L_{EH}$ to third order around the chosen eta-induced expansion point $(N_{AI})$. The expansion of the determinant can be obtained from (\ref{detExp}). Doing so we find that:
+\begin{align}
+   \sqrt{\vert \mathrm{det} \left ( I^A_{pq}v_A \right ) \vert } = 1 + H/2 +1/8 \cdot H^2 - 1/4 \cdot I^A_{ab}I^B_{cd} \eta^{ac} \eta^{bd} H_A H_B + \mathcal{O}(3).   
+\end{align}
+In order to compute the expansion of $v^A_{\flat}$ one uses that $-1/2 \cdot v_{\flat}^AC_{An}^{Bm}V_B = v_{\flat}^A J_A^{nb}I^B_{bm}v_B = \delta^m_n$. Deriving this equation w.r.t. $v_B$ and performing some simplifications one thus finds the usual expression:
+\begin{align}
+    \partial^Bv_{\flat}^A = 1/4 \cdot C_{Cn}^{Am}C_{Dm}^{An}v_{\flat}^c v_{\flat}^{D}.
+\end{align}
+Using this one obtains the following expansion for $v_{\flat}^A$:
+\begin{align}
+    v_{\flat}^A = \eta^A - \eta^{ap}\eta^{bq} I^B_{ab} I^A_{pq} \cdot H_B + \eta^{ac}\eta^{bd}\eta^{ef} I^B_{ab} I^C_{ce} I^A_{df} \cdot H_BH_C + \mathcal{O}(3).  
+\end{align}
+With these results computing this expansion is straight forward yet quite laborious.
+Starting with the linear order of the Einstein-Hilbert Lagrangian we find:
+\begin{align}
+        L_{EH} = \kappa \cdot (\eta^{ap}\eta^{bq} - \eta^{ab}\eta^{pq}) I^{A}_{ab}I^{I}_{pq} H_{AI} + \kappa \Lambda \cdot (1 + 1/2 \cdot \eta^{ab} I_{ab}^A H_A) + \mathcal{O}(2).
 \end{align}
 On the other hand inserting the explicit Lorentz invariant expressions for the expansion coefficients (\ref{LorentzGR1}) with the appropriate multiplicities from the factor free symmetrizations and the computed solution of the perturbative equivariance equations (\ref{GRSol}) into $\mathcal{L}_{GR,per}$ we find:
 \begin{align}
@@ -2344,6 +2375,8 @@ On the other hand inserting the explicit Lorentz invariant expressions for the e
 Thus we see that the obtained expansion for $\mathcal{L}_{GR,per}$ up to linear order precisely yields the Einstein-Hilbert Lagrangian with gravitational constant $\kappa = -8 \nu_1$ and cosmological constant $\Lambda = -1/8 \cdot \frac{\mu_1}{\nu_1}$. Carefully proceeding with the comparison one then finds that also in second and third order the computed perturbative Lagrangian exactly coincides with the expansion of $\mathcal{L}_{EH}$.  
 %make this more precise
 \section{Perturbative Area Metric Gravity around a Flat Minkowski Induced Spacetime}
+Whereas the first example theory we constructed mainly served of testing our framework the perturbative theory of gravity that we are going to construct now really is intended to provide a viable alternative to GR in describing the geometry of our universe.  
+To that end we are going to construct a perturbative theory of gravity that is compatible with the most general linear theory of electrodynamics. 
 
 
 \appendix
@@ -2402,7 +2435,7 @@ In the following the various expressions for the linearly independent Lorentz in
 +\nu_{47}\cdot\epsilon^{acep}\eta^{bf}\eta^{dq}
 \end{alignedat}
 \end{align}
-From inserting these expansion coefficients into the perturbative equivariance equations we get the following solution.
+From inserting these expansion coefficients into the perturbative equivariance equations we get the following relation between the parameters.
 \begin{align}\label{GRSol}
 \begin{alignedat}{3}
 \mu_{{2}} &= 1/4\cdot \boldsymbol{\mu_1} , \hspace{2cm}    &  \mu_{{3}}   &= 1/32\cdot \boldsymbol{\mu_1} , \hspace{2cm}   & \mu_{{4}}   &= -1/16\cdot  \boldsymbol{\mu_1} , \\
@@ -2442,7 +2475,12 @@ From inserting these expansion coefficients into the perturbative equivariance e
 \nu_{{47}} &= 0  &   &   &    & 
 \end{alignedat}
 \end{align}
-
+Inserting these into the expression for the perturbative Lagrangian (\ref{LGR}) yields then:
+\begin{align}
+    \begin{aligned}
+    L_{GR,per}
+    \end{aligned}
+\end{align}
 \section{2nd Order Area Metric Gravity}
 
 %remove website links from bibliography
