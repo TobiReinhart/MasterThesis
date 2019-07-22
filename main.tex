@@ -2198,27 +2198,29 @@ Besides of the second main ingredient of our framework we mainly focused on tech
 In this chapter we investigate two concrete examples of possible gravitational fields each one motivated by a certain matter theory that exploits the thereby provided spacetime geometry as background. Concretely we will study the well known case of gravity being described by a metric tensor field but also deviate from this by considering the case of spacetime geometry being provided by a so called area metric. For each case we will then apply the previously developed framework to not only qualitatively examine possible gravitational dynamics but also explicitly construct the most general meaningful perturbative theory of gravity.
 }
 \section{Perturbative Metric Gravity around Minkowski Spacetime}
-As a first example we consider the case where the gravitational field is provided by a symmetric $(0,2)$ tensor field, the metric tensor $g_{ab}$. The field bundle is hence given by the bundle of such tensors and as before labeled as $F_{GR} := S^0_2M \subset T^0_2M$. Not only is this standard example excellent for testing our framework, from the point of view of constructive gravity it is also unique as that the metric tensor is the "smallest" structure --- in the sense that the corresponding field bundle has the least dimensional fibres --- that allows for the support of a non trivial matter theory.  In the simplest possible case the matter field is described by a scalar field, i.e. a spacetime function $\phi \in C^{\infty}(M,\mathbb{R})$ which corresponds to the trivial matter field bundle $M \times \mathbb{R}$. We again restricting to matter theories that are described first derivative order Lagrangians and hence generate second derivative order EOM. Denoting adapted coordinates on $J^1(M \times \mathbb{R})$ by $(x^m,\phi,\phi_m)$ the most general matter Lagrangian that is quadratic in $\phi$ and $\phi_m$ and thus generates linear EOM is given as
+As a first example we consider the case where the gravitational field is provided by a symmetric $(0,2)$ tensor field, the metric tensor $g_{ab}$. The field bundle is hence given by the bundle of such tensors and as before labeled as $F_{GR} := S^0_2M \subset T^0_2M$. Not only is this standard example excellent for testing our framework, from the point of view of constructive gravity it is also unique as the metric tensor is the "smallest" structure --- in the sense that the corresponding field bundle has the least dimensional fibres --- that allows for the support of a non trivial matter theory.
+
+In the simplest possible case the matter field is described by a scalar field, i.e. a spacetime function $\phi \in C^{\infty}(M,\mathbb{R})$ which corresponds to the trivial matter field bundle $M \times \mathbb{R}$. We again restricting to matter theories that are described by first derivative order Lagrangians and hence generate second derivative order EOM. In the simplest case the matter EOM are linear. This correspond to a quadratic matter Lagrangian. Denoting adapted coordinates on $J^1(M \times \mathbb{R})$ by $(x^m,u,u_m)$ the most general such matter Lagrangian is given as
 \begin{align}\label{KGL}
-    \mathcal{L}_{KG} = \frac{1}{2} \left ( g^{ab} \phi_a \phi_b - m^2 \phi^2\right )\sqrt{-g}\mathrm{d}^4x,
+    \mathcal{L}_{KG} = \frac{1}{2} \left ( B^{ab} u_a u_b - m^2 u^2\right )\omega \mathrm{d}^4x.
 \end{align}
-where $g := \mathrm{det}(g_{ab})$.
-This is the so called Lagrangian \textit{\textbf{Klein-Gordon}} Lagrangian.
-Note that the factor of $\frac{1}{2}$ us introduced for latter convenience. This is also the reason for labeling the constant by $m^2$. Further observe that this really described the most general Lagrangian with the desired properties that one can write down, any further constant for instance in front of the first term would simply attribute a further overall factor to the theory that of course is meaningless once the EOM are equated to zero. Due to the symmetry of the product of first derivatives prescribing such a Lagrangian one needs to additionally specify 10 numbers at each spacetime point that encode how $\phi_a \phi_b$ is contracted. These are exactly the degrees of freedom that are contained in the components of the inverse\footnote{Note that in particular we could also work with the inverse metric as fundamental gravitational field here. This decision is really a choice of personal preference as the metric and its inverse are ultimately connected by the requirement $g^{ab}g_{bc} = \delta^a_c$. } metric $g^{ab}$. Thus we see that the simplest possible non trivial Lagrangian one can write down for a scalar field forces us to additionially provide the components of a metric tensor field. If these are not considered to be specified by hand we need further equations that allow us to determine them.  
-
-
+This is the so called Lagrangian \textit{\textbf{Klein-Gordon}} Lagrangian. It is important to observe that this really described the most general quadratic, first order Lagrangian for a scalar field. 
+In particular note that specifying such a Lagrangian forces us to prescribe $10$ spacetime functions $B^{ab}$ that tell us how the product $u_a\cdot u_b$ has to be contracted and furthermore one scalar density of weight $1$ $\omega$ that ensures that the Lagrangian really defines a map $\mathcal{L}_{KG} \rightarrow \Gamma^4M$ and thus provides us with a well defines action functional and EOM.
+These additional ingredient are precisely provided by a metric tensor field $g_{ab}$. We then simply take $B^{ab}$ as the corresponding inverse metric $(g^{-1})^{ab}$. Furthermore one can in fact show that up to an overall constant there is exactly one scalar density of weight $1$ that can be obtained form the metric, namely $\omega = \sqrt{\mathrm{det}(-g)}$. 
+Thus we see that the simplest possible non trivial Lagrangian one can write down for a scalar field forces us to additionially provide a metric tensor field. If this metric is not considered to be specified by hand we need further equations that allow us to determine it.  
 
 To that end we are going to apply the previously developed perturbative framework to construct a perturbative expansion of a diffeomorphism invariant gravitational Lagrangian $\mathcal{L}_{GR} = L_{GR} \mathrm{d}^4x$ that is causally compatible with the Klein-Gordon Lagrangian (\ref{KGL}) and generates second derivative order EOM. 
-We have already remarked that for the field bundle $F_{GR}$ there exist exactly 14 functionally independent curvature invariants that each solve the homogeneous invariance equation. Due to Lovelock (\cite{Lovelock1969}, \cite{doi:10.1063/1.1665613} and also \cite{doi:10.1063/1.1666069}) we know that out of the 14 independent gravitational Lagrangians that can be condtructed from these up to contributions that vanish once we compute the EOM and equate to zero the Einstein-Hilbert Lagrangian is the only one of these that generates second derivative order EOM. 
+We have already remarked that for the field bundle $F_{GR}$ there exist exactly 14 functionally independent curvature invariants that each solve the homogeneous invariance equation. Due to Lovelock (\cite{Lovelock1969}, \cite{doi:10.1063/1.1665613} and also \cite{doi:10.1063/1.1666069}) we know that out of the 14 independent gravitational Lagrangians that can be constructed from these up to contributions that vanish once we compute the EOM and equate to zero the Einstein-Hilbert Lagrangian is the only one that generates second derivative order EOM. 
 Hence we expect from our perturbative construction recipe to precisely recover a perturbative expansion of the Einstein-Hilbert Lagrangian from first principles. Note that thereby we get an excellent test for our framework. \\
 
 
 We start by introducing the necessary structure on $F_{GR}$. We have already seen that a pair of intertwiners for this field bundle can simply be obtained by the matrices  (\ref{interIMet}) and (\ref{interJMet}). These are of course exactly the same intertwiners as the ones we use for describing second spacetime derivatives. We thus obtain coordinates on $J^2F_{GR}$ as $(x^m,v_A,v_{Ap},v_{AI})$ where now both $A$ and $I$ run from 0 to 9. For a metric tensor, i.e. a section $g \in \Gamma(F_{GR}))$ we further get the relations:
 \begin{align}
-    g_{ab} = I^A _{ab} g_A \ \ \text{and} \ \ g_A = J^{ab}_{A} g_{ab}.
+    g_{ab} = I^A _{ab} g_A \ \ \text{and} \ \ g_A = J^{ab}_{A} g_{ab},
 \end{align}
-Following along the lines described in (\ref{Algo2}) we choose $J^2F_{GR} \ni p_0 \equiv (x_0^m,\eta_A,0,0)$ where $\eta_A = J^{ab}_A \eta_{ab}$ as $\eta$-induced expansion point. Furthermore we construct the perturbative gravitational Lagrangian up to order $k=3$. 
-Next compute the coordinate expression of the Lie derivative of a metric tensor field to obtain $C_{An}^{Bm}$. We get
+and similar for the inverse metric $g^{-1} \in \Gamma(F_{GR}^{\ast})$.
+Following along the lines described in (\ref{Algo2}) we choose $J^2F_{GR} \ni p_0 \equiv (x_0^m,\eta_A,0,0) =: (N_{AI})$ where $\eta_A = J^{ab}_A \eta_{ab}$ as $\eta$-induced expansion point. Furthermore we choose construct the perturbative gravitational Lagrangian up to order $k=3$. 
+Next we compute the coordinate expression of the Lie derivative of a metric tensor field to obtain the constant tensors $C_{An}^{Bm}$. We get
 \begin{align}
     \mathcal{L}_{\xi} g_{ab} = \partial_m g_{ab} \cdot \xi^m + \left (-2 \delta_n^{(c\vert} \delta_{(a}^m \delta_{b)}^{\vert d)} \right ) g_{cd} \partial_m \xi^n.
 \end{align}
@@ -2230,21 +2232,17 @@ Here we also used that the two intertwiners $I^A_{ab}$ and $J_A^{ab}$ are symmet
 \begin{align}
     C_{An}^{Bm} = -2 I^B_{nb}J_A^{mb}.
 \end{align}
-As before we define $(H_{AI}) := (v_{AI}) - (\eta_{AI})$ to obtain the most general expansion of the Lagrangian that generates second derivative order EOM by
+As before we define $(H_{AI}) := (v_{AI}) - (N_{AI})$ to obtain the most general expansion of the Lagrangian that generates second derivative order EOM by
 \begin{align}\label{LGR}
     L_{GR,per} =  a_0 + a^A H_A + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ApBq} H_{Ap}H_{Bq} + a^{ABI} H_{A} H_{BI} \\
     + a^{ABC} H_a H_B H_C + a^{ABpCq} H_{A}H_{Bp}H_{Cq} +
     + a^{ABCI} H_A H_B H_{CI} 
     + \mathcal{O}(4).
 \end{align}
-As before we only considered the contributions of expansion coefficients with an even number of spacetime indices, as those with an odd number of such cannot be Lorentz invariant and thus are forbidden by diffeomorphism invariance.
+We again restrict attention to those expansion coefficients with an even number of spacetime indices, as any coefficients with an odd number of such cannot be Lorentz invariant and thus are forbidden by the equivariance equations.
 
-According to (\ref{Algo2}) the next step now consists of inserting the most general Lorentz invariant tensors with appropriate index structure for the expansion coefficients. This is done entirely in terms of the developed computer algebra. The explicit expressions can be found in the appendix.
-%reference to terms in appendix 
-%
-%
-%
-Providing an illustrative example we consider the expansion coefficient $a^{AB} = I^{A}_{ab}I^{B}_{cd}a^{abcd}$. We clearly see the symmetries in the pairs $(ab)$ and $(cd)$ and the additional symmetry under the exchange $(ab) \leftrightarrow (cd)$ as the coefficient only appears contracted against $H_AH_B$ in $L_{GR,per}$. Writing down the most general Lorentz invariant tensor with these symmetries we readily find that we cannot obtain non zero contributions from $\epsilon^{abcd}$ to any tensor that features these symmetries. The inverse Minkowski metric a priory allows for three different expressions with 4 upper case indices:
+According to (\ref{Algo2}) the next step now consists of inserting the most general Lorentz invariant tensors with appropriate index structure for the expansion coefficients. This is done entirely in terms of the developed computer algebra. The explicit expressions can be found in the appendix (\ref{LorentzGR1}) and (\ref{LorentzGR2}).
+Nevertheless providing an illustrative example we consider the expansion coefficient $a^{AB} = I^{A}_{ab}I^{B}_{cd}a^{abcd}$. We clearly see the symmetries in the pairs $(ab)$ and $(cd)$ and the additional symmetry under the exchange $(ab) \leftrightarrow (cd)$ as the coefficient only appears contracted against $H_AH_B$ in $L_{GR,per}$. Writing down the most general Lorentz invariant tensor with these symmetries we readily find that we cannot obtain non zero contributions from $\epsilon^{abcd}$ to any tensor that features these symmetries. The inverse Minkowski metric a priory allows for three different expressions with 4 upper case indices:
 \begin{itemize}
     \item[(i)] $\eta^{ab} \eta^{cd}$ 
     \item[(ii)] $\eta^{ac} \eta^{bd}$ 
@@ -2257,8 +2255,9 @@ Enforcing the symmetries on these three expressions we find that (i) already fea
 Here the factor $8$ is a result of the factorless symmetrization that we implement in our computer program, i.e. when symmetrizing the expression w.r.t. $(ab),(cd)$ and $(ab) \leftrightarrow (cd) $ we do not divide by $2$ each time and hence get an overall factor of $2^3=8$. This approach is equivalent to the symmetrization including these factors as we are free to absorb such factors by redefining the constants. It furthermore provides the advantage that we can then deal with integer factors throughout the whole computation. Details are explained in appendix (\ref{LorentzGen}).
 Thus we have obtained an expression that features 2 constants for $a^{AB}$.
 Note that computing the remaining expansion coefficients works exactly along the same lines as the above with the only difference being that the expressions will become increasingly involved and thus are best obtained by using computer algebra.
-Doing this we find the following dimensions, i.e. number of arbitrary constants in the expansion coefficients:
-\begin{center}
+Doing this the dimensions, i.e. number of arbitrary constants in the expansion coefficients are displayed in table (\ref{GRExp}).
+\begin{table}
+\centering 
 \begin{tabular}{c|c|c}
     expansion coefficient & dimension & constants   \\
     \hline 
@@ -2272,73 +2271,75 @@ Doing this we find the following dimensions, i.e. number of arbitrary constants 
     $a^{ABpCq}$ & 21 & $\{\nu_{14},...,\nu_{34} \}$ \\
     $a^{ABCI}$ & 13 & $\{ \nu_{35},...,\nu_{47}\}$
 \end{tabular}
-\end{center}
-Here we separated the appearing constants in those that appear in front of terms including derivatives of the metric tensor field and those that appear in terms that do not include such. We adopt some terminology more present in QFT related subjects and refer to the former expressions as \textbf{\textit{kinetic terms}} ans the latter as \textit{\textbf{mass terms}}. The constants are then called \textit{\textbf{gravitational constants}} $(\nu_1,...)$ and \textit{\textbf{masses}} $(\mu_1,...)$.   
-The explicit expression for the expansion coefficients can be found in the appendix (\ref{AppGR}). \\
+\caption{Dimensions of the Lorentz invariant expansion coefficients for $\mathcal{L}_{GR,per}$.}\label{GRExp}
+\end{table}
+Here we separated the appearing constants in those that appear in front of terms including derivatives of the metric tensor field and those that appear in terms that do not include such. We adopt some terminology more present in QFT related subjects and refer to the former expressions as \textbf{\textit{kinetic terms}} ans the latter as \textit{\textbf{mass terms}}. The constants are then called \textit{\textbf{gravitational constants}} $(\nu_1,...)$ and \textit{\textbf{masses}} $(\mu_1,...)$ respectively.   \\
 
-According to (\ref{Algo2}) the next step consists of inserting these expansion coefficients and the previously computed expression for the constant tensor $C_{An}^{Bm}$ into the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}). These are then linear equations for the unknown constants $\{ \mu_1,...,\mu_7\}$ and $\{\nu_1,...,\nu_{47}\}$. The solution we get from the computer program for inserting the expansion coefficients and simplifying the resulting linear equations by using the computer program is displayed in equation (\ref{GRSol}). Note that the expansion (\ref{LGR}) in generall features $15.906$ undetermined constants in the $9$ expansion coefficients. The restriction to those that define the components of Lorentz invariant tensor that is demanded by the perturbative equivariance equations restricts these to $54$ constants. Solving the perturbative equivariance equations then further reduces the number of undetermined parametes to $2$. Also observe that in the solution there is no contribution from terms that involve $\epsilon^{abcd}$. In fact the constant parameters in front of expansion coefficients that contain the Levi-Civita symbol are the only ones that the equivariance equations set to zero. \\
+According to algorithm (\ref{Algo2}) the next step consists of inserting these expansion coefficients and the previously computed expression for the constant tensor $C_{An}^{Bm}$ into the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}). These are then linear equations for the unknown constants $\{ \mu_1,...,\mu_7\}$ and $\{\nu_1,...,\nu_{47}\}$. The solution we get from doing this by using our computer program is displayed in equation (\ref{GRSol}) in the appendix. Note that the expansion (\ref{LGR}) in generall features $15.906$ undetermined constants in the $9$ expansion coefficients. The restriction to those that define the components of Lorentz invariant tensor that is demanded by the perturbative equivariance equations reduces these to $54$ constants. Solving the perturbative equivariance equations then further decreases the number of undetermined parametes to $2$. Also observe that in the solution there is no contribution from terms that involve $\epsilon^{abcd}$. In fact the constant parameters in front of expansion coefficients that contain the Levi-Civita symbol are the only ones that the equivariance equations set to zero. \\
 
-Proceeding with the next step in (\ref{Algo2}) inserting the solution for the expansion coefficients (\ref{GRSol}) into the (\ref{LGR}) now yields the most general diffeoorphism invariant perturbative Lagragian. To compute the principal polynomial we simply insert the solved expansion coefficients into the perturbative EOM (\ref{EOMPert}). It is however worth noting that for the simple case of the gravitational field being provided by a metric tensor field it is actually not necessary to follow along the general steps that we laid out in the last chapter. We can actually save ourselves much work by taking a closer look at equation (\ref{polyEqn}) that the principal polynomial has to satisfy as consequence of the diffeomorphism equivariance. For the metric tensor field this equation takes the particular simple form
+We continue with construction algorithm (\ref{Algo2}) by computing the perturbative expansion of the gravitational principal polynomial. Inserting the solution for the expansion coefficients (\ref{GRSol}) into (\ref{LGR}) now yields the most general diffeoorphism invariant perturbative Lagragian. Normally we would now proceed by plugging the solved expansion coefficients into the perturbative EOM (\ref{EOMPert}) and then compute the corresponding expansion of the principal symbol and polynomial as outlined in the last chapter. It is however worth noting that for the simple case of the gravitational field being provided by a metric tensor it is actually not necessary to follow along these general steps. We can in fact save ourselves much work by taking a closer look at equation (\ref{polyEqn}) that the principal polynomial has to satisfy as consequence of the diffeomorphism equivariance. For the metric tensor field this equation takes the particular simple form
 \begin{align}\label{metricPoly}
     0 = \partial^A \mathcal{P}_{GR}^{abcd} C_{An}^{Bm} v_B - 4\mathcal{P}_{GR}^{(abc\vert m} \delta_n^{\vert d)} + 2 \mathcal{P}_{GR}^{abcd} \delta^m_n.
 \end{align}
-We expand $\mathcal{P}_{GR}^{abcd}$ around $\eta_{A}$ and construct a power series solution to (\ref{metricPoly}). From before we know that given the expansion of the Lagrangian up to third order we need to expand the polynomial up to second order and hence also its sub expression $\mathcal{P}_{GR}^{abcd}$. Therefore we write 
+We now expand $\mathcal{P}_{GR}^{abcd}$ around $(N_{A}) = (x_0^m, \eta_A)$ and construct a power series solution to (\ref{metricPoly}). From before we know that given the expansion of the Lagrangian up to third order we only need to expand the polynomial up to first order and hence also the totally symmetric expression $\mathcal{P}_{GR}^{abcd}$ is expanded up to linear order. We get 
 \begin{align}
     \mathcal{P}_{GR}^{abcd} = (P_0)_{GR}^{abcd} + (P_1)_{GR}^{abcdA} H_A + \mathcal{O}(2).
 \end{align}
-As before from evaluating equation (\ref{metricPoly}) and its first prolongation at the expansion point $\eta_A$ and contracting it against the Lorentz generators we get additional zero and first order equations that state that the expansion constants must be the components of constant Lorentz invariant tensors. One readily finds that for the constant order expansion coefficient there exists exactly one such expression namely:
+Evaluating equation (\ref{metricPoly}) and its first prolongation at the expansion point $\eta_A$ and contracting it against the Lorentz generators yields additional zero and first order equations that state that the expansion constants must be the components of constant Lorentz invariant tensors. One readily finds that for the constant order expansion coefficient there exists exactly one such expression namely:
 \begin{align}
    (P_0)_{GR}^{abcd} = a \cdot \eta^{(ab} \eta^{cd)}. 
 \end{align}
-For the linear order coefficients we get two possible expression:
+For the linear order coefficients we obtain the following two possible expression:
 \begin{align}
     (P_1)_{GR}^{abcdA} = I^A_{ef} \left (b \cdot \eta^{(ab} \eta^{cd)}  \eta^{ef} + c \cdot \eta^{(ab} \eta^{c \vert e} \eta^{f \vert d)} \right ).
 \end{align}
-Upon inserting the thereby obtained expansion in (\ref{metricPoly}) and evaluating at the expansion point $\eta_A$ we get:
+Upon inserting the thereby obtained expansion in (\ref{metricPoly}) and evaluating at the expansion point $(N_A)$ we get:
 \begin{align}
     b = a \ \ \text{and} \ \ c = -2a.
 \end{align}
-Inserting this into $\mathcal{P}_{GR}^{abcd}$ and contracting again against $k_a\cdot ...\cdot k_d$ in total we have computed the following expression for the most general linear order expansion of the principal polynomial that is consistent with the diffeomorphism equivariance of $L_{GR,per}$
+Inserting this into $\mathcal{P}_{GR}^{abcd}$ and contracting again against $k_a\cdot ...\cdot k_d$ in total we find the following expression for the most general linear order expansion of the principal polynomial that is consistent with the diffeomorphism equivariance of $L_{GR,per}$
 \begin{align}
 \begin{aligned}
     \mathcal{P}_{GR} &= a \cdot  \eta(k) \cdot \left [\eta(k) + H \cdot \eta(k)  -
     2 \cdot  \eta(k) H(k) \right ] + \mathcal{O}(2)\\
-    &= a \cdot (1 + H) \cdot (\eta(k) - H(k))^2 + \mathcal{O}(2) \\
-    &= -\mathrm{det}\left (I^A_{pq}v_A \right ) \cdot (v^{-1})^{ab} \cdot (v^{-1})^{cd}k_ak_bk_ck_d +  \mathcal{O}(2).
+    &= a \cdot (1 + H) \cdot (\eta(k) - H(k))^2 + \mathcal{O}(2).
 \end{aligned}
 \end{align}
-where  $H:=\eta^{ab} I^A_{ab} H_{A}$ and $H(k) := \eta^{ap} \eta^{bq} I_{pq}^A H_A k_a k_b$ and $\eta(k) := \eta^{ab}k_a k_p$, $\mathrm{det}\left (I^A_{pq}v_A \right )$ being understood as taking the $4\times4$ determinant of the matrix representation of $\left (I^A_{pq}v_A \right )$  and $(v^{-1})^{ab}$ being the corresponding matrix inverse. Taking a section $g \in \Gamma(F_{GR})$ and the corresponding inverse metric $g^{-1} \in \Gamma(F_{GR}^{\ast})$ with $(g^{-1})^{ab}=:g^{ab}$ and the usual relation $g^{ab}g_{bc}= \delta^a_c$ and evaluatting the thus obtained most general expression for the principal polynomial we find
+where  $H:=\eta^{ab} I^A_{ab} H_{A}$ and $H(k) := \eta^{ap} \eta^{bq} I_{pq}^A H_A k_a k_b$ and $\eta(k) := \eta^{ab}k_a k_p$. 
+\begin{comment}
+Taking a section $g \in \Gamma(F_{GR})$ and the corresponding inverse metric $g^{-1} \in \Gamma(F_{GR}^{\ast})$ with $(g^{-1})^{ab}=:g^{ab}$ and the usual relation $g^{ab}g_{bc}= \delta^a_c$ and evaluatting the thus obtained most general expression for the principal polynomial we find
 \begin{align}
-    \mathcal{P}_{GR} (g_{ab}) = -a \cdot \mathrm{det}(g) g^{ab} g^{cd} k_ak_bk_ck_d + \mathcal{O}(2).
+    \mathcal{P}_{GR,per} (g_{ab}) = -a \cdot \mathrm{det}(g) g^{ab} g^{cd} k_ak_bk_ck_d + \mathcal{O}(2).
 \end{align}
 %check notation v vs g
+\end{comment}
 Note in particular that the vanishing set of this principal polynomial is completely independent of the choice of the remaining parameter $a$. Thus the causal structure of the perturbatice metric gravity EOM is already uniquely fixed by requiring diffeomorphism invariance.
-Furthermore one readily finds that the principal polynomial of the Klein-Gordon equation is simply given by 
+Furthermore one readily finds that the principal polynomial of the Klein-Gordon equation yields the following linear order expansion
 \begin{align}
-    \mathcal{P}_{KG} = \sqrt{-\mathrm{det} \left (I^A_{pq}v_A \right )} \cdot (v^{-1})^{ab} k_ak_b = (1 + H/2) \cdot \cdot (\eta(k) - H(k)) + \mathcal{O}(2).
+    \mathcal{P}_{KG} = (1 + H/2) \cdot (\eta(k) - H(k)) + \mathcal{O}(2) .
 \end{align}
-Therefore the matter and gravitational polynomial $\mathcal{P}_{KG}$ and $\mathcal{P}_{GR}$ define the same vanishing set in linear order. To that end note that we can change the first factor of the two polynomials $(1+H)$ and $(1+H/2)$ respectively at wish by multiplying with the perturbative expansion of the following non vanishing density of weight $2n$:
+To relate the perturbative vanishing sets of $\mathcal{P}_{GR,per}$ and $\mathcal{P}_{KG}$ note that we can change the first factor of the two polynomials $(1+H)$ and $(1+H/2)$ respectively at wish by multiplying with the perturbative expansion of the following non vanishing scalar density of weight $2n$:
 \begin{align}
     f_{dens}(n) := \mathrm{det}\left (I^A_{pq}v_A \right )^n = 1 + nH + \mathcal{O}(2).
 \end{align}
 This obviously does not alter the vanishing set described by either one of the polynomials. Thus multiplying the gravitational polynomial by $f_{dens}(-1)$ and dividing by the prefactor $a$ and multiplying the matter polynomial by $f_{dens}(-1/2)$ we find
 \begin{align}
-    \mathcal{P}_{GR} = (\eta(k)-H(k))^2 = \mathcal{P}_{KG}^2.
+    \mathcal{P}_{GR,per} = (\eta(k)-H(k))^2 = \mathcal{P}_{KG}^2.
 \end{align}
-Of course these two polynomials now define the same vanishing sets.
+Therefore the matter and gravitational polynomial $\mathcal{P}_{KG}$ and $\mathcal{P}_{GR,per}$ define the same vanishing set in linear order.
 Hence the two theories are causal compatible and our construction procedure is finished. We are left with a perturbative Lagrangian that contains 2 undetermined constants describing a 2 parameter family of perturbative metric gravity theories.  \\
 
-As mentioned earlier in this section Lovelock has shown that the only diffeomorphism invariant metric theory of gravity with second order EOM is provided by the \textit{\textbf{Einstein-Hilbert}} Lagrangian (\cite{Lovelock1969}, \cite{doi:10.1063/1.1665613}, \cite{doi:10.1063/1.1666069}) that in terms of $g \in \Gamma(F_{GR})$ reads:
+As mentioned earlier in this section Lovelock has shown that the only diffeomorphism invariant metric theory of gravity with second order EOM is provided by the \textit{\textbf{Einstein-Hilbert}} Lagrangian (\cite{Lovelock1969}, \cite{doi:10.1063/1.1665613}, \cite{doi:10.1063/1.1666069}) that in terms of $g \in \Gamma(F_{GR})$ simply reads:
 \begin{align}
-    \mathcal{L}_{EH} := \kappa \sqrt{-g}  \left( R + \Lambda \right ),
+    \mathcal{L}_{EH} := \kappa \sqrt{-g}  \left( R(g) + \Lambda \right ),
 \end{align}
-where $R$ is the Ricci scalar obtained from $g$ and the two constant parameters $\kappa$ and $\Lambda$ are called gravitational constant and cosmological constant respectively. In order to compare the computed gravitational Lagrangian with the Einstein-Hilbert Lagrangian we now take $\mathcal{L}_{EH}$ as bundle map on $J^2F_{GR}$ and expand it around the chosen eta-induced expansion point $\eta_A$. As computing this expansion is quite laborious we start by only calculating the linear order of the Einstein-Hilbert Lagrangian. We get:
+where $R(g)$ is the Ricci scalar obtained from $g$ and the two constant parameters $\kappa$ and $\Lambda$ are called gravitational constant and cosmological constant respectively. In order to compare the computed gravitational Lagrangian with the Einstein-Hilbert Lagrangian we now take $\mathcal{L}_{EH}$ as bundle map on $J^2F_{GR}$ and expand it around the chosen eta-induced expansion point $(N_{AI})$. As computing this expansion is quite laborious we start by only calculating the linear order of the Einstein-Hilbert Lagrangian. We get:
 \begin{align}
         \mathcal{L}_{EH} = \kappa \cdot (\eta^{ap}\eta^{bq} - \eta^{ab}\eta^{pq}) I^{A}_{ab}I^{I}_{pq} H_{AI} + \kappa \Lambda \cdot (1 + 1/2 \cdot \eta^{ab} I_{ab}^A H_A) + \mathcal{O}(2).
 \end{align}
-On the other hand inserting the relations between the prefactors of the expansion coefficients (\ref{GRSol}) in their explicit Lorentz invariant expressions with the appropriate multiplicities from the factor free symmetrizations into perturbative metric gravity Lagrangian we get:
+On the other hand inserting the explicit Lorentz invariant expressions for the expansion coefficients (\ref{LorentzGR1}) with the appropriate multiplicities from the factor free symmetrizations and the computed solution of the perturbative equivariance equations (\ref{GRSol}) into $\mathcal{L}_{GR,per}$ we find:
 \begin{align}
-    \mathcal{L}_{GR,per} = \mu_1(1 + 1/2 \cdot \eta^{ab} I_{ab}^A H_A) + 8 \nu_1 \left(  \eta^{ab}\eta^{pq} - \eta^{ap}\eta^{bq}  \right )I^{A}_{ab}I^{I}_{pq} H_{AI} + \mathcal{O}(2).
+    \mathcal{L}_{GR,per} = \mu_1(1 + 1/2 \cdot \eta^{ab} I_{ab}^A H_A) - 8 \nu_1 \left(\eta^{ap}\eta^{bq} - \eta^{ab}\eta^{pq} \right )I^{A}_{ab}I^{I}_{pq} H_{AI} + \mathcal{O}(2).
 \end{align}
 Thus we see that the obtained expansion for $\mathcal{L}_{GR,per}$ up to linear order precisely yields the Einstein-Hilbert Lagrangian with gravitational constant $\kappa = -8 \nu_1$ and cosmological constant $\Lambda = -1/8 \cdot \frac{\mu_1}{\nu_1}$. Carefully proceeding with the comparison one then finds that also in second and third order the computed perturbative Lagrangian exactly coincides with the expansion of $\mathcal{L}_{EH}$.  
 %make this more precise
@@ -2357,7 +2358,7 @@ Here we display the additional results from the two exemplary applications of th
 }
 \section{2nd Order Metric Gravity}\label{AppGR}
 In the following the various expressions for the linearly independent Lorentz invariant expansion coefficients with the given index structure and symmetry that we obtained by means of the developed computer program are displayed. In order to allow for a concise notation we display these in terms of the inverse Minkowski metric $\eta^{ab}$ and the contravariant Levi-Civita symbol $\epsilon^{abcd}$ and furthermore do not denote their symmetries explicitly, as these can easily be read of from the way they appear in the expansion (\ref{LGR}). It is however important to keep in mind that their symmetrization yields further factors that therefore are present when we insert these in the perturbative equivariance equations. We find from the developed computer program:
-\begin{align}
+\begin{align}\label{LorentzGR1}
 \begin{alignedat}{2}
 \boldsymbol{a_0}&: \ \ \ & a_0  &= \mu_1 \\
 \\
@@ -2375,7 +2376,7 @@ In the following the various expressions for the linearly independent Lorentz in
 \\
 \boldsymbol{a^{ABC}}&: \ \ \ & a^{abcdef}  &= \mu_5\cdot \eta^{ab}\eta^{cd}\eta^{ef}+\mu_6\cdot \eta^{ab}\eta^{ce}\eta^{df}+\mu_7\cdot \eta^{ac}\eta^{be}\eta^{df}\\
 \end{alignedat}
-\end{align}
+\end{align}\label{LorentzGR2}
 \begin{align}
 \begin{alignedat}{2}
 \boldsymbol{a^{ABpCq}}&: \ \ \ & a^{abcdpefq}  &= \nu_{14}\cdot\eta^{ab}\eta^{cd}\eta^{pe}\eta^{fq}+\nu_{15}\cdot\eta^{ab}\eta^{cd}\eta^{pq}\eta^{ef}
