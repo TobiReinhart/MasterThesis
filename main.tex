@@ -2303,20 +2303,45 @@ Inserting this into $\mathcal{P}_{GR}^{abcd}$ and contracting again against $k_a
 \begin{aligned}
     \mathcal{P}_{GR} &= a \cdot  \eta(k) \cdot \left [\eta(k) + H \cdot \eta(k)  -
     2 \cdot  \eta(k) H(k) \right ] + \mathcal{O}(2)\\
-    &= a \cdot (1 + H) \cdot (\eta(k) - H(k)) \cdot (\eta(k) -H(k)) + \mathcal{O}(2) \\
+    &= a \cdot (1 + H) \cdot (\eta(k) - H(k))^2 + \mathcal{O}(2) \\
     &= -\mathrm{det}\left (I^A_{pq}v_A \right ) \cdot (v^{-1})^{ab} \cdot (v^{-1})^{cd}k_ak_bk_ck_d +  \mathcal{O}(2).
 \end{aligned}
 \end{align}
-where  $H:=\eta^{ab} I^A_{ab} H_{A}$ and $H(k) := \eta^{ap} \eta^{bq} I_{pq}^A H_A k_a k_b$ and $\eta(k) := \eta^{ab}k_a k_p$, $\mathrm{det}\left (I^A_{pq}v_A \right )$ being understood as taking the $4\times4$ determinant of the matrix representation of $\left (I^A_{pq}v_A \right )$  and $(v^{-1})^{ab}$ being the corresponding matrix inverse. Taking a section $g_{ab} = I_{ab}^A \in \Gamma(F_{GR})$ and the corresponding inverse metric $g^{ab} = g^A J^{ab}_A \in \Gamma(F_{GR}^{\ast})$ with the usual relation $g^{ab}g_{bc}= \delta^a_c$ and evalutating the thus obtained most general expression for the principal polynomial we find
+where  $H:=\eta^{ab} I^A_{ab} H_{A}$ and $H(k) := \eta^{ap} \eta^{bq} I_{pq}^A H_A k_a k_b$ and $\eta(k) := \eta^{ab}k_a k_p$, $\mathrm{det}\left (I^A_{pq}v_A \right )$ being understood as taking the $4\times4$ determinant of the matrix representation of $\left (I^A_{pq}v_A \right )$  and $(v^{-1})^{ab}$ being the corresponding matrix inverse. Taking a section $g \in \Gamma(F_{GR})$ and the corresponding inverse metric $g^{-1} \in \Gamma(F_{GR}^{\ast})$ with $(g^{-1})^{ab}=:g^{ab}$ and the usual relation $g^{ab}g_{bc}= \delta^a_c$ and evaluatting the thus obtained most general expression for the principal polynomial we find
 \begin{align}
     \mathcal{P}_{GR} (g_{ab}) = -a \cdot \mathrm{det}(g) g^{ab} g^{cd} k_ak_bk_ck_d + \mathcal{O}(2).
 \end{align}
-Note in particular that the vanishing set of this principal polynomial is completely independent of the choice of the remaining parameter $a$. Thus the causal structure of the perturbatice metric gravity EOM is already uniquely fixed by requiring diffeomorphism invariance. Hence our construction procedure is finished. \\
+%check notation v vs g
+Note in particular that the vanishing set of this principal polynomial is completely independent of the choice of the remaining parameter $a$. Thus the causal structure of the perturbatice metric gravity EOM is already uniquely fixed by requiring diffeomorphism invariance.
+Furthermore one readily finds that the principal polynomial of the Klein-Gordon equation is simply given by 
+\begin{align}
+    \mathcal{P}_{KG} = \sqrt{-\mathrm{det} \left (I^A_{pq}v_A \right )} \cdot (v^{-1})^{ab} k_ak_b = (1 + H/2) \cdot \cdot (\eta(k) - H(k)) + \mathcal{O}(2).
+\end{align}
+Therefore the matter and gravitational polynomial $\mathcal{P}_{KG}$ and $\mathcal{P}_{GR}$ define the same vanishing set in linear order. To that end note that we can change the first factor of the two polynomials $(1+H)$ and $(1+H/2)$ respectively at wish by multiplying with the perturbative expansion of the following non vanishing density of weight $2n$:
+\begin{align}
+    f_{dens}(n) := \mathrm{det}\left (I^A_{pq}v_A \right )^n = 1 + nH + \mathcal{O}(2).
+\end{align}
+This obviously does not alter the vanishing set described by either one of the polynomials. Thus multiplying the gravitational polynomial by $f_{dens}(-1)$ and dividing by the prefactor $a$ and multiplying the matter polynomial by $f_{dens}(-1/2)$ we find
+\begin{align}
+    \mathcal{P}_{GR} = (\eta(k)-H(k))^2 = \mathcal{P}_{KG}^2.
+\end{align}
+Of course these two polynomials now define the same vanishing sets.
+Hence the two theories are causal compatible and our construction procedure is finished. We are left with a perturbative Lagrangian that contains 2 undetermined constants describing a 2 parameter family of perturbative metric gravity theories.  \\
 
-%check signs !!
-%
-%
-%
+As mentioned earlier in this section Lovelock has shown that the only diffeomorphism invariant metric theory of gravity with second order EOM is provided by the \textit{\textbf{Einstein-Hilbert}} Lagrangian (\cite{Lovelock1969}, \cite{doi:10.1063/1.1665613}, \cite{doi:10.1063/1.1666069}) that in terms of $g \in \Gamma(F_{GR})$ reads:
+\begin{align}
+    \mathcal{L}_{EH} := \kappa \sqrt{-g}  \left( R + \Lambda \right ),
+\end{align}
+where $R$ is the Ricci scalar obtained from $g$ and the two constant parameters $\kappa$ and $\Lambda$ are called gravitational constant and cosmological constant respectively. In order to compare the computed gravitational Lagrangian with the Einstein-Hilbert Lagrangian we now take $\mathcal{L}_{EH}$ as bundle map on $J^2F_{GR}$ and expand it around the chosen eta-induced expansion point $\eta_A$. As computing this expansion is quite laborious we start by only calculating the linear order of the Einstein-Hilbert Lagrangian. We get:
+\begin{align}
+        \mathcal{L}_{EH} = \kappa \cdot (\eta^{ap}\eta^{bq} - \eta^{ab}\eta^{pq}) I^{A}_{ab}I^{I}_{pq} H_{AI} + \kappa \Lambda \cdot (1 + 1/2 \cdot \eta^{ab} I_{ab}^A H_A) + \mathcal{O}(2).
+\end{align}
+On the other hand inserting the relations between the prefactors of the expansion coefficients (\ref{GRSol}) in their explicit Lorentz invariant expressions with the appropriate multiplicities from the factor free symmetrizations into perturbative metric gravity Lagrangian we get:
+\begin{align}
+    \mathcal{L}_{GR,per} = \mu_1(1 + 1/2 \cdot \eta^{ab} I_{ab}^A H_A) + 8 \nu_1 \left(  \eta^{ab}\eta^{pq} - \eta^{ap}\eta^{bq}  \right )I^{A}_{ab}I^{I}_{pq} H_{AI} + \mathcal{O}(2).
+\end{align}
+Thus we see that the obtained expansion for $\mathcal{L}_{GR,per}$ up to linear order precisely yields the Einstein-Hilbert Lagrangian with gravitational constant $\kappa = -8 \nu_1$ and cosmological constant $\Lambda = -1/8 \cdot \frac{\mu_1}{\nu_1}$. Carefully proceeding with the comparison one then finds that also in second and third order the computed perturbative Lagrangian exactly coincides with the expansion of $\mathcal{L}_{EH}$.  
+%make this more precise
 \section{Perturbative Area Metric Gravity around a Flat Minkowski Induced Spacetime}
 
 
