@@ -122,7 +122,7 @@ Fixing start and end configuration and velocity of the system for all curves in 
 Once the transition from standard particle mechanics to field theories is made the system is no longer described by curves in some finite dimensional configuration space representing the systems configuration at each parameter time, but by the values a given field attains at different spacetime points. Hence instead of curves one deals with sections of some bundle $(F,\pi_F,M)$ over the 4-dimensional spacetime manifold $M$. The notion of adjoining velocities to a curve is replaced by adjoining derivatives to a section. The appropriate setting for this procedure is the \textit{\textbf{jet bundle}} over $F$. Just as the tangent bundle $TQ$ is obtained from a coordinate independent description of derivatives of curves, the jet bundle over $F$ is constructed by a coordinate independent description of derivatives of sections of $F$. As before the Lagrangian is then simply a function on this jet bundle. 
 In the following we outline how these ideas can be cast into precise mathematical language. \\
 
-We follow \cite{1998physics...1019G} to some extend. Further information concerning the geometry of jet bundles can be found in \cite{saunders_1989} and \cite{seiler2009involution}. Many details regarding the involved standard differential geometry are collected in \cite{doi:10.1142/3867}. Let $M$ be an oriented 4-dimensional manifold that represents spacetime. We restrict our attention to tensor fields over $M$. Such fields are \textit{\textbf{sections}} of a bundle $(F,\pi_F,M)$, i.e. smooth maps $G : M \rightarrow F $ that satisfy $\pi_F \circ G = \mathrm{id}_M$. In the following we will refer to the bundle $F$ as $\textit{\textbf{field bundle}}$.  As we want to consider tensor fields the field bundle is required to be given by a vector sub bundle of some $T^m_n M$. We denote adapted coordinates\footnote{Recall that adapted coordinates $(x^m,v_A)$ on a fibre bundle $(F, \pi_F, M)$ are defined by the requirement that there exits a coordinate chart on $M$, $(y^m)$, s.t. $y^m = x^m \circ \pi_F$, and hence we denote the first $dim(M)$ coordinate functions of both charts with the same label. It should be clear from the context which coordinates are meant, those on $M$ or those on $F$.} on $F$ by $(x^m,v_A)$, where $A$ runs from $0$ to $n - 1$ with $n$ being the fibre dimension of $F$, i.e. $n := \pi_F^{-1}(p)$ for some $p \in M$. Note that as $F$ is assumed to be a vector bundle we can always chose adapted coordinates s.t. the $v_A$ are linear on the fibres. Details regarding this remark can be found in \cite{saunders_1989}. In the following we will only regard such adapted coordinates. The corresponding coordinate representation of sections is denoted by $G_A(x^m(p)) = v_A \circ G (p)$ where we will simply write $G_A$ most of the time. Hence writing $G_A$ we refer to the coordinate representation of a section, whereas $v_A$ simply denotes fibre coordinates on $F$. \\
+We follow \cite{1998physics...1019G} to some extend. Further information concerning the geometry of jet bundles can be found in \cite{saunders_1989} and \cite{seiler2009involution}. A more sophisticated treatment with the focus lying on the naturallity\footnote{Loosely speaking in the sense that certain constructions do not require further structure or additional choices than what is already provided.} of certain constructions that we are going to meet in the next chaptes can be found in \cite{kolar1993natural}. Many details regarding the involved standard differential geometry are concisely collected in \cite{doi:10.1142/3867}  Let $M$ be an oriented 4-dimensional manifold that represents spacetime. We restrict our attention to tensor fields over $M$. Such fields are \textit{\textbf{sections}} of a bundle $(F,\pi_F,M)$, i.e. smooth maps $G : M \rightarrow F $ that satisfy $\pi_F \circ G = \mathrm{id}_M$. In the following we will refer to the bundle $F$ as $\textit{\textbf{field bundle}}$.  As we want to consider tensor fields the field bundle is required to be given by a vector sub bundle of some $T^m_n M$. We denote adapted coordinates\footnote{Recall that adapted coordinates $(x^m,v_A)$ on a fibre bundle $(F, \pi_F, M)$ are defined by the requirement that there exits a coordinate chart on $M$, $(y^m)$, s.t. $y^m = x^m \circ \pi_F$, and hence we denote the first $dim(M)$ coordinate functions of both charts with the same label. It should be clear from the context which coordinates are meant, those on $M$ or those on $F$.} on $F$ by $(x^m,v_A)$, where $A$ runs from $0$ to $n - 1$ with $n$ being the fibre dimension of $F$, i.e. $n := \pi_F^{-1}(p)$ for some $p \in M$. Note that as $F$ is assumed to be a vector bundle we can always chose adapted coordinates s.t. the $v_A$ are linear on the fibres. Details regarding this remark can be found in \cite{saunders_1989}. In the following we will only regard such adapted coordinates. The corresponding coordinate representation of sections is denoted by $G_A(x^m(p)) = v_A \circ G (p)$ where we will simply write $G_A$ most of the time. Hence writing $G_A$ we refer to the coordinate representation of a section, whereas $v_A$ simply denotes fibre coordinates on $F$. \\
 %check coordinate expression 
 
 Given a field bundle $(F, \pi_F, M)$ we can define the corresponding $\textit{\textbf{dual field bundle}}$ $(F^{\ast}, \pi_{F^{\ast}},M)$ as its vector bundle dual. We quickly recall the definition of the vector bundle dual and the dual of a linear map.
@@ -223,26 +223,31 @@ In practise one can specify the coordinate expressions $I^{A a_1 ... a_m}_{b_1 .
     v^A := I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot  v^{b_1 ... b_n}_{a_1 ... a_m} .
     \end{aligned}
 \end{align}
-This approach can for instance be used if the field bundle is defined in terms of symmetries the tensor field has to satisfy. These symmetries can be expressed as equalities for the coordinates $v^{a_1 ... a_m}_{b_1 ... b_n}$. For instance considering a total symmetric tensor of rank $(0,3)$ the corresponding equations would read $v_{abc} = v_{acb} = v_{cab} = v_{cba} = v_{bac} = v_{bca}$. Equality under the present symmetries defines an equivalence relation on the set of the $4^{m+n}$ coordinate functions on $T^m_n M$. One then sorts the set of equivalence classes according to some ordering. With each coordinate function $v^{a_1 ... a_m}_{b_1 ... b_n}$ we further associate its multiplicity $\sigma(v^{a_1 ... a_m}_{b_1 ... b_n})$ as the number of elements in its equivalence class. Regarding the previous example we would get: $\sigma(v_{111})=1, \sigma(v_{112})=3, \sigma(v_{123})=6$ and so on. 
-
-Note that this works exactly the same for for antisymmetries, blocksymmetries or any other symmetry at hand.  Now one can define
+This approach can for instance be used if the field bundle is defined in terms of symmetries the tensor field has to satisfy. We use these symmetries to define an equivalence relation on the set of $4^{m+n}$ fibre coordinate functions $\left \{ v^{a_1 ... a_m}_{b_1 ... b_n} \ \vert \  a_1,...,a_m,b_1...b_n \in \{0,...,3 \} \right \}$ on $T^m_nM$. We call two such fibre coordinates $v^{a_1 ... a_m}_{b_1 ... b_n}$ and $v^{c_1 ... c_m}_{d_1 ... d_n}$ if once they are restricted to $F \subset T^m_nM$ they only differ by a sign:
+\begin{align}\label{equivCord}
+v^{a_1 ... a_m}_{b_1 ... b_n} \cong v^{c_1 ... c_m}_{d_1 ... d_n} : \iff \exists \epsilon \in \{-1,+1 \} : v^{a_1 ... a_m}_{b_1 ... b_n}\vert _F = \epsilon \cdot  v^{c_1 ... c_m}_{d_1 ... d_n}\vert_F.
+\end{align}
+Obviously removing all coordinate functions that restrict to identical zero on $F$ one then sorts the set of equivalence classes according to some ordering that can be specified at wish.  Note that the number of equivalence classes that we obtain in this way precisely corresponds to the fibre dimension of $F$. In the following we label the $A-th$ equivalence classes  starting from 0 by $[A]$. Next we select a representative out of each equivalence class.  The selection of a representative $v^{a_1 ... a_m}_{b_1 ... b_n}$ of a given equivalence class $[A]$ allows us to split this equivalence class into the subset $[A]_+$ containing those fibre coordinates that restrict to $+1 \times v^{a_1 ... a_m}_{b_1 ... b_n}$  on $F$ and the remaining class $[A]_-$ with thus according to (\ref{equivCord}) necessarily restricts to $-1 \times v^{a_1 ... a_m}_{b_1 ... b_n}$ on $F$.
+With each equivalence class $[A]$ we further associate its multiplicity $\sigma(A) = \vert [A] \vert$ which is simply given by the number of its elements.
+Now we can define
 \begin{align}\label{defI}
-    I^{A a_1 ... a_m}_{b_1 ... b_n} \begin{cases} = 1 \ \ \text{if $v^{a_1 ... a_m}_{b_1 ... b_n}$ is an element of the $A^{\text{th}}$ equivalence class counting from 0} \\
-                       = 0 \ \  \text{otherwise}.
+    I^{A a_1 ... a_m}_{b_1 ... b_n} = \begin{cases} +1 \ \text{if} \  v^{a_1 ... a_m}_{b_1 ... b_n} \in [A]_+ \\
+    -1 \ \text{if} \  v^{a_1 ... a_m}_{b_1 ... b_n} \in [A]_-  \\
+                       0 \  \text{otherwise}.
                             \end{cases}
 \end{align}
-%By doing so one ends up with coordinates functions on the field bundle such that $v_A$ is identified with the chart induced function $v^{a_1 ... a_m}_{b_1 ... b_n}$ that was chosen as representative of the $A^{\text{th}}$ equivalence class .
-$J^{b_1 ... b_n}_{A a_1 ... a_m}$ is then defined such that the pair of intertwiners satisfies the last condition in (\ref{interRel}), i.e. $J$ is chosen as left inverse of $I$. 
+$J^{b_1 ... b_n}_{A a_1 ... a_m}$ is then defined such that the pair of intertwiners satisfies the last condition in (\ref{interRel}), i.e. $J$ is chosen as left inverse of $I$. On readily finds that
 \begin{align}\label{defJ}
-    J^{b_1 ... b_n}_{A a_1 ... a_m} \begin{cases} = \frac{1}{\sigma(v^{a_1 ... a_m}_{b_1 ... b_n})} \ \  \text{if $v^{a_1 ... a_m}_{b_1 ... b_n}$ is an element of the $A^{\text{th}}$ equivalence class counting from 0}\\
-    =0  \ \ \text{otherwise}.
+    J^{b_1 ... b_n}_{A a_1 ... a_m} = \begin{cases}  +\frac{1}{\sigma(A)} \  \text{if} \  v^{a_1 ... a_m}_{b_1 ... b_n} \in [A]_+\\
+    -\frac{1}{\sigma(A)} \  \text{if} \  v^{a_1 ... a_m}_{b_1 ... b_n} \in [A]_- \\ 
+    0   \ \text{otherwise}.
     \end{cases}
 \end{align}
 Considering again the metric tensor as an example, we have $v_{ab} = v_{ba}$ as only symmetry of the $16$ coordinate functions on $T^0_2M$. We sort the equivalence classes as 
 \begin{align}
     \left[[v_{00}], [v_{01}], [v_{02}], [v_{03}], [v_{11}], [v_{12}], [v_{13}], [v_{22}], [v_{23}], [v_{33}]\right ].
 \end{align}
-Now we define the intertwiner $I$ in terms of the components of the following matrix: 
+Proceeding along the lines outlined above we now obtain the intertwiner $I$ in terms of the components of the following matrix: 
 \begin{equation}\label{interIMet}
 I^A_{ab} = \begin{bmatrix}
                 1 & & & & & & & & & \\
@@ -355,7 +360,7 @@ At this point however we run into similar troubles as before, when we tried to u
 
 We have specified $4^2\cdot n$ new coordinate functions $v_{Aij}$ to construct adapted coordinates on $J^2F$. Due to the commutativity of the partial derivatives that are involved in the definition the $v_{Aij}$ actually only constitute $4\cdot (4+1)/2 \cdot n = 10\cdot n$ independent functions. To cope with such problems the standard approach is the introduction of multiindices for higher order jet bundles. We will follow a slightly different approach by making use of the same intertwiner technique that we developed before. By doing so it is easier for us to relate the derivative coordinates $v_{Aij}$ and possible higher jet coordinates with partial derivatives of sections in standard physics notation. 
 
-We simply proceed along the same lines as before when we constructed a pair of intertwiners for the bundle of symmetric $(0,2)$ tensor fields, i.e. we provide a pair of intertwiners that relate any $10$ newly obtained indices that label second order derivative with the $16$ pairs of spacetime indices:
+We simply proceed along the same lines as before when we constructed a pair of intertwiners for the bundle of symmetric $(0,2)$ tensor fields, i.e. we provide a pair of intertwiners and thereby define $10$ new indices that label second order derivative in terms of the $16$ possible pairs of spacetime indices:
 \begin{align}
     \begin{aligned}
     v_{Aij} = I^I_{ij} v_{AI}\\
@@ -2336,7 +2341,7 @@ As mentioned earlier in this section Lovelock has shown that the only diffeomorp
     L_{EH} := \kappa \sqrt{\vert \mathrm{det} \left ( I^A_{pq}v_A \right ) \vert }  \left( R + \Lambda \right ),
 \end{align}
 where the two constant parameters $\kappa$ and $\Lambda$ are called gravitational constant and cosmological constant respectively. Here $R$ is the so called Ricci scalar. As we have mentioned earlier in this thesis one usually first constructs the Riemann tensor, the curvature two form of the unique metric compatible connection on the frame bundle over $M$. From this one obtaines the Ricci tensor by computing its trace. Finally one contracts the Ricci-tensor with the inverse metric to end up with the Ricci scalar $R$. From the point of view of classical field theory all the deeper connections to Riemanian geometry that are present the above procedure are however actually not necessary. The only important fact one really needs is that the Ricci scalar defines a function on $J^2F_{GR}$. To that end reacall that any non degenerate metric defines a smooth bundle isomorphism 
-\begin{align}
+\begin{align}\label{music}
 \begin{aligned}
 \flat : TM \longrightarrow T^{\ast}M\\
 X \longmapsto g(X,-) .
@@ -2376,7 +2381,67 @@ Thus we see that the obtained expansion for $\mathcal{L}_{GR,per}$ up to linear 
 %make this more precise
 \section{Perturbative Area Metric Gravity around a Flat Minkowski Induced Spacetime}
 Whereas the first example theory we constructed mainly served of testing our framework the perturbative theory of gravity that we are going to construct now really is intended to provide a viable alternative to GR in describing the geometry of our universe.  
-To that end we are going to construct a perturbative theory of gravity that is compatible with the most general linear theory of electrodynamics. 
+To that end we are going to construct a perturbative theory of gravity that is compatible with the most general linear theory of Electrodynamics. 
+
+We start by providing some results from the premetric treatement of Electrodynamics that can be found in (\cite{hehl2003foundations}, \cite{2006physics..10221H}, \cite{2004PhRvD..70j5022L} and also \cite{Hehl2005}). The basic idea of this premetric approach lies in describing all fields that are involved in the treatment of Electrodynamics without referring to an additional spacetime geometry. This is most easily illustrated using the calculus of exterior forms. One starts by introducing the 4 dimensional electric charge current density $J$. AS one wishes to integrate $J$ over 3 dimensional submanifold $\Omega$ of the spacetime $M$ to obtain the total electric charge current --- the total electrical current flowing through the boundary of $\Omega$ and the electric charge inside --- that is confined therein the current density is most naturally described as a three form $J \in \Gamma(\Lambda^3M)$. Demanding charge conservation in the sense that the integral of $J$ over any closed 3 dimensional submanifold of $M$ vanishes, by using the theorem of stokes on arrives at the requirement $dJ =0$. By de Rham's first theorem we then find that $J$ is necessarily given as exterior derivative of some 2 form $H \in \Gamma(\Lambda^2M)$:
+\begin{align}
+    J = d H.
+\end{align}
+From considerations involving the Lorentz force one similarly obtaines that the magnetic analogue to $J$ the field strength $F$ which plays the role of a 4 dimensional magnetic flux current density should be described by a 2 form $F \in \Gamma(\Lambda^2M)$. Its integral over a 2 dimensional submanifold $C \subset M$ describes the total magnetic flux current in terms of the total magnetic flux flowing through $C$ and the total magnetic flux current\footnote{Note that by this interpretation rewriting $F$ in terms of a 3+1 split of space time and the usual $E$ and $B$ field the magnetic flux is as usual given by $B$ whereas $E$ is now interpreted as the corresponding magnetic flux current (see \cite{2006physics..10221H}).} flowing through the boundary of $C$. The corresponding conversation law deduced in similar fashion as before then reads $dF =0$. Thus we conclude using again de Rham's first theorem the existance of a 1 form $A \in \Gamma(\Lambda^1M)$ that satisfies:
+\begin{align}
+    F = d A.
+\end{align}
+Finally one assumes that the two 2 forms $F$ and $H$ are related via a local and linear spacetime relation. Writing the 2 forms in terms of some chart induced basis $F = F_{ab} = \mathrm{d}x^a \wedge \mathrm{d}x^b$ and similar for $H$ specifying such a relation requires an additional $(0,4)$ tensorfield $G$ that obeys the following symmetries
+\begin{align}\label{areaSym}
+    G_{abcd} = -G_{bacd} = G_{cdab}.
+\end{align}
+Note that such a tensor field at each spacetime point $p\in M$ defines a symmetric inner product on the space of two forms $\Lambda^2_pM$. Consequently we will call such a tensor field an \textbf{\textit{area metric}} tensor field and denote the bundle of these area metric tensors by $F_{Area}$. Due to (\ref{areaSym}) one need $21$ independent component functions to uniquely specify such an area metric. Thus $F_{Area}$ has $21$ dimensional fibres.   In the following we restrict the bundle of such area metric tensor fields $G$ by requiring that the inner product they define is non degenerate for all $p$ in the sense that $G$ provides us with a bundle isomorphism 
+\begin{align}
+\flat_{Area} : \Lambda^2M \longrightarrow (\Lambda^2M)^{\ast} = A^2_0M,
+\end{align}
+that is defined exactly the same way as in the metric case (\ref{music}). Here $A^2_0M$ denotes the bundle of antisymmetric $(2,0)$ tensors. 
+The linear relation between $H$ and $F$ can now obtained by first using the isomorphism provided by the area metric to map the 2 form $F$ to an antisymmetric $(2,0)$ vectorfield and then applying the Hodge star operator\footnote{Details regarding the construction and properties of the Hodge start operator can be found in \cite{Abraham:1988:MTA:50877}} to again end up with a 2 form. In coordinates we therefore get:
+\begin{align}
+    H_{ab} = 1/2 \omega_G \epsilon_{abcd} G^{cdef} F_{ef},
+\end{align}
+Note that in absence of a (pseudo)-Riemanian metric the Hodge star operator requires the choice of a volume form (or equivalently a scalar density of weigh 1) $\omega_G$. One possible such choice is for instance given by $\omega_G = \epsilon^{abcd}G_{abcd}$ which obviously only works if this expression is nowhere vanishing.
+
+From considering the appropriate dimensions of $F$ and $H$ on finds that the only viable Lagrangian constructed from $F$ and $H$ is given by $F \wedge H$. Expressing this in terms of the constitutive relation between $H$ and $F$ we finally arrive at the Lagrangian of so called \textbf{\textit{General Linear Electrodynamics}} (in short GLED):
+\begin{align}
+    \mathcal{L}_{GLED} = \omega_G G^{abcd}F_{ab}F_{cd}\mathrm{d}^4x.
+\end{align}
+Note that this really defines the most general quadratic Lagrangian which thus generates linear EOM that one can specify in terms of the  electromagnetic field strength 2 form $F$. In particular this Lagrangian contains the standard Maxwell electrodynamics on a metric background for the special case $G^{abcd} = 2 g^{c^[a}g^{b]d}$ and $\omega_{G}=\sqrt{\vert -\mathrm{det}(g) \vert}$. Just as it was the case for the Klein-Gordon Lagrangian for the Lagrangian of GLED there exist now two possibilities: either one specifies the area metric tensor field by hand or --- and this is the route that we want to take --- one supplements the GLED matter theory with a suitable theory of area metric gravity that then allows one to determine the area metric by solving the corresponding area metric gravity EOM. 
+In the following we are going to construct the perturbative expansion of such a theory of are metric gravity by following our construction recipe (\ref{Algo2}).\\
+
+We start by constructing the pair of intertwiners for the area metric field bundle $F_{Area}$, i.e. the subbundle of $T^0_4M$. Recall from chapter 1 that given coordinates $(x^m)$ on $M$ one can obtain a pair of intertwiners for such a subbundle of $T^0_4M$ by dividing the set of the $4^4$ fibre coordinates of $T^0_4M$ $v_{abcd}=\frac{\partial}{\partial x^a} \otimes ... \otimes \frac{\partial}{\partial x^d}$ in equivalence classes defined by the symmetries (\ref{areaSym}) sorting them according to some order relation and then constructing the pair of intertwiners as described in (\ref{defI}) and (\ref{defJ}). We will use the following ordered set of $21$ equivalence classes $[v]$ that are specified in terms of their representative $v$:
+\begin{align}
+\begin{aligned}
+    \bigl [ [v_{0101}], [v_{0102}], [v_{0103}], [v_{0112}], [v_{0113}], [v_{0123}], [v_{0202}], [v_{0203}], [v_{0212}], [v_{0213}], [v_{0223}]\\
+    , [v_{0303}], [v_{0313}], [v_{0323}], [v_{1212}], [v_{1203}], [v_{1213}], [v_{1223}], [v_{1313}], [v_{1323}], [v_{2323}]  \bigr ].
+\end{aligned}
+\end{align}
+We label the equivalence classes by indices $A$ that now run from $0$ to $20$.
+There are now two possibilities for the individual classes: either we have an equivalence class with representative of the form $v_{ijij}$. Such a class then consists of the following 4 elements
+\begin{align}
+    [v_{ijij}] = \{ v_{ijij}, v_{jiji}, -v_{ijji}, -v_{jiij} \}.
+\end{align}
+Thus the multiplicity $\sigma$ is 4 for these classes.
+The other possibility is given when the representative of the equivalence class takes the general form $v_{ijkl}$ where $i<j$ or $i=j \land k<l$. The equivalence class consists then of 8 elements:
+\begin{align}
+    [v_{ijkl}] = \{v_{ijkl},v_{jikl}, v_{klij}, v_{lkji}, -v_{jikl}, -v_{ijlk}, -v_{lkij}, v_{klji} \}.
+\end{align}
+Such classes have multiplicity 8. The intertwiners $I^A_{abcd}$ and $J_A^{abcd}$ can now be constructed according to (\ref{defI}) and (\ref{defJ}). The explicit non vanishing components of these intertwiners are displayed in the appendix (\ref{AreaI}) and (\ref{AreaJ}). Using these we define the new adapted coordinate functions on $F_{Area}$ and its dual $F_{Area}^{\ast}$
+\begin{align}
+    \begin{aligned}
+    v_A = J_A^{abcd}v_{abcd} \\
+    v^A = I^A_{abcd}v^{abcd}.
+    \end{aligned}
+\end{align}
+As usual we are going to label the corresponding adapted coordinates on $J^2F_{GR}$ by $(x^m,v_A,v_{Ap},v_{AI})$. 
+Note that from the fact that the fibre dimension of $F_{Arae}$ equals $21$ whereas $F_{GR}$ only has fibre dimension $10$ one readily sees that the are metric indeed compromises a richer structure than the metric. It is however not a priory clear if this is also reflected in the corresponding theory of gravity. Recall that the metric allowed for $14$ functionally independent curvature scalars on $J^2F_{GR}$ and hence also for $14$ functionally independent diffeomorphism invariant Lagrangians. With theorem (\ref{GeneralSol}) at hand we can now imediately compute the corresponding quantity for the area metric. Doing so we find that there exist $179$ functionally independent diffeomorphism invariant Lagrangians that can be constructed from the area metric and its first two derivatives. Thus in general we expect the perturbative theory of area metric gravity to contain more undetermined parameters than the gravitational and cosmological constant that we obtained for the metric case.
+
+
+Next we are going to chose the $\eta$-induced expansion point $(N_{AI}) = (x_0^m, N_A, 0,0)$ to be provided by $N_A := 2 \eta_{c[a} \eta_{b]d} - \epsilon_{abcd}$. Not that assuming that $\omega_G(N_A) = const \neq 0$ inserting this into $\mathcal{L}_{GLED}$ one really obtains the Lagrangian of standard Maxwell Electrodynamics on a flat Minkowskian background. Thus expanding the to-be-constructed Lagrangian of area metric gravity around $(N_{AI})$ serves the purpose of interpreting the result as perturbative theory around a flat spacetime. 
 
 
 \appendix
@@ -2384,7 +2449,6 @@ To that end we are going to construct a perturbative theory of gravity that is c
 \section{SparseTensor: Sparse Tensor Calculus for Multiple Abstract Indices}
 \section{LorentzGenerator: Basis of Lorentz Invariant Tensors with given Valence and Symmetry}\label{LorentzGen}
 
-%really necessary ??
 \chapter{Perturbative Lagrangians}
 \dictum{
 Here we display the additional results from the two exemplary applications of the developed framework for constructing perturbative diffeomorphism invariant theories of gravity causal compatible with a given matter theory.
@@ -2475,14 +2539,306 @@ From inserting these expansion coefficients into the perturbative equivariance e
 \nu_{{47}} &= 0  &   &   &    & 
 \end{alignedat}
 \end{align}
-Inserting these into the expression for the perturbative Lagrangian (\ref{LGR}) yields then:
-\begin{align}
-    \begin{aligned}
-    L_{GR,per}
-    \end{aligned}
-\end{align}
-\section{2nd Order Area Metric Gravity}
 
+\section{2nd Order Area Metric Gravity}
+Following along the lines prescribed in (\ref{defI}) and (\ref{defJ}) we get the following non vanishing components for the $\boldsymbol{I^A_{abcd}}$ intertwiner on $F_{Area}$:
+\begin{align}\label{AreaI}
+    \begin{alignedat}{5}
+   I^{0}_{0101} &= 1,   &  \hspace{1cm} 
+I^{0}_{0110} &= -1,   &  \hspace{1cm} 
+I^{0}_{1001} &= -1,     &  \hspace{1cm} 
+I^{0}_{1010} &= 1,   &  \hspace{1cm} 
+I^{1}_{0102} &= 1,   \\  
+I^{1}_{0120} &= -1,       &
+I^{1}_{0201} &= 1,   &  
+I^{1}_{0210} &= -1,   &  
+I^{1}_{1002} &= -1,       &
+I^{1}_{1020} &= 1,   \\
+I^{1}_{2001} &= -1,   &  
+I^{1}_{2010} &= 1,       &
+I^{2}_{0103} &= 1,   &  
+I^{2}_{0130} &= -1,   &  
+I^{2}_{0301} &= 1,       \\
+I^{2}_{0310} &= -1,   &  
+I^{2}_{1003} &= -1,   &  
+I^{2}_{1030} &= 1,       &
+I^{2}_{3001} &= -1,   &  
+I^{2}_{3010} &= 1,  \\  
+I^{3}_{0112} &= 1,       &
+I^{3}_{0121} &= -1,   &  
+I^{3}_{1012} &= -1,   &  
+I^{3}_{1021} &= 1,       &
+I^{3}_{1201} &= 1,   \\  
+I^{3}_{1210} &= -1,   &  
+I^{3}_{2101} &= -1,       &
+I^{3}_{2110} &= 1,   &  
+I^{4}_{0113} &= 1,   &  
+I^{4}_{0131} &= -1,       \\
+I^{4}_{1013} &= -1,   &  
+I^{4}_{1031} &= 1,   &  
+I^{4}_{1301} &= 1,       &
+I^{4}_{1310} &= -1,   &  
+I^{4}_{3101} &= -1,   \\  
+I^{4}_{3110} &= 1,       &
+I^{5}_{0123} &= 1,   &  
+I^{5}_{0132} &= -1,   &  
+I^{5}_{1023} &= -1,       &
+I^{5}_{1032} &= 1,   \\  
+I^{5}_{2301} &= 1,   &  
+I^{5}_{2310} &= -1,       &
+I^{5}_{3201} &= -1,   &  
+I^{5}_{3210} &= 1,   &  
+I^{6}_{0202} &= 1,       \\
+I^{6}_{0220} &= -1,   &  
+I^{6}_{2002} &= -1,   &  
+I^{6}_{2020} &= 1,       &
+I^{7}_{0203} &= 1,   &  
+I^{7}_{0230} &= -1,   \\  
+I^{7}_{0302} &= 1,       &
+I^{7}_{0320} &= -1,   &  
+I^{7}_{2003} &= -1,   &  
+I^{7}_{2030} &= 1,       &
+I^{7}_{3002} &= -1,   \\  
+I^{7}_{3020} &= 1,   &  
+I^{8}_{0212} &= 1,       &
+I^{8}_{0221} &= -1,   &  
+I^{8}_{1202} &= 1,   &  
+I^{8}_{1220} &= -1,       \\
+I^{8}_{2012} &= -1,   &  
+I^{8}_{2021} &= 1,   &  
+I^{8}_{2102} &= -1,       &
+I^{8}_{2120} &= 1,   &  
+I^{9}_{0213} &= 1,   \\  
+I^{9}_{0231} &= -1,       &
+I^{9}_{1302} &= 1,   &  
+I^{9}_{1320} &= -1,   &  
+I^{9}_{2013} &= -1,       &
+I^{9}_{2031} &= 1,   \\  
+I^{9}_{3102} &= -1,   &  
+I^{9}_{3120} &= 1,       &
+I^{10}_{0223} &= 1,   &  
+I^{10}_{0232} &= -1,   &  
+I^{10}_{2023} &= -1,       \\
+I^{10}_{2032} &= 1,   &  
+I^{10}_{2302} &= 1,   &  
+I^{10}_{2320} &= -1,       &
+I^{10}_{3202} &= -1,   &  
+I^{10}_{3220} &= 1,   \\  
+I^{11}_{0303} &= 1,       &
+I^{11}_{0330} &= -1,   &  
+I^{11}_{3003} &= -1,   &  
+I^{11}_{3030} &= 1,       &
+I^{12}_{0312} &= 1,   \\  
+I^{12}_{0321} &= -1,   &  
+I^{12}_{1203} &= 1,       &
+I^{12}_{1230} &= -1,   &  
+I^{12}_{2103} &= -1,   &  
+I^{12}_{2130} &= 1,       \\
+I^{12}_{3012} &= -1,   &  
+I^{12}_{3021} &= 1,   &  
+I^{13}_{0313} &= 1,       &
+I^{13}_{0331} &= -1,   &  
+I^{13}_{1303} &= 1,   \\  
+I^{13}_{1330} &= -1,       &
+I^{13}_{3013} &= -1,   &  
+I^{13}_{3031} &= 1,   &  
+I^{13}_{3103} &= -1,       &
+I^{13}_{3130} &= 1,   \\  
+I^{14}_{0323} &= 1,   &  
+I^{14}_{0332} &= -1,       &
+I^{14}_{2303} &= 1,   &  
+I^{14}_{2330} &= -1,   &  
+I^{14}_{3023} &= -1,       \\
+I^{14}_{3032} &= 1,   &  
+I^{14}_{3203} &= -1,   &  
+I^{14}_{3230} &= 1,       &
+I^{15}_{1212} &= 1,   &  
+I^{15}_{1221} &= -1,   \\  
+I^{15}_{2112} &= -1,       &
+I^{15}_{2121} &= 1,   &  
+I^{16}_{1213} &= 1,   &  
+I^{16}_{1231} &= -1,       &
+I^{16}_{1312} &= 1,   \\  
+I^{16}_{1321} &= -1,   &  
+I^{16}_{2113} &= -1,       &
+I^{16}_{2131} &= 1,   &  
+I^{16}_{3112} &= -1,   &  
+I^{16}_{3121} &= 1,       \\
+I^{17}_{1223} &= 1,   &  
+I^{17}_{1232} &= -1,   &  
+I^{17}_{2123} &= -1,       &
+I^{17}_{2132} &= 1,   &  
+I^{17}_{2312} &= 1,   \\  
+I^{17}_{2321} &= -1,       &
+I^{17}_{3212} &= -1,   &  
+I^{17}_{3221} &= 1,   &  
+I^{18}_{1313} &= 1,       &
+I^{18}_{1331} &= -1,   \\  
+I^{18}_{3113} &= -1,   &  
+I^{18}_{3131} &= 1,       &
+I^{19}_{1323} &= 1,   &  
+I^{19}_{1332} &= -1,   &  
+I^{19}_{2313} &= 1,       \\
+I^{19}_{2331} &= -1,   &  
+I^{19}_{3123} &= -1,   &  
+I^{19}_{3132} &= 1,       &
+I^{19}_{3213} &= -1,   &  
+I^{19}_{3231} &= 1,   \\  
+I^{20}_{2323} &= 1,       &
+I^{20}_{2332} &= -1,   &  
+I^{20}_{3223} &= -1,   &  
+I^{20}_{3232} &= 1.   &  
+    \end{alignedat}
+\end{align}
+Further we get the following non zero components for the $\boldsymbol{J_A^{abcd}}$ intertwiner:
+\begin{align}\label{AreaJ}
+    \begin{alignedat}{5}
+    J_{0}^{0101} &= 1/4, & \hspace{1cm}
+J_{0}^{0110} &= -1/4, & \hspace{1cm}
+J_{0}^{1001} &= -1/4, & \hspace{1cm}
+J_{0}^{1010} &= 1/4, & \hspace{1cm}
+J_{1}^{0102} &= 1/8, \\ 
+J_{1}^{0120} &= -1/8, & 
+J_{1}^{0201} &= 1/8, & 
+J_{1}^{0210} &= -1/8, & 
+J_{1}^{1002} &= -1/8, & 
+J_{1}^{1020} &= 1/8, \\ 
+J_{1}^{2001} &= -1/8, & 
+J_{1}^{2010} &= 1/8, & 
+J_{2}^{0103} &= 1/8, & 
+J_{2}^{0130} &= -1/8, & 
+J_{2}^{0301} &= 1/8, \\ 
+J_{2}^{0310} &= -1/8, & 
+J_{2}^{1003} &= -1/8, & 
+J_{2}^{1030} &= 1/8, & 
+J_{2}^{3001} &= -1/8, & 
+J_{2}^{3010} &= 1/8, \\ 
+J_{3}^{0112} &= 1/8, & 
+J_{3}^{0121} &= -1/8, & 
+J_{3}^{1012} &= -1/8, & 
+J_{3}^{1021} &= 1/8, & 
+J_{3}^{1201} &= 1/8, \\ 
+J_{3}^{1210} &= -1/8, & 
+J_{3}^{2101} &= -1/8, & 
+J_{3}^{2110} &= 1/8, & 
+J_{4}^{0113} &= 1/8, & 
+J_{4}^{0131} &= -1/8, \\ 
+J_{4}^{1013} &= -1/8, & 
+J_{4}^{1031} &= 1/8, & 
+J_{4}^{1301} &= 1/8, & 
+J_{4}^{1310} &= -1/8, & 
+J_{4}^{3101} &= -1/8,  \\
+J_{4}^{3110} &= 1/8, & 
+J_{5}^{0123} &= 1/8, & 
+J_{5}^{0132} &= -1/8, & 
+J_{5}^{1023} &= -1/8, & 
+J_{5}^{1032} &= 1/8, \\ 
+J_{5}^{2301} &= 1/8, & 
+J_{5}^{2310} &= -1/8, & 
+J_{5}^{3201} &= -1/8, & 
+J_{5}^{3210} &= 1/8, & 
+J_{6}^{0202} &= 1/4, \\ 
+J_{6}^{0220} &= -1/4, & 
+J_{6}^{2002} &= -1/4, & 
+J_{6}^{2020} &= 1/4, & 
+J_{7}^{0203} &= 1/8, & 
+J_{7}^{0230} &= -1/8, \\ 
+J_{7}^{0302} &= 1/8, & 
+J_{7}^{0320} &= -1/8, & 
+J_{7}^{2003} &= -1/8, & 
+J_{7}^{2030} &= 1/8, & 
+J_{7}^{3002} &= -1/8, \\ 
+J_{7}^{3020} &= 1/8, & 
+J_{8}^{0212} &= 1/8, & 
+J_{8}^{0221} &= -1/8, & 
+J_{8}^{1202} &= 1/8, & 
+J_{8}^{1220} &= -1/8, \\ 
+J_{8}^{2012} &= -1/8, & 
+J_{8}^{2021} &= 1/8, & 
+J_{8}^{2102} &= -1/8, & 
+J_{8}^{2120} &= 1/8, & 
+J_{9}^{0213} &= 1/8, \\ 
+J_{9}^{0231} &= -1/8, & 
+J_{9}^{1302} &= 1/8, & 
+J_{9}^{1320} &= -1/8, & 
+J_{9}^{2013} &= -1/8, &
+J_{9}^{2031} &= 1/8, \\ 
+J_{9}^{3102} &= -1/8, & 
+J_{9}^{3120} &= 1/8, & 
+J_{10}^{0223} &= 1/8, & 
+J_{10}^{0232} &= -1/8, &
+J_{10}^{2023} &= -1/8, \\ 
+J_{10}^{2032} &= 1/8, & 
+J_{10}^{2302} &= 1/8, & 
+J_{10}^{2320} &= -1/8, & 
+J_{10}^{3202} &= -1/8, & 
+J_{10}^{3220} &= 1/8, \\ 
+J_{11}^{0303} &= 1/4, & 
+J_{11}^{0330} &= -1/4, & 
+J_{11}^{3003} &= -1/4, & 
+J_{11}^{3030} &= 1/4, & 
+J_{12}^{0312} &= 1/8, \\ 
+J_{12}^{0321} &= -1/8, & 
+J_{12}^{1203} &= 1/8, & 
+J_{12}^{1230} &= -1/8, & 
+J_{12}^{2103} &= -1/8, & 
+J_{12}^{2130} &= 1/8, \\ 
+J_{12}^{3012} &= -1/8, & 
+J_{12}^{3021} &= 1/8, & 
+J_{13}^{0313} &= 1/8, & 
+J_{13}^{0331} &= -1/8, & 
+J_{13}^{1303} &= 1/8, \\ 
+J_{13}^{1330} &= -1/8, & 
+J_{13}^{3013} &= -1/8, & 
+J_{13}^{3031} &= 1/8, & 
+J_{13}^{3103} &= -1/8, & 
+J_{13}^{3130} &= 1/8, \\ 
+J_{14}^{0323} &= 1/8, & 
+J_{14}^{0332} &= -1/8, & 
+J_{14}^{2303} &= 1/8, & 
+J_{14}^{2330} &= -1/8, & 
+J_{14}^{3023} &= -1/8, \\ 
+J_{14}^{3032} &= 1/8, & 
+J_{14}^{3203} &= -1/8, & 
+J_{14}^{3230} &= 1/8, & 
+J_{15}^{1212} &= 1/4, & 
+J_{15}^{1221} &= -1/4, \\ 
+J_{15}^{2112} &= -1/4, & 
+J_{15}^{2121} &= 1/4, & 
+J_{16}^{1213} &= 1/8, & 
+J_{16}^{1231} &= -1/8, & 
+J_{16}^{1312} &= 1/8, \\ 
+J_{16}^{1321} &= -1/8, & 
+J_{16}^{2113} &= -1/8, & 
+J_{16}^{2131} &= 1/8, & 
+J_{16}^{3112} &= -1/8, & 
+J_{16}^{3121} &= 1/8, \\ 
+J_{17}^{1223} &= 1/8, & 
+J_{17}^{1232} &= -1/8, & 
+J_{17}^{2123} &= -1/8, & 
+J_{17}^{2132} &= 1/8, & 
+J_{17}^{2312} &= 1/8, \\ 
+J_{17}^{2321} &= -1/8, & 
+J_{17}^{3212} &= -1/8, & 
+J_{17}^{3221} &= 1/8, & 
+J_{18}^{1313} &= 1/4, & 
+J_{18}^{1331} &= -1/4, \\ 
+J_{18}^{3113} &= -1/4, & 
+J_{18}^{3131} &= 1/4, & 
+J_{19}^{1323} &= 1/8, & 
+J_{19}^{1332} &= -1/8, & 
+J_{19}^{2313} &= 1/8, \\ 
+J_{19}^{2331} &= -1/8, & 
+J_{19}^{3123} &= -1/8, & 
+J_{19}^{3132} &= 1/8, & 
+J_{19}^{3213} &= -1/8, & 
+J_{19}^{3231} &= 1/8, \\ 
+J_{20}^{2323} &= 1/4, & 
+J_{20}^{2332} &= -1/4, & 
+J_{20}^{3223} &= -1/4, & 
+J_{20}^{3232} &= 1/4  
+    \end{alignedat}
+\end{align}
 %remove website links from bibliography
 %cite own paper
 \printbibliography
