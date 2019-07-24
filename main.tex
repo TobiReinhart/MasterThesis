@@ -2287,7 +2287,7 @@ Doing this the dimensions, i.e. number of arbitrary constants in the expansion c
 \end{tabular}
 \caption{Dimensions of the Lorentz invariant expansion coefficients for $\mathcal{L}_{GR,per}$.}\label{GRExp}
 \end{table}
-Here we separated the appearing constants in those that appear in front of terms including derivatives of the metric tensor field and those that appear in terms that do not include such. We adopt some terminology more present in QFT related subjects and refer to the former expressions as \textbf{\textit{kinetic terms}} ans the latter as \textit{\textbf{mass terms}}. The constants are then called \textit{\textbf{gravitational constants}} $(\nu_1,...)$ and \textit{\textbf{masses}} $(\mu_1,...)$ respectively.   \\
+Here we separated the appearing constants in those that appear in front of terms including derivatives of the metric tensor field and those that appear in terms that do not include such. We adopt some terminology more present in QFT related subjects and refer to the former expressions as \textbf{\textit{kinetic terms}} ans the latter as \textit{\textbf{mass terms}}. The constants are then called \textit{\textbf{kinetic parameters}} $(\nu_1,...)$ and \textit{\textbf{masses}} $(\mu_1,...)$ respectively.   \\
 
 According to algorithm (\ref{Algo2}) the next step consists of inserting these expansion coefficients and the previously computed expression for the constant tensor $C_{An}^{Bm}$ into the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}). These are then linear equations for the unknown constants $\{ \mu_1,...,\mu_7\}$ and $\{\nu_1,...,\nu_{47}\}$. The solution we get from doing this by using our computer program is displayed in equation (\ref{GRSol}) in the appendix. Note that the expansion (\ref{LGR}) in generall features $15.906$ undetermined constants in the $9$ expansion coefficients. The restriction to those that define the components of Lorentz invariant tensor that is demanded by the perturbative equivariance equations reduces these to $54$ constants. Solving the perturbative equivariance equations then further decreases the number of undetermined parametes to $2$. Also observe that in the solution there is no contribution from terms that involve $\epsilon^{abcd}$. In fact the constant parameters in front of expansion coefficients that contain the Levi-Civita symbol are the only ones that the equivariance equations set to zero. \\
 
@@ -2482,7 +2482,25 @@ The most general power series expansion of $\mathcal{L}_{Area,per} = L_{Area,per
     + a^{ABCI} H_A H_B H_{CI} 
     + \mathcal{O}(4),
 \end{align}
-where $(H_{AI}) = (x^m,H_A,H_{Ap},H_{AI}) = (v_{AI}) - (N_{AI})$. Note that although we use the same symbols as in $L_{GR,per}$ to denote $L_{Area,per}$ this Lagrangian defines a fundamentally different object. In particular the $21$ dimensional fibres of  $F_{Area}$ result in the fact that there will be more freedom in constructing the expansion coefficients of (\ref{LArea}). Again the perturbative equivariance equations demand that these expansion coefficients define the components of constant Lorentz invariant tensors. The corresponding expressions that we obtained by means of our computer program are displayed in 
+where $(H_{AI}) = (x^m,H_A,H_{Ap},H_{AI}) = (v_{AI}) - (N_{AI})$. Note that although we use the same symbols as in $L_{GR,per}$ to denote $L_{Area,per}$ this Lagrangian defines a fundamentally different object. In particular the $21$ dimensional fibres of  $F_{Area}$ result in the fact that there will be more freedom in constructing the expansion coefficients of (\ref{LArea}). Again the perturbative equivariance equations demand that these expansion coefficients define the components of constant Lorentz invariant tensors. The corresponding expressions that we obtained by means of our computer program are displayed in the appendix in (\ref{LorentzArea1}), (\ref{LorentzArea2}), (\ref{LorentzArea3}) and (\ref{LorentzArea4}). The dimensions and paramters of the individual expansion coefficients are displayed in table (\ref{AreaExp}).
+\begin{table}
+\centering 
+\begin{tabular}{c|c|c}
+    expansion coefficient & dimension & constants   \\
+    \hline 
+    $a_0$ & 1 & $\{\mu_1\}$ \\
+    $a^A$ & 2 & $\{\mu_2,\mu_3\}$ \\
+    $a^{AI}$ & 3 & $\{\nu_1,..., \nu_3\}$ \\
+    $a^{AB}$ & 6 & $\{\mu_4,..., \mu_9 \} $ \\
+    $a^{ApBq}$ & 15 & $\{\nu_4,...,\nu_{18}\}$ \\
+    $a^{ABI}$ & 16 & $\{ \nu_{19},...,\nu_{34} \}$ \\
+    $a^{ABC}$ & 15 & $\{ \mu_{10},...\mu_{24} \}$\\
+    $a^{ABpCq}$ & 110 & $\{\nu_{35},...,\nu_{144} \}$ \\
+    $a^{ABCI}$ & 72 & $\{ \nu_{145},...,\nu_{216}\}$
+\end{tabular}
+\caption{Dimensions of the Lorentz invariant expansion coefficients for $\mathcal{L}_{Area,per}$.}\label{AreaExp}
+\end{table}
+In total we thus get from solving this first implication of the perturbative equivariance equations, the Lorentz invariance of the expansion coefficients, $240$ yet undetermined constant parameters. These can be divided into $24$ masses and $216$ kinetic parameters. It is worth noting that the perturbative equaivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}) decouple into the two sub systems containing only the mass term and kinetic term coefficients respectively. Once we insert the obtained Lorentz invariant expression the former yields a linear system that is compromised of $13$ independent equations for the $24$ masses. The latter contains $174$ independent equations for the $216$ kinetic parameters. Thus in total we get $188$ indendent linear equations that therefore reduce the number of undetermined parameters that are contained in $\mathcal{L}_{Area,per}$ from $240$ to $52$. Indserting the     
 
 \appendix
 \chapter{Developed Computer Algebra Packages}
@@ -3117,6 +3135,467 @@ When computing the Lorentz invariant expansion coefficients that occur in (\ref{
 \end{align}
 %comment on prod of eps = eta
 
+Inserting these expressions in the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}) ans solving these with respect to the $52$ parameters:
+\begin{multline}
+\Bigl\{\,\  \mu_{{3}},\mu_{{5}},\mu_{{6}},\mu_{{7}},\mu_{{11}},\mu_{{13}}
+,\mu_{{14}},\mu_{{17}},\mu_{{19}},\mu_{{23}},\nu_{{7}},\nu_{{9}},\nu_{
+{11}},\nu_{{20}},\nu_{{41}},\nu_{{42}},\nu_{{48}},\nu_{{51}},\nu_{{55}
+},\nu_{{58}},\\\nu_{{59}},\nu_{{69}},\nu_{{77}},\nu_{{79}},\nu_{{80}},
+\nu_{{81}},\nu_{{83}},\nu_{{90}},\nu_{{108}},\nu_{{109}},\nu_{{119}},
+\nu_{{124}},\nu_{{127}},\nu_{{131}},\nu_{{132}},\nu_{{135}},\nu_{{137}
+},\\\nu_{{139}},\nu_{{149}},\nu_{{151}},\nu_{{153}},\nu_{{155}},\nu_{{
+160}},\nu_{{164}},\nu_{{165}},\nu_{{175}},\nu_{{178}},\nu_{{181}},\nu_
+{{194}},\nu_{{202}},\nu_{{204}},\nu_{{206}} \,\  \Bigr\}
+\end{multline}
+We get the following expressions for the remaining $188$ parameters in terms of these:
+\begin{align}\label{AreaSol1}
+    \begin{aligned}
+\mu_{{1}}&=-1536\,\mu_{{5}}-3072\,\mu_{{6}}-1536\,\mu_{{7}}-
+192\,\mu_{{3}}\\
+\\
+\mu_{{2}}&=-16\,\mu_{{5}}-32\,\mu_{{6}}-16\,\mu_{{7}},\\
+\\
+\mu_{{4}}&=-1/4\,\mu_{{5}}-1/3\,\mu_{{6}}+1/12\,\mu_{{7}}, \\
+\\
+\mu_{{8}}&=8\,
+\mu_{{19}}+1/6\,\mu_{{7}}-1/6\,\mu_{{6}}+8\,\mu_{{23}}-1/24\,\mu_{{5}}
+-4\,\mu_{{11}}-14/3\,\mu_{{14}}, \\
+\\
+\mu_{{9}}&=-24\,\mu_{{23}}+1/8\,\mu_{{5
+}}+12\,\mu_{{11}}+14\,\mu_{{14}}-24\,\mu_{{19}}, \\
+\\
+\mu_{{10}}&=-{\frac {5
+\,\mu_{{11}}}{36}}-{\frac {\mu_{{6}}}{864}}+{\frac {\mu_{{7}}}{864}}+1
+/12\,\mu_{{13}}-{\frac {\mu_{{14}}}{216}}+1/36\,\mu_{{17}}+{\frac {\mu
+_{{5}}}{1728}}, \\
+\\
+\mu_{{12}}&=1/48\,\mu_{{6}}-{\frac {\mu_{{7}}}{192}}-1/2
+\,\mu_{{11}}-1/2\,\mu_{{13}}-1/2\,\mu_{{14}}, \\
+\\
+\mu_{{15}}&=-\mu_{{14}},\\
+\\
+\mu_{{16}}&=-{\frac {\mu_{{5}}}{96}}-1/6\,\mu_{{14}}-1/24\,\mu_{{6}}-1/
+48\,\mu_{{7}}-1/2\,\mu_{{17}}, \\
+\\
+\mu_{{18}}&=-{\frac {\mu_{{6}}}{288}}-{
+\frac {\mu_{{7}}}{2304}}+1/8\,\mu_{{13}}-{\frac {\mu_{{14}}}{72}}-1/12
+\,\mu_{{19}}-{\frac {\mu_{{5}}}{1152}}, \\
+\\
+\mu_{{20}}&=-{\frac {17\,\mu_{{7
+}}}{3456}}-1/12\,\mu_{{13}}-1/36\,\mu_{{17}}+{\frac {7\,\mu_{{6}}}{
+1728}}-{\frac {7\,\mu_{{19}}}{12}}-{\frac {7\,\mu_{{23}}}{36}}+{\frac 
+{7\,\mu_{{5}}}{6912}}+{\frac {7\,\mu_{{11}}}{72}}+{\frac {49\,\mu_{{14
+}}}{432}},
+\end{aligned}
+\end{align}
+\begin{align}\label{AreaSol2}
+\begin{aligned}
+\mu_{{21}}&={\frac {\mu_{{6}}}{432}}-{\frac {\mu_{{7}}}{1728}
+}-1/3\,\mu_{{19}}+1/6\,\mu_{{13}}+1/18\,\mu_{{17}}-1/9\,\mu_{{23}}+{
+\frac {\mu_{{5}}}{1728}}+1/18\,\mu_{{11}}+{\frac {7\,\mu_{{14}}}{108}},\\
+\\
+\mu_{{22}}&={\frac {\mu_{{5}}}{192}}+1/4\,\mu_{{11}}+1/3\,\mu_{{14}}+{
+\frac {\mu_{{6}}}{96}}+{\frac {\mu_{{7}}}{192}}-1/4\,\mu_{{23}}-1/2\,
+\mu_{{19}}+1/8\,\mu_{{17}}, \\
+\\
+\mu_{{24}}&=-{\frac {\mu_{{5}}}{128}}-3/4\,
+\mu_{{11}}-{\frac {7\,\mu_{{14}}}{8}}+3/2\,\mu_{{19}}+1/2\,\mu_{{23}},\\
+\\
+\nu_{{1}}&=-64\,\nu_{{83}}-32\,\nu_{{90}}-48\,\nu_{{59}}+2\,\nu_{{9}}-
+48\,\nu_{{48}}-16\,\nu_{{55}}-48\,\nu_{{58}}-1/2\,\nu_{{7}}, \\
+\\
+\nu_{{2}}&=
+4\,\nu_{{7}}-16\,\nu_{{9}}, \\
+\\
+\nu_{{3}}&=3/4\,\nu_{{7}}-3\,\nu_{{9}}-32\,
+\nu_{{83}}-16\,\nu_{{90}}-24\,\nu_{{59}}-24\,\nu_{{48}}-8\,\nu_{{55}}-
+24\,\nu_{{58}}, \\
+\\
+\nu_{{4}}&=-8\,\nu_{{83}}-4\,\nu_{{90}}-6\,\nu_{{59}}+1/
+4\,\nu_{{9}}-6\,\nu_{{48}}-2\,\nu_{{55}}-6\,\nu_{{58}}+{\frac {7\,\nu_
+{{7}}}{16}}, \\
+\\
+\nu_{{5}}&={\frac {\nu_{{7}}}{96}}-8/3\,\nu_{{48}}-4/3\,\nu
+_{{55}}-8/3\,\nu_{{59}}+1/8\,\nu_{{11}}-4\,\nu_{{83}}-2\,\nu_{{90}}-8/
+3\,\nu_{{58}}+{\frac {5\,\nu_{{9}}}{24}}, \\
+\\
+\nu_{{6}}&=-3/4\,\nu_{{7}}, \\
+\\
+\nu_{{8}}&=16\,\nu_{{83}}+8\,\nu_{{90}}+8\,\nu_{{59}}+8\,\nu_{{48}}+8\,\nu
+_{{55}}+8\,\nu_{{58}}-1/2\,\nu_{{7}}, \\
+\\
+\nu_{{10}}&=-2\,\nu_{{7}}+4\,\nu_{
+{9}}+2\,\nu_{{11}}, \\
+\\
+\nu_{{12}}&=1/8\,\nu_{{7}}+2\,\nu_{{59}}+2\,\nu_{{48
+}}-2\,\nu_{{55}}+2\,\nu_{{58}}, \\
+\\
+\nu_{{13}}&={\frac {224\,\nu_{{108}}}{61
+}}+{\frac {3\,\nu_{{7}}}{32}}-{\frac {16\,\nu_{{124}}}{61}}-{\frac {48
+\,\nu_{{131}}}{61}}-{\frac {48\,\nu_{{132}}}{61}}+{\frac {80\,\nu_{{
+127}}}{61}}-3\,\nu_{{48}}-\nu_{{55}}-3\,\nu_{{59}}\\
+ &\hphantom{=} -{\frac {436\,\nu_{{
+83}}}{61}}+{\frac {70\,\nu_{{90}}}{61}}+{\frac {224\,\nu_{{109}}}{61}}
+-{\frac {1264\,\nu_{{137}}}{61}}-3\,\nu_{{58}}-3/8\,\nu_{{9}}, \\
+\\
+\nu_{{14
+}}&={\frac {152\,\nu_{{108}}}{61}}-{\frac {5\,\nu_{{7}}}{48}}+{\frac {
+24\,\nu_{{124}}}{61}}-{\frac {28\,\nu_{{131}}}{183}}-{\frac {28\,\nu_{
+{132}}}{183}}+{\frac {128\,\nu_{{127}}}{183}}-1/3\,\nu_{{48}}+1/3\,\nu
+_{{55}}\\
+ &\hphantom{=}-1/3\,\nu_{{59}}+1/8\,\nu_{{11}}-{\frac {356\,\nu_{{83}}}{183}}
++{\frac {356\,\nu_{{90}}}{183}}+{\frac {152\,\nu_{{109}}}{61}}-{\frac 
+{2120\,\nu_{{137}}}{183}}-1/3\,\nu_{{58}}+1/6\,\nu_{{9}}, \\
+\end{aligned}
+\end{align}
+\begin{align}\label{AreaSol3}
+\begin{aligned}
+\nu_{{15}}&=-{
+\frac {48\,\nu_{{124}}}{61}}+{\frac {672\,\nu_{{109}}}{61}}-{\frac {
+3792\,\nu_{{137}}}{61}}+{\frac {240\,\nu_{{127}}}{61}}+{\frac {672\,
+\nu_{{108}}}{61}}-{\frac {144\,\nu_{{132}}}{61}}\\
+ &\hphantom{=}-{\frac {144\,\nu_{{
+131}}}{61}}-{\frac {576\,\nu_{{83}}}{61}}+{\frac {576\,\nu_{{90}}}{61}
+}, \\
+\\
+\nu_{{16}}&=-{\frac {16\,\nu_{{124}}}{61}}+{\frac {224\,\nu_{{109}}}{
+61}}-{\frac {1264\,\nu_{{137}}}{61}}+{\frac {80\,\nu_{{127}}}{61}}+{
+\frac {224\,\nu_{{108}}}{61}}-{\frac {48\,\nu_{{132}}}{61}}\\
+ &\hphantom{=}-{\frac {48
+\,\nu_{{131}}}{61}}-{\frac {192\,\nu_{{83}}}{61}}+{\frac {192\,\nu_{{
+90}}}{61}}, \\
+\\
+\nu_{{17}}&={\frac {8\,\nu_{{124}}}{61}}-{\frac {112\,\nu_{{
+109}}}{61}}+{\frac {632\,\nu_{{137}}}{61}}-{\frac {40\,\nu_{{127}}}{61
+}}-{\frac {112\,\nu_{{108}}}{61}}+{\frac {24\,\nu_{{132}}}{61}}+{
+\frac {24\,\nu_{{131}}}{61}}+{\frac {96\,\nu_{{83}}}{61}}-{\frac {96\,
+\nu_{{90}}}{61}}, \\
+\\
+\nu_{{18}}&=-{\frac {232\,\nu_{{108}}}{61}}-{\frac {88
+\,\nu_{{124}}}{61}}-{\frac {20\,\nu_{{131}}}{61}}-{\frac {20\,\nu_{{
+132}}}{61}}-{\frac {48\,\nu_{{127}}}{61}}+{\frac {164\,\nu_{{83}}}{61}
+}-{\frac {164\,\nu_{{90}}}{61}}\\
+ &\hphantom{=}-{\frac {232\,\nu_{{109}}}{61}}+{\frac 
+{856\,\nu_{{137}}}{61}}, \\
+\\
+\nu_{{19}}&=-1/2\,\nu_{{20}}-4\,\nu_{{69}}-4/3
+\,\nu_{{80}}-4\,\nu_{{83}}+4/3\,\nu_{{51}}-4\,\nu_{{90}}+5/6\,\nu_{{59
+}}-{\frac {5\,\nu_{{9}}}{16}}-5/6\,\nu_{{48}}\\
+ &\hphantom{=}+1/6\,\nu_{{55}}+5/6\,\nu
+_{{58}}-{\frac {17\,\nu_{{7}}}{192}}, \\
+\\
+\nu_{{21}}&=4\,\nu_{{80}}+32\,\nu_
+{{83}}-4\,\nu_{{51}}+16\,\nu_{{90}}+8\,\nu_{{59}}+5/4\,\nu_{{9}}+4\,
+\nu_{{48}}+8\,\nu_{{58}}+3/8\,\nu_{{7}}, \\
+\\
+\nu_{{22}}&=-32\,\nu_{{83}}-16
+\,\nu_{{90}}-8\,\nu_{{59}}-\nu_{{9}}-8\,\nu_{{58}}-1/2\,\nu_{{7}}, \\
+\\
+\nu_
+{{23}}&=32\,\nu_{{83}}+16\,\nu_{{90}}+8\,\nu_{{59}}+8\,\nu_{{58}}+3/4\,
+\nu_{{7}}, \\
+\\
+\nu_{{24}}&=4\,\nu_{{83}}+2\,\nu_{{90}}+3\,\nu_{{59}}-1/8\,
+\nu_{{9}}+3\,\nu_{{48}}+\nu_{{55}}+3\,\nu_{{58}}+1/32\,\nu_{{7}},, \\
+\\
+\nu_{{25}}&=-4\,\nu_{{83}}+2\,\nu_{{90}}-4\,\nu_{{59}}-1/4\,\nu_{{9}}-4\,\nu
+_{{58}}+1/8\,\nu_{{7}}+8\,\nu_{{69}}, \\
+\\
+\nu_{{26}}&=32\,\nu_{{83}}+16\,\nu_{{90}}+8\,\nu_{{59}}+2\,\nu_{{9}}+8\,\nu_{{58}}+1/4\,\nu_{{7}}, \\
+\\
+\nu_{{
+27}}&=-16\,\nu_{{69}}-16\,\nu_{{83}}-16\,\nu_{{90}}+6\,\nu_{{59}}-\nu_{
+{9}}+6\,\nu_{{58}}-{\frac {9\,\nu_{{7}}}{16}}-4\,\nu_{{80}}+4\,\nu_{{
+51}}+2\,\nu_{{48}}+2\,\nu_{{55}}, \\
+\\
+\nu_{{28}}&=-{\frac {29\,\nu_{{108}}}{61}}-2\,\nu_{{69}}-{\frac {11\,\nu_{{7}}}{768}}-{\frac {127\,\nu_{{124}}}{366}}+{\frac {28\,\nu_{{131}}}{61}}+{\frac {51\,\nu_{{132}}}{244}}-{\frac {11\,\nu_{{127}}}{732}}+\nu_{{79}}+1/2\,\nu_{{51}}+{\frac {19\,\nu_{{48}}}{24}}\\
+ &\hphantom{=}+{\frac {13\,\nu_{{55}}}{24}}+{\frac {43\,\nu_{{59}}}{24}}-1/6\,\nu_{{80}}+{\frac {917\,\nu_{{83}}}{732}}-{\frac {92\,\nu_
+{{90}}}{183}}+{\frac {3\,\nu_{{109}}}{122}}+{\frac {153\,\nu_{{137}}}{
+122}}-1/4\,\nu_{{20}}+{\frac {43\,\nu_{{58}}}{24}}-{\frac {7\,\nu_{{9}
+}}{64}},
+\end{aligned}
+\end{align}
+\begin{align}\label{AreaSol4}
+\begin{aligned}
+\nu_{{29}}&=1/2\,\nu_{{20}}+{\frac {16\,\nu_{{124}}}{61}}+{
+\frac {304\,\nu_{{109}}}{183}}-{\frac {444\,\nu_{{137}}}{61}}+{\frac {
+4\,\nu_{{127}}}{183}}+{\frac {304\,\nu_{{108}}}{183}}-{\frac {100\,\nu
+_{{132}}}{183}}-{\frac {100\,\nu_{{131}}}{183}}\\
+ &\hphantom{=}-{\frac {1132\,\nu_{{83
+}}}{183}}-{\frac {332\,\nu_{{90}}}{183}}-4/3\,\nu_{{59}}-4/3\,\nu_{{58
+}}-1/8\,\nu_{{7}}, \\
+\\
+\nu_{{30}}&={\frac {174\,\nu_{{108}}}{61}}+{\frac {5
+\,\nu_{{7}}}{128}}+{\frac {127\,\nu_{{124}}}{61}}-{\frac {168\,\nu_{{
+131}}}{61}}-{\frac {153\,\nu_{{132}}}{122}}+{\frac {11\,\nu_{{127}}}{
+122}}-6\,\nu_{{79}}-\nu_{{51}}-9/4\,\nu_{{48}}\\
+ &\hphantom{=}-7/4\,\nu_{{55}}-5/4\,
+\nu_{{59}}-\nu_{{80}}+{\frac {59\,\nu_{{83}}}{122}}+{\frac {62\,\nu_{{
+90}}}{61}}-{\frac {9\,\nu_{{109}}}{61}}-{\frac {459\,\nu_{{137}}}{61}}
+-5/4\,\nu_{{58}}+{\frac {7\,\nu_{{9}}}{32}}, \\
+\\
+\nu_{{31}}&=-{\frac {48\,
+\nu_{{124}}}{61}}-{\frac {304\,\nu_{{109}}}{61}}+{\frac {1332\,\nu_{{
+137}}}{61}}-{\frac {4\,\nu_{{127}}}{61}}-{\frac {304\,\nu_{{108}}}{61}
+}+{\frac {100\,\nu_{{132}}}{61}}+{\frac {100\,\nu_{{131}}}{61}}\\
+ &\hphantom{=}+{
+\frac {156\,\nu_{{83}}}{61}}-{\frac {156\,\nu_{{90}}}{61}}, \\
+\\
+\nu_{{32}}&=
+3/16\,\nu_{{7}}-3/4\,\nu_{{9}}-8\,\nu_{{83}}-4\,\nu_{{90}}-6\,\nu_{{59
+}}-6\,\nu_{{48}}-2\,\nu_{{55}}-6\,\nu_{{58}}, \\
+\\
+\nu_{{33}}&=-{\frac {48\,
+\nu_{{124}}}{61}}-{\frac {304\,\nu_{{109}}}{61}}+{\frac {1332\,\nu_{{
+137}}}{61}}-{\frac {4\,\nu_{{127}}}{61}}-{\frac {304\,\nu_{{108}}}{61}
+}+{\frac {100\,\nu_{{132}}}{61}}+{\frac {100\,\nu_{{131}}}{61}}-{
+\frac {88\,\nu_{{83}}}{61}}\\
+ &\hphantom{=}-{\frac {278\,\nu_{{90}}}{61}}+{\frac {3\,
+\nu_{{7}}}{32}}-3/8\,\nu_{{9}}-3\,\nu_{{59}}-3\,\nu_{{48}}-\nu_{{55}}-
+3\,\nu_{{58}}, \\
+\\
+\nu_{{34}}&=-{\frac {11\,\nu_{{108}}}{183}}-2\,\nu_{{69}}
+-{\frac {65\,\nu_{{7}}}{768}}-{\frac {103\,\nu_{{124}}}{366}}+{\frac {
+59\,\nu_{{131}}}{183}}+{\frac {53\,\nu_{{132}}}{732}}-{\frac {7\,\nu_{
+{127}}}{732}}+\nu_{{79}}+1/2\,\nu_{{51}}\\
+ &\hphantom{=}+{\frac {25\,\nu_{{48}}}{24}}+
+5/8\,\nu_{{55}}+{\frac {11\,\nu_{{59}}}{8}}-1/6\,\nu_{{80}}-{\frac {
+947\,\nu_{{83}}}{732}}-{\frac {533\,\nu_{{90}}}{366}}+{\frac {161\,\nu
+_{{109}}}{366}}-{\frac {69\,\nu_{{137}}}{122}}\\
+ &\hphantom{=}+{\frac {11\,\nu_{{58}}
+}{8}}-{\frac {5\,\nu_{{9}}}{64}}, \\
+\\
+\nu_{{35}}&=-1/2\,\nu_{{69}}+{\frac {
+31\,\nu_{{7}}}{1536}}+1/6\,\nu_{{51}}+{\frac {67\,\nu_{{48}}}{48}}+1/
+48\,\nu_{{55}}+{\frac {65\,\nu_{{59}}}{48}}-1/6\,\nu_{{80}}-1/4\,\nu_{
+{90}}-3/16\,\nu_{{20}}\\
+ &\hphantom{=}-1/2\,\nu_{{41}}+\nu_{{42}}+{\frac {65\,\nu_{{58
+}}}{48}}-{\frac {21\,\nu_{{9}}}{128}}, \\
+\\
+\nu_{{36}}&=-{\frac {3\,\nu_{{20}
+}}{64}}-{\frac {305\,\nu_{{7}}}{55296}}-{\frac {2011\,\nu_{{9}}}{13824
+}}+{\frac {7\,\nu_{{11}}}{2304}}+1/4\,\nu_{{42}}+{\frac {1231\,\nu_{{
+48}}}{1728}}+{\frac {31\,\nu_{{51}}}{144}}+{\frac {593\,\nu_{{55}}}{
+1728}}+{\frac {841\,\nu_{{58}}}{1728}}\\
+ &\hphantom{=}+{\frac {841\,\nu_{{59}}}{1728}}
+-1/4\,\nu_{{69}}+{\frac {5\,\nu_{{77}}}{24}}+1/6\,\nu_{{79}}-{\frac {
+23\,\nu_{{80}}}{144}}+1/32\,\nu_{{81}}-{\frac {50597\,\nu_{{83}}}{
+52704}}-{\frac {61859\,\nu_{{90}}}{105408}}\\
+ &\hphantom{=}-{\frac {143\,\nu_{{108}}}{
+4392}}-{\frac {103\,\nu_{{109}}}{8784}}+{\frac {\nu_{{119}}}{72}}-{
+\frac {53\,\nu_{{124}}}{1098}}-{\frac {1249\,\nu_{{127}}}{52704}}+{
+\frac {2101\,\nu_{{131}}}{26352}}+{\frac {359\,\nu_{{132}}}{52704}}+1/
+8\,\nu_{{135}}\\
+ &\hphantom{=}-{\frac {295\,\nu_{{137}}}{6588}}+1/12\,\nu_{{139}},
+\end{aligned}
+\end{align}
+\begin{align}\label{AreaSol5}
+\begin{aligned}
+\nu_
+{{37}}&=-3/4\,\nu_{{48}}-1/2\,\nu_{{59}}+1/4\,\nu_{{83}}+1/8\,\nu_{{90}
+}+3/16\,\nu_{{20}}+3/4\,\nu_{{41}}-3/2\,\nu_{{42}}-1/2\,\nu_{{58}}+{
+\frac {3\,\nu_{{9}}}{32}}, \\
+\\
+\nu_{{38}}&=1/16\,\nu_{{7}}+\nu_{{48}}+\nu_{{
+59}}+\nu_{{83}}+1/2\,\nu_{{90}}-1/4\,\nu_{{20}}-\nu_{{41}}+2\,\nu_{{42
+}}+\nu_{{58}}-1/8\,\nu_{{9}}, \\
+\\
+\nu_{{39}}&={\frac {5\,\nu_{{20}}}{32}}-{
+\frac {193\,\nu_{{7}}}{1536}}+{\frac {293\,\nu_{{9}}}{384}}+{\frac {7
+\,\nu_{{11}}}{64}}-1/4\,\nu_{{41}}-\nu_{{42}}-{\frac {43\,\nu_{{48}}}{
+48}}-{\frac {7\,\nu_{{51}}}{12}}-{\frac {7\,\nu_{{55}}}{16}}-3/16\,\nu
+_{{58}}\\
+ &\hphantom{=}-3/16\,\nu_{{59}}+\nu_{{69}}-1/2\,\nu_{{77}}+{\frac {7\,\nu_{{
+80}}}{12}}-1/8\,\nu_{{81}}+{\frac {6679\,\nu_{{83}}}{1464}}+{\frac {
+8419\,\nu_{{90}}}{2928}}+{\frac {53\,\nu_{{108}}}{122}}+{\frac {45\,
+\nu_{{109}}}{244}}\\
+ &\hphantom{=}-1/2\,\nu_{{119}}+{\frac {79\,\nu_{{124}}}{122}}+{
+\frac {323\,\nu_{{127}}}{1464}}-{\frac {347\,\nu_{{131}}}{732}}-{
+\frac {877\,\nu_{{132}}}{1464}}-1/2\,\nu_{{135}}-{\frac {65\,\nu_{{137
+}}}{366}}-\nu_{{139}}, \\
+\\
+\nu_{{40}}&=1/32\,\nu_{{7}}+5/4\,\nu_{{48}}+\nu_{
+{59}}+1/4\,\nu_{{83}}+1/8\,\nu_{{90}}-1/8\,\nu_{{20}}-1/4\,\nu_{{41}}+
+1/2\,\nu_{{42}}+\nu_{{58}}-{\frac {3\,\nu_{{9}}}{32}}, \\
+\\
+\nu_{{43}}&=-{
+\frac {53\,\nu_{{108}}}{244}}+{\frac {227\,\nu_{{7}}}{3072}}-{\frac {
+79\,\nu_{{124}}}{244}}+1/4\,\nu_{{135}}+{\frac {347\,\nu_{{131}}}{1464
+}}+{\frac {877\,\nu_{{132}}}{2928}}-{\frac {323\,\nu_{{127}}}{2928}}-{
+\frac {19\,\nu_{{48}}}{96}}-{\frac {5\,\nu_{{55}}}{96}}\\
+ &\hphantom{=}-{\frac {43\,
+\nu_{{59}}}{96}}+1/16\,\nu_{{81}}-{\frac {7\,\nu_{{11}}}{128}}-{\frac 
+{2653\,\nu_{{83}}}{2928}}-{\frac {2929\,\nu_{{90}}}{5856}}-{\frac {45
+\,\nu_{{109}}}{488}}+{\frac {65\,\nu_{{137}}}{732}}+1/4\,\nu_{{41}}+1/
+4\,\nu_{{42}}\\
+ &\hphantom{=}-{\frac {43\,\nu_{{58}}}{96}}-{\frac {167\,\nu_{{9}}}{768
+}}+1/4\,\nu_{{119}}+1/2\,\nu_{{139}},\\
+\\
+\nu_{{44}}&=1/2\,\nu_{{80}}+4\,\nu
+_{{83}}-1/2\,\nu_{{51}}+2\,\nu_{{90}}-1/2\,\nu_{{59}}+{\frac {9\,\nu_{
+{9}}}{32}}-1/2\,\nu_{{48}}-1/2\,\nu_{{58}}+{\frac {3\,\nu_{{7}}}{64}},\\
+\\
+\nu_{{45}}&=-{\frac {4\,\nu_{{108}}}{183}}+{\frac {299\,\nu_{{7}}}{2304
+}}-{\frac {25\,\nu_{{124}}}{732}}-1/2\,\nu_{{135}}-{\frac {265\,\nu_{{
+131}}}{1098}}+{\frac {142\,\nu_{{132}}}{549}}+{\frac {35\,\nu_{{127}}
+}{1098}}-\nu_{{79}}-5/6\,\nu_{{51}}\\
+ &\hphantom{=}-{\frac {169\,\nu_{{48}}}{72}}-{
+\frac {107\,\nu_{{55}}}{72}}-{\frac {85\,\nu_{{59}}}{72}}+1/2\,\nu_{{
+80}}-{\frac {7\,\nu_{{11}}}{96}}-5/6\,\nu_{{77}}+{\frac {5101\,\nu_{{
+83}}}{1098}}+{\frac {2585\,\nu_{{90}}}{1098}}-{\frac {4\,\nu_{{109}}}{
+183}}\\
+ &\hphantom{=}+{\frac {785\,\nu_{{137}}}{2196}}-{\frac {85\,\nu_{{58}}}{72}}+{
+\frac {175\,\nu_{{9}}}{576}}+1/6\,\nu_{{119}}, \\
+\\
+\nu_{{46}}&=-4\,\nu_{{83}
+}-2\,\nu_{{90}}-\nu_{{59}}-\nu_{{48}}-\nu_{{58}}-1/8\,\nu_{{7}},\\
+\\
+\nu_{{
+47}}&=-2\,\nu_{{83}}-\nu_{{90}}-1/8\,\nu_{{9}}+1/2\,\nu_{{48}}, \\
+\\
+nu_{{49
+}}&=\nu_{{77}}-\nu_{{80}}-9\,\nu_{{83}}+\nu_{{51}}-9/2\,\nu_{{90}}-1/2
+\,\nu_{{59}}-5/8\,\nu_{{9}}+\nu_{{48}}+\nu_{{55}}-1/2\,\nu_{{58}}-1/16
+\,\nu_{{7}},  \\
+\\
+\nu_{{50}}&=4\,\nu_{{83}}+2\,\nu_{{90}}+1/4\,\nu_{{9}}-\nu_
+{{48}},
+\end{aligned}
+\end{align}
+\begin{align}\label{AreaSol6}
+\begin{aligned}
+\nu_{{52}}&=-\nu_{{79}}+\nu_{{83}}+1/2\,\nu_{{90}}-1/2\,\nu_{{59
+}}+1/8\,\nu_{{9}}-\nu_{{48}}-1/2\,\nu_{{55}}-1/2\,\nu_{{58}}, \\
+\\
+\nu_{{53}
+}&=-1/8\,\nu_{{11}}-1/2\,\nu_{{59}}-1/2\,\nu_{{9}}-1/2\,\nu_{{48}}+1/2
+\,\nu_{{55}}-1/2\,\nu_{{58}}+{\frac {7\,\nu_{{7}}}{32}}, \\
+\\
+\nu_{{54}}&=-1/
+16\,\nu_{{11}}-4\,\nu_{{83}}-2\,\nu_{{90}}-3/4\,\nu_{{59}}-3/8\,\nu_{{
+9}}+3/4\,\nu_{{48}}-1/4\,\nu_{{55}}-3/4\,\nu_{{58}}+{\frac {3\,\nu_{{7
+}}}{64}}, \\
+\\
+\nu_{{56}}&=2\,\nu_{{83}}-\nu_{{51}}+\nu_{{90}}-1/2\,\nu_{{55}
+}+{\frac {7\,\nu_{{7}}}{64}}-1/2\,\nu_{{59}}-1/2\,\nu_{{48}}-1/2\,\nu_
+{{58}}, \\
+\\
+\nu_{{57}}&=2\,\nu_{{51}}+2\,\nu_{{59}}+\nu_{{48}}+\nu_{{55}}+
+\nu_{{58}}-1/16\,\nu_{{7}}, \\
+\\
+\nu_{{60}}&=-\nu_{{77}}+\nu_{{80}}+8\,\nu_{{
+83}}-\nu_{{51}}+4\,\nu_{{90}}-1/2\,\nu_{{59}}+5/8\,\nu_{{9}}-2\,\nu_{{
+48}}-\nu_{{55}}-1/2\,\nu_{{58}}+1/16\,\nu_{{7}}, \\
+\\
+\nu_{{61}}&=-\nu_{{80}}
+-4\,\nu_{{83}}-2\,\nu_{{90}}-1/2\,\nu_{{59}}-{\frac {5\,\nu_{{9}}}{16}
+}+1/2\,\nu_{{48}}+1/2\,\nu_{{55}}-1/2\,\nu_{{58}}-1/32\,\nu_{{7}}, \\
+\\
+\nu_
+{{62}}&=\nu_{{59}}+1/4\,\nu_{{9}}+\nu_{{48}}-\nu_{{55}}+\nu_{{58}}-1/16
+\,\nu_{{7}}, \\
+\\
+\nu_{{63}}&=4\,\nu_{{83}}+2\,\nu_{{90}}+5/4\,\nu_{{59}}+3/8
+\,\nu_{{9}}-1/4\,\nu_{{48}}-1/4\,\nu_{{55}}+5/4\,\nu_{{58}}-{\frac {
+\nu_{{7}}}{64}}, \\
+\\
+\nu_{{64}}&=2\,\nu_{{83}}+\nu_{{90}}+1/2\,\nu_{{59}}-1/
+8\,\nu_{{9}}+1/2\,\nu_{{48}}+1/2\,\nu_{{55}}+1/2\,\nu_{{58}}+{\frac {3
+\,\nu_{{7}}}{32}}, \\
+\\
+\nu_{{65}}&=-1/2\,\nu_{{59}}-1/2\,\nu_{{48}}+1/2\,\nu
+_{{55}}-1/2\,\nu_{{58}}-1/32\,\nu_{{7}}, \\
+\\
+\nu_{{66}}&=\nu_{{79}}-1/2\,\nu
+_{{83}}-1/4\,\nu_{{90}}-5/8\,\nu_{{59}}-{\frac {\nu_{{9}}}{64}}-5/8\,
+\nu_{{48}}+1/8\,\nu_{{55}}-5/8\,\nu_{{58}}+{\frac {\nu_{{7}}}{256}},\\
+\\
+\nu_{{67}}&=\nu_{{80}}+2\,\nu_{{83}}+\nu_{{90}}+2\,\nu_{{59}}+1/8\,\nu_
+{{9}}+2\,\nu_{{48}}+2\,\nu_{{58}}, \\
+\\
+\nu_{{68}}&={\frac {11\,\nu_{{7}}}{
+1536}}-{\frac {5\,\nu_{{48}}}{24}}-1/24\,\nu_{{55}}-{\frac {5\,\nu_{{
+59}}}{24}}-{\frac {\nu_{{11}}}{128}}-1/4\,\nu_{{83}}-1/8\,\nu_{{90}}-{
+\frac {5\,\nu_{{58}}}{24}}-{\frac {5\,\nu_{{9}}}{384}}, \\
+\\
+\nu_{{70}}&=1/3
+\,\nu_{{135}}-{\frac {113\,\nu_{{124}}}{366}}-{\frac {65\,\nu_{{109}}
+}{366}}+{\frac {169\,\nu_{{137}}}{244}}-{\frac {15\,\nu_{{127}}}{122}}
+-{\frac {21\,\nu_{{108}}}{61}}+{\frac {9\,\nu_{{132}}}{122}}+{\frac {
+44\,\nu_{{131}}}{183}}\\
+ &\hphantom{=}+1/2\,\nu_{{79}}-{\frac {7\,\nu_{{77}}}{36}}-{
+\frac {\nu_{{11}}}{96}}+1/18\,\nu_{{80}}+{\frac {259\,\nu_{{83}}}{4392
+}}+1/9\,\nu_{{51}}-{\frac {3629\,\nu_{{90}}}{8784}}+{\frac {73\,\nu_{{
+59}}}{288}}-{\frac {91\,\nu_{{9}}}{2304}}\\
+ &\hphantom{=}+{\frac {97\,\nu_{{48}}}{288}
+}+{\frac {59\,\nu_{{55}}}{288}}+{\frac {73\,\nu_{{58}}}{288}}+{\frac {
+11\,\nu_{{7}}}{9216}}, 
+\end{aligned}
+\end{align}
+\begin{align}\label{AreaSol7}
+\begin{aligned}
+\nu_{{71}}&=\nu_{{83}}+\nu_{{51}}+1/2\,\nu_{{90}}
++\nu_{{55}}-1/32\,\nu_{{7}}, \\
+\\
+\nu_{{72}}&=-\nu_{{79}}+2\,\nu_{{83}}+\nu_{
+{90}}+1/8\,\nu_{{59}}+{\frac {9\,\nu_{{9}}}{64}}-3/8\,\nu_{{48}}-1/8\,
+\nu_{{55}}+1/8\,\nu_{{58}}-{\frac {\nu_{{7}}}{256}},\\
+\\
+\nu_{{73}}&=2\,\nu_
+{{83}}-\nu_{{51}}+\nu_{{90}}-\nu_{{55}}+1/8\,\nu_{{7}}, \\
+\\
+\nu_{{74}}&=2\,
+\nu_{{51}}+\nu_{{59}}+2\,\nu_{{55}}-1/8\,\nu_{{7}}, \\
+\\
+\nu_{{75}}&=\nu_{{58
+}}, \\
+\\
+\nu_{{76}}&=\nu_{{83}}+1/2\,\nu_{{90}}+\nu_{{59}}, \\
+\\
+\nu_{{78}}&=-\nu_{{
+80}}-5\,\nu_{{83}}-5/2\,\nu_{{90}}-\nu_{{59}}-3/8\,\nu_{{9}}-\nu_{{58}
+}, \\
+\\
+\nu_{{82}}&=1/2\,\nu_{{81}}+5/2\,\nu_{{83}}+2\,\nu_{{90}}+\nu_{{59}}+
+1/4\,\nu_{{9}}+\nu_{{58}}, \\
+\\
+\nu_{{84}}&=1/2\,\nu_{{81}}-5/2\,\nu_{{83}}-1
+/4\,\nu_{{90}}-1/2\,\nu_{{59}}-1/8\,\nu_{{9}}-1/2\,\nu_{{58}}, \\
+\\
+\nu_{{85
+}}&={\frac {227\,\nu_{{108}}}{366}}+{\frac {179\,\nu_{{7}}}{4608}}+{
+\frac {229\,\nu_{{124}}}{732}}-{\frac {13\,\nu_{{131}}}{2196}}+{\frac 
+{523\,\nu_{{132}}}{4392}}+{\frac {511\,\nu_{{127}}}{4392}}-1/2\,\nu_{{
+79}}-1/4\,\nu_{{51}}\\
+ &\hphantom{=}-{\frac {103\,\nu_{{48}}}{144}}-{\frac {65\,\nu_{{
+55}}}{144}}-{\frac {55\,\nu_{{59}}}{144}}+1/12\,\nu_{{80}}-1/48\,\nu_{
+{11}}-1/3\,\nu_{{77}}+{\frac {3251\,\nu_{{83}}}{4392}}+{\frac {1943\,
+\nu_{{90}}}{2196}}\\
+ &\hphantom{=}+{\frac {271\,\nu_{{109}}}{732}}-{\frac {2479\,\nu_{
+{137}}}{1098}}-{\frac {55\,\nu_{{58}}}{144}}+{\frac {73\,\nu_{{9}}}{
+1152}}+1/3\,\nu_{{119}}+\nu_{{139}}, \\
+\\
+\nu_{{86}}&=-\nu_{{81}}+4\,\nu_{{83
+}}+1/2\,\nu_{{90}}+\nu_{{59}}+1/2\,\nu_{{9}}+\nu_{{58}}-1/8\,\nu_{{7}},\\
+\\
+\nu_{{87}}&=-2\,\nu_{{69}}-{\frac {5\,\nu_{{7}}}{128}}+1/2\,\nu_{{51}}
++1/4\,\nu_{{48}}+1/4\,\nu_{{55}}+1/4\,\nu_{{59}}-1/2\,\nu_{{80}}-4\,
+\nu_{{83}}-2\,\nu_{{90}}\\
+ &\hphantom{=}+1/4\,\nu_{{58}}-{\frac {5\,\nu_{{9}}}{16}},\\
+\\
+\nu_{{88}}&=-1/6\,\nu_{{119}}-1/6\,\nu_{{135}}+{\frac {159\,\nu_{{124}}
+}{244}}+{\frac {23\,\nu_{{109}}}{61}}-{\frac {3827\,\nu_{{137}}}{2196}
+}+{\frac {235\,\nu_{{127}}}{1098}}+{\frac {130\,\nu_{{108}}}{183}}-{
+\frac {223\,\nu_{{132}}}{549}}\\
+ &\hphantom{=}-{\frac {263\,\nu_{{131}}}{1098}}+2/9\,
+\nu_{{77}}+1/16\,\nu_{{11}}-1/9\,\nu_{{80}}-{\frac {925\,\nu_{{83}}}{
+732}}+1/9\,\nu_{{51}}+{\frac {325\,\nu_{{90}}}{1464}}+{\frac {13\,\nu_
+{{59}}}{144}}+{\frac {41\,\nu_{{9}}}{1152}}\\
+ &\hphantom{=}+{\frac {49\,\nu_{{48}}}{
+144}}+{\frac {59\,\nu_{{55}}}{144}}+{\frac {13\,\nu_{{58}}}{144}}-{
+\frac {37\,\nu_{{7}}}{512}}, 
+\end{aligned}
+\end{align}
 \printbibliography
 
 \end{document}
