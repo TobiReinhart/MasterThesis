@@ -22,6 +22,13 @@
 
 \usepackage{tikz}
 
+\tikzset{every picture/.style=remember picture}
+
+\newcommand{\mathnode}[1]{%
+   \mathord{\tikz[baseline=(#1.base), inner sep = 0pt]{\node (#1) {$\scriptstyle{#1}$};}}}
+   
+
+
 \usepackage[utf8]{inputenc}
 
 \setcounter{MaxMatrixCols}{20}
@@ -2383,7 +2390,7 @@ Thus we see that the obtained expansion for $\mathcal{L}_{GR,per}$ up to linear 
 Whereas the first example theory we constructed mainly served of testing our framework the perturbative theory of gravity that we are going to construct now really is intended to provide a viable alternative to GR in describing the geometry of our universe.  
 To that end we are going to construct a perturbative theory of gravity that is compatible with the most general linear theory of Electrodynamics. 
 
-We start by providing some results from the premetric treatement of Electrodynamics that can be found in (\cite{hehl2003foundations}, \cite{2006physics..10221H}, \cite{2004PhRvD..70j5022L} and also \cite{Hehl2005}). The basic idea of this premetric approach lies in describing all fields that are involved in the treatment of Electrodynamics without referring to an additional spacetime geometry. This is most easily illustrated using the calculus of exterior forms. One starts by introducing the 4 dimensional electric charge current density $J$. AS one wishes to integrate $J$ over 3 dimensional submanifold $\Omega$ of the spacetime $M$ to obtain the total electric charge current --- the total electrical current flowing through the boundary of $\Omega$ and the electric charge inside --- that is confined therein the current density is most naturally described as a three form $J \in \Gamma(\Lambda^3M)$. Demanding charge conservation in the sense that the integral of $J$ over any closed 3 dimensional submanifold of $M$ vanishes, by using the theorem of stokes on arrives at the requirement $dJ =0$. By de Rham's first theorem we then find that $J$ is necessarily given as exterior derivative of some 2 form $H \in \Gamma(\Lambda^2M)$:
+We start by providing some results from the premetric treatement of Electrodynamics that can be found in (\cite{hehl2003foundations}, \cite{2006physics..10221H}, \cite{2004PhRvD..70j5022L} and also \cite{Hehl2005}). The basic idea of this premetric approach lies in describing all fields that are involved in the treatment of Electrodynamics without referring to an additional spacetime geometry. This is most easily illustrated using the calculus of exterior forms. One starts by introducing the 4 dimensional electric charge current density $J$. Aa one wishes to integrate $J$ over 3 dimensional submanifold $\Omega$ of the spacetime $M$ to obtain the total electric charge current --- the total electrical current flowing through the boundary of $\Omega$ and the electric charge inside --- that is confined therein the current density is most naturally described as a three form $J \in \Gamma(\Lambda^3M)$. Demanding charge conservation in the sense that the integral of $J$ over any closed 3 dimensional submanifold of $M$ vanishes, by using the theorem of stokes on arrives at the requirement $dJ =0$. By de Rham's first theorem we then find that $J$ is necessarily given as exterior derivative of some 2 form $H \in \Gamma(\Lambda^2M)$:
 \begin{align}
     J = d H.
 \end{align}
@@ -2391,7 +2398,7 @@ From considerations involving the Lorentz force one similarly obtaines that the 
 \begin{align}
     F = d A.
 \end{align}
-Finally one assumes that the two 2 forms $F$ and $H$ are related via a local and linear spacetime relation. Writing the 2 forms in terms of some chart induced basis $F = F_{ab} = \mathrm{d}x^a \wedge \mathrm{d}x^b$ and similar for $H$ specifying such a relation requires an additional $(0,4)$ tensorfield $G$ that obeys the following symmetries
+Finally one assumes that the two 2 forms $F$ and $H$ are related via a local and linear spacetime relation. Writing the 2 forms in terms of some chart induced basis $F = F_{ab} = \mathrm{d}x^a \otimes \mathrm{d}x^b$ with $F_{ab} = - F_{ba}$ and similar for $H$ specifying such a relation requires an additional $(0,4)$ tensorfield $G$ that obeys the following symmetries
 \begin{align}\label{areaSym}
     G_{abcd} = -G_{bacd} = G_{cdab}.
 \end{align}
@@ -2413,7 +2420,13 @@ From considering the appropriate dimensions of $F$ and $H$ on finds that the onl
 Note that this really defines the most general quadratic Lagrangian which thus generates linear EOM that one can specify in terms of the  electromagnetic field strength 2 form $F$. In particular this Lagrangian contains the standard Maxwell electrodynamics on a metric background for the special case $G^{abcd} = 2 g^{c^[a}g^{b]d}$ and $\omega_{G}=\sqrt{\vert -\mathrm{det}(g) \vert}$. Just as it was the case for the Klein-Gordon Lagrangian for the Lagrangian of GLED there exist now two possibilities: either one specifies the area metric tensor field by hand or --- and this is the route that we want to take --- one supplements the GLED matter theory with a suitable theory of area metric gravity that then allows one to determine the area metric by solving the corresponding area metric gravity EOM. 
 In the following we are going to construct the perturbative expansion of such a theory of are metric gravity by following our construction recipe (\ref{Algo2}).\\
 
-We start by constructing the pair of intertwiners for the area metric field bundle $F_{Area}$, i.e. the subbundle of $T^0_4M$. Recall from chapter 1 that given coordinates $(x^m)$ on $M$ one can obtain a pair of intertwiners for such a subbundle of $T^0_4M$ by dividing the set of the $4^4$ fibre coordinates of $T^0_4M$ $v_{abcd}=\frac{\partial}{\partial x^a} \otimes ... \otimes \frac{\partial}{\partial x^d}$ in equivalence classes defined by the symmetries (\ref{areaSym}) sorting them according to some order relation and then constructing the pair of intertwiners as described in (\ref{defI}) and (\ref{defJ}). We will use the following ordered set of $21$ equivalence classes $[v]$ that are specified in terms of their representative $v$:
+To that end we quickly want to translate $\mathcal{L}_{GLED}$ into the language of jet bundles. Note that the electromagnetic field strength can be expressed in terms of the 1 form $A \in \Gamma(\Lambda^1(M))$ as:
+\begin{align}
+F = F_{ab} \mathrm{d}x^a \otimes \mathrm{d}x^b = 2 \partial_{[a} A_{b]}\mathrm{d}x^a \otimes \mathrm{d}x^b.
+\end{align}
+Thus $F$ can be understood as a function on the first order jet bundle $J^1(\Gamma^1M)$. We again use adapted coordinate $(x^m,u_a,u_{am})$ on this bundle. Together with the area metric field bundle $F_{Area}$ and the bundle isomorphism $\flat_{Area}$ we thus see that the GLED Lagrangian describes a bundle map $\mathcal{L}_{GLED} : F_{Area} \times J^1(\Lambda^1M) \rightarrow \Lambda^4M $, where now also $\omega_G$ is understood as a bundle map on $\Lambda^1M$.  
+
+We start the derivation of perturbative area metric gravity by constructing the pair of intertwiners for the area metric field bundle $F_{Area}$, i.e. the subbundle of $T^0_4M$. Recall from chapter 1 that given coordinates $(x^m)$ on $M$ one can obtain a pair of intertwiners for such a subbundle of $T^0_4M$ by dividing the set of the $4^4$ fibre coordinates of $T^0_4M$ $v_{abcd}=\frac{\partial}{\partial x^a} \otimes ... \otimes \frac{\partial}{\partial x^d}$ in equivalence classes defined by the symmetries (\ref{areaSym}) sorting them according to some order relation and then constructing the pair of intertwiners as described in (\ref{defI}) and (\ref{defJ}). We will use the following ordered set of $21$ equivalence classes $[v]$ that are specified in terms of their representative $v$:
 \begin{align}
 \begin{aligned}
     \bigl [ [v_{0101}], [v_{0102}], [v_{0103}], [v_{0112}], [v_{0113}], [v_{0123}], [v_{0202}], [v_{0203}], [v_{0212}], [v_{0213}], [v_{0223}]\\
@@ -2437,12 +2450,39 @@ Such classes have multiplicity 8. The intertwiners $I^A_{abcd}$ and $J_A^{abcd}$
     v^A = I^A_{abcd}v^{abcd}.
     \end{aligned}
 \end{align}
-As usual we are going to label the corresponding adapted coordinates on $J^2F_{GR}$ by $(x^m,v_A,v_{Ap},v_{AI})$. 
-Note that from the fact that the fibre dimension of $F_{Arae}$ equals $21$ whereas $F_{GR}$ only has fibre dimension $10$ one readily sees that the are metric indeed compromises a richer structure than the metric. It is however not a priory clear if this is also reflected in the corresponding theory of gravity. Recall that the metric allowed for $14$ functionally independent curvature scalars on $J^2F_{GR}$ and hence also for $14$ functionally independent diffeomorphism invariant Lagrangians. With theorem (\ref{GeneralSol}) at hand we can now imediately compute the corresponding quantity for the area metric. Doing so we find that there exist $179$ functionally independent diffeomorphism invariant Lagrangians that can be constructed from the area metric and its first two derivatives. Thus in general we expect the perturbative theory of area metric gravity to contain more undetermined parameters than the gravitational and cosmological constant that we obtained for the metric case.
+As usual we are going to label the corresponding adapted coordinates on $J^2F_{Area}$ by $(x^m,v_A,v_{Ap},v_{AI})$. 
+Note that from the fact that the fibre dimension of $F_{Area}$ equals $21$ whereas $F_{GR}$ only has fibre dimension $10$ one readily sees that the are metric indeed compromises a richer structure than the metric. It is however not a priory clear if this is also reflected in the corresponding theory of gravity. Recall that the metric allowed for $14$ functionally independent curvature scalars on $J^2F_{GR}$ and hence also for $14$ functionally independent diffeomorphism invariant Lagrangians. With theorem (\ref{GeneralSol}) at hand we can now imediately compute the corresponding quantity for the area metric. Doing so we find that there exist $179$ functionally independent diffeomorphism invariant Lagrangians that can be constructed from the area metric and its first two derivatives. Thus in general we expect the perturbative theory of area metric gravity to contain more undetermined parameters than the gravitational and cosmological constant that we obtained for the metric case.
 
 
-Next we are going to chose the $\eta$-induced expansion point $(N_{AI}) = (x_0^m, N_A, 0,0)$ to be provided by $N_A := 2 \eta_{c[a} \eta_{b]d} - \epsilon_{abcd}$. Not that assuming that $\omega_G(N_A) = const \neq 0$ inserting this into $\mathcal{L}_{GLED}$ one really obtains the Lagrangian of standard Maxwell Electrodynamics on a flat Minkowskian background. Thus expanding the to-be-constructed Lagrangian of area metric gravity around $(N_{AI})$ serves the purpose of interpreting the result as perturbative theory around a flat spacetime. 
+Next we are going to chose the $\eta$-induced expansion point $(N_{AI}) = (x_0^m, N_A, 0,0)$ to be provided by $N_A := 2 \eta_{c[a} \eta_{b]d} - \epsilon_{abcd}$. Not that assuming that $\omega_G(N_A) = const \neq 0$ inserting this into $\mathcal{L}_{GLED}$ one really obtains the Lagrangian of standard Maxwell Electrodynamics on a flat Minkowskian background. Thus expanding the to-be-constructed Lagrangian of area metric gravity around $(N_{AI})$ serves the purpose of interpreting the result as perturbative theory around a flat spacetime. Note that we included the totally antisymmetric $\epsilon_{abcd}$ in the definition of $N_A$ to ensure that  the possible density choice $\omega_G = \epsilon^{abcd}G_{abcd}$ does not vanish when evaluated at the flat Minkowski $\eta$-induced background. 
 
+We have already stated that we want to construct the perturbative are metric gravity theory up to order $k=3$. Following (\ref{Algo2}) we proceed by computing the coordinate expression of the Lie derivative of $G_{abcd}$ to read of the constant tensor $C_{An}^{Bm}$:
+\begin{align}\label{LieArea}
+    \mathcal{L}_{\xi} G_{abcd} = \partial_m G_{abcd} \cdot \xi^n + \left (-4 \delta_n^{[e\vert} \delta_{[\mathnode{a}}^m \delta_{b]}^{\vert \mathnode{f} ]} \delta_{[c}^{[g} \delta_{\mathnode{d}]}^{\mathnode{h}]} \right ) \cdot G_{efgh} \partial_m \xi^n.
+\end{align}
+\begin{tikzpicture}[overlay]
+   \path [>=stealth, <->, shorten <= 3pt, shorten >=3pt]
+     (a) edge [bend left=-80] (d);
+    \path [>=stealth, <->, shorten <= 2pt, shorten >=2pt]
+     (f) edge [bend left=80] (h);
+\end{tikzpicture}
+Here the additional arrows denote the symmetrization w.r.t. the interchange of the antisymmetric pairs $[ab] \leftrightarrow [cd]$ and $[ef] \leftrightarrow [gh]$ respectively.
+% check lie derivative signs
+%
+%
+%
+Similar to before we now insert several intertwiners $I^A_{abcd}$ and $J_A^{abcd}$ to rewrite the second term in (\ref{LieArea}) in terms of abstract area metric indices $A$. Here we can use the fact that the two intertwiners already feature the full set of area metric symmetries.  Doing so we simply can read of the constant tensor as:
+\begin{align}
+    C_{An}^{Bm} = -4 I^B_{nbcd} J_A^{mbcd}.
+\end{align}
+The most general power series expansion of $\mathcal{L}_{Area,per} = L_{Area,per}\mathrm{d}^4x$ that generates second derivative order EOM is again given by:
+\begin{align}\label{LArea}
+    L_{GR,per} =  a_0 + a^A H_A + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ApBq} H_{Ap}H_{Bq} + a^{ABI} H_{A} H_{BI} \\
+    + a^{ABC} H_a H_B H_C + a^{ABpCq} H_{A}H_{Bp}H_{Cq} +
+    + a^{ABCI} H_A H_B H_{CI} 
+    + \mathcal{O}(4),
+\end{align}
+where $(H_{AI}) = (x^m,H_A,H_{Ap},H_{AI}) = (v_{AI}) - (N_{AI})$. Note that although we use the same symbols as in $L_{GR,per}$ to denote $L_{Area,per}$ this Lagrangian defines a fundamentally different object. In particular the $21$ dimensional fibres of  $F_{Area}$ result in the fact that there will be more freedom in constructing the expansion coefficients of (\ref{LArea}). Again the perturbative equivariance equations demand that these expansion coefficients define the components of constant Lorentz invariant tensors. The corresponding expressions that we obtained by means of our computer program are displayed in 
 
 \appendix
 \chapter{Developed Computer Algebra Packages}
@@ -2840,7 +2880,243 @@ J_{20}^{3232} &= 1/4
     \end{alignedat}
 \end{align}
 %remove website links from bibliography
-%cite own paper
+When computing the Lorentz invariant expansion coefficients that occur in (\ref{LArea}) using efficient compute algebra is now essential. In principal they are constructed exactly the same way as in the metric case. As a result of the increased fibre dimension of $F_{Area}$ compared with the metric field bundle $F_{GR}$ however the general expressions for these Lorentz invariant coefficients are strikingly more complicated. We again do not display the factorless symmetrizations explicitly to allow for more concise expressions.
+\begin{align}\label{LorentzArea1}
+\begin{alignedat}{2}
+\boldsymbol{a_0}&: \ \ \ & a_0  &= \mu_1 \\
+\\
+\boldsymbol{a^{A}}&: \ \ \ & a^{abcd}  &= \mu_2 \cdot \eta^{ac} \eta^{bd} + \mu_{3} \cdot \epsilon^{abcd} \\
+\\
+\boldsymbol{a^{AI}}&: \ \ \ & a^{abcdpq}  &=  \nu_{1}\cdot\eta^{ac}\eta^{bd}\eta^{pq}+\nu_{2}\cdot\eta^{ac}\eta^{bp}\eta^{dq} + \nu_{3}\cdot\epsilon^{abcd}\eta^{pq}\\
+\\
+\boldsymbol{a^{AB}}&: \ \ \ & a^{abcdefgh}  &= \mu_{4}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}+\mu_{5}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fh}+\mu_{6}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dh} \\
+& & &\hphantom{=} +\mu_{7}\cdot\eta^{ae}\eta^{bg}\eta^{cf}\eta^{dh} + \mu_{8}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fh}+\mu_{9}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}\\
+\\
+\boldsymbol{a^{ApBq}}&: \ \ \ & a^{abcdpefghq}  &=
+\nu_{4}\cdot\eta^{ac}\eta^{bd}\eta^{pe}\eta^{fg}\eta^{hq}+\nu_{5}\cdot\eta^{ac}\eta^{bd}\eta^{pq}\eta^{eg}\eta^{fh}+\nu_{6}\cdot\eta^{ac}\eta^{bp}\eta^{de}\eta^{fg}\eta^{hq}\\
+& & &\hphantom{=}+\nu_{7}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{pf}\eta^{hq}+\nu_{8}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{pq}\eta^{fh}+\nu_{9}\cdot\eta^{ac}\eta^{be}\eta^{dq}\eta^{pg}\eta^{fh}\\
+& & &\hphantom{=}+\nu_{10}\cdot\eta^{ap}\eta^{be}\eta^{cf}\eta^{dg}\eta^{hq}+\nu_{11}\cdot\eta^{ap}\eta^{be}\eta^{cg}\eta^{dh}\eta^{fq}+\nu_{12}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dh}\eta^{pq}\\
+& & &\hphantom{=} +\nu_{13}\cdot\epsilon^{abcd}\eta^{pe}\eta^{fg}\eta^{hq}+\nu_{14}\cdot\epsilon^{abcd}\eta^{pq}\eta^{eg}\eta^{fh}+\nu_{15}\cdot\epsilon^{abpe}\eta^{cf}\eta^{dg}\eta^{hq}\\
+& & &\hphantom{=}+\nu_{16}\cdot\epsilon^{abpe}\eta^{cg}\eta^{dq}\eta^{fh}+\nu_{17}\cdot\epsilon^{abef}\eta^{cp}\eta^{dg}\eta^{hq}+\nu_{18}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}\eta^{pq}\\
+\\
+\boldsymbol{a^{ABI}}&: \ \ \ & a^{abcdefghpq}  &=
+\nu_{19}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}\eta^{pq}+\nu_{20}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fp}\eta^{hq}+\nu_{21}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fh}\eta^{pq}\\
+& & &\hphantom{=}+\nu_{22}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fp}\eta^{hq}+\nu_{23}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fg}\eta^{hq}+\nu_{24}\cdot\eta^{ac}\eta^{bp}\eta^{dq}\eta^{eg}\eta^{fh}\\
+& & &\hphantom{=}+\nu_{25}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dh}\eta^{pq}+\nu_{26}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dp}\eta^{hq}+\nu_{27}\cdot\eta^{ae}\eta^{bg}\eta^{cf}\eta^{dh}\eta^{pq}\\
+& & &\hphantom{=} +\nu_{28}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fh}\eta^{pq}+\nu_{29}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fp}\eta^{hq}+\nu_{30}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}\eta^{pq}\\
+& & &\hphantom{=}+\nu_{31}\cdot\epsilon^{abef}\eta^{cg}\eta^{dp}\eta^{hq}+\nu_{32}\cdot\epsilon^{abep}\eta^{cf}\eta^{dg}\eta^{hq}+\nu_{33}\cdot\epsilon^{abep}\eta^{cg}\eta^{dh}\eta^{fq}\\
+& & &\hphantom{=}+\nu_{34}\cdot\epsilon^{efgh}\eta^{ac}\eta^{bd}\eta^{pq}\\
+\\
+\boldsymbol{a^{ABC}}&: \ \ \ & a^{abcdefghijkl}  &=
+\mu_{10}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}\eta^{ik}\eta^{jl}+\mu_{11}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{jl}\\
+& & &\hphantom{=}+\mu_{12}\cdot\eta^{ac}\eta^{bd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hl}+\mu_{13}\cdot\eta^{ac}\eta^{bd}\eta^{ei}\eta^{fk}\eta^{gj}\eta^{hl}\\
+& & &\hphantom{=}+\mu_{14}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fi}\eta^{hk}\eta^{jl}+\mu_{15}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hk}\eta^{jl}\\
+& & &\hphantom{=}+\mu_{16}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hl}+\mu_{17}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dk}\eta^{gj}\eta^{hl}\\
+& & &\hphantom{=}+\mu_{18}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fh}\eta^{ik}\eta^{jl}+\mu_{19}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{jl}\\
+& & &\hphantom{=}+\mu_{20}\cdot\epsilon^{abcd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hl}+\mu_{21}\cdot\epsilon^{abcd}\eta^{ei}\eta^{fk}\eta^{gj}\eta^{hl}\\
+& & &\hphantom{=}+\mu_{22}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}\eta^{ik}\eta^{jl}+\mu_{23}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hk}\eta^{jl}\\
+& & &\hphantom{=}+\mu_{24}\cdot\epsilon^{abef}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hl}
+\end{alignedat}
+\end{align}
+\begin{align}\label{LorentzArea2}
+\begin{alignedat}{2}
+\boldsymbol{a^{ABpCq}}&: \ \ \ & a^{abcdefghpijklq}  &= \nu_{35}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}\eta^{pi}\eta^{jk}\eta^{lq}+\nu_{36}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}\eta^{pq}\eta^{ik}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{37}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fp}\eta^{hi}\eta^{jk}\eta^{lq}+\nu_{38}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{pj}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{39}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{pq}\eta^{jl}+\nu_{40}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fi}\eta^{hq}\eta^{pk}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{41}\cdot\eta^{ac}\eta^{bd}\eta^{ep}\eta^{fi}\eta^{gj}\eta^{hk}\eta^{lq}+\nu_{42}\cdot\eta^{ac}\eta^{bd}\eta^{ep}\eta^{fi}\eta^{gk}\eta^{hl}\eta^{jq}\\
+& & &\hphantom{=}
++\nu_{43}\cdot\eta^{ac}\eta^{bd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hl}\eta^{pq}+\nu_{44}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fh}\eta^{pi}\eta^{jk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{45}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fh}\eta^{pq}\eta^{ik}\eta^{jl}+\nu_{46}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fp}\eta^{hi}\eta^{jk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{47}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fp}\eta^{hq}\eta^{ik}\eta^{jl}+\nu_{48}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fi}\eta^{hk}\eta^{pj}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{49}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fi}\eta^{hk}\eta^{pq}\eta^{jl}+\nu_{50}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fi}\eta^{hq}\eta^{pk}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{51}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fg}\eta^{hi}\eta^{jk}\eta^{lq}+\nu_{52}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fg}\eta^{hq}\eta^{ik}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{53}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fi}\eta^{gj}\eta^{hk}\eta^{lq}+\nu_{54}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fi}\eta^{gk}\eta^{hl}\eta^{jq}\\
+& & &\hphantom{=}
++\nu_{55}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fi}\eta^{gk}\eta^{hq}\eta^{jl}+\nu_{56}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hp}\eta^{jk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{57}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hj}\eta^{pk}\eta^{lq}+\nu_{58}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hk}\eta^{pj}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{59}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hk}\eta^{pl}\eta^{jq}+\nu_{60}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hk}\eta^{pq}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{61}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hq}\eta^{pk}\eta^{jl}+\nu_{62}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fp}\eta^{gj}\eta^{hk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{63}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fp}\eta^{gk}\eta^{hl}\eta^{jq}+\nu_{64}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fj}\eta^{gp}\eta^{hk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{65}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fk}\eta^{gj}\eta^{hq}\eta^{pl}+\nu_{66}\cdot\eta^{ac}\eta^{be}\eta^{dq}\eta^{fg}\eta^{hp}\eta^{ik}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{67}\cdot\eta^{ac}\eta^{be}\eta^{dq}\eta^{fg}\eta^{hi}\eta^{pk}\eta^{jl}+\nu_{68}\cdot\eta^{ac}\eta^{bp}\eta^{dq}\eta^{eg}\eta^{fh}\eta^{ik}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{69}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dh}\eta^{pi}\eta^{jk}\eta^{lq}+\nu_{70}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dh}\eta^{pq}\eta^{ik}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{71}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dp}\eta^{hi}\eta^{jk}\eta^{lq}+\nu_{72}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dp}\eta^{hq}\eta^{ik}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{73}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{di}\eta^{hp}\eta^{jk}\eta^{lq}+\nu_{74}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{di}\eta^{hj}\eta^{pk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{75}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{di}\eta^{hk}\eta^{pj}\eta^{lq}+\nu_{76}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{di}\eta^{hk}\eta^{pl}\eta^{jq}\\
+& & &\hphantom{=}
++\nu_{77}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{di}\eta^{hk}\eta^{pq}\eta^{jl}+\nu_{78}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{di}\eta^{hq}\eta^{pk}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{79}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dq}\eta^{hp}\eta^{ik}\eta^{jl}+\nu_{80}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dq}\eta^{hi}\eta^{pk}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{81}\cdot\eta^{ae}\eta^{bf}\eta^{cp}\eta^{di}\eta^{gj}\eta^{hk}\eta^{lq}+\nu_{82}\cdot\eta^{ae}\eta^{bf}\eta^{cp}\eta^{di}\eta^{gk}\eta^{hl}\eta^{jq}\\
+& & &\hphantom{=}
++\nu_{83}\cdot\eta^{ae}\eta^{bf}\eta^{cp}\eta^{di}\eta^{gk}\eta^{hq}\eta^{jl}+\nu_{84}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dj}\eta^{gp}\eta^{hk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{85}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hl}\eta^{pq}+\nu_{86}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dk}\eta^{gp}\eta^{hj}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{87}\cdot\eta^{ae}\eta^{bg}\eta^{cf}\eta^{dh}\eta^{pi}\eta^{jk}\eta^{lq}+\nu_{88}\cdot\eta^{ae}\eta^{bg}\eta^{cf}\eta^{dh}\eta^{pq}\eta^{ik}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{89}\cdot\eta^{ae}\eta^{bp}\eta^{cf}\eta^{di}\eta^{gj}\eta^{hk}\eta^{lq}+\nu_{90}\cdot\eta^{ae}\eta^{bp}\eta^{cf}\eta^{di}\eta^{gk}\eta^{hq}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{91}\cdot\eta^{ae}\eta^{bi}\eta^{cf}\eta^{dj}\eta^{gp}\eta^{hk}\eta^{lq}+\nu_{92}\cdot\eta^{ae}\eta^{bi}\eta^{cf}\eta^{dj}\eta^{gk}\eta^{hl}\eta^{pq}
+\\
+& & &\hphantom{=}+ \text{...}
+\end{alignedat}
+\end{align}
+
+\begin{align}\label{LorentzArea3}
+\begin{alignedat}{2}
+\hphantom{\boldsymbol{a^{ABpCq}}}&\hphantom{:} \ \ \ & \hphantom{a^{abcdefghpijklq}} ...  &\hphantom{=} +
+\nu_{93}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fh}\eta^{pi}\eta^{jk}\eta^{lq}+\nu_{94}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fh}\eta^{pq}\eta^{ik}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{95}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fp}\eta^{hi}\eta^{jk}\eta^{lq}+\nu_{96}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{pj}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{97}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{pq}\eta^{jl}+\nu_{98}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fi}\eta^{hq}\eta^{pk}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{99}\cdot\epsilon^{abcd}\eta^{ep}\eta^{fi}\eta^{gj}\eta^{hk}\eta^{lq}+\nu_{100}\cdot\epsilon^{abcd}\eta^{ep}\eta^{fi}\eta^{gk}\eta^{hl}\eta^{jq}\\
+& & &\hphantom{=}
++\nu_{101}\cdot\epsilon^{abcd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hl}\eta^{pq}+\nu_{102}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}\eta^{pi}\eta^{jk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{103}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}\eta^{pq}\eta^{ik}\eta^{jl}+\nu_{104}\cdot\epsilon^{abef}\eta^{cg}\eta^{dp}\eta^{hi}\eta^{jk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{105}\cdot\epsilon^{abef}\eta^{cg}\eta^{dp}\eta^{hq}\eta^{ik}\eta^{jl}+\nu_{106}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hp}\eta^{jk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{107}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hj}\eta^{pk}\eta^{lq}+\nu_{108}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hk}\eta^{pj}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{109}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hk}\eta^{pl}\eta^{jq}+\nu_{110}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hk}\eta^{pq}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{111}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hq}\eta^{pk}\eta^{jl}+\nu_{112}\cdot\epsilon^{abef}\eta^{cg}\eta^{dq}\eta^{hp}\eta^{ik}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{113}\cdot\epsilon^{abef}\eta^{cg}\eta^{dq}\eta^{hi}\eta^{pk}\eta^{jl}+\nu_{114}\cdot\epsilon^{abef}\eta^{cp}\eta^{di}\eta^{gj}\eta^{hk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{115}\cdot\epsilon^{abef}\eta^{cp}\eta^{di}\eta^{gk}\eta^{hl}\eta^{jq}+\nu_{116}\cdot\epsilon^{abef}\eta^{cp}\eta^{di}\eta^{gk}\eta^{hq}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{117}\cdot\epsilon^{abef}\eta^{ci}\eta^{dj}\eta^{gp}\eta^{hk}\eta^{lq}+\nu_{118}\cdot\epsilon^{abef}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hl}\eta^{pq}\\
+& & &\hphantom{=}
++\nu_{119}\cdot\epsilon^{abef}\eta^{ci}\eta^{dk}\eta^{gp}\eta^{hj}\eta^{lq}+\nu_{120}\cdot\epsilon^{abep}\eta^{cf}\eta^{dg}\eta^{hi}\eta^{jk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{121}\cdot\epsilon^{abep}\eta^{cf}\eta^{dg}\eta^{hq}\eta^{ik}\eta^{jl}+\nu_{122}\cdot\epsilon^{abep}\eta^{cf}\eta^{di}\eta^{gj}\eta^{hk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{123}\cdot\epsilon^{abep}\eta^{cf}\eta^{di}\eta^{gk}\eta^{hl}\eta^{jq}+\nu_{124}\cdot\epsilon^{abep}\eta^{cf}\eta^{di}\eta^{gk}\eta^{hq}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{125}\cdot\epsilon^{abep}\eta^{cg}\eta^{dh}\eta^{fi}\eta^{jk}\eta^{lq}+\nu_{126}\cdot\epsilon^{abep}\eta^{cg}\eta^{dh}\eta^{fq}\eta^{ik}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{127}\cdot\epsilon^{abep}\eta^{cg}\eta^{di}\eta^{fj}\eta^{hk}\eta^{lq}+\nu_{128}\cdot\epsilon^{abep}\eta^{cg}\eta^{di}\eta^{fk}\eta^{hq}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{129}\cdot\epsilon^{abei}\eta^{cf}\eta^{dg}\eta^{hp}\eta^{jk}\eta^{lq}+\nu_{130}\cdot\epsilon^{abei}\eta^{cf}\eta^{dg}\eta^{hj}\eta^{pk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{131}\cdot\epsilon^{abei}\eta^{cf}\eta^{dg}\eta^{hk}\eta^{pj}\eta^{lq}+\nu_{132}\cdot\epsilon^{abei}\eta^{cf}\eta^{dg}\eta^{hk}\eta^{pl}\eta^{jq}\\
+& & &\hphantom{=}
++\nu_{133}\cdot\epsilon^{abei}\eta^{cf}\eta^{dg}\eta^{hk}\eta^{pq}\eta^{jl}+\nu_{134}\cdot\epsilon^{abei}\eta^{cf}\eta^{dg}\eta^{hq}\eta^{pk}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{135}\cdot\epsilon^{abei}\eta^{cf}\eta^{dp}\eta^{gj}\eta^{hk}\eta^{lq}+\nu_{136}\cdot\epsilon^{abei}\eta^{cf}\eta^{dp}\eta^{gk}\eta^{hl}\eta^{jq}\\
+& & &\hphantom{=}
++\nu_{137}\cdot\epsilon^{abei}\eta^{cf}\eta^{dp}\eta^{gk}\eta^{hq}\eta^{jl}+\nu_{138}\cdot\epsilon^{abei}\eta^{cf}\eta^{dj}\eta^{gp}\eta^{hk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{139}\cdot\epsilon^{abei}\eta^{cf}\eta^{dj}\eta^{gk}\eta^{hl}\eta^{pq}+\nu_{140}\cdot\epsilon^{abei}\eta^{cf}\eta^{dk}\eta^{gp}\eta^{hj}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{141}\cdot\epsilon^{abei}\eta^{cf}\eta^{dk}\eta^{gp}\eta^{hl}\eta^{jq}+\nu_{142}\cdot\epsilon^{abei}\eta^{cf}\eta^{dk}\eta^{gj}\eta^{hq}\eta^{pl}\\
+& & &\hphantom{=}
++\nu_{143}\cdot\epsilon^{abeq}\eta^{cf}\eta^{dg}\eta^{hp}\eta^{ik}\eta^{jl}+\nu_{144}\cdot\epsilon^{efgh}\eta^{ac}\eta^{bd}\eta^{pi}\eta^{jk}\eta^{lq}
+\end{alignedat}
+\end{align}
+\begin{align}\label{LorentzArea4}
+\begin{alignedat}{2}
+\boldsymbol{a^{ABpCq}}&: \ \ \ & a^{abcdefghpijklq}  &=
+\nu_{145}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}\eta^{ik}\eta^{jl}\eta^{pq}+\nu_{146}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}\eta^{ik}\eta^{jp}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{147}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{jl}\eta^{pq}+\nu_{148}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{jp}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{149}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fi}\eta^{hp}\eta^{jk}\eta^{lq}+\nu_{150}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fp}\eta^{hq}\eta^{ik}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{151}\cdot\eta^{ac}\eta^{bd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hl}\eta^{pq}+\nu_{152}\cdot\eta^{ac}\eta^{bd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hp}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{153}\cdot\eta^{ac}\eta^{bd}\eta^{ei}\eta^{fk}\eta^{gj}\eta^{hl}\eta^{pq}+\nu_{154}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fh}\eta^{ik}\eta^{jl}\eta^{pq}\\
+& & &\hphantom{=}
++\nu_{155}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fh}\eta^{ik}\eta^{jp}\eta^{lq}+\nu_{156}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fi}\eta^{hk}\eta^{jl}\eta^{pq}\\
+& & &\hphantom{=}
++\nu_{157}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fi}\eta^{hk}\eta^{jp}\eta^{lq}+\nu_{158}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fi}\eta^{hp}\eta^{jk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{159}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fp}\eta^{hq}\eta^{ik}\eta^{jl}+\nu_{160}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hk}\eta^{jl}\eta^{pq}\\
+& & &\hphantom{=}
++\nu_{161}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hk}\eta^{jp}\eta^{lq}+\nu_{162}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hp}\eta^{jk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{163}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fj}\eta^{gk}\eta^{hl}\eta^{pq}+\nu_{164}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fj}\eta^{gk}\eta^{hp}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{165}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fk}\eta^{gj}\eta^{hp}\eta^{lq}+\nu_{166}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fk}\eta^{gl}\eta^{hp}\eta^{jq}\\
+& & &\hphantom{=}
++\nu_{167}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fp}\eta^{gj}\eta^{hk}\eta^{lq}+\nu_{168}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fp}\eta^{gk}\eta^{hl}\eta^{jq}\\
+& & &\hphantom{=}
++\nu_{169}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fp}\eta^{gk}\eta^{hq}\eta^{jl}+\nu_{170}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fg}\eta^{hq}\eta^{ik}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{171}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fi}\eta^{gj}\eta^{hk}\eta^{lq}+\nu_{172}\cdot\eta^{ac}\eta^{bi}\eta^{dk}\eta^{eg}\eta^{fp}\eta^{hq}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{173}\cdot\eta^{ac}\eta^{bi}\eta^{dk}\eta^{ej}\eta^{fp}\eta^{gl}\eta^{hq}+\nu_{174}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dh}\eta^{ik}\eta^{jl}\eta^{pq}\\
+& & &\hphantom{=}
++\nu_{175}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dh}\eta^{ik}\eta^{jp}\eta^{lq}+\nu_{176}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hl}\eta^{pq}\\
+& & &\hphantom{=}
++\nu_{177}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hp}\eta^{lq}+\nu_{178}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dk}\eta^{gj}\eta^{hl}\eta^{pq}\\
+& & &\hphantom{=}
++\nu_{179}\cdot\eta^{ae}\eta^{bg}\eta^{cf}\eta^{dh}\eta^{ik}\eta^{jl}\eta^{pq}+\nu_{180}\cdot\eta^{ae}\eta^{bg}\eta^{cf}\eta^{dh}\eta^{ik}\eta^{jp}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{181}\cdot\eta^{ae}\eta^{bg}\eta^{ci}\eta^{dj}\eta^{fk}\eta^{hl}\eta^{pq}+\nu_{182}\cdot\eta^{ae}\eta^{bg}\eta^{ci}\eta^{dj}\eta^{fk}\eta^{hp}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{183}\cdot\eta^{ae}\eta^{bi}\eta^{cg}\eta^{dk}\eta^{fp}\eta^{hq}\eta^{jl}+ \nu_{184}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fh}\eta^{ik}\eta^{jl}\eta^{pq}\\
+& & &\hphantom{=}
++\nu_{185}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fh}\eta^{ik}\eta^{jp}\eta^{lq}+\nu_{186}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{jl}\eta^{pq}
+\\
+& & &\hphantom{=}
++\nu_{187}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{jp}\eta^{lq}+\nu_{188}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fi}\eta^{hp}\eta^{jk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{189}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fp}\eta^{hq}\eta^{ik}\eta^{jl}+\nu_{190}\cdot\epsilon^{abcd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hl}\eta^{pq}\\
+& & &\hphantom{=}
++\nu_{191}\cdot\epsilon^{abcd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hp}\eta^{lq}+\nu_{192}\cdot\epsilon^{abcd}\eta^{ei}\eta^{fk}\eta^{gj}\eta^{hl}\eta^{pq}\\
+& & &\hphantom{=}
++\nu_{193}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}\eta^{ik}\eta^{jl}\eta^{pq}+\nu_{194}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}\eta^{ik}\eta^{jp}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{195}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hk}\eta^{jl}\eta^{pq}+\nu_{196}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hk}\eta^{jp}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{197}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hp}\eta^{jk}\eta^{lq}+\nu_{198}\cdot\epsilon^{abef}\eta^{cg}\eta^{dp}\eta^{hq}\eta^{ik}\eta^{jl}\\
+& & &\hphantom{=}
++\nu_{199}\cdot\epsilon^{abef}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hl}\eta^{pq}+\nu_{200}\cdot\epsilon^{abef}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hp}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{201}\cdot\epsilon^{abef}\eta^{ci}\eta^{dk}\eta^{gj}\eta^{hl}\eta^{pq}+\nu_{202}\cdot\epsilon^{abei}\eta^{cf}\eta^{dj}\eta^{gk}\eta^{hl}\eta^{pq}\\
+& & &\hphantom{=}
++\nu_{203}\cdot\epsilon^{abei}\eta^{cf}\eta^{dj}\eta^{gk}\eta^{hp}\eta^{lq}+\nu_{204}\cdot\epsilon^{abei}\eta^{cf}\eta^{dk}\eta^{gj}\eta^{hl}\eta^{pq}\\
+& & &\hphantom{=}
++\nu_{205}\cdot\epsilon^{abei}\eta^{cf}\eta^{dk}\eta^{gj}\eta^{hp}\eta^{lq}+\nu_{206}\cdot\epsilon^{abei}\eta^{cf}\eta^{dk}\eta^{gl}\eta^{hp}\eta^{jq}\\
+& & &\hphantom{=}
++\nu_{207}\cdot\epsilon^{abei}\eta^{cf}\eta^{dp}\eta^{gj}\eta^{hk}\eta^{lq}+\nu_{208}\cdot\epsilon^{abei}\eta^{cf}\eta^{dp}\eta^{gk}\eta^{hl}\eta^{jq}\\
+& & &\hphantom{=}
++\nu_{209}\cdot\epsilon^{abei}\eta^{cf}\eta^{dp}\eta^{gk}\eta^{hq}\eta^{jl}+\nu_{210}\cdot\epsilon^{abep}\eta^{cf}\eta^{di}\eta^{gj}\eta^{hk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{211}\cdot\epsilon^{abij}\eta^{ce}\eta^{df}\eta^{gk}\eta^{hl}\eta^{pq}+\nu_{212}\cdot\epsilon^{abij}\eta^{ce}\eta^{df}\eta^{gk}\eta^{hp}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{213}\cdot\epsilon^{abij}\eta^{ce}\eta^{dk}\eta^{fp}\eta^{gl}\eta^{hq}+\nu_{214}\cdot\epsilon^{abip}\eta^{ce}\eta^{df}\eta^{gj}\eta^{hk}\eta^{lq}\\
+& & &\hphantom{=}
++\nu_{215}\cdot\epsilon^{abip}\eta^{ce}\eta^{df}\eta^{gk}\eta^{hl}\eta^{jq}+\nu_{216}\cdot\epsilon^{ijkl}\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}\eta^{pq}
+\end{alignedat}
+\end{align}
+%comment on prod of eps = eta
+
 \printbibliography
 
 \end{document}
