@@ -2095,7 +2095,7 @@ find the following expansion for this order 4 sub determinant
     + \mathcal{O}(3),
 \end{multline}
 with the contributions in the individual orders being given as 
-\begin{align}
+\begin{align}\label{polyMatrices}
 \begin{aligned}
   (D_0)_{(A_1...A_4)(B_1...B_4)} &=  \mathrm{det}\left((T_0)_{(A_1...A_4)(B_1...B_4)}\right) \\
   \\
@@ -2150,7 +2150,7 @@ Before we proceed further we would like to quickly remark on some consequences o
 \end{align}
 Where $\mathcal{P}_{grav}^{{p_1}...{p_r}}$ is are function on $F$ that is totally symmetric in $(p_1...p_r)$. As a consequence of the required equivariance of the Lagrangian it holds that:
 \begin{align}\label{polyEqn}
-    0 = \partial^A\mathcal{P}_{grav}^{{p_1}...{p_r}}C_{An}^{Bm}v_B - r \cdot \mathcal{P}_{grav}^{({p_1}...\vert m} \delta_{n}^{\vert p_r) }  + (n-8) \cdot \mathcal{P}_{grav}^{{p_1}...{p_r}} \delta^m_n.
+    0 = \partial^A\mathcal{P}_{grav}^{{p_1}...{p_r}}C_{An}^{Bm}v_B - r \cdot \mathcal{P}_{grav}^{({p_1}...\vert m} \delta_{n}^{\vert p_r) }  + (r/2) \cdot \mathcal{P}_{grav}^{{p_1}...{p_r}} \delta^m_n.
 \end{align}
 %check sign !!!
 %
@@ -2158,7 +2158,7 @@ Where $\mathcal{P}_{grav}^{{p_1}...{p_r}}$ is are function on $F$ that is totall
 %
 This can be seen by starting from the PDE that the EOM have to satisfy as an implication of the equivariance (\ref{EOM}) and applying the total derivative $D_{AI}$ to obtain a similar PDE for sub expression $\left ( \frac{\partial E^A}{\partial V_{BI}} \right )$ that is involved in the principal symbol. Proceeding along the same lines for the remaining steps that are involved in the computation of the principal polynomial one then finds the above PDE. \\
 
-The numerical factor $(n-8)$ in front of the $\delta^m_n$ term is obtained as this factor encodes the density weight of the function at hand. In this language PDE (\ref{EOM}) then states that the EOM $E^A$ defines a density of weight 1 and further prolonging this PDE w.r.t. $v_{AI}$ reveals that also the principal symbol has density weight 1. Computing the determinant of a $(n-4) \times (n-4)$ sub matrix of the principal symbol changes the weight to $n-4-2$. This can for instance be seen when expressing the determinant of the principal symbol w.r.t. the Levi-Civita symbols and then obtain the order $4$ sub determinant by deriving $4$ times w.r.t. the components of the principal symbol as explained in (\ref{MinorDef}). To achieve this  we need $n$ copies of the principal symbol each of which has weight 1 and two covariant Levi-Civita symbols of dimension $n$ that carry density weight $-1$. This yields a total weight of $n-2$. Deriving $4$ times w.r.t. the components of the principal symbol reduces the factor to $n-6$. Finally according to (\ref{diffeoMinor}) this sub determinant equals the product between principal symbol and the corresponding prefactor. This prefactor involves two $4$-dimensional contravariant Levi-Civita symbols that hence contribute $+2$ to the weight. Hence the weight of the principal polynomial is given by $n-8$ which thus explains the origin of the numerical factor in the above PDE. \\ 
+The numerical factor $r/2 = (n-8)$ in front of the $\delta^m_n$ term is obtained as this factor encodes the density weight of the function at hand. In this language PDE (\ref{EOM}) then states that the EOM $E^A$ defines a density of weight 1 and further prolonging this PDE w.r.t. $v_{AI}$ reveals that also the principal symbol has density weight 1. Computing the determinant of a $(n-4) \times (n-4)$ sub matrix of the principal symbol changes the weight to $n-4-2$. This can for instance be seen when expressing the determinant of the principal symbol w.r.t. the Levi-Civita symbols and then obtain the order $4$ sub determinant by deriving $4$ times w.r.t. the components of the principal symbol as explained in (\ref{MinorDef}). To achieve this  we need $n$ copies of the principal symbol each of which has weight 1 and two covariant Levi-Civita symbols of dimension $n$ that carry density weight $-1$. This yields a total weight of $n-2$. Deriving $4$ times w.r.t. the components of the principal symbol reduces the factor to $n-6$. Finally according to (\ref{diffeoMinor}) this sub determinant equals the product between principal symbol and the corresponding prefactor. This prefactor involves two $4$-dimensional contravariant Levi-Civita symbols that hence contribute $+2$ to the weight. Hence the weight of the principal polynomial is given by $n-8$ which thus explains the origin of the numerical factor in the above PDE. \\ 
 
 The all important observation is now that any perturbative expansion of the principal symbol around the Lorentz-invariant expansion point $p_0$ that we might obtain necessarily provides a power series solution of the form
 \begin{align}
@@ -2477,7 +2477,7 @@ Similar to before we now insert several intertwiners $I^A_{abcd}$ and $J_A^{abcd
 \end{align}
 The most general power series expansion of $\mathcal{L}_{Area,per} = L_{Area,per}\mathrm{d}^4x$ that generates second derivative order EOM is again given by:
 \begin{align}\label{LArea}
-    L_{GR,per} =  a_0 + a^A H_A + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ApBq} H_{Ap}H_{Bq} + a^{ABI} H_{A} H_{BI} \\
+    L_{Area,per} =  a_0 + a^A H_A + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ApBq} H_{Ap}H_{Bq} + a^{ABI} H_{A} H_{BI} \\
     + a^{ABC} H_a H_B H_C + a^{ABpCq} H_{A}H_{Bp}H_{Cq} +
     + a^{ABCI} H_A H_B H_{CI} 
     + \mathcal{O}(4),
@@ -2500,7 +2500,71 @@ where $(H_{AI}) = (x^m,H_A,H_{Ap},H_{AI}) = (v_{AI}) - (N_{AI})$. Note that alth
 \end{tabular}
 \caption{Dimensions of the Lorentz invariant expansion coefficients for $\mathcal{L}_{Area,per}$.}\label{AreaExp}
 \end{table}
-In total we thus get from solving this first implication of the perturbative equivariance equations, the Lorentz invariance of the expansion coefficients, $240$ yet undetermined constant parameters. These can be divided into $24$ masses and $216$ kinetic parameters. It is worth noting that the perturbative equaivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}) decouple into the two sub systems containing only the mass term and kinetic term coefficients respectively. Once we insert the obtained Lorentz invariant expression the former yields a linear system that is compromised of $13$ independent equations for the $24$ masses. The latter contains $174$ independent equations for the $216$ kinetic parameters. Thus in total we get $188$ indendent linear equations that therefore reduce the number of undetermined parameters that are contained in $\mathcal{L}_{Area,per}$ from $240$ to $52$. Indserting the     
+In total we thus get from solving this first implication of the perturbative equivariance equations, the Lorentz invariance of the expansion coefficients, $240$ yet undetermined constant parameters. These can be divided into $24$ masses and $216$ kinetic parameters. It is worth noting that the perturbative equaivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}) decouple into the two sub systems containing only the mass term and kinetic term coefficients respectively. Once we insert the obtained Lorentz invariant expression the former yields a linear system that is compromised of $14$ independent equations for the $24$ masses. The latter contains $174$ independent equations for the $216$ kinetic parameters. Thus in total we get $188$ indendent linear equations that therefore reduce the number of undetermined parameters that are contained in $\mathcal{L}_{Area,per}$ from $240$ to $52$. We get a total of $10$ masses and $42$ kinetic parameters. The solution of the linear system in terms of the $52$ parameters (\ref{AreaParas}) is displayed in the equations (\ref{AreaSol1}) to (\ref{AreaSol20}). Although the perturbative Lagrangian that we thus obtain is clearly clearly more complicated then the expansion of the Einstein-Hilbert action and in particular now contains $52$ undetermined parameters compared to $2$ gravitational constants that contribute to $\mathcal{L}_{GR,per}$ we can now see the true strength of the required diffeomorphism invariance that is encoded in the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}). To that end it is important to observe that a priori the expansion (\ref{LArea}) allows for a total of $133694$ undetermined parameters. It is thus remarkable that solely the requirement of diffeomorphism invariance reduces this number to the $52$ parameters that are left in the obtained solution. \\
+
+Following (\ref{Algo2}) we now compute the principal polynomials of the EOM generated from $\mathcal{L}_{GLED}$ and $\mathcal{L}_{Area,per}$ to deduce whether the two theories are already causally compatible or this second requirement yields further conditions for the $52$ gravitational constants in the perturbative area metric gravity Lagrangian. This time we start by computing the GLED polynomial. This was first computed by Rubilar (see \cite{2009JPhA...42U5402I}) in the context of premetric Electrodynamics and is given by the following expression with corresponding first order expansion: 
+\begin{align} \label{GLEDPoly}
+\begin{aligned}
+    \mathcal{P}_{GLED} &= -\frac{1}{24}\omega_G^2\epsilon_{mnpq}\epsilon_{rstu}J_A^{mnra}J_B^{bpsc}J_C^{dqtu} v_{\flat_{Area}}^A v_{\flat_{Area}}^B v_{\flat_{Area}}^C k_ak_bk_ck_d \\
+                &= \bigl[ 1 -  A \eta(H)- \frac{1}{2} A \epsilon(H) + \frac{1}{12} \epsilon(H) \bigr] \eta(k)^2 - H(k)\eta(k) + \mathcal{O}(2)\\
+                &= \bigl\{  \bigl[ 1 - \frac{1}{2} A \eta(A) - \frac{1}{4} A \epsilon(H) +  \frac{1}{24} \epsilon(H) \bigr] \eta(k) - \frac{1}{2} H(k)       \bigr\}^2 + \mathcal{O}(2).
+\end{aligned}
+\end{align}
+Here we defined $v_{\flat_{Area}}^A = v^A \circ \flat_{Area}$ and used $v_{\flat_{Area}}^A J_A^{abcd} I^B_{cdef}v_B = = 4 \delta^{[a}_e \delta^{b]}_f$ to expand $v^A_{\flat_{Area}}$ around $N_A$. Further we defined
+\begin{align}
+\begin{aligned}
+\eta(H) &:= \eta^{ac}\eta^{bd} I^A_{abcd} H_A, \\ 
+\epsilon(H) &:=\epsilon^{abcd}I^A_{abcd}H_{A},\\ H(k) &:=\eta^{ac}\eta^{bp}\eta^{cq} I^A_{abcd}H_Ak_pk_q, \\ \eta(k)&:=\eta^{pq}k_pk_q.
+\end{aligned}
+\end{align}
+Besides of that $A$ denotes a constant that depends on the specific choice of density $\omega_G$ in the GLED Lagrangian.  
+We now compute the principal polynomial of the constructed diffeomorphism invariant perturbative theory of area metric gravity. To that end we start by inserting the calculated solution of the expansion coefficients in to (\ref{EOMPert}) to obtain the explicit expression of the perturbative EOM. From this we can simply read of the principal symbol. Following further along the lines described in the last chapter we find the following expression for the area metric gravity polynomial:
+\begin{align} \label{AreaPoly}
+\begin{aligned}
+    \mathcal{P}_{Area} &= \bigl[1 - \frac{1}{2} \tilde{C}\eta(H) - \frac{1}{4} \tilde{C} \epsilon(H) + \frac{7}{12} \epsilon(H) \bigr] \eta(k)^{13} - \frac{13}{2}H(k) \eta(k)^{12} + \mathcal{O}(2) \\
+    &=\bigl\{  \bigl[ 1 - \frac{1}{2} C \eta(H) - \frac{1}{4} C \epsilon(H) +  \frac{7}{12\cdot13} \epsilon(H) \bigr] \eta(k) - \frac{1}{2} H(k)       \bigr\}^{13} + \mathcal{O}(2).
+\end{aligned}
+\end{align}
+Here $C$ is a constant the depends on the parametes that are left in (\ref{LArea}) and $\Tilde{C} = 13 C$.
+There is a slight caveat in the computation of this expression for the area metric gravity polynomial. 
+To explain this further first note that due to the fact that there still appear $52$ constant parameters in rather complicated fashion in the area metric gravity Lagrangian it is virtually impossible to derive the principal polynomial without employing efficient computer algebra. Once we have selected a $17 \times 17$ submatrix of the $21 \times 21$ principal symbol matrix we have to compute the two expressions $D_0$ and $D_{1}^C$ in (\ref{polyMatrices}) in order to find the constant and linear order of the expansion of the principal polynomial. Note that the involved matrices no longer depend on $H_A$. To compute $D_0$ and $D_1^A$ we now need the determinant and the inverse of the constant order $T_0$ of the chosen $17 \times 17$ symbol submatrix. This two steps precisely represent the bottleneck of the computation of the polynomial. Although $T_0$ does not depend on $H_A$ it still includes some of the $52$ parameters, namely exactly those that are left in $a^{ApBq}$ and $a^{ABI}$ after solving the equivariance equations and contribute to the principal symbol. We find that these still consist of $7$ parameters. Although this might not sound much computing the determinant or the inverse of a $17 \times 17$ matrix with $7$ symbolic parameters that appear in rather complicated fashion turns out to be surprisingly hard. We tried to tackle this problem by using a fraction free implementation of Gaussian elimination in the computer algebra system Maple\footnote{We expect that one might achieve even superiour performance in computing the determinant by using techniques from multivariat polynomial interpolation as it is for instance suggested in \cite{Qin2018}, \cite{MARCO2004749} and also \cite{articleDet}}. Nevertheless with the available resources the program did not terminate in adequate time. Thus the only way we nevertheless were able to obtain an expression for the polynomial was by evaluating the $7$ parameters that appear in $T_0$ at randomly generated integer values and then only computing the principal polynomial with the remaining parameters from the two third order coefficients $a^{ABpCq}$ and $a^{ABCI}$. Taking a closer look at (\ref{polyMatrices}) these parameters only appear in traces not in determinants or inverses. We then proceeded by performing this computation to obtain the principal polynomial several times, each time taking newly obtained random integers for the $7$ parameters in $T_0$. Doing so we observed that they only contribute an overall factor to the principal Polynomial (\ref{AreaPoly}). We have to admit that this was however not done often enough to rigorously interpolate the precise way the prefactor depends on these $7$ parameters. This is however not necessary as we are only interested in the vanishing set of the area metric gravity polynomial. \\
+
+Note that, as we are only interested in the vanishing set of the principal polynomial, we can multiply a given polynomial with a non vanishing scalar density of arbitrary weight. The expansion to linear order of such a density admits the general form
+\begin{align}\label{dens}
+\omega = 1+ b_1 \cdot (\eta(H) + \frac{1}{2} \epsilon(H)) + \frac{b_2}{12}\epsilon(H) + \mathcal{O}(2),
+\end{align}
+for arbitrary constants $b_1$ and $b_2$.
+Multiplying  (\ref{GLEDPoly}) with such a density we see that perturbatively the GLED polynomial describes the same vanishing set as 
+\begin{align} \label{GLEDPoly2}
+\begin{aligned}
+    \widetilde{\mathcal{P}}_{GLED}(k) = \omega \cdot \mathcal{P}_{GLED} = 
+    \bigl\{  \bigl[ 1 - \frac{1}{2} (A-b_1) \eta(H) - \frac{1}{4} (A-b_1) \epsilon(H)) + \\ \frac{1+b_2}{24} \epsilon(H) \bigr] \eta(k)
+    -\frac{1}{2} H(k)       \bigr\}^2 + \mathcal{O}(2).
+\end{aligned}
+\end{align}
+Comparing this expression with the previously obtained area metric gravity polynomial (\ref{AreaPoly}) we find that multiplying the GLED polynomial with a density with constants $b_1 = A -C$ and $b_2 = \frac{1}{13}$, the two polynomials are products of the same factor and therefore in particular describe the same vanishing set in $\mathcal{O}(2)$. Thus also for the case of area metric gravity requiring causal compatibility with the GLED mater theory in addition to diffeomorphism invariance at least perturbatively yields no further conditions for the parameters of $\mathcal{L}_{Area,per}$.\\
+
+Finally we wish to investigate if this was in fact a coincidence of the chosen GLED matter theory or a general feature of perturbative are metric gravity independent on the specific matter theory. To this end we  take a closer look at the consequences of the required diffeomorphism invariance on the causal structure of the corresponding area metric gravity EOM by studying general solutions to (\ref{polyEqn}). This equation now takes the following form:
+\begin{align}\label{AreaPolyEqn}
+    0 = \partial^A \mathcal{P}_{Area}^{p_1...p_26} C_{An}^{Bm} v_B - 26\mathcal{P}_{Area}^{(p_1...p_{25}\vert m} \delta_n^{\vert p_{26})} + 13 \mathcal{P}_{Area}^{p_1...p_21} \delta^m_n.
+\end{align}
+Proceeding as before for the metric in computing the general power series solution up to linear order in $H_A$ for this equation and contracting it against $k_{p_1} \cdot k_{p_{26}}$ we get the most general linear order expansion of $\mathcal{P}_{Area}$ that is consistent with the required diffeomorphism invariance:
+\begin{align}
+\begin{aligned}
+    \mathcal{P}_{Area} &= a \cdot \bigl \{  \eta(k)^{13} + \tilde{b} \cdot \eta(H) \cdot \eta(k) - \frac{13}{2} \cdot  H(k) \cdot \eta(k)^{12} + (\frac{\tilde{b}}{2}+\frac{14}{24}) \cdot \epsilon(H) \eta(k)^{13}  \bigr \} + \mathcal{O}(2)\\
+    &=a \cdot \bigl\{  \bigl[ 1 + b \eta(H) + \frac{b}{2} \epsilon(H) +  \frac{7}{12\cdot13} \epsilon(H) \bigr] \eta(k) - \frac{1}{2} H(k)       \bigr\}^{13} + \mathcal{O}(2),
+\end{aligned}
+\end{align}
+with constants $a$, $b$ and $\tilde{b} = 13b$. It is clear that the overall constant $a$ does not influence the vanishing set. Additionally we can multiply this expression with with the general form of a non vanishing scalar density of arbitrary weight (\ref{dens}) that in linear order allows for $2$ arbitrary parameters $b_1$ and $b_2$. Doing so we find:
+\begin{multline}
+    \tilde{\mathcal{P}}_{Area} = \bigl\{  \bigl[ 1 + (b+ b_1) \eta(H) + \frac{b+b_1}{2} \epsilon(H) +  (\frac{7}{12\cdot13}+b_2) \epsilon(H) \bigr] \eta(k) - \frac{1}{2} H(k)       \bigr\}^{13} \\
+    + \mathcal{O}(2).
+\end{multline}
+This polynomial now obviously perturbatively describes the same vanishing set. However now we see that we can in fact specify the remaining constant $b$ at wish just by multiplying with an appropriate density and hence in particular without changing the vanishing set. 
+Thus the fact that the requirement of causal compatibility between are metric gravity and GLED let to no further condition was no coincidence but a general feature of the perturbative expansion of area metric gravity
+We conclude that for the case of the third perturbative area metric gravity Lagrangian already the required diffeomorphism invariance determines the vanishing set of the principal polynomial and thereby the causal structure if the theory uniquely. \\
+
+
 
 \appendix
 \chapter{Developed Computer Algebra Packages}
@@ -3136,7 +3200,7 @@ When computing the Lorentz invariant expansion coefficients that occur in (\ref{
 %comment on prod of eps = eta
 
 Inserting these expressions in the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}) ans solving these with respect to the $52$ parameters:
-\begin{multline}
+\begin{multline}\label{AreaParas}
 \Bigl\{\,\  \mu_{{3}},\mu_{{5}},\mu_{{6}},\mu_{{7}},\mu_{{11}},\mu_{{13}}
 ,\mu_{{14}},\mu_{{17}},\mu_{{19}},\mu_{{23}},\nu_{{7}},\nu_{{9}},\nu_{
 {11}},\nu_{{20}},\nu_{{41}},\nu_{{42}},\nu_{{48}},\nu_{{51}},\nu_{{55}
@@ -3453,7 +3517,7 @@ _{{83}}-1/2\,\nu_{{51}}+2\,\nu_{{90}}-1/2\,\nu_{{59}}+{\frac {9\,\nu_{
 \nu_{{
 47}}&=-2\,\nu_{{83}}-\nu_{{90}}-1/8\,\nu_{{9}}+1/2\,\nu_{{48}}, \\
 \\
-nu_{{49
+\nu_{{49
 }}&=\nu_{{77}}-\nu_{{80}}-9\,\nu_{{83}}+\nu_{{51}}-9/2\,\nu_{{90}}-1/2
 \,\nu_{{59}}-5/8\,\nu_{{9}}+\nu_{{48}}+\nu_{{55}}-1/2\,\nu_{{58}}-1/16
 \,\nu_{{7}},  \\
