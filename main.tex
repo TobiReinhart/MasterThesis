@@ -78,7 +78,34 @@
 
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+	\centering
+
+	{\Huge\bfseries Covariant Constructive Gravity\par}
+	\vspace{2cm}
+	
+	{\scshape\Large Masterthesis \par}
+	\vspace{1cm}
+	{ submitted by \par}
+	
+	
+	
+	{\bfseries Tobias Reinhart\par}
+		{ 4. September 2019\par}
+	\vspace{2cm}
+	
+	\includegraphics[width=0.5\textwidth]{fau-siegel.pdf}\par
+	\vspace{1cm}Department of Physics\par
+	Friedrich-Alexander-Universität Erlangen-Nürnberg\par
+	Supervisor: Erstgutachter , Dr. Frederic P. Schuller
+	
+	\vfill
+
+
+
+
+
+\end{titlepage}
 
 \tableofcontents
 
@@ -111,13 +138,13 @@ In general we will label bundle maps that take values in the bundle of volume fo
 
 As usual $\left[ \  ,   \  \right]$ denotes the commutator of vector fields and $\left \{  \  ,   \   \right \}$ the poisson bracket of phase space functions/functionals. 
 
-\chapter{Diffeomorphism invariant field theory}
+\chapter{Diffeomorphism Invariant Field Theory}
 
 \dictum{
 We provide the basic mathematical tools necessary for a precise formulation of classical Lagrangian field theory. Furthermore we study implications of the requirement that the Lagrangian be infinitesimally equivariant w.r.t. spacetime diffeomorphisms and derive from it an equivalent set of first order partial differential equations. Lastly we investigate consequences of the diffeomorphism invariance for the Hamiltonian formulation of classical field theory.
 }
 
-\section{Field bundles jet bundles and prolongations}
+\section{Field Bundles Jet Bundles and Prolongations}
 In order to develop a concise framework for classical Lagrangian field theory it is insightful to recall the situation in standard classical mechanics. There one encodes the possible configurations a given system might adopt at given time as finite dimensional manifold, the so called configuration space $Q$. The objects of interest are curves $\gamma : \mathbb{R} \rightarrow Q $ that represent the systems path in this configuration space, i.e. the particular system configuration dependent on some parameter time. Given such a curve, by adjoining its velocity $\dot{\gamma}$ at each parameter value one can lift the curve to the tangent bundle $TQ$. The dynamics of the system can then be described by a Lagrangian function $L : TQ \rightarrow \mathbb{R}$. Composing $L$ with a lifted curve one obtains a real valued function. As such one can compute its integral. This procedure defines a local functional on the space of curves:
 \begin{align}
 S[\gamma] = \int \mathrm{d}\lambda L(\gamma (\lambda), \dot{\gamma} (\lambda)).  
@@ -699,7 +726,7 @@ Summing up we have derived linear first order PDE systems for the Lagrangian or 
 
 
 
-\section{Canonical kinematics and hypersurface deformations}
+\section{Canonical Kinematics and Hypersurface Deformations}
 In the following two sections we are going to investigate implication of the required diffeomorphism invariance for the \textit{\textbf{canonical formulation}} of a given field theory. For that purpose we mainly concern field theories that are described by a \textit{\textbf{first order}} Lagrangian, i.e. a function on $J^1F$. Working on $J^2F$ as before we would necessary have to consider the case where the Lagrangian is degenerate such that the EOM are nevertheless of second order and the Hamiltonian formulation is free of Ostrogratsky instabilities. The degeneracy of the Lagrangian would then however impede the canonical formulation of the theory\footnote{We remark that although posing further technical difficulties we expect a generalisation of the following derivations to the case of degenerate Lagrangians on $J^2F$ to be straight forward.}.
 
 The main idea that is used when transferring from a given Lagrangian field theory to the associated Hamiltonian formulation is that of decomposing the spacetime manifold $M$ into a disjoint set of 3-dimensional manifolds that are smoothly parametrized by a time parameter. As a consequence one can then accordingly decompose any structure that is prescribed on $M$. In order to achieve this we follow \cite{2004math.ph..11032G} and introduce the notion of a \textit{\textbf{slicing}}, sometimes also called a \textit{\textbf{3+1-split}}, of the spacetime manifold $M$.
@@ -929,7 +956,7 @@ With the observer definition presented in \cite{2018PhRvD..97h4036D}, \cite{2011
     \left[\mathcal{H}(N), \mathcal{H}(M) \right] = \left(\mathrm{deg}(\mathcal{P}_{mat}(v_A)) -1\right ) \cdot  \mathcal{D}_F\left(\mathcal{P}_{mat}(v_A)^{\mu \alpha}( N\partial_{\mu} M - M \partial_{\mu}N  ) \right),
 \end{align}
 where $\mathcal{P}_{mat}(v_A)^{\mu \alpha}$ is a quantity that is obtained from the \textit{\textbf{principal polynomial}} $\mathcal{P}_{mat}(v_A)$ of the underlying matter theory used as starting point and $\mathrm{deg}(\mathcal{P}_{mat}(v_A))$ denotes its polynomial degree. Also here the appearance of these field dependent quantities in the commutation relation results from the field dependent definition of the vertical vector field in terms of the observer notion that is used for the direct sum split.
-\section{Constraint Hamiltonian dynamics}
+\section{Constraint Hamiltonian Dynamics}
 In the previous section we have developed the necessary kinematical tools for the canonical treatment of field theories, mainly the notion  of a slicing of the spacetime manifold and the associated split of the tangent bundle. With these tools at hand we will now proceed with our analysis of diffeomorphism invariant field theories by constructing \textbf{\textit{Hamiltonian dynamics}} from a given Lagrangian.
 
 The diffeomorphism invariance of a given field theory will make its appearance in the Hamiltonian formulation by the form of \textit{\textbf{constraints}} on the conjugate momenta that will then force us to treat the system by means of the techniques developed by Dirac to ensure consistency of Constraint Hamiltonian dynamics.
@@ -1315,7 +1342,7 @@ With our developements in mind we would argue that also in their framework the o
 \dictum{
 We gather main results and techniques from the formal approach to PDE theory with the focus lying in particular on the construction of formal power series solutions to a given PDE. These techniques allow us to formulate a second requirement that is posed on the gravitational dynamics and thus provides the yet missing link between matter and gravitational dynamics, namely their causal compatibility. Furthermore we develop a concise framework for the perturbative treatment of the problem posed by constructive gravity.
 }
-\section{Formal Theory, Symbols and Involutivity}
+\section{Formal Theory, Symbols and Involution}
 Given the achievement of translating the first requirement we wish to pose on any gravitational dynamics --- the invariance under spacetime diffeomorphisms --- into an equivalent linear, first order PDE system that we presented in the previous chapter any further considerations the we provide in this chapter aim to answer one of the following questions:
 \begin{itemize}
     \item Given a concrete matter theory, once we solve the stated PDE system to obtain a gravitational Lagrangian describing a theory of gravity that is sourced by this matter, how can we make sure the two theories are in fact compatible in the sense that the given EOM can actually be solved together?
@@ -1456,7 +1483,7 @@ Our main use of the notion of an involutive symbol will be a reformulation of th
 \begin{definition}[involutive PDE] \label{invol}
 We call a PDE $R_q$ involutive if it is formally integrable and its symbol $M_q$ is involutive.
 \end{definition}
-In order to show that unlike formal integrability, involutivity can actually be checked in finite manner we would like to state the following result that is proven in \cite{seiler1994analysis}.
+In order to show that unlike formal integrability, involution can actually be checked in finite manner we would like to state the following result that is proven in \cite{seiler1994analysis}.
 \begin{theorem}\label{invoCons}
 Let $R_q$ be a PDE with involutive symbol $M_q$ then it holds that:
 \begin{itemize}
@@ -1468,7 +1495,7 @@ Let $R_q$ be a PDE with involutive symbol $M_q$ then it holds that:
 Can be found in \cite{seiler1994analysis}.
 \end{proof}
 It is important to understand the second implication of the involution of $M_q$. On the left hand side of the equality we take the prolonged and projected equation $R_q^{(1)}$ and prolong it to order $q+1$. In particular any integrability conditions that were obtained during the projection are hence prolonged. On the right hand side we take the prolonged equation $R_{q+1}$ prolong it to order $q+2$ and then project it down to order $q+1$. Therefore the equality states that for the case of PDEs with involutive symbol all integrability conditions that might be found during projection from the second prolongation with order $q+2$ to order $q+1$ are actually prolongations of integrability conditions that were obtained one order before, during the prolongation to order $q+1$.
-Using these two implications of the involutivity of $M_q$ we can proof the following statement
+Using these two implications of the involution of $M_q$ we can proof the following statement
 \begin{theorem}
 A PDE $R_q$ is involutive according to definition (\ref{invol}) if its symbol $M_q$ is involutive and performing one prolongation and projection reveals no additional integrability conditions: $R_q^{(1)} = R_q$ .
 \end{theorem}
@@ -2568,10 +2595,19 @@ Hence the construction procedure is completed. The most general meaningful third
 
 Summing up the results that we developed in this chapter, not only did our perturbative constructiv gravity framework pass its first test in succesfully recovering the third order expansion of the Einstein-Hilbert Lagrangian, with the perturbative expansion of area metric gravity we also have developed the most general perturbative theory of gravity that is consistent with linear Electrodynamics. Although the expansion of such a theory to second order in the Lagrangian has already been computed in \cite{2017arXiv170803870S}, the expansion to third order that we derived here for the first time provides access to the computation of gravitational wave in such a theory of gravity and thereby allows us to concretely test the area metric against measurements. For exactly that reason the computation of the emission of gravitational waves should compromise the main focus of future developements in this area of research. 
 
+\chapter{Conclusions}
+
 \appendix
-\chapter{Developed Computer Algebra Packages}
-\section{SparseTensor: Sparse Tensor Calculus for Multiple Abstract Indices}
-\section{LorentzGenerator: Basis of Lorentz Invariant Tensors with given Valence and Symmetry}\label{LorentzGen}
+\chapter{Computer Algebra}
+\dictum{
+After providing the reader with a concise introduction to functional programming in Haskell, focusing on the main differences with more traditional imperative programming languages we proceed by illustrating the developed Haskell package SparseTensor in detail. Not only will we explain the basic functionality contained therein, the following chapters are also intended as a short introduction manual for potential future users. Finally we also clarify how the construction of Lorentz invariant basis Tensors is implemented in SparseTensor.    
+}
+%or even make this a complete chapter in the main part ? 
+\section{A Concise Introduction to Functional Programming in Haskell}
+For the following chapter to constitute a self contained description of the developed computer algebra also for readers that are unfamiliar with functional programming languages in general and the programming language Haskell in particular we now furnish a quick introduction to such, treating mainly particularities of  functional languages compared with traditional imperative ones.
+Details can be found in any good textbook governing functional programming as for instance in \cite{Thompson99thecraft}, \cite{bird_2014}, \cite{hutton_2007} and also \cite{OSullivan2008}.
+\section{SparseTensor: A Haskell Package for Sparse Tensor Calculus with Multiple Abstract Tensor Indices }
+\section{Generation of Lorentz Invariant Basis Tensors with given Valence and Symmetry}\label{LorentzGen}
 
 \chapter{Perturbative Lagrangians}
 \dictum{
