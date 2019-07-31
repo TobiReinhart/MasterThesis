@@ -10,10 +10,15 @@
 \usepackage[boxruled, linesnumbered]{algorithm2e}
 \usepackage{stmaryrd}
 \usepackage{url}
+\usepackage{fancyvrb}
 
 
 
-\usepackage{listings}
+%for code included
+\usepackage{minted}
+
+\RecustomVerbatimEnvironment{Verbatim}{BVerbatim}{}
+\usemintedstyle{vs}
 
 
 \usepackage{hyperref}
@@ -82,8 +87,7 @@
 \date{April 2019}
 
 \begin{document}
- \lstset{language=Haskell, columns = [c]fixed} 
-
+ 
 \begin{titlepage}
 	\centering
 
@@ -2610,98 +2614,83 @@ For the following chapter to constitute a self contained description of the deve
 Details can be found in any good textbook as for instance in \cite{Thompson99thecraft}, \cite{bird_2014}, \cite{hutton_2007}. Introductions to Haskell that rather resemble user guides aiming to rapidly allow the reader to write his own programs can be found in  \cite{OSullivan2008} and  \cite{Lipovaca:2011:LYH:2018642}. Much information is also collected in the HaskellWiki \cite{wiki:xxx}.
 
 Compared with traditional imperative programming languages as for instance $C$ the most striking difference of Haskell lies in the fact that it employs a \textbf{\textit{purely functional}} programming paradigm. In imperative languages a computer program consists of a sequence of commands for the computer to execute step by step. Thus not only the individual steps but also the specific order of their execution, control flow, is explicitly provided by the programmer. Typically this is achieved by using control structures such as loops or conditional statements. At each time during its execution the computer program hence can be said to occupy a given state that can be described by the explicit information that is stored in the entirety of its variables. A single computation step then precisely tells the program how to transfer from a given state to the subsequent one. This corresponds to a change in the values of some of the variables that describe the programs state. Apart from invoking the desired modifications of its variables that are necessary for the specific computation additionally such a computer program might undesirably change values of further variables. This is referred to as \textit{\textbf{side effects}}. As a consequence executing a such a computer program multiple times might not return the same result each time as side effects that possibly occur during the execution can alter the outcome. Needless to say that unexpected side effects compromise a broad source of potential errors and are hence best avoided. One way of avoiding side effects is by employing a functional programming paradigm. In contrast to an imperative programming style a computer program no longer consists of a step by step instruction of state changes but is given by a mathematical function that maps some input data to the desired output. The execution of the program then simply corresponds to the evaluation of this function. As such a function obviously only depends on the data it is given as input it is completely free of side effects. In practise one can build a computer program using such a functional programming style by composing it of several individual functions that describe sub parts of the program via usual function composition. Besides of composition in most functional languages functions of multiple variables can also be  \textit{\textbf{curried}} to obtain an equivalent higher order function that only takes a single argument but now yields a function as result. 
-\begin{align}
-    f : A \times B \longrightarrow C \ \xrightarrow{ \ currying \ } \
-    f_{c} : A \longrightarrow \left ( B \longrightarrow C \right ).
-\end{align}
-Evaluating the curried function $f_{c}$ for $a \in A$ then simply corresponds to partially evaluating the uncurried function $f$ and thus yields:
-\begin{align}
-\begin{aligned}
-    f_{c}(a) : &B \longrightarrow C \\ 
-    &b \longmapsto f(a,b)
-\end{aligned}
-\end{align}
-Thus we have $f(a,b) = (f_c(a))(b)$. One can equivalently think of this expression as being the evaluation of $f$ at $(a,b) \in A \times B$ or as first evaluating the curried function on $a$ and then applying the result to $b$. In fact in Haskell all functions take precisely one argument, i.e. functions that take several arguments are always represented in curried form. Using the convention that the evaluation of functions is left associative we arrive at the general form of a function definition in Haskell:
 \begin{center}
-\begin{tabular}{c}
-\begin{lstlisting}
-f :: A -> B -> C
-f a b = ...  .
-\end{lstlisting}
-\end{tabular}
+    \mintinline{haskell}{f :: (A,B) -> C} $\ \xrightarrow{ \ currying \ } \ $
+    \mintinline{haskell}{f' :: A -> (B -> C)}.
 \end{center}
-Where left associativity states that $f$ is first evaluated on $a$ and the result is then applied to $b$, i.e. $f \ a \ b = (f(a))(b)$ and thus has the following type $f :: A \rightarrow \left ( B \rightarrow C \right )$. 
-
-In the above we already used the second Haskell particularity to some extend, the Haskell \textbf{\textit{type system}}. Every Haskell expression has a type that is denoted by 
-\begin{align}
-    \text{expression} :: \text{type}.
-\end{align}
+One can hence equivalently represent functions that take multiple arguments by their curried form as functions that only take a single argument but return again a function. In fact in Haskell all functions take precisely one argument, i.e. functions that take several arguments are always represented in curried form. The general form of a function definition in Haskell reads:
+\begin{center}
+\begin{minted}{haskell}
+f :: A -> (B -> C)
+f a b = ...  .
+\end{minted}
+\end{center} 
+\mintinline{haskell}{f a b = (f a) b} denotes the evaluation of the function \mintinline{haskell}{f} first on \mintinline{haskell}{a} and then applying the resulting function to \mintinline{haskell}{b}. Note that the function evaluation is left associative.
+In the above we already used the second Haskell particularity to some extend, the Haskell \textbf{\textit{type system}}. Every Haskell expression has a type that is denoted by \mintinline{haskell}{expr :: type}. Hence the above function  has the type \mintinline{haskell}{f :: A -> (B -> C)}. Whereas the evaluation of functions behaves left associative the corresponding types are right associative. The type of the above function can thus also be written as \mintinline{haskell}{f :: A -> B -> C}.
 New data types can be defined by specifying \textbf{\textbf{data constructors}}, functions that describe how the new data type is constructed in terms of known data types. We can illustrate this by constructing a data type that represents a pair of integers:
 \begin{center}
-\begin{tabular}{c}
-\begin{lstlisting}
+\begin{minted}{haskell}
 data IntPair = IntPair Int Int .
-\end{lstlisting}
-\end{tabular}
+\end{minted}
 \end{center}
 Note that the constructor thus by definition defines a function that when applied to two integers yields an expression with type IntPair. When defining functions in Haskell one can \textbf{\textit{pattern match}} against data constructors. In other words one may define the function value in terms of the values that are given to the constructor of the input argument. To provide an example we can define a function that computes the some of the two integers contained in an IntPair:
 \begin{center}
-\begin{tabular}{c}
-\begin{lstlisting}
+\begin{minted}{haskell}
 sumIntPair :: IntPair -> Int 
-sumIntPair (IntPair x y) = (+) x y,
-\end{lstlisting}
-\end{tabular}
+sumIntPair (IntPair x y) = x + y,
+\end{minted}
 \end{center}
-where (+) is the usual addition of integers. 
+where we used the infix notation for the addition of integers. 
 The special property of the Haskell type system however is that already when compiling Haskell code the compiler checks whether the types of the various function applications contained therein match. If not the program is immediately rejected by the compiler. Thus potential type errors are already avoided at compile time and therefore cannot lead to runtime errors. Languages that employ this form of type checking are also called \textit{\textbf{statically typed}}. Also our developed tensor algebra package intensively relies on the Haskell type system. It is built such that typos that might occur when using it to compute tensorial expressions almost always yield a type error. Especially when dealing with longer computations this is a huge advantage as such typos or similar mistakes are then already detected when compiling the code and not after possibly several hours of runtime.  
 
-Finally the last special feature that Haskell admits is its \textit{\textbf{lazy evaluation}} strategy. Functions are only explicitly evaluated on their arguments once the result is needed. This does not only allow for performance improvements as employing lazy evaluation unnecessary function calls can be avoided it also enables the use of conditional control structures in purely functional style. The usual $if$ $then$ $else$ construction for instance could simply be given by a function
+Finally the last special feature that Haskell admits is its \textit{\textbf{lazy evaluation}} strategy. Functions are only explicitly evaluated on their arguments once the result is needed. This does not only allow for performance improvements as employing lazy evaluation unnecessary function calls can be avoided it also enables the use of conditional control structures in purely functional style. The usual conditional if statement for instance could simply be given by a function
 \begin{center}
-\begin{tabular}{c}
-\begin{lstlisting}
-if' :: Bool -> A -> A -> A
+\begin{minted}{haskell}
+if' :: Bool -> a -> a -> a
 if' False _ y = y }
 if' True x _ = x 
-\end{lstlisting}
-\end{tabular}
+\end{minted}
 \end{center}
-Note that when the boolean evaluates to \textbf{True} this function simply returns the expression $x$. Thus when using lazy evaluation in this case $y$ is never evaluated. Similarly $x$ is not evaluated when the boolean is \textbf{False}. 
+Note that when the boolean evaluates to \mintinline{haskell}{True} this function simply returns the expression \mintinline{haskell}{x}. Thus when using lazy evaluation in this case \mintinline{haskell}{y} is never evaluated. Similarly \mintinline{haskell}{x} is not evaluated when the boolean is \mintinline{haskell}{False}. 
 
 Besides of the above particularities of Haskell as programming language in order to fully grasp the essence of the algorithms that will be outlined in the following section it is essential to accustom oneself with functions that are heavily used in functional programming languages to implement control flow by means of recursion over data structures. These techniques can be understood best by considering a particular example. Amongst the simplest data structures that can be used for the recursion are list. In Haskell the list data structure is defined as follows 
 \begin{center}
-\begin{tabular}{c}
-\begin{lstlisting}
+\begin{minted}{haskell}
 data [a] = [ ] | a : [a] .
-\end{lstlisting}
-\end{tabular}
+\end{minted}
 \end{center}
-Thus it has two constructors $[ \ ]$ constructing the empty list and $(:)$ appending an element to the front of the list. Note that $(:)$ is written as infix operator.
-The first heavily used function that can be used to structure control flow is the \textbf{\textit{map}} function:
+Thus it has two constructors \mintinline{haskell}{[ ]} constructing the empty list and \mintinline{haskell}{(:)} appending an element to the front of the list. Note that \mintinline{haskell}{(:)} is written as infix operator.
+The first heavily used function that can be used to structure control flow is the \mintinline{haskell}{map}function:
 \begin{center}
-\begin{tabular}{c}
-\begin{lstlisting}
+\begin{minted}{haskell}
 map :: (a -> b) -> [a] -> [b]
 map f [] = [] 
 map f (x:xs) =  f x : map f xs . 
-\end{lstlisting}
-\end{tabular}
+\end{minted}
 \end{center}
-Hence the map function takes a function and a list and applies he function to each element of a list. The second important concept is the \textit{\textbf{fold}}. It exists in several versions. The main idea consists of taking a binary function a start argument and a list of additional arguments and then successively reducing the list by first applying the function to the start argument and the first argument of the list and then proceeding by evaluating the function on the thus obtained result and the next list element. One can distinguish folds by whether they reduce the list starting from its first (left fold) or its last (right fold) value. A left fold operator can be implement in Haskell according to:
+Hence the map function takes a function and a list and applies he function to each element of a list. The second important concept is the fold operators \mintinline{haskell}{foldl} and \mintinline{haskell}{foldr}. It exists in several versions. The main idea consists of taking a binary function a start argument and a list of additional arguments and then successively reducing the list by first applying the function to the start argument and the first argument of the list and then proceeding by evaluating the function on the thus obtained result and the next list element. One can distinguish folds by whether they reduce the list starting from its first (left fold) or its last (right fold) value. A left fold operator can be implement in Haskell according to:
 \begin{center}
-\begin{tabular}{c}
-\begin{lstlisting}
+\begin{minted}{haskell}
 foldl :: (a -> b -> a) -> a -> [b] -> a 
 foldl f x [] = x 
 foldl f x (y:ys) = foldl f (f x y) ys.
-\end{lstlisting}
-\end{tabular}
+\end{minted}
 \end{center}
 Obviously there exist much more such functions that allow each particular problem at hand to be treated in a suitable way using a purely functional programming paradigm. Additional many of these concepts can also be defined for data structures more general than lists. Details can be found in the provided literature.
 
 \section{SparseTensor: A Haskell Package for Sparse Abstract Tensor Calculus}
-With the short introduction to Haskell at hand we now explain the main ideas that underlie the developed computer program SparseTensor. Ultimately the aim consists of solving the perturbative equivariance equations (\ref{order1}), \ref{order2} and \ref{order3}. Recall that these three systems are merely compromised of linear equations. In principal it should thus be straight forward to re-express these in suitable matrix from and use standard matrix computer algebra to solve them. Practically extracting the appropriate matrices from the systems is however a different question as for doing so one would need to evaluate the tensorial expressions in all free indices and to that end also explicitly express all occurring contractions and symmetrizations. On the other hand existing tensor algebra systems such as Cadabra (see \cite{cadabra1} and \cite{cadabra2}) and the Physics package currently provided by the computer algebra system Maple are mostly restricted to the use of spacetime indices. Furthermore such systems often rely on a purely symbolic treatment of tensors. Both of these observations imply a significant performance loss for our intended use. To that end first of all one should observe that except for unknown parameters that label the independent Lorentz invariant expressions in the expansion coefficients and thus occur linearly in the perturbative equivariance equations all remaining expressions only contain rational numbers. Hence one can avoid expensive symbolic computations alltogether. Secondly also the use of abstract indices $I, A, ...$ leads to a reduction in the computation costs. To that end note that that contracting two blocks of $4$ indices each that both admit the symmetry of an area metric tensor against each other requires the summation of $4^4 = 256$ expressions. On the other hand introducing an abstract index $A = 0,...,20$ that runs over the independent components such a are metric block contains the contraction only requires the summation of $21$ expressions. Finally we can additionally derive a benefit from the fact that the tensors that occur in the treatment of the perturbative equivariance equations are to a large extent only sparsely occupied. Providing an example the area metric intertwiner with components displayed in (\ref{AreaI}) only contains $144$ non vanishing components out of a total of $21 \cdot 4^4 = 5376$ total components which admits to an occupation level of around $2.68 \%$.
+With the short introduction to Haskell at hand we now explain the main ideas that underlie the developed computer program SparseTensor. Ultimately the aim consists of solving the perturbative equivariance equations (\ref{order1}), \ref{order2} and \ref{order3}. Recall that these three systems are merely compromised of linear equations. In principal it should thus be straight forward to re-express these in suitable matrix from and use standard matrix computer algebra to solve them. Practically extracting the appropriate matrices from the systems is however a different question as for doing so one would need to evaluate the tensorial expressions in all free indices and to that end also explicitly express all occurring contractions and symmetrizations. On the other hand existing tensor algebra systems such as Cadabra (see \cite{cadabra1} and \cite{cadabra2}) and the Physics package currently provided by the computer algebra system Maple are mostly restricted to the use of spacetime indices. Furthermore such systems often rely on a purely symbolic treatment of tensors.
+Both of these observations imply a significant performance loss for our intended use. 
 
+To that end first of all one should observe that except for unknown parameters that label the independent Lorentz invariant expressions in the expansion coefficients and thus occur linearly in the perturbative equivariance equations all remaining expressions only contain rational numbers. In particular the components of the tensors involved in these equations are explicitly known. Hence in fact we never have to treat these tensors symbolically as abstract objects but can think of them as containers that are simply used to store values in a particular way. Doing this we do not need to implement the usual tensorial operations, i.e. contractions, tensor products, symmetrizations, etc. on an abstract level but simply have to specify how they can be realized in terms of the components of the tensors. By that we completely can avoid expensive purely symbolical computations. 
+
+Secondly also the use of abstract indices $I, A, ...$ leads to a reduction in the computation costs. Note that that contracting two blocks of $4$ indices each that both admit the symmetry of an area metric tensor against each other requires the summation of $4^4 = 256$ expressions. On the other hand introducing an abstract index $A = 0,...,20$ that runs over the independent components such a are metric block contains the contraction only requires the summation of $21$ expressions. Finally we can additionally derive a benefit from the fact that the tensors that occur in the treatment of the perturbative equivariance equations are to a large extent only sparsely occupied. Providing an example the area metric intertwiner with components displayed in (\ref{AreaI}) only contains $144$ non vanishing components out of a total of $21 \cdot 4^4 = 5376$ total components which admits to an occupation level of around $2.68 \%$.
+Summing up we want to incorporate the following functionallity in our computer program:
+\begin{itemize}
+    \item Treatment of tensor with multiple abstract indices each running over an individual index range. 
+    \item Sparse storage of tensor components.
+    \item Optimization towards computing explicit component operations over abstract algebraic manipulation of tensors.
+\end{itemize}
 
 \section{Generation of Lorentz Invariant Basis Tensors}\label{LorentzGen}
 
