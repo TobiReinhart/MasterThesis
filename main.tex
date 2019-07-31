@@ -9,6 +9,11 @@
 \usepackage{relsize}
 \usepackage[boxruled, linesnumbered]{algorithm2e}
 \usepackage{stmaryrd}
+\usepackage{url}
+
+
+
+\usepackage{listings}
 
 
 \usepackage{hyperref}
@@ -77,6 +82,7 @@
 \date{April 2019}
 
 \begin{document}
+ \lstset{language=Haskell, columns = [c]fixed} 
 
 \begin{titlepage}
 	\centering
@@ -113,6 +119,7 @@
 
 %in introduction: main idea of constructive gravity and reasons for the constructive approach. Maybe also current state of the field (+ lovelock, HKT, bootstrap).
 
+%check labeling of equations !!!
 
 
 Before we start with the main part we quickly illustrate particularities of the chosen \textit{\textbf{notation}}. Throughout this thesis even if not stated explicitly all objects are considered to be smooth, i.e. we work with smooth maps defined on smooth manifolds. 
@@ -171,7 +178,7 @@ Sometimes the dual of a linear map is also called its adjoint. With the definiti
 Given a vector bundle $(F, \pi_F,M)$. Its vector bundle dual is the vector bundle $(F^{\ast}, \pi_{F^{\ast}},M)$ with fibres $\pi_{F^{\ast}}^{-1}(p) = (\pi_F^{-1}(p))^{\ast} $ for all $p$ in $M$ and the obvious projection.  
 \end{definition}
 In other words one obtains the dual to a given vector bundle by implementing the dual construction fibre by fibre.
-Given adapted coordinates on the field bundle $(x^m, v_A)$ with the coordinate functions $v_A$ being linear on the fibres, we can obtain \textbf{\textit{dual coordinates}} on the dual field bundle by $(x^m, ((v_A)^{\ast})^{-1})$, i.e. by taking the inverse dual of the fibre coordinates $v_A$ (see \cite{saunders_1989}). Note that we do not simply take the dual of the $v_A$ but its inverse as the dual construction reverses the direction of linear maps\footnote{In the language of category theory: duality defines a contravariant functor.}. In the following we denote the fibre coordinates dual to $v_A$ by $v^A$. With these coordinates we get $ v_A(v^B) = \delta_A^B$. From now on given a chart on the field bundle we always work with the corresponding dual chart on the dual field bundle.\\
+Given adapted coordinates on the field bundle $(x^m, v_A)$ with the coordinate functions $v_A$ being linear on the fibres, we can obtain \textbf{\textit{dual coordinates}} on the dual field bundle by $(x^m, ((v_A)^{\ast})^{-1})$, i.e. by taking the inverse dual of the fibre coordinates $v_A$ (see \cite{saunders_1989}). Note that we do not simply take the dual of the $v_A$ but its inverse as the dual construction reverses the direction of linear maps\footnote{In the language of category theory: duality defines a contravariant functor \cite{MacLane:205493}.} In the following we denote the fibre coordinates dual to $v_A$ by $v^A$. With these coordinates we get $ v_A(v^B) = \delta_A^B$. From now on given a chart on the field bundle we always work with the corresponding dual chart on the dual field bundle.\\
 %check this last statement
 
 Note that as the field bundle is required to be given by a vector sub bundle of some $T^m_n M$ one usually works directly on $T^m_n M$ and uses chart induced basis fields $\mathrm{d}x^{a_1}\otimes ... \otimes \mathrm{d}x^{a_m} \otimes \frac{\partial}{\partial x^{b_1}} \otimes ... \otimes \frac{\partial}{\partial x^{b_n}}$ to complete a chart on $M$ to one on $T ^m _ n M$. In the following we denote such coordinates on $T^m_n M$ as $(x^m, v^{a_1 ... a_m}_{b_1 ... b_n})$. The coordinate representation of sections is then given as $G^{a_1 ... a_m}_{b_1 ... b_n}$. Although this is the standard way of representing tensor fields in coordinates it has two significant disadvantages. Firstly the notation gets increasingly complicated once products and contractions of higher ranked fields are involved. Secondly if the field bundle is a true sub bundle of $T^m_nM$ and hence has fibres with dimension less than $4^{(m+n)}$ the chart induced fields simply are to many functions to provide a valid chart on this sub bundle. This is for instance the case considering the field bundle for a metric tensor. The total space of this particular bundle is the space of symmetric rank $(0,2)$ tensors $S^2(T^{\ast}M)$. The typical fibre of the field bundle has dimension $10$. Nevertheless one usually uses the $16$ chart induced basis fields $ \frac{\partial}{\partial x^a}  \otimes \frac{\partial}{\partial x^b}$ to obtain coordinate expressions $g_{ab} = g(\frac{\partial}{\partial x^a},\frac{\partial}{\partial x^b})$ for a section of this field bundle. These component functions then necessarily satisfy $g_{ab} = g_{ba}$ which reduces the fibre dimension from $16$ to $10$. \\
@@ -338,12 +345,12 @@ Given a bundle $(F, \pi_F, M)$, with adapted coordinates $(x^m, v_A)$ and sectio
 Here $G_A$ and $H_A$ denote as before the chart representations of the two sections w.r.t. the specified adapted coordinates. One can easily check that this indeed defines an equivalence relations and is independent of the chosen coordinate chart, i.e. well defined. Details can be found in \cite{saunders_1989}. From this definition one immediately sees the similarity to the construction of tangent vectors as equivalence classes of curves. Just as in the case of tangent vectors, where one collects all tangent vectors to obtain the tangent bundle, we can now collect all such 1-jets of sections of $F$ to obtain the first order jet bundle $J^1F$ over $F$. 
 \begin{definition}[first jet bundle]
 Let $(F, \pi_F, M)$ be a bundle, the first jet bundle over $F$, $(J^1F,\pi_1,M)$ is the bundle with total space $J^1F := \{j^1_pG \ \vert \  p \in M, G \in \Gamma(F)\}$ and bundle projection 
-\begin{align*}
+\begin{align}
     \begin{aligned}
 \pi_1 : &J^1F \longrightarrow M \\
 &j^1_pG \longmapsto p.
     \end{aligned}
-\end{align*}
+\end{align}
 \end{definition}
 \begin{remark}
 Note that by this definition $J^1F$ is a bundle over the base manifold $M$. We can also equip $J^1F$ with the projection 
@@ -370,23 +377,23 @@ Given a bundle $(F, \pi_F, M)$ with adapted coordinate chart $(x^m, v_A)$ and se
 Again one can show that this is well defined \cite{saunders_1989}. We collect all such 2-jets for all sections of $F$ and all points in $M$ to obtain the second order jet bundle over $F$.
 \begin{definition}[second jet bundle]
 Let $(F, \pi_F, M)$ be a bundle, the second jet bundle $(J^2F,\pi_2,M)$ is the bundle with total space $J^2F := \{j^2_pG \  \vert \  p \in M, G \in \Gamma(F)\}$ and bundle projection 
-\begin{align*}
+\begin{align}
     \begin{aligned}
 \pi_2 : J^2F \longrightarrow M \\
 j^2_pG \longmapsto p.
     \end{aligned}
-\end{align*}
+\end{align}
 \end{definition}
 \begin{remark}
 One can again show that this really defines a bundle over the base manifold $M$. In the case of the second order jet bundle we can obtain two further bundle projections 
-\begin{align*}
+\begin{align}
     \begin{aligned}
     \pi_{2,1} : &J^2F \longrightarrow J^1F \\
     &j^2_pG \longmapsto j^1_pG ,\\
     \pi_{2,0} : &J^2F \longrightarrow F \\
     &j^2_pG \longmapsto G(p).
     \end{aligned}
-\end{align*}
+\end{align}
 These bundle projections provide $J^2F$ with the additional structure of a bundle over $J^1F$ with projection $\pi_{2,1}$ or a bundle over $F$ with projection $\pi_{2,0}$. Note that from the various definitions we find $\pi_{2} = \pi_F \circ \pi_{2,0} = \pi_F \circ \pi_{1,0} \circ \pi_{2,1}$.
 \end{remark}
 As before we can obtain adapted coordinates $(x^m, v_A, v_{Ai},v_{Aij})$ of $J^2F$ from adapted coordinates $(x^m,v_A)$ on $F$ by defining $x^m(j^2_pG) := x^m(p)$, $v_A(j^2_pG):= v_A(G(p))$, $v_{Ai}(j^2_pG) := v_{Ai}(j^1_pG)$ and $v_{Aij}(j^2_pG) := \partial_i \partial_j G_A \vert _p$. 
@@ -1523,7 +1530,7 @@ In this thesis we will actually never have to complete a PDE to involution. This
 
 Before we proceed with a deeper investigation of the PDE (\ref{DiffeoEqn}) from the point of view of formal PDE theory we would like to return to the priorly mentioned fact that the extensive use of linear algebra in formal PDE theory allows one to solve many of the associated problems by means of computer algebra systems. In fact there already exist several implementation that were developed for precisely that task. One such can be found the last chapters of \cite{seiler1994analysis} although it seems like there is not much recent contribution to this project. Another such tool consists of the Maple package Janet (see \cite{Janet2} and \cite{Janet}) that implements similar techniques steming mainly from Janet-Riquier theory in the computer algebra system Maple. 
 
-Although for our case the treatment of the PDEs that will arise once we consider concrete examples of our developed framework in chapter 4 by means of computer algebra will be inevitable we wont use either of the implementations presented above. The reason for that being the fact that the shear dimension of the systems that we will encounter forces us to use computer algebra that is more spezialized towards the systems at with regard to memory usage. To that end the computer algebra that we used for these examples was newly developed to a large extend. Details can be found in the appendix.    
+Although for our case the treatment of the PDEs that will arise once we consider concrete examples of our developed framework in chapter 4 by means of computer algebra will be inevitable we wont use either of the implementations presented above. The reason for that being the fact that the shear dimension of the systems that we will encounter forces us to use computer algebra that is more spezialized towards the systems at with regard to memory usage. To that end the computer algebra that we used for these examples was newly developed to a large extend. Details can be found in chapter \ref{computerAlg}.    
 
 
 \section{Causal Compatibility of Matter and Gravitational Dynamics}
@@ -1997,7 +2004,7 @@ As we are dealing with linear equations it suffices to construct a basis of the 
 
 Details regarding how one needs to proceed step by step to achieve the above are provided when we discuss particular examples. As this endeavour is straight forward but extensively laborious it is best done relying on computer algebra. For specifically that purpose we developed a highly performant computer program. 
 %cite own computer program here
-Further information regarding regarding the underlying mathematics but also the concrete implementation and a short how-to-use guide can be found in the appendix. \\
+Further information regarding the underlying mathematics but also the concrete implementation and a short how-to-use guide can be found in chapter \ref{computerAlg}. \\
 
 Finally we would like to emphasise the practical advantage of this approach. When computing power series solutions to (\ref{DiffeoEqnFormal}) the arising linear equations rapidly increas in size. Assuming $F$ has fibre dimension $21$ to provide an example that we will in fact treat in the next chapter the PDE compromises of $136$ equations for a function of $315$ independent variables (when the explicit $x^m$ dependency is discharged from the very beginning and hence the first equation in (\ref{DiffeoEqnFormal}) removed.).  When inserting the power series ansatz into the prolonged PDE obviously some of the obtained linear equations for the expansion constants decouple into sub systems that can be solved independently. Nevertheless due to the shear dimensionality of the expansion constants even solving the obtained subsystems poses a real problem. In our example for instance we would encounter the expression $a^{AIBJCK}$ which no includes $210\cdot 211\cdot212/6=1565620$ constants. Hence even if the obtained linear system decouples in such a way that allows us to treat all expressions that solely involve $a^{AIBJCK}$ independently from the rest we still have to solve a linear system with roughly $1.5$ Mio constants. On the other hand the space of Lorentz invariant expressions that we can obtain for $a^{AIBJCK}$ only has a dimension of several hundred. Hence working with the Lorentz invariant expression from the very beginning reduces the size of the problem from roughly $1.5$ Mio involved constants to several hundreds. 
 
@@ -2038,8 +2045,7 @@ Finally prolonging the PDE to third derivative order inserting the power series 
 Together with the requirement that the expansion constants are Lorentz invariant these equations really contain all information that we can extract from the PDE (\ref{DiffeoEqnFormal}) for the construction of the power sereis Lagrangian. In particular as we have shown that the PDE is involutive we are now sure that we do not miss hidden information.  By means of this perturbative power series solution the requirement of constructing diffeomorphism invariant Lagrangians for any given field theory hence boils down to the much simpler quest of solving the above system of linear equations.
 Note that we could no easily derive similar expression for the higher order contributions to such a power series expansion. Is the resulting linear systems then however become extensively complicated and in most cases practically unsolvable we only provide the linear systems contributing to the first three orders of the power series Lagrangian here. 
 
-Besides these equations take precisely this form no matter what specific field is in consideration. The only quantities in the above linear equations (\ref{order1}), (\ref{order2}) and (\ref{order3}) that explicitly depend on the chosen field bundle are the constant tensors $C_{An}^{Bm}$ that are easily obtained from the infinitesimal diffeomorphism action on the field bundle $F$.  For that reason we have also cast the treatment of such equations into a computer program. Once we have specified the particular field bundle that we wish to work on and the expansion point we therefore only need to set up the computer with the expression for $C_{An}^{Bm}$ and the appropriate ranges for the fibre indices of the field bundle $A$ as initial input, the construction of the appropriate Lorentz invariant expansion coefficients and the subsequent solution of the above linear equations is then treated fully automatically. Details can again be found in the appendix. \\
-%ref appendix ?
+Besides these equations take precisely this form no matter what specific field is in consideration. The only quantities in the above linear equations (\ref{order1}), (\ref{order2}) and (\ref{order3}) that explicitly depend on the chosen field bundle are the constant tensors $C_{An}^{Bm}$ that are easily obtained from the infinitesimal diffeomorphism action on the field bundle $F$.  For that reason we have also cast the treatment of such equations into a computer program. Once we have specified the particular field bundle that we wish to work on and the expansion point we therefore only need to set up the computer with the expression for $C_{An}^{Bm}$ and the appropriate ranges for the fibre indices of the field bundle $A$ as initial input, the construction of the appropriate Lorentz invariant expansion coefficients and the subsequent solution of the above linear equations is then treated fully automatically. Details can again be found in chapter \ref{computerAlg}. \\
 
 We end this chapter by examining how we can incorporate the requirement of causal compatibility of matter and gravitational equations in the perturbative approach.
 We assume again that we are handed a matter theory 
@@ -2293,7 +2299,7 @@ Enforcing the symmetries on these three expressions we find that (i) already fea
 \begin{align}
     a^{AB} = I^{A}_{ab}I^{B}_{cd} \left ( 8\mu_3 \cdot \eta^{ab}\eta^{cd} + 8\mu_4 \cdot \eta^{c(a} \eta^{b)d}   \right ).
 \end{align}
-Here the factor $8$ is a result of the factorless symmetrization that we implement in our computer program, i.e. when symmetrizing the expression w.r.t. $(ab),(cd)$ and $(ab) \leftrightarrow (cd) $ we do not divide by $2$ each time and hence get an overall factor of $2^3=8$. This approach is equivalent to the symmetrization including these factors as we are free to absorb such factors by redefining the constants. It furthermore provides the advantage that we can then deal with integer factors throughout the whole computation. Details are explained in appendix (\ref{LorentzGen}).
+Here the factor $8$ is a result of the factorless symmetrization that we implement in our computer program, i.e. when symmetrizing the expression w.r.t. $(ab),(cd)$ and $(ab) \leftrightarrow (cd) $ we do not divide by $2$ each time and hence get an overall factor of $2^3=8$. This approach is equivalent to the symmetrization including these factors as we are free to absorb such factors by redefining the constants. It furthermore provides the advantage that we can then deal with integer factors throughout the whole computation. Details are explained in section (\ref{LorentzGen}).
 Thus we have obtained an expression that features 2 constants for $a^{AB}$.
 Note that computing the remaining expansion coefficients works exactly along the same lines as the above with the only difference being that the expressions will become increasingly involved and thus are best obtained by using computer algebra.
 Doing this the dimensions, i.e. number of arbitrary constants in the expansion coefficients are displayed in table (\ref{GRExp}).
@@ -2554,7 +2560,7 @@ We now compute the principal polynomial of the constructed diffeomorphism invari
 \end{align}
 Here $C$ is a constant the depends on the parametes that are left in (\ref{LArea}) and $\Tilde{C} = 13 C$.
 There is a slight caveat in the computation of this expression for the area metric gravity polynomial. 
-To explain this further first note that due to the fact that there still appear $52$ constant parameters in rather complicated fashion in the area metric gravity Lagrangian it is virtually impossible to derive the principal polynomial without employing efficient computer algebra. Once we have selected a $17 \times 17$ submatrix of the $21 \times 21$ principal symbol matrix we have to compute the two expressions $D_0$ and $D_{1}^C$ in (\ref{polyMatrices}) in order to find the constant and linear order of the expansion of the principal polynomial. Note that the involved matrices no longer depend on $H_A$. To compute $D_0$ and $D_1^A$ we now need the determinant and the inverse of the constant order $T_0$ of the chosen $17 \times 17$ symbol submatrix. This two steps precisely represent the bottleneck of the computation of the polynomial. Although $T_0$ does not depend on $H_A$ it still includes some of the $52$ parameters, namely exactly those that are left in $a^{ApBq}$ and $a^{ABI}$ after solving the equivariance equations and contribute to the principal symbol. We find that these still consist of $7$ parameters. Although this might not sound much computing the determinant or the inverse of a $17 \times 17$ matrix with $7$ symbolic parameters that appear in rather complicated fashion turns out to be surprisingly hard. We tried to tackle this problem by using a fraction free implementation of Gaussian elimination in the computer algebra system Maple\footnote{We expect that one might achieve even superiour performance in computing the determinant by using techniques from multivariat polynomial interpolation as it is for instance suggested in \cite{Qin2018}, \cite{MARCO2004749} and also \cite{articleDet}}. Nevertheless with the available resources the program did not terminate in adequate time. Thus the only way we nevertheless were able to obtain an expression for the polynomial was by evaluating the $7$ parameters that appear in $T_0$ at randomly generated integer values and then only computing the principal polynomial with the remaining parameters from the two third order coefficients $a^{ABpCq}$ and $a^{ABCI}$. Taking a closer look at (\ref{polyMatrices}) these parameters only appear in traces not in determinants or inverses. We then proceeded by performing this computation to obtain the principal polynomial several times, each time taking newly obtained random integers for the $7$ parameters in $T_0$. Doing so we observed that they only contribute an overall factor to the principal Polynomial (\ref{AreaPoly}). We have to admit that this was however not done often enough to rigorously interpolate the precise way the prefactor depends on these $7$ parameters. This is however not necessary as we are only interested in the vanishing set of the area metric gravity polynomial. \\
+To explain this further first note that due to the fact that there still appear $52$ constant parameters in rather complicated fashion in the area metric gravity Lagrangian it is virtually impossible to derive the principal polynomial without employing efficient computer algebra. Once we have selected a $17 \times 17$ submatrix of the $21 \times 21$ principal symbol matrix we have to compute the two expressions $D_0$ and $D_{1}^C$ in (\ref{polyMatrices}) in order to find the constant and linear order of the expansion of the principal polynomial. Note that the involved matrices no longer depend on $H_A$. To compute $D_0$ and $D_1^A$ we now need the determinant and the inverse of the constant order $T_0$ of the chosen $17 \times 17$ symbol submatrix. This two steps precisely represent the bottleneck of the computation of the polynomial. Although $T_0$ does not depend on $H_A$ it still includes some of the $52$ parameters, namely exactly those that are left in $a^{ApBq}$ and $a^{ABI}$ after solving the equivariance equations and contribute to the principal symbol. We find that these still consist of $7$ parameters. Although this might not sound much computing the determinant or the inverse of a $17 \times 17$ matrix with $7$ symbolic parameters that appear in rather complicated fashion turns out to be surprisingly hard. We tried to tackle this problem by using a fraction free implementation of Gaussian elimination in the computer algebra system Maple\footnote{We expect that one might achieve even superiour performance in computing the determinant by using techniques from multivariat polynomial interpolation as it is for instance suggested in \cite{Qin2018}, \cite{MARCO2004749} and also \cite{articleDet}} \cite{Maple}. Nevertheless with the available resources the program did not terminate in adequate time. Thus the only way we nevertheless were able to obtain an expression for the polynomial was by evaluating the $7$ parameters that appear in $T_0$ at randomly generated integer values and then only computing the principal polynomial with the remaining parameters from the two third order coefficients $a^{ABpCq}$ and $a^{ABCI}$. Taking a closer look at (\ref{polyMatrices}) these parameters only appear in traces not in determinants or inverses. We then proceeded by performing this computation to obtain the principal polynomial several times, each time taking newly obtained random integers for the $7$ parameters in $T_0$. Doing so we observed that they only contribute an overall factor to the principal Polynomial (\ref{AreaPoly}). We have to admit that this was however not done often enough to rigorously interpolate the precise way the prefactor depends on these $7$ parameters. This is however not necessary as we are only interested in the vanishing set of the area metric gravity polynomial. \\
 
 Note that, as we are only interested in the vanishing set of the principal polynomial, we can multiply a given polynomial with a non vanishing scalar density of arbitrary weight. The expansion to linear order of such a density admits the general form
 \begin{align}\label{dens}
@@ -2595,19 +2601,114 @@ Hence the construction procedure is completed. The most general meaningful third
 
 Summing up the results that we developed in this chapter, not only did our perturbative constructiv gravity framework pass its first test in succesfully recovering the third order expansion of the Einstein-Hilbert Lagrangian, with the perturbative expansion of area metric gravity we also have developed the most general perturbative theory of gravity that is consistent with linear Electrodynamics. Although the expansion of such a theory to second order in the Lagrangian has already been computed in \cite{2017arXiv170803870S}, the expansion to third order that we derived here for the first time provides access to the computation of gravitational wave in such a theory of gravity and thereby allows us to concretely test the area metric against measurements. For exactly that reason the computation of the emission of gravitational waves should compromise the main focus of future developements in this area of research. 
 
+\chapter{Computer Algebra}\label{computerAlg}
+\dictum{
+After providing the reader with a concise introduction to functional programming in Haskell, focusing on the main differences with more traditional imperative programming languages we proceed by illustrating the developed Haskell package SparseTensor in detail. Not only will we explain the basic functionality contained therein, the following chapters are also intended as a short introduction manual for potential future users. Finally we also clarify how the construction of Lorentz invariant basis tensors is implemented in SparseTensor. }   
+
+\section{A Concise Introduction to Functional Programming in Haskell}
+For the following chapter to constitute a self contained description of the developed computer algebra also for readers that are unfamiliar with the programming language Haskell we now furnish a quick introduction to it. We mainly treat its particularities compared with more traditional imperative languages.
+Details can be found in any good textbook as for instance in \cite{Thompson99thecraft}, \cite{bird_2014}, \cite{hutton_2007}. Introductions to Haskell that rather resemble user guides aiming to rapidly allow the reader to write his own programs can be found in  \cite{OSullivan2008} and  \cite{Lipovaca:2011:LYH:2018642}. Much information is also collected in the HaskellWiki \cite{wiki:xxx}.
+
+Compared with traditional imperative programming languages as for instance $C$ the most striking difference of Haskell lies in the fact that it employs a \textbf{\textit{purely functional}} programming paradigm. In imperative languages a computer program consists of a sequence of commands for the computer to execute step by step. Thus not only the individual steps but also the specific order of their execution, control flow, is explicitly provided by the programmer. Typically this is achieved by using control structures such as loops or conditional statements. At each time during its execution the computer program hence can be said to occupy a given state that can be described by the explicit information that is stored in the entirety of its variables. A single computation step then precisely tells the program how to transfer from a given state to the subsequent one. This corresponds to a change in the values of some of the variables that describe the programs state. Apart from invoking the desired modifications of its variables that are necessary for the specific computation additionally such a computer program might undesirably change values of further variables. This is referred to as \textit{\textbf{side effects}}. As a consequence executing a such a computer program multiple times might not return the same result each time as side effects that possibly occur during the execution can alter the outcome. Needless to say that unexpected side effects compromise a broad source of potential errors and are hence best avoided. One way of avoiding side effects is by employing a functional programming paradigm. In contrast to an imperative programming style a computer program no longer consists of a step by step instruction of state changes but is given by a mathematical function that maps some input data to the desired output. The execution of the program then simply corresponds to the evaluation of this function. As such a function obviously only depends on the data it is given as input it is completely free of side effects. In practise one can build a computer program using such a functional programming style by composing it of several individual functions that describe sub parts of the program via usual function composition. Besides of composition in most functional languages functions of multiple variables can also be  \textit{\textbf{curried}} to obtain an equivalent higher order function that only takes a single argument but now yields a function as result. 
+\begin{align}
+    f : A \times B \longrightarrow C \ \xrightarrow{ \ currying \ } \
+    f_{c} : A \longrightarrow \left ( B \longrightarrow C \right ).
+\end{align}
+Evaluating the curried function $f_{c}$ for $a \in A$ then simply corresponds to partially evaluating the uncurried function $f$ and thus yields:
+\begin{align}
+\begin{aligned}
+    f_{c}(a) : &B \longrightarrow C \\ 
+    &b \longmapsto f(a,b)
+\end{aligned}
+\end{align}
+Thus we have $f(a,b) = (f_c(a))(b)$. One can equivalently think of this expression as being the evaluation of $f$ at $(a,b) \in A \times B$ or as first evaluating the curried function on $a$ and then applying the result to $b$. In fact in Haskell all functions take precisely one argument, i.e. functions that take several arguments are always represented in curried form. Using the convention that the evaluation of functions is left associative we arrive at the general form of a function definition in Haskell:
+\begin{center}
+\begin{tabular}{c}
+\begin{lstlisting}
+f :: A -> B -> C
+f a b = ...  .
+\end{lstlisting}
+\end{tabular}
+\end{center}
+Where left associativity states that $f$ is first evaluated on $a$ and the result is then applied to $b$, i.e. $f \ a \ b = (f(a))(b)$ and thus has the following type $f :: A \rightarrow \left ( B \rightarrow C \right )$. 
+
+In the above we already used the second Haskell particularity to some extend, the Haskell \textbf{\textit{type system}}. Every Haskell expression has a type that is denoted by 
+\begin{align}
+    \text{expression} :: \text{type}.
+\end{align}
+New data types can be defined by specifying \textbf{\textbf{data constructors}}, functions that describe how the new data type is constructed in terms of known data types. We can illustrate this by constructing a data type that represents a pair of integers:
+\begin{center}
+\begin{tabular}{c}
+\begin{lstlisting}
+data IntPair = IntPair Int Int .
+\end{lstlisting}
+\end{tabular}
+\end{center}
+Note that the constructor thus by definition defines a function that when applied to two integers yields an expression with type IntPair. When defining functions in Haskell one can \textbf{\textit{pattern match}} against data constructors. In other words one may define the function value in terms of the values that are given to the constructor of the input argument. To provide an example we can define a function that computes the some of the two integers contained in an IntPair:
+\begin{center}
+\begin{tabular}{c}
+\begin{lstlisting}
+sumIntPair :: IntPair -> Int 
+sumIntPair (IntPair x y) = (+) x y,
+\end{lstlisting}
+\end{tabular}
+\end{center}
+where (+) is the usual addition of integers. 
+The special property of the Haskell type system however is that already when compiling Haskell code the compiler checks whether the types of the various function applications contained therein match. If not the program is immediately rejected by the compiler. Thus potential type errors are already avoided at compile time and therefore cannot lead to runtime errors. Languages that employ this form of type checking are also called \textit{\textbf{statically typed}}. Also our developed tensor algebra package intensively relies on the Haskell type system. It is built such that typos that might occur when using it to compute tensorial expressions almost always yield a type error. Especially when dealing with longer computations this is a huge advantage as such typos or similar mistakes are then already detected when compiling the code and not after possibly several hours of runtime.  
+
+Finally the last special feature that Haskell admits is its \textit{\textbf{lazy evaluation}} strategy. Functions are only explicitly evaluated on their arguments once the result is needed. This does not only allow for performance improvements as employing lazy evaluation unnecessary function calls can be avoided it also enables the use of conditional control structures in purely functional style. The usual $if$ $then$ $else$ construction for instance could simply be given by a function
+\begin{center}
+\begin{tabular}{c}
+\begin{lstlisting}
+if' :: Bool -> A -> A -> A
+if' False _ y = y }
+if' True x _ = x 
+\end{lstlisting}
+\end{tabular}
+\end{center}
+Note that when the boolean evaluates to \textbf{True} this function simply returns the expression $x$. Thus when using lazy evaluation in this case $y$ is never evaluated. Similarly $x$ is not evaluated when the boolean is \textbf{False}. 
+
+Besides of the above particularities of Haskell as programming language in order to fully grasp the essence of the algorithms that will be outlined in the following section it is essential to accustom oneself with functions that are heavily used in functional programming languages to implement control flow by means of recursion over data structures. These techniques can be understood best by considering a particular example. Amongst the simplest data structures that can be used for the recursion are list. In Haskell the list data structure is defined as follows 
+\begin{center}
+\begin{tabular}{c}
+\begin{lstlisting}
+data [a] = [ ] | a : [a] .
+\end{lstlisting}
+\end{tabular}
+\end{center}
+Thus it has two constructors $[ \ ]$ constructing the empty list and $(:)$ appending an element to the front of the list. Note that $(:)$ is written as infix operator.
+The first heavily used function that can be used to structure control flow is the \textbf{\textit{map}} function:
+\begin{center}
+\begin{tabular}{c}
+\begin{lstlisting}
+map :: (a -> b) -> [a] -> [b]
+map f [] = [] 
+map f (x:xs) =  f x : map f xs . 
+\end{lstlisting}
+\end{tabular}
+\end{center}
+Hence the map function takes a function and a list and applies he function to each element of a list. The second important concept is the \textit{\textbf{fold}}. It exists in several versions. The main idea consists of taking a binary function a start argument and a list of additional arguments and then successively reducing the list by first applying the function to the start argument and the first argument of the list and then proceeding by evaluating the function on the thus obtained result and the next list element. One can distinguish folds by whether they reduce the list starting from its first (left fold) or its last (right fold) value. A left fold operator can be implement in Haskell according to:
+\begin{center}
+\begin{tabular}{c}
+\begin{lstlisting}
+foldl :: (a -> b -> a) -> a -> [b] -> a 
+foldl f x [] = x 
+foldl f x (y:ys) = foldl f (f x y) ys.
+\end{lstlisting}
+\end{tabular}
+\end{center}
+Obviously there exist much more such functions that allow each particular problem at hand to be treated in a suitable way using a purely functional programming paradigm. Additional many of these concepts can also be defined for data structures more general than lists. Details can be found in the provided literature.
+
+\section{SparseTensor: A Haskell Package for Sparse Abstract Tensor Calculus}
+With the short introduction to Haskell at hand we now explain the main ideas that underlie the developed computer program SparseTensor. Ultimately the aim consists of solving the perturbative equivariance equations (\ref{order1}), \ref{order2} and \ref{order3}. Recall that these three systems are merely compromised of linear equations. In principal it should thus be straight forward to re-express these in suitable matrix from and use standard matrix computer algebra to solve them. Practically extracting the appropriate matrices from the systems is however a different question as for doing so one would need to evaluate the tensorial expressions in all free indices and to that end also explicitly express all occurring contractions and symmetrizations. On the other hand existing tensor algebra systems such as Cadabra (see \cite{cadabra1} and \cite{cadabra2}) and the Physics package currently provided by the computer algebra system Maple are mostly restricted to the use of spacetime indices. Furthermore such systems often rely on a purely symbolic treatment of tensors. Both of these observations imply a significant performance loss for our intended use. To that end first of all one should observe that except for unknown parameters that label the independent Lorentz invariant expressions in the expansion coefficients and thus occur linearly in the perturbative equivariance equations all remaining expressions only contain rational numbers. Hence one can avoid expensive symbolic computations alltogether. Secondly also the use of abstract indices $I, A, ...$ leads to a reduction in the computation costs. To that end note that that contracting two blocks of $4$ indices each that both admit the symmetry of an area metric tensor against each other requires the summation of $4^4 = 256$ expressions. On the other hand introducing an abstract index $A = 0,...,20$ that runs over the independent components such a are metric block contains the contraction only requires the summation of $21$ expressions. Finally we can additionally derive a benefit from the fact that the tensors that occur in the treatment of the perturbative equivariance equations are to a large extent only sparsely occupied. Providing an example the area metric intertwiner with components displayed in (\ref{AreaI}) only contains $144$ non vanishing components out of a total of $21 \cdot 4^4 = 5376$ total components which admits to an occupation level of around $2.68 \%$.
+
+
+\section{Generation of Lorentz Invariant Basis Tensors}\label{LorentzGen}
+
+
 \chapter{Conclusions}
 
 \appendix
-\chapter{Computer Algebra}
-\dictum{
-After providing the reader with a concise introduction to functional programming in Haskell, focusing on the main differences with more traditional imperative programming languages we proceed by illustrating the developed Haskell package SparseTensor in detail. Not only will we explain the basic functionality contained therein, the following chapters are also intended as a short introduction manual for potential future users. Finally we also clarify how the construction of Lorentz invariant basis Tensors is implemented in SparseTensor.    
-}
-%or even make this a complete chapter in the main part ? 
-\section{A Concise Introduction to Functional Programming in Haskell}
-For the following chapter to constitute a self contained description of the developed computer algebra also for readers that are unfamiliar with functional programming languages in general and the programming language Haskell in particular we now furnish a quick introduction to such, treating mainly particularities of  functional languages compared with traditional imperative ones.
-Details can be found in any good textbook governing functional programming as for instance in \cite{Thompson99thecraft}, \cite{bird_2014}, \cite{hutton_2007} and also \cite{OSullivan2008}.
-\section{SparseTensor: A Haskell Package for Sparse Tensor Calculus with Multiple Abstract Tensor Indices }
-\section{Generation of Lorentz Invariant Basis Tensors with given Valence and Symmetry}\label{LorentzGen}
 
 \chapter{Perturbative Lagrangians}
 \dictum{
@@ -2633,8 +2734,8 @@ In the following the various expressions for the linearly independent Lorentz in
 \\
 \boldsymbol{a^{ABC}}&: \ \ \ & a^{abcdef}  &= \mu_5\cdot \eta^{ab}\eta^{cd}\eta^{ef}+\mu_6\cdot \eta^{ab}\eta^{ce}\eta^{df}+\mu_7\cdot \eta^{ac}\eta^{be}\eta^{df}\\
 \end{alignedat}
-\end{align}\label{LorentzGR2}
-\begin{align}
+\end{align}
+\begin{align}\label{LorentzGR2}
 \begin{alignedat}{2}
 \boldsymbol{a^{ABpCq}}&: \ \ \ & a^{abcdpefq}  &= \nu_{14}\cdot\eta^{ab}\eta^{cd}\eta^{pe}\eta^{fq}+\nu_{15}\cdot\eta^{ab}\eta^{cd}\eta^{pq}\eta^{ef}
 +\nu_{16}\cdot\eta^{ab}\eta^{cp}\eta^{de}\eta^{fq}\\ &  &\hphantom{=} &
@@ -3239,7 +3340,7 @@ When computing the Lorentz invariant expansion coefficients that occur in (\ref{
 
 Inserting these expressions in the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}) ans solving these with respect to the $52$ parameters:
 \begin{multline}\label{AreaParas}
-\Bigl\{\,\  \mu_{{3}},\mu_{{5}},\mu_{{6}},\mu_{{7}},\mu_{{11}},\mu_{{13}}
+\bigl\{\,\  \mu_{{3}},\mu_{{5}},\mu_{{6}},\mu_{{7}},\mu_{{11}},\mu_{{13}}
 ,\mu_{{14}},\mu_{{17}},\mu_{{19}},\mu_{{23}},\nu_{{7}},\nu_{{9}},\nu_{
 {11}},\nu_{{20}},\nu_{{41}},\nu_{{42}},\nu_{{48}},\nu_{{51}},\nu_{{55}
 },\nu_{{58}},\\\nu_{{59}},\nu_{{69}},\nu_{{77}},\nu_{{79}},\nu_{{80}},
@@ -3247,7 +3348,7 @@ Inserting these expressions in the perturbative equivariance equations (\ref{ord
 \nu_{{124}},\nu_{{127}},\nu_{{131}},\nu_{{132}},\nu_{{135}},\nu_{{137}
 },\\\nu_{{139}},\nu_{{149}},\nu_{{151}},\nu_{{153}},\nu_{{155}},\nu_{{
 160}},\nu_{{164}},\nu_{{165}},\nu_{{175}},\nu_{{178}},\nu_{{181}},\nu_
-{{194}},\nu_{{202}},\nu_{{204}},\nu_{{206}} \,\  \Bigr\}
+{{194}},\nu_{{202}},\nu_{{204}},\nu_{{206}} \,\  \bigr\}
 \end{multline}
 We get the following expressions for the remaining $188$ parameters in terms of these:
 \begin{align}\label{AreaSol1}
