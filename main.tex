@@ -16,8 +16,16 @@
 
 %for code included
 \usepackage{minted}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{LG}{rgb}{0.863, 0.863, 0.863}
 
-\RecustomVerbatimEnvironment{Verbatim}{BVerbatim}{}
+
+%for centered minted environment 
+\usepackage{xpatch,letltxmacro}
+\LetLtxMacro{\cminted}{\minted}
+\let\endcminted\endminted
+\xpretocmd{\cminted}{\RecustomVerbatimEnvironment{Verbatim}{BVerbatim}{}}{}{}
+
 \usemintedstyle{vs}
 
 
@@ -216,7 +224,7 @@ With these definitions at hand we can now specify the maps that allow for the tr
 Let $(F,\pi_F,M)$ be a vector bundle. We call a pair of vector bundle morphisms $(I,J)$ that cover $id_M$,
 $I: F \rightarrow T^m_n M$ and $J: T^m_n M \rightarrow F $ that satisfy  $J \circ I = \mathrm{id}_F$ a pair of \textbf{\textit{intertwiners}} for the bundle $(F, \pi_F, M)$.
 \end{definition}
-Tthe last requirement, namely the existence of a leftinverse to $I$ ensures that $\tilde{I} : F \rightarrow I(F) \subset T^m_nM$ defines a vector bundle isomorphism, and thereby allows us to relate the two distinct points of view.
+The last requirement, namely the existence of a leftinverse to $I$ ensures that $\tilde{I} : F \rightarrow I(F) \subset T^m_nM$ defines a vector bundle isomorphism, and thereby allows us to relate the two distinct points of view.
 \begin{comment}
 \begin{remark}
 Note that the situation is similar to the soldering of a vector bundle to a manifold, where the necessary data is a vector bundle isomorphism between the vector bundle and the tangent bundle of the manifold. The soldering then allows one to identify the vector bundle with the tangent bundle of the manifold. By requiring the existence of $J$, a left inverse of $I$ in the definition presented here, we ensure that $I$ is injective and hence defines an isomorphism if $T^m_n M$ is restricted to the image of $I$. The image of $I$ is obviously a vector sub bundle of $T^m_n M$. In total given the two maps $I$ and $J$ we can identify the field bundle $F$, not considered as being embedded in $T^m_n M$ but as abstract bundle  and with independent coordinate charts $(x^m, v_A)$, with a sub bundle of $T^m_n M$, where we can choose the usual chart induced coordinates $(x^m,v^{a_1 ... a_m}_{b_1 ... b_n})$.
@@ -2620,61 +2628,61 @@ Compared with traditional imperative programming languages as for instance $C$ t
 \end{center}
 One can hence equivalently represent functions that take multiple arguments by their curried form as functions that only take a single argument but return again a function. In fact in Haskell all functions take precisely one argument, i.e. functions that take several arguments are always represented in curried form. The general form of a function definition in Haskell reads:
 \begin{center}
-\begin{minted}{haskell}
+\begin{cminted}{haskell}
 f :: A -> (B -> C)
 f a b = ...  .
-\end{minted}
-\end{center} 
+\end{cminted}
+\end{center}
 \mintinline{haskell}{f a b = (f a) b} denotes the evaluation of the function \mintinline{haskell}{f} first on \mintinline{haskell}{a} and then applying the resulting function to \mintinline{haskell}{b}. Note that the function evaluation is left associative.
 In the above we already used the second Haskell particularity to some extend, the Haskell \textbf{\textit{type system}}. Every Haskell expression has a type that is denoted by \mintinline{haskell}{expr :: type}. Hence the above function  has the type \mintinline{haskell}{f :: A -> (B -> C)}. Whereas the evaluation of functions behaves left associative the corresponding types are right associative. The type of the above function can thus also be written as \mintinline{haskell}{f :: A -> B -> C}.
 New data types can be defined by specifying \textbf{\textbf{data constructors}}, functions that describe how the new data type is constructed in terms of known data types. We can illustrate this by constructing a data type that represents a pair of integers:
 \begin{center}
-\begin{minted}{haskell}
+\begin{cminted}{haskell}
 data IntPair = IntPair Int Int .
-\end{minted}
+\end{cminted}
 \end{center}
 Note that the constructor thus by definition defines a function that when applied to two integers yields an expression with type IntPair. When defining functions in Haskell one can \textbf{\textit{pattern match}} against data constructors. In other words one may define the function value in terms of the values that are given to the constructor of the input argument. To provide an example we can define a function that computes the some of the two integers contained in an IntPair:
 \begin{center}
-\begin{minted}{haskell}
+\begin{cminted}{haskell}
 sumIntPair :: IntPair -> Int 
 sumIntPair (IntPair x y) = x + y,
-\end{minted}
+\end{cminted}
 \end{center}
 where we used the infix notation for the addition of integers. 
 The special property of the Haskell type system however is that already when compiling Haskell code the compiler checks whether the types of the various function applications contained therein match. If not the program is immediately rejected by the compiler. Thus potential type errors are already avoided at compile time and therefore cannot lead to runtime errors. Languages that employ this form of type checking are also called \textit{\textbf{statically typed}}. Also our developed tensor algebra package intensively relies on the Haskell type system. It is built such that typos that might occur when using it to compute tensorial expressions almost always yield a type error. Especially when dealing with longer computations this is a huge advantage as such typos or similar mistakes are then already detected when compiling the code and not after possibly several hours of runtime.  
 
 Finally the last special feature that Haskell admits is its \textit{\textbf{lazy evaluation}} strategy. Functions are only explicitly evaluated on their arguments once the result is needed. This does not only allow for performance improvements as employing lazy evaluation unnecessary function calls can be avoided it also enables the use of conditional control structures in purely functional style. The usual conditional if statement for instance could simply be given by a function
 \begin{center}
-\begin{minted}{haskell}
+\begin{cminted}{haskell}
 if' :: Bool -> a -> a -> a
-if' False _ y = y }
+if' False _ y = y 
 if' True x _ = x 
-\end{minted}
+\end{cminted}
 \end{center}
 Note that when the boolean evaluates to \mintinline{haskell}{True} this function simply returns the expression \mintinline{haskell}{x}. Thus when using lazy evaluation in this case \mintinline{haskell}{y} is never evaluated. Similarly \mintinline{haskell}{x} is not evaluated when the boolean is \mintinline{haskell}{False}. 
 
 Besides of the above particularities of Haskell as programming language in order to fully grasp the essence of the algorithms that will be outlined in the following section it is essential to accustom oneself with functions that are heavily used in functional programming languages to implement control flow by means of recursion over data structures. These techniques can be understood best by considering a particular example. Amongst the simplest data structures that can be used for the recursion are list. In Haskell the list data structure is defined as follows 
 \begin{center}
-\begin{minted}{haskell}
+\begin{cminted}{haskell}
 data [a] = [ ] | a : [a] .
-\end{minted}
+\end{cminted}
 \end{center}
 Thus it has two constructors \mintinline{haskell}{[ ]} constructing the empty list and \mintinline{haskell}{(:)} appending an element to the front of the list. Note that \mintinline{haskell}{(:)} is written as infix operator.
 The first heavily used function that can be used to structure control flow is the \mintinline{haskell}{map}function:
 \begin{center}
-\begin{minted}{haskell}
+\begin{cminted}{haskell}
 map :: (a -> b) -> [a] -> [b]
 map f [] = [] 
 map f (x:xs) =  f x : map f xs . 
-\end{minted}
+\end{cminted}
 \end{center}
 Hence the map function takes a function and a list and applies he function to each element of a list. The second important concept is the fold operators \mintinline{haskell}{foldl} and \mintinline{haskell}{foldr}. It exists in several versions. The main idea consists of taking a binary function a start argument and a list of additional arguments and then successively reducing the list by first applying the function to the start argument and the first argument of the list and then proceeding by evaluating the function on the thus obtained result and the next list element. One can distinguish folds by whether they reduce the list starting from its first (left fold) or its last (right fold) value. A left fold operator can be implement in Haskell according to:
 \begin{center}
-\begin{minted}{haskell}
+\begin{cminted}{haskell}
 foldl :: (a -> b -> a) -> a -> [b] -> a 
 foldl f x [] = x 
 foldl f x (y:ys) = foldl f (f x y) ys.
-\end{minted}
+\end{cminted}
 \end{center}
 Obviously there exist much more such functions that allow each particular problem at hand to be treated in a suitable way using a purely functional programming paradigm. Additional many of these concepts can also be defined for data structures more general than lists. Details can be found in the provided literature.
 
@@ -2689,15 +2697,16 @@ Summing up we want to incorporate the following functionallity in our computer p
     \item Sparse storage of tensor components.
     \item Optimization towards computing explicit component operations over abstract algebraic manipulation of tensors.
 \end{itemize}
-Finally we are going to encode the generalized rank of a given tensor --- for standard tensors described by contravariant and covariant indices the rank is expressed as pair ($\#$ of contravariant indices, $\#$ of covariant indices), consequently we express the rank of a tensor that takes $n$ contravariant and $n$ covariant indices as the corresponding $2n$-tuple of numbers of indices --- directly in its type. Doing so Haskell's type system guarantees a prevention of possible errors that might for instance occur when by mistake adding tensors of different ranks. We start with the datatype of a tensor of arbitrary rank that only takes a single index type. Using Haskell's generalised algebraic data types, in short \textit{\textbf{GADT}}s the data type definition of such a single index tensor looks as follows: 
-\begin{center}
-\begin{minted}{haskell}
+Finally we are going to encode the generalized rank of a given tensor --- for standard tensors described by contravariant and covariant indices the rank is expressed as pair ($\#$ of contravariant indices, $\#$ of covariant indices), consequently we express the rank of a tensor that takes $n$ contravariant and $n$ covariant indices as the corresponding $2n$-tuple of numbers of indices --- directly in its type. Doing so Haskell's type system guarantees a prevention of possible errors that might for instance occur when by mistake adding tensors of different ranks. The detection of such errors then already happens during compile time. We start with the datatype of a tensor of arbitrary rank that only takes a single index type. Using Haskell's generalised algebraic data types, in short \textit{\textbf{GADT}}s the data type definition of such a single index tensor looks as follows: 
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG
+]{haskell}
 data Tensor n k v where 
     Scalar :: v -> Tensor 0 k v 
     Tensor :: TMap k (Tensor n k v) -> Tensor (n+1) k v
     ZeroTensor :: Tensor n k v.
-\end{minted}
-\end{center}
+\end{minted} 
+\end{samepage}
 Hence the tensor data type \mintinline{haskell}{Tensor n k v} contains additional type information consisting of a type level natural number \mintinline{haskell}{n} representing the rank of the tensor and types \mintinline{haskell}{k} and \mintinline{haskell}{v} that encode the type of index the tensor takes and the type of values it stores. The data type then provides three constructors: \mintinline{haskell}{Scalar} constructs a rank 0 tensor, i.e. a scalar out of a given value, \mintinline{haskell}{Tensor} takes an ordered list of (index, subtensor) pairs \mintinline{haskell}{type TMap k v = [(k,v)]}, where the subtensors have rank \mintinline{haskell}{n} and constructs from it a \mintinline{haskell}{Tensor (n+1) k v} with rank \mintinline{haskell}{n+1} and \mintinline{haskell}{ZeroTensor} simply represents a tensors of arbitrary rank with all components being identical zero. Hence a tensor is represented as ordered tree with additional type information regarding rank and stored values.
 Thus to retrieve a value of a tensor of rank \mintinline{haskell}{n} we need to specify \mintinline{haskell}{n} values of the appropriate type \mintinline{haskell}{k}. It is important that the distinction between the individual indices is not provided by some abstract labels that are attached to them but simply by their position. For instance figure \ref{ExampleTens} displays the tree structure of a rank $2$ tensor that uses \mintinline{haskell}{Ind3} types, i.e. spacetime indices with potential values between $0$ and $3$ as index type and stores rational numbers as values.
 \begin{figure}[ht]
@@ -2735,49 +2744,48 @@ Thus to retrieve a value of a tensor of rank \mintinline{haskell}{n} we need to 
 
 
 \end{tikzpicture}
-\caption{Sketch of the tree structure underlying an rank 2 tensor with spacetime indices and rational values.}
+\caption{Tree structure of rank 2 tensor with spacetime indices and rational values.}
 \label{ExampleTens}
 \end{figure}
  Providing the non vanishing components of the displayed tensor tree explicitly the tensor would read:
 \begin{align}
 \begin{alignedat}{3}
-T^{01} &= \frac{1}{2} \ \  &  \ \ T^{02} &= 3 \ \  & \ \ T^{22} &= -17\\
-T^{30} &= \frac{1}{3} & T^{31} &= 1 & T^{33} &= \frac{1}{2}
+T^{01} &= \frac{1}{2}, \ \  &  \ \ T^{02} &= 3, \ \  & \ \ T^{22} &= -17,\\
+T^{30} &= \frac{1}{3}, & T^{31} &= 1, & T^{33} &= \frac{1}{2}.
 \end{alignedat}
 \end{align}
-
 In order for tensors represented this way to satisfy the usual tensor algebra some restrictions on the possibly stored values are necessary. In particular we need to be able to add, subtract and scale the stored values as this is necessary when adding subtracting or scaling tensors. Thus we collect types that allow for these operations in a \textit{\textbf{type class}}:
-\begin{center}
-\begin{minted}{haskell}
+\begin{samepage} 
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 class (Eq a) => TScalar a where 
         addS :: a -> a -> a 
         subS :: a -> a -> a
         scaleS :: Rational -> a -> a 
         scaleZero :: a .
-\end{minted}
-\end{center}
+\end{minted} 
+\end{samepage}
 Furthermore when forming the product of two tensors we also need to compute the product of the values that are stored therein. This requirement os encoded in the additional type class:
-\begin{center}
-\begin{minted}{haskell}
+\begin{samepage} 
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 class TAlgebra v v' where 
         type TAlg v v' :: * 
         prodA :: v -> v' -> TAlg v v'.
-\end{minted}
-\end{center}
+\end{minted} 
+\end{samepage}
 Note that the above type class not only requires the existence of a function \mintinline{haskell}{prodA} that computes the products of any two stored values of types \mintinline{haskell}{v} and \mintinline{haskell}{v'}, it also requires its instances to provide a type level function that computes the new type of such a product \mintinline{haskell}{TAlg v v'} once the types \mintinline{haskell}{v} and \mintinline{haskell}{v'} are specified. Restricting to these type classes we can define the usual tensor algebra operations. We start with the addition:
-\begin{center}
-\begin{minted}{haskell}
+\begin{samepage} 
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 (&+) :: (TIndex k, TScalar v) => Tensor n k v -> Tensor n k v -> 
                                  Tensor n k v 
 (&+) (Scalar a) (Scalar b) = Scalar $ addS a b 
 (&+) (Tensor m1) (Tensor m2) = Tensor $ addTMaps (&+) m1 m2     
 (&+) t1 ZeroTensor = t1
 (&+) ZeroTensor t2 = t2 .
-\end{minted}
-\end{center}
+\end{minted} 
+\end{samepage}
 Here \mintinline{haskell}{addTMaps} adds the two pair lists of the two tensors with a combiner function, i.e. it combines the two pair lists ensuring the order of the indices is still valid, if an index is present in both lists the corresponding subtensor is provided by the combiner function. In the case above the combiner function is again the addition of tensors, this time however only applied to the subtensors. 
-\begin{center}
-\begin{minted}{haskell}
+\begin{samepage} 
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 addTMaps :: (Ord k) => (v -> v -> v) -> TMap k v -> TMap k v ->
                                         TMap k v 
 addTMaps f m1 [] = m1 
@@ -2786,61 +2794,61 @@ addTMaps f ((k1,v1):xs) ((k2,v2):ys)
             | k1 < k2 = (k1,v1) : (addTMaps f xs ((k2,v2):ys))
             | k2 < k1 = (k2,v2) : (addTMaps f ((k1,v1):xs) ys)
             | k1 == k2 = (k1, f v1 v2) : (addTMaps f xs ys) .
-\end{minted}
-\end{center}
-Scalar multiplication and subtraction are now be implemented straight forwardly.
-\begin{center}
-\begin{minted}{haskell}
+\end{minted} 
+\end{samepage}
+Scalar multiplication and subtraction can now be implemented straight forwardly.
+\begin{samepage} 
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 (&.) :: (TIndex k, TScalar v) => Rational -> Tensor n k v ->
                                  Tensor n k v 
 (&.) scalar = fmap (scaleS scalar)
-\end{minted}
-\end{center}
-\begin{center}
-\begin{minted}{haskell}
+
 (&-) :: (TIndex k, TScalar v) => Tensor n k v -> Tensor n k v ->
                                  Tensor n k v
 (&-) t1 t2 = t1 &+ (-1) &. t2 .
-\end{minted}
-\end{center}
+\end{minted} 
+\end{samepage}
 Where \mintinline{haskell}{fmap} is provided by the functor instance of the tensor data type:
-\begin{center}
-\begin{minted}{haskell}
+\begin{samepage} 
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 instance Functor (Tensor n k) where 
         fmap f (Scalar x) = Scalar (f x)
         fmap f (Tensor m) = Tensor (mapTMap (fmap f) m)
         fmap f ZeroTensor = ZeroTensor .
-\end{minted}
-\end{center}
+\end{minted} 
+\end{samepage}
 The product of two tensors can be implemented by appending the second tensor to each of the leafs of the first tensor that is specified:
-\begin{center}
-\begin{minted}{haskell}
-(&*) :: (TIndex k, TAlgebra v v', TScalar v, TScalar v', TScalar (TAlg v v'))
+\begin{samepage} 
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
+(&*) :: (TIndex k, TAlgebra v v', TScalar v, TScalar v',
+        TScalar (TAlg v v'))
         => Tensor n k v -> Tensor m k v' -> Tensor (n+m) k (TAlg v v') 
 (&*) (Scalar x) (Scalar y) = let newVal = prodA x y 
                                  in if newVal == scaleZero
-                                        then ZeroTensor else Scalar newVal 
+                                        then ZeroTensor 
+                                        else Scalar newVal 
 (&*) (Scalar x) t2 = fmap (prodA x) t2 
 (&*) (Tensor m) t2 = Tensor $ mapTMap (&* t2) m 
 (&*) t1 ZeroTensor = ZeroTensor 
 (&*) ZeroTensor t2 = ZeroTensor .
-\end{minted}
-\end{center}
+\end{minted} 
+\end{samepage}
 Here \mintinline{haskell}{mapTMap} maps a function over the values of the key value pairs \mintinline{haskell}{(k,v)} stored in the \mintinline{haskell}{TMap k v}.
 Note that not only the rank of the resulting tensor depends on the ranks of the two input tensors, also the types that are stored in it as values clearly depend on the respective types of the intput tensors. This is exactly where the second typeclass \mintinline{haskell}{TAlgebra v v'} comes to use. 
 
 Finally when symmetrizing a given tensor we need to be able to swap the position of some of the tensors indices. This is done by the following function:
-\begin{center}
-\begin{minted}{haskell}
+\begin{samepage} 
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 tensorTrans :: (TIndex k, TScalar v) => (Int,Int) ->
                Tensor n k v -> Tensor n k v
 tensorTrans (0, j) t = fromListT l
                     where 
                         l = map (\(x,y) -> (swapHead j x, y)) $ toListT t
-tensorTrans (i, j) (Tensor m) = Tensor $ mapTMap (tensorTrans (i-1, j-1)) m 
+tensorTrans (i, j) (Tensor m) = Tensor $ 
+                                mapTMap (tensorTrans (i-1, j-1)) m 
 tensorTrans (i ,j) ZeroTensor = ZeroTensor.
-\end{minted}
-\end{center}
+\end{minted} 
+\end{samepage}
 The two indices w.r.t. which the tensor is transposed are provided by the integer tuple, where the indices are labeled w.r.t. their position starting from 0. The function first traverses the tensor until the level specified by the first, i.e. the smaller integer is reached. Then all corresponding sub tensors are flattened to indices value pairs. This is precisely what \mintinline{haskell}{toListT} does. Now in each of the thus obtained indices value lists of the various sub tensors by using the function \mintinline{haskell}{swapHead} the first and the j-th entry of the indices are swaped. Finally by using  \mintinline{haskell}{fromListT} the indices value lists are again transformed to a tensor.  Applying this function to the previously provided rank 2 example tensor with the integer pair given as \mintinline{haskell}{(0,1)} we obtain the following transposed rank 2 tensor:
 \begin{figure}[ht]
 \centering
@@ -2879,31 +2887,31 @@ The two indices w.r.t. which the tensor is transposed are provided by the intege
 
 
 \end{tikzpicture}
-\caption{Ttree structure underlying the rank 2 tensor obtained when applying \mintinline{haskell}{tensorTrans (0,1)} on the former example.}
+\caption{Tree structure underlying the rank 2 tensor obtained when applying \mintinline{haskell}{tensorTrans (0,1)} on the former example.}
 \label{ExampleTensTrans}
 \end{figure}
 similar to the transposition of to indices we can now obviously construct functions that transpose a given tensor in several indices or even completely reorder the positions of the various indices.  For instance a function that completely reorders the indices of a tensor can be obtained as follows
-\begin{center}
-\begin{minted}{haskell}
+\begin{samepage} 
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 resortTens :: (SingI n, TIndex k, TScalar v) => [Int] -> Tensor n k v ->
               Tensor n k v 
 resortTens perm t = fromListT $ map (\(x,y) -> (resortInd perm x, y))
                     $ toListT t .
-\end{minted}
-\end{center}
+\end{minted} 
+\end{samepage}
 The function takes as argument a list of integers where the i-th elements specifies the position on which the i-th index in the tensor shall be sorted, flattens the tensor to a list of indices value pairs, resorts the indices according to this and combines the pairs again to obtain a tensor. 
 Knowing how we can transpose and resort the indices of a given tensor we can easily construct arbitrary symmetrization functions, simply by rearranging the indices of a given tensor accordingly and then adding this newly obtained tensor to the previous one. We only provide the example of the standard symmetrization w.r.t. the exchange of too individual indices explicitly:
-\begin{center}
-\begin{minted}{haskell}
+\begin{samepage} 
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 symTensFac :: (TIndex k, TScalar v) => (Int,Int) -> Tensor n k v ->
               Tensor n k v 
 symTensFac inds t = (1%2) &. symTens inds t.
-\end{minted}
-\end{center}
+\end{minted} 
+\end{samepage}
 Any other symmetrization can be constructed in similar ways.
 Of course we can also evaluate a given tensor by inserting a particular value for one of its indices. This can be achieved as follows:
-\begin{center}
-\begin{minted}{haskell}
+\begin{samepage} 
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 evalTens :: (SingI (n+1), TIndex k, TScalar v) => Int -> k ->
             Tensor (n+1) k v -> Tensor n k v 
 evalTens ind indVal (Tensor m)
@@ -2915,39 +2923,41 @@ evalTens ind indVal (Tensor m)
             size = length $ fst $ head $ toListShow (Tensor m)
             l = [1..ind] ++ 0 : [ind+1..size -1]
             newTens = resortTens l (Tensor m).
-\end{minted}
-\end{center}
+\end{minted} 
+\end{samepage}
 If the tensor is to be evaluated for its 0-th index we simply look up the corresponding value in the top level of the tree. In any other case we first shift the corresponding level of the tree that is to be evaluated to the front to then again proceed as described in the prior case.\\
 
 Up to now we only treated tensors with a single type of indices, for instance in the example of figure \ref{ExampleTens} the tensor only had contravariant spacetime indices. We can however easily generalize the above such that also covariant indices can be incorporated. This is simply achieved by additionally appending a tensor of the given index type as values
 to the contravariant tensor.
 \mintinline{haskell}{Tensor n k v} itself is instance of \mintinline{haskell}{TScalar} and \mintinline{haskell}{TAlgebra}:
 \begin{center}
-\begin{minted}{haskell}
+\begin{cminted}{haskell}
 type Tensor2 n1 n2 k v = Tensor n1 k (Tensor n2 k v).
-\end{minted}
+\end{cminted}
 \end{center}
 Thus \mintinline{haskell}{Tensor2 n1 n2 k v} describes as before a contravariant tensor of rank \mintinline{haskell}{n1}, but this time with values being each provided by an additional tensor that encodes additional covariant indices. In particular the the two index types are the same as of course the additional covariant indices run over the same index range as the contravariant counterparts. 
 Note that in the definition of most of the above functions the types that tensors might store as values where constrained to be instances of \mintinline{haskell}{TScalar} and \mintinline{haskell}{TAlgebra}. 
 In order to be able to also us these functions for  \mintinline{haskell}{Tensor2}, i.e. for the case where the stored values are itself tenors it is necessary that the tensor type satisfies these two instances.
 \mintinline{haskell}{Tensor n k v} itself is instance of \mintinline{haskell}{TScalar} and \mintinline{haskell}{TAlgebra}:
-\begin{center}
-\begin{minted}{haskell}
+\begin{samepage} 
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 instance (TIndex k, TScalar v) => TScalar (Tensor n k v) where
     addS = (&+)
     subS = (&-)
     scaleS = (&.)
     scaleZero = ZeroTensor
 
-instance (TIndex k, TAlgebra v v', TScalar v, TScalar v', TScalar (TAlg v v')) 
+
+instance (TIndex k, TAlgebra v v', TScalar v, TScalar v', 
+         TScalar (TAlg v v')) 
           => TAlgebra (Tensor n k v) (Tensor m k v') where 
     type TAlg (Tensor n k v) (Tensor m k v') = Tensor (n+m) k (TAlg v v')
     prodA = (&*).
-\end{minted}
-\end{center}
+\end{minted} 
+\end{samepage}
 The contraction of such a \mintinline{haskell}{Tensor2} in one contravariant and one covariant index can be achieved as follows:
-\begin{center}
-\begin{minted}{haskell}
+\begin{samepage} 
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 tensorContr :: (TIndex k, TScalar v) => (Int,Int) -> Tensor2 n1 n2 k v ->
                Tensor2 (n1-1) (n2-1) k v 
 tensorContr (0,j) t = fromListT tensList 
@@ -2960,36 +2970,50 @@ tensorContr (0,j) t = fromListT tensList
 tensorContr (i,j) (Tensor m) = Tensor $ mapTMap (tensorContr (i-1,j)) m
 tensorContr inds ZeroTensor = ZeroTensor 
 tensorContr inds (Scalar s) = error "cannot contract scalar!". 
-\end{minted}
-\end{center}
+\end{minted} 
+\end{samepage}
 We specify which indices are to be contracted by an integer pair of the corresponding positions. If the first integer representing the position of the  contravariant index that shall be contracted is not zero we traverse the tensor Tree until we reach the appropriate level. Next the remaining sub tensors are all flattened to indices value pairs. We filter those entries that admit equal values for the two indices that are to be contracted. Then these two indices are removed such that the pairs with same value of the two contraction indices now all have the same indices. This is all done by the function \mintinline{haskell}{removeContractionInd}. Finally we reconstruct the tensor ensuring that the values of these pairs with same indices are summed up. \\
 
-Note that with this framework there are now limitations regarding the number of indices that one might possibly use. For instance we can now easily construct a type for tensors that are described by two different types of indices each one appearing in contravariant and covariant fashion by appending the two different \mintinline{haskell}{Tensor2} types:
+Note that with this framework there are no limitations regarding the number of indices that one might possibly use. For instance we can now easily construct a type for tensors that are described by two different types of indices each one appearing in contravariant and covariant fashion by appending the two different \mintinline{haskell}{Tensor2} types:
 \begin{center}
-\begin{minted}{haskell}
-type AbsTensor4 n1 n2 n3 n4 k1 k2 v = AbsTensor2 n1 n2 k1 (Tensor2 n3 n4 k2 v),
-\end{minted}
+\begin{cminted}{haskell}
+type AbsTensor4 n1 n2 n3 n4 k1 k2 v = AbsTensor2 n1 n2 k1 
+                                     (Tensor2 n3 n4 k2 v),
+\end{cminted}
 \end{center}
-where \mintinline{haskell}{AbsTensor2 n1 n2 k v = Tensor2 n1 n2 k v} is simply a type synonym. It is important to note that as the tensor type itself is an instance of \mintinline{haskell}{TScalar} and \mintinline{haskell}{TAlgebra} the tensor algebra operations \mintinline{haskell}{(&+), (&-), (&.), (&*)} are always the same no matter how many different indices the tensor at hand uses. Furthermore also the symmetrization, transposition ans the contract still works exactly the same the only thing that one additionally needs to specify now is at which level the function should be applied. This can be done by noting that \mintinline{haskell}{fmap} takes a function and applies it to the leaves of a given tensor. Thus applying fmap succesively several times we can decent a fixed number of tensor levels in the tree. This can be used to apply functions to tensors that are stored as leaves of other tensors. We provide the following example of the function that precisely decents $3$ tensor levels:
-\begin{center}
-\begin{minted}{haskell}
+where \mintinline{haskell}{AbsTensor2 n1 n2 k v = Tensor2 n1 n2 k v} is simply a type synonym. It is important to note that as the tensor type itself is an instance of \mintinline{haskell}{TScalar} and \mintinline{haskell}{TAlgebra} the tensor algebra operations \mintinline{haskell}{(&+),(&-),(&.),(&*)} are always the same no matter how many different indices the tensor at hand uses. Furthermore also the symmetrization, transposition ans the contract still works exactly the same the only thing that one additionally needs to specify now is at which level the function should be applied. This can be done by noting that \mintinline{haskell}{fmap} takes a function and applies it to the leaves of a given tensor. Thus applying fmap succesively several times we can decent a fixed number of tensor levels in the tree. This can be used to apply functions to tensors that are stored as leaves of other tensors. We provide the following example of the function that precisely decents $3$ tensor levels:
+\begin{samepage} 
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 mapTo3 :: (TScalar v1, TScalar v2, TIndex k1, TIndex k2) => (v1 -> v2) ->
           AbsTensor3 n1 n2 n3 k1 k2 v1 -> AbsTensor3 n1 n2 n3 k1 k2 v2 
 mapTo3 f = fmap (fmap (fmap f)).
-\end{minted}
-\end{center}
+\end{minted} 
+\end{samepage}
 Using this we can for instance symmetrize a given tensor in the 4-th type of indices it stores as follows:
-\begin{center}
-\begin{minted}{haskell}
+\begin{samepage} 
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 symATens5 :: (TIndex k1, TIndex k2, TIndex k3, TScalar v) =>
                  (Int,Int) ->
                  AbsTensor5 n1 n2 n3 n4 n5 k1 k2 k3 v ->
                  AbsTensor5 n1 n2 n3 n4 n5 k1 k2 k3 v
 symATens5 inds = mapTo4 (symTens inds) .
-\end{minted}
-\end{center}
+\end{minted} 
+\end{samepage}
 Similarly all other functions that we encountered so far can be defined for tensors of arbitrarily many different indices as well.
+This completes the basic functionality that is provided by the SparseTensor Haskell library. Further details can be found in (Cite hackage here !!!). 
 \section{Generation of Lorentz Invariant Basis Tensors}\label{LorentzGen}
+Amongst the entire functionallity provided by the developed Haskell library the generation of Lorentz invariant basis tensors requires the most careful discussion. We have already seen that any such Lorentz invariant tensor must be constructed solely from the Minkowski metric and the Levi-Civita symbol. Due to the well known identity $\epsilon^{abcd}\epsilon^{efgh} = 24 \eta^{[a\vert e}\eta^{\vert b \vert f}\eta^{\vert c \vert g}\eta^{\vert d] h}$ we only need to treat the two cases where either no $\epsilon^{abcd}$ is present in the Lorentz invarariant expression or precisely one $\epsilon^{abcd}$ is included, any other case then reduces to one of these as we can use the identity to pairwise eliminate Levi-Civita symbols by means of Minkowski metrics. Furthermore note that when forming expressions from $\epsilon^{abcd}$ and $\eta^{ab}$ and the corresponding covariant versions we do not need to account for contractions as restricting to the case where there is either one or no $\epsilon^{abcd}$ present any non vanishing contraction necessarily involves a contraction of two $\eta^{ab}$ which immediately reduces to a Kronecker delta. Thus the must general expression that we can construct from these two ingredients is simply given by a sum of products of them.   
+Therefore when constructing the most general Lorentz invariant tensor of given rank and symmetry we might proceed as follows: We start with a list of all possible products either solely constituted of Minkowski metrics or including one Levi-Civita symbol and several Minkowski metrics that admit the correct rank. Next we symmetrize all of these products according to the required symmetry. This will result in previously distinct products now admitting linear dependencies. These linear dependencies must now be removed in order to obtain a basis for the Lorentz invariant tensors of given rank and symmetry. 
+
+There is however an additional dimension dependent mechanism that thoroughly disturbs this procedure by generating further linear dependencies between symmetrized products of $\eta^{ab}$ and $\epsilon^{abcd}$ albeit they are represented by different algebraic expressions. The reason for this lies in the fact that due to the involved symmetrizations  we might end up with expressions that are not strictly the same but only differ by an expression that is totally antisymmetric in $5$ or more of its indices. When working in $4$ spacetime dimension such an expression is evaluates to zero on all possible index combinations. Thus the two terms at hand are in fact the same, although at first glance they might look quite different. In order to distinguish additional linear dependencies that are generated in this fashion, from the former case we introduce the following terminology: We call a set of such expressions formed from the Minkowski metric and Levi-Civita symbol \textit{\textbf{algebraically linear dependent}} if there exits a non trivial linear combination of these that yields identical zero. In particular when investigating algebraic linear dependencies there is no need to evaluate the the components of the expressions explicitly. Algebraic linear dependency is therefore completely independent of the given dimension that we work in. We call it \textbf{\textit{numerically linear dependent}} if there exist a non trivial linear combination that vanishes when evaluated on all possible index combinations. This no clearly is a dimension dependent notion as for instance an expression that is totally antisymmetric in $5$ indices evaluates to zero on all possible index combinations when working in $4$ dimension, it however does not so if working in $5$ dimensions or higher. Obviously every algebraically linear dependent set of expressions is also numerically linear dependent. The converse is however not true as can be seen for instance when simply taking two expressions that only differ by a tensor that is totally antisymmetric in at least five indices. These two expressions are then obviously numerically linear dependent as their difference is precisely the totally antisymmetric tensors which obviously has no nonzero components. Nevertheless this linear dependency can only be seen when evaluating the tensor, i.e. there clearly exists no linear combination that is identically zero.
+
+The above considerations are best seen when working out a particular example: We take the two expressions $\epsilon^{abcd} \eta^{pq}$ and $\epsilon^{abcp} \eta^{dq}$ and symmetrize s.t. the expressions admit the are metric symmetry in $abcd$, i.e. are antisymmetric in $ab$ and $cd$ and additionally obey the block symmetry $(ab) \leftrightarrow (cd)$. Doing so we get the two expressions: 
+\begin{itemize}
+\item[(i)] $\epsilon^{abcd} \eta^{pq}$ 
+\item[(ii)] $\epsilon^{abcp} \eta^{dq} - \epsilon^{abdp} \eta^{cq} + \epsilon^{cdap} \eta^{bq} - \epsilon^{cdbp} \eta^{aq}$.
+\end{itemize}
+Clearly these two expressions are not algebraically linear dependent. Subtracting the second expression form the first one we nevertheless find that evaluated for any possible index combination the result equals zero. Thus the two expressions are numerically linear dependent. The reason for this is simply given by the act the the difference of the two expressions is totally antisymmetric in the indices $abcdp$. Summing up, if the goal not only consists of computing the most general Lorentz invariant tensor of given symmetry but if the individual building block are further required to be linear independent it does not suffice to take into account algebraic linear dependencies but we further have to ensure that the tensors are also numerically linear independent.   
+\section{A Step-By-Step Example}
 
 
 \chapter{Conclusions}
