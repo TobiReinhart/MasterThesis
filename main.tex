@@ -11,6 +11,8 @@
 \usepackage{stmaryrd}
 \usepackage{fancyvrb}
 
+\usepackage{booktabs} % required for the first solution
+
 
 
 %for code included
@@ -1461,7 +1463,7 @@ Hence the rank of the symbol $M_q$ and all its prolongations $M_{q+r}$ govern al
 \begin{align}
 \begin{bmatrix}
         \frac{\partial D_i\Phi^{\tilde{A}}}{\partial v_{AI_{q+1}}} & \vline & \frac{\partial D_i \Phi^{\tilde{A}}}{\partial v_{AI_k}} \ \ k \leq q \\
-        \hline 
+        \cmidrule(lr){1-3}
         0 & \vline & \frac{\partial \Phi^{\tilde{A}}}{\partial v_{AI_k}} \ \ k \leq q 
 \end{bmatrix}.
 \end{align}
@@ -3171,7 +3173,12 @@ addForests (ForestEta m1) (ForestEta m2)
          where
             newMap = M.filter (/= EmptyForest) $
                      M.unionWith addForests m1 m2
+\end{minted} 
+\end{samepage}
 
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
 addForestsEpsilon :: AnsatzForestEpsilon -> AnsatzForestEpsilon ->
                      AnsatzForestEpsilon
 addForestsEpsilon m1 m2 = M.filter (/= EmptyForest) $ M.unionWith
@@ -3184,7 +3191,12 @@ Symmetrization of such an expression can be achieved by simply swapping or permu
 1.2, bgcolor=LG]{haskell}
 pairSymForestEta :: (Int,Int) -> AnsatzForestEta -> AnsatzForestEta
 pairSymForestEta inds ans = addForests ans $ swapLabelFEta inds ans
+\end{minted} 
+\end{samepage}
 
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
 pairSymForestEps :: (Int,Int) -> AnsatzForestEpsilon ->
                     AnsatzForestEpsilon
 pairSymForestEps inds ans = addForestsEpsilon ans $ 
@@ -3200,7 +3212,12 @@ swapLabelFEta inds ans = sortForest.canonicalizeAnsatzEta $ swapAnsatz
         where
             f = swapLabelEta inds
             swapAnsatz = mapNodes f ans
+\end{minted} 
+\end{samepage}
 
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
 swapLabelFEps :: (Int,Int) -> AnsatzForestEpsilon -> AnsatzForestEpsilon
 swapLabelFEps inds ans = sortForestEpsilon.canonicalizeAnsatzEpsilon $ 
                         swapAnsatz
@@ -3299,9 +3316,12 @@ For this approach it is incredible important to note that two individual product
 The above allows for an efficient criteria that given a list of possible products only incorporates those into the ansatz forest that do not posses algebraic linear dependencies amongst each other. When further reducing the ansatz forest w.r.t. numeric linear dependencies there are in principal two approaches how this can be achieved. We can either first use the above technique to construct an ansatz forest that is algebraically linear independent, then evaluate this ansatz forest for enough index combinations to retrieve all independent components, write these in a matrix where the columns label the individual variables that occur and then use standard linear algebra to compute a basis of these column vectors. Variables that are not present in this basis can then be removed from the ansatz forest as these multiply exactly those ansätze that are linear dependent. 
 
 Alternatively when constructing the ansatz forest from a list of individual products we can not only check for algebraic linear dependencies when deciding whether or not a new product should be added, but if a given product is algebraically independent of the  ansatz forest then also test for numeric linear dependencies. Doing so we would construct from the very beginnning an ansatz forest that consits of not only algebraically but also numerically linear independent ansätze.
-It turns out that the first approach results in slightly faster computation times, whereas the second approach is superior in memory usage, thus we have implemented both algorithms. \\
+It turns out that the first approach results in slightly faster computation times, whereas the second approach is superior in memory usage, thus we have implemented both algorithms. 
+We start provided details regarding the first approach. \\
 
-We start provided details regarding the first approach. The idea is straight forward. Representing the individual products involving only $\eta^{ab}$ or also including one $\epsilon^{abcd}$ as lists with the individual list elements representing the factors of the product, we need a function that decides whether or not such a product is already present in a given ansatz forest. As we are always dealing with ordered forests and also sorted products we can already conclude that a given product is missing in the forest if any given node is missing in the appropriate level of the forest. Thus only when an product is actually present in the forest we really need to decent up to the leaf values of the forest.
+\noindent \textbf{Reducing linear dependencies I:  The fast way}
+
+The idea is straight forward. Representing the individual products involving only $\eta^{ab}$ or also including one $\epsilon^{abcd}$ as lists with the individual list elements representing the factors of the product, we need a function that decides whether or not such a product is already present in a given ansatz forest. As we are always dealing with ordered forests and also sorted products we can already conclude that a given product is missing in the forest if any given node is missing in the appropriate level of the forest. Thus only when an product is actually present in the forest we really need to decent up to the leaf values of the forest.
 \begin{samepage}
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
@@ -3313,7 +3333,12 @@ isElem  (x:xs) (ForestEta m) = case mForest of
                                 _           -> False
             where
                 mForest = M.lookup x m
+\end{minted} 
+\end{samepage}
 
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
 isElemEpsilon :: (Epsilon, [Eta]) -> AnsatzForestEpsilon -> Bool
 isElemEpsilon (eps,l) m = case mForest of
                             Just forest -> l `isElem` forest
@@ -3333,7 +3358,12 @@ reduceAnsatzEta' sym = foldl' addOrRem' EmptyForest
             addOrRem' f ans = if isElem (fst ans) f then f else
                               addForests f (symAnsatzForestEta sym 
                               $ mkForestFromAscList ans)
+\end{minted} 
+\end{samepage}
 
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
 reduceAnsatzEpsilon' :: Symmetry -> [(Epsilon, [Eta], Var)] ->
                         AnsatzForestEpsilon
 reduceAnsatzEpsilon' sym = foldl' addOrRem' M.empty
@@ -3355,7 +3385,12 @@ getEtaForestFast ord syms = relabelAnsatzForest 1 $ reduceAnsatzEta' syms
                 allInds = getEtaInds [1..ord] syms
                 allVars = mkAllVars
                 allForests = zipWith mkEtaList' allVars allInds
+\end{minted} 
+\end{samepage}
 
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
 getEpsForestFast :: Int -> Symmetry -> AnsatzForestEpsilon
 getEpsForestFast ord syms = if ord < 4 then M.empty else
 relabelAnsatzForestEpsilon 1 $ reduceAnsatzEpsilon' syms allForests
@@ -3385,7 +3420,12 @@ evalAnsatzForestEta evalM (ForestEta m) = M.foldlWithKey' foldF I.empty m
                               (I.map (fromJust nodeVal *)
                               (evalAnsatzForestEta evalM a)) b
 evalAnsatzForestEta evalM EmptyForest = I.empty
+\end{minted} 
+\end{samepage}
 
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
 evalAnsatzForestEpsilon :: I.IntMap Int -> AnsatzForestEpsilon ->
                            I.IntMap Int
 evalAnsatzForestEpsilon evalM = M.foldlWithKey' foldF I.empty
@@ -3416,7 +3456,12 @@ reduceLinDepsFastEta evalM symL ansEta = newEtaAns
             remVarsEta =  allEtaVars \\ etaVars
             newEtaAns = relabelAnsatzForest 1 $
                         removeVarsEta remVarsEta ansEta
+\end{minted} 
+\end{samepage}
 
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
 reduceLinDepsFastEps :: [I.IntMap Int] -> Symmetry ->
                         AnsatzForestEpsilon -> AnsatzForestEpsilon
 reduceLinDepsFastEps evalM symL ansEps = newEpsAns
@@ -3527,7 +3572,12 @@ mkAnsatzTensorFastSym' ord symmetries = mkAnsatzTensorFastSym
     where
         evalL = filter (`filterAllSym` symmetries) 
                         $ allList ord symmetries
+\end{minted} 
+\end{samepage}
 
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
 --without explicit symmetrization in tens
 mkAnsatzTensorFast' :: forall (n :: Nat). SingI n => Int -> Symmetry ->
                        (AnsatzForestEta, AnsatzForestEpsilon,
@@ -3537,6 +3587,233 @@ mkAnsatzTensorFast' ord symmetries = mkAnsatzTensorFast
     where
         evalL = filter (`filterAllSym` symmetries) 
                         $ allList ord symmetries
+\end{minted} 
+\end{samepage}
+
+\noindent \textbf{Reducing linear dependencies II:  The memory optimised way}
+
+The main idea of this second way of reducing the ansatz forest w.r.t linear dependencies is to construct an ansatz forest that is not only algebraically but also numerically linear independent from the very beginning. This can be achieved as follows: As before the algorithm consumes a list of all possible individual products and checks in any given step if the product at hand is missing in the ansatz forest and thus represents an ansatz that is algebraically linear independent or is already present and can hence be discharged. In contrast to the previous approach now when a product is missing we immediately evaluate the corresponding ansatz for all necessary index value lists. If in each step we do not only provide input data that consists of the present ansatz forest that is needed for deciding whether or not the new ansatz is algebraically linear independent but also includes its fully evaluated matrix --- this time with rows labeling the individual variables that are present in the forest and columns labeling the several index value list ---
+%
+%check if this is right ??
+%
+we can easily use the newly evaluated ansatz to decide whether or not the new ansatz is numerically independent from the ansatz forest or not. Thus we first test for algebraically linear dependency of a new ansatz, if the ansatz is algebraically linear independent we further test for numerically linear dependency. Only if the new ansatz is also numerically linear independent of the present ansatz forest we add it to the forest. If the ansatz is added to the forest it is obviously also added to the matrix that contains the all independent components of the forest. This total procedure is accomplished by the following two function:
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+addOrDiscardEtaEig :: Symmetry -> [I.IntMap Int] ->
+                      (AnsatzForestEta, RankDataEig) -> 
+                      [Eta] -> (AnsatzForestEta, RankDataEig)
+addOrDiscardEtaEig symList evalM (ans,rDat) etaL
+            | isElem etaL ans = (ans,rDat)
+            | otherwise = case newRDat of
+                               Nothing          -> (ans,rDat)
+                               Just newRDat'    -> (sumAns,newRDat')
+             where
+                newAns = getNewAns symList etaL rDat
+                newRDat = getNewRDat evalM newAns rDat
+                sumAns = addForests ans newAns
+\end{minted} 
+\end{samepage}
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+addOrDiscardEpsilonEig :: Symmetry -> [I.IntMap Int] ->
+                          (AnsatzForestEpsilon, RankDataEig) ->
+                          (Epsilon,[Eta]) ->
+                          (AnsatzForestEpsilon, RankDataEig)
+addOrDiscardEpsilonEig symList evalM (ans,rDat) (epsL,etaL)
+            | isElemEpsilon (epsL,etaL) ans = (ans,rDat)
+            | otherwise = case newRDat of
+                               Nothing          -> (ans,rDat)
+                               Just newRDat'    -> (sumAns,newRDat')
+             where
+                newAns = getNewAnsEps symList epsL etaL rDat
+                newRDat = getNewRDatEps evalM newAns rDat
+                sumAns = addForestsEpsilon ans newAns
+\end{minted} 
+\end{samepage}
+
+The type alias \mintinline{haskell}{RankDataEig} represents the ansatz forest data that is necessary for deciding whether or not a new ansatz is numerically linear dependent from the current ansatz forest and simply is given by a tuple that consits of one Eigen matrix and one sparse Eigen Matrix:
+
+\begin{center}
+\begin{cminted}{haskell}
+type RankDataEig = (Mat.MatrixXd, Sparse.SparseMatrixXd)
+\end{cminted}
+\end{center}
+
+Note that usually the number of necessary evaluation index value lists by far exceeds the number of variables  that are present in a given ansatz forest. Thus the chosen way of evaluating a given forest to a matrix yields a matrix with a large number of columns compared to a small number of rows. In the following we will refer to this matrix as $M$. The second matrix that is included in \mintinline{haskell}{RankDataEig} is precisely this matrix $M$. To safe memory this matrix is stored in sparse format. The first matrix in \mintinline{haskell}{RankDataEig} is given by $M M^t$. This matrix is used to achieve performance when computing whether or not a new ansatz is numerically linear dependent from the current ansatz forest or not. To that end note that $\mathrm{rank}(MM^t) = \mathrm{rank}(M)$ (see for instance "Bemerkung 2.57" in \cite{LAKnab}). Thus once we have evaluated a new ansatz to a row vector $v$ we can compute the rank of the new ansatz forest that would be obtained by adding the given ansatz to the current forest by:
+\begin{align}\label{RankDatmat}
+    \mathrm{rank}\left (\begin{bmatrix}
+        M \\
+        \cmidrule(lr){1-1} 
+        v
+    \end{bmatrix} \right )
+    = \mathrm{rank} \left ( \begin{bmatrix}
+        M \\
+        \cmidrule(lr){1-1}
+        v
+    \end{bmatrix} \cdot \begin{bmatrix}
+        M^t \ \vert \  v^t 
+    \end{bmatrix} \right ) = \mathrm{rank} \left (\begin{bmatrix}
+        MM^t & \vline & M v^t \\
+        \cmidrule(lr){1-3}
+        (Mv^t)^t & \vline & vv^t 
+    \end{bmatrix}  \right ).
+\end{align}
+If the ansatz is numerically linear independent from the forest appending its evaluated row vector to the current ansatz matrix will result in an increased rank.
+
+Note that in each step of the algorithm once we have evaluated the new ansatz to the row vector $v$ we only have to compute its transpose $v^t$ the matrix vector product $Mv^t$ and the corresponding transpose $(Mv^t)^t$ and the vector vector product $v v^t$. In particular the upper left block in the last matrix in (\ref{RankDatmat}) is already provided from the previous step and thus only needs to be computed newly once an additional ansatz is added to the ansatz forest. Thus we achieve the desired result with a minimum of expensive matrix matrix operations involved. The rank computation itself is then as before carried out by relying on efficient Eigen subroutines.
+
+The following function takes as arguments the current rank data and the newly evaluated ansatz row vector and computes form it the new rank data, that is it returns the rank data provided by the first matrix in (\ref{RankDatmat}) if the new ansatz is numerically linear independent from the ansatz forest in form of a \mintinline{haskell}{Just} value and it returns \mintinline{haskell}{Nothing} if the new ansatz is numerically linear dependent. 
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+checkNumericLinDepEig :: RankDataEig -> Maybe Sparse.SparseMatrixXd ->
+                         Maybe RankDataEig
+checkNumericLinDepEig (lastMat, lastFullMat) (Just newVec)
+    | eigenRank < maxRank = Nothing
+    | otherwise = Just (newMat, newAnsatzMat)
+     where
+        newVecTrans = Sparse.transpose newVec
+        scalar = Sparse.toMatrix $ Sparse.mul newVec newVecTrans
+        prodBlock = Sparse.toMatrix $ Sparse.mul lastFullMat newVecTrans
+        prodBlockTrans = Mat.transpose prodBlock
+        newMat = concatBlockMat lastMat prodBlock prodBlockTrans scalar
+        eigenRank = Sol.rank Sol.FullPivLU newMat
+        maxRank = min (Mat.cols newMat) (Mat.rows newMat)
+        newAnsatzMat = Sparse.fromRows $ 
+                       Sparse.getRows lastFullMat ++ [newVec]
+checkNumericLinDepEig (lastMat, lastFullMat) Nothing = Nothing
+\end{minted} 
+\end{samepage}
+
+With these functions defined we can now construct functions that construct algebraically and numerically linear independent ansatz forests out of a given list of individual products, the given symmetry and the evaluation list:
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+reduceAnsatzEtaEig :: Symmetry -> [[Eta]] -> [I.IntMap Int] ->
+                      (AnsatzForestEta,Sparse.SparseMatrixXd)
+reduceAnsatzEtaEig symL etaL evalM
+    | null evalM = (EmptyForest, Sparse.fromList 0 0 [])
+    | null etaL = (EmptyForest, Sparse.fromList 0 0 [])
+    | otherwise = (finalForest, finalMat)
+    where
+        (ans1,rDat1,restEtaL) = mk1stRankDataEtaEig symL etaL evalM
+        (finalForest, (_,finalMat)) = foldl' 
+                                      (addOrDiscardEtaEig symL evalM)
+                                      (ans1,rDat1) restEtaL
+\end{minted} 
+\end{samepage}
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+reduceAnsatzEpsilonEig :: Symmetry -> [(Epsilon,[Eta])] ->
+                          [I.IntMap Int] ->
+                          (AnsatzForestEpsilon,Sparse.SparseMatrixXd)
+reduceAnsatzEpsilonEig symL epsL evalM
+    | null evalM = (M.empty, Sparse.fromList 0 0 [])
+    | null epsL = (M.empty, Sparse.fromList 0 0 [])
+    | otherwise = (finalForest, finalMat)
+    where
+        (ans1,rDat1,restEpsL) = mk1stRankDataEpsilonEig symL epsL evalM
+        (finalForest, (_,finalMat)) = foldl'
+                                      (addOrDiscardEpsilonEig symL evalM)
+                                      (ans1,rDat1) restEpsL
+\end{minted} 
+\end{samepage}
+
+Finally now we can also provide functions that return a triplet consisting of two ansatz forests corresponding to a Lorentz invariant basis of given rank and symmetry and one tensor that incldes all their values, this time employing the memory optimzed algorithm:
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+--with explicit symmetrization in tens
+mkAnsatzTensorEigSym :: forall (n :: Nat). SingI n => Int -> Symmetry ->
+                        [[Int]] -> (AnsatzForestEta, AnsatzForestEpsilon,
+                        STTens n 0 (AnsVar Rational))
+mkAnsatzTensorEigSym ord symmetries evalL = (ansEta, ansEps, tens)
+        where
+            (evalMEtaRed, evalMEpsRed, evalMEtaInds, evalMEpsInds) =
+                mkAllEvalMaps symmetries evalL 
+            (ansEta, ansEps, _, _) =
+                getFullForestEig ord symmetries evalMEtaRed evalMEpsRed
+            tens = evalToTensSym
+                   symmetries evalMEtaInds evalMEpsInds ansEta ansEps
+\end{minted} 
+\end{samepage}
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+--without explicit symmetrization in tens
+mkAnsatzTensorEig :: forall (n :: Nat). SingI n => Int -> Symmetry ->
+                     [[Int]] -> (AnsatzForestEta, AnsatzForestEpsilon,
+                     STTens n 0 (AnsVar Rational))
+mkAnsatzTensorEig ord symmetries evalL = (ansEta, ansEps, tens)
+        where
+            (evalMEtaRed, evalMEpsRed, evalMEtaInds, evalMEpsInds) =
+                mkAllEvalMaps symmetries evalL 
+            (ansEta, ansEps, _, _) =
+                getFullForestEig ord symmetries evalMEtaRed evalMEpsRed
+            tens = evalToTens evalMEtaInds evalMEpsInds ansEta ansEps
+\end{minted} 
+\end{samepage}
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+--evaluation to a tensor that uses multiple abstract index types
+mkAnsatzTensorEigAbs :: Int -> Symmetry ->
+                        [([Int], Int, [IndTupleAbs n1 0 n2 0 n3 0])] ->
+                        (AnsatzForestEta, AnsatzForestEpsilon,
+                        ATens n1 0 n2 0 n3 0 (AnsVar Rational))
+mkAnsatzTensorEigAbs ord symmetries evalL = (ansEta, ansEps, tens)
+    where
+        (evalMEtaRed, evalMEpsRed, evalMEtaInds, evalMEpsInds) =
+            mkAllEvalMapsAbs symmetries evalL 
+        (ansEta, ansEps, _, _) =
+            getFullForestEig ord symmetries evalMEtaRed evalMEpsRed
+        tens = evalToTensAbs evalMEtaInds evalMEpsInds ansEta ansEps
+
+\end{minted} 
+\end{samepage}
+
+And as before we also provide versions of the first two functions that automatically construct the evaluation list from the rank and the symmetries specified:
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+--with explicit symmetrization in tens
+mkAnsatzTensorEigSym' :: forall (n :: Nat). SingI n =>  Int ->
+                         Symmetry ->
+                         (AnsatzForestEta, AnsatzForestEpsilon,
+                         STTens n 0 (AnsVar Rational))
+mkAnsatzTensorEigSym' ord symmetries = mkAnsatzTensorEigSym
+                                       ord symmetries evalL
+    where
+        evalL =
+            filter (`filterAllSym` symmetries) $ allList ord symmetries
+\end{minted} 
+\end{samepage}
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+--without explicit symmetrization in tens
+mkAnsatzTensorEig' :: forall (n :: Nat). SingI n =>  Int ->
+                      Symmetry ->
+                      (AnsatzForestEta, AnsatzForestEpsilon,
+                      STTens n 0 (AnsVar Rational))
+mkAnsatzTensorEig' ord symmetries = mkAnsatzTensorEig
+                                    ord symmetries evalL
+    where
+        evalL =
+            filter (`filterAllSym` symmetries) $ allList ord symmetries
 \end{minted} 
 \end{samepage}
 
