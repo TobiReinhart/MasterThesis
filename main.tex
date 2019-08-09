@@ -221,7 +221,7 @@ We normally denote a bundle morphism $f$ that covers $h$ as pair $(f,h)$. For th
 We often consider the case where the bundles carry additional structure on their fibres, for instance in the case of $(F, \pi_F, M)$ being a vector bundle an additional vector space structure. Then one is in particularly interested in those bundle morphisms that preserve the given structure. As an example we define a vector bundle morphism between vector bundles $(F_1, \pi_{F_1}, M)$ and $(F_2, \pi_{F_2}, N)$ as a bundle morphism $(f,h)$ that restricts to a linear map on the fibres of $F_1$, i.e. $\forall p \in M$ the restriction $f \vert_{\pi_{F_1}^{-1}(p)}$ defines a linear map.
 With these definitions at hand we can now specify the maps that allow for the transition between the description of the field bundle $F$ as abstract, independent vector bundle and the one obtained from considering it as being embedded in some tensor bundle over $M$.
 %Clarification needed
-\begin{definition}[Intertwiner]
+\begin{definition}[Intertwiner]\label{interDef}
 Let $(F,\pi_F,M)$ be a vector bundle. We call a pair of vector bundle morphisms $(I,J)$ that cover $id_M$,
 $I: F \rightarrow T^m_n M$ and $J: T^m_n M \rightarrow F $ that satisfy  $J \circ I = \mathrm{id}_F$ a pair of \textbf{\textit{intertwiners}} for the bundle $(F, \pi_F, M)$.
 \end{definition}
@@ -282,7 +282,7 @@ This approach can for instance be used if the field bundle is defined in terms o
 v^{a_1 ... a_m}_{b_1 ... b_n} \cong v^{c_1 ... c_m}_{d_1 ... d_n} : \iff \exists \epsilon \in \{-1,+1 \} : v^{a_1 ... a_m}_{b_1 ... b_n}\vert _F = \epsilon \cdot  v^{c_1 ... c_m}_{d_1 ... d_n}\vert_F.
 \end{align}
 Obviously removing all coordinate functions that restrict to identical zero on $F$ one then sorts the set of equivalence classes according to some ordering that can be specified at wish.  Note that the number of equivalence classes that we obtain in this way precisely corresponds to the fibre dimension of $F$. In the following we label the $A-th$ equivalence classes  starting from 0 by $[A]$. Next we select a representative out of each equivalence class.  The selection of a representative $v^{a_1 ... a_m}_{b_1 ... b_n}$ of a given equivalence class $[A]$ allows us to split this equivalence class into the subset $[A]_+$ containing those fibre coordinates that restrict to $+1 \times v^{a_1 ... a_m}_{b_1 ... b_n}$  on $F$ and the remaining class $[A]_-$ with thus according to (\ref{equivCord}) necessarily restricts to $-1 \times v^{a_1 ... a_m}_{b_1 ... b_n}$ on $F$.
-With each equivalence class $[A]$ we further associate its multiplicity $\sigma(A) = \vert [A] \vert$ which is simply given by the number of its elements.
+With each equivalence class $[A]$ we further associate its \textbf{\textit{multiplicity}} $\sigma(A) = \vert [A] \vert$ which is simply given by the number of its elements.
 Now we can define
 \begin{align}\label{defI}
     I^{A a_1 ... a_m}_{b_1 ... b_n} = \begin{cases} +1 \ \text{if} \  v^{a_1 ... a_m}_{b_1 ... b_n} \in [A]_+ \\
@@ -2616,7 +2616,7 @@ Summing up the results that we developed in this chapter, not only did our pertu
 
 \chapter{Computer Algebra}\label{computerAlg}
 \dictum{
-After providing the reader with a concise introduction to functional programming in Haskell, focusing on the main differences with more traditional imperative programming languages we proceed by illustrating the developed Haskell package SparseTensor in detail. Not only will we explain the basic functionality contained therein, the following chapters are also intended as a short introduction manual for potential future users. Finally we also clarify how the construction of Lorentz invariant basis tensors is implemented in SparseTensor. }   
+After providing the reader with a concise introduction to functional programming in Haskell, focusing on the main differences with more traditional imperative programming languages we proceed by illustrating the developed Haskell package sparse-tensor in detail. Not only will we explain the basic functionality contained therein, the following chapters are also intended as a short introduction manual for potential future users. Finally we also clarify how the construction of Lorentz invariant basis tensors is implemented in sparse-tensor. }   
 
 \section{A Concise Introduction to Functional Programming in Haskell}
 For the following chapter to constitute a self contained description of the developed computer algebra also for readers that are unfamiliar with the programming language Haskell \cite{Marlow_haskell2010} we now furnish a quick introduction to it. We mainly treat its particularities compared with more traditional imperative languages.
@@ -2687,8 +2687,8 @@ foldl f x (y:ys) = foldl f (f x y) ys
 \end{center}
 Obviously there exist much more such functions that allow each particular problem at hand to be treated in a suitable way using a purely functional programming paradigm. Additional many of these concepts can also be defined for data structures more general than lists. Details can be found in the provided literature.
 
-\section{SparseTensor: A Haskell Package for Sparse Abstract Tensor Calculus}
-With the short introduction to Haskell at hand we now explain the main ideas that underlie the developed computer program SparseTensor. Ultimately the aim consists of solving the perturbative equivariance equations (\ref{order1}), \ref{order2} and \ref{order3}. Recall that these three systems are merely compromised of linear equations. In principal it should thus be straight forward to re-express these in suitable matrix from and use standard matrix computer algebra to solve them. Practically however extracting the appropriate matrices from the systems is a different question as for doing so one would need to evaluate the tensorial expressions in all free indices and to that end also
+\section{sparse-tensor: A Haskell Package for Sparse Abstract Tensor Calculus}
+With the short introduction to Haskell at hand we now explain the main ideas that underlie the developed computer program sparse-tensor. Ultimately the aim consists of solving the perturbative equivariance equations (\ref{order1}), \ref{order2} and \ref{order3}. Recall that these three systems are merely compromised of linear equations. In principal it should thus be straight forward to re-express these in suitable matrix from and use standard matrix computer algebra to solve them. Practically however extracting the appropriate matrices from the systems is a different question as for doing so one would need to evaluate the tensorial expressions in all free indices and to that end also
 explicitly express all occurring contractions and symmetrizations. On the other hand existing tensor algebra systems (such as Cadabra (see \cite{cadabra1} and \cite{cadabra2}) and the Physics package currently provided by the computer algebra system Maple to name a few) are mostly tailored towards a symbolic treatment of tensors and thus not entirely suited for our specific purpose. 
 This can be seen from the observation that except for parameters that label the independent Lorentz invariant expressions in the expansion coefficients and thus occur linearly in the perturbative equivariance equations all remaining expressions only contain rational numbers. In particular the components of the tensors involved in these equations are explicitly known. Besides of that when solving the perturbative equivariance equations we need to evaluate the tensorial equation for all its free indices and thus the explicit components are also all needed. Hence in fact we never have to treat the occurring tensors symbolically as abstract objects but can think of them as containers that are simply used to store values in a particular way. 
 Furthermore note that the use of abstract indices $I, A, ...$ leads to a reduction in the computation costs. For instance contracting two blocks of $4$ indices each that both admit the symmetry of an area metric tensor against each other requires the summation of $4^4 = 256$ expressions. On the other hand introducing an abstract index $A = 0,...,20$ that runs over the independent components such a are metric block contains the contraction only requires the summation of $21$ expressions. Finally we can additionally derive a benefit from the fact that the tensors that occur in the treatment of the perturbative equivariance equations are to a large extent only sparsely occupied. Providing an example the area metric intertwiner with components displayed in (\ref{AreaI}) only contains $144$ non vanishing components out of a total of $21 \cdot 4^4 = 5376$ total components which admits to an occupation level of around $2.68 \%$.
@@ -3000,7 +3000,7 @@ symATens5 inds = mapTo4 (symTens inds)
 \end{minted} 
 \end{samepage}
 Similarly all other functions that we encountered so far can be defined for tensors of arbitrarily many different indices as well.
-This completes the basic functionality that is provided by the SparseTensor Haskell library. Further details can be found in (Cite own hackage here !!!)
+This completes the basic functionality that is provided by the sparse-tensor Haskell library. Further details can be found in (Cite own hackage here !!!)
 \section{Generation of Lorentz Invariant Basis Tensors}\label{LorentzGen}
 Amongst the entire functionallity provided by the developed Haskell library the generation of Lorentz invariant basis tensors requires the most careful discussion. We have already seen that any such Lorentz invariant tensor must be constructed solely from the Minkowski metric and the Levi-Civita symbol. For the following discussion we restrict to the case where the Lorentz invariant tensor only possesses contravarinat indices other cases can obviously be treated analogously. Any general such Lorentz invariant tensor is thus given by a linear combination of sums of products that are formed from $\eta^{ab}$ and $\epsilon^{abcd}$.
 We will simply call the individual terms of such a linear combination \textit{\textbf{ansätze}}. Note that each ansatz necessarily features the same symmetry that is required from the Lorentz invariant tensor. The number of factors in the individual products that are included in the various ansätze is obviously solely determined by the required rank of the Lorentz invariant tensor.
@@ -3429,6 +3429,117 @@ reduceLinDepsFastEps evalM symL ansEps = newEpsAns
                         removeVarsEps remVarsEps ansEps 
 \end{minted} 
 \end{samepage}
+
+This finishes the first, computation time optimized method of constructing a basis of the space of Lorentz invariant tensors of given rank and symmetry that we have implemented in the sparse-tensor library. In order to use the thus computed result, the basis of Lorentz invariant tensors together with the previously presented functionallity of the sparse-tensor package we also provide functions that do not only construct the the ansatz forests but also return the computed Lorentz invariant basis tensor in form of compatible tensor data type. We represent the occuring variables that then necessarily also occur in the components of the tensors as int maps:
+\begin{center}
+\begin{cminted}{haskell}
+newtype AnsVar a = AnsVar (I.IntMap a) deriving (Eq)
+\end{cminted}
+\end{center}
+
+Further we introduce type synonyms for the typical used tensors types, the usual spacetime tensors that feature contravariant and covariant indices ranging between $0$ and $3$:
+
+\begin{center}
+\begin{cminted}{haskell}
+type STTens n1 n2 v = AbsTensor2 n1 n2 Ind3 v
+\end{cminted}
+\end{center}
+
+And also a more general tensor type that we heavily used for the area metric computations. This tensor type features 3 different index types each appearing in contravariant and covariant position. The first index type ranges over the area metric degrees of freedom and thus ranges from $0$ to $20$, the second index type labels second derivative pairs, and hence runs form $0$ to $9$ and the last type is again the usual space time index:
+
+\begin{center}
+\begin{cminted}{haskell}
+type ATens n1 n2 n3 n4 n5 n6 v = 
+     AbsTensor6 n1 n2 n3 n4 n5 n6 Ind20 Ind9 Ind3 v
+\end{cminted}
+\end{center}
+
+The final functions that use the computation time optimized method and return the result as triplet of the two ansatz forest and a tensor that collects all their values are:
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+--with explicit symmetrization in tens
+mkAnsatzTensorFastSym :: forall (n :: Nat). SingI n => Int -> Symmetry ->
+                         [[Int]]-> (AnsatzForestEta, AnsatzForestEpsilon,
+                         STTens n 0 (AnsVar Rational))
+mkAnsatzTensorFastSym ord symmetries evalL = (ansEta, ansEps, tens)
+    where
+        (evalMEtaRed, evalMEpsRed, evalMEtaInds, evalMEpsInds) =
+            mkAllEvalMaps symmetries evalL 
+        (ansEta, ansEps) =
+            mkAnsatzFast ord symmetries evalMEtaRed evalMEpsRed
+        tens =
+            evalToTensSym symmetries evalMEtaInds evalMEpsInds
+                          ansEta ansEps
+\end{minted} 
+\end{samepage}
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+--without explicit symmetriization in tens
+mkAnsatzTensorFast :: forall (n :: Nat). SingI n => Int -> Symmetry ->
+                      [[Int]]-> (AnsatzForestEta, AnsatzForestEpsilon,
+                      STTens n 0 (AnsVar Rational))
+mkAnsatzTensorFast ord symmetries evalL = (ansEta, ansEps, tens)
+    where
+        (evalMEtaRed, evalMEpsRed, evalMEtaInds, evalMEpsInds) =
+            mkAllEvalMaps symmetries evalL 
+        (ansEta, ansEps) =
+            mkAnsatzFast ord symmetries evalMEtaRed evalMEpsRed
+        tens = evalToTens evalMEtaInds evalMEpsInds ansEta ansEps
+\end{minted} 
+\end{samepage}
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+--evaluation to a tensor that uses multiple index types
+mkAnsatzTensorFastAbs :: Int -> Symmetry ->
+                         [([Int], Int, [IndTupleAbs n1 0 n2 0 n3 0])] ->
+                         (AnsatzForestEta, AnsatzForestEpsilon,
+                         ATens n1 0 n2 0 n3 0 (AnsVar Rational))
+mkAnsatzTensorFastAbs ord symmetries evalL = (ansEta, ansEps, tens)
+    where
+        (evalMEtaRed, evalMEpsRed, evalMEtaInds, evalMEpsInds) =
+            mkAllEvalMapsAbs symmetries evalL 
+        (ansEta, ansEps) =
+            mkAnsatzFast ord symmetries evalMEtaRed evalMEpsRed
+        tens = evalToTensAbs evalMEtaInds evalMEpsInds ansEta ansEps
+\end{minted} 
+\end{samepage}
+
+The first function takes as arguments the order of the to be constructed Lorentz invaraint basis, i. the number of indices, the symmetry and also a list of all index value lists that are necessary for the evluation. The evaluation list must contain exactly one representative out of every set of index value lists that are the same under the present symmetry. Further reduction as described above must not incoorporated manually as this is achieved by the function \mintinline{haskell}{mkAllEvalMaps}. The first function returns the Lorentz invariant basis as explicitly symmetrized spacetime tensors. Note that for higher ranked tensors and more complicated symmetries the explicit symmetrization of the tensors might be expensive. Furthermore often it suffices to only store one representative of each symmetry equivalence class in the tensor, for instance if the tensor is contracted against symmetric objects that thus enforce the symmetries in later computations. To that end we also provided a function that returns the tensors without explicit symmetrization. Finally the last function does not require a list of index value lists as input but needs a triplet consisting of the index value list, the multiplicity of the given index value list that is computed as product of the individual multiplicities of the abstract indices used (for the definition of the multiplicity $\sigma$ see the discussion following definition \ref{interDef}), and also a list of all abstract index tuples that correspond to the the index value list. How these individual ingredients can be computed in detail will be discussed in the following section when we consider an example. The last function then computes a triple consisting of the two ansatz forest and an abstract tensor that uses multiple indices to store the corresponding values. 
+
+Finally we also provide the first two of the above three functions in a form that does not require to specify the evaluation list explicitly. Paying the price of a slighty more expensive computation in the following two functions the evaluation list is constructed fully automatically from the symmetries and the rank of the given tensor: 
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+--with explicit symmetrization in tens
+mkAnsatzTensorFastSym' :: forall (n :: Nat). SingI n => Int ->
+                          Symmetry -> (AnsatzForestEta,
+                          AnsatzForestEpsilon,
+                          STTens n 0 (AnsVar Rational))
+mkAnsatzTensorFastSym' ord symmetries = mkAnsatzTensorFastSym
+                                            ord symmetries evalL
+    where
+        evalL = filter (`filterAllSym` symmetries) 
+                        $ allList ord symmetries
+
+--without explicit symmetrization in tens
+mkAnsatzTensorFast' :: forall (n :: Nat). SingI n => Int -> Symmetry ->
+                       (AnsatzForestEta, AnsatzForestEpsilon,
+                       STTens n 0 (AnsVar Rational))
+mkAnsatzTensorFast' ord symmetries = mkAnsatzTensorFast
+                                        ord symmetries evalL
+    where
+        evalL = filter (`filterAllSym` symmetries) 
+                        $ allList ord symmetries
+\end{minted} 
+\end{samepage}
+
 \section{A Step-By-Step Example}
 
 
