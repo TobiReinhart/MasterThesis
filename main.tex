@@ -2520,7 +2520,7 @@ Here the additional arrows denote the symmetrization w.r.t. the interchange of t
 %
 %
 Similar to before we now insert several intertwiners $I^A_{abcd}$ and $J_A^{abcd}$ to rewrite the second term in (\ref{LieArea}) in terms of abstract area metric indices $A$. Here we can use the fact that the two intertwiners already feature the full set of area metric symmetries.  Doing so we simply can read of the constant tensor as:
-\begin{align}
+\begin{align}\label{areaGotayMInter}
     C_{An}^{Bm} = -4 I^B_{nbcd} J_A^{mbcd}.
 \end{align}
 The most general power series expansion of $\mathcal{L}_{Area,per} = L_{Area,per}\mathrm{d}^4x$ that generates second derivative order EOM is again given by:
@@ -2701,6 +2701,7 @@ Summing up we want to incorporate the following functionallity in our computer p
     \item Optimization towards computing explicit component operations over abstract algebraic manipulation of tensors.
 \end{itemize}
 Finally we are going to encode the generalized rank of a given tensor --- for standard tensors described by contravariant and covariant indices the rank is expressed as pair ($\#$ of contravariant indices, $\#$ of covariant indices), consequently we express the rank of a tensor that takes $n$ contravariant and $n$ covariant indices as the corresponding $2n$-tuple of numbers of indices --- directly in its type. Doing so Haskell's type system guarantees a prevention of possible errors that might for instance occur when by mistake adding tensors of different ranks. The detection of such errors then already happens during compile time. We start with the datatype of a tensor of arbitrary rank that only takes a single index type. Using Haskell's generalised algebraic data types, in short \textit{\textbf{GADT}}s the data type definition of such a single index tensor looks as follows: 
+
 \begin{samepage}
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG
 ]{haskell}
@@ -2710,6 +2711,7 @@ data Tensor n k v where
     ZeroTensor :: Tensor n k v
 \end{minted} 
 \end{samepage}
+
 Hence the tensor data type \mintinline{haskell}{Tensor n k v} contains additional type information consisting of a type level natural number \mintinline{haskell}{n} representing the rank of the tensor and types \mintinline{haskell}{k} and \mintinline{haskell}{v} that encode the type of index the tensor takes and the type of values it stores. The data type then provides three constructors: \mintinline{haskell}{Scalar} constructs a rank 0 tensor, i.e. a scalar out of a given value, \mintinline{haskell}{Tensor} takes an ordered list of (index, subtensor) pairs \mintinline{haskell}{type TMap k v = [(k,v)]}, where the subtensors have rank \mintinline{haskell}{n} and constructs from it a \mintinline{haskell}{Tensor (n+1) k v} with rank \mintinline{haskell}{n+1} and \mintinline{haskell}{ZeroTensor} simply represents a tensors of arbitrary rank with all components being identical zero. Hence a tensor is represented as ordered forest\footnote{A colletion of disjoint trees.} with additional type information regarding rank and stored values.
 Thus to retrieve a value of a tensor of rank \mintinline{haskell}{n} we need to specify \mintinline{haskell}{n} values of the appropriate type \mintinline{haskell}{k}. It is important that the distinction between the individual indices is not provided by some abstract labels that are attached to them but simply by their position. For instance figure \ref{ExampleTens} displays the forest structure of a rank $2$ tensor that uses \mintinline{haskell}{Ind3} types, i.e. spacetime indices with potential values between $0$ and $3$ as index type and stores rational numbers as values.
 \begin{figure}[ht]
@@ -2758,6 +2760,7 @@ T^{30} &= \frac{1}{3}, & T^{31} &= 1, & T^{33} &= \frac{1}{2}.
 \end{alignedat}
 \end{align}
 In order for tensors represented this way to satisfy the usual tensor algebra some restrictions on the possibly stored values are necessary. In particular we need to be able to add, subtract and scale the stored values as this is necessary when adding subtracting or scaling tensors. Thus we collect types that allow for these operations in a \textit{\textbf{type class}}:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 class (Eq a) => TScalar a where 
@@ -2767,7 +2770,9 @@ class (Eq a) => TScalar a where
         scaleZero :: a
 \end{minted} 
 \end{samepage}
+
 Furthermore when forming the product of two tensors we also need to compute the product of the values that are stored therein. This requirement os encoded in the additional type class:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 class TAlgebra v v' where 
@@ -2775,7 +2780,9 @@ class TAlgebra v v' where
         prodA :: v -> v' -> TAlg v v'
 \end{minted} 
 \end{samepage}
+
 Note that the above type class not only requires the existence of a function \mintinline{haskell}{prodA} that computes the products of any two stored values of types \mintinline{haskell}{v} and \mintinline{haskell}{v'}, it also requires its instances to provide a type level function that computes the new type of such a product \mintinline{haskell}{TAlg v v'} once the types \mintinline{haskell}{v} and \mintinline{haskell}{v'} are specified. Restricting to these type classes we can define the usual tensor algebra operations. We start with the addition:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 (&+) :: (TIndex k, TScalar v) => Tensor n k v -> Tensor n k v -> 
@@ -2786,7 +2793,9 @@ Note that the above type class not only requires the existence of a function \mi
 (&+) ZeroTensor t2 = t2 
 \end{minted} 
 \end{samepage}
+
 Here \mintinline{haskell}{addTMaps} adds the two pair lists of the two tensors with a combiner function, i.e. it combines the two pair lists ensuring the order of the indices is still valid, if an index is present in both lists the corresponding subtensor is provided by the combiner function. In the case above the combiner function is again the addition of tensors, this time however only applied to the subtensors. 
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 addTMaps :: (Ord k) => (v -> v -> v) -> TMap k v -> TMap k v ->
@@ -2799,7 +2808,9 @@ addTMaps f ((k1,v1):xs) ((k2,v2):ys)
             | k1 == k2 = (k1, f v1 v2) : (addTMaps f xs ys) 
 \end{minted} 
 \end{samepage}
+
 Scalar multiplication and subtraction can now be implemented straight forwardly.
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 (&.) :: (TIndex k, TScalar v) => Rational -> Tensor n k v ->
@@ -2811,7 +2822,9 @@ Scalar multiplication and subtraction can now be implemented straight forwardly.
 (&-) t1 t2 = t1 &+ (-1) &. t2 
 \end{minted} 
 \end{samepage}
+
 Where \mintinline{haskell}{fmap} is provided by the functor instance of the tensor data type:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 instance Functor (Tensor n k) where 
@@ -2820,7 +2833,9 @@ instance Functor (Tensor n k) where
         fmap f ZeroTensor = ZeroTensor 
 \end{minted} 
 \end{samepage}
+
 The product of two tensors can be implemented by appending the second tensor to each of the leafs of the first tensor that is specified:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 (&*) :: (TIndex k, TAlgebra v v', TScalar v, TScalar v',
@@ -2836,10 +2851,12 @@ The product of two tensors can be implemented by appending the second tensor to 
 (&*) ZeroTensor t2 = ZeroTensor
 \end{minted} 
 \end{samepage}
+
 Here \mintinline{haskell}{mapTMap} maps a function over the values of the key value pairs \mintinline{haskell}{(k,v)} stored in the \mintinline{haskell}{TMap k v}.
 Note that not only the rank of the resulting tensor depends on the ranks of the two input tensors, also the types that are stored in it as values clearly depend on the respective types of the intput tensors. This is exactly where the second typeclass \mintinline{haskell}{TAlgebra v v'} comes to use. 
 
 Finally when symmetrizing a given tensor we need to be able to swap the position of some of the tensors indices. This is done by the following function:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 tensorTrans :: (TIndex k, TScalar v) => (Int,Int) ->
@@ -2852,6 +2869,7 @@ tensorTrans (i, j) (Tensor m) = Tensor $
 tensorTrans (i ,j) ZeroTensor = ZeroTensor
 \end{minted} 
 \end{samepage}
+
 The two indices w.r.t. which the tensor is transposed are provided by the integer tuple, where the indices are labeled w.r.t. their position starting from 0. The function first traverses the tensor until the level\footnote{We will call the distance of a given node to the root node of the appropriate tree the level of the node.} specified by the first, i.e. the smaller integer is reached. Then all corresponding sub tensors are flattened to indices value pairs. This is precisely what \mintinline{haskell}{toListT} does. Now in each of the thus obtained indices value lists of the various sub tensors by using the function \mintinline{haskell}{swapHead} the first and the j-th entry of the indices are swaped. Finally by using  \mintinline{haskell}{fromListT} the indices value lists are again transformed to a tensor.  Applying this function to the previously provided rank 2 example tensor with the integer pair given as \mintinline{haskell}{(0,1)} we obtain the following transposed rank 2 tensor:
 \begin{figure}[ht]
 \centering
@@ -2894,6 +2912,7 @@ The two indices w.r.t. which the tensor is transposed are provided by the intege
 \label{ExampleTensTrans}
 \end{figure}
 similar to the transposition of to indices we can now obviously construct functions that transpose a given tensor in several indices or even completely reorder the positions of the various indices.  For instance a function that completely reorders the indices of a tensor can be obtained as follows
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 resortTens :: (SingI n, TIndex k, TScalar v) => [Int] -> Tensor n k v ->
@@ -2902,8 +2921,10 @@ resortTens perm t = fromListT $ map (\(x,y) -> (resortInd perm x, y))
                     $ toListT t 
 \end{minted} 
 \end{samepage}
+
 The function takes as argument a list of integers where the i-th elements specifies the position on which the i-th index in the tensor shall be sorted, flattens the tensor to a list of indices value pairs, resorts the indices according to this and combines the pairs again to obtain a tensor. 
 Knowing how we can transpose and resort the indices of a given tensor we can easily construct arbitrary symmetrization functions, simply by rearranging the indices of a given tensor accordingly and then adding this newly obtained tensor to the previous one. We only provide the example of the standard symmetrization w.r.t. the exchange of too individual indices explicitly:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 symTensFac :: (TIndex k, TScalar v) => (Int,Int) -> Tensor n k v ->
@@ -2911,8 +2932,10 @@ symTensFac :: (TIndex k, TScalar v) => (Int,Int) -> Tensor n k v ->
 symTensFac inds t = (1%2) &. symTens inds t
 \end{minted} 
 \end{samepage}
+
 Any other symmetrization can be constructed in similar ways.
 Of course we can also evaluate a given tensor by inserting a particular value for one of its indices. This can be achieved as follows:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 evalTens :: (SingI (n+1), TIndex k, TScalar v) => Int -> k ->
@@ -2928,6 +2951,7 @@ evalTens ind indVal (Tensor m)
             newTens = resortTens l (Tensor m)
 \end{minted} 
 \end{samepage}
+
 If the tensor is to be evaluated for its 0-th index we simply look up the corresponding value in the top level of the forest. In any other case we first shift the corresponding level of the forest that is to be evaluated to the front to then again proceed as described in the prior case.\\
 
 Up to now we only treated tensors with a single type of indices, for instance in the example of figure \ref{ExampleTens} the tensor only had contravariant spacetime indices. We can however easily generalize the above such that also covariant indices can be incorporated. This is simply achieved by additionally appending a tensor of the given index type as values
@@ -2942,6 +2966,7 @@ Thus \mintinline{haskell}{Tensor2 n1 n2 k v} describes as before a contravariant
 Note that in the definition of most of the above functions the types that tensors might store as values where constrained to be instances of \mintinline{haskell}{TScalar} and \mintinline{haskell}{TAlgebra}. 
 In order to be able to also us these functions for  \mintinline{haskell}{Tensor2}, i.e. for the case where the stored values are itself tenors it is necessary that the tensor type satisfies these two instances.
 \mintinline{haskell}{Tensor n k v} itself is instance of \mintinline{haskell}{TScalar} and \mintinline{haskell}{TAlgebra}:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 instance (TIndex k, TScalar v) => TScalar (Tensor n k v) where
@@ -2957,7 +2982,9 @@ instance (TIndex k, TAlgebra v v', TScalar v, TScalar v',
     prodA = (&*)
 \end{minted} 
 \end{samepage}
+
 The contraction of such a \mintinline{haskell}{Tensor2} in one contravariant and one covariant index can be achieved as follows:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 tensorContr :: (TIndex k, TScalar v) => (Int,Int) -> Tensor2 n1 n2 k v ->
@@ -2974,6 +3001,7 @@ tensorContr inds ZeroTensor = ZeroTensor
 tensorContr inds (Scalar s) = error "cannot contract scalar!"
 \end{minted} 
 \end{samepage}
+
 We specify which indices are to be contracted by an integer pair of the corresponding positions. If the first integer representing the position of the  contravariant index that shall be contracted is not zero we traverse the tensor forest until we reach the appropriate level. Next the remaining sub tensors are all flattened to indices value pairs. We filter those entries that admit equal values for the two indices that are to be contracted. Then these two indices are removed such that the pairs with same value of the two contraction indices now all have the same indices. This is all done by the function \mintinline{haskell}{removeContractionInd}. Finally we reconstruct the tensor ensuring that the values of these pairs with same indices are summed up. \\
 
 Note that with this framework there are no limitations regarding the number of indices that one might possibly use. For instance we can now easily construct a type for tensors that are described by two different types of indices each one appearing in contravariant and covariant fashion by appending the two different \mintinline{haskell}{Tensor2} types:
@@ -2984,6 +3012,7 @@ type AbsTensor4 n1 n2 n3 n4 k1 k2 v = AbsTensor2 n1 n2 k1
 \end{cminted}
 \end{center}
 where \mintinline{haskell}{AbsTensor2 n1 n2 k v = Tensor2 n1 n2 k v} is simply a type synonym. It is important to note that as the tensor type itself is an instance of \mintinline{haskell}{TScalar} and \mintinline{haskell}{TAlgebra} the tensor algebra operations \mintinline{haskell}{(&+),(&-),(&.),(&*)} are always the same no matter how many different indices the tensor at hand uses. Furthermore also the symmetrization, transposition ans the contract still works exactly the same the only thing that one additionally needs to specify now is at which level the function should be applied. This can be done by noting that \mintinline{haskell}{fmap} takes a function and applies it to the leaves of a given tensor. Thus applying fmap succesively several times we can decent a fixed number of tensor levels in the forest. This can be used to apply functions to tensors that are stored as leaves of other tensors. We provide the following example of the function that precisely decents $3$ tensor levels:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 mapTo3 :: (TScalar v1, TScalar v2, TIndex k1, TIndex k2) => (v1 -> v2) ->
@@ -2991,7 +3020,9 @@ mapTo3 :: (TScalar v1, TScalar v2, TIndex k1, TIndex k2) => (v1 -> v2) ->
 mapTo3 f = fmap (fmap (fmap f))
 \end{minted} 
 \end{samepage}
+
 Using this we can for instance symmetrize a given tensor in the 4-th type of indices it stores as follows:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 symATens5 :: (TIndex k1, TIndex k2, TIndex k3, TScalar v) =>
@@ -3001,6 +3032,7 @@ symATens5 :: (TIndex k1, TIndex k2, TIndex k3, TScalar v) =>
 symATens5 inds = mapTo4 (symTens inds) 
 \end{minted} 
 \end{samepage}
+
 Similarly all other functions that we encountered so far can be defined for tensors of arbitrarily many different indices as well.
 This completes the basic functionality that is provided by the sparse-tensor Haskell library. Further details can be found in (Cite own hackage here !!!)
 \section{Generation of Lorentz Invariant Basis Tensors}\label{LorentzGen}
@@ -3020,6 +3052,7 @@ Clearly these two ansätze are not algebraically linear dependent. Subtracting t
 
 In order to achieve performance it is essential to pick data structures for representing a linear combination of ansätze. As usual the data structures must be tailored towards the specific needs that are in this case the symmetrization and evaluation of linear combinations of ansätze. 
 The individual tensors $\eta^{ab}$ and $\epsilon^{abcd}$ can simply be represented as follows:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
@@ -3034,9 +3067,11 @@ data Var = Var {-# UNPACK #-} !Int {-# UNPACK #-} !Int
            deriving (Show, Read, Eq, Ord, Generic, Serialize, NFData )
 \end{minted} 
 \end{samepage}
+
 Note that the integer values of the the data types \mintinline{haskell}{Eta} and \mintinline{haskell}{Epsilon} are used to label the abstract spacetime indices, i.e. the first index will simply be labels by $1$ the second index by $2$, etc. in particular they do not refer to values that these indices might admit. Furthermore we also defined a basic variable data type to encode the parameters that will later multiply the individual ansätze. The \mintinline{haskell}{Var}
 data type simply takes two integer values where the first one refers to an integer factor that multiplies the variable\footnote{When using factor less symmetrization it actually turns out that it suffices to use integers for representing the factors in front of the different variables.} and the second one provides an identifier that labels the different variables. 
-Using these data types we can encode a general linear combination of ansätze as :
+Using these data types we can encode a general linear combination of ansätze as:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
@@ -3047,6 +3082,7 @@ data AnsatzForestEta = ForestEta (M.Map Eta AnsatzForestEta)| Leaf !Var
 type AnsatzForestEpsilon = M.Map Epsilon AnsatzForestEta
 \end{minted} 
 \end{samepage}
+
 Here \mintinline{haskell}{AnsatzForestEta} is the datatype of an expression that solely involves $\eta^{ab}$ whereas \mintinline{haskell}{AnsatzForestEpsilon} involves exactly one $\epsilon^{abcd}$ in each product.
 Clearly there exist not algebraic linear dependencies between ansätze that involve an $\epsilon^{abcd}$ and those that do not. 
 It is important to note that there also cannot exist numeric linear dependencies that mix the two types of ansätze. The reason for this is that for a product of $\eta^{ab}$ to yield non vanishing contributions when evaluated on a list of values from $\{0,1,2,3 \}$ for the individual indices each value must occur an even number of times as the individual $\eta^{ab}$ factor have only diagonal entries. In contrast to that evaluating a product of several Minkowski metrics and one $\epsilon^{abcd}$ one additionally needs each possible value for a spacetime index precisely once such that the Levi-Civita symbol yields a non vanishing contribution. Thus for the types of ansätze that include $\epsilon^{abcd}$ to yield non zero each value for the indices must occur an odd number of times. In total this shows that whenever the an ansatz that features no Levi-Civita symbol evaluates to a non zero contribution all possible ansätze that incorporate an $\epsilon^{abcd}$ evaluate to zero and vice versa. Thus the different types of ansätze are also mutually numerically linear independent. In particular we see that the problem of finding a list of ansätze that constitute a basis for the space of Lorentz invariant tensors of given rank and symmetry decouples into the two sub problems of finding those that incorporate an $\epsilon^{abcd}$ and those that do not. The two types of ansätze can hence be treated completely independently. To that end we also chose to represent them using different data types.
@@ -3156,6 +3192,7 @@ The corresponding representation using the \mintinline{haskell}{AnsatzForestEta}
 \label{AnsatzExprExForest}
 \end{figure}
 Due to the forest data structure also addition of two such expression can be implemented quite performant. One simply uses the \mintinline{haskell}{unionWith} function provided by the Data.Map.Strict package \cite{HackageMap}. The function combines two Maps calling a specified combiner function if a key is present in both. The addition of two ansatz forests can now be achieved by defining the addition of the leaf values in the obvious way and further defining the addition of two ansatz forests that themselves contain sub forests by combining the corresponding Maps with combiner function being again the addition of ansatz forests. Doing so one eventually recurses over the whole structure. 
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
@@ -3203,7 +3240,9 @@ pairSymForestEps inds ans = addForestsEpsilon ans $
                             swapLabelFEps inds ans
 \end{minted} 
 \end{samepage}
+
 As swapping labels of nodes in the forest will in general destroy the sorting of the forest we have to reenforce the correct ordering afterwards. This is simply done by flattening the forest to a list that contains the individual branches, sorting the list according to the required ordering and then reconstructing the forest from the list of branches. Thus such swap functions are given by:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
@@ -3227,6 +3266,7 @@ swapLabelFEps inds ans = sortForestEpsilon.canonicalizeAnsatzEpsilon $
                                             (swapLabelFEta inds) ans
 \end{minted} 
 \end{samepage}
+
 Similarly one can easily define symmetrization functions for arbitrary other kinds of symmetry. We define a \mintinline{haskell}{Symmetry} data type that collects the most used such, i.e. (pair symmetries, pair anti-symmetries, block symmetries, cyclic symmetries, cyclic block symmetries):
 \begin{center}
 \begin{cminted}{haskell}
@@ -3234,6 +3274,7 @@ type Symmetry = ([(Int,Int)],[(Int,Int)],[([Int],[Int])],[[Int]],[[[Int]]])
 \end{cminted}
 \end{center}
 The various integers refer to the indices that are to be symmetrized. We now can collect the individual symmetrizer functions in one overall function:
+
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
@@ -3252,6 +3293,7 @@ symAnsatzForestEta (sym,asym,blocksym,cyclicsym,cyclicblocksym) ans =
         blockSymMap = map swapBlockLabelMap blocksym
 \end{minted} 
 \end{samepage}
+
 \begin{samepage}
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
@@ -3271,6 +3313,7 @@ symAnsatzForestEps (sym,asym,blocksym,cyclicsym,cyclicblocksym) ans =
         blockSymMap = map swapBlockLabelMap blocksym
 \end{minted} 
 \end{samepage}
+
 After all this summarizes the data structures that we use to represent the tensorial expression that we are going to construct. Further details and additional functions that were ommited here can be found in (ref own hackage package).  \\
 
 With this choice of data structures at hand we now proceed with the construction of Lorentz invariant basis tensors.  
@@ -3281,6 +3324,7 @@ This process can in general be divide in three steps:
     \item[(iii)] Reducing the resulting expressions w.r.t. algebraic and numeric linear dependencies.
 \end{itemize}
 We start with the first step, computing all possible products. Labeling the indices by integers \mintinline{haskell}{[1,...,n]} one readily obtains all possible such individual products be exhausting all possible ways the indices can be arranged, taking into account the symmetries of $\eta^{ab}$, $\epsilon^{abcd}$ if present and the symmetries that are induced by the product structure. We get for the list of all possible index sortings for the products that only involve $\eta^{ab}$:
+
 \begin{samepage}
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
@@ -3292,8 +3336,10 @@ getEtaInds (x:xs) = concatMap res firstEta
             res (a,b) = (++) a <$> getEtaInds b 
 \end{minted} 
 \end{samepage}
+
 %check points at end of code examples
 Similar the list of all possible indices for the expressions that involve one $\epsilon^{abcd}$ can be computed to be given by:
+
 \begin{samepage}
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
@@ -3307,6 +3353,7 @@ getEpsilonInds inds = allInds
                       getEtaInds (inds \\ x) ) epsInds 
 \end{minted} 
 \end{samepage}
+
 Note that in (cite own hackage package) we further reduced these index lists by filtering already here some of the linear dependencies that will later arise due to the symmetrization. This is not necessary as we will treat linear dependencies later anyway it does however increase performance as the lists that are consumed by the algorithm are then smaller from the very beginning.  
 %check the above 
 We could now proceed with the next step, express each individual product by the appropriate chosen data structure, symmetrize all products individually and then at the very end reducing occurring linear dependencies. Following these lines however bares the problem that intermediate results, i.e. the entirety of the thus constructed ansätze occupies an unreasonable amount of memory. Only at the very end when linear dependent ansätze are removed this memory can be freed again. In fact in most practical cases the memory that is needed for this approach by far exceeds resources that are typically available. It is thus best to combine the steps two and three that are outlined above. The algorithm consumes the list of individual products step by step. For each product a distinction is made: if the product is already present in the ansatz forest it is simply discharged if it is not it is symmetrized to obtain the corresponding ansatz and then added to the ansatz forest. Doing so the intermediate memory swelling is avoided as now from the very beginning only linear independent ansätze are added to the forest.
@@ -3322,6 +3369,7 @@ We start provided details regarding the first approach. \\
 \noindent \textbf{Reducing linear dependencies I:  The fast way}
 
 The idea is straight forward. Representing the individual products involving only $\eta^{ab}$ or also including one $\epsilon^{abcd}$ as lists with the individual list elements representing the factors of the product, we need a function that decides whether or not such a product is already present in a given ansatz forest. As we are always dealing with ordered forests and also sorted products we can already conclude that a given product is missing in the forest if any given node is missing in the appropriate level of the forest. Thus only when an product is actually present in the forest we really need to decent up to the leaf values of the forest.
+
 \begin{samepage}
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
@@ -3347,8 +3395,10 @@ isElemEpsilon (eps,l) m = case mForest of
                 mForest = M.lookup eps m  
 \end{minted} 
 \end{samepage}
+
 Using these two functions we simply define two functions that when an product is missing symmetrizes it to obtain the corresponding ansatz and then adds it to the forest when the product is already present it should be discharged. These functions is then folded over the list of products taking an empty forest as start value.  Doing this we obtain functions that takes a list of products and a value of type \mintinline{haskell}{Symmetry} and constructs from it the two ansatz forests with ansätze being obtained by symmetrizing the various products that are provided by the list. Further these two functions now ensure that all ansätze that are included in the forests are algebraically linear independent. 
-These two functions can then again be used to define the final functions that solely take the required symmetry and the rank of the to be constructed Lorentz invariant basis tensors as argument and then computes from it an ansatz forest of all possible algebraically linear independent ansätze that feature the correct number of indices and symmetries. We simply use the priorly defined functions \mintinline{haskell}{getEtaInds} and \mintinline{haskell}{getEpsInds} to compute lists of all possible indices of products of either solely Minkowski metrics or also including one Levi-Civita symbol, all providing the required number of indices. These two lists are then transformed to list of the appropriate types \mintinline{haskell}{Eta} and \mintinline{haskell}{Epsilon} and each list is further combined with a different variable. The two list are reduced as described above, by invoking the two functions \mintinline{haskell}{reduceAnsatzEta'} and \mintinline{haskell}{reduceAnsatzEpsilon'}. Finally the variables in the two ansatz forests that are thus constructed are relabeled. 
+These two functions can then again be used to define the final functions that solely take the required symmetry and the rank of the to be constructed Lorentz invariant basis tensors as argument and then computes from it an ansatz forest of all possible algebraically linear independent ansätze that feature the correct number of indices and symmetries. We simply use the priorly defined functions \mintinline{haskell}{getEtaInds} and \mintinline{haskell}{getEpsInds} to compute lists of all possible indices of products of either solely Minkowski metrics or also including one Levi-Civita symbol, all providing the required number of indices. These two lists are then transformed to list of the appropriate types \mintinline{haskell}{Eta} and \mintinline{haskell}{Epsilon} and each list is further combined with a different variable. The two list are reduced as described above, by invoking the two functions \mintinline{haskell}{reduceAnsatzEta'} and \mintinline{haskell}{reduceAnsatzEpsilon'}. Finally the variables in the two ansatz forests that are thus constructed are relabeled.
+
 \begin{samepage}
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
@@ -3817,9 +3867,300 @@ mkAnsatzTensorEig' ord symmetries = mkAnsatzTensorEig
 \end{minted} 
 \end{samepage}
 
+The developed sparse-tensor library also provides further functions that can be usefull when working with the ansatz forest data types. Details can again be found in (cite own hackage package !!!).
+
 \section{A Step-By-Step Example}
+In this section we are going to consider an example that shall nicely illustrate how the sparse-tensor package can be used to deal with the kind of problems that arise in the perturbative approach to constructive gravity. To that end we are going to consider the two linear order perturbative equivariiance equations (\ref{order1}) in the context of area metric gravity. 
+
+The first step is determining the different indices and thus the abstract tensor type that is needed for the treatment of perturbative area metric gravity. 
+We need one index type that runs over area metric degrees of freedom, one index type for second order spacetime derivatives and one index type for treating spacetime indices. The corresponding tesnor type was already introduced before:
+
+\begin{center}
+\begin{cminted}{haskell}
+type ATens n1 n2 n3 n4 n5 n6 v = 
+     AbsTensor6 n1 n2 n3 n4 n5 n6 Ind20 Ind9 Ind3 v
+\end{cminted}
+\end{center}
+
+Here the different index types are defined all defined in the same fashion. As illustrative example we discuss \mintinline{haskell}{Ind3} in more detail:
+
+\begin{center}
+\begin{cminted}{haskell}
+newtype Ind3 =  Ind3 {indVal3 :: Int}
+    deriving (Ord, Eq, Show, Read, Generic, NFData, Serialize)
+\end{cminted}
+\end{center}
+
+We choose to use the \mintinline{haskell}{newtype} declaration in order to ensure that functions that are defined for one particular index type cannot be applied to any other index type and thus preventing possible errors that might occur when mixing up index types.
+Note that in order for the tensor algebra functions in sparse-tensor to work for the \mintinline{haskell}{ATens} type, the index types must all be instances of \mintinline{haskell}{TIndex}. This can be simply achieved by defining the function \mintinline{haskell}{toEnum}, \mintinline{haskell}{fromEnum} making them instances of the typeclass \mintinline{haskell}{Enum} and then further defining the index range function that simply says how many different index values of the given abstract index exist:
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+instance TIndex Ind3 where
+    indRange x = 4
+
+instance Enum Ind3 where
+    toEnum = Ind3
+    fromEnum = indVal3
+\end{minted} 
+\end{samepage}
+
+When taking a closer look at the equations (\ref{order1}) we see that albeit of the three Lorentz invariant basis tensors $a^{A}$, $a^{AI}$ and $a_0$ we further need the two area metric intertwiners $I^I_{abcd}$, $J_I^{abcd}$ with components being displayed in (\ref{AreaI}) and (\ref{AreaJ}), the J-intertwiner of a symmetric index pair whose components can be found in (\ref{interJMet})  , the flat background area metric $N_A$ and the 4 dimensional Kronecker delta $\delta^a_b$. 
+The Kronecker delta can readily be obtained as 
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+delta3 :: ATens 0 0 0 0 1 1 Rational
+delta3 = fromListT6 $ zip
+         [(Empty, Empty, Empty, Empty,
+         singletonInd (Ind3 i), singletonInd (Ind3 i)) | 
+         i <- [0..3]] (repeat 1)
+\end{minted} 
+\end{samepage}
+%further comment the use of fromListT6 ??
+
+The three intertwiners can be constructed according to:
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+interJ2 :: ATens 0 0 0 1 2 0 Rational
+interJ2 = fromListT6 $ filter (\(i,k) -> k /= 0) $ map (\x -> (x,f x)) inds
+        where
+            trian2 = trianMap2
+            inds = [ (Empty, Empty, Empty, singletonInd $ Ind9 a, Append (Ind3 b) $ singletonInd $ Ind3 c, Empty) | a <- [0..9], b <- [0..3], c <- [0..3]]
+            f (_, _, _, ind1, ind2, _)
+                | ind1 == (M.!) trian2 (sortInd ind2) = jMult2 ind2
+                | otherwise = 0
+\end{minted} 
+\end{samepage}
 
 
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+interIArea :: ATens 1 0 0 0 0 4  Rational
+interIArea = fromListT6 $ filter (\(i,k) -> k /= 0) $
+             map (\x -> (x,f x)) inds
+    where
+        trianArea = trianMapArea
+        inds = [(singletonInd (Ind20 a), Empty, Empty, Empty, Empty,
+               Append (Ind3 b) $ Append (Ind3 c) $ Append (Ind3 d) 
+               $ singletonInd $ Ind3 e) |
+               a <- [0..20], b <- [0..3], c <- [0..3], d <- [0..3],
+               e <- [0..3], not (b == c || d == e)]
+        f (ind1, _, _, _, _, ind2)
+            | ind1 == (M.!) trianArea indArea = s
+            | otherwise = 0
+            where
+                (indArea, s) = canonicalizeArea ind2
+\end{minted} 
+\end{samepage}
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+interJArea :: ATens 0 1 0 0 4 0 Rational
+interJArea = fromListT6 $ filter (\(i,k) -> k /= 0) $
+             map (\x -> (x,f x)) inds
+    where
+        trianArea = trianMapArea
+        inds = [(Empty, singletonInd $ Ind20 a, Empty, Empty,
+               Append (Ind3 b) $ Append (Ind3 c) $ Append (Ind3 d)
+               $ singletonInd $ Ind3 e, Empty) |
+               a <- [0..20], b <- [0..3], c <- [0..3], d <- [0..3],
+               e <- [0..3], not (b == c || d == e)]
+        f (_, ind1, _, _, ind2, _)
+            | ind1 == (M.!) trianArea indArea = s * jMultArea indArea
+            | otherwise = 0
+            where
+                (indArea, s) = canonicalizeArea ind2
+\end{minted} 
+\end{samepage}
+
+Here \mintinline{haskell}{trianMap2} is a Map that relates the indices of a symmetric pair of spacetime indices to the corresponding abstract index of type \mintinline{haskell}{Ind9}, \mintinline{haskell}{trianMapArea} is a Map that relates the 4 spacetime indices of a given area metric to the corresponding abstract index, \mintinline{haskell}{canonicalizeArea} is a function that brings a set of 4 spacetime indices obeying the area metric symmetries to canonical order taking into account possible signs that might occur during the resorting, \mintinline{haskell}{jMult2} is a function that computes the multiplicity of the symmetric index pair and \mintinline{haskell}{jMultArea} computes the $\sigma$ multiplicity (see discussion following definition \ref{interDef}) of a given set of 4 spacetime indices that correspond to one area metric.
+
+From the two area metric intetwiners we can compute the constant tensor $C^{Am}_{Bn}$ according to (\ref{areaGotayMInter}):
+
+\begin{center}
+\begin{cminted}{haskell}
+interArea :: ATens 1 1 0 0 1 1 Rational
+interArea = (-4) &. contrATens3 (1,1) (contrATens3 (2,2) $
+            contrATens3 (3,3) $ interIArea &* interJArea)
+\end{cminted}
+\end{center}
+
+The flat background area metric can simply be constructed as follows:
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+flatArea :: ATens 0 1 0 0 0 0 Rational
+flatArea = fromListT6 $ map (\(i,v) -> ( (Empty, singletonInd $ Ind20 i,
+           Empty, Empty, Empty, Empty), v))
+           [(0,-1),(5,-1),(6,-1),(9,1),(11,-1),
+           (12,-1),(15,1),(18,1),(20,1)]
+\end{minted} 
+\end{samepage}
+
+The next step is the computation of the three bases of Lorentz invariant tensors. Clearly $a_0$ is simply a single constant. As such it can be incorporated in our tensor framework by:
+
+\begin{center}
+\begin{cminted}{haskell}
+let ans0 = fromListT6' [(([],[],[],[],[],[]), AnsVar $ 
+           I.fromList [(1,1)] )] :: ATens 0 0 0 0 0 0 (AnsVar Rational)
+\end{cminted}
+\end{center}
+
+The second expansion coefficient is given by $a^A = I^A_{abcd} a^{abcd}$, where the indices $(abcd)$ feature the area metric symmetries. In order to use our functions for constructing the appropriate Lorentz invariant basis tensors we need to provide the symmetry at hand as value of type \mintinline{haskell}{Symmetry} and also need to provide a list of index value lists that are necessary for the evaluation. Labeling the indices $(abcd)$ by the integers $(1,2,3,4)$ the symmetry is given as 
+
+\begin{center}
+\begin{cminted}{haskell}
+symList4 :: Symmetry
+symList4 = ([], [(1,2),(3,4)], [([1,2],[3,4])], [], [])
+\end{cminted}
+\end{center}
+
+This simply corresponds to pair anti symmetries in the indices $(1,2)$ and $(3,4)$ and a block symmetry w.r.t. exchange of the two index pairs $(1,2)$ and $(3,4)$. The evaluation list can be constructed as
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+areaList4 :: [([Int], Int, [IndTupleAbs 1 0 0 0 0 0])]
+areaList4 = list
+      where
+          trianArea = trianMapArea
+          list = [ let a' = (I.!) trianArea a in (a', areaMult a',
+                 [(singletonInd (Ind20 $ a-1), Empty, Empty, Empty,
+                 Empty, Empty)]) | a <- [1..21] ]
+\end{minted} 
+\end{samepage}
+
+As before \mintinline{haskell}{trianMapArea} is a Map that relates a block of 4 spacetime indices with area metric symmetries to an abstract area metric index and \mintinline{haskell}{areaMult} is a function that computes the multiplicity of a given set of 4 spacetime indices with area metric symmetry. Note that we do not only provide the index value list that are necessary for the evaluation of the ansatz forests but also include the multiplicity of the index values and the corresponding abstract index as we want to make use of the function \mintinline{haskell}{mkAnsatzTensorEigAbs} to evaluate the anastz forests to the chosen abstract tensor type \mintinline{haskell}{ATens}. We can now construct the basis for the expansion coefficient $a^{A}$ by invoking:
+
+\begin{center}
+\begin{cminted}{haskell}
+let (eta4,eps4,ans4) = mkAnsatzTensorEigAbs 4 symList4 areaList4 :: 
+                         (AnsatzForestEta, AnsatzForestEpsilon,
+                         ATens 1 0 0 0 0 0 (AnsVar Rational))
+\end{cminted}
+\end{center}
+
+If we wish to quickly check the constructed ansatz forest we can do so by using the functions \mintinline{haskell}{drawAnsatzEta} and \mintinline{haskell}{drawAnsatzEpsilon} that return a simply ASCII drawing of the forest structure. Doing so we get:
+
+\begin{center}
+\begin{BVerbatim}
+(1,3)
+|
+`---- (2,4) * (4) * x[1]
+
+(1,4)
+|
+`---- (2,3) * (-4) * x[1]
+
+(1,2,3,4) * (8) * x[2]
+\end{BVerbatim}
+\end{center}
+
+Proceeding along the same lines for the ansatz $a^{AI} = I^A _{abcd} I^I_{pq} a^{abcdpq}$ we first provide the symmetry:
+
+\begin{center}
+\begin{cminted}{haskell}
+symList6 :: Symmetry
+symList6 = ([(5,6)], [(1,2),(3,4)], [([1,2],[3,4])], [], [])
+\end{cminted}
+\end{center}
+
+This simply correspond to an additional pair symmetry in the derivative indices $(5,6)$. The evaluation list can be obtained as:
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+areaList6 :: [([Int], Int, [IndTupleAbs 1 0 1 0 0 0])]
+areaList6 = list
+      where
+          trian2 = trianMap2
+          trianArea = trianMapArea
+          list = [ let (a',i') = ((I.!) trianArea a, (I.!) trian2 i) in
+                 (a' ++ i', areaMult a' * iMult2 i', 
+                 [(singletonInd (Ind20 $ a-1), Empty,
+                 singletonInd (Ind9 $ i-1),
+                 Empty, Empty, Empty)]) | a <- [1..21], i <- [1..10]]
+\end{minted} 
+\end{samepage}
+
+We now can again construct the ansatz forest 
+
+\begin{center}
+\begin{cminted}{haskell}
+let (eta6,eps6,ans6) = mkAnsatzTensoreigAbs 6 symList6 areaList6 :: 
+                       (AnsatzForestEta, AnsatzForestEpsilon,
+                       ATens 1 0 1 0 0 0 (AnsVar Rational))
+\end{cminted}
+\end{center}
+
+Note that when constructed the variables that are include in any pair of ansatz forests start from one. When one uses several ansatz forests in one equation it is thus necessary to relabel certain variables. The number of variables in a given pair of ansatz forest can for instance be obtained by applying the function \mintinline{haskell}{tensorRank6'} on the corresponding tensor. This function simply arranges the independent components of the tensor in a matrix with the variables labeling the columns and then invokes Eigen subroutines to compute the rank of the matrix. for instance applyig it on the ansatz tensor \mintinline{haskell}{ans4} we get \mintinline{haskell}{tensorRank6' ans4 = 2}. Hence we can use it to shift the labels of the variables that are included in the three tensors appropriately:
+
+\begin{center}
+\begin{cminted}{haskell}
+let ans0' = shiftLabels6 5 ans0
+let ans4' = shiftLabels6 3 ans4 
+\end{cminted}
+\end{center}
+
+Now the first 3 variables are those contained in \mintinline{haskell}{ans6} the next 2 are those in \mintinline{haskell}{ans4} and the last variable is those from \mintinline{haskell}{ans0}.
+We can now finally construct the two equations in (\ref{order1}):
+
+\begin{samepage}
+\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
+1.2, bgcolor=LG]{haskell}
+eqn1 :: ATens 0 0 0 0 0 0 (AnsVar Rational) ->
+        ATens 1 0 0 0 0 0 (AnsVar Rational) ->
+        ATens 0 0 0 0 1 1 (AnsVar Rational)
+eqn1 ans0 ans4 = contrATens1 (0,0) (ans4 &* flatInter) &+
+                 (ans0 &* delta3)
+                 
+eqn2 :: ATens 1 0 1 0 0 0 (AnsVar Rational) ->
+        ATens 0 0 0 0 3 1 (AnsVar Rational)
+eqn2 ans6 = contrATens2 (0,0) $ contrATens1 (0,0) $ ans6 &*
+            contrATens1 (0,1) (interEqn5 &* flatArea)
+    where 
+        interEqn5 = cyclicSymATens5 [0,1,2] $
+                    interJ2 &* interMetric
+\end{minted} 
+\end{samepage}
+
+We can now for instance check the rank of the equations. This can be achieved by first computing the two equations:
+
+\begin{center}
+\begin{cminted}{haskell}
+let eqn1Area = eqn1 ans0' ans4' 
+let eqn2Area = eqn2 ans6  
+\end{cminted}
+\end{center}
+Then we collect the two equations in a list:
+\begin{center}
+\begin{cminted}{haskell}
+let tList = eqn2Area &.&> (singletonTList6 eqn1Area ::
+            TensList6 Ind20 Ind9 Ind3 (AnsVar Rational)) 
+\end{cminted}
+\end{center}
+We can now for instance compute the rank of the collective tensor equations that are included in such a list. This will then of course correspond to the rank of the equations. Doing so we find:
+\begin{center}
+\begin{cminted}{haskell}
+tensorRank6 tList = 2 
+\end{cminted}
+\end{center}
+We can also extract the information given by the two tensor equations in form of a matrix with as usual columns labeling the 6 variables and rows labeling independent equations. The sparse-tensor function \mintinline{haskell}{toMatList6} for instance returns this matrix in terms of a standard sparse matrix format \mintinline{haskell}{[((Int,Int),Rational)]}, where the pair of integers label row and column and the rational number is the corresponding value. Applying this function we find:
+\begin{center}
+\begin{cminted}{haskell}
+toMatList6 tList = [((1,1),1152 % 1),((1,2),576 % 1),((1,3),(-2304) % 1),
+                   ((2,4),(-96) % 1),((2,5),192 % 1),((2,6),1 % 1)]
+\end{cminted}
+\end{center}
+Note that the relatively large values are a result of the used factorless symmetrization method. The thus generated output can now easily be used as input for standard computer algebra systems such as Maple or Mathematica that then can be used to actually solve the perturbative equivariance equations.  
 
 \chapter{Conclusions}
 
