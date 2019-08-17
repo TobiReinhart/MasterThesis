@@ -11,6 +11,7 @@
 \usepackage{stmaryrd}
 \usepackage{fancyvrb}
 
+\usepackage{caption}
 \usepackage{booktabs} % required for the first solution
 
 
@@ -29,6 +30,30 @@
 
 \usemintedstyle{vs}
 
+\providecommand\phantomsection{}
+
+\makeatletter
+
+\newcommand\listofillustrations{
+    \chapter*{List of Illustrations}
+    \phantomsection
+    \addcontentsline{toc}{chapter}{List of Illustrations}%
+    \section*{Figures}
+    \phantomsection
+    \addcontentsline{toc}{section}{\protect\numberline{}Figures}%
+    \@starttoc{lof}%
+    \bigskip
+    \section*{Tables}%
+    \phantomsection
+    \addcontentsline{toc}{section}{\protect\numberline{}Tables}%
+    \@starttoc{lot}%
+    \bigskip
+    \section*{Algorithms}%
+    \phantomsection
+    \addcontentsline{toc}{section}{\protect\numberline{}Algorithms}%
+    \@starttoc{loa}}
+
+\makeatother
 
 \usepackage{hyperref}
 \hypersetup{
@@ -531,12 +556,7 @@
 
 \tableofcontents
 
-\listoffigures
-\begingroup
-\let\clearpage\relax
-\listoftables
-\listofalgorithms
-\endgroup
+\listofillustrations
 
 \chapter{Introduction: The Aim of Constructive Gravity}
 
@@ -771,8 +791,8 @@ Here $G_A$ and $H_A$ denote as before the chart representations of the two secti
 Let $(F, \pi_F, M)$ be a bundle, the first jet bundle over $F$, $(J^1F,\pi_1,M)$ is the bundle with total space $J^1F := \{j^1_pG \ \vert \  p \in M, G \in \Gamma(F)\}$ and bundle projection 
 \begin{align}
     \begin{aligned}
-\pi_1 : &J^1F \longrightarrow M \\
-&j^1_pG \longmapsto p.
+\pi_1 : J^1F &\longrightarrow M \\
+j^1_pG &\longmapsto p.
     \end{aligned}
 \end{align}
 \end{definition}
@@ -780,8 +800,8 @@ Let $(F, \pi_F, M)$ be a bundle, the first jet bundle over $F$, $(J^1F,\pi_1,M)$
 Note that by this definition $J^1F$ is a bundle over the base manifold $M$. We can also equip $J^1F$ with the projection 
 \begin{align}
     \begin{aligned}
-    \pi_{1,0} : &J^1F \longrightarrow F \\
-    &j^1_pG \longmapsto G(p)
+    \pi_{1,0} : J^1F &\longrightarrow F \\
+    j^1_pG &\longmapsto G(p)
     \end{aligned}
 \end{align}
 By doing so we additionally provide $J^1F$ with the structure of a bundle over $F$, namely $(J^1F,\pi_{1,0},F)$. From the definition of the two projection we furthermore find that $\pi_1 = \pi_F \circ \pi_{1,0}$. 
@@ -803,8 +823,8 @@ Again one can show that this is well defined \cite{saunders_1989}. We collect al
 Let $(F, \pi_F, M)$ be a bundle, the second jet bundle $(J^2F,\pi_2,M)$ is the bundle with total space $J^2F := \{j^2_pG \  \vert \  p \in M, G \in \Gamma(F)\}$ and bundle projection 
 \begin{align}
     \begin{aligned}
-\pi_2 : &J^2F \longrightarrow M \\
-&j^2_pG \longmapsto p.
+\pi_2 : J^2F &\longrightarrow M \\
+j^2_pG &\longmapsto p.
     \end{aligned}
 \end{align}
 \end{definition}
@@ -812,10 +832,10 @@ Let $(F, \pi_F, M)$ be a bundle, the second jet bundle $(J^2F,\pi_2,M)$ is the b
 One can again show that this really defines a bundle over the base manifold $M$. In the case of the second order jet bundle we can obtain two further bundle projections 
 \begin{align}
     \begin{aligned}
-    \pi_{2,1} : &J^2F \longrightarrow J^1F \\
-    &j^2_pG \longmapsto j^1_pG ,\\[0.5ex]
-    \pi_{2,0} : &J^2F \longrightarrow F \\
-    &j^2_pG \longmapsto G(p).
+    \pi_{2,1} : J^2F &\longrightarrow J^1F \\
+    j^2_pG &\longmapsto j^1_pG ,\\[0.5ex]
+    \pi_{2,0} : J^2F &\longrightarrow F \\
+    j^2_pG &\longmapsto G(p).
     \end{aligned}
 \end{align}
 These bundle projections provide $J^2F$ with the additional structure of a bundle over $J^1F$ with projection $\pi_{2,1}$ or a bundle over $F$ with projection $\pi_{2,0}$. Note that from the various definitions we find $\pi_{2} = \pi_F \circ \pi_{2,0} = \pi_F \circ \pi_{1,0} \circ \pi_{2,1}$.
@@ -890,8 +910,8 @@ Here $\Lambda^4 M$ denotes the volume bundle on $M$. Alternatively we could have
 As the Lagrangian is a volume form valued bundle map we can take any section $G \in \Gamma(F)$, prolong it to $j^2(G) \in \Gamma(J^2F)$ and compose the result with $\mathcal{L}$ to obtain section of the volume bundle over $M$, $\mathcal{L}(j^2(G)) \in \Gamma(\Lambda^4M)$ which thus can be integrated over spacetime regions. Given a Lagrangian this procedure defines a \textit{\textbf{local action functional}} on the space of fields $\Gamma(F)$:
 \begin{align}
 \begin{aligned}
-    \mathcal{S}_{\mathcal{L}} : &\Gamma(F) \longrightarrow \mathcal{R} \\
-    &G \longmapsto \mathcal{S}_{\mathcal{L}}[G] := \int \mathcal{L}(j^2(G)).
+    \mathcal{S}_{\mathcal{L}} : \Gamma(F) &\longrightarrow \mathcal{R} \\
+    G &\longmapsto \mathcal{S}_{\mathcal{L}}[G] := \int \mathcal{L}(j^2(G)).
 \end{aligned}
 \end{align}
 The total situation with the various maps that are involved in this construction is displayed in diagram (\ref{diagram1}). 
@@ -1024,8 +1044,8 @@ A Lagrangian field theory described by a second order Lagrangian $\mathcal{L} : 
 As usual given a Lie group action of some Lie group $\mathcal{G}$ on some manifold $M$, i.e. $\rho : \mathcal{G} \rightarrow \mathrm{Aut}(M)$, one defines for all $p \in M$ the the orbit map:
 \begin{align}
     \begin{aligned}
-    \rho_p : &\mathcal{G} \longrightarrow M \\
-    &g \longmapsto \rho(g)(p).
+    \rho_p : \mathcal{G} &\longrightarrow M \\
+    g &\longmapsto \rho(g)(p).
     \end{aligned}
 \end{align}
 This map is differentiable. Its push forward at the identity of $\mathcal{G}$ yields for each element of the Lie algebra of $\mathcal{G}$ a tangent vector at $p$ . Repeating this process for each $p \in M$ one obtains a vector field on $M$. It can then be shown that mapping each $\xi \in \mathrm{Lie}(\mathcal{G})$ to the negative of this vector field defines a morphism of Lie algebras $\mathrm{Lie}(\mathcal{G}) \rightarrow \Gamma(TM)$. Given $\xi \in \mathrm{Lie}(\mathcal{G})$ the image under this map is called the fundamental vector field corresponding to $\xi$. For details see for instance \cite{boothby1989} and \cite{doi:10.1142/3867}.\\
@@ -1052,7 +1072,7 @@ It can most easily be computed by making use of the standard rules of computing 
 \end{align}
 The only feature that all various $C_{An}^{Bm}$ have in common, irrespective of the specific field bundle at hand is that they will always be given in a way that ensures that $\mathcal{f}$ defines a Lie algebra morphism, i.e 
 \begin{align}
-\mathcal{f}\left ( \left [\xi, \tilde{\xi} \right ]_{\Gamma(TM)}\right ) = \left [ \mathcal{f}\left (\xi\right ), \mathcal{f}\left (\tilde{\xi}\right ) \right]_{\Gamma(TF)}
+\mathcal{f}\bigl ( \bigl [\xi, \tilde{\xi} \bigr ]_{\Gamma(TM)}\bigr ) = \bigl [ \mathcal{f}\bigl (\xi\bigr ), \mathcal{f}\bigl (\tilde{\xi}\bigr ) \bigr]_{\Gamma(TF)}
 \end{align}
 Similarly we can now computed the Lie algebra action that corresponds to the prolonged actions on $J^1F$ and $J^2F$. By doing this we obtain \textbf{\textit{prolonged}} vector fields that describe the infinitesimal diffeomorphism action on the jet bundle. In coordinates $(x^m,v_A,v_{Ai})$ on $J^1F$ we obtain:
 \begin{align}
@@ -1085,7 +1105,7 @@ Performing a similar computation as before in adapted coordinates $(x^m,v_A,v_{A
 These two expression describe the infinitesimal action of a diffeomorphism that is induced by a vector field $\xi$ on the first and second jet bundle over the field bundle respectively. 
 As the involved maps $j^1(\mathcal{f})$ and $j^2(\mathcal{f})$ or in fact any prolongation to any higher jet bundle $j^q(\mathcal{f})$ define Lie algebra morphisms and hence one in particular finds that they preserve the commutator:
 \begin{align}
-j^q (\mathcal{f})\left ( \left [\xi, \tilde{\xi} \right ]_{\Gamma(TM)}\right) = \left [ j^q(\mathcal{f})(\xi), j^q(\mathcal{f})(\tilde{\xi}) \right ]_{\Gamma(TJ^qF)}
+j^q (\mathcal{f})\bigl (  \bigl [\xi, \tilde{\xi}  \bigr ]_{\Gamma(TM)}\bigr) =  \bigl [ j^q(\mathcal{f})(\xi), j^q(\mathcal{f})(\tilde{\xi}) \bigr ]_{\Gamma(TJ^qF)}
 \end{align}
 Using the prolongation of vector fields to the jet bundle we can now state one of the main results regarding the implications of the diffeomorphism equivariance of bundle maps on the jet bundle. Namely we present a first order PDE system that the Lagrangian of any diffeomorphism invariant field theory necessarily has to solve. 
 \begin{theorem}[equivariance equations]
@@ -1162,13 +1182,16 @@ In the following two sections we are going to investigate implication of the req
 
 The main idea that is used when transferring from a given Lagrangian field theory to the associated Hamiltonian formulation is that of decomposing the spacetime manifold $M$ into a disjoint set of 3-dimensional manifolds that are smoothly parametrized by a time parameter. As a consequence one can then accordingly decompose any structure that is prescribed on $M$. In order to achieve this we follow \cite{2004math.ph..11032G} and introduce the notion of a \textit{\textbf{slicing}}, sometimes also called a \textit{\textbf{3+1-split}}, of the spacetime manifold $M$.
 \begin{definition}[slicing]
-A slicing of the spacetime manifold $M$ is a diffeomorphism $\phi : \Sigma \times \mathbb{R} \rightarrow M$.
+A slicing of the spacetime manifold $M$ is a diffeomorphism 
+\begin{align}
+\phi : \Sigma \times \mathbb{R} \longrightarrow M.
+\end{align}
 \end{definition}
-By this definition for each $\lambda \in \mathbb{R}$ we obtain an embedding of the 3-dimensional manifold $\Sigma$:
+By this definition for each $\lambda \in \mathbb{R}$ we obtain an embedding $\phi_{\lambda}$ of the 3-dimensional manifold $\Sigma$:
 \begin{align}
 \begin{aligned}
-\phi_{\lambda}: &\Sigma \longrightarrow M \\
-&s \longmapsto \phi_{\lambda}(s) := \phi(s,\lambda).
+\phi_{\lambda}: \Sigma &\longrightarrow M \\
+s &\longmapsto \phi_{\lambda}(s) := \phi(s,\lambda).
 \end{aligned}
 \end{align}
 We define the images of this one-parameter family of embeddings as $\Sigma_{\lambda} := \phi_{\lambda}(\Sigma)$. Hence we can think of the 3-dimensional manifolds $\Sigma_{\lambda}$ as modelling space at given parameter time $\lambda$.
@@ -1196,8 +1219,8 @@ In addition to the smoothly parameterized family of embeddings $\phi_{\lambda}$ 
 The time vector field can be constructed by first defining for all $s \in \Sigma$ the following map 
 \begin{align}
 \begin{aligned}
-    \phi_s : &\mathbb{R} \longrightarrow M \\
-    &\lambda \longmapsto \phi(s,\lambda).
+    \phi_s : \mathbb{R} &\longrightarrow M \\
+    \lambda &\longmapsto \phi(s,\lambda).
 \end{aligned}
 \end{align}
 These maps define curves on $M$ and hence each provide us with tangential vectors along the curves. Using this we can define a vector field on $M$ by defining the value at $p \in M$ to be given by
@@ -1337,7 +1360,7 @@ The deformation operators can then be obtained as
 \begin{align}
     \begin{aligned}
     \mathcal{D}_F(N^{\alpha}) &= N^{\alpha} \frac{\partial}{\partial x^{\alpha}} + 2 g^{\mu (p\vert} \delta^{\vert q)}_{\nu} \partial_{\mu} N^{\nu} \frac{\partial}{\partial g ^{pq}} \\
-    \mathcal{H}_F(N) &= N \frac{1}{\sqrt{\vert g^{00} \vert }} g^{a0} \frac{\partial}{\partial x^a} +2 g^{\mu (p\vert} \delta^{\vert q)}_{n} \partial_{\mu} \left (N \frac{1}{\sqrt{\vert g^{00} \vert }} g^{n0} \right )  \frac{\partial}{\partial g ^{pq}},
+    \mathcal{H}_F(N) &= N \frac{1}{\sqrt{\vert g^{00} \vert }} g^{a0} \frac{\partial}{\partial x^a} +2 g^{\mu (p\vert} \delta^{\vert q)}_{n} \partial_{\mu} \biggl (N \frac{1}{\sqrt{\vert g^{00} \vert }} g^{n0} \biggr )  \frac{\partial}{\partial g ^{pq}},
     \end{aligned}
 \end{align}
 where we inserted the expression for $C^{Am}_{Bn} \equiv C^{abm}_{cdn} = +2g^{m(a\vert}\delta^{\vert b)}_n$ for the case of the field being given by the inverse metric and further simplified the occuring expressions by aking use of the fact that $N^{\alpha},M$ and $e_0^a$ only depend on the hypersurface coordinates $x^\alpha$.
@@ -1350,11 +1373,11 @@ For this example we do not work in the coordinates on the field bundle that are 
 We get 
 \begin{multline}\label{1stCom}
     \left[ \mathcal{D}_F(N^{\alpha}) , \mathcal{H}_F(M) \right] = \mathcal{H}_F(\mathcal{L}_{\vec{N}}M) - M \frac{1}{\sqrt{\vert g^{00} \vert }} g^{\mu0} \partial_{\mu} N^{\alpha} \frac{\partial}{\partial x^{\alpha}} \\
-    +2M g^{\mu (p\vert} \delta^{\vert q)}_{\nu} \partial_{\mu} N^{\nu} \frac{\partial}{\partial g ^{pq}} \left(\frac{1}{\sqrt{\vert g^{00} \vert }} g^{a0} \right) \frac{\partial}{\partial x^a} + C^{pq} \frac{\partial}{\partial g^{pq}}.
+    +2M g^{\mu (p\vert} \delta^{\vert q)}_{\nu} \partial_{\mu} N^{\nu} \frac{\partial}{\partial g ^{pq}} \biggl(\frac{1}{\sqrt{\vert g^{00} \vert }} g^{a0} \biggr) \frac{\partial}{\partial x^a} + C^{pq} \frac{\partial}{\partial g^{pq}}.
 \end{multline}
 For the upcoming calculations we want to restrict attention to the two extra terms that are proportional to $\frac{\partial}{\partial x^a}$ and $\frac{\partial}{\partial x^{\alpha}}$ respectively as their treatment nicely illustrates the spirit of the calculations without them getting too involved. In the equation above all additional extra terms that appear, i.e. those that are proportional to $\frac{\partial}{\partial g^{pq}}$ are collectively displayed by $C^{pq}$. We start by computing the derivative $\frac{\partial}{\partial g^{pq}}$ in the second extra term to obtain:
 \begin{align}\label{metDer}
-    \frac{\partial}{\partial g ^{pq}} \left (\frac{1}{\sqrt{\vert g^{00} \vert }} g^{a0} \right) = -\frac{1}{2} \frac{1}{\vert g^{00} \vert^{\frac{3}{2}}} g^{a0} \delta^0_p \delta^0_q +  \frac{1}{\sqrt{\vert g^{00} \vert }} \delta^a_{(p \vert} \delta^0 _{\vert q)}. 
+    \frac{\partial}{\partial g ^{pq}} \biggl (\frac{1}{\sqrt{\vert g^{00} \vert }} g^{a0} \biggr) = -\frac{1}{2} \frac{1}{\vert g^{00} \vert^{\frac{3}{2}}} g^{a0} \delta^0_p \delta^0_q +  \frac{1}{\sqrt{\vert g^{00} \vert }} \delta^a_{(p \vert} \delta^0 _{\vert q)}. 
 \end{align}
 Up on contraction with $g^{\mu ( p \vert} \delta ^{\vert q)}_{\nu}$ the first term of (\ref{metDer}) vanishes completely due to the appearance of $\delta^0_{\nu}$, the second term yields only one contribution which exactly cancels the first extra term in (\ref{1stCom}). Along similar lines one then proceeds to show that the remaining extra contributions denoted by $C^{pq}$ vanish. In total we find that:
 \begin{align}\label{FDH}
@@ -1366,11 +1389,11 @@ Note that this commutation relation is not a general feature of direct sum decom
 We proceed with the commutator of two vertical vector fields:
 \begin{multline}
     \left[ \mathcal{H}_F(N), \mathcal{H}_F(M) \right] = \left( N\partial_{\mu} M - M \partial_{\mu}N  \right) \cdot \biggl[ \frac{1}{g^{00}} g^{\mu 0} g^{a0} \frac{\partial}{\partial x^a}  \\
-    -2 g^{\mu (p\vert} \delta^{\vert q)}_{n} \frac{1}{\sqrt{\vert g^{00} \vert }} g^{n0}  \frac{\partial}{\partial g ^{pq}} \left( \frac{1}{\sqrt{\vert g^{00} \vert }} g^{a0} \right) \frac{\partial}{\partial x^a} \biggr] + \tilde{C}^{pq} \frac{\partial}{\partial g^{pq}}.
+    -2 g^{\mu (p\vert} \delta^{\vert q)}_{n} \frac{1}{\sqrt{\vert g^{00} \vert }} g^{n0}  \frac{\partial}{\partial g ^{pq}} \biggl( \frac{1}{\sqrt{\vert g^{00} \vert }} g^{a0} \biggr) \frac{\partial}{\partial x^a} \biggr] + \tilde{C}^{pq} \frac{\partial}{\partial g^{pq}}.
 \end{multline}
 Again we focus on the extra terms proportional to $\frac{\partial}{\partial x^a}$. Using the previously computed result for the derivatives w.r.t. the metric components one finds that the two terms of that kind collaps to 
 \begin{align}
-    \left[ \mathcal{H}_F(N), \mathcal{H}_F(M) \right] = \left( g^{\mu \alpha} - \frac{1}{g^{00}} g^{0\alpha} g^{0 \mu} \right) \left( N\partial_{\mu} M - M \partial_{\mu}N  \right) \frac{\partial}{\partial x^{\alpha}} + \tilde{C}^{pq} \frac{\partial}{\partial g^{pq}}.
+    \left[ \mathcal{H}_F(N), \mathcal{H}_F(M) \right] = \bigl( g^{\mu \alpha} - \frac{1}{g^{00}} g^{0\alpha} g^{0 \mu} \bigr) \left( N\partial_{\mu} M - M \partial_{\mu}N  \right) \frac{\partial}{\partial x^{\alpha}} + \tilde{C}^{pq} \frac{\partial}{\partial g^{pq}}.
 \end{align}
 Note that the expression appearing in the first bracket is exactly the inverse of the 3-metric on the embedded hypersurface that is defined in terms of the 4-metric by the component functions $g_3 = g_{\alpha \beta} \mathrm{d}x^{\alpha} \mathrm{d}x^{\beta}$ as it can be easily checked from $(g_3)_{\beta \mu } \cdot ( g^{\mu \alpha} - \frac{1}{g^{00}} g^{0\alpha} g^{0 \mu} ) = \delta_{\beta}^{\alpha}$. Proceeding along the same lines for the remaining contributions $\tilde{C}^{pq}$ we find that
 \begin{align}\label{FHH}
@@ -1403,8 +1426,8 @@ where we used the priorly derived coordinate expression in charts adapted to the
 The first step in our development of a Hamiltonian formulation of the given Lagrangian field theory consists of reexpressing the Lagrangian $\mathcal{L}(v_A,v_{Ap})$ not in terms of spacetime 1-jets of a given field but in terms of spatial jets, i.e. 3-dimensional 1-jets over $\Sigma_{t_0}$ of the field and its time derivative. To this end we follow \cite{2004math.ph..11032G} and define the following map:
 \begin{align}
     \begin{aligned}
-    \beta_{t_0} : (J^1F)_{t_0} \longrightarrow J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0} \\
-    \beta_{t_0}((j^1_pG)_{t_0}) \longmapsto (j^1_pG_{t_0}, \dot{G}_{t_0}).
+    \beta_{t_0} : (J^1F)_{t_0} &\longrightarrow J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0} \\
+    \beta_{t_0}((j^1_pG)_{t_0}) &\longmapsto (j^1_pG_{t_0}, \dot{G}_{t_0}).
     \end{aligned}
 \end{align}
 Here a subscripted $t_0$ denotes the restriction of the involved maps, bundles, etc. to $\Sigma_{t_0}$. Hence $(J^1F)_{t_0}$ is the restriction of the previously constructed jet bundle over $F$ to $\Sigma_{t_0}$, with elements being spacetime 1-jets restricted to the hypersurface, i.e. for $p \in \Sigma_{t_0}$ these elements have adapted coordinate expressions: 
@@ -1433,7 +1456,7 @@ In the following we use the decomposition map $\beta_{t_0}$ to construct an equi
 Given a Lagrangian $\mathcal{L} : J^1F \rightarrow \Lambda^4M$ and a slicing $\phi : \Sigma \times \mathbb{R} \rightarrow M$ with $\phi_{t_0}(\Sigma) = \Sigma_{t_0}$ we define the \textbf{\textit{time dependent Lagrangian}} at $t_0$ w.r.t. the slicing $\phi$ as:
 \begin{align}
 \begin{aligned}
-    &\mathcal{L}_{t_0} : J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0} \longrightarrow \Lambda^3\Sigma_{t_0}\\
+    \mathcal{L}_{t_0} &: J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0} \longrightarrow \Lambda^3\Sigma_{t_0}\\
     \mathcal{L}_{t_0}(j^1pG_{t_0}, \dot{G}_{t_0}) &:= i_{\Sigma_{t_0}}^{\ast} \bigl( \mathcal{L}\circ \beta_{t_0}^{-1}(j^1pG_{t_0}, \dot{G}_{t_0})(\frac{\partial}{\partial t},-)\bigr). 
 \end{aligned}
 \end{align}
@@ -1467,9 +1490,9 @@ We are now going to use the given Lagrangian at time $t_0$, $\mathcal{L}_{t_0}$ 
 As the two bundles at use are in particular products of manifolds they both define trivial bundles with basespace $J^1(F_{t_0})$ and projection being the canonical projection onto the second factor that is provided by the product structure. We now define the fibre derivative w.r.t $\mathcal{L}_{t_0} = L_{t_0}\mathrm{d}^3x$ as bundle map:
 \begin{align}
 \begin{aligned}
-    \mathcal{D}\mathcal{L}_{t_0} : &J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0} \longrightarrow J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}^{\dagger}\\
-    &(j^1_pG_{t_0},\dot{G}_{t_0}) \longmapsto (j^1_pG_{t_0},\pi_{G_{t_0}}), \\
-    & \hspace{1cm} \text{where}  \ \pi_{G_{t_0}} := \frac{\partial L_{t_0}}{\dot{G}_{t_0}}\mathrm{d}^3x.
+    \mathcal{D}\mathcal{L}_{t_0} : J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0} &\longrightarrow J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}^{\dagger}\\
+    (j^1_pG_{t_0},\dot{G}_{t_0}) &\longmapsto (j^1_pG_{t_0},\pi_{G_{t_0}}), \\
+    \text{where} \  \pi_{G_{t_0}} &:= \frac{\partial L_{t_0}}{\dot{G}_{t_0}}\mathrm{d}^3x.
 \end{aligned}
 \end{align}
 We denote adapted coordinates on  $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}^{\dagger}$ that are obtained from adapted coordinates on $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ by $(x^\mu,v_A,v_{A\mu},\pi^A)$ where $\pi^A = \frac{\partial L_{t_0}}{v_A}$. In the following we call the thus introduced coordinates $\pi^A$ \textit{\textbf{canonical momenta}}.
@@ -1516,8 +1539,8 @@ Just as the Lagrangian might by evaluated on the prolongation $j^2\phi$ of secti
 Let $\mathcal{f}: \mathcal{K}^q_{t_0} \rightarrow \Lambda^3\Sigma_{t_0} $ be a bundle map covering $id_{\Sigma_{t_0}}$, in local coordinates \footnote{For simplicity of the notation in the following we will not denote the arguments of such coordinate expressions explicitly.} $\mathcal{f} = f(x^{\mu},v_A,v_{A\mu},v_{AI}, ... v_{AI_k},\pi^A,\pi^{A \mu}, \pi^{AI} ... \pi^{AI_k})\mathrm{d}^3x$. We define the induced phase space functional as
 \begin{align}
 \begin{aligned}
-    \mathcal{S}_{\mathcal{f}} : &\Gamma(\mathcal{K}^0_{t_0}) \longrightarrow \mathbb{R}\\
-    &\phi \longmapsto \mathcal{S}_{\mathcal{f}}[\phi] := \int_{\Sigma_{t_0}} \mathrm{d}^3x f \circ j^q(\phi),
+    \mathcal{S}_{\mathcal{f}} : \Gamma(\mathcal{K}^0_{t_0}) &\longrightarrow \mathbb{R}\\
+    \phi &\longmapsto \mathcal{S}_{\mathcal{f}}[\phi] := \int_{\Sigma_{t_0}} \mathrm{d}^3x f \circ j^q(\phi),
 \end{aligned}
 \end{align}
 where $j^q\phi$ denotes the prolongation of sections of $\mathcal{K}^0_{t_0}$ to sections of $\mathcal{K}^q_{t_0}$. Such phase space functionals are called local functionals.
@@ -1579,7 +1602,7 @@ Our main goal in the following section will be to translate the PDE system (\ref
 
 From the expression (\ref{LieJ1}) of the Lie algebra morphism $j^1(\mathcal{f})$ that lifts vectorfields $\xi \in \Gamma(TM)$ to vector fields on $J^1F$ we then find that using the decomposition map $\beta_{t_0}$ the lift of vectorfields to $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ reads:
 \begin{multline}\label{LieJ1Dec}
-    \xi \longmapsto \xi_{J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}} = \xi^m \frac{\partial}{\partial x^m} + C_{An}^{Bm} v_B \partial_{m} \xi ^n \frac{\partial}{\partial v_A}
+    \xi_{J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}} = \xi^m \frac{\partial}{\partial x^m} + C_{An}^{Bm} v_B \partial_{m} \xi ^n \frac{\partial}{\partial v_A}
     + C_{An}^{Bm} \partial_{m} \xi^n v_{B\nu} \frac{\partial}{\partial v_{A\nu}}\\
     + C_{An}^{Bm} \partial_{m} \xi^n \dot{v}_{B} \frac{\partial}{\partial \dot{v}_A} - v_{A\nu} \partial_{\mu} \xi^{\nu} \frac{\partial}{\partial v_{A\mu}} 
      - v_{A\nu} \partial_{0} \xi^{\nu} \frac{\partial}{\partial \dot{v}_{A}} 
@@ -1681,8 +1704,8 @@ Reexpressing this result with the use of the second equation in (\ref{diffeoHam}
 Seperating this equation for the cases $m=0$ and $m = \mu$ we find in particular
 \begin{align}
 \begin{aligned}
-    \left \{C_0 , H_{t_0}\right \} = H_{t_0} =: \mathbf{H} \\
-    \left \{C_{\mu} , H_{t_0}\right \} = \pi^A v_{A\mu} =: \mathbf{D}_{\mu}.
+    \left \{C_0 , H_{t_0}\right \} &= H_{t_0} =: \mathbf{H} \\
+    \left \{C_{\mu} , H_{t_0}\right \} &= \pi^A v_{A\mu} =: \mathbf{D}_{\mu}.
 \end{aligned}
 \end{align}
 Continuing the Dirac procedure we have to add also these in Diracs terminology \textit{\textbf{secondary constraints}} with multiplier functions $N=N(x^{\alpha})$ and $N^{\mu}= N^{\mu}(x^{\alpha})$ to the Hamiltonian. We get
