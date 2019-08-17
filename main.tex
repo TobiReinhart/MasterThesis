@@ -48,8 +48,409 @@
 \newcommand{\mathnode}[1]{%
    \mathord{\tikz[baseline=(#1.base), inner sep = 0pt]{\node (#1) {$\scriptstyle{#1}$};}}}
    
+\usepackage[toc, sort = none, style = long]{glossaries-extra}
+
+\newglossaryentry{M}{
+    name={$M$},
+    description={Manifold, most of the time 4-d spacetime manifold.}}
+    
+\newglossaryentry{space mfd}{
+    name={$\Sigma$},
+    description={3-d space manifold.}}
+    
+\newglossaryentry{automorphism}{
+    name={$\mathrm{Aut}(X)$},
+    description={Automorphism group of $X$.}}
+    
+\newglossaryentry{Lie Alg}{
+    name={$\mathrm{Lie}(\mathcal{G})$},
+    description={Lie algebra of a Lie group $\mathcal{G}$.}}
+    
+\newglossaryentry{Diffeo}{
+    name={$\mathrm{Diff}(M)$},
+    description={Diffeomorphism group of $M$.}}
+
+\newglossaryentry{x}{
+    name={$x^a$},
+    description={Base space coordinate functions (most of the time spacetime coordinates).}}
+    
+\newglossaryentry{STInds}{
+    name={$a,b,c,...$},
+    description={Spacetime indices that range from 0 to 3.}}
+    
+\newglossaryentry{spatial inds}{
+    name={$\alpha, \beta, \gamma,...$},
+    description={Spatial indices running from 1 to 3.}}
+
+\newglossaryentry{I}{
+    name={$I,J,K,L,...$},
+    description={Indices labeling symmetric pairs of spacetime indices and thus run from 0 to 9.}}
+    
+\newglossaryentry{I_k}{
+    name={$I_k,J_k,K_k,L_k,...$},
+    description={Higher order derivative indices running from 0 to $\binom{b+k-1}{n-1}-1$, where $n$ is the base space dimension.}}
+
+\newglossaryentry{additional derivatives}{
+    name={$\mathcal{I}_k,\mathcal{J}_k,\mathcal{K}_k,\mathcal{L}_k,...$},
+    description={Additional Higher order derivative indices.}}
+    
+\newglossaryentry{A}{
+    name={$A,B,C,D,...$},
+    description={Field bundle fibre indices.}}
+    
+\newglossaryentry{A'}{
+    name={$\tilde{A}, \tilde{B}, \tilde{C}, \tilde{D},... $},
+    description={Fibre indices for second field bundle.}}
+    
+\newglossaryentry{F}{
+    name={$(F, \pi_F, M)$},
+    description={Smooth manifold bundle, most of the time the field bundle.}}
+    
+\newglossaryentry{F'}{
+    name={$F$},
+    description={Field bundle.}}
+    
+\newglossaryentry{field coordinates}{
+    name={$v_A, u_A,...$},
+    description={Fibre coordinates, most of the time field bundle fibre coordinates.}}
+    
+\newglossaryentry{dual field coordinates}{
+    name={$v^A, u^A,...$},
+    description={Dual coordinates to $v_A, u_A,...$.}}
+    
+\newglossaryentry{f, g, h,...}{
+    name={$f, g, h,...$},
+    description={Smooth map.}}
+    
+\newglossaryentry{dual}{
+    name={$V^{\ast}$},
+    description={Dual of an object $V$. In the case of $V$ being a smooth map then $V^{\ast}$ denotes its pull back.}}
+
+\newglossaryentry{push forward}{
+    name={$f_{\ast}$},
+    description={Push forward of a smooth map or lift of a diffeomorphism to any tensor bundle.}}
+    
+\newglossaryentry{tensor}{
+    name={$T^m_nM$},
+    description={Rank $(m,n)$ tensor bundle over $M$.}}
+    
+\newglossaryentry{Sym Tensors}{
+    name={$S^m_nM$},
+    description={$T^m_nM$ sub bundle of fully symmetric tensors.}}
+    
+\newglossaryentry{forms}{
+    name={$\Lambda^nM$},
+    description={Bundle of totally anti symmetric rank $(0,n)$ tensors over $M$.}}
+    
+\newglossaryentry{tensor prod}{
+    name={$\otimes$},
+    description={Tensor product.}}
+    
+\newglossaryentry{wedge}{
+    name={$\wedge$},
+    description={Wedge product of forms.}}
+    
+\newglossaryentry{direct sum}{
+    name={$\oplus$},
+    description={Direct sum of vector spaces or Whitney sum of vector bundles.}}
+
+\newglossaryentry{sections}{
+    name={$\Gamma(F)$},
+    description={Space of sections of a bundle $F$.}}
+    
+\newglossaryentry{section}{
+    name={$G$},
+    description={A section of some bundle $F$.}}
+    
+\newglossaryentry{Jet}{
+    name={$j_p^qG$},
+    description={1-jet of a section at $p$.}}
+    
+\newglossaryentry{jet bundle}{
+    name={$J^qF$},
+    description={q-th order Jet bundle over $F$.}}
+    
+\newglossaryentry{prolongation}{
+    name={$j^q$},
+    description={Jet prolongation map.}}
+    
+\newglossaryentry{jet projection}{
+    name={$\pi_{i,j},\pi_i,...$},
+    description={Jet bundle projections.}}
+    
+\newglossaryentry{lift of VF}{
+    name={$\xi_F$},
+    description={Vector field lifted from $TM$ to $TF$.}}
+    
+\newglossaryentry{prolonged lifted VF}{
+    name={$\xi_{J^qF}$},
+    description={Vector field lifted from $TM$ to $T(J^qF)$.}}
+    
+\newglossaryentry{derivative coords}{
+    name={$v_{Ap},v_{AI}, v_{AI_k}$},
+    description={Derivative fibre coordinates.}}
+    
+\newglossaryentry{partial derivative}{
+    name={$\frac{\partial}{\partial x^i}, \partial_i$},
+    description={Partial derivative or tangential vector.}}
+    
+\newglossaryentry{partial notation }{
+    name={$f^{:a}$},
+    description={Short notation for $\partial_a f$.}}
+
+\newglossaryentry{LieDer}{
+    name={$\mathcal{L}_{\xi}$},
+    description={Lie derivative along $\xi$.}}
+    
+\newglossaryentry{total derivative from}{
+    name={$\mathrm{d}$},
+    description={Total derivative of forms.}}
+    
+\newglossaryentry{total derivative Jet}{
+    name={$D_i$},
+    description={Jet bundle total derivative (sometimes also called formal derivative).}}
+    
+\newglossaryentry{variational}{
+    name={$\frac{\delta}{\delta v_A}$},
+    description={Jet bundle variational derivative.}}
+    
+\newglossaryentry{volume form valued maps}{
+    name={$\mathcal{S}$},
+    description={Volume form valued map.}}
+    
+\newglossaryentry{coord repres}{
+    name={$S$},
+    description={Corresponding coordinate representation $\mathcal{S} = S \mathrm{d}^nx$.}}
+
+\newglossaryentry{coord volume form}{
+    name={$\mathrm{d}^nx$},
+    description={Coordinate induced volume form $\mathrm{d}^nx = \overset{n}{\underset{i = 0}{\Lambda}} \mathrm{d}x^i$ .}}
+
+\newglossaryentry{commutator}{
+    name={$[.,.]$},
+    description={Commutator of vector fields.}}
+    
+\newglossaryentry{Poisson bracket}{
+    name={$\{.,.\}$},
+    description={Poisson bracket.}}
+    
+\newglossaryentry{metric}{
+    name={$g_{ab}$},
+    description={Metric tensor field.}}
+    
+\newglossaryentry{3 metric}{
+    name={$(g_3)_{\alpha \beta}$},
+    description={Slicing induced 3 metric.}}
+    
+    
+\newglossaryentry{Area metric}{
+    name={$G_{abcd}$},
+    description={Area metric tensor field.}}
+    
+\newglossaryentry{inter}{
+    name={$I^A_{abcd}, I^I_{pq}, J_A^{abcd}, J_I^{pq},...$},
+    description={Intertwiner.}}
+    
+\newglossaryentry{multiplicity}{
+    name={$\sigma(A)$},
+    description={Multiplicity of an index class $A$.}}
+    
+\newglossaryentry{Gotay-Marsden}{
+    name={$C^{Am}_{Bn}$},
+    description={Constant component tensor that encodes the Lie algebra action of $\mathrm{Diff}(M)$ on the fibres of a bundle over $M$.}}
+
+\newglossaryentry{time VF}{
+    name={$\frac{\partial}{\partial t}$},
+    description={Time vector field.}}
+    
+\newglossaryentry{space at t0}{
+    name={$\sigma_{t_0}$},
+    description={Embedded space hypersurface at time $t_0$.}}
+    
+    
+\newglossaryentry{tangential}{
+    name={$\mathcal{T}\Sigma$},
+    description={Tangential sub bundle of direct sum split of $TM$.}}
+    
+\newglossaryentry{tangential Vec}{
+    name={$\xi_{\parallel}$},
+    description={Tangential part of vector.}}
+    
+\newglossaryentry{vertical}{
+    name={$\mathcal{V}\Sigma, \mathcal{V}F$},
+    description={Vertical sub bundle of direct sum split of $TM$, or general vertical sub bundle.}}
+    
+\newglossaryentry{vertical Vec}{
+    name={$\xi_{\perp}$},
+    description={Vertical part of vector.}}
+    
+\newglossaryentry{tangential def}{
+    name={$\mathcal{D}(N^{\alpha})$},
+    description={Tangential deformation operator.}}
+    
+\newglossaryentry{vertical def}{
+    name={$\mathcal{H}(N)$},
+    description={Vertical deformation operator.}}
+    
+\newglossaryentry{principal poly}{
+    name={$\mathcal{P}, \mathcal{P}_{mat}, \mathcal{P}_{grav},...$},
+    description={Principal polynomial.}}
+    
+\newglossaryentry{restriction }{
+    name={$G_{t_0} $, ...},
+    description={ Restriction to $\Sigma_{t_0}$.}}
+    
+\newglossaryentry{time derivative }{
+    name={$ \dot{G}$},
+    description={Lie derivative along $\frac{\partial}{\partial t}$.}}
+  
+\newglossaryentry{jet decomp }{
+    name={$\beta_{t_0} $},
+    description={Jet bundle decomposition map.}}
+  
+\newglossaryentry{time dep Lagrangian }{
+    name={$ \mathcal{L}_{t_0}$},
+    description={Time dependent Lagrangian .}}
+    
+\newglossaryentry{embedding }{
+    name={$ i_{\sigma_{t_0}}$},
+    description={ Canonical embedding.}}
+    
+\newglossaryentry{volume valued dual }{
+    name={$ (\mathcal{V}F)_{t_0}^{\dagger}$},
+    description={ $= \mathcal{V}_{t_0}^{\ast} \otimes \Lambda^3\Sigma_{t_0}$.}}
+    
+\newglossaryentry{fibre derivative}{
+    name={$\mathcal{D}$},
+    description={Fibre derivative.}}
+    
+\newglossaryentry{momenta }{
+    name={$\pi^{A}$},
+    description={ Conjugate momenta.}}
+    
+\newglossaryentry{hamiltonian }{
+    name={$ \mathcal{H}_{t_0}$},
+    description={ Time dependent Hamiltonian.}}
+    
+\newglossaryentry{configuration bundle }{
+    name={$ \mathcal{K}^q_{t_0}$},
+    description={ Canonical configuration bundle.}}
+    
+\newglossaryentry{local phase space function }{
+    name={$ \mathcal{f}$},
+    description={ Volume form values bundle map on the canonical configureation bundle that describes a local phase space functional.}}
+    
+\newglossaryentry{local phase space functional }{
+    name={$ \mathcal{S}_{\mathcal{f}}$},
+    description={Corresponding functional .}}
+    
+\newglossaryentry{weak equality}{
+    name={$ \approx$},
+    description={ Weak equality.}}
+    
+\newglossaryentry{primary constraints }{
+    name={$ C_{\alpha}, C_0$},
+    description={ Primary constraints}}
+
+\newglossaryentry{Ham constraint }{
+    name={$\mathbf{H} $},
+    description={ Hamiltonian constraint.}}
+
+\newglossaryentry{Diffeomorphism constraint }{
+    name={$\mathbf{D}_{\mu} $},
+    description={ Diffeomorphism constraint.}}
+
+\newglossaryentry{PDE }{
+    name={$R_q $},
+    description={ q-th order PDE.}}
+    
+\newglossaryentry{PDE prolong}{
+    name={$R_{q+r} $},
+    description={Prolongation to order $q+r$.}}
+    
+\newglossaryentry{PDE project }{
+    name={$R_q^{(1)} $},
+    description={ Once prolonged and projected PDE.}}
+    
+\newglossaryentry{PDE symbol }{
+    name={$M_q $},
+    description={ Symbol of q-th order PDE.}}
+    
+\newglossaryentry{Beta }{
+    name={$\beta_q(k) $},
+    description={ Number of equations of class $k$ in $M_q$.}}
+    
+\newglossaryentry{principal symbol }{
+    name={$T^{\Tilde{A}B}(k) $},
+    description={ Principal symbol.}}
+    
+\newglossaryentry{adjunct matrix }{
+    name={$Q_{(A_1...A_n)(B_1...B_n)} $},
+    description={ Order $n$ adjunct matrix.}}
+    
+\newglossaryentry{factor f }{
+    name={$f_{(A_1...A_n)(B_1...B_n)}$},
+    description={ Factors relating order $n$ adjunct matrix and principal polynomial for gauge theories.}}
+    
+\newglossaryentry{poly at p }{
+    name={$\mathcal{P}_p$},
+    description={Principal polynoial at $p$.}}
+    
+\newglossaryentry{poly zero }{
+    name={$V_p(\mathcal{P}_p)$},
+    description={ Vanishing set of principal polynomial at $p$.}}
+
+\newglossaryentry{Hyperbol zero }{
+    name={$C_p(\mathcal{P}_p, h)$},
+    description={ Hyperbolicity cone of principal polynomial at $p$ w.r.t. $h$.}}
+
+\newglossaryentry{Jacoby bracket }{
+    name={$\llbracket.,.\rrbracket$},
+    description={ Jacobi bracket.}}
+
+\newglossaryentry{collection of all coords }{
+    name={$(v_{AI_k})$},
+    description={ Tuple of all coordinates up to desired order: $(v_{AI_k}) = (x^m, v_A, v_{Ap}, ...)$.}}
+    
+\newglossaryentry{expansion eta }{
+    name={$(N_{AI_k})$},
+    description={ Coordinates of eta induced expansion point.}}
+
+\newglossaryentry{H deviation }{
+    name={$(H_{AI_k})$},
+    description={Coordinate deviation of expansion point: $H_{AI_k} = (v_{AI_k}) - (N_{AI_k})$ .}}
+    
+\newglossaryentry{Lagrange jet coordinates}{
+    name={$l, l^{A}, ...$ },
+    description={ Jet coordinates for equivariance equation.}}
+
+\newglossaryentry{expansion coeffs }{
+    name={$a^A, a^{AI}, ...$},
+    description={ Expansion coefficients for power series ansatz.}}
+
+\newglossaryentry{Lorentz generators }{
+    name={$K^n_{m [rs]}$},
+    description={ Generators of Lorentz group.}}
+    
+\newglossaryentry{expansion general }{
+    name={$P_1^A, P_2^{AB}, (T_1^{AB})^C, ...$},
+    description={ Expansion coefficinets of principal polynomial, principal symbol, etc.}}
+
+\newglossaryentry{musical iso }{
+    name={$\flat$},
+    description={Musical isomorphism generated by metric.}}
+
+\newglossaryentry{musical iso area }{
+    name={$\flat_{Area}$},
+    description={Isomorphism generated by area metric.}}
 
 
+
+    
+    
+    
+    
+    
 \usepackage[utf8]{inputenc}
 
 \setcounter{MaxMatrixCols}{20}
@@ -130,6 +531,13 @@
 
 \tableofcontents
 
+\listoffigures
+\begingroup
+\let\clearpage\relax
+\listoftables
+\listofalgorithms
+\endgroup
+
 \chapter{Introduction: The Aim of Constructive Gravity}
 
 %in introduction: main idea of constructive gravity and reasons for the constructive approach. Maybe also current state of the field (+ lovelock, HKT, bootstrap).
@@ -137,9 +545,9 @@
 %check labeling of equations !!!
 
 
-Before we start with the main part we quickly illustrate particularities of the chosen \textit{\textbf{notation}}. Throughout this thesis even if not stated explicitly all objects are considered to be smooth, i.e. we work with smooth maps defined on smooth manifolds. 
+Before we start with the main part we quickly illustrate particularities of the chosen notation. Throughout this thesis even if not stated explicitly all objects are considered to be smooth, i.e. we work with smooth maps defined on smooth manifolds. 
 
-Furthermore as the relevant construction presented in this work are entirely local we will denote maps between manifolds without being to rigorous with the description of the appropriate domain and codomain respectively. Hence we might for instance write $x^a : M
+Furthermore as the relevant constructions presented in this work are entirely local we will denote maps between manifolds without being to rigorous with the description of the appropriate domain and codomain respectively. Hence we might for instance write $x^a : M
 \rightarrow \mathbb{R}$ for a chart map on a manifold $M$ where we should more properly write $x^a : M \supset U : \rightarrow x(U) \subset \mathbb{R} $. 
 
 Lower case latin indices $a,b,c,...$ are used as spacetime indices and hence run from 0 to 3, spatial indices between 1 and 3 are denoted by lower case greek letters $\alpha,\beta,\gamma,...$. In addition to that we will use further types of indices to describe coordinate functions on additional bundles that we are going to construct over the spacetime manifold $M$. Upper case latin letters from the middle of the alphabet $I_k,J_k,L_k,...$ will be used to describe derivative indices of order $k$ and hence run from $0$ to $\binom{b+k-1}{n-1}-1$ where $n$ is the dimension of the basespace w.r.t. which the derivatives are taken. As we will work extensively over some second order jet bundle we will sometimes drop the labels that specify the order of such indices and hence use $I,J,K,...$ to solely describe such second derivative order indices if this does not cause confusion.
@@ -196,7 +604,7 @@ In other words one obtains the dual to a given vector bundle by implementing the
 Given adapted coordinates on the field bundle $(x^m, v_A)$ with the coordinate functions $v_A$ being linear on the fibres, we can obtain \textbf{\textit{dual coordinates}} on the dual field bundle by $(x^m, ((v_A)^{\ast})^{-1})$, i.e. by taking the inverse dual of the fibre coordinates $v_A$ (see \cite{saunders_1989}). Note that we do not simply take the dual of the $v_A$ but its inverse as the dual construction reverses the direction of linear maps\footnote{In the language of category theory: duality defines a contravariant functor \cite{MacLane:205493}.} In the following we denote the fibre coordinates dual to $v_A$ by $v^A$. With these coordinates we get $ v_A(v^B) = \delta_A^B$. From now on given a chart on the field bundle we always work with the corresponding dual chart on the dual field bundle.\\
 %check this last statement
 
-Note that as the field bundle is required to be given by a vector sub bundle of some $T^m_n M$ one usually works directly on $T^m_n M$ and uses chart induced basis fields $\mathrm{d}x^{a_1}\otimes ... \otimes \mathrm{d}x^{a_m} \otimes \frac{\partial}{\partial x^{b_1}} \otimes ... \otimes \frac{\partial}{\partial x^{b_n}}$ to complete a chart on $M$ to one on $T ^m _ n M$. In the following we denote such coordinates on $T^m_n M$ as $(x^m, v^{a_1 ... a_m}_{b_1 ... b_n})$. The coordinate representation of sections is then given as $G^{a_1 ... a_m}_{b_1 ... b_n}$. Although this is the standard way of representing tensor fields in coordinates it has two significant disadvantages. Firstly the notation gets increasingly complicated once products and contractions of higher ranked fields are involved. Secondly if the field bundle is a true sub bundle of $T^m_nM$ and hence has fibres with dimension less than $4^{(m+n)}$ the chart induced fields simply are to many functions to provide a valid chart on this sub bundle. This is for instance the case considering the field bundle for a metric tensor. The total space of this particular bundle is the space of symmetric rank $(0,2)$ tensors $S^2(T^{\ast}M)$. The typical fibre of the field bundle has dimension $10$. Nevertheless one usually uses the $16$ chart induced basis fields $ \frac{\partial}{\partial x^a}  \otimes \frac{\partial}{\partial x^b}$ to obtain coordinate expressions $g_{ab} = g(\frac{\partial}{\partial x^a},\frac{\partial}{\partial x^b})$ for a section of this field bundle. These component functions then necessarily satisfy $g_{ab} = g_{ba}$ which reduces the fibre dimension from $16$ to $10$. \\
+Note that as the field bundle is required to be given by a vector sub bundle of some $T^m_n M$ one usually works directly on $T^m_n M$ and uses chart induced basis fields $\mathrm{d}x^{a_1}\otimes ... \otimes \mathrm{d}x^{a_m} \otimes \frac{\partial}{\partial x^{b_1}} \otimes ... \otimes \frac{\partial}{\partial x^{b_n}}$ to complete a chart on $M$ to one on $T ^m _ n M$. In the following we denote such coordinates on $T^m_n M$ as $(x^m, v^{a_1 ... a_m}_{b_1 ... b_n})$. The coordinate representation of sections is then given as $G^{a_1 ... a_m}_{b_1 ... b_n}$. Although this is the standard way of representing tensor fields in coordinates it has two significant disadvantages. Firstly the notation gets increasingly complicated once products and contractions of higher ranked fields are involved. Secondly if the field bundle is a true sub bundle of $T^m_nM$ and hence has fibres with dimension less than $4^{(m+n)}$ the chart induced fields simply are to many functions to provide a valid chart on this sub bundle. This is for instance the case considering the field bundle for a metric tensor. The total space of this particular bundle is the space of symmetric rank $(0,2)$ tensors $S^0_2M$. The typical fibre of the field bundle has dimension $10$. Nevertheless one usually uses the $16$ chart induced basis fields $ \frac{\partial}{\partial x^a}  \otimes \frac{\partial}{\partial x^b}$ to obtain coordinate expressions $g_{ab} = g(\frac{\partial}{\partial x^a},\frac{\partial}{\partial x^b})$ for a section of this field bundle. These component functions then necessarily satisfy $g_{ab} = g_{ba}$ which reduces the fibre dimension from $16$ to $10$. \\
 
 As we are going to deal with the bundle $(F, \pi_F, M)$ in a rather abstract setting we do not follow this practise but stick to true coordinates $(x^m,v_A)$ on $F$. 
 In order to relate the thus obtained intrinsic description of $F$ to the one that is provided by considering $F$ as being an embedded sub bundle in $T^m_n M$ we construct vector bundle isomorphisms that allow us to identify the two perspectives. We quickly recall the definition of a \textit{\textbf{(vector-)bundle morphism}}:
@@ -208,10 +616,10 @@ Given two bundles $(F_1, \pi_{F_1}, M)$ and $(F_2, \pi_{F_2}, N)$, a bundle morp
 \node (N) at (4,0) {$N$};
 \node (F1) at (0,3) {$F_1$};
 \node (F2) at (4,3) {$F_2$};
-\draw [->] (M) -- node[pos=0.5, below] {$h$} (N);
-\draw [->] (F1) -- node[pos=0.5, above] {$f$} (F2);
-\draw [->] (F1) -- node[pos=0.5, left] {$\pi_{F_1}$} (M);
-\draw [->] (F2) -- node[pos=0.5, right] {$\pi_{F_2}$} (N);
+\draw [-latex] (M) -- node[pos=0.5, below] {$h$} (N);
+\draw [-latex] (F1) -- node[pos=0.5, above] {$f$} (F2);
+\draw [-latex] (F1) -- node[pos=0.5, left] {$\pi_{F_1}$} (M);
+\draw [-latex] (F2) -- node[pos=0.5, right] {$\pi_{F_2}$} (N);
 \end{tikzpicture}
 \end{center}
 \end{definition}
@@ -249,25 +657,25 @@ In the following we denote this map simply by $(I^{\ast})^{-1}$ but keep in mind
 We can now choose adapted coordinates $(x^m,v_A)$ on the field bundle and the corresponding dual coordinates $(x^m, v^A)$ on the dual field bundle and chart induced coordinates\footnote{We denote coordinate induced tangent vectors by $\frac{\partial}{\partial x^m}$, the coordinate representation of the action of tangent vectors on functions is denoted as $\partial_m f$. } $(x^m, v^{a_1 ... a_m}_{b_1 ... b_n})$ on $T^m_n M$ and the dual coordinates $(x^m, v^{b_1 ... b_n}_{a_1 ... a_m})$ on its dual $T^n_mM$. Using these charts the maps $I$ and $J$ are represented as follows:
 \begin{align} \label{interAbs}
     \begin{aligned}
-    &I = I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot v_A \otimes  v^{b_1 ... b_n}_{a_1 ... a_m}\\
-    &J = J^{b_1 ... b_n}_{A a_1 ... a_m} \cdot v^A \otimes  v^{a_1 ... a_m}_{b_1 ... b_n}.
+    I &= I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot v_A \otimes  v^{b_1 ... b_n}_{a_1 ... a_m}\\
+    J &= J^{b_1 ... b_n}_{A a_1 ... a_m} \cdot v^A \otimes  v^{a_1 ... a_m}_{b_1 ... b_n}.
     \end{aligned}
 \end{align}
 Computing similar coordinate expressions for the pair of intertwiners of the dual field bundle $((I^{\ast})^{-1}, (J^{\ast})^{-1})$ one finds that:
 \begin{align} \label{dualInterAbs}
     \begin{aligned}
-         &(I^{\ast})^{-1} = J^{b_1 ... b_n}_{A a_1 ... a_m} \cdot v^A \otimes  v^{a_1 ... a_m}_{b_1 ... b_n}.\\
-         &(J^{\ast})^{-1} = I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot v_A \otimes  v^{b_1 ... b_n}_{a_1 ... a_m}.
+         (I^{\ast})^{-1} &= J^{b_1 ... b_n}_{A a_1 ... a_m} \cdot v^A \otimes  v^{a_1 ... a_m}_{b_1 ... b_n}.\\
+         (J^{\ast})^{-1} &= I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot v_A \otimes  v^{b_1 ... b_n}_{a_1 ... a_m}.
     \end{aligned}
 \end{align} 
 Hence although the constructed intertwiners for the dual field bundle define different maps, their components w.r.t. a given chart are already given by the intertwiners of the field bundle $(I,J)$ if one agrees on chosing the appropriate dual coordinates with a given choice of coordinates. Therefore in the following we will drop the distinction of intertwiners for the field bundle and its dual.  This should not cause confusion, as when working with dual coordinates on the dual field bundle already the index position of the fibre coordinates $v_A$ and $v^{A}$ respectively contains the information regarding which intertwiner relates the these coordinates to those one $T^m_n M$ and $T^n_mM$ respectively. In total we find the following relations connecting the two ways of coordinatising the field bundle and its dual:  
 \begin{align} \label{interRel}
     \begin{aligned}
-    v^{a_1 ... a_m}_{b_1 ... b_n} = I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot v_{A} \ \ &, \ \  
-    v_A = J^{b_1 ... b_n}_{A a_1 ... a_m} \cdot v^{a_1 ... a_m}_{b_1 ... b_n}, \\
-    v^{b_1 ... b_n}_{a_1 ... a_m} = J^{b_1 ... b_n}_{A a_1 ... a_m} \cdot v^A \ \ &, \ \ 
-    v^A = I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot v^{b_1 ... b_n}_{a_1 ... a_m}, \\
-    I^{A a_1 ... a_m}_{b_1 ... b_n} &\cdot J^{b_1 ... b_n}_{B a_1 ... a_m} = \delta^A _ B.
+    & v^{a_1 ... a_m}_{b_1 ... b_n} & = & \ \ I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot v_{A},\\  
+    & v_A & = & \ \ J^{b_1 ... b_n}_{A a_1 ... a_m} \cdot v^{a_1 ... a_m}_{b_1 ... b_n}, \\
+    & v^{b_1 ... b_n}_{a_1 ... a_m} & = & \ \  J^{b_1 ... b_n}_{A a_1 ... a_m} \cdot v^A, \\ 
+    & v^A & = & \ \  I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot v^{b_1 ... b_n}_{a_1 ... a_m}, \\
+    & I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot J^{b_1 ... b_n}_{B a_1 ... a_m} & = & \ \ \delta^A _ B. 
     \end{aligned}
 \end{align}
 In particular we find that intertwiners defined in this way keep contractions between elements of $F$ and $F^{\ast}$ and all possible higher tensor products that can be obtained from these invariant. In other words, it is equivalent if we compute expressions using the chart induced coordinates or, by means of the intertwiners $(I,J)$, using $(x^m, v_A)$ and the corresponding dual coordinates. \\
@@ -275,8 +683,8 @@ In particular we find that intertwiners defined in this way keep contractions be
 In practise one can specify the coordinate expressions $I^{A a_1 ... a_m}_{b_1 ... b_n}$ and $J^{b_1 ... b_n}_{A a_1 ... a_m}$ in order to define coordinates $v_A$ in terms of the chart induced coordinates $v^{a_1 ... a_m}_{b_1 ... b_n}$, i.e. one constructs a valid pair of intertwiners with the desired properties and then defines the fibre coordinates on $F$ by
 \begin{align}
     \begin{aligned}
-    v_A := J^{b_1 ... b_n}_{A a_1 ... a_m} \cdot v^{a_1 ... a_m}_{b_1 ... b_n}\\
-    v^A := I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot  v^{b_1 ... b_n}_{a_1 ... a_m} .
+    v_A &:= J^{b_1 ... b_n}_{A a_1 ... a_m} \cdot v^{a_1 ... a_m}_{b_1 ... b_n}\\
+    v^A &:= I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot  v^{b_1 ... b_n}_{a_1 ... a_m} .
     \end{aligned}
 \end{align}
 This approach can for instance be used if the field bundle is defined in terms of symmetries the tensor field has to satisfy. We use these symmetries to define an equivalence relation on the set of $4^{m+n}$ fibre coordinate functions $\left \{ v^{a_1 ... a_m}_{b_1 ... b_n} \ \vert \  a_1,...,a_m,b_1...b_n \in \{0,...,3 \} \right \}$ on $T^m_nM$. We call two such fibre coordinates $v^{a_1 ... a_m}_{b_1 ... b_n}$ and $v^{c_1 ... c_m}_{d_1 ... d_n}$ if once they are restricted to $F \subset T^m_nM$ they only differ by a sign:
@@ -287,16 +695,17 @@ Obviously removing all coordinate functions that restrict to identical zero on $
 With each equivalence class $[A]$ we further associate its \textbf{\textit{multiplicity}} $\sigma(A) = \vert [A] \vert$ which is simply given by the number of its elements.
 Now we can define
 \begin{align}\label{defI}
-    I^{A a_1 ... a_m}_{b_1 ... b_n} = \begin{cases} +1 \ \text{if} \  v^{a_1 ... a_m}_{b_1 ... b_n} \in [A]_+ \\
-    -1 \ \text{if} \  v^{a_1 ... a_m}_{b_1 ... b_n} \in [A]_-  \\
-                       0 \  \text{otherwise}.
-                            \end{cases}
+    I^{A a_1 ... a_m}_{b_1 ... b_n} = \begin{cases} 
+        +1 \ \  &\text{if} \  v^{a_1 ... a_m}_{b_1 ... b_n} \in [A]_+ \\
+        -1 \ \ &\text{if} \  v^{a_1 ... a_m}_{b_1 ... b_n} \in [A]_-  \\
+        0 \ \   &\text{otherwise}. 
+    \end{cases}
 \end{align}
 $J^{b_1 ... b_n}_{A a_1 ... a_m}$ is then defined such that the pair of intertwiners satisfies the last condition in (\ref{interRel}), i.e. $J$ is chosen as left inverse of $I$. On readily finds that
 \begin{align}\label{defJ}
-    J^{b_1 ... b_n}_{A a_1 ... a_m} = \begin{cases}  +\frac{1}{\sigma(A)} \  \text{if} \  v^{a_1 ... a_m}_{b_1 ... b_n} \in [A]_+\\
-    -\frac{1}{\sigma(A)} \  \text{if} \  v^{a_1 ... a_m}_{b_1 ... b_n} \in [A]_- \\ 
-    0   \ \text{otherwise}.
+    J^{b_1 ... b_n}_{A a_1 ... a_m} = \begin{cases}  +\frac{1}{\sigma(A)} \ \ &\text{if} \  v^{a_1 ... a_m}_{b_1 ... b_n} \in [A]_+\\
+    -\frac{1}{\sigma(A)} \ \  &\text{if} \  v^{a_1 ... a_m}_{b_1 ... b_n} \in [A]_- \\ 
+    0   \ \ &\text{otherwise}.
     \end{cases}
 \end{align}
 Considering again the metric tensor as an example, we have $v_{ab} = v_{ba}$ as only symmetry of the $16$ coordinate functions on $T^0_2M$. We sort the equivalence classes as 
@@ -306,37 +715,37 @@ Considering again the metric tensor as an example, we have $v_{ab} = v_{ba}$ as 
 Proceeding along the lines outlined above we now obtain the intertwiner $I$ in terms of the components of the following matrix: 
 \begin{equation}\label{interIMet}
 I^A_{ab} = \begin{bmatrix}
-                1 & & & & & & & & & \\
-                & 1 & & & & & & & & \\
-                & & 1 & & & & & & & \\
-                & & & 1 & & & & & & \\
-                & 1 & & & & & & & & \\
-                & & & & 1 & & & & & \\
-                & & & & & 1 & & & & \\
-                & & & & & & 1 & & & \\
-                & & 1 & & & & & & & \\
-                & & & & & 1 & & & & \\
-                & & & & & & & 1 & & \\
-                & & & & & & & & 1 & \\
-                & & & 1 & & & & & & \\
-                & & & & & & 1 & & & \\
-                & & & & & & & & 1 & \\
-                & & & & & & & & & 1 
+                1 & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot \\
+                \cdot & 1 & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot \\
+                \cdot & \cdot & 1 & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot \\
+                \cdot & \cdot & \cdot & 1 & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot \\
+                \cdot & 1 & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot \\
+                \cdot & \cdot & \cdot & \cdot & 1 & \cdot & \cdot & \cdot & \cdot & \cdot \\
+                \cdot & \cdot & \cdot & \cdot & \cdot & 1 & \cdot & \cdot & \cdot & \cdot \\
+                \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & 1 & \cdot & \cdot & \cdot \\
+                \cdot & \cdot & 1 & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot  \\
+                \cdot & \cdot & \cdot & \cdot & \cdot & 1 & \cdot & \cdot & \cdot & \cdot  \\
+                \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & 1 & \cdot & \cdot\\
+                \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & 1 & \cdot \\
+                \cdot & \cdot & \cdot & 1 & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot \\
+                \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & 1 & \cdot & \cdot & \cdot \\
+                \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & 1 & \cdot \\
+                \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & 1 
             \end{bmatrix}.
 \end{equation}
 Here the rows run over $(a,b)={(0,0),(0,1),(0,2),...,(3,3)}$ and the columns run from $0$ to $9$. Only non vanishing components are displayed. The inverse intertwiner is then given as: 
 \begin{equation}\label{interJMet}
 J^{ab}_{A} = \begin{bmatrix} 
-                1 & & & & & & & & & & & & & & & \\
-                & \frac{1}{2} & & & \frac{1}{2} & & & & & & & & & & &  \\
-                & & \frac{1}{2} & & & & & & \frac{1}{2} & & & & & & &  \\
-                & & & \frac{1}{2} & & & & & & & & & \frac{1}{2} & & &  \\
-                & & & & & 1 & & & & & & & & & &  \\
-                & & & & & & \frac{1}{2} & & & \frac{1}{2} & & & & & &  \\
-                & & & & & & & \frac{1}{2} & & & & & & \frac{1}{2} & &  \\
-                & & & & & & & & & & 1 & & & & &  \\
-                & & & & & & & & & & & \frac{1}{2} & & & \frac{1}{2} &  \\
-                & & & & & & & & & & & & & & & 1  
+                1 & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot \\
+                \cdot & \frac{1}{2} & \cdot & \cdot & \frac{1}{2} & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot  \\
+                \cdot & \cdot & \frac{1}{2} & \cdot & \cdot & \cdot & \cdot & \cdot & \frac{1}{2} & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot  \\
+                \cdot & \cdot & \cdot & \frac{1}{2} & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \frac{1}{2} & \cdot & \cdot & \cdot  \\
+                \cdot & \cdot & \cdot & \cdot & \cdot & 1 & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot  \\
+                \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \frac{1}{2} & \cdot & \cdot & \frac{1}{2} & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot  \\
+                \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \frac{1}{2} & \cdot & \cdot & \cdot & \cdot & \cdot & \frac{1}{2} & \cdot & \cdot  \\
+                \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & 1 & \cdot & \cdot & \cdot & \cdot & \cdot  \\
+                \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \frac{1}{2} \cdot & \cdot & \cdot & \frac{1}{2} & \cdot  \\
+                \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & \cdot & 1  
             \end{bmatrix},
 \end{equation}
 now with columns running over $(ab)={(0,0),(0,1),(0,2),...,(3,3)}$ and rows running from $0$ to $9$. By this definition we now have for the metric tensor field $v_1 \cong v_{01}, v_2 \cong v_{0,2},...$.
@@ -394,8 +803,8 @@ Again one can show that this is well defined \cite{saunders_1989}. We collect al
 Let $(F, \pi_F, M)$ be a bundle, the second jet bundle $(J^2F,\pi_2,M)$ is the bundle with total space $J^2F := \{j^2_pG \  \vert \  p \in M, G \in \Gamma(F)\}$ and bundle projection 
 \begin{align}
     \begin{aligned}
-\pi_2 : J^2F \longrightarrow M \\
-j^2_pG \longmapsto p.
+\pi_2 : &J^2F \longrightarrow M \\
+&j^2_pG \longmapsto p.
     \end{aligned}
 \end{align}
 \end{definition}
@@ -404,7 +813,7 @@ One can again show that this really defines a bundle over the base manifold $M$.
 \begin{align}
     \begin{aligned}
     \pi_{2,1} : &J^2F \longrightarrow J^1F \\
-    &j^2_pG \longmapsto j^1_pG ,\\
+    &j^2_pG \longmapsto j^1_pG ,\\[0.5ex]
     \pi_{2,0} : &J^2F \longrightarrow F \\
     &j^2_pG \longmapsto G(p).
     \end{aligned}
@@ -419,8 +828,8 @@ We have specified $4^2\cdot n$ new coordinate functions $v_{Aij}$ to construct a
 We simply proceed along the same lines as before when we constructed a pair of intertwiners for the bundle of symmetric $(0,2)$ tensor fields, i.e. we provide a pair of intertwiners and thereby define $10$ new indices that label second order derivative in terms of the $16$ possible pairs of spacetime indices:
 \begin{align}
     \begin{aligned}
-    v_{Aij} = I^I_{ij} v_{AI}\\
-    v_{AI} = J_I^{ij} v_{Aij}.
+    v_{Aij} &= I^I_{ij} v_{AI}\\
+    v_{AI} &= J_I^{ij} v_{Aij}.
     \end{aligned}
 \end{align}
 We divide the $16$ coordinates that label symmetric second order derivatives $(ij)$ into the $10$ equivalence classes 
@@ -443,8 +852,8 @@ Note that we use no summation convention over $k$.
 As before we denote the corresponding intertwiners mapping between the representation of derivative in terms of such indices and the spacetime representation as
 \begin{align}
     \begin{aligned}
-    v_{Ai_1...i_k} = I^{I_k}_{i_1..i_k} v_{AI_k}\\
-    v_{AI_k} = J_{I_k}^{i_1...i_k} v_{Ai_1...i_k},
+    v_{Ai_1...i_k} &= I^{I_k}_{i_1..i_k} v_{AI_k}\\
+    v_{AI_k} &= J_{I_k}^{i_1...i_k} v_{Ai_1...i_k},
     \end{aligned}
 \end{align}
 with the obvious intertwiners for $k=0,..2$.
@@ -481,7 +890,7 @@ Here $\Lambda^4 M$ denotes the volume bundle on $M$. Alternatively we could have
 As the Lagrangian is a volume form valued bundle map we can take any section $G \in \Gamma(F)$, prolong it to $j^2(G) \in \Gamma(J^2F)$ and compose the result with $\mathcal{L}$ to obtain section of the volume bundle over $M$, $\mathcal{L}(j^2(G)) \in \Gamma(\Lambda^4M)$ which thus can be integrated over spacetime regions. Given a Lagrangian this procedure defines a \textit{\textbf{local action functional}} on the space of fields $\Gamma(F)$:
 \begin{align}
 \begin{aligned}
-    &\mathcal{S}_{\mathcal{L}} : \Gamma(F) \longrightarrow \mathcal{R} \\
+    \mathcal{S}_{\mathcal{L}} : &\Gamma(F) \longrightarrow \mathcal{R} \\
     &G \longmapsto \mathcal{S}_{\mathcal{L}}[G] := \int \mathcal{L}(j^2(G)).
 \end{aligned}
 \end{align}
@@ -494,14 +903,14 @@ The total situation with the various maps that are involved in this construction
 \node (J1) at (0,4) {$J^1F$};
 \node (J2) at (0,6) {$J^2F$};
 \node (Vol) at (6,6) {$\Lambda^4M$};
-\draw [->] (F) -- node[pos=0.35, right] {$\pi_F$} (M);
-\draw [->] (J1) -- node[pos=0.35, right] {$\pi_{1,0}$}  (F);
-\draw [->] (J2) -- node[pos=0.35, right] {$\pi_{2,1}$}  (J1);
-\draw [->] (Vol) -- node[pos=0.4, left] {$\pi_{\Lambda^4M}$}  (M);
-\draw[->] (M) .. controls (-0.75,0.5) and (-0.75,1.5) .. node[pos=0.5, left] {$G$} (F);
-\draw[->] (M) .. controls (-3,1) and (-3,5) .. node[pos=0.5, left] {$j^2(G)$} (J2);
-\draw [->] (J2) -- node[pos=0.5, above] {$\mathcal{L}$}  (Vol);
-\draw[->] (M) .. controls (3,0.5) and (6,3) .. node[pos=0.5, right] {$\mathcal{L}\circ j^2(G)$} (Vol);
+\draw [-latex] (F) -- node[pos=0.35, right] {$\pi_F$} (M);
+\draw [-latex] (J1) -- node[pos=0.35, right] {$\pi_{1,0}$}  (F);
+\draw [-latex] (J2) -- node[pos=0.35, right] {$\pi_{2,1}$}  (J1);
+\draw [-latex] (Vol.220) -- node[pos=0.4, left] {$\pi_{\Lambda^4M}$ \ }  (M.60);
+\draw[-latex] (M) .. controls (-0.75,0.5) and (-0.75,1.5) .. node[pos=0.5, left] {$G$} (F);
+\draw[-latex] (M) .. controls (-3,1) and (-3,5) .. node[pos=0.5, left] {$j^2(G)$} (J2);
+\draw [-latex] (J2) -- node[pos=0.5, above] {$\mathcal{L}$}  (Vol);
+\draw[-latex] (M.30) -- node[pos=0.5, right] { \ $\mathcal{L}\circ j^2(G)$} (Vol.250);
 \end{tikzpicture}
 \caption{Commutative diagram for Lagrangian field theory on $J^2F$} \label{diagram1}
 \end{figure}
@@ -535,14 +944,14 @@ Let $(F_1,\pi_{F_1},M)$ and $(F_2,\pi_{F_2},N)$ be bundles, $\phi : M \rightarro
 \node (F2) at (5,3) {$F_2$};
 \node (JF1) at (0,6) {$J^1F_1$};
 \node (JF2) at (5,6) {$J^1F_2$};
-\draw [->] (M.10) -- node[pos=0.5, above] {$\phi$} (N.170);
+\draw [-latex] (M.10) -- node[pos=0.5, above] {$\phi$} (N.170);
 \draw [<-] (M.350) -- node[pos=0.5, below] {$\phi^{-1}$} (N.190);
-\draw [->] (F1) -- node[pos=0.5, above] {$f$} (F2);
-\draw [->] (F1) -- node[pos=0.5, left] {$\pi_{F_1}$} (M);
-\draw [->] (F2) -- node[pos=0.5, right] {$\pi_{F_2}$} (N);
-\draw [->] (JF1) -- node[pos=0.5, left] {$(\pi_1)_{1,0}$} (F1);
-\draw [->] (JF2) -- node[pos=0.5, right] {$(\pi_2)_{1,0}$} (F2);
-\draw [->] (JF1) -- node[pos=0.5, above] {$j^1(f)$} (JF2);
+\draw [-latex] (F1) -- node[pos=0.5, above] {$f$} (F2);
+\draw [-latex] (F1) -- node[pos=0.5, left] {$\pi_{F_1}$} (M);
+\draw [-latex] (F2) -- node[pos=0.5, right] {$\pi_{F_2}$} (N);
+\draw [-latex] (JF1) -- node[pos=0.5, left] {$(\pi_1)_{1,0}$} (F1);
+\draw [-latex] (JF2) -- node[pos=0.5, right] {$(\pi_2)_{1,0}$} (F2);
+\draw [-latex] (JF1) -- node[pos=0.5, above] {$j^1(f)$} (JF2);
 \end{tikzpicture}
 \end{center}
 \end{definition}
@@ -574,14 +983,14 @@ We can prolong bundle morphisms to any higher order jet bundle by an equivalent 
 \node (F2) at (5,3) {$F_2$};
 \node (JF1) at (0,6) {$J^kF_1$};
 \node (JF2) at (5,6) {$J^kF_2$};
-\draw [->] (M.10) -- node[pos=0.5, above] {$\phi$} (N.170);
+\draw [-latex] (M.10) -- node[pos=0.5, above] {$\phi$} (N.170);
 \draw [<-] (M.350) -- node[pos=0.5, below] {$\phi^{-1}$} (N.190);
-\draw [->] (F1) -- node[pos=0.5, above] {$f$} (F2);
-\draw [->] (F1) -- node[pos=0.5, left] {$\pi_{F_1}$} (M);
-\draw [->] (F2) -- node[pos=0.5, right] {$\pi_{F_2}$} (N);
-\draw [->] (JF1) -- node[pos=0.5, left] {$(\pi_1)_{k,0}$} (F1);
-\draw [->] (JF2) -- node[pos=0.5, right] {$(\pi_2)_{k,0}$} (F2);
-\draw [->] (JF1) -- node[pos=0.5, above] {$j^k(f)$} (JF2);
+\draw [-latex] (F1) -- node[pos=0.5, above] {$f$} (F2);
+\draw [-latex] (F1) -- node[pos=0.5, left] {$\pi_{F_1}$} (M);
+\draw [-latex] (F2) -- node[pos=0.5, right] {$\pi_{F_2}$} (N);
+\draw [-latex] (JF1) -- node[pos=0.5, left] {$(\pi_1)_{k,0}$} (F1);
+\draw [-latex] (JF2) -- node[pos=0.5, right] {$(\pi_2)_{k,0}$} (F2);
+\draw [-latex] (JF1) -- node[pos=0.5, above] {$j^k(f)$} (JF2);
 \end{tikzpicture}
 \end{center}
 One can in particular show that the jet prolongations of bundle morphisms behaves functorial w.r.t. their composition: $j^k(f\circ g) = j^k(f) \circ j^k (g)$. Details regarding the prolongation of bundle morphisms can be found in \cite{saunders_1989}.\\
@@ -595,8 +1004,8 @@ Let $M$ and $N$ be some spaces that both carry an action of a group $\mathcal{G}
 \node (N) at (4,0) {$N$};
 \node (M2) at (0,3) {$M$};
 \node (N2) at (4,3) {$N$};
-\draw [->] (M) -- node[pos=0.5, below] {$f$} (N);
-\draw [->] (M2) -- node[pos=0.5, above] {$f$} (N2);
+\draw [-latex] (M) -- node[pos=0.5, below] {$f$} (N);
+\draw [-latex] (M2) -- node[pos=0.5, above] {$f$} (N2);
 \draw [<-] (M) -- node[pos=0.5, left] {$\rho(g)$} (M2);
 \draw [<-] (N) -- node[pos=0.5, right] {$\sigma(g)$} (N2);
 \end{tikzpicture}
@@ -780,8 +1189,8 @@ In addition to the smoothly parameterized family of embeddings $\phi_{\lambda}$ 
 \node (M) at (4,0) {$M$};
 \node (R) at (0,-4) {$\mathbb{R}$};
 \draw [<-] (S) -- node[pos=0.5, above] {$\phi^{-1}$} (M);
-\draw [->] (S) -- node[pos=0.5, left] {$\pi_{\mathbb{R}}$} (R);
-\draw [->] (M) -- node[pos=0.5, right] {$t$} (R);
+\draw [-latex] (S) -- node[pos=0.5, left] {$\pi_{\mathbb{R}}$} (R);
+\draw [-latex] (M) -- node[pos=0.5, right] {$t$} (R);
 \end{tikzpicture} .
 \end{center}
 The time vector field can be constructed by first defining for all $s \in \Sigma$ the following map 
@@ -811,8 +1220,8 @@ Here $F\oplus E$ denotes the direct sum or whitney sum (for details see the firs
 \node (N) at (4,0) {$M$};
 \node (M2) at (0,2) {$f^{\ast}F$};
 \node (N2) at (4,2) {$F$};
-\draw [->] (M) -- node[pos=0.5, below] {$h$} (N);
-\draw [->] (M2) -- node[pos=0.5, above] {$\tilde{h}$} (N2);
+\draw [-latex] (M) -- node[pos=0.5, below] {$h$} (N);
+\draw [-latex] (M2) -- node[pos=0.5, above] {$\tilde{h}$} (N2);
 \draw [<-] (M) -- node[pos=0.5, left] {$\pi_{h^{\ast}F}$} (M2);
 \draw [<-] (N) -- node[pos=0.5, right] {$\pi_F$} (N2);
 \end{tikzpicture}
@@ -1655,7 +2064,7 @@ The notion of hyperbolic polynomials and the corresponding hyperbolicity cones i
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\textwidth]{Poly.pdf}
-    \caption{Hyperbolicity cone $C_p$ and vanishing set $V_p$ of a second and a fourth degree polynomial taken from \cite{Rivera}.}
+    \caption{Hyperbolicity cone $C_p$ and vanishing set $V_p$ of a second and a fourth degree polynomial (see \cite{Rivera}).}
     \label{hyperbol}
 \end{figure}
 One can now see the underlying geometric interpretation hyperbolic covectors for a given polynomial. If $\mathcal{P}_p$ is hyperbolic w.r.t. $h$ than any affine line in direction $h$ intersects $\mathrm{deg}(\mathcal{P}_p)$ times with the vanishing set $V_p(\mathcal{P}_p)$.
@@ -2101,7 +2510,7 @@ Reading of the values in constant and linear order from the expansion of the EOM
     \begin{aligned}
     T_0^{AB} &= \left [a^{ABI} + a^{BAI} - 2 a^{ApBq}I_{pq}^I  \right ]\\
     \\
-    (T_0^{AB})^C &= \left [2a^{ACBI} -2a^{CApBq}I_{pq}^I + 2a^{BCAI} \right ]. 
+    (T_1^{AB})^C &= \left [2a^{ACBI} -2a^{CApBq}I_{pq}^I + 2a^{BCAI} \right ]. 
     \end{aligned}
 \end{align}
 Note that the principal symbol and thus also the principal polynomial could in general also depend on the coordinates $v_{Ap}$ as the EOM would then be still of second derivative order. We could then immediately exclude such contributions containing derivative coordinates $v_{Ap}$ from our discussion as the matter polynomial cannot contain such and in the end we want to require that the two polynomial describe at each $p \in M$ the same vanishing set. Hence from now only we assume that the gravitational principal symbol $T(v_A)$ only depends on $v_A$. If this is not the case for a concrete gravitational Lagrangian the above obviously yields a further condition, namely restricting to the sub theory that does satisfy this.  \\
@@ -2244,7 +2653,7 @@ Compute the induced expansion of the corresponding prefactors $f_{(A_1...A_4)(B_
 Compute the expansion of the gravitational principal polynomial with the use of the general expression (\ref{diffeoMinor}) with expansion (\ref{minorPoly}), i.e. by solving (\ref{POLY1}), (\ref{POLY2}), (\ref{POLY3}) and similar for higher orders \\
 Compute the expansion of the matter principal polynomial up to order $k-2$\\
 Solve $\sum_{i=0}^{k-2} (V_{mat})_i = \sum _{i=0}^{k-2}(V_{grav})_i + \mathcal{O}(k-2)$ w.r.t. the remaining undetermined constants in $L_{grav,per}$
- \caption{Construction of perturbative Gravitational Lagrangian}\label{Algo2}
+ \caption{Perturbative Construction of Gravitational Lagrangian}\label{Algo2}
 \end{algorithm}
 
 Summing up the achievements of this chapter, firstly with the help of several notions of formal PDE theory we have discovered a second and final fundamental requirement that we wish to pose on any gravitational Lagrangian, namely its compatibility with a given matter theory. As one might argue that the prediction of future processes really lies at the heart of theoretical physics this causal compatibility really is a indispensable requirement that any meaningful coupled matter gravity theory must incorporate. As stated in the last chapter this requirement also compromises a cornerstone of the framework that was contributed in (\cite{2018PhRvD..97h4036D}). 
@@ -2320,9 +2729,8 @@ Note that computing the remaining expansion coefficients works exactly along the
 Doing this the dimensions, i.e. number of arbitrary constants in the expansion coefficients are displayed in table (\ref{GRExp}).
 \begin{table}
 \centering 
-\begin{tabular}{c|c|c}
-    expansion coefficient & dimension & constants   \\
-    \hline 
+\begin{tabular}{lll}\toprule
+    expansion coefficient & dimension & constants   \\ \midrule
     $a_0$ & 1 & $\{\mu_1\}$ \\
     $a^A$ & 1 & $\{\mu_2\}$ \\
     $a^{AI}$ & 2 & $\{\nu_1, \nu_2\}$ \\
@@ -2331,7 +2739,7 @@ Doing this the dimensions, i.e. number of arbitrary constants in the expansion c
     $a^{ABI}$ & 5 & $\{ \nu_9,...,\nu_{13} \}$ \\
     $a^{ABC}$ & 3 & $\{ \mu_5,...\mu_7 \}$\\
     $a^{ABpCq}$ & 21 & $\{\nu_{14},...,\nu_{34} \}$ \\
-    $a^{ABCI}$ & 13 & $\{ \nu_{35},...,\nu_{47}\}$
+    $a^{ABCI}$ & 13 & $\{ \nu_{35},...,\nu_{47}\}$\\ \bottomrule
 \end{tabular}
 \caption{Dimensions of the Lorentz invariant expansion coefficients for $\mathcal{L}_{GR,per}$.}\label{GRExp}
 \end{table}
@@ -2533,9 +2941,8 @@ The most general power series expansion of $\mathcal{L}_{Area,per} = L_{Area,per
 where $(H_{AI}) = (x^m,H_A,H_{Ap},H_{AI}) = (v_{AI}) - (N_{AI})$. Note that although we use the same symbols as in $L_{GR,per}$ to denote $L_{Area,per}$ this Lagrangian defines a fundamentally different object. In particular the $21$ dimensional fibres of  $F_{Area}$ result in the fact that there will be more freedom in constructing the expansion coefficients of (\ref{LArea}). Again the perturbative equivariance equations demand that these expansion coefficients define the components of constant Lorentz invariant tensors. The corresponding expressions that we obtained by means of our computer program are displayed in the appendix in (\ref{LorentzArea1}), (\ref{LorentzArea2}), (\ref{LorentzArea3}) and (\ref{LorentzArea4}). The dimensions and paramters of the individual expansion coefficients are displayed in table (\ref{AreaExp}).
 \begin{table}
 \centering 
-\begin{tabular}{c|c|c}
-    expansion coefficient & dimension & constants   \\
-    \hline 
+\begin{tabular}{lll} \toprule
+    expansion coefficient & dimension & constants   \\ \midrule
     $a_0$ & 1 & $\{\mu_1\}$ \\
     $a^A$ & 2 & $\{\mu_2,\mu_3\}$ \\
     $a^{AI}$ & 3 & $\{\nu_1,..., \nu_3\}$ \\
@@ -2544,7 +2951,7 @@ where $(H_{AI}) = (x^m,H_A,H_{Ap},H_{AI}) = (v_{AI}) - (N_{AI})$. Note that alth
     $a^{ABI}$ & 16 & $\{ \nu_{19},...,\nu_{34} \}$ \\
     $a^{ABC}$ & 15 & $\{ \mu_{10},...\mu_{24} \}$\\
     $a^{ABpCq}$ & 110 & $\{\nu_{35},...,\nu_{144} \}$ \\
-    $a^{ABCI}$ & 72 & $\{ \nu_{145},...,\nu_{216}\}$
+    $a^{ABCI}$ & 72 & $\{ \nu_{145},...,\nu_{216}\}$ \\ \bottomrule
 \end{tabular}
 \caption{Dimensions of the Lorentz invariant expansion coefficients for $\mathcal{L}_{Area,per}$.}\label{AreaExp}
 \end{table}
@@ -2618,7 +3025,8 @@ Summing up the results that we developed in this chapter, not only did our pertu
 
 \chapter{Computer Algebra}\label{computerAlg}
 \dictum{
-After providing the reader with a concise introduction to functional programming in Haskell, focusing on the main differences with more traditional imperative programming languages we proceed by illustrating the developed Haskell package sparse-tensor in detail. Not only will we explain the basic functionality contained therein, the following chapters are also intended as a short introduction manual for potential future users. Finally we also clarify how the construction of Lorentz invariant basis tensors is implemented in sparse-tensor. }   
+After providing the reader with a concise introduction to functional programming in Haskell, focusing on the main differences with more traditional imperative programming languages we proceed by illustrating the developed Haskell package sparse-tensor in detail. Not only will we explain the basic functionality contained therein, the following chapters are also intended as a short introduction manual for potential future users. Finally we also clarify how the construction of Lorentz invariant basis tensors is implemented in sparse-tensor.
+The sparse-tensor library is available via \cite{sparse-tensor}.}   
 
 \section{A Concise Introduction to Functional Programming in Haskell}
 For the following chapter to constitute a self contained description of the developed computer algebra also for readers that are unfamiliar with the programming language Haskell \cite{Marlow_haskell2010} we now furnish a quick introduction to it. We mainly treat its particularities compared with more traditional imperative languages.
@@ -2718,16 +3126,21 @@ Summing up we want to incorporate the following functionallity in our computer p
     \item Optimization towards computing explicit component operations over abstract algebraic manipulation of tensors.
 \end{itemize}
 
-Additionally to the three requirements displayed above we are going to encode the generalized rank of a given tensor --- for standard tensors described by contravariant and covariant indices the rank is expressed as pair ($\#$ of contravariant indices, $\#$ of covariant indices), consequently we express the rank of a tensor that takes $n$ contravariant and $n$ covariant indices as the corresponding $2n$-tuple of numbers of indices --- directly in its type. Doing so Haskell's type system guarantees a prevention of possible errors that might for instance occur when by mistake adding tensors of different ranks. The detection of such errors then already happens during compile time. During our usage of the developed computer algebra framework this feature really turned out to be vital as entering the complicated equations involving multiple indices that one wishes to solve in the perturbative framework of constructive gravity often led to minor mistakes that where then immediately detected when compiling the programm and not after possibly several hours of runtime.
+Additionally to the three requirements displayed above we are going to encode the generalized rank of a given tensor --- for standard tensors described by contravariant and covariant indices the rank is expressed as pair ($\#$ of contravariant indices, $\#$ of covariant indices), consequently we express the rank of a tensor that takes $n$ contravariant and $n$ covariant index types as the corresponding $2n$-tuple of numbers of indices --- directly in its type. Doing so Haskell's type system guarantees a prevention of possible errors that might for instance occur when by mistake adding tensors of different ranks. The detection of such errors then already happens during compile time. During our usage of the developed computer algebra framework this feature really turned out to be vital as entering the complicated equations involving multiple indices that one wishes to solve in the perturbative framework of constructive gravity often led to minor mistakes that where then immediately detected when compiling the programm and not after possibly several hours of runtime.
 
-We start with the basic datatype that we chose to represent a tensor of arbitrary rank that only takes a single index type. Using Haskell's generalised algebraic data types, in short \textit{\textbf{GADT}}s the data type definition of such a single index tensor looks as follows: 
+We start with the basic datatype that we chose to represent a tensor of arbitrary rank that only takes a single index type, i.e. We can think of such a type as representing tensors with only contravariant incices of the given type. Using Haskell's generalised algebraic data types, in short \textit{\textbf{GADT}}s the data type definition of such a single index tensor looks as follows: 
 
 \begin{samepage}
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG
 ]{haskell}
-data Tensor n k v where 
-    Scalar :: v -> Tensor 0 k v 
+-- | Basic tensor data types.
+data Tensor n k v where
+    -- | Constructor of leaf values.
+    Scalar :: v -> Tensor 0 k v
+    -- | Constructs a @'Tensor'@ from a @'TMap'@ of index sub
+    --   tensor pairs.
     Tensor :: TMap k (Tensor n k v) -> Tensor (n+1) k v
+    -- | Represents a @'Tensor'@ that is identical zero.
     ZeroTensor :: Tensor n k v
 \end{minted} 
 \end{samepage}
@@ -2738,8 +3151,9 @@ Hence the tensor data type \mintinline{haskell}{Tensor n k v} contains additiona
 type TMap k v = [(k,v)]
 \end{cminted}
 \end{center}
-where the subtensors have rank \mintinline{haskell}{n} and constructs from it a \mintinline{haskell}{Tensor (n+1) k v} with rank \mintinline{haskell}{n+1} and \mintinline{haskell}{ZeroTensor} simply represents a tensors of arbitrary rank with all components being identical zero. Hence a tensor is represented as ordered forest\footnote{A colletion of disjoint ordered trees.} with additional type information regarding rank, index type and stored values.
-Thus to retrieve a value of a tensor of rank \mintinline{haskell}{n} we need to specify \mintinline{haskell}{n} values of the appropriate type \mintinline{haskell}{k}. It is important that the distinction between the individual indices is not provided by some abstract labels that are attached to them but simply by their position. For instance figure \ref{ExampleTens} displays the forest structure of a rank $2$ tensor that uses \mintinline{haskell}{Ind3} types, i.e. spacetime indices with potential values between $0$ and $3$ as index type and stores rational numbers as values.
+where the subtensors have rank \mintinline{haskell}{n} and constructs from it a \mintinline{haskell}{Tensor (n+1) k v} with rank \mintinline{haskell}{n+1} and \mintinline{haskell}{ZeroTensor} simply represents a tensors of arbitrary rank with all components being identical zero. Thus a tensor is represented as ordered forest\footnote{A colletion of disjoint ordered trees.} with additional type information regarding rank, index type and stored values. Including an ordering of the individual sibling sets \footnote{We call a collection of nodes that have a common parent node a sibling set.} allows for faster insertion and lookup operations. All further functions that we define for the types \mintinline{haskell}{Tensor} and \mintinline{haskell}{TMap} will maintain this ordering.
+
+To retrieve a value of a tensor of rank \mintinline{haskell}{n} we need to specify \mintinline{haskell}{n} values of the appropriate type \mintinline{haskell}{k}. It is important to understand that the distinction between the individual indices is not provided by some abstract labels that are attached to them but simply by their position. To rovide an example figure \ref{ExampleTens} displays the forest structure of a rank $2$ tensor that uses \mintinline{haskell}{Ind3} types, i.e. spacetime indices with potential values between $0$ and $3$ as index type and stores rational numbers as values.
 \begin{figure}[ht]
 \centering
 \begin{tikzpicture}[roundnode/.style={rectangle, draw=black, fill=LG, very thick, minimum size=7mm},]
@@ -2775,48 +3189,84 @@ Thus to retrieve a value of a tensor of rank \mintinline{haskell}{n} we need to 
 
 
 \end{tikzpicture}
-\caption{Forest structure of rank 2 tensor with spacetime indices and rational values.}
-\label{ExampleTens}
+\caption{Forest structure of rank 2 spacetime tensor with rational values.}\label{ExampleTens}
 \end{figure}
- Providing the non vanishing components of the displayed tensor forest explicitly the tensor would read:
+Providing the non vanishing components of the displayed tensor forest explicitly the tensor would read:
 \begin{align}
 \begin{alignedat}{3}
 T^{01} &= \frac{1}{2}, \ \  &  \ \ T^{02} &= 3, \ \  & \ \ T^{22} &= -17,\\
 T^{30} &= \frac{1}{3}, & T^{31} &= 1, & T^{33} &= \frac{1}{2}.
 \end{alignedat}
 \end{align}
-In order for tensors represented this way to satisfy the usual tensor algebra some restrictions on the possibly stored values are necessary. In particular we need to be able to add, subtract and scale the stored values as this is necessary when adding subtracting or scaling tensors. Thus we collect types that allow for these operations in a \textit{\textbf{type class}}:
+
+In order for tensors represented this way to satisfy the usual tensor algebra some restrictions on the possibly stored values are necessary. In particular we need to be able to add and subtract the stored values as this is necessary when adding and subtracting tensors.
+More precisely the types that we might use as value must constitute an additive group. 
+We collect such types that constitute a group and the corresponding group methods in the \mintinline{haskell}{TAdd} \textit{\textbf{type class}}:
 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-class (Eq a) => TScalar a where 
-        addS :: a -> a -> a 
-        subS :: a -> a -> a
-        scaleS :: Rational -> a -> a 
-        scaleZero :: a
+class TAdd a where
+    -- | Test whether the given element is zero, i.e. the neutral
+    --   element.
+    scaleZero :: a -> Bool
+    -- | Addition of two elements.
+    addS :: a -> a -> a
+    -- | Maps an element to its additive inverse.
+    negateS :: a -> a
+    -- | Subtraction of two elements.
+    subS :: a -> a -> a
+    subS a b = a `addS` negateS b
 \end{minted} 
 \end{samepage}
 
-Furthermore when forming the product of two tensors we also need to compute the product of the values that are stored therein. This requirement is encoded in the additional type class:
+Furthermore when forming the product of two tensors or also scaling a given tensor with a number we also need to be able to compute products of the tensor values or between tensors values and scalars. This requirement is encoded in the additional \mintinline{haskell}{TProd} type class:
 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-class TAlgebra v v' where 
-        type TAlg v v' :: * 
-        prodA :: v -> v' -> TAlg v v'
+class Prod v v' where
+    -- | Type level function that returns the type of the result of
+    --   @'prod'@.
+    type TProd v v' :: *
+    -- | Product function.
+    prod :: v -> v' -> TProd v v'
 \end{minted} 
 \end{samepage}
 
-Note that the above type class not only requires the existence of a function \mintinline{haskell}{prodA} that computes the products of any two stored values of types \mintinline{haskell}{v} and \mintinline{haskell}{v'}, it also requires its instances to provide a type level function that computes the new type of such a product \mintinline{haskell}{TAlg v v'} once the types \mintinline{haskell}{v} and \mintinline{haskell}{v'} are specified. Restricting to these type classes we can define the usual tensor algebra operations. We start with the addition:
+Note that the above type class not only requires the existence of a function \mintinline{haskell}{prod} that computes the products of any two stored values of types \mintinline{haskell}{v} and \mintinline{haskell}{v'}, it also requires its instances to provide a type level function that computes the new type of such a product \mintinline{haskell}{TProd v v'} once the types \mintinline{haskell}{v} and \mintinline{haskell}{v'} are specified.
+
+The first instance that we are going to provide for the two introduced type classes is used to represent arbitrary number types that allow for the required functions. 
+
+\begin{center}
+\begin{cminted}{haskell}
+newtype SField a = SField a deriving (Show, Eq, Ord)
+\end{cminted} 
+\end{center}
+
+\mintinline{haskell}{SField} simply provides a wrapper for any number type at wish.
+
+Finally the indices of any given tensor also must satisfy certain properties that can be described by class constraints that constraint their possible types. For instance tensor indices should employ an order relation of their possible values and also it should be possible to test two index values for equality. The necessary class constraints are combined in the \mintinline{haskell}{TIndex} type class.
+
+\begin{center}
+\begin{cminted}{haskell}
+class (Eq a, Ord a, Enum a) => TIndex a where
+\end{cminted} 
+\end{center}
+
+
+
+Restricting now to tensors with indices and values being instances of these type classes we can define the usual tensor algebra operations.
+Note that these operations provide the \mintinline{haskell}{Tensor} type with the structure of the usual graded\footnote{A graded algebra is an algebra whose elements can be labeled by elements of some monoid (such as positive integers equipped with addition) or group such that the algebra multiplication is consistent with the group operation of the labels. The label of an algebra element is called its grade.} (see for instance \cite{bourbaki1998algebra}) tensor algebra on the type level. In other words the grade of the individual tensors will be directly reflected by their type.
+
+We start with the addition:
 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-(&+) :: (TIndex k, TScalar v) => Tensor n k v -> Tensor n k v -> 
-                                 Tensor n k v 
-(&+) (Scalar a) (Scalar b) = Scalar $ addS a b 
-(&+) (Tensor m1) (Tensor m2) = Tensor $ addTMaps (&+) m1 m2     
+(&+) :: (TIndex k, TAdd v) => Tensor n k v -> Tensor n k v ->
+                              Tensor n k v
+(&+) (Scalar a) (Scalar b) = Scalar $ a `addS` b
+(&+) (Tensor m1) (Tensor m2) = Tensor $ addTMaps (&+) m1 m2
 (&+) t1 ZeroTensor = t1
-(&+) ZeroTensor t2 = t2 
+(&+) ZeroTensor t2 = t2
 \end{minted} 
 \end{samepage}
 
@@ -2839,21 +3289,24 @@ Scalar multiplication and subtraction can now be implemented straight forwardly.
 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-(&.) :: (TIndex k, TScalar v) => Rational -> Tensor n k v ->
-                                 Tensor n k v 
-(&.) scalar = fmap (scaleS scalar)
+(&.) :: (TIndex k, Prod s v) => s -> Tensor n k v ->
+                                     Tensor n k (TProd s v)
+(&.) scalar = fmap (prod scalar)
 \end{minted} 
 \end{samepage}
 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-(&-) :: (TIndex k, TScalar v) => Tensor n k v -> Tensor n k v ->
-                                 Tensor n k v
-(&-) t1 t2 = t1 &+ (-1) &. t2 
+(&-) :: (TIndex k, TAdd v) => Tensor n k v -> Tensor n k v ->
+                              Tensor n k v
+(&-) (Scalar a) (Scalar b) = Scalar $ subS a b
+(&-) (Tensor m1) (Tensor m2) = Tensor $ addTMaps (&-) m1 m2
+(&-) t1 ZeroTensor = t1
+(&-) ZeroTensor t2 = negateS t2
 \end{minted} 
 \end{samepage}
 
-Where \mintinline{haskell}{fmap} similar to teh discussed case of mapping a function over a list of values maps a function over the values of a given tensor and is provided by the functor instance of the tensor data type:
+Where \mintinline{haskell}{fmap} similar to the discussed case of mapping a function over a list of values maps a function over the values of a given tensor and is provided by the functor instance of the tensor data type:
 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
@@ -2868,34 +3321,30 @@ The product of two tensors can be implemented by appending the second tensor to 
 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-(&*) :: (TIndex k, TAlgebra v v', TScalar v, TScalar v',
-        TScalar (TAlg v v'))
-        => Tensor n k v -> Tensor m k v' -> Tensor (n+m) k (TAlg v v') 
-(&*) (Scalar x) (Scalar y) = let newVal = prodA x y 
-                                 in if newVal == scaleZero
-                                        then ZeroTensor 
-                                        else Scalar newVal 
-(&*) (Scalar x) t2 = fmap (prodA x) t2 
-(&*) (Tensor m) t2 = Tensor $ mapTMap (&* t2) m 
-(&*) t1 ZeroTensor = ZeroTensor 
+(&*) :: (TIndex k, Prod v v') => Tensor n k v -> Tensor m k v' ->
+                                 TProd (Tensor n k v) (Tensor m k v')
+(&*) (Scalar x) (Scalar y) = Scalar $ prod x y
+(&*) (Scalar x) t2 = fmap (prod x) t2
+(&*) (Tensor m) t2 = Tensor $ mapTMap (&* t2) m
+(&*) t1 ZeroTensor = ZeroTensor
 (&*) ZeroTensor t2 = ZeroTensor
 \end{minted} 
 \end{samepage}
 
 Here \mintinline{haskell}{mapTMap} maps a function over the values of the key value pairs \mintinline{haskell}{(k,v)} stored in the \mintinline{haskell}{TMap k v}.
-Note that not only the rank of the resulting tensor depends on the ranks of the two input tensors, also the types that are stored in it as values clearly depend on the respective types of the intput tensors. This is exactly where the second typeclass \mintinline{haskell}{TAlgebra v v'} comes to use. 
+Note that not only the rank of the resulting tensor depends on the ranks of the two input tensors --- The resulting precisely given as sum of the two input ranks. This is exactly where the grading of the tensor algebra is reflected on the type level --- also the types that are stored in it as values clearly depend on the respective types of the intput tensors. This is exactly where the second typeclass \mintinline{haskell}{TProd v v'} comes to use. 
 
-Finally when symmetrizing a given tensor we need to be able to swap the position of some of the tensors indices. This is done by the following function:
+When symmetrizing a given tensor we need to be able to swap the position of some of the tensors indices. This is done by the following function:
 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-tensorTrans :: (TIndex k, TScalar v) => (Int,Int) ->
-               Tensor n k v -> Tensor n k v
+tensorTrans :: (TIndex k, TAdd v) => (Int,Int) -> Tensor n k v ->
+                                     Tensor n k v
 tensorTrans (0, j) t = fromListT l
-                    where 
-                        l = map (\(x,y) -> (swapHead j x, y)) $ toListT t
-tensorTrans (i, j) (Tensor m) = Tensor $ 
-                                mapTMap (tensorTrans (i-1, j-1)) m 
+                where
+                    l = map (\(x,y) -> (swapHead j x, y)) $ toListT t
+tensorTrans (i, j) (Tensor m) = Tensor $
+                                mapTMap (tensorTrans (i-1, j-1)) m
 tensorTrans (i ,j) ZeroTensor = ZeroTensor
 \end{minted} 
 \end{samepage}
@@ -2939,18 +3388,16 @@ The two indices w.r.t. which the tensor is transposed are provided by the intege
 
 
 \end{tikzpicture}
-\caption{Forest structure of the rank 2 tensor obtained when applying \mintinline{haskell}{tensorTrans (0,1)} on the former example.}
-\label{ExampleTensTrans}
+\caption{Forest structure of transposed rank 2 tensor from figure (\ref{ExampleTens}).}\label{ExampleTensTrans}
 \end{figure}
 
-Similar to the transposition of to indices we can now obviously construct functions that transpose a given tensor in several indices or even completely reorder the positions of the various indices.  For instance a function that completely reorders the indices of a tensor can be obtained as follows
-
+Similar to the transposition of two indices we can now obviously construct functions that transpose a given tensor in several indices or even completely reorder the positions of the various indices. 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-resortTens :: (SingI n, TIndex k, TScalar v) => [Int] -> Tensor n k v ->
-              Tensor n k v 
-resortTens perm t = fromListT $ map (\(x,y) -> (resortInd perm x, y))
-                    $ toListT t 
+resortTens :: (KnownNat n, TIndex k, TAdd v) => [Int] -> Tensor n k v ->
+                                                Tensor n k v
+resortTens perm t = fromListT $
+                    map (\(x,y) -> (resortInd perm x, y)) $ toListT t
 \end{minted} 
 \end{samepage}
 
@@ -2960,9 +3407,9 @@ Knowing how we can transpose and resort the indices of a given tensor we can eas
 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-symTensFac :: (TIndex k, TScalar v) => (Int,Int) -> Tensor n k v ->
-              Tensor n k v 
-symTensFac inds t = (1%2) &. symTens inds t
+symTensFac :: (TIndex k, TAdd v, Prod (SField Rational) v) => (Int,Int)
+              -> Tensor n k v -> Tensor n k (TProd (SField Rational) v)
+symTensFac inds t = (SField $ 1%2) &. symTens inds t
 \end{minted} 
 \end{samepage}
 
@@ -2971,72 +3418,73 @@ Of course we can also evaluate a given tensor by inserting a particular value fo
 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-evalTens :: (SingI (n+1), TIndex k, TScalar v) => Int -> k ->
-            Tensor (n+1) k v -> Tensor n k v 
+evalTens :: (KnownNat (n+1), TIndex k, TAdd v) => Int -> k ->
+            Tensor (n+1) k v -> Tensor n k v
 evalTens ind indVal (Tensor m)
-        | ind > size -1 || ind < 0 = error "wrong index to evaluate" 
-        | ind == 0 = fromMaybe ZeroTensor $ lookup indVal m
-        | otherwise = fromMaybe ZeroTensor $
-                      lookup indVal (getTensorMap newTens)
-        where 
-            size = length $ fst $ head $ toListShow (Tensor m)
-            l = [1..ind] ++ 0 : [ind+1..size -1]
-            newTens = resortTens l (Tensor m)
+            | ind > size -1 || ind < 0 = error "wrong index to evaluate"
+            | ind == 0 = fromMaybe ZeroTensor $ lookup indVal m
+            | otherwise = fromMaybe ZeroTensor $
+                          lookup indVal (getTensorMap newTens)
+            where
+                size = length $ fst $ head $ toListT' (Tensor m)
+                l = [1..ind] ++ 0 : [ind+1..size -1]
+                newTens = resortTens l (Tensor m)
 \end{minted} 
 \end{samepage}
 
 If the tensor is to be evaluated for its 0-th index we simply look up the corresponding value in the top level of the forest. In any other case we first shift the corresponding level of the forest that is to be evaluated to the front to then again proceed as described in the prior case. Evaluating a tensor for a particular value of one of its indices then return the appropriate sub tensor. 
 
 Up to now we only treated tensors with a single type of indices, for instance in the example of figure \ref{ExampleTens} the tensor only had contravariant spacetime indices. We can however easily generalize the above such that also covariant indices can be incorporated. This is simply achieved by additionally appending a tensor of the given index type as values
-to the first tensor.
-\mintinline{haskell}{Tensor n k v} itself is instance of \mintinline{haskell}{TScalar} and \mintinline{haskell}{TAlgebra}:
+to the first tensor:
 \begin{center}
 \begin{cminted}{haskell}
 type Tensor2 n1 n2 k v = Tensor n1 k (Tensor n2 k v)
 \end{cminted}
 \end{center}
-Thus \mintinline{haskell}{Tensor2 n1 n2 k v} describes as before a contravariant tensor of rank \mintinline{haskell}{n1}, but this time with values being each provided by an additional covariant tensor. In particular the the two index types are the same as of course the additional covariant indices run over the same index range as the contravariant counterparts. The pair \mintinline{haskell}{(n1,n2)} is then simply the usual rank of the tensor.
+Thus \mintinline{haskell}{Tensor2 n1 n2 k v} describes as before a contravariant tensor of rank \mintinline{haskell}{n1}, but this time with values being each provided by an additional covariant tensor of rank \mintinline{haskell}{n2}. In particular the the two index types are the same as of course the additional covariant indices run over the same index range as the contravariant counterparts. The pair \mintinline{haskell}{(n1,n2)} is then simply the usual rank of the tensor.
 
 Note that in the definition of most of the above functions the types that tensors might store as values where constrained to be instances of \mintinline{haskell}{TScalar} and \mintinline{haskell}{TAlgebra}. 
-In order to be able to also use these functions for  \mintinline{haskell}{Tensor2}, i.e. for the case where the stored values are itself tensors it is necessary that the tensor type itself provides an instance of these two type classes. In other words we must now define the neccessary functions that make the data type
+In order to be able to also use these functions for  \mintinline{haskell}{Tensor2}, i.e. for the case where the stored values are itself tensors it is necessary that the \mintinline{haskell}{Tensor} type itself provides an instance of these two type classes. In other words we must now define the neccessary functions that make the data type
 \mintinline{haskell}{Tensor n k v} an instance of \mintinline{haskell}{TScalar} and \mintinline{haskell}{TAlgebra}:
 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-instance (TIndex k, TScalar v) => TScalar (Tensor n k v) where
+instance (TIndex k, TAdd v) => TAdd (Tensor n k v) where
     addS = (&+)
-    subS = (&-)
-    scaleS = (&.)
-    scaleZero = ZeroTensor
+    negateS = negateTens
+    scaleZero = \case
+                    ZeroTensor -> True
+                    _          -> False
 \end{minted} 
 \end{samepage}
 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-instance (TIndex k, TAlgebra v v', TScalar v, TScalar v', 
-         TScalar (TAlg v v')) 
-          => TAlgebra (Tensor n k v) (Tensor m k v') where 
-    type TAlg (Tensor n k v) (Tensor m k v') = Tensor (n+m) k (TAlg v v')
-    prodA = (&*)
+instance (TIndex k, TAdd v) => TAdd (Tensor n k v) where
+    addS = (&+)
+    negateS = negateTens
+    scaleZero = \case
+                    ZeroTensor -> True
+                    _          -> False
 \end{minted} 
 \end{samepage}
 
-Now given this data type \mintinline{haskell}{Tensor2 n1 n2 k v} that represents a standard tensor with not only contravariant indices but also covariant ones we can supplement the previous tensor algebra functions by implementing s notion of contracting such a tensor in two of its indices.
+Now given this data type \mintinline{haskell}{Tensor2 n1 n2 k v} that represents a standard tensor with not only contravariant indices but also covariant ones we can supplement the previous tensor algebra functions by implementing a notion of contracting such a tensor in two of its indices.
 We specify the two indices that shall be contracted by their position in the list of contravariant and covariant indices respectively. The contraction can then be achieved as follows:
 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-tensorContr :: (TIndex k, TScalar v) => (Int,Int) -> Tensor2 n1 n2 k v ->
-               Tensor2 (n1-1) (n2-1) k v 
-tensorContr (0,j) t = fromListT tensList 
+tensorContr :: (TIndex k, TAdd v) => (Int,Int) -> Tensor2 n1 n2 k v
+               -> Tensor2 (n1-1) (n2-1) k v
+tensorContr (0,j) t = fromListT tensList
     where
         l = map (\(x,y) -> (x, toListT y)) $ toListT t
         l2 = map (\(x,y) -> (tailInd x,mapMaybe (removeContractionInd j
             (headInd x)) y)) l
-        l3 = filter (\(_,y) -> not (null y)) l2 
+        l3 = filter (\(_,y) -> not (null y)) l2
         tensList = map (\(x,y) -> (x, fromListT y)) l3
 tensorContr (i,j) (Tensor m) = Tensor $ mapTMap (tensorContr (i-1,j)) m
-tensorContr inds ZeroTensor = ZeroTensor 
+tensorContr inds ZeroTensor = ZeroTensor
 tensorContr inds (Scalar s) = error "cannot contract scalar!"
 \end{minted} 
 \end{samepage}
@@ -3059,13 +3507,13 @@ type AbsTensor8 n1 n2 n3 n4 n5 n6 n7 n8 k1 k2 k3 k4 v
 Further types can easily be defined once they are needed.
 We also employed the convention that functions that are defined for tensors with n are labelled with the respective number of indices n as last letter in the function name.
 
-It is important to note that as the tensor type itself is an instance of \mintinline{haskell}{TScalar} and \mintinline{haskell}{TAlgebra} the tensor algebra operations \mintinline{haskell}{(&+),(&-),(&.),(&*)} are always the same no matter how many different indices the tensor at hand uses. Furthermore also the symmetrization, transposition and the contract still works exactly the same the only thing that one additionally needs to specify now is for which index type the function should be applied. This can be done by noting that \mintinline{haskell}{fmap} takes a function and applies it to the leaves of a given tensor. Thus applying fmap succesively several times we can decent a fixed number of tensor levels in the forest. This can be used to apply functions to tensors that are stored as leaves of other tensors. We provide the following example of the function that precisely decents $3$ tensor levels:
+It is important to note that as the tensor type itself is an instance of \mintinline{haskell}{TAdd} and \mintinline{haskell}{Prod} the tensor algebra operations \mintinline{haskell}{(&+),(&-),(&.),(&*)} are always the same no matter how many different indices the tensor at hand uses. Furthermore also the symmetrization, transposition and the contract still works exactly the same the only thing that one additionally needs to specify now is for which index type the function should be applied. This can be done by noting that \mintinline{haskell}{fmap} takes a function and applies it to the leaves of a given tensor. Thus applying fmap succesively several times we can decent a fixed number of tensor levels in the forest. This can be used to apply functions to tensors that are stored as leaves of other tensors. We provide the following example of the function that precisely decents $3$ tensor levels:
 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-mapTo3 :: (TScalar v1, TScalar v2, TIndex k1, TIndex k2) => (v1 -> v2) ->
-          AbsTensor3 n1 n2 n3 k1 k2 v1 -> AbsTensor3 n1 n2 n3 k1 k2 v2 
-mapTo3 f = fmap (fmap (fmap f))
+mapTo3 :: (v1 -> v2) -> AbsTensor3 n1 n2 n3 k1 k2 v1 -> 
+                        AbsTensor3 n1 n2 n3 k1 k2 v2
+mapTo3 = fmap . fmap . fmap
 \end{minted} 
 \end{samepage}
 
@@ -3073,17 +3521,18 @@ Using this we can for instance symmetrize a given tensor in the covariant indice
 
 \begin{samepage} 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-symATens5 :: (TIndex k1, TIndex k2, TIndex k3, TScalar v) =>
-                 (Int,Int) ->
-                 AbsTensor5 n1 n2 n3 n4 n5 k1 k2 k3 v ->
-                 AbsTensor5 n1 n2 n3 n4 n5 k1 k2 k3 v
-symATens5 inds = mapTo4 (symTens inds) 
+symATens5 :: (TIndex k1, TIndex k2, TIndex k3, TAdd v) =>
+             (Int,Int) ->
+             AbsTensor5 n1 n2 n3 n4 n5 k1 k2 k3 v ->
+             AbsTensor5 n1 n2 n3 n4 n5 k1 k2 k3 v
+symATens5 = mapTo4 . symTens
 \end{minted} 
 \end{samepage}
 
-Similarly all other functions that we encountered so far can be defined for tensors of arbitrarily many different indices as well. In the sparse-tensor library we explicitly provided all involved functions for all possible index sets that are included in the \mintinline{haskell}{AbsTensor8} type. If one wishes to even use more different indices functions that are defied for a single index type can easily be lifted to act on the various different indices by using \mintinline{haskell}{fmap} the appropriate number of times.
+Similarly all other functions that we encountered so far can be defined for tensors of arbitrarily many different indices as well. In the sparse-tensor library we explicitly provided all involved functions for all possible index sets that are included in the \mintinline{haskell}{AbsTensor8} type. If one wishes to even use more different indices functions that are defied for a single index type can easily be lifted to act on the various different indices by using \mintinline{haskell}{fmap} the appropriate number of times. \\
 
-This completes the basic functionality that is provided by the sparse-tensor Haskell library. Further details can be found in (Cite own hackage here !!!)
+This finally covers the most basic functionality that is provided by the sparse-tensor Haskell library. It however allows for much more tensor functions that can be used to treat a large number of tensor algebra related problems that arise in theoretical mathematical physics. 
+Further details can be found in \cite{sparse-tensor} more specifically in the \textit{Tensor} sub module.
 \section{Generation of Lorentz Invariant Basis Tensors}\label{LorentzGen}
 Amongst the entire functionallity provided by the developed Haskell library the generation of Lorentz invariant basis tensors requires the most careful discussion. We have already seen that any such Lorentz invariant tensor must be constructed solely from the Minkowski metric and the Levi-Civita symbol both possibly occuring with upper and lower index position. For the following discussion we restrict to the case where the Lorentz invariant tensor only possesses contravarinat indices. Other cases can obviously be treated analogously. Any general such Lorentz invariant tensor is thus given by a linear combination of sums of products that are formed solely from $\eta^{ab}$ and $\epsilon^{abcd}$.
 We will simply call the individual terms of such a linear combination \textit{\textbf{ansätze}}. Note that each ansatz necessarily features the same symmetry that is required from the Lorentz invariant tensor. The number of factors in the individual products that are included in the various ansätze is obviously solely determined by the required rank of the Lorentz invariant tensor.
@@ -3142,7 +3591,7 @@ Here \mintinline{haskell}{AnsatzForestEta} is the datatype of a linear combinati
 Clearly there exist not algebraic linear dependencies between ansätze that involve an $\epsilon^{abcd}$ and those that do not. 
 It is important to note that there also cannot exist numeric linear dependencies that mix the two types of ansätze. The reason for this is that for a product of $\eta^{ab}$ to yield non vanishing contributions when evaluated on a list of index values, i.e. setting each individual index to a value in $\{0,1,2,3 \}$ each value must occur an even number of times as the individual $\eta^{ab}$ factors have only diagonal entries. In contrast to that evaluating a product of several Minkowski metrics and one $\epsilon^{abcd}$ one additionally needs each possible value for a spacetime index precisely once such that the Levi-Civita symbol yields a non vanishing contribution. Thus for the types of ansätze that include $\epsilon^{abcd}$ to yield a non zero contribution each value of the indices must occur an odd number of times. In total this shows that whenever an ansatz that features no Levi-Civita symbol evaluates to a non zero contribution all possible ansätze that incorporate an $\epsilon^{abcd}$ evaluate to zero and vice versa. Thus the different types of ansätze are also mutually numerically linear independent. In particular we see that the problem of finding a list of ansätze that constitute a basis for the space of Lorentz invariant tensors of given rank and symmetry decouples into the two sub problems of finding those that incorporate an $\epsilon^{abcd}$ and those that do not. The two types of ansätze can hence be treated completely independently. To that end we also chose to represent them using different data types.
 
-The data type \mintinline{haskell}{Map k v} that is used in the  definition of the two ansatz forest types represents a finite map between keys and values that is internally implemented as binary tree\footnote{Details regarding the implementation can be found in \cite{adams_1993}. The \mintinline{haskell}{Map k v} \cite{HackageMap} and many more datatypes can be found in Haskell's central package archive \cite{Hackage}.}. Thus the \mintinline{haskell}{AnsatzForestEta} data type is a forest with nodes being provided by an \mintinline{haskell}{Eta} value and leafs given by a \mintinline{haskell}{Var} value. Similarly the \mintinline{haskell}{AnsatzForestEpsilon} type is given by such a forest with the difference that compared to \mintinline{haskell}{AnsatzForestEta} now the first level nodes are occupied by \mintinline{haskell}{Epsilon} values. Note that the individual sibling sets\footnote{We call a collection of nodes that have a common parent node a sibling set.} of these forest themselves are not provided by a "linear" data structure s.t. lists but by the binary structure of the \mintinline{haskell}{Map k v}. This enhances performance as some of the ansatz forests that we will treat have up to several thousand elements in a single sibling set and the binary structure allows for faster insertion and lookup of elements. Such a binary structure for instance features $\mathcal{O}(\mathrm{log}(n)$ lookup whereas a single linked list in the worst case only provides $\mathcal{O}(n)$ lookup. 
+The data type \mintinline{haskell}{Map k v} that is used in the  definition of the two ansatz forest types represents a finite map between keys and values that is internally implemented as binary tree\footnote{Details regarding the implementation can be found in \cite{adams_1993}. The \mintinline{haskell}{Map k v} \cite{HackageMap} and many more datatypes can be found in Haskell's central package archive \cite{Hackage}.}. Thus the \mintinline{haskell}{AnsatzForestEta} data type is a forest with nodes being provided by an \mintinline{haskell}{Eta} value and leafs given by a \mintinline{haskell}{Var} value. Similarly the \mintinline{haskell}{AnsatzForestEpsilon} type is given by such a forest with the difference that compared to \mintinline{haskell}{AnsatzForestEta} now the first level nodes are occupied by \mintinline{haskell}{Epsilon} values. Note that the individual sibling sets of these forest themselves are not provided by a "linear" data structure s.t. lists but by the binary structure of the \mintinline{haskell}{Map k v}. This enhances performance as some of the ansatz forests that we will treat have up to several thousand elements in a single sibling set and the binary structure allows for faster insertion and lookup of elements. Such a binary structure for instance features $\mathcal{O}(\mathrm{log}(n)$ lookup whereas a single linked list in the worst case only provides $\mathcal{O}(n)$ lookup. 
 
 Furthermore when constructing an \mintinline{haskell}{AnsatzForestEta} we will always ensure that parent nodes are smaller than all of their children, where the order relation is obtained by comparing the individual integers that are contained in a value of type \mintinline{haskell}{Eta}, starting with the first. All further functions will always produce such sorted forests when evaluated on sorted forests as input. 
 The thus obtained ordered forest structure is not only strinkingly performant when inserting and looking up individual ansätze and therfore also when adding two forests it is also particularly suited for evaluating a given linear combination of ansätze on specific index values. note that only 4 out of 16 possible index value pairs yield a non zero contribution to an $\eta^{ab}$ and only 24 out of 256 4 tuples contribute to an $\epsilon^{abcd}$. Thus when explicitly evaluating an ansatz forest on specific index values a large number of nodes will actually evaluate to zero. Further note that the forest structure roughly speaking represents a fully factored product. Thus whenever a given node in the forest evaluates to zero we do not have to evaluate the subforest that is attached to it as the whole expression is then multiplied by zero anyway. This observation allows for very fast evaluation of ansatz forest when implemented by using such tree based data structure. 
@@ -3596,7 +4045,9 @@ reduceLinDepsFastEps evalM symL ansEps = newEpsAns
 This finishes the first, computation time optimized method of constructing a basis of the space of Lorentz invariant tensors of given rank and symmetry that we have implemented in the sparse-tensor library. In order to use the thus computed result, the basis of Lorentz invariant tensors together with the previously presented functionallity of the sparse-tensor package we also provide functions that do not only construct the the ansatz forests but also return the computed Lorentz invariant basis tensor in form of compatible tensor data type. We represent the occuring variables that then necessarily also occur in the components of the tensors as int maps:
 \begin{center}
 \begin{cminted}{haskell}
-newtype AnsVar a = AnsVar (I.IntMap a) deriving (Eq)
+newtype AnsVar a = AnsVar (I.IntMap a) deriving (Show, Generic,Serialize)
+
+type AnsVarR = AnsVar (SField Rational)
 \end{cminted}
 \end{center}
 
@@ -3625,7 +4076,7 @@ The final functions that use the computation time optimized method and return th
 --with explicit symmetrization in tens
 mkAnsatzTensorFastSym :: forall (n :: Nat). SingI n => Int -> Symmetry ->
                          [[Int]]-> (AnsatzForestEta, AnsatzForestEpsilon,
-                         STTens n 0 (AnsVar Rational))
+                         STTens n 0 (AnsVarR))
 mkAnsatzTensorFastSym ord symmetries evalL = (ansEta, ansEps, tens)
     where
         (evalMEtaRed, evalMEpsRed, evalMEtaInds, evalMEpsInds) =
@@ -3644,7 +4095,7 @@ mkAnsatzTensorFastSym ord symmetries evalL = (ansEta, ansEps, tens)
 --without explicit symmetriization in tens
 mkAnsatzTensorFast :: forall (n :: Nat). SingI n => Int -> Symmetry ->
                       [[Int]]-> (AnsatzForestEta, AnsatzForestEpsilon,
-                      STTens n 0 (AnsVar Rational))
+                      STTens n 0 (AnsVarR))
 mkAnsatzTensorFast ord symmetries evalL = (ansEta, ansEps, tens)
     where
         (evalMEtaRed, evalMEpsRed, evalMEtaInds, evalMEpsInds) =
@@ -3662,7 +4113,7 @@ mkAnsatzTensorFast ord symmetries evalL = (ansEta, ansEps, tens)
 mkAnsatzTensorFastAbs :: Int -> Symmetry ->
                          [([Int], Int, [IndTupleAbs n1 0 n2 0 n3 0])] ->
                          (AnsatzForestEta, AnsatzForestEpsilon,
-                         ATens n1 0 n2 0 n3 0 (AnsVar Rational))
+                         ATens n1 0 n2 0 n3 0 (AnsVarR))
 mkAnsatzTensorFastAbs ord symmetries evalL = (ansEta, ansEps, tens)
     where
         (evalMEtaRed, evalMEpsRed, evalMEtaInds, evalMEpsInds) =
@@ -3686,7 +4137,7 @@ Finally we also provide the first two of the above three functions in a form tha
 mkAnsatzTensorFastSym' :: forall (n :: Nat). SingI n => Int ->
                           Symmetry -> (AnsatzForestEta,
                           AnsatzForestEpsilon,
-                          STTens n 0 (AnsVar Rational))
+                          STTens n 0 (AnsVarR))
 mkAnsatzTensorFastSym' ord symmetries = mkAnsatzTensorFastSym
                                             ord symmetries evalL
     where
@@ -3701,7 +4152,7 @@ mkAnsatzTensorFastSym' ord symmetries = mkAnsatzTensorFastSym
 --without explicit symmetrization in tens
 mkAnsatzTensorFast' :: forall (n :: Nat). SingI n => Int -> Symmetry ->
                        (AnsatzForestEta, AnsatzForestEpsilon,
-                       STTens n 0 (AnsVar Rational))
+                       STTens n 0 (AnsVarR))
 mkAnsatzTensorFast' ord symmetries = mkAnsatzTensorFast
                                         ord symmetries evalL
     where
@@ -3859,7 +4310,7 @@ Finally now we can also provide functions that return a triplet consisting of tw
 --with explicit symmetrization in tens
 mkAnsatzTensorEigSym :: forall (n :: Nat). SingI n => Int -> Symmetry ->
                         [[Int]] -> (AnsatzForestEta, AnsatzForestEpsilon,
-                        STTens n 0 (AnsVar Rational))
+                        STTens n 0 (AnsVarR))
 mkAnsatzTensorEigSym ord symmetries evalL = (ansEta, ansEps, tens)
         where
             (evalMEtaRed, evalMEpsRed, evalMEtaInds, evalMEpsInds) =
@@ -3877,7 +4328,7 @@ mkAnsatzTensorEigSym ord symmetries evalL = (ansEta, ansEps, tens)
 --without explicit symmetrization in tens
 mkAnsatzTensorEig :: forall (n :: Nat). SingI n => Int -> Symmetry ->
                      [[Int]] -> (AnsatzForestEta, AnsatzForestEpsilon,
-                     STTens n 0 (AnsVar Rational))
+                     STTens n 0 (AnsVarR))
 mkAnsatzTensorEig ord symmetries evalL = (ansEta, ansEps, tens)
         where
             (evalMEtaRed, evalMEpsRed, evalMEtaInds, evalMEpsInds) =
@@ -3895,7 +4346,7 @@ mkAnsatzTensorEig ord symmetries evalL = (ansEta, ansEps, tens)
 mkAnsatzTensorEigAbs :: Int -> Symmetry ->
                         [([Int], Int, [IndTupleAbs n1 0 n2 0 n3 0])] ->
                         (AnsatzForestEta, AnsatzForestEpsilon,
-                        ATens n1 0 n2 0 n3 0 (AnsVar Rational))
+                        ATens n1 0 n2 0 n3 0 (AnsVarR))
 mkAnsatzTensorEigAbs ord symmetries evalL = (ansEta, ansEps, tens)
     where
         (evalMEtaRed, evalMEpsRed, evalMEtaInds, evalMEpsInds) =
@@ -3916,7 +4367,7 @@ And as before we also provide versions of the first two functions that automatic
 mkAnsatzTensorEigSym' :: forall (n :: Nat). SingI n =>  Int ->
                          Symmetry ->
                          (AnsatzForestEta, AnsatzForestEpsilon,
-                         STTens n 0 (AnsVar Rational))
+                         STTens n 0 (AnsVarR))
 mkAnsatzTensorEigSym' ord symmetries = mkAnsatzTensorEigSym
                                        ord symmetries evalL
     where
@@ -3932,7 +4383,7 @@ mkAnsatzTensorEigSym' ord symmetries = mkAnsatzTensorEigSym
 mkAnsatzTensorEig' :: forall (n :: Nat). SingI n =>  Int ->
                       Symmetry ->
                       (AnsatzForestEta, AnsatzForestEpsilon,
-                      STTens n 0 (AnsVar Rational))
+                      STTens n 0 (AnsVarR))
 mkAnsatzTensorEig' ord symmetries = mkAnsatzTensorEig
                                     ord symmetries evalL
     where
@@ -3941,7 +4392,7 @@ mkAnsatzTensorEig' ord symmetries = mkAnsatzTensorEig
 \end{minted} 
 \end{samepage}
 
-The developed sparse-tensor library also provides further functions that can be usefull when working with the ansatz forest data types. Details can again be found in (cite own hackage package !!!).
+The developed sparse-tensor library also provides further functions that can be usefull when working with the ansatz forest data types. Details can again be found in \cite{sparse-tensor}, specifically in the \textit{LorentzGenerator} sub module.
 
 \section{A Step-By-Step Example}
 In this section we are going to consider an example that shall nicely illustrate how the sparse-tensor package can be used to deal with the kind of problems that arise in the perturbative approach to constructive gravity. To that end we are going to consider the two linear order perturbative equivariance equations (\ref{order1}) in the context of area metric gravity. 
@@ -3972,7 +4423,6 @@ Note that in order for the tensor algebra functions in sparse-tensor to work for
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 instance TIndex Ind3 where
-    indRange x = 4
 
 instance Enum Ind3 where
     toEnum = Ind3
@@ -3986,11 +4436,11 @@ The Kronecker delta can readily be obtained as
 \begin{samepage}
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
-delta3 :: ATens 0 0 0 0 1 1 Rational
+delta3 :: ATens 0 0 0 0 1 1 (SField Rational)
 delta3 = fromListT6 $ zip
          [(Empty, Empty, Empty, Empty,
          singletonInd (Ind3 i), singletonInd (Ind3 i)) | 
-         i <- [0..3]] (repeat 1)
+         i <- [0..3]] (repeat $ SField 1)
 \end{minted} 
 \end{samepage}
 %further comment the use of fromListT6 ??
@@ -4000,8 +4450,8 @@ The three intertwiners can be constructed according to:
 \begin{samepage}
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
-interJ2 :: ATens 0 0 0 1 2 0 Rational
-interJ2 = fromListT6 $ filter (\(i,k) -> k /= 0) $
+interJ2 :: ATens 0 0 0 1 2 0 (SField Rational)
+interJ2 = fromListT6 $ fmap (fmap SField) $ filter (\(i,k) -> k /= 0) $
           map (\x -> (x,f x)) inds
     where
         trian2 = trianMap2
@@ -4018,8 +4468,8 @@ interJ2 = fromListT6 $ filter (\(i,k) -> k /= 0) $
 \begin{samepage}
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
-interIArea :: ATens 1 0 0 0 0 4  Rational
-interIArea = fromListT6 $ filter (\(i,k) -> k /= 0) $
+interIArea :: ATens 1 0 0 0 0 4  (SField Rational)
+interIArea = fromListT6 $ fmap (fmap SField) $ filter (\(i,k) -> k /= 0) $
              map (\x -> (x,f x)) inds
     where
         trianArea = trianMapArea
@@ -4039,8 +4489,8 @@ interIArea = fromListT6 $ filter (\(i,k) -> k /= 0) $
 \begin{samepage}
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
-interJArea :: ATens 0 1 0 0 4 0 Rational
-interJArea = fromListT6 $ filter (\(i,k) -> k /= 0) $
+interJArea :: ATens 0 1 0 0 4 0 (SField Rational)
+interJArea = fromListT6 $ fmap (fmap SField) $ filter (\(i,k) -> k /= 0) $
              map (\x -> (x,f x)) inds
     where
         trianArea = trianMapArea
@@ -4063,7 +4513,7 @@ From the two area metric intetwiners we can compute the constant tensor $C^{Am}_
 
 \begin{center}
 \begin{cminted}{haskell}
-interArea :: ATens 1 1 0 0 1 1 Rational
+interArea :: ATens 1 1 0 0 1 1 (SField Rational)
 interArea = (-4) &. contrATens3 (1,1) (contrATens3 (2,2) $
             contrATens3 (3,3) $ interIArea &* interJArea)
 \end{cminted}
@@ -4074,9 +4524,9 @@ The flat background area metric can simply be constructed as follows:
 \begin{samepage}
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
-flatArea :: ATens 0 1 0 0 0 0 Rational
+flatArea :: ATens 0 1 0 0 0 0 (SField Rational)
 flatArea = fromListT6 $ map (\(i,v) -> ( (Empty, singletonInd $ Ind20 i,
-           Empty, Empty, Empty, Empty), v))
+           Empty, Empty, Empty, Empty), SField v))
            [(0,-1),(5,-1),(6,-1),(9,1),(11,-1),
            (12,-1),(15,1),(18,1),(20,1)]
 \end{minted} 
@@ -4087,7 +4537,7 @@ The next step is the computation of the three bases of Lorentz invariant tensors
 \begin{center}
 \begin{cminted}{haskell}
 let ans0 = fromListT6' [(([],[],[],[],[],[]), AnsVar $ 
-           I.fromList [(1,1)] )] :: ATens 0 0 0 0 0 0 (AnsVar Rational)
+           I.fromList [(1,1)] )] :: ATens 0 0 0 0 0 0 (AnsVarR)
 \end{cminted}
 \end{center}
 
@@ -4121,7 +4571,7 @@ As before \mintinline{haskell}{trianMapArea} is a Map that relates a block of 4 
 \begin{cminted}{haskell}
 let (eta4,eps4,ans4) = mkAnsatzTensorEigAbs 4 symList4 areaList4 :: 
                          (AnsatzForestEta, AnsatzForestEpsilon,
-                         ATens 1 0 0 0 0 0 (AnsVar Rational))
+                         ATens 1 0 0 0 0 0 (AnsVarR))
 \end{cminted}
 \end{center}
 
@@ -4174,7 +4624,7 @@ We now can again construct the ansatz forest
 \begin{cminted}{haskell}
 let (eta6,eps6,ans6) = mkAnsatzTensoreigAbs 6 symList6 areaList6 :: 
                        (AnsatzForestEta, AnsatzForestEpsilon,
-                       ATens 1 0 1 0 0 0 (AnsVar Rational))
+                       ATens 1 0 1 0 0 0 (AnsVarR))
 \end{cminted}
 \end{center}
 
@@ -4193,14 +4643,14 @@ We can now finally construct the two equations in (\ref{order1}):
 \begin{samepage}
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
-eqn1 :: ATens 0 0 0 0 0 0 (AnsVar Rational) ->
-        ATens 1 0 0 0 0 0 (AnsVar Rational) ->
-        ATens 0 0 0 0 1 1 (AnsVar Rational)
+eqn1 :: ATens 0 0 0 0 0 0 (AnsVarR) ->
+        ATens 1 0 0 0 0 0 (AnsVarR) ->
+        ATens 0 0 0 0 1 1 (AnsVarR)
 eqn1 ans0 ans4 = contrATens1 (0,0) (ans4 &* flatInter) &+
                  (ans0 &* delta3)
                  
-eqn2 :: ATens 1 0 1 0 0 0 (AnsVar Rational) ->
-        ATens 0 0 0 0 3 1 (AnsVar Rational)
+eqn2 :: ATens 1 0 1 0 0 0 (AnsVarR) ->
+        ATens 0 0 0 0 3 1 (AnsVarR)
 eqn2 ans6 = contrATens2 (0,0) $ contrATens1 (0,0) $ ans6 &*
             contrATens1 (0,1) (interEqn5 &* flatArea)
     where 
@@ -4221,23 +4671,32 @@ Then we collect the two equations in a list:
 \begin{center}
 \begin{cminted}{haskell}
 let tList = eqn2Area &.&> (singletonTList6 eqn1Area ::
-            TensList6 Ind20 Ind9 Ind3 (AnsVar Rational)) 
+            TensList6 Ind20 Ind9 Ind3 (AnsVarR)) 
 \end{cminted}
 \end{center}
-Then we compute the ran of the collective tensor equations that are included in such a list to find:
+Then we compute the rank of the collective tensor equations that are included in such a list to find:
 \begin{center}
 \begin{cminted}{haskell}
 tensorRank6 tList = 2 
 \end{cminted}
 \end{center}
-We can also extract the information given by the two tensor equations in form of a matrix with as usual columns labeling the 6 variables and rows labeling independent equations. The sparse-tensor function \mintinline{haskell}{toMatList6} for instance returns this matrix in terms of a standard sparse matrix format \mintinline{haskell}{[((Int,Int),Rational)]}, where the pair of integers label row and column and the rational number is the corresponding value. Applying this function we find:
+We can also extract the information given by the two tensor equations in form of a matrix with as usual columns labeling the 6 variables and rows labeling independent equations. The sparse-tensor function \mintinline{haskell}{toMatList6} for instance returns this matrix in terms of a standard sparse matrix format \mintinline{haskell}{[((Int,Int),(SField Rational))]}, where the pair of integers label row and column and the rational number is the corresponding value. Applying this function we find:
 \begin{center}
 \begin{cminted}{haskell}
 toMatList6 tList = [((1,1),1152 % 1),((1,2),576 % 1),((1,3),(-2304) % 1),
                    ((2,4),(-96) % 1),((2,5),192 % 1),((2,6),1 % 1)]
 \end{cminted}
 \end{center}
-Note that the relatively large values are a result of the used factor less symmetrization method. The thus generated output can now easily be used as input for standard computer algebra systems such as Maple or Mathematica that then can be used to actually solve the perturbative equivariance equations.  
+Which in matrix corresponds to 
+\begin{align}
+    \begin{bmatrix}
+    1152 & 576 & -2304 & 0 & 0 & 0 \\
+    0 & 0 & 0 & -96 & 192 & 1
+    \end{bmatrix}.
+\end{align}
+Note that the relatively large values are a result of the used factor less symmetrization method. The thus generated output can now easily be used as input for standard computer algebra systems such as Maple or Mathematica that then can be used to actually solve the perturbative equivariance equations.
+The further required tensors that were used to derive the second order solution displayed in Appendix \ref{AppArea}
+are also included in the sparse-tensor sub modules \textit{Gravity} and \textit{Gravity.DiffeoSymEqns} which can also be found in \cite{sparse-tensor}. 
 
 \chapter{Conclusions}
 
@@ -4334,7 +4793,7 @@ From inserting these expansion coefficients into the perturbative equivariance e
 \end{alignedat}
 \end{align}
 
-\section{2nd Order Area Metric Gravity}
+\section{2nd Order Area Metric Gravity}\label{AppArea}
 Following along the lines prescribed in (\ref{defI}) and (\ref{defJ}) we get the following non vanishing components for the $\boldsymbol{I^A_{abcd}}$ intertwiner on $F_{Area}$:
 \begin{align}\label{AreaI}
     \begin{alignedat}{5}
@@ -6338,6 +6797,12 @@ _{{80}}-1/8\,\nu_{{206}}-{\frac {73\,\nu_{{83}}}{3904}}-{\frac {659\,
 \frac {53\,\nu_{{132}}}{23424}}+{\frac {69\,\nu_{{137}}}{3904}}
 \end{aligned}
 \end{align}
-\printbibliography
 
+
+\printbibliography[
+heading=bibintoc,
+title={Bibliography}
+]
+
+\printunsrtglossaries
 \end{document}
