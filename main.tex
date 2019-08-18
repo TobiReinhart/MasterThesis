@@ -37,23 +37,22 @@
 \newcommand\listofillustrations{
     \chapter*{List of Illustrations}
     \phantomsection
-    \addcontentsline{toc}{chapter}{List of Illustrations}%
     \section*{Figures}
     \phantomsection
-    \addcontentsline{toc}{section}{\protect\numberline{}Figures}%
     \@starttoc{lof}%
     \bigskip
     \section*{Tables}%
     \phantomsection
-    \addcontentsline{toc}{section}{\protect\numberline{}Tables}%
     \@starttoc{lot}%
     \bigskip
     \section*{Algorithms}%
     \phantomsection
-    \addcontentsline{toc}{section}{\protect\numberline{}Algorithms}%
-    \@starttoc{loa}}
+    \@starttoc{loa}
+    }
 
 \makeatother
+
+\renewcommand\listoflistingscaption{List of source code listings}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -558,6 +557,8 @@
 
 \listofillustrations
 
+\listoflistings
+
 \chapter{Introduction: The Aim of Constructive Gravity}
 
 %in introduction: main idea of constructive gravity and reasons for the constructive approach. Maybe also current state of the field (+ lovelock, HKT, bootstrap).
@@ -629,8 +630,9 @@ Note that as the field bundle is required to be given by a vector sub bundle of 
 As we are going to deal with the bundle $(F, \pi_F, M)$ in a rather abstract setting we do not follow this practise but stick to true coordinates $(x^m,v_A)$ on $F$. 
 In order to relate the thus obtained intrinsic description of $F$ to the one that is provided by considering $F$ as being an embedded sub bundle in $T^m_n M$ we construct vector bundle isomorphisms that allow us to identify the two perspectives. We quickly recall the definition of a \textit{\textbf{(vector-)bundle morphism}}:
 \begin{definition}[bundle morphism]
-Given two bundles $(F_1, \pi_{F_1}, M)$ and $(F_2, \pi_{F_2}, N)$, a bundle morphism covering $h : M \rightarrow N$ is a smooth map $f : F_1 \rightarrow F_2$ such that the following diagram commutes.
-\begin{center}
+Given two bundles $(F_1, \pi_{F_1}, M)$ and $(F_2, \pi_{F_2}, N)$, a bundle morphism covering $h : M \rightarrow N$ is a smooth map $f : F_1 \rightarrow F_2$ such that the diagram in figure (\ref{BundleMorph}) commutes.
+\begin{figure}[hbt!]
+\centering 
 \begin{tikzpicture}
 \node (M) at (0,0) {$M$};
 \node (N) at (4,0) {$N$};
@@ -641,7 +643,8 @@ Given two bundles $(F_1, \pi_{F_1}, M)$ and $(F_2, \pi_{F_2}, N)$, a bundle morp
 \draw [-latex] (F1) -- node[pos=0.5, left] {$\pi_{F_1}$} (M);
 \draw [-latex] (F2) -- node[pos=0.5, right] {$\pi_{F_2}$} (N);
 \end{tikzpicture}
-\end{center}
+\caption{Commutative diagram for bundle morphisms.}\label{BundleMorph}
+\end{figure}
 \end{definition}
 \begin{comment}
 \begin{remark}
@@ -914,8 +917,8 @@ As the Lagrangian is a volume form valued bundle map we can take any section $G 
     G &\longmapsto \mathcal{S}_{\mathcal{L}}[G] := \int \mathcal{L}(j^2(G)).
 \end{aligned}
 \end{align}
-The total situation with the various maps that are involved in this construction is displayed in diagram (\ref{diagram1}). 
-\begin{figure}[ht]
+The total situation with the various maps that are involved in this construction is displayed in figure (\ref{diagram1}). 
+\begin{figure}[hbt!]
 \centering
 \begin{tikzpicture}
 \node (M) at (0,0) {$M$};
@@ -955,8 +958,9 @@ To shorten the notation we will refer to actions of $\mathrm{Diff}(M)$ on the va
 Given $\phi \in \mathrm{Diff}(M)$, by this construction we can obtain the corresponding action by bundle isomorphisms on any tensor bundle over $M$. As we have identified the field bundle $F$ with a subbundle of some $T^m_nM$ we can restrict the bundle isomorphisms to $F$ to get an action of $\mathrm{Diff}(M)$ on the field bundle in particular. 
 In order to further lift the action of $\mathrm{Diff}(M)$ to the first jet bundle $J^1F$ and the second jet bundle $J^2F$ respectively we need to develop additional techniques, the main tool being the \textbf{\textit{prolongation of bundle morphisms}}. 
 \begin{definition}[prolongation of morphisms]
-Let $(F_1,\pi_{F_1},M)$ and $(F_2,\pi_{F_2},N)$ be bundles, $\phi : M \rightarrow N$ a diffeomorphism, $f : F_1 \rightarrow F_2$ a bundle morphism covering $\phi$ and $J^1F_1$, $J^1F_2$ the first order jet bundles over $F_1$ and $F_2$ respectively. The first jet bundle lift or prolongation of the bundle morphism $(f,\phi)$ is given by the unique map\footnote{Just as it is the case with bundle morphisms being denoted by pairs $(f,\phi)$ their prolongation should be denoted by triples $(j^1(f),f,\phi)$. However we will lighten their notation to simply $j^1(f)$ if the two remaining maps are clear from the given context.} $j^1(f)$ that lets the following diagram commute.
-\begin{center}
+Let $(F_1,\pi_{F_1},M)$ and $(F_2,\pi_{F_2},N)$ be bundles, $\phi : M \rightarrow N$ a diffeomorphism, $f : F_1 \rightarrow F_2$ a bundle morphism covering $\phi$ and $J^1F_1$, $J^1F_2$ the first order jet bundles over $F_1$ and $F_2$ respectively. The first jet bundle lift or prolongation of the bundle morphism $(f,\phi)$ is given by the unique map\footnote{Just as it is the case with bundle morphisms being denoted by pairs $(f,\phi)$ their prolongation should be denoted by triples $(j^1(f),f,\phi)$. However we will lighten their notation to simply $j^1(f)$ if the two remaining maps are clear from the given context.} $j^1(f)$ that lets the diagram in figure (\ref{ProlongMorph}) commutes.
+\begin{figure}[hbt!]
+\centering
 \begin{tikzpicture}
 \node (M) at (0,0) {$M$};
 \node (N) at (5,0) {$N$};
@@ -973,7 +977,8 @@ Let $(F_1,\pi_{F_1},M)$ and $(F_2,\pi_{F_2},N)$ be bundles, $\phi : M \rightarro
 \draw [-latex] (JF2) -- node[pos=0.5, right] {$(\pi_2)_{1,0}$} (F2);
 \draw [-latex] (JF1) -- node[pos=0.5, above] {$j^1(f)$} (JF2);
 \end{tikzpicture}
-\end{center}
+\caption{Commutative diagram: prolongation of bundle morphisms to first jet bundle.}\label{ProlongMorph}
+\end{figure}
 \end{definition}
 The explicit expression for the prolongation of $(f,\phi)$ is then given by
 \begin{align}
@@ -994,8 +999,9 @@ From the definition of the prolongation of bundle morphisms we then obtain:
 \end{align}
 In other words the induced action of bundle morphisms on sections commutes with the operation of prolonging the involved section and bundle morphisms respectively. We can either first map a section of $F_1$ by using the bundle morphisms $(f,\phi)$ to a section of $F_2$ and then prolong it to a section of $J^1F_2$ or we prolong it first to a section of $J^1F_1$ and then map it with the prolonged bundle morphism $(j^1(f),f,\phi)$ to a section of $J^1F_2$, the result is the same.  \\
 
-We can prolong bundle morphisms to any higher order jet bundle by an equivalent definition, i.e. by defining $j^k(f)$ s.t. the following diagram commutes:
-\begin{center}
+We can prolong bundle morphisms to any higher order jet bundle by an equivalent definition, i.e. by defining $j^k(f)$ s.t. the diagram in figure (\ref{POrolongK}) commutes:
+\begin{figure}[hbt!]
+\centering
 \begin{tikzpicture}
 \node (M) at (0,0) {$M$};
 \node (N) at (5,0) {$N$};
@@ -1012,13 +1018,15 @@ We can prolong bundle morphisms to any higher order jet bundle by an equivalent 
 \draw [-latex] (JF2) -- node[pos=0.5, right] {$(\pi_2)_{k,0}$} (F2);
 \draw [-latex] (JF1) -- node[pos=0.5, above] {$j^k(f)$} (JF2);
 \end{tikzpicture}
-\end{center}
+\caption{Commutative diagram: prolongation of bundle morphisms to k-th order jet bundle.} \label{POrolongK}
+\end{figure}
 One can in particular show that the jet prolongations of bundle morphisms behaves functorial w.r.t. their composition: $j^k(f\circ g) = j^k(f) \circ j^k (g)$. Details regarding the prolongation of bundle morphisms can be found in \cite{saunders_1989}.\\
 
 Now we are in a position where we can formulate what we mean by requiring the gravitational theory to be invariant under spacetime diffeomorphisms in precise manner. We start by recalling the definition of an \textit{\textbf{equivariant}} map. Further information regarding this can be found in \cite{doi:10.1142/3867}.
 \begin{definition}[equivariance]
-Let $M$ and $N$ be some spaces that both carry an action of a group $\mathcal{G}$, $\rho : \mathcal{G} \rightarrow \mathrm{Aut}(M)$ and $\sigma : \mathcal{G} \rightarrow \mathrm{N}$. We call a function $f : M \rightarrow N$ equivariant w.r.t. $\rho$ and $\sigma$ if it holds for all $g \in \mathcal{G}$ that: $f \circ \rho(g) = \sigma(g) \circ f(m)$, i.e. if the following diagram commutes for all $g \in \mathcal{G}$:
-\begin{center}
+Let $M$ and $N$ be some spaces that both carry an action of a group $\mathcal{G}$, $\rho : \mathcal{G} \rightarrow \mathrm{Aut}(M)$ and $\sigma : \mathcal{G} \rightarrow \mathrm{N}$. We call a function $f : M \rightarrow N$ equivariant w.r.t. $\rho$ and $\sigma$ if it holds for all $g \in \mathcal{G}$ that: $f \circ \rho(g) = \sigma(g) \circ f(m)$, i.e. if the diagram displayed in figure (\ref{EquiDia}) commutes for all $g \in \mathcal{G}$:
+\begin{figure}[hbt!]
+\centering
 \begin{tikzpicture}
 \node (M) at (0,0) {$M$};
 \node (N) at (4,0) {$N$};
@@ -1029,7 +1037,8 @@ Let $M$ and $N$ be some spaces that both carry an action of a group $\mathcal{G}
 \draw [<-] (M) -- node[pos=0.5, left] {$\rho(g)$} (M2);
 \draw [<-] (N) -- node[pos=0.5, right] {$\sigma(g)$} (N2);
 \end{tikzpicture}
-\end{center}
+\caption{Commutative diagram: Equivariant map.}\label{EquiDia}
+\end{figure}
 \end{definition}
 Finally we provide a definition for a \textit{\textbf{diffeomorphism invariant Lagrangian field theory}}.
 \begin{definition}
@@ -1094,14 +1103,16 @@ In exactly the same way one can now construct prolongations of vectorfield to hi
     \end{aligned}
 \end{align}
 Performing a similar computation as before in adapted coordinates $(x^m,v_A,v_{Ai}, v_{AI})$ on $J^2F$ we find:
-\begin{multline}\label{LieJ2}
-    \xi_{J^2F} = \xi^m \frac{\partial}{\partial x^m} + C_{An}^{Bm} v_B \partial_m \xi ^n \frac{\partial}{\partial v_A}
+\begin{align}\label{LieJ2}
+\begin{aligned}
+    \xi_{J^2F} = &\xi^m \frac{\partial}{\partial x^m} + C_{An}^{Bm} v_B \partial_m \xi ^n \frac{\partial}{\partial v_A}
     + C_{An}^{Bm} \partial_m \xi^n v_{Bi} \frac{\partial}{\partial v_{Ai}}\\
-    - v_{An} \partial_m \xi ^n \frac{\partial}{\partial v_{Am}} + C_{An}^{Bm} v_B \partial_m \partial_p \xi^n \frac{\partial}{\partial v_{Ap}} 
+    &- v_{An} \partial_m \xi ^n \frac{\partial}{\partial v_{Am}} + C_{An}^{Bm} v_B \partial_m \partial_p \xi^n \frac{\partial}{\partial v_{Ap}} 
     + C_{An}^{Bm} v_{BI} \partial_m \xi ^n \frac{\partial}{\partial v_{AI}}\\
-    - 2 v_{BJ} I^J_{an}J^{am}_I \partial_m \xi^n \frac{\partial}{\partial v_{AI}} + 2 C_{An}^{Bm} v_{Ba}J^{ap}_I \partial_m \partial_p \xi^n \frac{\partial}{\partial v_{AI}}\\
-    - v_{An} J^{pm}_I \partial_m \partial_p \xi^n\frac{\partial}{\partial v_{AI}} + C_{An}^{Bm} v_B J^{pq}_I \partial_m \partial_p \partial_q \xi^n \frac{\partial}{\partial v_{AI}}.
-\end{multline}
+    &- 2 v_{BJ} I^J_{an}J^{am}_I \partial_m \xi^n \frac{\partial}{\partial v_{AI}} + 2 C_{An}^{Bm} v_{Ba}J^{ap}_I \partial_m \partial_p \xi^n \frac{\partial}{\partial v_{AI}}\\
+    &- v_{An} J^{pm}_I \partial_m \partial_p \xi^n\frac{\partial}{\partial v_{AI}} + C_{An}^{Bm} v_B J^{pq}_I \partial_m \partial_p \partial_q \xi^n \frac{\partial}{\partial v_{AI}}.
+\end{aligned}
+\end{align}
 These two expression describe the infinitesimal action of a diffeomorphism that is induced by a vector field $\xi$ on the first and second jet bundle over the field bundle respectively. 
 As the involved maps $j^1(\mathcal{f})$ and $j^2(\mathcal{f})$ or in fact any prolongation to any higher jet bundle $j^q(\mathcal{f})$ define Lie algebra morphisms and hence one in particular finds that they preserve the commutator:
 \begin{align}
@@ -1205,8 +1216,9 @@ Note that it is a priori not clear whether or not such a slicing exists for a gi
 %
 %clarify matter theory statement
 
-In addition to the smoothly parameterized family of embeddings $\phi_{\lambda}$ a slicing on $M$ immediately induces a \textit{\textbf{time vector field}} and a \textit{\textbf{time differential}} one form on $M$. The one form can be obtained as differential $\mathrm{d}t$ of the function $t:=\pi_{\mathbb{R}} \circ \phi^{-1}$, where $\pi_{\mathbb{R}}$ denotes the canonical project of $\Sigma \times \mathbb{R}$ onto the second factor: 
-\begin{center}
+In addition to the smoothly parameterized family of embeddings $\phi_{\lambda}$ a slicing on $M$ immediately induces a \textit{\textbf{time vector field}} and a \textit{\textbf{time differential}} one form on $M$. The one form can be obtained as differential $\mathrm{d}t$ of the function $t:=\pi_{\mathbb{R}} \circ \phi^{-1}$, where $\pi_{\mathbb{R}}$ denotes the canonical project of $\Sigma \times \mathbb{R}$ onto the second factor. The situation is displayed in figure (\ref{DiagrTime}).
+\begin{figure}[hbt!]
+\centering
 \begin{tikzpicture}
 \node (S) at (0,0) {$\Sigma \times \mathbb{R}$};
 \node (M) at (4,0) {$M$};
@@ -1214,8 +1226,9 @@ In addition to the smoothly parameterized family of embeddings $\phi_{\lambda}$ 
 \draw [<-] (S) -- node[pos=0.5, above] {$\phi^{-1}$} (M);
 \draw [-latex] (S) -- node[pos=0.5, left] {$\pi_{\mathbb{R}}$} (R);
 \draw [-latex] (M) -- node[pos=0.5, right] {$t$} (R);
-\end{tikzpicture} .
-\end{center}
+\end{tikzpicture} 
+\caption{Commutative diagram: Slicing induced time function.}\label{DiagrTime}
+\end{figure}
 The time vector field can be constructed by first defining for all $s \in \Sigma$ the following map 
 \begin{align}
 \begin{aligned}
@@ -1601,18 +1614,20 @@ where the product of $\Lambda^3\Sigma_{t_0}$-valued maps is defined by $f \mathr
 Our main goal in the following section will be to translate the PDE system (\ref{DiffeoEqn}) that is obtained from the diffeomorphism equivariance of the Lagrangian into a language that allows us to use the resulting equations in the formulation of Hamiltonian dynamics. To this end we chose adapted coordinates on $J^1F$ that additionally satisfy $x^0 = t$ and hence we find $\frac{\partial}{\partial t} = \frac{\partial}{\partial x^0}$ and $\dot{v}_A = v_{A0}$. 
 
 From the expression (\ref{LieJ1}) of the Lie algebra morphism $j^1(\mathcal{f})$ that lifts vectorfields $\xi \in \Gamma(TM)$ to vector fields on $J^1F$ we then find that using the decomposition map $\beta_{t_0}$ the lift of vectorfields to $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ reads:
-\begin{multline}\label{LieJ1Dec}
-    \xi_{J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}} = \xi^m \frac{\partial}{\partial x^m} + C_{An}^{Bm} v_B \partial_{m} \xi ^n \frac{\partial}{\partial v_A}
+\begin{align}\label{LieJ1Dec}
+\begin{aligned}
+    \xi_{J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}} = \ &\xi^m \frac{\partial}{\partial x^m} + C_{An}^{Bm} v_B \partial_{m} \xi ^n \frac{\partial}{\partial v_A}
     + C_{An}^{Bm} \partial_{m} \xi^n v_{B\nu} \frac{\partial}{\partial v_{A\nu}}\\
-    + C_{An}^{Bm} \partial_{m} \xi^n \dot{v}_{B} \frac{\partial}{\partial \dot{v}_A} - v_{A\nu} \partial_{\mu} \xi^{\nu} \frac{\partial}{\partial v_{A\mu}} 
+    &+ C_{An}^{Bm} \partial_{m} \xi^n \dot{v}_{B} \frac{\partial}{\partial \dot{v}_A} - v_{A\nu} \partial_{\mu} \xi^{\nu} \frac{\partial}{\partial v_{A\mu}} 
      - v_{A\nu} \partial_{0} \xi^{\nu} \frac{\partial}{\partial \dot{v}_{A}} 
-    - \dot{v}_{A} \partial_{\mu} \xi^{0} \frac{\partial}{\partial v_{A\mu}}
-     - \dot{v}_{A} \partial_{0} \xi^{0} \frac{\partial}{\partial \dot{v}_{A}}\\
+    - \dot{v}_{A} \partial_{\mu} \xi^{0} \frac{\partial}{\partial v_{A\mu}}\\
+     &- \dot{v}_{A} \partial_{0} \xi^{0} \frac{\partial}{\partial \dot{v}_{A}}
     + C_{An}^{B\mu} v_B \partial_{\mu} \partial_{\nu} \xi^n \frac{\partial}{\partial v_{A\nu}}
-    + C_{An}^{B0} v_B \partial_{0} \partial_{\nu} \xi^n \frac{\partial}{\partial v_{A\nu}}
-    + C_{An}^{B\mu} v_B \partial_{\mu} \partial_{0} \xi^n \frac{\partial}{\partial \dot{v}_{A}}
+    + C_{An}^{B0} v_B \partial_{0} \partial_{\nu} \xi^n \frac{\partial}{\partial v_{A\nu}}\\
+    &+ C_{An}^{B\mu} v_B \partial_{\mu} \partial_{0} \xi^n \frac{\partial}{\partial \dot{v}_{A}}
     + C_{An}^{B0} v_B \partial_{0} \partial_{0} \xi^n \frac{\partial}{\partial \dot{v}_{A}}.
-\end{multline}
+\end{aligned}
+\end{align}
 %use x^0 or t ???
 If a given Lagrangian on $J^1F$ is now diffeomorphism invariant from this action of vectorfields on the space of functions on $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ we obtain the following system of PDEs for the corresponding time dependent Lagrangian with coordinate expression $\mathcal{L}_{t_0} = L_{t_0}\mathrm{d}^3x$:
 \begin{align}\label{diffeoHam}
@@ -1788,7 +1803,7 @@ We have Hojman, Kuchař and Teitelboim who derived the GR dynamics from the requ
 
 With the formerly developed deeper understanding at hand all these methods can be understood as incorporating the principle of diffeomorphism invariance on different levels. Lovelock obviously directly required diffeomorphism invariant dynamics. Hojman, Kuchař and Teitelboim used the hypersurface deformation algebra as guiding principle and required to obtain a representation thereof in the canonical formulation of dynamics. As we have seen in the above this is however a necessary consequence fulfilled by the Hamiltonian dynamics of any diffeomorphism invariant field theory. Finally Deser's self-coupling approach uses energy momentum conversation as driving force. The energy momentum tensor obtained from diffeomorphism invariance via the usual Noether construction presented in \cite{Gotay1992StressEnergyMomentumTA}, that furthermore in the case of GR boils down to the known formula, is always conserved. Hence also here the central requirement can be understood as a consequence of diffeomorphism invariance. \\
 
-Finally we wish to comment on more recent work \cite{2018PhRvD..97h4036D}, \cite{2012PhRvD..85j4042G} and also \cite{2017arXiv170803870S}, where the authors use a similar approach as the one used by Hojman, Kuchař and Teitelboim, however comprehensively generalised to not only recover Einsteinian dynamics but provide a framework that essentially allows one to compute dynamical equations to any given geometry at wish. Also here the fundamental requirement is the representation of the hypersurface deformation algebra in terms of the constraint algebra of the canonical formulation of dynamics. There the observer used there depends on the causal structure of given matter dynamics that use the gravitational field as background geometry, more precisely the principal polynomial of the matter EOM. This quantity also appears in one commutation relations of the hypersurface deformation algebra. Requiring the constraint algebra to form a representation of this the authors conclude that the guiding principle of their framework is the \textit{\textbf{causal compatibility}} between matter gravitational dynamics.
+Finally we wish to comment on more recent work \cite{2018PhRvD..97h4036D}, \cite{2012PhRvD..85j4042G} and also \cite{2017arXiv170803870S}, where the authors use a similar approach as the one used by Hojman, Kuchař and Teitelboim, however comprehensively generalised to not only recover Einsteinian dynamics but provide a framework that essentially allows one to compute dynamical equations to any given geometry at wish. Also here the fundamental requirement is the representation of the hypersurface deformation algebra in terms of the constraint algebra of the canonical formulation of dynamics. There the observer used there depends on the causal structure of given matter dynamics that use the gravitational field as background geometry, more precisely the principal polynomial of the matter EOM. This quantity also appears in one commutation relations of the hypersurface deformation algebra. Requiring the constraint algebra to form a representation of this the authors conclude that the guiding principle of their framework is the \textit{\textbf{causal compatibility}} between matter gravitational dynamics.\\
 
 Although the ideas underlying the causal compatibility between matter and gravitational dynamics presented in the referenced work is unarguably of fundamental importance\footnote{We will in fact return to precisely these requirements in the following section.} the interpretation that this constitutes the main ingredient of their framework solely from the appearance of the principal polynomial --- already here the authors of \cite{2018PhRvD..97h4036D} remark that this appearance can in fact be traced back to the used observer frame --- in one of the commutation relations of the hypersurface defomation algebra seems a bit ad hoc.
 With our developements in mind we would argue that also in their framework the one and only guiding principal is the requirement of the to-be-constructed dynamics to be invariant under spacetime diffeomorphisms.
@@ -1830,8 +1845,8 @@ Considering this it is particularly interesting to first prolong a given PDE and
 \begin{example}
 Consider the PDE on the first order jet bundle over the trivial bundle $\mathbb{R}^3 \times \mathbb{R}$ with jet bundle  coordinates $(x,y,z,u,u_x,u_y,u_z)$ defined by 
 \begin{align}
-    R_1 : \begin{cases} u_z + y \cdot u_x = 0 \\
-                        u_y = 0.
+    R_1 : \begin{cases} u_z + y \cdot u_x &= 0 \\
+                        u_y &= 0.
             \end{cases}
 \end{align}
 prolonging the first equation w.r.t. $y$, i.e. applying the total derivative 
@@ -1867,8 +1882,8 @@ where $a_{AI_k}$ are constants. Note in particular that the $q$-th jet prolongat
 Hence plugging in the finite power series into the PDE $\Phi^{\tilde{A}} =0$ and evaluating at $x^m=x^m_0$ yields a purely algebraic equation system for the expansion coefficients up to order $g$ that we can solve. Prolonging the equation to order $q+r$ and then plugging in the power series ansatz we then obtain algebraic equations for the higher expansion coefficients up to order $q+r$ that feature the priorly solved coefficients $a_{AI_0},...,a_{AI_q}$ as inhomogenities. We then can solve these equations for the new expansion coefficients $a_{AI_{q+1}}...a_{AI_{q+r}}$. The solutions in general will be given by expressions that contain the lower order coefficients:
 \begin{align}
 \begin{aligned}
-&R_q : \Phi^{\tilde{A}}(x_0^m,a_A,...,a_{AI_q}) = 0 \\
-&R_{q+r} : D_{J_r}\Phi^{\tilde{A}}(x_0^m,a_A,...,a_{AI_{q+r}}) = 0,
+R_q &: \Phi^{\tilde{A}}(x_0^m,a_A,...,a_{AI_q}) &&= 0 \\
+R_{q+r} &:  D_{J_r}\Phi^{\tilde{A}}(x_0^m,a_A,...,a_{AI_{q+r}}) &&= 0,
 \end{aligned}
 \end{align}
 where as before $D_{J_r} = J^{i_1...i_r}_{J_r} D_{i_1} ... D_{i_r}$.
@@ -1893,10 +1908,11 @@ Similarly we can directly obtain the symbol of the prolonged equations $R_{q+r}$
 Will will synonymously call the matrix and the cooresponding equation system the symbol of the PDE, the precise meaning can be inferred from the context. When constructing order by order power series solutions precisely those $a_{AI_q}$ that lie in the kernel of the symbol $M_q$ can be specified arbitrarily. In particular their number is equal to the dimension of the kernel of $M_q$. The total number of expansion coefficients in the given order $q$ can be computed to be given by $n\binom{m+q-1}{m-1}$.
 Hence the rank of the symbol $M_q$ and all its prolongations $M_{q+r}$ govern all the information regarding the size of the solution space of the given PDE. Furthermore note that the for integrability conditions to occur one must be able by means of some linear combinations to get rid of the highest derivative order contributing to a certain equation. Such linear combinations obviously only exists if the symbol has sub maximal rank.  In fact integrability conditions can only occur if the symbol suffers from rank defects. This can be seen in more detail by prolonging a given PDE and then taken its linearization, i.e. the Jacobi matrix of its representation:
 \begin{align}
+\def\arraystretch{2.5}
 \begin{bmatrix}
-        \frac{\partial D_i\Phi^{\tilde{A}}}{\partial v_{AI_{q+1}}} & \vline & \frac{\partial D_i \Phi^{\tilde{A}}}{\partial v_{AI_k}} \ \ k \leq q \\
+      \ \ \frac{\partial D_i\Phi^{\tilde{A}}}{\partial v_{AI_{q+1}}} \ & \vline & \frac{\partial D_i \Phi^{\tilde{A}}}{\partial v_{AI_k}}, \ \ k \leq q \ \  \\
         \cmidrule(lr){1-3}
-        0 & \vline & \frac{\partial \Phi^{\tilde{A}}}{\partial v_{AI_k}} \ \ k \leq q 
+        0 & \vline & \frac{\partial \Phi^{\tilde{A}}}{\partial v_{AI_k}}, \ \ k \leq q \ \
 \end{bmatrix}.
 \end{align}
 %reformat this, use tikz ??
@@ -2016,8 +2032,8 @@ Returning to the relevant example of $E^A$ describing the second derivative orde
 Taking now a closer look at the PDE (\ref{DiffeoEqn}) that such EOM then necessarily  satisfy we find from the last such equation:
 \begin{align}\label{symbolDef}
 \begin{aligned}
-    T^{A B} (k) C_{An}^{Cm}v_Ck_m = 0 \\
-    T^{B A} (k) C_{An}^{Cm}v_Ck_m = 0 .
+    T^{A B} (k) C_{An}^{Cm}v_Ck_m &= 0 \\
+    T^{B A} (k) C_{An}^{Cm}v_Ck_m &= 0 .
 \end{aligned}
 \end{align}
 Hence there exits 4 independent vectors $C_{An}^{Cm}v_Ck_m$ that are in the kernel of the principal symbol and $T^{AB}(k)$ is not injective but as a 4 dimensional rank defekt\footnote{Note that this is closely related to the previous derivation of the 4 constraints of such EOM.}. To compensate for that we have to require $T^{AB}(k)$ to not only be injective but to have at least a 5 dimensional kernel in order to ensure to have at least a one dimensional subspace in this kernel of $T^{AB}(k)$ that is not generate simply due to the gauge symmetry of the theory at hand. More formally we require that the adjunct matrix of order $4$ vanishes. Here the adjunct matrix of order $4$ is the $\binom{n}{4} \times \binom{n}{4}$ square matrix, with $n$ as before being the fibre dimension of the relevant field bundle, that has entries given by the order $4$ sub determinants of $T^{AB}(k)$:
@@ -2061,8 +2077,8 @@ Hence we have seen that for a wave ansatz of the form (\ref{waveAns}) to provide
 Such one forms are called \textit{\textbf{characteristic}} one forms. We can now restrict the principal polynomial to a given point $p \in M$ to obtain 
 \begin{align}
     \begin{aligned}
-    \mathcal{P}_p : &T^{\ast}_pM \longrightarrow \mathbb{R}\\
-    &k \longmapsto \mathcal{P}(k).
+    \mathcal{P}_p : T^{\ast}_pM &\longrightarrow \mathbb{R}\\
+    k &\longmapsto \mathcal{P}(k).
     \end{aligned}
 \end{align}
 The set of one forms that are characteristic in $p \in M$ is then precisely given as \textbf{\textit{vanishing set}} of the polynomial function $\mathcal{P}_p$ and will be denoted by $V_p(\mathcal{P}_p)$. Sometimes it is also called characteristic variety as it can be shown that this indeed defines a variety in the strict algebraic sense. Returning to our wave ansatz we now see that precisely those $k \in V_p(\mathcal{P}_p)$ are admissible wave covectors for a non trivial solution of the given PDE. Hence the principal polynomial encodes the entire information regarding the propagation of such wave like solution in the geometric optical limit.\\ 
@@ -2084,7 +2100,7 @@ If a given polynomial $\mathcal{P}_p$ is hyperbolic and hence we find such $h\in
 We call $C_p(\mathcal{P}_p,h)$ the \textbf{\textit{hyperbolicity cone}} containing $h$. One can also show that $C_p(\mathcal{P}_p,h)$ indeed constitutes an open and convex cone \cite{10.2307/24900665}.
 \end{remark}
 The notion of hyperbolic polynomials and the corresponding hyperbolicity cones is best illustrated by a picture. 
-\begin{figure}[ht]
+\begin{figure}[hbt!]
     \centering
     \includegraphics[width=0.8\textwidth]{Poly.pdf}
     \caption{Hyperbolicity cone $C_p$ and vanishing set $V_p$ of a second and a fourth degree polynomial (see \cite{Rivera}).}
@@ -2116,8 +2132,8 @@ where $F_{grav}$ is the gravitational field bundle. Additionally we now also hav
 where $F_{mat}$ is the matter field bundle. In the following we will denote adapted coordinates on $J^1F_{mat}$ by $(x^m,\phi^{\tilde{A}},\phi^{\tilde{A}}_m)$ Hence the total Lagrangian is given by:
 \begin{align}
 \begin{aligned}
-    \mathcal{L}_{tot} : &J^2F_{grav} \times J^1F_{mat} \longrightarrow \Lambda^4M \\
-    &\mathcal{L}_{tot} = \mathcal{L}_{grav} + \mathcal{L}_{mat}.
+    \mathcal{L}_{tot} : J^2F_{grav} \times J^1F_{mat} &\longrightarrow \Lambda^4M \\
+    \mathcal{L}_{tot} &= \mathcal{L}_{grav} + \mathcal{L}_{mat}.
 \end{aligned}
 \end{align}
 We now get two sets of EOM one from taking the variational derivative of $\mathcal{L}_{tot}$ w.r.t the gravitational field bundle coordinates, i.e. the gravitational EOM and one from taking the variational deriavtive w.r.t. the matter field bundle coordinates $\phi^{\tilde{A}}$, the matter EOM.
@@ -2163,7 +2179,7 @@ Note that then $C_{p,grav} = C_{p,mat}$ immediately follows. Further note that a
 Summing up the previous achievements it is now conceptually completely clear how we must proceed to find the most general gravitational lagrangian that is compatible with any given matter theory. We first solve the equivariance equations (\ref{DiffeoEqn}) to implement the required diffeomorphism invariance of the theory of gravity paying close attention to make sure that the resulting EOM are of no higher than second derivative order. Then we compute the gravitational principal polynomial and compare it to the one obtained from the matter theory. We require that at each spacetime point the two polynomials define the same vanishing set and by this get further conditions the gravitational lagrangian has to solve, this time encoding the causal compatibility between matter theory and gravity.\\
 
 We end this section by reformulating the previous results in terms of a definite construction recipe that is displayed as Algorithm (\ref{Algo1}).
-\begin{algorithm}[ht]
+\begin{algorithm}[hbt!]
 \SetAlgoLined
 \KwData{Matter theory $ \mathcal{L}_{mat} : F_{grav} \times J^1F_{mat} \rightarrow \Lambda^4M$
 }
@@ -2266,13 +2282,13 @@ This is no special property of the homogeneous PDE in consideration but is actua
 What remains show is that the presence of the inhomogenity in $(\ref{DiffeoEqnFormal})$ does not change this observation, i.e. does not generate integrability conditions. We again work in the coordinates $y_a$. The inhomogenity is only present in the equations $5-20$ and only when the indices in (\ref{DiffeoEqnFormal}) are such that $m = n$. We label the equations s.t. it contributes to equation $5,9,13$ and $17$. In each case the contribution is simply given by an extra term of $+l$ and the respective equations $\Tilde{E}_{\sigma}$ of the inhomogeneous PDE read now 
 \begin{align}
      \tilde{E}_{\sigma} = \begin{cases}
-     E_{\sigma} + l \ \text{for} \ \sigma \in \{ 5,9,13,17 \}\\
-     E_{\sigma} \ \text{else}.
+     E_{\sigma} + l \ &\text{for} \ \sigma \in \{ 5,9,13,17 \}\\
+     E_{\sigma} \ &\text{else}.
      \end{cases}
 \end{align}
 One can now show along the same lines the we followed in the homogeneous case that the inhomogeneous system is involutive if for any two such equations $\tilde{E}_{\sigma}$ and $\tilde{E}_{\tau}$ the so called \textit{\textbf{Jacobi brackets}} or sometimes also called Mayer bracket 
 \begin{align}
-  \llbracket \tilde{E}_{\sigma}, \tilde{E}_{\tau} \rrbracket = \sum _{i = 1}^{\mathcal{k}} (\frac{\partial \tilde{E}_{\sigma}}{\partial l_i}) D_{i}\tilde{E}_{\tau} -  (\frac{\partial \tilde{E}_{\tau}}{\partial l_i}) D_{i}\tilde{E}_{\sigma} 
+  \llbracket \tilde{E}_{\sigma}, \tilde{E}_{\tau} \rrbracket = \sum _{i = 1}^{\mathcal{k}} \biggl(\frac{\partial \tilde{E}_{\sigma}}{\partial l_i}\biggr) D_{i}\tilde{E}_{\tau} -  \biggl(\frac{\partial \tilde{E}_{\tau}}{\partial l_i}\biggr) D_{i}\tilde{E}_{\sigma} 
 \end{align}
 vanish on $R_1$ (see  \cite{seiler1994analysis} and also also Example 2.3.12 in \cite{seiler2009involution}), i.e. can be obtained by linear combinations of unprolonged equations. Comparing this to the previous case where the possible integrability conditions where built from the commutator we now get extra terms whenever either $\sigma$, $\tau$ or both are contained in $\{ 5,9,13,17 \}$. Consider first the case where $\sigma \in \{5,9,13,17\}$ but not $\tau$, then we have $\tilde{E}_{\sigma} = E_{\sigma} + l$ and $\tilde{E}_{\tau} = E_{\tau}$ and hence using the linearity of the Jacobi bracket
 \begin{align}
@@ -2372,15 +2388,17 @@ Before we write down the concrete expression for the expansion of the Lagrangian
 %
 As before the $a^{\mathcal{I}_k} =: a^{A_1I_{k_1}...A_nI_{k_n}}$ are constants. 
 In order to clarify this last expression further we now explicitly provide the first three orders of this expansion. For that particular case we drop any numerical factors due to the intertwiners as this simply corresponds to redefining the constants. Furthermore as before we are going to split the sums over the ${A_iI_{k_i}}$ into the different contributions $(v_A,v_{Ap},v_{AI})$:
-\begin{multline}\label{LPert}
-    L_{per} = a_0 + a^A H_A + a^{Ap} H_{Ap} + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ABp}H_A H_{Bp} + a^{ABI} H_{A} H_{BI}\\
-    +a^{ApBI}H_{Ap} H_{BI} + a^{AIBJ} H_{AI}H_{BJ} + a^{ABC} H_a H_B H_C 
+\begin{align}\label{LPert}
+\begin{aligned}
+    L_{per} = &a_0 + a^A H_A + a^{Ap} H_{Ap} + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ABp}H_A H_{Bp} + a^{ABI} H_{A} H_{BI}\\
+    &+a^{ApBI}H_{Ap} H_{BI} + a^{AIBJ} H_{AI}H_{BJ} + a^{ABC} H_a H_B H_C 
     + a^{ABCp} H_A H_B H_{Cp} \\
-    +a^{ABCI} H_A H_B H_{CI} + a^{ABpCq} H_{A}H_{BP}H_{Cq} + a^{ABpCI} H_A H_{Bp} H_{CI}\\
-    + a^{ABICJ} H_A H_{BI}H_{CJ} 
+    &+a^{ABCI} H_A H_B H_{CI} + a^{ABpCq} H_{A}H_{BP}H_{Cq} + a^{ABpCI} H_A H_{Bp} H_{CI}\\
+    &+ a^{ABICJ} H_A H_{BI}H_{CJ} 
     + a^{ApBqCm} H_{Ap} H_{Bp} H_{Cm}+ a^{ApBq CI} H_{Ap} H_{BP} H_{CI}\\
-    + a^{Ap BI CJ} H_{Ap} H_{BI} H_{CJ} + a^{AIBJCK} H_{AI} H_{BJ} H_{CK} + \mathcal{O}(4),
-\end{multline}
+    &+ a^{Ap BI CJ} H_{Ap} H_{BI} H_{CJ} + a^{AIBJCK} H_{AI} H_{BJ} H_{CK} + \mathcal{O}(4),
+\end{aligned}
+\end{align}
 where $\mathcal{O}(4)$ denotes terms that are of order 4 or higher in any $(H_{AI_k})$. We now proceed exactly as outlined before in calculating the perturbative solution to solution to (\ref{DiffeoEqn}) from the above power series ansatz of the Lagrangian. We start by plugging in the expansion (\ref{LPert}) into the PDE (\ref{DiffeoEqnFormal}) and evaluate at the expansion point $p_0$. Note that evaluating at $p_0$ in coordinates corresponds to evaluating at $(H_{AI_k})=0$. This then yields equations for the expansion constants $a_0, a^A, a^{Ap}$ and $a^{AI}$. To obtain equations for the remaining higher order expansion coefficients we simply prolong the PDE again insert the series expansion and evaluate at $p_0$. As we have shown that PDE (\ref{DiffeoEqnFormal}) is involutive there will not occur integrability conditions.\\
 
 There is however one obstruction to this procedure that will become noticeable by providing additional lower order equations that are revealed only after prolongations, yet they have nothing to do with integrability conditions. 
@@ -2660,7 +2678,7 @@ We complete the chapter by providing an explicit recipe (\ref{Algo2}) for the pe
 %
 %
 %
-\begin{algorithm}[ht]
+\begin{algorithm}[hbt!]
 \SetAlgoLined
 \KwData{Matter theory $\mathcal{L}_{mat} : F_{grav} \times J^1F_{mat} \rightarrow \Lambda^4M$, expansion order $k \in \mathbb{N}$, flat Lorentz invariant expansion point $p_0 \in F_{grav}$}
 \KwResult{Most general diffeomorphism invariant, causal compatible gravitational Lagrangian expanded as finite power series $\mathcal{L}_{grav,per}$ to order $k$ around $p_0$}
@@ -2829,8 +2847,8 @@ As mentioned earlier in this section Lovelock has shown that the only diffeomorp
 where the two constant parameters $\kappa$ and $\Lambda$ are called gravitational constant and cosmological constant respectively. Here $R$ is the so called Ricci scalar. As we have mentioned earlier in this thesis one usually first constructs the Riemann tensor, the curvature two form of the unique metric compatible connection on the frame bundle over $M$. From this one obtaines the Ricci tensor by computing its trace. Finally one contracts the Ricci-tensor with the inverse metric to end up with the Ricci scalar $R$. From the point of view of classical field theory all the deeper connections to Riemanian geometry that are present the above procedure are however actually not necessary. The only important fact one really needs is that the Ricci scalar defines a function on $J^2F_{GR}$. To that end reacall that any non degenerate metric defines a smooth bundle isomorphism 
 \begin{align}\label{music}
 \begin{aligned}
-\flat : TM \longrightarrow T^{\ast}M\\
-X \longmapsto g(X,-) .
+\flat : TM &\longrightarrow T^{\ast}M\\
+X &\longmapsto g(X,-) .
 \end{aligned}
 \end{align}
 Through this construction we therefore also obtain an isomorphism between the field bundle $F_{GR}$ and its dual $F_{GR}^{\ast}$ that with a slight abuse of notation will also be called $\flat$. 
@@ -2901,7 +2919,7 @@ In the following we are going to construct the perturbative expansion of such a 
 
 To that end we quickly want to translate $\mathcal{L}_{GLED}$ into the language of jet bundles. Note that the electromagnetic field strength can be expressed in terms of the 1 form $A \in \Gamma(\Lambda^1(M))$ as:
 \begin{align}
-F = F_{ab} \mathrm{d}x^a \otimes \mathrm{d}x^b = 2 \partial_{[a} A_{b]}\mathrm{d}x^a \otimes \mathrm{d}x^b.
+F = F_{ab} \cdot  \mathrm{d}x^a \otimes \mathrm{d}x^b = 2 \partial_{[a} A_{b]} \cdot \mathrm{d}x^a \otimes \mathrm{d}x^b.
 \end{align}
 Thus $F$ can be understood as a function on the first order jet bundle $J^1(\Gamma^1M)$. We again use adapted coordinate $(x^m,u_a,u_{am})$ on this bundle. Together with the area metric field bundle $F_{Area}$ and the bundle isomorphism $\flat_{Area}$ we thus see that the GLED Lagrangian describes a bundle map $\mathcal{L}_{GLED} : F_{Area} \times J^1(\Lambda^1M) \rightarrow \Lambda^4M $, where now also $\omega_G$ is understood as a bundle map on $\Lambda^1M$.  
 
@@ -3140,7 +3158,7 @@ As first observation note that except for parameters that label the independent 
 
 Furthermore it is important to grasp that the use of abstract indices $I, A, ...$ leads to a severe reduction in computation costs and is thus best included in the computer program. For instance contracting two blocks with $4$ indices each that both admit the symmetry of an area metric tensor against each other requires the summation of $4^4 = 256$ expressions. In contrast to that introducing an abstract index $A = 0,...,20$ that runs over the independent components such a area metric block contains, the contraction only requires the summation of $21$ expressions.
 
-Finally we can additionally derive a benefit from the fact that the tensors that occur in the treatment of the perturbative equivariance equations are to a large extent only sparsely occupied. Hence it is best to also only work with the non zero components in teh computer program. Providing an example the area metric intertwiner with components displayed in (\ref{AreaI}) only contains $144$ non vanishing components out of a total of $21 \cdot 4^4 = 5376$ total components which admits to an occupation level of around $2.68 \%$.
+Finally we can additionally derive a benefit from the fact that the tensors that occur in the treatment of the perturbative equivariance equations are to a large extent only sparsely occupied. Hence it is best to also only work with the non zero components in the computer program. Providing an example the area metric intertwiner with components displayed in (\ref{AreaI}) only contains $144$ non vanishing components out of a total of $21 \cdot 4^4 = 5376$ total components which admits to an occupation level of around $2.68 \%$.
 
 Summing up we want to incorporate the following functionallity in our computer program:
 \begin{itemize}
@@ -3151,9 +3169,9 @@ Summing up we want to incorporate the following functionallity in our computer p
 
 Additionally to the three requirements displayed above we are going to encode the generalized rank of a given tensor --- for standard tensors described by contravariant and covariant indices the rank is expressed as pair ($\#$ of contravariant indices, $\#$ of covariant indices), consequently we express the rank of a tensor that takes $n$ contravariant and $n$ covariant index types as the corresponding $2n$-tuple of numbers of indices --- directly in its type. Doing so Haskell's type system guarantees a prevention of possible errors that might for instance occur when by mistake adding tensors of different ranks. The detection of such errors then already happens during compile time. During our usage of the developed computer algebra framework this feature really turned out to be vital as entering the complicated equations involving multiple indices that one wishes to solve in the perturbative framework of constructive gravity often led to minor mistakes that where then immediately detected when compiling the programm and not after possibly several hours of runtime.
 
-We start with the basic datatype that we chose to represent a tensor of arbitrary rank that only takes a single index type, i.e. We can think of such a type as representing tensors with only contravariant incices of the given type. Using Haskell's generalised algebraic data types, in short \textit{\textbf{GADT}}s the data type definition of such a single index tensor looks as follows: 
+We start with the basic datatype that we chose to represent a tensor of arbitrary rank that only takes a single index type, i.e. We can think of such a type as representing tensors with only contravariant incices of the given type. Using Haskell's generalised algebraic data types, in short \textit{\textbf{GADT}}s the data type definition of such a single index tensor is displayed in listing (\ref{TensorDat}). 
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG
 ]{haskell}
 -- | Basic tensor data types.
@@ -3166,7 +3184,8 @@ data Tensor n k v where
     -- | Represents a @'Tensor'@ that is identical zero.
     ZeroTensor :: Tensor n k v
 \end{minted} 
-\end{samepage}
+\caption{Tensor data type.}\label{TensorDat}
+\end{listing}
 
 Hence the tensor data type \mintinline{haskell}{Tensor n k v} contains additional type information consisting of a type level natural number \mintinline{haskell}{n} representing the rank of the tensor, i.e. its number of indices and types \mintinline{haskell}{k} and \mintinline{haskell}{v} that encode the type of index the tensor takes and the type of values it stores. The data type then provides three constructors: \mintinline{haskell}{Scalar} constructs a rank 0 tensor, i.e. a scalar out of a given value, the constructor \mintinline{haskell}{Tensor} takes an ordered list of (index, subtensor) pairs
 \begin{center}
@@ -3177,7 +3196,7 @@ type TMap k v = [(k,v)]
 where the subtensors have rank \mintinline{haskell}{n} and constructs from it a \mintinline{haskell}{Tensor (n+1) k v} with rank \mintinline{haskell}{n+1} and \mintinline{haskell}{ZeroTensor} simply represents a tensors of arbitrary rank with all components being identical zero. Thus a tensor is represented as ordered forest\footnote{A colletion of disjoint ordered trees.} with additional type information regarding rank, index type and stored values. Including an ordering of the individual sibling sets \footnote{We call a collection of nodes that have a common parent node a sibling set.} allows for faster insertion and lookup operations. All further functions that we define for the types \mintinline{haskell}{Tensor} and \mintinline{haskell}{TMap} will maintain this ordering.
 
 To retrieve a value of a tensor of rank \mintinline{haskell}{n} we need to specify \mintinline{haskell}{n} values of the appropriate type \mintinline{haskell}{k}. It is important to understand that the distinction between the individual indices is not provided by some abstract labels that are attached to them but simply by their position. To rovide an example figure \ref{ExampleTens} displays the forest structure of a rank $2$ tensor that uses \mintinline{haskell}{Ind3} types, i.e. spacetime indices with potential values between $0$ and $3$ as index type and stores rational numbers as values.
-\begin{figure}[ht]
+\begin{figure}[hbt!]
 \centering
 \begin{tikzpicture}[roundnode/.style={rectangle, draw=black, fill=LG, very thick, minimum size=7mm},]
 \node[roundnode]  (I1) at (0,0) {\mintinline{haskell}{Ind3 0}};
@@ -3224,9 +3243,9 @@ T^{30} &= \frac{1}{3}, & T^{31} &= 1, & T^{33} &= \frac{1}{2}.
 
 In order for tensors represented this way to satisfy the usual tensor algebra some restrictions on the possibly stored values are necessary. In particular we need to be able to add and subtract the stored values as this is necessary when adding and subtracting tensors.
 More precisely the types that we might use as value must constitute an additive group. 
-We collect such types that constitute a group and the corresponding group methods in the \mintinline{haskell}{TAdd} \textit{\textbf{type class}}:
+We collect such types that constitute a group and the corresponding group methods in the \mintinline{haskell}{TAdd} \textit{\textbf{type class}} displayed in (\ref{TAdd}).
 
-\begin{samepage} 
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 class TAdd a where
     -- | Test whether the given element is zero, i.e. the neutral
@@ -3240,11 +3259,12 @@ class TAdd a where
     subS :: a -> a -> a
     subS a b = a `addS` negateS b
 \end{minted} 
-\end{samepage}
+\caption{Addition type class.}\label{TAdd}
+\end{listing}
 
-Furthermore when forming the product of two tensors or also scaling a given tensor with a number we also need to be able to compute products of the tensor values or between tensors values and scalars. This requirement is encoded in the additional \mintinline{haskell}{TProd} type class:
+Furthermore when forming the product of two tensors or also scaling a given tensor with a number we also need to be able to compute products of the tensor values or between tensors values and scalars. This requirement is encoded in the additional \mintinline{haskell}{TProd} type class (\ref{Prod}).
 
-\begin{samepage} 
+\begin{listing}[hbt!] 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 class Prod v v' where
     -- | Type level function that returns the type of the result of
@@ -3253,7 +3273,8 @@ class Prod v v' where
     -- | Product function.
     prod :: v -> v' -> TProd v v'
 \end{minted} 
-\end{samepage}
+\caption{Product type class.}\label{Prod}
+\end{listing}
 
 Note that the above type class not only requires the existence of a function \mintinline{haskell}{prod} that computes the products of any two stored values of types \mintinline{haskell}{v} and \mintinline{haskell}{v'}, it also requires its instances to provide a type level function that computes the new type of such a product \mintinline{haskell}{TProd v v'} once the types \mintinline{haskell}{v} and \mintinline{haskell}{v'} are specified.
 
@@ -3280,9 +3301,9 @@ class (Eq a, Ord a, Enum a) => TIndex a where
 Restricting now to tensors with indices and values being instances of these type classes we can define the usual tensor algebra operations.
 Note that these operations provide the \mintinline{haskell}{Tensor} type with the structure of the usual graded\footnote{A graded algebra is an algebra whose elements can be labeled by elements of some monoid (such as positive integers equipped with addition) or group such that the algebra multiplication is consistent with the group operation of the labels. The label of an algebra element is called its grade.} (see for instance \cite{bourbaki1998algebra}) tensor algebra on the type level. In other words the grade of the individual tensors will be directly reflected by their type.
 
-We start with the addition:
+The source code for achieving the addition of two tensors is provided in listing (\ref{Addition}).
 
-\begin{samepage} 
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 (&+) :: (TIndex k, TAdd v) => Tensor n k v -> Tensor n k v ->
                               Tensor n k v
@@ -3291,11 +3312,12 @@ We start with the addition:
 (&+) t1 ZeroTensor = t1
 (&+) ZeroTensor t2 = t2
 \end{minted} 
-\end{samepage}
+\caption{Addition of tensors.}\label{Addition}
+\end{listing}
 
-Here \mintinline{haskell}{addTMaps} is a function that adds the two \mintinline{haskell}{TMaps k v} of the two tensors with a combiner function that is called to obtain the appropriate value if an index is present in both lists of type \mintinline{haskell}{TMaps k v}. It further ensures the order of the indices is still valid when combining the two lists. In the case above the combiner function is again the addition of tensors, this time however only applied to the appropriate subtensors. 
+Here \mintinline{haskell}{addTMaps} (see listing (\ref{addTmaps})) is a function that adds the two \mintinline{haskell}{TMaps k v} of the two tensors with a combiner function that is called to obtain the appropriate value if an index is present in both lists of type \mintinline{haskell}{TMaps k v}. It further ensures the order of the indices is still valid when combining the two lists. In the case above the combiner function is again the addition of tensors, this time however only applied to the appropriate subtensors. 
 
-\begin{samepage} 
+\begin{listing}[hbt!] 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 addTMaps :: (Ord k) => (v -> v -> v) -> TMap k v -> TMap k v ->
                                         TMap k v 
@@ -3306,19 +3328,21 @@ addTMaps f ((k1,v1):xs) ((k2,v2):ys)
             | k2 < k1 = (k2,v2) : (addTMaps f ((k1,v1):xs) ys)
             | k1 == k2 = (k1, f v1 v2) : (addTMaps f xs ys) 
 \end{minted} 
-\end{samepage}
+\caption{Helper function addTMaps for tensor addition.}\label{addTmaps}
+\end{listing}
 
-Scalar multiplication and subtraction can now be implemented straight forwardly.
+Scalar multiplication (see listing (\ref{ScalarProd})) and subtraction (see listing (\ref{SubTens})) can now be implemented straight forwardly.
 
-\begin{samepage} 
+\begin{listing}[hbt!] 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 (&.) :: (TIndex k, Prod s v) => s -> Tensor n k v ->
                                      Tensor n k (TProd s v)
 (&.) scalar = fmap (prod scalar)
 \end{minted} 
-\end{samepage}
+\caption{Scalar multiplication of Tensors.}\label{ScalarProd}
+\end{listing}
 
-\begin{samepage} 
+\begin{listing}[hbt!] 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 (&-) :: (TIndex k, TAdd v) => Tensor n k v -> Tensor n k v ->
                               Tensor n k v
@@ -3327,22 +3351,24 @@ Scalar multiplication and subtraction can now be implemented straight forwardly.
 (&-) t1 ZeroTensor = t1
 (&-) ZeroTensor t2 = negateS t2
 \end{minted} 
-\end{samepage}
+\caption{Subtraction of tensors.}\label{SubTens}
+\end{listing}
 
-Where \mintinline{haskell}{fmap} similar to the discussed case of mapping a function over a list of values maps a function over the values of a given tensor and is provided by the functor instance of the tensor data type:
+Where \mintinline{haskell}{fmap} similar to the discussed case of mapping a function over a list of values maps a function over the values of a given tensor and is provided by the functor instance (see (\ref{Functor})) of the tensor data type:
 
-\begin{samepage} 
+\begin{listing}[hbt!] 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 instance Functor (Tensor n k) where 
         fmap f (Scalar x) = Scalar (f x)
         fmap f (Tensor m) = Tensor (mapTMap (fmap f) m)
         fmap f ZeroTensor = ZeroTensor 
-\end{minted} 
-\end{samepage}
+\end{minted}
+\caption{Functor instance of Tensor type.}\label{Functor}
+\end{listing}
 
-The product of two tensors can be implemented by appending the second tensor to each of the leafs of the first tensor that is specified. This is done such that the indices of the first tensor always are included in the result before the indices of the second tensors, i.e. the order of indices in the newly obtained tensor is the same as one would expect from naively writing down such a tensor product:
+The product of two tensors displayed in (\ref{TensorProd}) can be implemented by appending the second tensor to each of the leafs of the first tensor that is specified. This is done such that the indices of the first tensor always are included in the result before the indices of the second tensors, i.e. the order of indices in the newly obtained tensor is the same as one would expect from naively writing down such a tensor product.
 
-\begin{samepage} 
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 (&*) :: (TIndex k, Prod v v') => Tensor n k v -> Tensor m k v' ->
                                  TProd (Tensor n k v) (Tensor m k v')
@@ -3351,15 +3377,15 @@ The product of two tensors can be implemented by appending the second tensor to 
 (&*) (Tensor m) t2 = Tensor $ mapTMap (&* t2) m
 (&*) t1 ZeroTensor = ZeroTensor
 (&*) ZeroTensor t2 = ZeroTensor
-\end{minted} 
-\end{samepage}
+\end{minted}
+\caption{Tensor product.}\label{TensorProd}
+\end{listing}
 
 Here \mintinline{haskell}{mapTMap} maps a function over the values of the key value pairs \mintinline{haskell}{(k,v)} stored in the \mintinline{haskell}{TMap k v}.
 Note that not only the rank of the resulting tensor depends on the ranks of the two input tensors --- The resulting precisely given as sum of the two input ranks. This is exactly where the grading of the tensor algebra is reflected on the type level --- also the types that are stored in it as values clearly depend on the respective types of the intput tensors. This is exactly where the second typeclass \mintinline{haskell}{TProd v v'} comes to use. 
+When symmetrizing a given tensor we need to be able to swap the position of some of the tensors indices. This is done by the following function (\ref{TensorTrans}).
 
-When symmetrizing a given tensor we need to be able to swap the position of some of the tensors indices. This is done by the following function:
-
-\begin{samepage} 
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 tensorTrans :: (TIndex k, TAdd v) => (Int,Int) -> Tensor n k v ->
                                      Tensor n k v
@@ -3369,12 +3395,13 @@ tensorTrans (0, j) t = fromListT l
 tensorTrans (i, j) (Tensor m) = Tensor $
                                 mapTMap (tensorTrans (i-1, j-1)) m
 tensorTrans (i ,j) ZeroTensor = ZeroTensor
-\end{minted} 
-\end{samepage}
+\end{minted}
+\caption{Transposition of Tensors in two indices.}\label{TensorTrans}
+\end{listing}
 
 The two indices w.r.t. which the tensor is transposed are provided by the integer tuple, where the indices are labeled w.r.t. their position starting from 0. The function first traverses the tensor until the level\footnote{We will call the distance of a given node to the root node of the appropriate tree the level of the node.} specified by the first, i.e. the smaller integer is reached. Then all corresponding sub tensors are completely flattened to lists of indices value pairs. This is precisely what \mintinline{haskell}{toListT} does. Now in each of the thus obtained indices value lists of the various sub tensors by using the function \mintinline{haskell}{swapHead} the first and the j-th entry of the indices are swaped. Finally by using  \mintinline{haskell}{fromListT} the indices value lists are again transformed to a tensor.  Applying this function to the previously provided rank 2 example tensor with the integer pair given as \mintinline{haskell}{(0,1)} we obtain the following transposed rank 2 tensor that is displayed in figure \ref{ExampleTensTrans}.
 
-\begin{figure}[ht]
+\begin{figure}[hbt!]
 \centering
 \begin{tikzpicture}[roundnode/.style={rectangle, draw=black, fill=LG, very thick, minimum size=7mm},]
 \node[roundnode]  (I1) at (0,0) {\mintinline{haskell}{Ind3 0}};
@@ -3414,32 +3441,34 @@ The two indices w.r.t. which the tensor is transposed are provided by the intege
 \caption{Forest structure of transposed rank 2 tensor from figure (\ref{ExampleTens}).}\label{ExampleTensTrans}
 \end{figure}
 
-Similar to the transposition of two indices we can now obviously construct functions that transpose a given tensor in several indices or even completely reorder the positions of the various indices. 
-\begin{samepage} 
+Similar to the transposition of two indices we can now obviously construct functions that transpose a given tensor in several indices or even completely reorder (see \ref{resortTens}) the positions of the various indices. 
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 resortTens :: (KnownNat n, TIndex k, TAdd v) => [Int] -> Tensor n k v ->
                                                 Tensor n k v
 resortTens perm t = fromListT $
                     map (\(x,y) -> (resortInd perm x, y)) $ toListT t
 \end{minted} 
-\end{samepage}
+\caption{General reordering of Tensor indices.}\label{resortTens}
+\end{listing}
 
 The function takes as argument a list of integers where the i-th elements specifies the position on which the i-th index in the tensor shall be sorted. For instance the integer list \mintinline{haskell}{[3,0,2,1]} sorts the 0th index of the tensor to position \mintinline{haskell}{3}, the first index on position \mintinline{haskell}{0}, the second index on position \mintinline{haskell}{2} and the third an dlast index on position \mintinline{haskell}{1}. Note that the length of the provided integer list must be the same as the number of indices in the given tensor.  The resorting is then achieved by flattening the tensor to a list of indices value pairs, resorting the indices as specified and then reconstructing the tensor from the newly obtained indices value list. 
 
-Knowing how we can transpose and resort the indices of a given tensor we can easily construct arbitrary symmetrization functions, simply by rearranging the indices of a given tensor accordingly and then adding this newly obtained tensor to the previous one. We only provide the example of the standard symmetrization w.r.t. the exchange of too individual indices explicitly:
+Knowing how we can transpose and resort the indices of a given tensor we can easily construct arbitrary symmetrization functions, simply by rearranging the indices of a given tensor accordingly and then adding this newly obtained tensor to the previous one. We only provide the example of the standard symmetrization w.r.t. the exchange of too individual indices explicitly (\ref{symTens}).
 
-\begin{samepage} 
+\begin{listing}[hbt!] 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 symTensFac :: (TIndex k, TAdd v, Prod (SField Rational) v) => (Int,Int)
               -> Tensor n k v -> Tensor n k (TProd (SField Rational) v)
 symTensFac inds t = (SField $ 1%2) &. symTens inds t
 \end{minted} 
-\end{samepage}
+\caption{Pair symmetrization of Tensors.}\label{symTens}
+\end{listing}
 
 Any other symmetrization can be constructed in similar ways.
-Of course we can also evaluate a given tensor by inserting a particular value for one of its indices. This can be achieved as follows:
+Of course we can also evaluate a given tensor by inserting a particular value for one of its indices. This can be achieved as displayed in listing (\ref{evalTens}).
 
-\begin{samepage} 
+\begin{listing}[hbt!] 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 evalTens :: (KnownNat (n+1), TIndex k, TAdd v) => Int -> k ->
             Tensor (n+1) k v -> Tensor n k v
@@ -3452,8 +3481,9 @@ evalTens ind indVal (Tensor m)
                 size = length $ fst $ head $ toListT' (Tensor m)
                 l = [1..ind] ++ 0 : [ind+1..size -1]
                 newTens = resortTens l (Tensor m)
-\end{minted} 
-\end{samepage}
+\end{minted}
+\caption{Evaluation function for Tensors.}\label{evalTens}
+\end{listing}
 
 If the tensor is to be evaluated for its 0-th index we simply look up the corresponding value in the top level of the forest. In any other case we first shift the corresponding level of the forest that is to be evaluated to the front to then again proceed as described in the prior case. Evaluating a tensor for a particular value of one of its indices then return the appropriate sub tensor. 
 
@@ -3468,9 +3498,9 @@ Thus \mintinline{haskell}{Tensor2 n1 n2 k v} describes as before a contravariant
 
 Note that in the definition of most of the above functions the types that tensors might store as values where constrained to be instances of \mintinline{haskell}{TScalar} and \mintinline{haskell}{TAlgebra}. 
 In order to be able to also use these functions for  \mintinline{haskell}{Tensor2}, i.e. for the case where the stored values are itself tensors it is necessary that the \mintinline{haskell}{Tensor} type itself provides an instance of these two type classes. In other words we must now define the neccessary functions that make the data type
-\mintinline{haskell}{Tensor n k v} an instance of \mintinline{haskell}{TScalar} and \mintinline{haskell}{TAlgebra}:
+\mintinline{haskell}{Tensor n k v} an instance of \mintinline{haskell}{TAdd} (\ref{TensTAdd}) and \mintinline{haskell}{Prod} (\ref{TensProd}):
 
-\begin{samepage} 
+\begin{listing}[hbt!] 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 instance (TIndex k, TAdd v) => TAdd (Tensor n k v) where
     addS = (&+)
@@ -3478,24 +3508,25 @@ instance (TIndex k, TAdd v) => TAdd (Tensor n k v) where
     scaleZero = \case
                     ZeroTensor -> True
                     _          -> False
-\end{minted} 
-\end{samepage}
+\end{minted}
+\caption{TAdd instance of the Tensor type.}\label{TensTAdd}
+\end{listing}
 
-\begin{samepage} 
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
-instance (TIndex k, TAdd v) => TAdd (Tensor n k v) where
-    addS = (&+)
-    negateS = negateTens
-    scaleZero = \case
-                    ZeroTensor -> True
-                    _          -> False
+instance (TIndex k, Prod v v') => 
+    Prod (Tensor n k v) (Tensor n' k v') where
+        type TProd (Tensor n k v) (Tensor n' k v') = 
+            Tensor (n+n') k (TProd v v')
+        prod = (&*)
 \end{minted} 
-\end{samepage}
+\caption{Prod instance of the Tensor type.}\label{TensProd}
+\end{listing}
 
 Now given this data type \mintinline{haskell}{Tensor2 n1 n2 k v} that represents a standard tensor with not only contravariant indices but also covariant ones we can supplement the previous tensor algebra functions by implementing a notion of contracting such a tensor in two of its indices.
-We specify the two indices that shall be contracted by their position in the list of contravariant and covariant indices respectively. The contraction can then be achieved as follows:
+We specify the two indices that shall be contracted by their position in the list of contravariant and covariant indices respectively. The contraction can then be achieved as displayed in the listing (\ref{TensorContr}).
 
-\begin{samepage} 
+\begin{listing}[hbt!] 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 tensorContr :: (TIndex k, TAdd v) => (Int,Int) -> Tensor2 n1 n2 k v
                -> Tensor2 (n1-1) (n2-1) k v
@@ -3510,7 +3541,8 @@ tensorContr (i,j) (Tensor m) = Tensor $ mapTMap (tensorContr (i-1,j)) m
 tensorContr inds ZeroTensor = ZeroTensor
 tensorContr inds (Scalar s) = error "cannot contract scalar!"
 \end{minted} 
-\end{samepage}
+\caption{Contraction of Tensors.}\label{TensorContr}
+\end{listing}
 
 The integer pair \mintinline{haskell}{(Int,Int)} labels the two index positions. If the first integer is not zero we traverse the tensor forest until we reach the appropriate level specified by it. Next the remaining sub tensors are all flattened to lists of indices value pairs. In each such list we filter those indices value pairs that admit equal values for the two indices that are to be contracted and hence contribute when during the contraction the two indices are set equal. Then these two indices are removed such that the pairs with equal values of the two contraction indices now all have the same indices. This is all done by the function \mintinline{haskell}{removeContractionInd}. Finally we reconstruct the individual sub tensors from the flattened lists ensuring that the values of these pairs with same indices are summed up and thus yield the correct value of the contracted tensor. \\
 
@@ -3530,19 +3562,20 @@ type AbsTensor8 n1 n2 n3 n4 n5 n6 n7 n8 k1 k2 k3 k4 v
 Further types can easily be defined once they are needed.
 We also employed the convention that functions that are defined for tensors with n are labelled with the respective number of indices n as last letter in the function name.
 
-It is important to note that as the tensor type itself is an instance of \mintinline{haskell}{TAdd} and \mintinline{haskell}{Prod} the tensor algebra operations \mintinline{haskell}{(&+),(&-),(&.),(&*)} are always the same no matter how many different indices the tensor at hand uses. Furthermore also the symmetrization, transposition and the contract still works exactly the same the only thing that one additionally needs to specify now is for which index type the function should be applied. This can be done by noting that \mintinline{haskell}{fmap} takes a function and applies it to the leaves of a given tensor. Thus applying fmap succesively several times we can decent a fixed number of tensor levels in the forest. This can be used to apply functions to tensors that are stored as leaves of other tensors. We provide the following example of the function that precisely decents $3$ tensor levels:
+It is important to note that as the tensor type itself is an instance of \mintinline{haskell}{TAdd} and \mintinline{haskell}{Prod} the tensor algebra operations \mintinline{haskell}{(&+),(&-),(&.),(&*)} are always the same no matter how many different indices the tensor at hand uses. Furthermore also the symmetrization, transposition and the contract still works exactly the same the only thing that one additionally needs to specify now is for which index type the function should be applied. This can be done by noting that \mintinline{haskell}{fmap} takes a function and applies it to the leaves of a given tensor. Thus applying fmap succesively several times we can decent a fixed number of tensor levels in the forest. This can be used to apply functions to tensors that are stored as leaves of other tensors. We provide the following example (\ref{mapTo3}) of a function that precisely descents $3$ tensor levels.
 
-\begin{samepage} 
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 mapTo3 :: (v1 -> v2) -> AbsTensor3 n1 n2 n3 k1 k2 v1 -> 
                         AbsTensor3 n1 n2 n3 k1 k2 v2
 mapTo3 = fmap . fmap . fmap
-\end{minted} 
-\end{samepage}
+\end{minted}
+\caption{Function that descents 3 tensor levels.}\label{mapTo3}
+\end{listing}
 
-Using this we can for instance symmetrize a given tensor in the covariant indices of the second index type as follows:
+Using this we can for instance symmetrize a given tensor in the covariant indices of the second index type by the function (\ref{ASymDeep}).
 
-\begin{samepage} 
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch = 1.2, bgcolor=LG]{haskell}
 symATens5 :: (TIndex k1, TIndex k2, TIndex k3, TAdd v) =>
              (Int,Int) ->
@@ -3550,7 +3583,8 @@ symATens5 :: (TIndex k1, TIndex k2, TIndex k3, TAdd v) =>
              AbsTensor5 n1 n2 n3 n4 n5 k1 k2 k3 v
 symATens5 = mapTo4 . symTens
 \end{minted} 
-\end{samepage}
+\caption{Anti symmetrization of deeper tensor indices. }\label{ASymDeep}
+\end{listing}
 
 Similarly all other functions that we encountered so far can be defined for tensors of arbitrarily many different indices as well. In the sparse-tensor library we explicitly provided all involved functions for all possible index sets that are included in the \mintinline{haskell}{AbsTensor8} type. If one wishes to even use more different indices functions that are defied for a single index type can easily be lifted to act on the various different indices by using \mintinline{haskell}{fmap} the appropriate number of times. \\
 
@@ -3562,8 +3596,11 @@ We will simply call the individual terms of such a linear combination \textit{\t
 
 Due to the well known identity $\epsilon^{abcd}\epsilon^{efgh} = 24 \eta^{[a\vert e}\eta^{\vert b \vert f}\eta^{\vert c \vert g}\eta^{\vert d] h}$ we only need to treat the two cases where in the individual products either no $\epsilon^{abcd}$ is present or precisely one $\epsilon^{abcd}$ is included, any other case then reduces to one of these as we can use the identity to pairwise eliminate Levi-Civita symbols by means of Minkowski metrics. 
 
-As we do not only want to construct the most general Lorentz invariant tensor possible by means of including all possible ansätze in the linear combination but also want the individual ansätze to form a basis for the space of such Lorentz invariant tensors of given rank and symmetry we obviously need to get rid of linear dependencies amongst the individual ansätze. Clearly a set of ansätze is linear dependent if we find a non trivial linear combinations of them that yielsd zero. 
-There is however an additional dimension dependent mechanism that generates further linear dependencies between ansätze that are at the first sight not as obvious. Such additional linear dependencies might occur for instance if due to the involved required symmetry of the ansätze we canconstruct linear combinations of ansätze that are not strictly zero but yield an expression that is totally antisymmetric in $5$ or more of its indices. As we are working in $4$ spacetime dimension such an expression evaluates to zero on all possible index combinations. Thus the ansätze in consideration are in fact linear dependent, although at first glance they might not seem to be so. In order to distinguish such additional linear dependencies that are generated in this fashion, from the former case we introduce the following terminology: We call a set of ansätze \textit{\textbf{algebraically linear dependent}} if there exits a non trivial linear combination of these that yields identical zero. In particular when investigating algebraic linear dependencies there is no need to evaluate the components of the expressions explicitly. Algebraic linear dependency is therefore completely independent of the given dimension that we work in. We call it \textbf{\textit{numerically linear dependent}} if there exist a non trivial linear combination that vanishes when evaluated on all possible index combinations. This now clearly is a dimension dependent notion as for instance an expression that is totally antisymmetric in $5$ indices evaluates to zero on all possible index combinations when working in $4$ dimension, it however does not so if working in $5$ dimensions or higher. Obviously every algebraically linear dependent set of ansätze is also numerically linear dependent. The converse is however clearly not true.
+As we do not only want to construct the most general Lorentz invariant tensor possible by means of including all possible ansätze in the linear combination but also want the individual ansätze to form a basis for the space of such Lorentz invariant tensors of given rank and symmetry we obviously need to get rid of linear dependencies amongst the individual ansätze. Clearly a set of ansätze is linear dependent if we find a non trivial linear combinations of them that yielsd zero. \\
+
+There is however an additional dimension dependent mechanism that generates further linear dependencies between ansätze that are at the first sight not as obvious. Such additional linear dependencies might occur for instance if due to the involved required symmetry of the ansätze we canconstruct linear combinations of ansätze that are not strictly zero but yield an expression that is totally antisymmetric in $5$ or more of its indices. As we are working in $4$ spacetime dimension such an expression evaluates to zero on all possible index combinations. Thus the ansätze in consideration are in fact linear dependent, although at first glance they might not seem to be so. 
+
+In order to distinguish such additional linear dependencies that are generated in this fashion, from the former case we introduce the following terminology: We call a set of ansätze \textit{\textbf{algebraically linear dependent}} if there exits a non trivial linear combination of these that yields identical zero. In particular when investigating algebraic linear dependencies there is no need to evaluate the components of the expressions explicitly. Algebraic linear dependency is therefore completely independent of the given dimension that we work in. We call it \textbf{\textit{numerically linear dependent}} if there exist a non trivial linear combination that vanishes when evaluated on all possible index combinations. This now clearly is a dimension dependent notion as for instance an expression that is totally antisymmetric in $5$ indices evaluates to zero on all possible index combinations when working in $4$ dimension, it however does not so if working in $5$ dimensions or higher. Obviously every algebraically linear dependent set of ansätze is also numerically linear dependent. The converse is however clearly not true. \\
 
 The above considerations are best seen when working out a particular example: We take the two expressions $\epsilon^{abcd} \eta^{pq}$ and $\epsilon^{abcp} \eta^{dq}$ and symmetrize s.t. the expressions admit the area metric symmetry in $abcd$, i.e. are antisymmetric in $ab$ and $cd$ and additionally obey the block symmetry $(ab) \leftrightarrow (cd)$. Doing so we get the two ansätze: 
 \begin{itemize}
@@ -3575,9 +3612,9 @@ Clearly these two ansätze are not algebraically linear dependent. Subtracting t
 Summing up, if the goal not only consists of computing the most general Lorentz invariant tensor of given symmetry but if the individual building blocks the ansätze are further required to be linear independent it does not suffice to take into account algebraic linear dependencies but we also have to ensure that the ansätze are numerically linear independent.  \\
 
 In order to achieve performance it is essential to pick suitable data structures for representing a linear combination of ansätze. As usual the data structures must be tailored towards the specific needs that are in this case the symmetrization of such linear combinations but also their explicit evaluation on specific index values.  
-The individual tensors $\eta^{ab}$ and $\epsilon^{abcd}$ can simply be represented as follows:
+The individual tensors $\eta^{ab}$ and $\epsilon^{abcd}$ can simply be represented as displayed in (\ref{EtaType}).
 
-\begin{samepage} 
+\begin{listing}[hbt!] 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 data Epsilon = Epsilon {-# UNPACK #-} !Int {-# UNPACK #-} !Int
@@ -3590,15 +3627,16 @@ data Eta = Eta {-# UNPACK #-} !Int {-# UNPACK #-} !Int
 data Var = Var {-# UNPACK #-} !Int {-# UNPACK #-} !Int 
            deriving (Show, Read, Eq, Ord, Generic, Serialize, NFData )
 \end{minted} 
-\end{samepage}
+\caption{Data types for Minkowski metric, Levi-Civita symbol and variables.}\label{EtaType}
+\end{listing}
 
 Note that the integer values of the the data types \mintinline{haskell}{Eta} and \mintinline{haskell}{Epsilon} are used to label the abstract spacetime indices, i.e. the first index will simply be labels by $1$ the second index by $2$, etc. in particular they do not refer to values that these indices might admit.
 Furthermore we also defined a basic variable data type to encode the parameters that will later multiply the individual ansätze to form a linear combination. The \mintinline{haskell}{Var}
-data type simply takes two integer values where the first one refers to an integer factor that multiplies the variable\footnote{When using factor less symmetrization (for details see the discussion following (\ref{ansatzExample})) it actually turns out that it suffices to use integers for representing the factors in front of the different variables.} and the second one provides an identifier that labels the different variables. 
+data type simply takes two integer values where the first one refers to an integer factor that multiplies the variable\footnote{When using factor less symmetrization (for details see the discussion following (\ref{ansatzExample})) it actually turns out that it suffices to use integers for representing the factors in front of the different variables.} and the second one provides an identifier that labels the different variables. \\
 
-Using these data types we can encode a general linear combination of ansätze as:
+Using these data types we can encode a general linear combination of ansätze (\ref{AnsForest}).
 
-\begin{samepage} 
+\begin{listing}[hbt!] 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 data AnsatzForestEta = ForestEta (M.Map Eta AnsatzForestEta)| Leaf !Var
@@ -3607,24 +3645,27 @@ data AnsatzForestEta = ForestEta (M.Map Eta AnsatzForestEta)| Leaf !Var
 
 type AnsatzForestEpsilon = M.Map Epsilon AnsatzForestEta
 \end{minted} 
-\end{samepage}
+\caption{Data type for linear combinations of ansätze.}\label{AnsForest}
+\end{listing}
 
 Here \mintinline{haskell}{AnsatzForestEta} is the datatype of a linear combination of ansätze that each solely involve $\eta^{ab}$ whereas the individual ansätze encoded by \mintinline{haskell}{AnsatzForestEpsilon} all involve exactly one $\epsilon^{abcd}$ in each of their individual product.
 
 Clearly there exist not algebraic linear dependencies between ansätze that involve an $\epsilon^{abcd}$ and those that do not. 
-It is important to note that there also cannot exist numeric linear dependencies that mix the two types of ansätze. The reason for this is that for a product of $\eta^{ab}$ to yield non vanishing contributions when evaluated on a list of index values, i.e. setting each individual index to a value in $\{0,1,2,3 \}$ each value must occur an even number of times as the individual $\eta^{ab}$ factors have only diagonal entries. In contrast to that evaluating a product of several Minkowski metrics and one $\epsilon^{abcd}$ one additionally needs each possible value for a spacetime index precisely once such that the Levi-Civita symbol yields a non vanishing contribution. Thus for the types of ansätze that include $\epsilon^{abcd}$ to yield a non zero contribution each value of the indices must occur an odd number of times. In total this shows that whenever an ansatz that features no Levi-Civita symbol evaluates to a non zero contribution all possible ansätze that incorporate an $\epsilon^{abcd}$ evaluate to zero and vice versa. Thus the different types of ansätze are also mutually numerically linear independent. In particular we see that the problem of finding a list of ansätze that constitute a basis for the space of Lorentz invariant tensors of given rank and symmetry decouples into the two sub problems of finding those that incorporate an $\epsilon^{abcd}$ and those that do not. The two types of ansätze can hence be treated completely independently. To that end we also chose to represent them using different data types.
+It is important to note that there also cannot exist numeric linear dependencies that mix the two types of ansätze. The reason for this is that for a product of $\eta^{ab}$ to yield non vanishing contributions when evaluated on a list of index values, i.e. setting each individual index to a value in $\{0,1,2,3 \}$ each value must occur an even number of times as the individual $\eta^{ab}$ factors have only diagonal entries. In contrast to that evaluating a product of several Minkowski metrics and one $\epsilon^{abcd}$ one additionally needs each possible value for a spacetime index precisely once such that the Levi-Civita symbol yields a non vanishing contribution. Thus for the types of ansätze that include $\epsilon^{abcd}$ to yield a non zero contribution each value of the indices must occur an odd number of times.
 
-The data type \mintinline{haskell}{Map k v} that is used in the  definition of the two ansatz forest types represents a finite map between keys and values that is internally implemented as binary tree\footnote{Details regarding the implementation can be found in \cite{adams_1993}. The \mintinline{haskell}{Map k v} \cite{HackageMap} and many more datatypes can be found in Haskell's central package archive \cite{Hackage}.}. Thus the \mintinline{haskell}{AnsatzForestEta} data type is a forest with nodes being provided by an \mintinline{haskell}{Eta} value and leafs given by a \mintinline{haskell}{Var} value. Similarly the \mintinline{haskell}{AnsatzForestEpsilon} type is given by such a forest with the difference that compared to \mintinline{haskell}{AnsatzForestEta} now the first level nodes are occupied by \mintinline{haskell}{Epsilon} values. Note that the individual sibling sets of these forest themselves are not provided by a "linear" data structure s.t. lists but by the binary structure of the \mintinline{haskell}{Map k v}. This enhances performance as some of the ansatz forests that we will treat have up to several thousand elements in a single sibling set and the binary structure allows for faster insertion and lookup of elements. Such a binary structure for instance features $\mathcal{O}(\mathrm{log}(n)$ lookup whereas a single linked list in the worst case only provides $\mathcal{O}(n)$ lookup. 
+In total this shows that whenever an ansatz that features no Levi-Civita symbol evaluates to a non zero contribution all possible ansätze that incorporate an $\epsilon^{abcd}$ evaluate to zero and vice versa. Thus the different types of ansätze are also mutually numerically linear independent. In particular we see that the problem of finding a list of ansätze that constitute a basis for the space of Lorentz invariant tensors of given rank and symmetry decouples into the two sub problems of finding those that incorporate an $\epsilon^{abcd}$ and those that do not. The two types of ansätze can hence be treated completely independently. To that end we also chose to represent them using different data types. \\
+
+The data type \mintinline{haskell}{Map k v} that is used in the  definition of the two ansatz forest types represents a finite map between keys and values that is internally implemented as binary tree\footnote{Details regarding the implementation can be found in \cite{adams_1993}. The \mintinline{haskell}{Map k v} \cite{HackageMap} and many more datatypes can be found in Haskell's central package archive \cite{Hackage}.}. Thus the \mintinline{haskell}{AnsatzForestEta} data type is a forest with nodes being provided by an \mintinline{haskell}{Eta} value and leafs given by a \mintinline{haskell}{Var} value. Similarly the \mintinline{haskell}{AnsatzForestEpsilon} type is given by such a forest with the difference that compared to \mintinline{haskell}{AnsatzForestEta} now the first level nodes are occupied by \mintinline{haskell}{Epsilon} values. Note that the individual sibling sets of these forest themselves are not provided by a "linear" data structure s.t. lists but by the binary structure of the \mintinline{haskell}{Map k v}. This enhances performance as some of the ansatz forests that we will treat have up to several thousand elements in a single sibling set and the binary structure allows for faster insertion and lookup of elements. Such a binary structure for instance features $\mathcal{O}(\mathrm{log}(n)$ lookup whereas a single linked list in the worst case only provides $\mathcal{O}(n)$ lookup. \\
 
 Furthermore when constructing an \mintinline{haskell}{AnsatzForestEta} we will always ensure that parent nodes are smaller than all of their children, where the order relation is obtained by comparing the individual integers that are contained in a value of type \mintinline{haskell}{Eta}, starting with the first. All further functions will always produce such sorted forests when evaluated on sorted forests as input. 
-The thus obtained ordered forest structure is not only strinkingly performant when inserting and looking up individual ansätze and therfore also when adding two forests it is also particularly suited for evaluating a given linear combination of ansätze on specific index values. note that only 4 out of 16 possible index value pairs yield a non zero contribution to an $\eta^{ab}$ and only 24 out of 256 4 tuples contribute to an $\epsilon^{abcd}$. Thus when explicitly evaluating an ansatz forest on specific index values a large number of nodes will actually evaluate to zero. Further note that the forest structure roughly speaking represents a fully factored product. Thus whenever a given node in the forest evaluates to zero we do not have to evaluate the subforest that is attached to it as the whole expression is then multiplied by zero anyway. This observation allows for very fast evaluation of ansatz forest when implemented by using such tree based data structure. 
+The thus obtained ordered forest structure is not only strinkingly performant when inserting and looking up individual ansätze and therfore also when adding two forests it is also particularly suited for evaluating a given linear combination of ansätze on specific index values. note that only 4 out of 16 possible index value pairs yield a non zero contribution to an $\eta^{ab}$ and only 24 out of 256 4 tuples contribute to an $\epsilon^{abcd}$. Thus when explicitly evaluating an ansatz forest on specific index values a large number of nodes will actually evaluate to zero. Further note that the forest structure roughly speaking represents a fully factored product. Thus whenever a given node in the forest evaluates to zero we do not have to evaluate the subforest that is attached to it as the whole expression is then multiplied by zero anyway. This observation allows for very fast evaluation of ansatz forest when implemented by using such tree based data structure. \\
 
 To provide an example of the data types that are used to encode such expressions we consider the following linear combination of ansätze:
 \begin{multline}\label{AnsatzExprEx}
 3a_1 \cdot \left (\eta^{ab}\eta^{cd}\eta^{ef} + \eta^{ab}\eta^{ce}\eta^{df} + \eta^{ab}\eta^{cf}\eta^{de} \right ) + a_2 \cdot \left ( \eta^{ac} \eta^{bd} \eta^{ef} + \eta^{ac} \eta^{be} \eta^{df} -2 \eta^{ad} \eta^{be} \eta^{cf} \right ) \\
 + a_3 \cdot \left ( \eta^{ad} \eta^{bc} \eta^{ef} - \eta^{ad} \eta^{bf} \eta^{ce} \right ) + a_4 \cdot \left ( \epsilon^{abcd} \eta^{ef} + \epsilon^{abce} \eta^{df}  \right )   .
 \end{multline}
-The corresponding representation using the \mintinline{haskell}{AnsatzForestEta} and \mintinline{haskell}{AnsatzForestEta} data types can be seen in figure \ref{AnsatzExprExForest}.\\
+The corresponding representation using the \mintinline{haskell}{AnsatzForestEta} and \mintinline{haskell}{AnsatzForestEta} data types can be seen in figure (\ref{AnsatzExprExForest}).\\
 
 
 \begin{figure}
@@ -3722,9 +3763,8 @@ The corresponding representation using the \mintinline{haskell}{AnsatzForestEta}
 \label{AnsatzExprExForest}
 \end{figure}
 
-Due to the forest data structure the addition of two such expression can be implemented quite performant. One simply uses the \mintinline{haskell}{unionWith} function provided by the Data.Map.Strict package \cite{HackageMap}. The function combines two Maps calling a specified combiner function if a key is present in both. The addition of two ansatz forests can now be achieved by defining the addition of the leaf values in the obvious way and further defining the addition of two ansatz forests that themselves contain sub forests by combining the corresponding Maps with combiner function being again the addition of ansatz forests. Doing so one eventually recurses over the whole structure. 
-
-\begin{samepage} 
+Due to the forest data structure the addition of two such expression can be implemented quite performant. One simply uses the \mintinline{haskell}{unionWith} function provided by the Data.Map.Strict package \cite{HackageMap}. The function combines two Maps calling a specified combiner function if a key is present in both. The addition of two ansatz forests (\ref{ForestAdd}) can now be achieved by defining the addition of the leaf values in the obvious way and further defining the addition of two ansatz forests that themselves contain sub forests by combining the corresponding Maps with combiner function being again the addition of ansatz forests. Doing so one eventually recurses over the whole structure. 
+\begin{listing}[hbt!] 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 addForests :: AnsatzForestEta -> AnsatzForestEta -> AnsatzForestEta
@@ -3741,40 +3781,32 @@ addForests (ForestEta m1) (ForestEta m2)
          where
             newMap = M.filter (/= EmptyForest) $
                      M.unionWith addForests m1 m2
-\end{minted} 
-\end{samepage}
 
-\begin{samepage}
-\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
-1.2, bgcolor=LG]{haskell}
 addForestsEpsilon :: AnsatzForestEpsilon -> AnsatzForestEpsilon ->
                      AnsatzForestEpsilon
 addForestsEpsilon m1 m2 = M.filter (/= EmptyForest) $ M.unionWith
-addForests m1 m2
+                          addForests m1 m2
 \end{minted} 
-\end{samepage}
-Symmetrization of such an expression can be achieved by simply swapping or permuting certain index indentifiers of the various \mintinline{haskell}{Eta} and \mintinline{haskell}{Epsilon} values in the ansatz forest and then adding the result to the former ansatz forest.
-\begin{samepage} 
+\caption{Addition of Ansatz Forests.}\label{ForestAdd}
+\end{listing}\\
+
+Symmetrization (\ref{PairSymFor}) of such an expression can be achieved by simply swapping or permuting certain index indentifiers of the various \mintinline{haskell}{Eta} and \mintinline{haskell}{Epsilon} values in the ansatz forest and then adding the result to the former ansatz forest.
+\begin{listing}[hbt!] 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 pairSymForestEta :: (Int,Int) -> AnsatzForestEta -> AnsatzForestEta
 pairSymForestEta inds ans = addForests ans $ swapLabelFEta inds ans
-\end{minted} 
-\end{samepage}
 
-\begin{samepage}
-\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
-1.2, bgcolor=LG]{haskell}
 pairSymForestEps :: (Int,Int) -> AnsatzForestEpsilon ->
                     AnsatzForestEpsilon
 pairSymForestEps inds ans = addForestsEpsilon ans $ 
                             swapLabelFEps inds ans
 \end{minted} 
-\end{samepage}
+\caption{Pair symmetrization of Ansatz Forests.}\label{PairSymFor}
+\end{listing}\\
 
-As swapping labels of nodes in the forest will in general destroy the sorting of the forest we have to reenforce the correct ordering afterwards. This is simply done by flattening the forest to a list that contains the individual branches as pairs with the first entry being given by a list containing the individual nodes of the given branch and the second entry being the corresponding value. One then sorts the node list in each such pair according to the required ordering and then finally reconstructing the forest from the list of branches. Thus such swap functions are given by:
-
-\begin{samepage} 
+As swapping labels of forest nodes (\ref{SwapF}) will in general destroy the sorting of the forest we have to reinforce the correct ordering afterwards. This is simply done by flattening the forest to a list that contains the individual branches as pairs with the first entry being given by a list containing the individual nodes of the given branch and the second entry being the corresponding value. One then sorts the node list in each such pair according to the required ordering and finally reconstructs the forest from the list of branches. 
+\begin{listing}[hbt!] 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 swapLabelFEta :: (Int,Int) -> AnsatzForestEta -> AnsatzForestEta
@@ -3782,12 +3814,7 @@ swapLabelFEta inds ans = sortForest.canonicalizeAnsatzEta $ swapAnsatz
         where
             f = swapLabelEta inds
             swapAnsatz = mapNodes f ans
-\end{minted} 
-\end{samepage}
 
-\begin{samepage}
-\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
-1.2, bgcolor=LG]{haskell}
 swapLabelFEps :: (Int,Int) -> AnsatzForestEpsilon -> AnsatzForestEpsilon
 swapLabelFEps inds ans = sortForestEpsilon.canonicalizeAnsatzEpsilon $ 
                         swapAnsatz
@@ -3795,8 +3822,9 @@ swapLabelFEps inds ans = sortForestEpsilon.canonicalizeAnsatzEpsilon $
             f = swapLabelEpsilon inds
             swapAnsatz = mapNodesEpsilon f $ M.map 
                                             (swapLabelFEta inds) ans
-\end{minted} 
-\end{samepage}
+\end{minted}
+\caption{Swap function for Ansatz Forests.}\label{SwapF}
+\end{listing}\\
 
 Similarly one can easily define symmetrization functions for arbitrary other kinds of symmetry. We define a \mintinline{haskell}{Symmetry} data type that collects the most used such, i.e. (pair symmetries, pair anti-symmetries, block symmetries, cyclic symmetries, cyclic block symmetries):
 \begin{center}
@@ -3804,9 +3832,8 @@ Similarly one can easily define symmetrization functions for arbitrary other kin
 type Symmetry = ([(Int,Int)],[(Int,Int)],[([Int],[Int])],[[Int]],[[[Int]]])
 \end{cminted}
 \end{center}
-The various integers refer to the indices that are to be symmetrized. We now can collect the individual symmetrizer functions in one overall function:
-
-\begin{samepage} 
+The various integers refer to the indices that are to be symmetrized. We now can collect the individual symmetrizer functions in one overall function as displayed in (\ref{SymAns}).
+\begin{listing}[hbt!] 
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 symAnsatzForestEta ::Symmetry -> AnsatzForestEta -> AnsatzForestEta
@@ -3822,12 +3849,7 @@ symAnsatzForestEta (sym,asym,blocksym,cyclicsym,cyclicblocksym) ans =
     ) cyclicblocksym
     where
         blockSymMap = map swapBlockLabelMap blocksym
-\end{minted} 
-\end{samepage}
 
-\begin{samepage}
-\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
-1.2, bgcolor=LG]{haskell}
 symAnsatzForestEps :: Symmetry -> AnsatzForestEpsilon ->
                       AnsatzForestEpsilon
 symAnsatzForestEps (sym,asym,blocksym,cyclicsym,cyclicblocksym) ans =
@@ -3843,22 +3865,22 @@ symAnsatzForestEps (sym,asym,blocksym,cyclicsym,cyclicblocksym) ans =
       where
         blockSymMap = map swapBlockLabelMap blocksym
 \end{minted} 
-\end{samepage}
+\caption{General Ansatz Forest symmetrizer function.}\label{SymAns}
+\end{listing}
 
-After all this summarizes the data structures that we use to represent the tensorial expression that we are going to construct. Further details and additional functions that were ommited here can be found in (ref own hackage package).  \\
+This summarizes the data structures that we use to represent the tensorial expression that we are going to construct. Further details and additional functions that were ommited here can be found in (ref own hackage package).  \\
 
 With this choice of data structures at hand we now proceed with the construction of Lorentz invariant basis tensors.  
 This process can in general be divide in three steps:
-
 \begin{itemize}
     \item[(i)] Generating all possible products built either solely from $\eta^{ab}$ or including exactly one $\epsilon^{abcd}$ that feature the required index structure.
     \item[(ii)] Symmetrizing the individual expressions according to the demanded symmetry to obtain all possible ansätze.
     \item[(iii)] Reducing the resulting expressions w.r.t. algebraic and numeric linear dependencies.
 \end{itemize}
 
-We start with the first step, computing all possible products. Labeling the indices by integers \mintinline{haskell}{[1,...,n]} one readily obtains all possible such individual products be exhausting all possible ways the indices can be arranged, taking into account the symmetries of $\eta^{ab}$, $\epsilon^{abcd}$ if present and the symmetries that are induced by the product structure. We get for the list of all possible index sortings for the products that only involve $\eta^{ab}$:
-
-\begin{samepage}
+We start with the first step, computing all possible products. Labeling the indices by integers \mintinline{haskell}{[1,...,n]} one readily obtains all possible such individual products be exhausting all possible ways the indices can be arranged, taking into account the symmetries of $\eta^{ab}$, $\epsilon^{abcd}$ if present and the symmetries that are induced by the product structure. We get the list of all possible index sortings for the products that only involve $\eta^{ab}$ by the function \mintinline{haskell}{getEtaInds}.
+Similar the list of all possible indices for the expressions that involve one $\epsilon^{abcd}$ can be computed by \mintinline{haskell}{getEpsilonInds}. The two functions are displayed in the listing (\ref{AllInds}).
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 getEtaInds :: [Int] -> [[Int]]
@@ -3867,15 +3889,7 @@ getEtaInds (x:xs) = concatMap res firstEta
         where
             firstEta = map (\y -> ([x,y],delete y xs)) xs
             res (a,b) = (++) a <$> getEtaInds b 
-\end{minted} 
-\end{samepage}
 
-%check points at end of code examples
-Similar the list of all possible indices for the expressions that involve one $\epsilon^{abcd}$ can be computed to be given by:
-
-\begin{samepage}
-\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
-1.2, bgcolor=LG]{haskell}
 getEpsilonInds :: [Int] -> [[Int]]
 getEpsilonInds inds = allInds
         where
@@ -3885,28 +3899,30 @@ getEpsilonInds inds = allInds
             allInds = map (\x -> map (x ++) $
                       getEtaInds (inds \\ x) ) epsInds 
 \end{minted} 
-\end{samepage}
+\caption{Computing possible index sortings.}\label{AllInds}
+\end{listing}\\
 
-Note that in (cite own hackage package) we further reduced these index lists by filtering already here some of the linear dependencies that will later arise due to the symmetrization. This is not necessary as we will treat linear dependencies later anyway it does however increase performance as the lists that are consumed by the algorithm are then smaller from the very beginning.  
+Note that in (cite own hackage package) we further reduced these index lists by filtering already here some of the linear dependencies that will later arise due to the symmetrization. This is not necessary as we will treat linear dependencies later anyway it does however increase performance as the lists that are consumed by the algorithm are then smaller from the very beginning.  \\
 %check the above 
 
 We could now proceed with the next step, express each individual product by the appropriate chosen data structure, symmetrize all products individually and then at the very end reduce occurring linear dependencies. Following these lines however bares the problem that intermediate results, i.e. the entirety of the thus constructed ansätze occupies an unreasonable amount of memory. Only at the very end when linear dependent ansätze are removed this memory can be freed again. In fact in most practical cases the memory that would be needed for this approach by far exceeds resources that are typically available.
 %comment further on this
-It is thus best to combine the steps (ii) and (iii) that are outlined above. The algorithm then consumes the list of individual products step by step. For each product a distinction is made: if the product is already present in the ansatz forest it is simply discharged if it is not it is symmetrized to obtain the corresponding ansatz and then added to the ansatz forest. Doing so the intermediate memory swelling is avoided as now from the very beginning only linear independent ansätze are added to the forest.
+It is thus best to combine the steps (ii) and (iii) that are outlined above. The algorithm then consumes the list of individual products step by step. For each product a distinction is made: if the product is already present in the ansatz forest it is simply discharged if it is not it is symmetrized to obtain the corresponding ansatz and then added to the ansatz forest. Doing so the intermediate memory swelling is avoided as now from the very beginning only linear independent ansätze are added to the forest.\\
 
-For this approach it is incredible important to note that two individual products when symmetrized to the respective ansätze are either identically or completely disjoint in the sense that they do not share a single common summand. This can be seen from the fact that the permutations of indices that are involved in the symmetrization procedure constitute a subgroup of the permutation group of appropriate size $S_n$ that acts on the products via permutation of their indices. The individual products that contribute to a given symmetrized ansatz then precisely constitute the corresponding orbit under the action of the symmetry subgroup. As orbits of any group action are clearly disjoint so are the ansätze. Thus at a given step of the algorithm, when deciding if a new product should be added to the ansatz forest or discharged we do not need to symmetrize the individual product. If it is already present in the forest and thus linear dependent of it, already the non symmetrized individual product will be present, if the individual product is not present also all further expressions that are obtained from symmetrizing it will not be present. Hence the decision whether or not an individual product should be added to the forest can be made without ever having to symmetrize the individual product. Obviously when such a product is added to the forest we still have to symmetrize it but all products that are discharged can now be discharged without requiring an explicit symmetrization. 
+For this approach it is incredible important to note that two individual products when symmetrized to the respective ansätze are either identically or completely disjoint in the sense that they do not share a single common summand. This can be seen from the fact that the permutations of indices that are involved in the symmetrization procedure constitute a subgroup of the permutation group of appropriate size $S_n$ that acts on the products via permutation of their indices. The individual products that contribute to a given symmetrized ansatz then precisely constitute the corresponding orbit under the action of the symmetry subgroup. As orbits of any group action are clearly disjoint so are the ansätze. 
 
-The above allows for an efficient criteria that given a list of possible products only incorporates those into the ansatz forest that do not posses algebraic linear dependencies amongst each other. When further reducing the ansatz forest w.r.t. numeric linear dependencies there are in principal two approaches how this can be achieved. We can either first use the above technique to construct an ansatz forest that is algebraically linear independent, then evaluate this ansatz forest for enough index combinations to retrieve all independent components, write these in a matrix where the columns label the individual variables that occur and then use standard linear algebra to compute a basis of these column vectors. Variables that are not present in this basis can then be removed from the ansatz forest as these multiply exactly those ansätze that are linear dependent. 
+Thus at a given step of the algorithm, when deciding if a new product should be added to the ansatz forest or discharged we do not need to symmetrize the individual product. If it is already present in the forest and thus linear dependent of it, already the non symmetrized individual product will be present, if the individual product is not present also all further expressions that are obtained from symmetrizing it will not be present. Hence the decision whether or not an individual product should be added to the forest can be made without ever having to symmetrize the individual product. Obviously when such a product is added to the forest we still have to symmetrize it but all products that are discharged can now be discharged without requiring an explicit symmetrization.\\ 
+
+The above allows for an efficient criteria that given a list of possible products only incorporates those into the ansatz forest that do not posses algebraic linear dependencies amongst each other. When further reducing the ansatz forest w.r.t. numeric linear dependencies there are in principal two approaches how this can be achieved. We can either first use the above technique to construct an ansatz forest that is algebraically linear independent, then evaluate this ansatz forest for enough index combinations to retrieve all independent components, write these in a matrix where the columns label the individual variables that occur and then use standard linear algebra to compute a basis of these column vectors. Variables that are not present in this basis can then be removed from the ansatz forest as these multiply exactly those ansätze that are linear dependent. \\
 
 Alternatively when constructing the ansatz forest from a list of individual products we can not only check for algebraic linear dependencies when deciding whether or not a new product should be added, but if a given product is algebraically independent of the  ansatz forest then also test for numeric linear dependencies. Doing so we would construct from the very beginnning an ansatz forest that consits of not only algebraically but also numerically linear independent ansätze.
 It turns out that the first approach results in slightly faster computation times, whereas the second approach is superior in memory usage, thus we have implemented both algorithms. 
 We start provided details regarding the first approach. \\
 
-\noindent \textbf{Reducing linear dependencies I:  The fast way}
+\subsection*{Reducing linear dependencies I:  The fast way}
 
-The idea is straight forward. Representing the individual products involving only $\eta^{ab}$ or also including one $\epsilon^{abcd}$ as lists with the individual list elements representing the factors of the product, we need a function that decides whether or not such a product is already present in a given ansatz forest. As we are always dealing with ordered forests and also sorted products we can already conclude that a given product is missing in the forest if any given node is missing in the appropriate level of the forest. Thus only when an product is actually present in the forest we really need to decent up to the leaf values of the forest.
-
-\begin{samepage}
+The idea is straight forward. Representing the individual products involving only $\eta^{ab}$ or also including one $\epsilon^{abcd}$ as lists with the individual list elements representing the factors of the product, we need a function that decides whether or not such a product is already present in a given ansatz forest (\ref{ForestElem}) . As we are always dealing with ordered forests and also sorted products we can already conclude that a given product is missing in the forest if any given node is missing in the appropriate level of the forest. Thus only when an product is actually present in the forest we really need to decent up to the leaf values of the forest.
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 isElem :: [Eta] -> AnsatzForestEta -> Bool
@@ -3917,12 +3933,7 @@ isElem  (x:xs) (ForestEta m) = case mForest of
                                 _           -> False
             where
                 mForest = M.lookup x m
-\end{minted} 
-\end{samepage}
 
-\begin{samepage}
-\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
-1.2, bgcolor=LG]{haskell}
 isElemEpsilon :: (Epsilon, [Eta]) -> AnsatzForestEpsilon -> Bool
 isElemEpsilon (eps,l) m = case mForest of
                             Just forest -> l `isElem` forest
@@ -3930,12 +3941,13 @@ isElemEpsilon (eps,l) m = case mForest of
             where
                 mForest = M.lookup eps m  
 \end{minted} 
-\end{samepage}
+\caption{Lookup function for Ansatz Forests.}\label{ForestElem}
+\end{listing}\\
 
-Using these two functions we simply define two functions that when an product is missing symmetrizes it to obtain the corresponding ansatz and then adds it to the forest when the product is already present it should be discharged. These functions is then folded over the list of products taking an empty forest as start value.  Doing this we obtain functions that takes a list of products and a value of type \mintinline{haskell}{Symmetry} and constructs from it the two ansatz forests with ansätze being obtained by symmetrizing the various products that are provided by the list. Further these two functions now ensure that all ansätze that are included in the forests are algebraically linear independent. 
-These two functions can then again be used to define the final functions that solely take the required symmetry and the rank of the to be constructed Lorentz invariant basis tensors as argument and then compute from it an ansatz forest of all possible algebraically linear independent ansätze that feature the correct number of indices and symmetries. We simply use the priorly defined functions \mintinline{haskell}{getEtaInds} and \mintinline{haskell}{getEpsInds} to compute lists of all possible indices of products of either solely Minkowski metrics or also including one Levi-Civita symbol, all providing the required number of indices. These two lists are then transformed to list of the appropriate types \mintinline{haskell}{Eta} and \mintinline{haskell}{Epsilon} and each individual product is further combined with a different variable. The two list are reduced as described above, by invoking the two functions \mintinline{haskell}{reduceAnsatzEta'} and \mintinline{haskell}{reduceAnsatzEpsilon'}. Finally the variables in the two ansatz forests that are thus constructed are relabeled.
+Using these two functions we simply define two functions that when an product is missing symmetrizes it to obtain the corresponding ansatz and then adds it to the forest when the product is already present it should be discharged. These functions is then folded over the list of products taking an empty forest as start value.  Doing this we obtain functions that takes a list of products and a value of type \mintinline{haskell}{Symmetry} and constructs from it the two ansatz forests with ansätze being obtained by symmetrizing the various products that are provided by the list. Further these two functions now ensure that all ansätze that are included in the forests are algebraically linear independent. \\
 
-\begin{samepage}
+These two functions can then again be used to define the final functions that solely take the required symmetry and the rank of the to be constructed Lorentz invariant basis tensors as argument and then compute from it an ansatz forest of all possible algebraically linear independent ansätze that feature the correct number of indices and symmetries. We simply use the priorly defined functions \mintinline{haskell}{getEtaInds} and \mintinline{haskell}{getEpsInds} to compute lists of all possible indices of products of either solely Minkowski metrics or also including one Levi-Civita symbol, all providing the required number of indices. These two lists are then transformed to list of the appropriate types \mintinline{haskell}{Eta} and \mintinline{haskell}{Epsilon} and each individual product is further combined with a different variable. The two list are reduced as described above, by invoking the two functions \mintinline{haskell}{reduceAnsatzEta'} and \mintinline{haskell}{reduceAnsatzEpsilon'} (\ref{redFast}). 
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 reduceAnsatzEta' :: Symmetry -> [([Eta],Var)] -> AnsatzForestEta
@@ -3944,12 +3956,7 @@ reduceAnsatzEta' sym = foldl' addOrRem' EmptyForest
             addOrRem' f ans = if isElem (fst ans) f then f else
                               addForests f (symAnsatzForestEta sym 
                               $ mkForestFromAscList ans)
-\end{minted} 
-\end{samepage}
 
-\begin{samepage}
-\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
-1.2, bgcolor=LG]{haskell}
 reduceAnsatzEpsilon' :: Symmetry -> [(Epsilon, [Eta], Var)] ->
                         AnsatzForestEpsilon
 reduceAnsatzEpsilon' sym = foldl' addOrRem' M.empty
@@ -3959,9 +3966,13 @@ reduceAnsatzEpsilon' sym = foldl' addOrRem' M.empty
                                   (symAnsatzForestEps sym 
                                   $ mkForestFromAscListEpsilon (x,y,z))  
 \end{minted} 
-\end{samepage}
+\caption{Reduction of Ansatz Forests.}\label{redFast}
+\end{listing}
 
-\begin{samepage}
+%There seems to be a problem !!!!!
+
+Finally the variables in the two ansatz forests that are thus constructed are relabeled. The two functions that construct the two ansatz forests with algebraic linear dependencies removed are displayed in listing (\ref{ConstrFast}).
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 getEtaForestFast :: Int -> Symmetry -> AnsatzForestEta
@@ -3971,12 +3982,7 @@ getEtaForestFast ord syms = relabelAnsatzForest 1 $ reduceAnsatzEta' syms
                 allInds = getEtaInds [1..ord] syms
                 allVars = mkAllVars
                 allForests = zipWith mkEtaList' allVars allInds
-\end{minted} 
-\end{samepage}
 
-\begin{samepage}
-\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
-1.2, bgcolor=LG]{haskell}
 getEpsForestFast :: Int -> Symmetry -> AnsatzForestEpsilon
 getEpsForestFast ord syms = if ord < 4 then M.empty else
 relabelAnsatzForestEpsilon 1 $ reduceAnsatzEpsilon' syms allForests
@@ -3985,19 +3991,18 @@ relabelAnsatzForestEpsilon 1 $ reduceAnsatzEpsilon' syms allForests
                 allVars = mkAllVars
                 allForests = zipWith mkEpsilonList' allVars allInd
 \end{minted} 
-\end{samepage}
+\caption{Construct Ansatz Forests: fast way.}\label{ConstrFast}
+\end{listing}\\
 
-The remaining work consists of reducing the two constructed ansatz forests w.r.t. numeric linear dependencies. This is best achieved when explicitly retrieving the values that a given ansatz forests admits for all possible values that one might insert for its indices. It is important to note that we do not need to evaluate a given ansatz forest for all possible index values as due to symmetries that might be present we already know that evaluating the ansatz forest on two different lists of index values that are connected via the symmetry we will obtain the same value. Thus we can avoid much work by only evaluating the ansatz forest on one representative out of the equivalence classes that are generated by identifying index lists that are connected via a symmetry. 
+The remaining work consists of reducing the two constructed ansatz forests w.r.t. numeric linear dependencies. This is best achieved when explicitly retrieving the values that a given ansatz forests admits for all possible values that one might insert for its indices. It is important to note that we do not need to evaluate a given ansatz forest for all possible index values as due to symmetries that might be present we already know that evaluating the ansatz forest on two different lists of index values that are connected via the symmetry we will obtain the same value. Thus we can avoid much work by only evaluating the ansatz forest on one representative out of the equivalence classes that are generated by identifying index lists that are connected via a symmetry. \\
 
-We can further reduce the amount of necessary evaluations by using the priorly noted fact that any product of etas and therefore in particular any \mintinline{haskell}{AnsatzForestEta} can only yield non zero values when evaluated on a list of index values with each value occurring an even number of times. In contrast to that when evaluating an \mintinline{haskell}{AnsatzForestEpsilon} we can savely restrict to those evaluation lists that have each index value appearing an odd number of times.
+We can further reduce the amount of necessary evaluations by using the priorly noted fact that any product of etas and therefore in particular any \mintinline{haskell}{AnsatzForestEta} can only yield non zero values when evaluated on a list of index values with each value occurring an even number of times. In contrast to that when evaluating an \mintinline{haskell}{AnsatzForestEpsilon} we can savely restrict to those evaluation lists that have each index value appearing an odd number of times.\\
 
-Finally it is worth noting that the value that we retrieve when evaluating an ansatz forest on a specific index value list at most changes by a sign under arbitrary relabelings of the coordinate axes. Thus as we might further reduce the number of necessary evaluations by selecting one index value list out of every set of index value list that that are mutually related by index relabelings. The reason why all ansätze admit this special property, i.e. their values at most changes by a sign under arbitrary coordinate relabelings becomes obvious by recalling that all possible expressions that are build solely from $\eta^{ab}$ and $\epsilon^{abcd}$ are Lorentz invariant. Up to a sign the relabeling of coordinate axes clearly defines a Lorentz transformation, as obviously all those relabelings that keep $x_0$ fixed also keep $\eta_{ab}$ invariant, those that interchange $x_0$ and $x_{\alpha}$ keep eta invariant up to a sign where the sign depends on the precise number of swaps between $x_0$ and spatial coordinates. Hence the fact that the ansatz forests are up to a sign invariant under such coordinate relabelings is no surprise. 
+Finally it is worth noting that the value that we retrieve when evaluating an ansatz forest on a specific index value list at most changes by a sign under arbitrary relabelings of the coordinate axes. Thus as we might further reduce the number of necessary evaluations by selecting one index value list out of every set of index value list that that are mutually related by index relabelings. The reason why all ansätze admit this special property, i.e. their values at most changes by a sign under arbitrary coordinate relabelings becomes obvious by recalling that all possible expressions that are build solely from $\eta^{ab}$ and $\epsilon^{abcd}$ are Lorentz invariant. Up to a sign the relabeling of coordinate axes clearly defines a Lorentz transformation, as obviously all those relabelings that keep $x_0$ fixed also keep $\eta_{ab}$ invariant, those that interchange $x_0$ and $x_{\alpha}$ keep eta invariant up to a sign where the sign depends on the precise number of swaps between $x_0$ and spatial coordinates. Hence the fact that the ansatz forests are up to a sign invariant under such coordinate relabelings is no surprise. \\
 
 Summing up all of the above considerations can be used to reduce the number of evaluations that are necessary to remove numerical linear dependencies. Clearly employing such techniques is not required as we could also simply evaluate the ansatz forest for all possible index value list. Using the above however severely reduces the computation time of the computer program. 
-
-Storing the information regarding which index is set to which value in an \mintinline{haskell}{IntMap Int} \cite{HackageIntMap} (for details regarding the implementation see also \cite{Okasaki98fastmergeable}) , i.e. a special of a map type that is tailored towards integer keys, the evaluation of a given forest can be obtained as follows: 
-
-\begin{samepage}
+Storing the information regarding which index is set to which value in an \mintinline{haskell}{IntMap Int} \cite{HackageIntMap} (for details regarding the implementation see also \cite{Okasaki98fastmergeable}) , i.e. a special of a map type that is tailored towards integer keys, the evaluation of a given forest can be obtained as described in (\ref{EvalOne}).
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 evalAnsatzForestEta :: I.IntMap Int -> AnsatzForestEta -> I.IntMap Int
@@ -4010,12 +4015,7 @@ evalAnsatzForestEta evalM (ForestEta m) = M.foldlWithKey' foldF I.empty m
                               (I.map (fromJust nodeVal *)
                               (evalAnsatzForestEta evalM a)) b
 evalAnsatzForestEta evalM EmptyForest = I.empty
-\end{minted} 
-\end{samepage}
 
-\begin{samepage}
-\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
-1.2, bgcolor=LG]{haskell}
 evalAnsatzForestEpsilon :: I.IntMap Int -> AnsatzForestEpsilon ->
                            I.IntMap Int
 evalAnsatzForestEpsilon evalM = M.foldlWithKey' foldF I.empty
@@ -4026,14 +4026,14 @@ evalAnsatzForestEpsilon evalM = M.foldlWithKey' foldF I.empty
                               (I.map (fromJust nodeVal *)
                               (evalAnsatzForestEta evalM a)) b  
 \end{minted} 
-\end{samepage}
+\caption{Evaluation of Ansatz Forests for one specific set of index values.}\label{EvalOne}
+\end{listing}\\
 
 The \mintinline{haskell}{IntMap Int} that is returned as result in the above functions encodes the linear combinations of variables that is obtained when evaluating an ansatz forest, i.e. the integer keys of the int map represent the variable labels and the values the corresponding factors in the linear combination. 
-When evaluating a given ansatz forest for multiple index value lists we can gain further performance improvements by noting that the list of all evaluation int maps can in fact be divided in chunks that then can be processed parallel. This is achieved by the functions \mintinline{haskell}{evalAllEta} and \mintinline{haskell}{evalAllEpsilon}. Details can be seen in (cite own hackage package)
+When evaluating a given ansatz forest for multiple index value lists we can gain further performance improvements by noting that the list of all evaluation int maps can in fact be divided in chunks that then can be processed parallel. This is achieved by the functions \mintinline{haskell}{evalAllEta} and \mintinline{haskell}{evalAllEpsilon}. Details can be seen in (cite own hackage package)\\
 
-Once we have evaluated an ansatz forest for all necessary index value lists we can store the retrieved values in form of a matrix as described before with the columns labeling the individual variables and the rows labeling the index combination values that we evaluated the ansatz forest on. The ansatz forest can now be reduced w.r.t. numerical linear dependencies by removing linear dependent column vectors from this matrix. To that end we use Haskell bindings \cite{HackageEigen} to the C++ linear algebra library Eigen \cite{eigenweb}. Using eigen subroutines one can readily reduce linear dependencies amongst the column vectors a given matrix, for instance by means of a LU decomposition. Finally once the matrix is reduced we can proceed by removing all branches with leaf variables that correspond to columns that have been removed from the matrix. This then also removes the numerically linear dependent ansätze from the ansatz forest:
-
-\begin{samepage}
+Once we have evaluated an ansatz forest for all necessary index value lists we can store the retrieved values in form of a matrix as described before with the columns labeling the individual variables and the rows labeling the index combination values that we evaluated the ansatz forest on. The ansatz forest can now be reduced w.r.t. numerical linear dependencies by removing linear dependent column vectors from this matrix. To that end we use Haskell bindings \cite{HackageEigen} to the C++ linear algebra library Eigen \cite{eigenweb}. Using eigen subroutines one can readily reduce linear dependencies amongst the column vectors a given matrix, for instance by means of a LU decomposition. Finally once the matrix is reduced we can proceed by removing all branches with leaf variables that correspond to columns that have been removed from the matrix. This then also removes the numerically linear dependent ansätze from the ansatz forest (\ref{RedNumLinFast}).
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 reduceLinDepsFastEta :: [I.IntMap Int] -> Symmetry ->
@@ -4046,12 +4046,7 @@ reduceLinDepsFastEta evalM symL ansEta = newEtaAns
             remVarsEta =  allEtaVars \\ etaVars
             newEtaAns = relabelAnsatzForest 1 $
                         removeVarsEta remVarsEta ansEta
-\end{minted} 
-\end{samepage}
 
-\begin{samepage}
-\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
-1.2, bgcolor=LG]{haskell}
 reduceLinDepsFastEps :: [I.IntMap Int] -> Symmetry ->
                         AnsatzForestEpsilon -> AnsatzForestEpsilon
 reduceLinDepsFastEps evalM symL ansEps = newEpsAns
@@ -4063,7 +4058,8 @@ reduceLinDepsFastEps evalM symL ansEps = newEpsAns
             newEpsAns = relabelAnsatzForestEpsilon 1 $
                         removeVarsEps remVarsEps ansEps 
 \end{minted} 
-\end{samepage}
+\caption{Reduction of numeric linear dependencies: fast way.}\label{RedNumLinFast}
+\end{listing}\\
 
 This finishes the first, computation time optimized method of constructing a basis of the space of Lorentz invariant tensors of given rank and symmetry that we have implemented in the sparse-tensor library. In order to use the thus computed result, the basis of Lorentz invariant tensors together with the previously presented functionallity of the sparse-tensor package we also provide functions that do not only construct the the ansatz forests but also return the computed Lorentz invariant basis tensor in form of compatible tensor data type. We represent the occuring variables that then necessarily also occur in the components of the tensors as int maps:
 \begin{center}
@@ -4075,7 +4071,6 @@ type AnsVarR = AnsVar (SField Rational)
 \end{center}
 
 Further we introduce type synonyms for the typical used tensors types, the usual spacetime tensors that feature contravariant and covariant indices ranging between $0$ and $3$:
-
 \begin{center}
 \begin{cminted}{haskell}
 type STTens n1 n2 v = AbsTensor2 n1 n2 Ind3 v
@@ -4083,7 +4078,6 @@ type STTens n1 n2 v = AbsTensor2 n1 n2 Ind3 v
 \end{center}
 
 And also a more general tensor type that we heavily used for the area metric computations. This tensor type features 3 different index types each appearing in contravariant and covariant position. The first index type ranges over the area metric degrees of freedom and thus ranges from $0$ to $20$, the second index type labels second derivative pairs, and hence runs form $0$ to $9$ and the last type is again the usual space time index:
-
 \begin{center}
 \begin{cminted}{haskell}
 type ATens n1 n2 n3 n4 n5 n6 v = 
@@ -4091,9 +4085,9 @@ type ATens n1 n2 n3 n4 n5 n6 v =
 \end{cminted}
 \end{center}
 
-The final functions that use the computation time optimized method and return the result as triplet of the two ansatz forest and a tensor that collects all their values are:
+The final functions (\ref{mkAnsatzFast1}), (\ref{mkAnsatzFast2}), (\ref{mkAnsatzFast3}) that use the computation time optimized method and return the result as triplet of the two ansatz forest and a tensor that collects all their values are.
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 --with explicit symmetrization in tens
@@ -4110,9 +4104,10 @@ mkAnsatzTensorFastSym ord symmetries evalL = (ansEta, ansEps, tens)
             evalToTensSym symmetries evalMEtaInds evalMEpsInds
                           ansEta ansEps
 \end{minted} 
-\end{samepage}
+\caption{mkAnsatzFast 1: with explicit symmetrization.}\label{mkAnsatzFast1}
+\end{listing}
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 --without explicit symmetriization in tens
@@ -4127,9 +4122,10 @@ mkAnsatzTensorFast ord symmetries evalL = (ansEta, ansEps, tens)
             mkAnsatzFast ord symmetries evalMEtaRed evalMEpsRed
         tens = evalToTens evalMEtaInds evalMEpsInds ansEta ansEps
 \end{minted} 
-\end{samepage}
+\caption{mkAnsatzFast 2: without explicit symmetrization.}\label{mkAnsatzFast2}
+\end{listing}
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 --evaluation to a tensor that uses multiple index types
@@ -4145,15 +4141,19 @@ mkAnsatzTensorFastAbs ord symmetries evalL = (ansEta, ansEps, tens)
             mkAnsatzFast ord symmetries evalMEtaRed evalMEpsRed
         tens = evalToTensAbs evalMEtaInds evalMEpsInds ansEta ansEps
 \end{minted} 
-\end{samepage}
+\caption{mkAnsatzFast 3: evaluation to customized indices.}\label{mkAnsatzFast3}
+\end{listing}
 
 The first function takes as arguments the order of the to be constructed Lorentz invaraint basis, i. the number of indices, the symmetry and also a list of all index value lists that are necessary for the evluation. The evaluation list must contain exactly one representative out of every set of index value lists that are the same under the present symmetry. Further reduction as described above must not be incoorporated manually as this is achieved by the function \mintinline{haskell}{mkAllEvalMaps}.
+The first function returns the Lorentz invariant basis as explicitly symmetrized spacetime tensors.\\
 
-The first function returns the Lorentz invariant basis as explicitly symmetrized spacetime tensors. Note that for higher ranked tensors and more complicated symmetries the explicit symmetrization of the tensors might be expensive. Furthermore often it suffices to only store one representative of each symmetry equivalence class in the tensor, for instance if the tensor is contracted against symmetric objects that thus enforce the symmetries in later computations. To that end we also provided a function that returns the tensors without explicit symmetrization. Finally the last function does not require a list of index value lists as input but needs a list of triples each consisting of the index value list, the multiplicity of the given index value list that is computed as product of the individual multiplicities of the abstract indices used (for the definition of the multiplicity $\sigma$ see the discussion following definition \ref{interDef}), and also a list of all abstract index tuples that correspond to the present index value list. How these individual ingredients can be computed in detail will be discussed in the following section when we consider an example. The last function then computes a triple consisting of the two ansatz forest and an abstract tensor that uses multiple indices to store the corresponding values. 
+Note that for higher ranked tensors and more complicated symmetries the explicit symmetrization of the tensors might be expensive. Furthermore often it suffices to only store one representative of each symmetry equivalence class in the tensor, for instance if the tensor is contracted against symmetric objects that thus enforce the symmetries in later computations. To that end we also provided a function that returns the tensors without explicit symmetrization.\\
 
-Finally we also provide the first two of the above three functions in a form that does not require to specify the evaluation list explicitly. Paying the price of a slighty more expensive computation in the following two functions the evaluation list is constructed fully automatically from the symmetries and the rank of the given tensor: 
+Finally the last function does not require a list of index value lists as input but needs a list of triples each consisting of the index value list, the multiplicity of the given index value list that is computed as product of the individual multiplicities of the abstract indices used (for the definition of the multiplicity $\sigma$ see the discussion following definition \ref{interDef}), and also a list of all abstract index tuples that correspond to the present index value list. How these individual ingredients can be computed in detail will be discussed in the following section when we consider an example. The last function then computes a triple consisting of the two ansatz forest and an abstract tensor that uses multiple indices to store the corresponding values. \\
 
-\begin{samepage}
+Additionally we also provide the first two of the above three functions in a form that does not require to specify the evaluation list explicitly . Paying the price of a slighty more expensive computation in the following two functions (\ref{mkAnsatzFast'1}) and (\ref{mkAnsatzFast'2}) the evaluation list is constructed fully automatically from the symmetries and the rank of the given tensor.
+
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 --with explicit symmetrization in tens
@@ -4167,9 +4167,10 @@ mkAnsatzTensorFastSym' ord symmetries = mkAnsatzTensorFastSym
         evalL = filter (`filterAllSym` symmetries) 
                         $ allList ord symmetries
 \end{minted} 
-\end{samepage}
+\caption{mkAnsatzFast' 1: with explicit symmetrization.}\label{mkAnsatzFast'1}
+\end{listing}
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 --without explicit symmetrization in tens
@@ -4182,9 +4183,10 @@ mkAnsatzTensorFast' ord symmetries = mkAnsatzTensorFast
         evalL = filter (`filterAllSym` symmetries) 
                         $ allList ord symmetries
 \end{minted} 
-\end{samepage}
+\caption{mkAnsatzFast' 2: without explicit symmetrization.}\label{mkAnsatzFast'2}
+\end{listing}
 
-\noindent \textbf{Reducing linear dependencies II:  The memory optimised way}
+\subsection*{Reducing linear dependencies II:  The memory optimised way}
 
 The main idea of this second way of reducing the ansatz forest w.r.t linear dependencies is to construct an ansatz forest that is not only algebraically but also numerically linear independent from the very beginning. This can be achieved as follows: As before the algorithm consumes a list of all possible individual products and checks in any given step if the product at hand is missing in the ansatz forest and thus represents an ansatz that is algebraically linear independent or is already present and can hence be discharged. In contrast to the previous approach now every time a product is missing we immediately evaluate the corresponding ansatz for all necessary index value lists and check if the ansatz is numerically linear dependent or not. Only if the new ansatz is also numerically linear independent of the present ansatz forest we add it to the forest.
 
@@ -4194,9 +4196,9 @@ It is thus important that in each step we do not only provide input data that co
 %
 . Doing so when deciding whether or not the newly evaluated ansatz is numerically independent from the ansatz forest we do not have to evaluate the forest each time. Any time a  new the ansatz is added to the forest it is obviously also added to the matrix that contains all independent components of the forest.
 
-This total procedure is accomplished by the following two function:
+This total procedure is accomplished by the two functions displayed in (\ref{AddorDisc}).
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 addOrDiscardEtaEig :: Symmetry -> [I.IntMap Int] ->
@@ -4211,12 +4213,7 @@ addOrDiscardEtaEig symList evalM (ans,rDat) etaL
                 newAns = getNewAns symList etaL rDat
                 newRDat = getNewRDat evalM newAns rDat
                 sumAns = addForests ans newAns
-\end{minted} 
-\end{samepage}
 
-\begin{samepage}
-\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
-1.2, bgcolor=LG]{haskell}
 addOrDiscardEpsilonEig :: Symmetry -> [I.IntMap Int] ->
                           (AnsatzForestEpsilon, RankDataEig) ->
                           (Epsilon,[Eta]) ->
@@ -4231,7 +4228,8 @@ addOrDiscardEpsilonEig symList evalM (ans,rDat) (epsL,etaL)
                 newRDat = getNewRDatEps evalM newAns rDat
                 sumAns = addForestsEpsilon ans newAns
 \end{minted} 
-\end{samepage}
+\caption{addOrDiscard functions.}\label{AddorDisc}
+\end{listing}
 
 The type alias \mintinline{haskell}{RankDataEig} represents the ansatz forest data that is necessary for deciding whether or not a new ansatz is numerically linear dependent from the current ansatz forest and simply is given by a tuple that consits of one Eigen matrix and one sparse Eigen Matrix:
 
@@ -4264,9 +4262,9 @@ If the ansatz is numerically linear independent from the forest appending its ev
 
 Note that in each step of the algorithm once we have evaluated the new ansatz to the row vector $v$ we only have to compute its transpose $v^t$ the matrix vector product $Mv^t$ and the corresponding transpose $(Mv^t)^t$ and the vector vector product $v v^t$. In particular the upper left block in the last matrix in (\ref{RankDatmat}) is already provided from the previous step and thus only needs to be computed newly once an additional ansatz is added to the ansatz forest. Hence we achieve the desired result with a minimum of expensive matrix matrix operations involved. The rank computation itself is then as before carried out by relying on efficient Eigen subroutines.
 
-The following function takes as arguments the current rank data and the newly evaluated ansatz row vector and computes form it the new rank data, that is it returns the rank data provided by the first matrix in (\ref{RankDatmat}) if the new ansatz is numerically linear independent from the ansatz forest in form of a \mintinline{haskell}{Just} value and it returns \mintinline{haskell}{Nothing} if the new ansatz is numerically linear dependent. 
+The following function (\ref{checkNumLinDep}) takes as arguments the current rank data and the newly evaluated ansatz row vector and computes form it the new rank data, that is it returns the rank data provided by the first matrix in (\ref{RankDatmat}) if the new ansatz is numerically linear independent from the ansatz forest in form of a \mintinline{haskell}{Just} value and it returns \mintinline{haskell}{Nothing} if the new ansatz is numerically linear dependent. 
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 checkNumericLinDepEig :: RankDataEig -> Maybe Sparse.SparseMatrixXd ->
@@ -4286,11 +4284,12 @@ checkNumericLinDepEig (lastMat, lastFullMat) (Just newVec)
                        Sparse.getRows lastFullMat ++ [newVec]
 checkNumericLinDepEig (lastMat, lastFullMat) Nothing = Nothing
 \end{minted} 
-\end{samepage}
+\caption{Check numeric linear dependencies.}\label{checkNumLinDep}
+\end{listing}
 
-With these functions defined we can now construct functions that construct algebraically and numerically linear independent ansatz forests out of a given list of individual products, the given symmetry and the evaluation list:
+With these functions defined we can now construct functions that construct algebraically and numerically linear independent ansatz forests out of a given list of individual products, the given symmetry and the evaluation list (\ref{redMem}).
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 reduceAnsatzEtaEig :: Symmetry -> [[Eta]] -> [I.IntMap Int] ->
@@ -4304,12 +4303,7 @@ reduceAnsatzEtaEig symL etaL evalM
         (finalForest, (_,finalMat)) = foldl' 
                                       (addOrDiscardEtaEig symL evalM)
                                       (ans1,rDat1) restEtaL
-\end{minted} 
-\end{samepage}
 
-\begin{samepage}
-\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
-1.2, bgcolor=LG]{haskell}
 reduceAnsatzEpsilonEig :: Symmetry -> [(Epsilon,[Eta])] ->
                           [I.IntMap Int] ->
                           (AnsatzForestEpsilon,Sparse.SparseMatrixXd)
@@ -4323,11 +4317,12 @@ reduceAnsatzEpsilonEig symL epsL evalM
                                       (addOrDiscardEpsilonEig symL evalM)
                                       (ans1,rDat1) restEpsL
 \end{minted} 
-\end{samepage}
+\caption{Reduce linear dependencies: memory efficient way.}\label{redMem}
+\end{listing}
 
-Finally now we can also provide functions that return a triplet consisting of two ansatz forests corresponding to a Lorentz invariant basis of given rank and symmetry and one tensor that incldes all their values, this time employing the memory optimzed algorithm:
+Finally now we can also provide functions (\ref{mkAnsatzEig1}), (\ref{mkAnsatzEig2}) amd (\ref{mkAnsatzEig3}) that return a triplet consisting of two ansatz forests corresponding to a Lorentz invariant basis of given rank and symmetry and one tensor that incldes all their values, this time employing the memory optimzed algorithm. 
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 --with explicit symmetrization in tens
@@ -4343,9 +4338,10 @@ mkAnsatzTensorEigSym ord symmetries evalL = (ansEta, ansEps, tens)
             tens = evalToTensSym
                    symmetries evalMEtaInds evalMEpsInds ansEta ansEps
 \end{minted} 
-\end{samepage}
+\caption{mkAnsatzEig 1: with explicit symmetrization.}\label{mkAnsatzEig1}
+\end{listing}
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 --without explicit symmetrization in tens
@@ -4360,9 +4356,10 @@ mkAnsatzTensorEig ord symmetries evalL = (ansEta, ansEps, tens)
                 getFullForestEig ord symmetries evalMEtaRed evalMEpsRed
             tens = evalToTens evalMEtaInds evalMEpsInds ansEta ansEps
 \end{minted} 
-\end{samepage}
+\caption{mkAnsatzEig 2: without explicit symmetrization.}\label{mkAnsatzEig2}
+\end{listing}
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 --evaluation to a tensor that uses multiple abstract index types
@@ -4377,13 +4374,13 @@ mkAnsatzTensorEigAbs ord symmetries evalL = (ansEta, ansEps, tens)
         (ansEta, ansEps, _, _) =
             getFullForestEig ord symmetries evalMEtaRed evalMEpsRed
         tens = evalToTensAbs evalMEtaInds evalMEpsInds ansEta ansEps
-
 \end{minted} 
-\end{samepage}
+\caption{mkAnsatzEig 3: evaluation to customized indices.}\label{mkAnsatzEig3}
+\end{listing}
 
-And as before we also provide versions of the first two functions that automatically construct the evaluation list from the rank and the symmetries specified:
+And as before we also provide versions of the first two functions (\ref{mkAnsatzEig1'}) and (\ref{mkAnsatzEig2'}) that automatically construct the evaluation list from the rank and the symmetries specified.
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 --with explicit symmetrization in tens
@@ -4397,9 +4394,10 @@ mkAnsatzTensorEigSym' ord symmetries = mkAnsatzTensorEigSym
         evalL =
             filter (`filterAllSym` symmetries) $ allList ord symmetries
 \end{minted} 
-\end{samepage}
+\caption{mkAnsatzEig' 1: with explicit symmetrization}\label{mkAnsatzEig1'}
+\end{listing}
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 --without explicit symmetrization in tens
@@ -4413,7 +4411,8 @@ mkAnsatzTensorEig' ord symmetries = mkAnsatzTensorEig
         evalL =
             filter (`filterAllSym` symmetries) $ allList ord symmetries
 \end{minted} 
-\end{samepage}
+\caption{mkAnsatzEig' 2: without explicit symmetrization.}\label{mkAnsatzEig2'}
+\end{listing}
 
 The developed sparse-tensor library also provides further functions that can be usefull when working with the ansatz forest data types. Details can again be found in \cite{sparse-tensor}, specifically in the \textit{LorentzGenerator} sub module.
 
@@ -4440,23 +4439,28 @@ newtype Ind3 =  Ind3 {indVal3 :: Int}
 \end{center}
 
 We choose to use the \mintinline{haskell}{newtype} declaration in order to ensure that functions that are defined for one particular index type cannot be applied to any other index type and thus preventing possible errors that might occur when mixing up index types.
-Note that in order for the tensor algebra functions in sparse-tensor to work for the \mintinline{haskell}{ATens} type, the index types must all be instances of \mintinline{haskell}{TIndex}. This can be simply achieved by defining the function \mintinline{haskell}{toEnum}, \mintinline{haskell}{fromEnum} making them instances of the typeclass \mintinline{haskell}{Enum} and then further defining the index range function that simply says how many different index values of the given abstract index exist:
+Note that in order for the tensor algebra functions in sparse-tensor to work for the \mintinline{haskell}{ATens} type, the index types must all be instances of \mintinline{haskell}{TIndex}. This can be simply achieved by defining the function \mintinline{haskell}{toEnum}, \mintinline{haskell}{fromEnum} making them instances of the typeclass \mintinline{haskell}{Enum} 
 
-\begin{samepage}
-\begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
-1.2, bgcolor=LG]{haskell}
-instance TIndex Ind3 where
-
+\begin{center}
+\begin{cminted}{haskell}
 instance Enum Ind3 where
     toEnum = Ind3
     fromEnum = indVal3
-\end{minted} 
-\end{samepage}
+\end{cminted} 
+\end{center}
+
+and then simply making them also an instance of \mintinline{haskell}{TIndex}:
+
+\begin{center}
+\begin{cminted}{haskell}
+instance TIndex Ind3 where
+\end{cminted} 
+\end{center}
 
 When taking a closer look at the equations (\ref{order1}) we see that albeit of the three Lorentz invariant basis tensors $a^{A}$, $a^{AI}$ and $a_0$ we further need the two area metric intertwiners $I^I_{abcd}$, $J_I^{abcd}$ with components being displayed in (\ref{AreaI}) and (\ref{AreaJ}), the J-intertwiner of a symmetric index pair whose components can be found in (\ref{interJMet})  , the flat background area metric $N_A$ and the 4 dimensional Kronecker delta $\delta^a_b$. 
-The Kronecker delta can readily be obtained as 
+The Kronecker delta can readily be obtained (\ref{Kronecker}).
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 delta3 :: ATens 0 0 0 0 1 1 (SField Rational)
@@ -4465,12 +4469,13 @@ delta3 = fromListT6 $ zip
          singletonInd (Ind3 i), singletonInd (Ind3 i)) | 
          i <- [0..3]] (repeat $ SField 1)
 \end{minted} 
-\end{samepage}
+\caption{Construction of Kronecker delta.}\label{Kronecker}
+\end{listing}
 %further comment the use of fromListT6 ??
 
-The three intertwiners can be constructed according to:
+The three intertwiners can be constructed according to (\ref{ConstrInterJ2}), (\ref{ConstrINterIArea}) and (\ref{ConstrInterJArea}).
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 interJ2 :: ATens 0 0 0 1 2 0 (SField Rational)
@@ -4485,10 +4490,11 @@ interJ2 = fromListT6 $ fmap (fmap SField) $ filter (\(i,k) -> k /= 0) $
             | ind1 == (M.!) trian2 (sortInd ind2) = jMult2 ind2
             | otherwise = 0
 \end{minted} 
-\end{samepage}
+\caption{Construction of interJ2.}\label{ConstrInterJ2}
+\end{listing}
 
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 interIArea :: ATens 1 0 0 0 0 4  (SField Rational)
@@ -4507,9 +4513,10 @@ interIArea = fromListT6 $ fmap (fmap SField) $ filter (\(i,k) -> k /= 0) $
             where
                 (indArea, s) = canonicalizeArea ind2
 \end{minted} 
-\end{samepage}
+\caption{Construction of interIArea. }\label{ConstrINterIArea}
+\end{listing}
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 interJArea :: ATens 0 1 0 0 4 0 (SField Rational)
@@ -4528,7 +4535,8 @@ interJArea = fromListT6 $ fmap (fmap SField) $ filter (\(i,k) -> k /= 0) $
             where
                 (indArea, s) = canonicalizeArea ind2
 \end{minted} 
-\end{samepage}
+\caption{Construction of interJArea.}\label{ConstrInterJArea}
+\end{listing}
 
 Here \mintinline{haskell}{trianMap2} is a Map that relates the indices of a symmetric pair of spacetime indices to the corresponding abstract index of type \mintinline{haskell}{Ind9}, \mintinline{haskell}{trianMapArea} is a Map that relates the 4 spacetime indices of a given area metric to the corresponding abstract index, \mintinline{haskell}{canonicalizeArea} is a function that brings a set of 4 spacetime indices obeying the area metric symmetries to canonical order taking into account possible signs that might occur during the resorting, \mintinline{haskell}{jMult2} is a function that computes the $\sigma$ multiplicity of the symmetric index pair and \mintinline{haskell}{jMultArea} computes the $\sigma$ multiplicity (see discussion following definition \ref{interDef} for the precise definition of these multiplicities $\sigma$) of a given set of 4 spacetime indices that correspond to one area metric.
 
@@ -4542,9 +4550,9 @@ interArea = (-4) &. contrATens3 (1,1) (contrATens3 (2,2) $
 \end{cminted}
 \end{center}
 
-The flat background area metric can simply be constructed as follows:
+The flat background area metric can simply be constructed as (\ref{ConstrFlatArea}).
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 flatArea :: ATens 0 1 0 0 0 0 (SField Rational)
@@ -4553,7 +4561,8 @@ flatArea = fromListT6 $ map (\(i,v) -> ( (Empty, singletonInd $ Ind20 i,
            [(0,-1),(5,-1),(6,-1),(9,1),(11,-1),
            (12,-1),(15,1),(18,1),(20,1)]
 \end{minted} 
-\end{samepage}
+\caption{Construction of flatArea.}\label{ConstrFlatArea}
+\end{listing}
 
 The next step is the computation of the three bases of Lorentz invariant tensors. Clearly $a_0$ is simply a single constant. As such it can be incorporated in our tensor framework by:
 
@@ -4573,9 +4582,9 @@ symList4 = ([], [(1,2),(3,4)], [([1,2],[3,4])], [], [])
 \end{cminted}
 \end{center}
 
-This simply corresponds to pair anti symmetries in the indices $(1,2)$ and $(3,4)$ and a block symmetry w.r.t. exchange of the two index pairs $(1,2)$ and $(3,4)$. The evaluation list can be constructed as
+This simply corresponds to pair anti symmetries in the indices $(1,2)$ and $(3,4)$ and a block symmetry w.r.t. exchange of the two index pairs $(1,2)$ and $(3,4)$. The evaluation list can be constructed as (\ref{ConstrAreaList4}).
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 areaList4 :: [([Int], Int, [IndTupleAbs 1 0 0 0 0 0])]
@@ -4586,7 +4595,8 @@ areaList4 = list
                  [(singletonInd (Ind20 $ a-1), Empty, Empty, Empty,
                  Empty, Empty)]) | a <- [1..21] ]
 \end{minted} 
-\end{samepage}
+\caption{Construction of areaList4.}\label{ConstrAreaList4}
+\end{listing}
 
 As before \mintinline{haskell}{trianMapArea} is a Map that relates a block of 4 spacetime indices with area metric symmetries to an abstract area metric index and \mintinline{haskell}{areaMult} is a function that computes the multiplicity of a given set of 4 spacetime indices with area metric symmetry. Note that we do not only provide the index value list that are necessary for the evaluation of the ansatz forests but also include the multiplicity of the index values and the corresponding abstract index as we want to make use of the function \mintinline{haskell}{mkAnsatzTensorEigAbs} to evaluate the anastz forests to the chosen abstract tensor type \mintinline{haskell}{ATens}. We can now construct the basis for the expansion coefficient $a^{A}$ by invoking:
 
@@ -4623,9 +4633,9 @@ symList6 = ([(5,6)], [(1,2),(3,4)], [([1,2],[3,4])], [], [])
 \end{cminted}
 \end{center}
 
-This simply correspond to an additional pair symmetry in the derivative indices $(5,6)$. The evaluation list can be obtained as:
+This simply correspond to an additional pair symmetry in the derivative indices $(5,6)$. The evaluation list can be obtained as (\ref{ConstrAreaList6}).
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 areaList6 :: [([Int], Int, [IndTupleAbs 1 0 1 0 0 0])]
@@ -4639,7 +4649,8 @@ areaList6 = list
                  singletonInd (Ind9 $ i-1),
                  Empty, Empty, Empty)]) | a <- [1..21], i <- [1..10]]
 \end{minted} 
-\end{samepage}
+\caption{Construction of areaList6.}\label{ConstrAreaList6}
+\end{listing}
 
 We now can again construct the ansatz forest 
 
@@ -4661,9 +4672,9 @@ let ans4' = shiftLabels6 3 ans4
 \end{center}
 
 Now the first 3 variables are those contained in \mintinline{haskell}{ans6} the next 2 are those in \mintinline{haskell}{ans4} and the last variable is those from \mintinline{haskell}{ans0}.
-We can now finally construct the two equations in (\ref{order1}):
+We can now finally construct the two equations in (\ref{order1}). The source code is displayed in (\ref{ConstrEqn}).
 
-\begin{samepage}
+\begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
 1.2, bgcolor=LG]{haskell}
 eqn1 :: ATens 0 0 0 0 0 0 (AnsVarR) ->
@@ -4680,7 +4691,8 @@ eqn2 ans6 = contrATens2 (0,0) $ contrATens1 (0,0) $ ans6 &*
         interEqn5 = cyclicSymATens5 [0,1,2] $
                     interJ2 &* interMetric
 \end{minted} 
-\end{samepage}
+\caption{Construction of eqn1 and eqn2.}\label{ConstrEqn}
+\end{listing}
 
 We can now for instance check the rank of the equations. This can be achieved by first computing the two equations:
 
