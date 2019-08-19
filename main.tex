@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt, DIV=14, BCOR=5mm, twoside, headsepline]{scrbook}
+\documentclass[a4paper,12pt, DIV=14, BCOR=5mm, twoside, headsepline, numbers=noenddot]{scrbook}
 
 \usepackage{mathtools}
 \usepackage{amsmath}
@@ -13,6 +13,8 @@
 
 \usepackage{caption}
 \usepackage{booktabs} % required for the first solution
+
+\usepackage{epigraph}
 
 
 
@@ -507,16 +509,46 @@
   }%
 }
 
+\newenvironment{abstract}{%
+  \titlepage% X
+  \null\vfil% X
+  \begin{center}\normalfont\usekomafont{disposition}Abstract\end{center}%
+}{%
+  \par
+  \vfil\null% X
+  \endtitlepage% X
+}
+
+\usepackage{xkeyval}
+
+\newenvironment{Zusammenfassung}{%
+  \titlepage% X
+  \null\vfil% X
+  \begin{center}\normalfont\usekomafont{disposition}Zusammenfassung\end{center}%
+}{%
+  \par
+  \vfil\null% X
+  \endtitlepage% X
+}
+
 \usepackage{xkeyval}
 
 %citation nasa ads macros
 
 \def\apjl{\textit{ApJ}}                % Astrophysical Journal, Letters
 
+\def\apj{\textit{ApJ}}                % Astrophysical Journal, 
+
+\def\aj{\textit{AJ}}                % Astronomical Journal, 
+
+\def\aap{\textit{A\&A}}              % Astronomy & Astrophysics
+
 \def\prd{\textit{Phys.~Rev.~D}}        % Physical Review D
 
 \def\prl{\textit{Phys.~Rev.~Lett.}}    % Physical Review Letters
 
+\def\jcap{\textit{J. Cosmology Astropart. Phys.}}
+                % Journal of Cosmology and Astroparticle Physics
 
 \title{Covariant Constructive Gravity}
 \author{Tobias Reinhart }
@@ -553,43 +585,126 @@
 
 \end{titlepage}
 
+\begin{abstract}
+In this thesis we investigate the central question of Constructive Gravity: 
+How one might derive gravitational dynamics from first principles instead of merely postulating them. 
+Incorporating two fundamental requirements, diffeomorphism invariance of the gravitational theory and causal compatibility of the gravitational EOM with given matter field equations, into our endeavor we use modern mathematical tools such as the jet bundle apparatus and techniques from formal PDE theory to cast these two requirements into rigorous mathematical language. Doing so we end up with a system of linear first order partial differential equations that fully encodes the required diffeomorphism invariance of any theory of gravity. Causal compatibility is further included as a condition on the gravitational Principal polynomial, a certain sub part of the gravitational EOM. 
+Proving that the PDE system is involutive and hence allows for a perturbative treatment we develop a framework for the construction of perturbative theories of gravity that satisfy the two conditions in terms of a power series expansion. The two crucial requirements are then expressed by linear equations for the expansion coefficients of the power series which can readily be solved using our developed computer algebra program that was specifically designed for this purpose. We test the thus obtained framework treating two examples of particular interest, namely the construction of a perturbative metric theory of gravity from first principles and the generalization to so called area metric gravity.
+
+\end{abstract}
+
+\begin{Zusammenfassung}
+In dieser Arbeit untersuchen wir die zentrale Frage des Forschungsgebietes Constructive Gravity: Wie sich Gravitationsdynamik aus grundlegenden Forderungen herleiten lässt anstatt diese zu postulieren.
+Unter der verwendung zweier solcher grundlegender Forderungen, der Diffeomorphismen Invariance der Gravitations Theorie sowie deren causale compatibilität mit einer gegebenen Materie Theorie nutzen wir moderne mathematische Techniken wie die Jet Bündel Formulierung und weitere Aspekte aus der formellen Theorie der partiellen Differentialgleichungen um die beiden Forderungen in rigorose Mathematik zu übersetzen. So leiten wir ein zur geforderten Diffeomorphismen Invariance äquivalentes System aus linearen partiellen Differentialgleichungen erster Ordnung her. Die Forderung nach Causaler Compatibilität kann schließlich als Bedingung an das Prinzipal Polynom der Gravitations Theorie, einem speziellen Bestandteil der Gravitations Bewegungsgleichung, formuliert werden. 
+Weiterhin beweißen wir dass das system aus partiellen Diffferentialgleichungen involutive ist und daher eine störungstheoretische betrachtung ermöglicht. So entwickeln wir ein Rahmenwerk für die Konstruktion von störungstheoretischen Reihenentwicklungen von Gravitationstheoreien die die beiden fundamentalen Bedingungen erfüllen. In bezug of die Reihenentwicklung offenbaren sich diese beiden Bedingungen als linear Gleichungen für die entsprechenden Entwicklungskoeffizienten. Diese können mithilfe eines speziell für diesen Zweck von uns entwickelten Computer Programmes gelöst werden.
+Wir testen die von uns entwickelten Techniken an zwei besonders bedeutenden Beispielen, der Konstruktion einer störungstheoretischen, metrischen Gravitationstheory sowie der verallgemeinerung hin zur sogenannten Area Metrik Gravitation. 
+\end{Zusammenfassung}
+
 \tableofcontents
 
 \listofillustrations
 
 \listoflistings
 
-\chapter{Introduction: The Aim of Constructive Gravity}
-
 %in introduction: main idea of constructive gravity and reasons for the constructive approach. Maybe also current state of the field (+ lovelock, HKT, bootstrap).
 
 %check labeling of equations !!!
 
+\chapter*{Acknowledgements}
+Firstly I would like to thank Frederic Schuller without whose inspiring ideas this thesis undoubtedly would not have been possible. Frederic without your distinctive way of motivating your students I certainly would not have worked as hard on this thesis as I did.
+
+Further I would like to thank Jörn Wilms for 
+%providing liberation from the bureaucratic machinery of universities nowadays in 
+accepting my thesis as official supervisor
+and thereby allowed me to formally register it. 
+
+I also have to thank Marcus Werner (Yukawa Institute for Theoretical Physics in Kyoto, Japan) who in collaboration with the Universe Journal provided financial support for my participation at the 15th Marcel Grossmann meeting in Rome. 
+
+I would like to thank my colleagues for helping me in numerous aspects and never becoming tired of answering my countless questions.
+
+Besides of that I would also like to mention that a large number of computer calculations that were carried out during this thesis were only possible due to the great IT-infrastructure that the physics department provides for their students. 
+
+I would also like to thank my family for tirelessly supporting my passion for physics and my friends for accepting my lack of time.
+
+Especially I would like to thank my girlfriend Nicole not only for her assistance in nearly every part of my life but also 
+for tolerating that during numerous occasions throughout the day my mind almost entirely revolves around physics. 
+
+Special thank is also due to our cat Lucky who selflessly provided me his accompany during the long periods of writing this thesis. 
+
+Finally I would like to especially thank my colleague Nils Alex.
+Not only did he provide a patient instructor in introducing me to the world of software engineering, 
+a large part of the results that are presented in this thesis were in fact developed in collaboration with him. 
+To that end we also published the essence of the results that will follow in this thesis in form of a paper (\cite{ToBePublished}) that shall further clarify the most of these results were obtained in cooperation of the two of us, not by individual work. 
+
+Lastly I certainly have to acknowledge anyone how will prove the stamina of not only reading but also finishing this rather long master's thesis. I appreciate it. 
+%second posisble quote:
+% “Deviner avant de démontrer! Ai-je besoin de rappeler que c'est ainsi que se sont faites toutes les découvertes importantes.
+
+%Guessing before proving! Need I remind you that it is so that all important discoveries have been made?” 
+%Poincare
+
+\chapter{Introduction: The Aim of Constructive Gravity}
+\setlength{\epigraphwidth}{0.6\textwidth}
+\epigraph{"...theoretical physics has not done great in the last decades. Why? Well, one of the reasons, I think, is that it got trapped in a wrong philosophy: the idea that you can make progress by guessing new theory and disregarding the qualitative content of previous theories. This is the physics of the "why not?" Why not studying this theory, or the other? Why not another dimension, another field, another universe? Science has never advanced in this manner in the past. Science does not advance by guessing."}{\textit{Carlo Rovelli}}
+
+Over 100 years ago in 1915 Einstein first published his theory of General relativity \cite{1915SPAW.......844E} and still today it constitutes a widely accepted description of gravitational interaction. Yet it is still unsatisfactory in describing certain observations. 1998 discoveries by the Supernova Cosmology Project \cite{1999ApJ...517..565P} and the High-Z Supernova Search Team \cite{1998AJ....116.1009R} revealed that the expansion of the universe is accelerating over time. In order for such an accelerated expansion of the universe to be consistent with General Relativity one needs to account for it by adding either a cosmological constant or an additional scalar field to the Lagrangian. The entire contribution of such additional quantities is then usually called \textit{\textbf{dark energy}}.
+In addition to that observations of galaxy rotation curves from the 1960s and 1970s \cite{1970ApJ...160..811F}, \cite{1970ApJ...159..379R} and \cite{1980ApJ...238..471R} suggest that in order to explain their observed rotation behaviour most galaxies in addition to their visible matter need to contain a large amount of un-observable hence \textit{\textbf{dark matter}}.
+If one wants to describe this phenomenon still in the context of General Relativity this requires one to add further field content to the theory to also account for dark matter. \\
+
+The most prominent General relativity based cosmological model that includes both, dark energy and dark matter is the so called cosmological standard model or Lambda-CDM model. Based on this model measurements of the cosmic microwave background can be used to determine the percentage of the energy density in the observable universe that is composed of standard model matter and to which extent the additional sources of dark matter and dark energy contribute. Recent measurement lead by the Planck mission \cite{Planck13_1}, \cite{Planck13_2}, \cite{Planck15} and \cite{Planck18} revealed that standard model matter only compromises $4.82\pm0.05\%$ of its total energy content, whereas dark matter accounts for $ 25.8\pm0.4\%$ and dark energy even for $ 69 \pm 1 \%$. Thus dark energy and dark matter combined contribute an astonishing total of nearly $95 \%$ to the total energy contained in the present observable universe.
+Justifiably it seems inappropriate that two adjustments that ad hoc are added to an existing theory to render it consistent with otherwise contradicting observations in the end account for the description of nearly $95\%$ of the theories "content".  \\
+
+Regarding this observation it is no surprise that there exist countless proposed alternatives\footnote{There exist theories that describe the gravitational field as a scalar field \cite{Scalar1} \cite{Scalar2}, theories that use a combination of scalar and tensor field \cite{ST1}, \cite{ST2}, \cite{ST3}, theories that employ scalar, vector and tensor field \cite{SVT1}, \cite{SVT2}, theories that use the usual metric but different EOM \cite{fR1}, \cite{fR2} and even theories that describe the gravitational field by two metric tensors \cite{BIM1} and \cite{BIM2} to provide a few examples.} to General relativity, many of which aim to explain phenomena like dark energy and dark matter without such an ad hoc adjusting the theory by hand. 
+Yet in this research area of alternative theories of gravity there has been no real breakthrough in the last couple of years. 
+The deviating from General Relativity into unknown terrain is too often performed in the fashion that Rovelli appropriately criticises in the quotation above. Changes to General relativity are not performed because observations or even some underlying fundamental principal that one tries to incorporate in the theory of gravity urges one to do so but simply because yet an additional field or yet another structure to describe gravity might seem more appealing than the present one. In short central aspects of such alternative theories of gravity are often simply postulated, or one could also say guessed. As Rovelli strikingly notes this is not how science has progressed in the past. This is even more appropriate for the complex endeavor of constructing alternative theories of gravity. 
+With the numerous alternatives that have already been proposed and countless many yet undiscovered possible alternative how one be confident enough to think he or she even has the slightest chance of simply guessing the correct one. It seems more promising to tackle such a complicated quest with a more reasoned plan, by clearly deciding which properties a meaningful alternative theory of gravity must admit in any case and then from there simply deducing consequences of these properties. 
+This precisely constitutes a key aspect of the ideology that lies at the heart of the research area \textit{\textbf{Constructive Gravity}}.\\
+
+In this thesis we will attempt the endeavor of supporting the process of constructing arbitrary alternative gravity theories with reasoned structure. 
+We are going to formulate certain fundamental requirements that any meaningful theory of gravity must satisfy. These requirements are then cast into modern mathematical language such that they can be used to guide the formulation of new theories of gravity. This will in fact be achieved to the extent that we will formulate a "recipe" that incorporates the precise steps necessary to obtain a valid theory of gravity from a given choice of input data. 
+
+The fundamental requirements that we will adopt throughout this thesis are:
+\begin{itemize}
+    \item[(i)] \textbf{Gravity is described by a tensor field on a 4-d manifold called spacetime.}
+    \item[(ii)] \textbf{The dynamical laws that govern gravity are invariant under spacetime diffeomorphisms.}
+    \item[(iii)] \textbf{Provided spacetime is additionally inhabited by matter fields their dynamics is causally compatible with the gravitational dynamics.}
+\end{itemize}
+
+The beginning of chapter (\ref{chapter1}) will be used to lay the foundation of the remaining thesis. We will provide the necessary mathematics for a precise formulation of classical field theories. Further we will investigate consequences of the required diffeomorphism invariance of the gravitational dynamics, more precisely we will deduce from it an equivalent set of linear, first order partial differential equations that the gravitational Lagrangian has to satisfy. The second half of chapter (\ref{chapter1}) investigates the associated canonical formulation of classical field theories, paying particular attention on how diffeomorphism invariance enters such an apparently non covariant setting. The connection to gravitational physics will be picked up again in the end of chapter (\ref{chapter1}) where we will see how the three different ways how General relativity historically was rediscovered from first principles by Lovelock \cite{doi:10.1063/1.1665613} Hojman, Kuchař and Teitelboim \cite{HOJMAN197688} and by Deser \cite{1970GReGr...1....9D} can all be understood as consequences of the fundamental requirement of diffeomorphism invariant gravitational dynamics.
+
+The second chapter is dedicated towards to connection between the central problem of Constructive Gravity, the construction of meaningful, new theories of gravity and the formal theory of partial differential equations. Not only will we use tools ans techniques that we borrow from formal theory to analyse the PDE system that encodes diffeomorphism invariance which ultimately will reveal how at least perturbatively one might always obtain solutions to it, we will also formal PDE theory to formulate the remaining fundamental requirement incorporated in our framework: the causal compatibility between a given matter theory and the to be constructed gravitational dynamics. The second chapter will finally culminate with the concrete, almost algorithmic manual for the perturbative construction of gravity theories.  
+
+In the third chapter we are going to apply the perturbative construction recipe that we developed in chapter 2 to two explicit examples, namely perturbative metric gravity and the more general case of perturbative area metric gravity. It is of particular importance to note that both two theories represent in no way unreasoned guesses of alternative gravity theories. They are unique in the sense that they both constitute the most general option for describing the gravitational field that is consistent with a certain class of matter theories. More precisely the metric is the most general geometric background that might support a classical scalar field with linear, second derivative order equations of motion, i.e. a Klein-Gordon field, whereas the area metric represents the most general geometric background for a linear second derivative order theory of electrodynamics described by a co-vector field. Thus both chosen examples are extraordinarily interesting to study.
+
+In the fourth and last chapter we outline the basic functionality of the Haskell library that we developed specifically to deal with problems that arise in the context of perturbative Constructive Gravity. We provide short explanations of the main algorithms involved therein and also supplement the relevant portions of source code. Furthermore we describe in short, by considering a particular example who exactly the computer program can be used to tackle the relevant constructive gravity problems.
+
+We then conclude this thesis by outlining potential future research inters.
+\section*{Notation}
 
 Before we start with the main part we quickly illustrate particularities of the chosen notation. Throughout this thesis even if not stated explicitly all objects are considered to be smooth, i.e. we work with smooth maps defined on smooth manifolds. 
 
-Furthermore as the relevant constructions presented in this work are entirely local we will denote maps between manifolds without being to rigorous with the description of the appropriate domain and codomain respectively. Hence we might for instance write $x^a : M
+Furthermore as the relevant constructions presented in this work are entirely local we will denote maps between manifolds without being to rigorous with the description of the appropriate domain and co-domain respectively. Hence we might for instance write $x^a : M
 \rightarrow \mathbb{R}$ for a chart map on a manifold $M$ where we should more properly write $x^a : M \supset U : \rightarrow x(U) \subset \mathbb{R} $. 
 
-Lower case latin indices $a,b,c,...$ are used as spacetime indices and hence run from 0 to 3, spatial indices between 1 and 3 are denoted by lower case greek letters $\alpha,\beta,\gamma,...$. In addition to that we will use further types of indices to describe coordinate functions on additional bundles that we are going to construct over the spacetime manifold $M$. Upper case latin letters from the middle of the alphabet $I_k,J_k,L_k,...$ will be used to describe derivative indices of order $k$ and hence run from $0$ to $\binom{b+k-1}{n-1}-1$ where $n$ is the dimension of the basespace w.r.t. which the derivatives are taken. As we will work extensively over some second order jet bundle we will sometimes drop the labels that specify the order of such indices and hence use $I,J,K,...$ to solely describe such second derivative order indices if this does not cause confusion.
+Lower case Latin indices $a,b,c,...$ are used as spacetime indices and hence run from 0 to 3, spatial indices between 1 and 3 are denoted by lower case Greek letters $\alpha,\beta,\gamma,...$. In addition to that we will use further types of indices to describe coordinate functions on additional bundles that we are going to construct over the spacetime manifold $M$. Upper case Latin letters from the middle of the alphabet $I_k,J_k,L_k,...$ will be used to describe derivative indices of order $k$ and hence run from $0$ to $\binom{b+k-1}{n-1}-1$ where $n$ is the dimension of the base space w.r.t. which the derivatives are taken. As we will work extensively over some second order jet bundle we will sometimes drop the labels that specify the order of such indices and hence use $I,J,K,...$ to solely describe such second derivative order indices if this does not cause confusion.
 
-There will also be situations with two different types if derivative indices appearing in the same equation, describing higher derivatives w.r.t. the coordinates of the spacetime manifold and w.r.t. coordinates of some additional bundle. We will then label the derivative coordinates of the latter kind by caligraphic letters $\mathcal{I}_k, \mathcal{J}_k,...$ to allow for distinction.
+There will also be situations with two different types if derivative indices appearing in the same equation, describing higher derivatives w.r.t. the coordinates of the spacetime manifold and w.r.t. coordinates of some additional bundle. We will then label the derivative coordinates of the latter kind by calligraphic letters $\mathcal{I}_k, \mathcal{J}_k,...$ to allow for distinction.
 
-Upper case latin letters from the beginning of the alphabet $A,B,C,D,...$ are used to label fibre coordinate functions on the space of fields, whenever we are dealing with a second field that belongs to a different space we label the coordinates by $\tilde{A}, \tilde{B},...$ . The respective range obviously depends on the specific field at hand.\\
+Upper case Latin letters from the beginning of the alphabet $A,B,C,D,...$ are used to label fibre coordinate functions on the space of fields, whenever we are dealing with a second field that belongs to a different space we label the coordinates by $\tilde{A}, \tilde{B},...$ . The respective range obviously depends on the specific field at hand.\\
 
 In this work we will deal with bundles of smooth manifolds to quite some extend. When we introduce a new bundle we will denote it as triple $(F,\pi_F,M)$ consisting of the total space $F$ the bundle projection $\pi_F$ and the base space $M$. Priorly introduced bundles might also be simply denoted by their total space. Morphisms between bundles $(F_1,\pi_1,M_1)$ and $(F_2,\pi_2,M_2)$ are denoted as pairs of maps $(f,h)$, with $f$ being the map between total spaces that covers $h$. Bundle morphisms that cover the identity or such morphisms that are constructed from a given map between base spaces will be referred simply by the map on the total space.
 
 Given a vector space $V$, a linear map $\phi$, a vector bundle $(E,\pi,N)$ or any other object with a notion of duality, a superscripted $\ast$ on the relevant object will denote the corresponding dual object, i.e. the dual vector space $V^{\ast}$, dual linear map $\phi^{\ast}$, dual vector bundle $(E^{\ast}, \pi^{\ast},N)$. In particular given a smooth map between manifolds $f : M \rightarrow N$ we denote its pushforward by $f_{\ast} : Tm \rightarrow TN$ and its pullback by $f^{\ast} : T^{\ast}N \rightarrow T^{\ast}M$.
 
-We denote tensor products by $\otimes$ and the corresponding space of $(m,n)$ tensors over $M$ by $T^m_nM$. The space of n-forms over $M$ is denoted by $\Lambda^nM$. Given a bundle $(F,\pi_{F},M)$ we write $G \in \Gamma(F) $ for a section of this bundle. We denote direct sums of vectorspaces or the whitney sum of vector bundles by $\oplus$ respectively. \\
+We denote tensor products by $\otimes$ and the corresponding space of $(m,n)$ tensors over $M$ by $T^m_nM$. The space of n-forms over $M$ is denoted by $\Lambda^nM$. Given a bundle $(F,\pi_{F},M)$ we write $G \in \Gamma(F) $ for a section of this bundle. We denote direct sums of vector spaces or the whitney sum of vector bundles by $\oplus$ respectively. \\
 
-The jet bundle of order q over a given bundle $(F,\pi_F,M)$ will be denoted by $J^qF$ and any associated jet prolongation map, either in the sense of prolonging sections of $F$ to sections of $J^qF$ or in the sense of prolonging vectorfields on $M$ to vectorfields on $J^qF$ will be referred to as $j^q$. 
+The jet bundle of order q over a given bundle $(F,\pi_F,M)$ will be denoted by $J^qF$ and any associated jet prolongation map, either in the sense of prolonging sections of $F$ to sections of $J^qF$ or in the sense of prolonging vector fields on $M$ to vector fields on $J^qF$ will be referred to as $j^q$. 
 
 In general we will label bundle maps that take values in the bundle of volume forms over some base manifold letters in calligraphic font $\mathcal{L}, \mathcal{H}$ and the corresponding representation in terms of the chart induced volume form by the corresponding standard font letter $\mathcal{L}=L \mathrm{d}^4x, \mathcal{H}= H \mathrm{d}^3x$.
 
-As usual $\left[ \  ,   \  \right]$ denotes the commutator of vector fields and $\left \{  \  ,   \   \right \}$ the poisson bracket of phase space functions/functionals. 
+As usual $\left[ \  ,   \  \right]$ denotes the commutator of vector fields and $\left \{  \  ,   \   \right \}$ the Poisson bracket of phase space functions/functionals. 
 
-\chapter{Diffeomorphism Invariant Field Theory}
+\chapter{Diffeomorphism Invariant Field Theory}\label{chapter1}
 
 \dictum{
 We provide the basic mathematical tools necessary for a precise formulation of classical Lagrangian field theory. Furthermore we study implications of the requirement that the Lagrangian be infinitesimally equivariant w.r.t. spacetime diffeomorphisms and derive from it an equivalent set of first order partial differential equations. Lastly we investigate consequences of the diffeomorphism invariance for the Hamiltonian formulation of classical field theory.
@@ -607,12 +722,12 @@ Fixing start and end configuration and velocity of the system for all curves in 
 Once the transition from standard particle mechanics to field theories is made the system is no longer described by curves in some finite dimensional configuration space representing the systems configuration at each parameter time, but by the values a given field attains at different spacetime points. Hence instead of curves one deals with sections of some bundle $(F,\pi_F,M)$ over the 4-dimensional spacetime manifold $M$. The notion of adjoining velocities to a curve is replaced by adjoining derivatives to a section. The appropriate setting for this procedure is the \textit{\textbf{jet bundle}} over $F$. Just as the tangent bundle $TQ$ is obtained from a coordinate independent description of derivatives of curves, the jet bundle over $F$ is constructed by a coordinate independent description of derivatives of sections of $F$. As before the Lagrangian is then simply a function on this jet bundle. 
 In the following we outline how these ideas can be cast into precise mathematical language. \\
 
-We follow \cite{1998physics...1019G} to some extend. Further information concerning the geometry of jet bundles can be found in \cite{saunders_1989} and \cite{seiler2009involution}. A more sophisticated treatment with the focus lying on the naturallity\footnote{Loosely speaking in the sense that certain constructions do not require further structure or additional choices than what is already provided.} of certain constructions that we are going to meet in the next chaptes can be found in \cite{kolar1993natural}. Many details regarding the involved standard differential geometry are concisely collected in \cite{doi:10.1142/3867}  Let $M$ be an oriented 4-dimensional manifold that represents spacetime. We restrict our attention to tensor fields over $M$. Such fields are \textit{\textbf{sections}} of a bundle $(F,\pi_F,M)$, i.e. smooth maps $G : M \rightarrow F $ that satisfy $\pi_F \circ G = \mathrm{id}_M$. In the following we will refer to the bundle $F$ as $\textit{\textbf{field bundle}}$.  As we want to consider tensor fields the field bundle is required to be given by a vector sub bundle of some $T^m_n M$. We denote adapted coordinates\footnote{Recall that adapted coordinates $(x^m,v_A)$ on a fibre bundle $(F, \pi_F, M)$ are defined by the requirement that there exits a coordinate chart on $M$, $(y^m)$, s.t. $y^m = x^m \circ \pi_F$, and hence we denote the first $dim(M)$ coordinate functions of both charts with the same label. It should be clear from the context which coordinates are meant, those on $M$ or those on $F$.} on $F$ by $(x^m,v_A)$, where $A$ runs from $0$ to $n - 1$ with $n$ being the fibre dimension of $F$, i.e. $n := \pi_F^{-1}(p)$ for some $p \in M$. Note that as $F$ is assumed to be a vector bundle we can always chose adapted coordinates s.t. the $v_A$ are linear on the fibres. Details regarding this remark can be found in \cite{saunders_1989}. In the following we will only regard such adapted coordinates. The corresponding coordinate representation of sections is denoted by $G_A(x^m(p)) = v_A \circ G (p)$ where we will simply write $G_A$ most of the time. Hence writing $G_A$ we refer to the coordinate representation of a section, whereas $v_A$ simply denotes fibre coordinates on $F$. \\
+We follow \cite{1998physics...1019G} to some extend. Further information concerning the geometry of jet bundles can be found in \cite{saunders_1989} and \cite{seiler2009involution}. A more sophisticated treatment with the focus lying on the naturality\footnote{Loosely speaking in the sense that certain constructions do not require further structure or additional choices than what is already provided.} of certain constructions that we are going to meet in the next chapters can be found in \cite{kolar1993natural}. Many details regarding the involved standard differential geometry are concisely collected in \cite{doi:10.1142/3867}  Let $M$ be an oriented 4-dimensional manifold that represents spacetime. We restrict our attention to tensor fields over $M$. Such fields are \textit{\textbf{sections}} of a bundle $(F,\pi_F,M)$, i.e. smooth maps $G : M \rightarrow F $ that satisfy $\pi_F \circ G = \mathrm{id}_M$. In the following we will refer to the bundle $F$ as $\textit{\textbf{field bundle}}$.  As we want to consider tensor fields the field bundle is required to be given by a vector sub bundle of some $T^m_n M$. We denote adapted coordinates\footnote{Recall that adapted coordinates $(x^m,v_A)$ on a fibre bundle $(F, \pi_F, M)$ are defined by the requirement that there exits a coordinate chart on $M$, $(y^m)$, s.t. $y^m = x^m \circ \pi_F$, and hence we denote the first $dim(M)$ coordinate functions of both charts with the same label. It should be clear from the context which coordinates are meant, those on $M$ or those on $F$.} on $F$ by $(x^m,v_A)$, where $A$ runs from $0$ to $n - 1$ with $n$ being the fibre dimension of $F$, i.e. $n := \pi_F^{-1}(p)$ for some $p \in M$. Note that as $F$ is assumed to be a vector bundle we can always chose adapted coordinates s.t. the $v_A$ are linear on the fibres. Details regarding this remark can be found in \cite{saunders_1989}. In the following we will only regard such adapted coordinates. The corresponding coordinate representation of sections is denoted by $G_A(x^m(p)) = v_A \circ G (p)$ where we will simply write $G_A$ most of the time. Hence writing $G_A$ we refer to the coordinate representation of a section, whereas $v_A$ simply denotes fibre coordinates on $F$. \\
 %check coordinate expression 
 
 Given a field bundle $(F, \pi_F, M)$ we can define the corresponding $\textit{\textbf{dual field bundle}}$ $(F^{\ast}, \pi_{F^{\ast}},M)$ as its vector bundle dual. We quickly recall the definition of the vector bundle dual and the dual of a linear map.
 \begin{definition}[dual linear map] \label{dual}
-Given vectorspaces $V$ and $W$ and a linear map, i.e. a morphism of vectorspaces $f : V \rightarrow W$, the dual linear map $f^{\ast} : W^{\ast} \rightarrow V^{\ast}$ is defined by the requirement: 
+Given vector spaces $V$ and $W$ and a linear map, i.e. a morphism of vector spaces $f : V \rightarrow W$, the dual linear map $f^{\ast} : W^{\ast} \rightarrow V^{\ast}$ is defined by the requirement: 
 \begin{align}
     \forall v \in V, \forall \omega \in W^{\ast} : \omega (f(v)) = f^{\ast}(\omega) (v).
 \end{align}
@@ -658,7 +773,7 @@ With these definitions at hand we can now specify the maps that allow for the tr
 Let $(F,\pi_F,M)$ be a vector bundle. We call a pair of vector bundle morphisms $(I,J)$ that cover $id_M$,
 $I: F \rightarrow T^m_n M$ and $J: T^m_n M \rightarrow F $ that satisfy  $J \circ I = \mathrm{id}_F$ a pair of \textbf{\textit{intertwiners}} for the bundle $(F, \pi_F, M)$.
 \end{definition}
-The last requirement, namely the existence of a leftinverse to $I$ ensures that $\tilde{I} : F \rightarrow I(F) \subset T^m_nM$ defines a vector bundle isomorphism, and thereby allows us to relate the two distinct points of view.
+The last requirement, namely the existence of a left inverse to $I$ ensures that $\tilde{I} : F \rightarrow I(F) \subset T^m_nM$ defines a vector bundle isomorphism, and thereby allows us to relate the two distinct points of view.
 \begin{comment}
 \begin{remark}
 Note that the situation is similar to the soldering of a vector bundle to a manifold, where the necessary data is a vector bundle isomorphism between the vector bundle and the tangent bundle of the manifold. The soldering then allows one to identify the vector bundle with the tangent bundle of the manifold. By requiring the existence of $J$, a left inverse of $I$ in the definition presented here, we ensure that $I$ is injective and hence defines an isomorphism if $T^m_n M$ is restricted to the image of $I$. The image of $I$ is obviously a vector sub bundle of $T^m_n M$. In total given the two maps $I$ and $J$ we can identify the field bundle $F$, not considered as being embedded in $T^m_n M$ but as abstract bundle  and with independent coordinate charts $(x^m, v_A)$, with a sub bundle of $T^m_n M$, where we can choose the usual chart induced coordinates $(x^m,v^{a_1 ... a_m}_{b_1 ... b_n})$.
@@ -675,7 +790,7 @@ Once we specify intertwiners $(I,J)$ for the field bundle $F$ we immediately obt
 %
 %add citation here ??
 %
-In the following we denote this map simply by $(I^{\ast})^{-1}$ but keep in mind that it only provides a right inverse of $I^{\ast}$. Vice versa the existence of a right inverse of $J$ guarantees the existence of a left inverse $(J^{\ast})^{-1}$ of its dual. From the definition of the dual map we further find that $(J^{\ast})^{-1} \circ (I^{\ast})^{-1} = id_{F^{\ast}}$. In total given a pair of intertwiners for the field bundle $(I,J)$ we can obtain a pair of intertwiners for the dual fiedl bundle via this construction, i.e. by $((I^{\ast})^{-1}, (J^{\ast})^{-1})$. \\
+In the following we denote this map simply by $(I^{\ast})^{-1}$ but keep in mind that it only provides a right inverse of $I^{\ast}$. Vice versa the existence of a right inverse of $J$ guarantees the existence of a left inverse $(J^{\ast})^{-1}$ of its dual. From the definition of the dual map we further find that $(J^{\ast})^{-1} \circ (I^{\ast})^{-1} = id_{F^{\ast}}$. In total given a pair of intertwiners for the field bundle $(I,J)$ we can obtain a pair of intertwiners for the dual field bundle via this construction, i.e. by $((I^{\ast})^{-1}, (J^{\ast})^{-1})$. \\
 
 We can now choose adapted coordinates $(x^m,v_A)$ on the field bundle and the corresponding dual coordinates $(x^m, v^A)$ on the dual field bundle and chart induced coordinates\footnote{We denote coordinate induced tangent vectors by $\frac{\partial}{\partial x^m}$, the coordinate representation of the action of tangent vectors on functions is denoted as $\partial_m f$. } $(x^m, v^{a_1 ... a_m}_{b_1 ... b_n})$ on $T^m_n M$ and the dual coordinates $(x^m, v^{b_1 ... b_n}_{a_1 ... a_m})$ on its dual $T^n_mM$. Using these charts the maps $I$ and $J$ are represented as follows:
 \begin{align} \label{interAbs}
@@ -691,7 +806,7 @@ Computing similar coordinate expressions for the pair of intertwiners of the dua
          (J^{\ast})^{-1} &= I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot v_A \otimes  v^{b_1 ... b_n}_{a_1 ... a_m}.
     \end{aligned}
 \end{align} 
-Hence although the constructed intertwiners for the dual field bundle define different maps, their components w.r.t. a given chart are already given by the intertwiners of the field bundle $(I,J)$ if one agrees on chosing the appropriate dual coordinates with a given choice of coordinates. Therefore in the following we will drop the distinction of intertwiners for the field bundle and its dual.  This should not cause confusion, as when working with dual coordinates on the dual field bundle already the index position of the fibre coordinates $v_A$ and $v^{A}$ respectively contains the information regarding which intertwiner relates the these coordinates to those one $T^m_n M$ and $T^n_mM$ respectively. In total we find the following relations connecting the two ways of coordinatising the field bundle and its dual:  
+Hence although the constructed intertwiners for the dual field bundle define different maps, their components w.r.t. a given chart are already given by the intertwiners of the field bundle $(I,J)$ if one agrees on choosing the appropriate dual coordinates with a given choice of coordinates. Therefore in the following we will drop the distinction of intertwiners for the field bundle and its dual.  This should not cause confusion, as when working with dual coordinates on the dual field bundle already the index position of the fibre coordinates $v_A$ and $v^{A}$ respectively contains the information regarding which intertwiner relates the these coordinates to those one $T^m_n M$ and $T^n_mM$ respectively. In total we find the following relations connecting the two ways of coordinatising the field bundle and its dual:  
 \begin{align} \label{interRel}
     \begin{aligned}
     & v^{a_1 ... a_m}_{b_1 ... b_n} & = & \ \ I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot v_{A},\\  
@@ -773,7 +888,7 @@ J^{ab}_{A} = \begin{bmatrix}
 \end{equation}
 now with columns running over $(ab)={(0,0),(0,1),(0,2),...,(3,3)}$ and rows running from $0$ to $9$. By this definition we now have for the metric tensor field $v_1 \cong v_{01}, v_2 \cong v_{0,2},...$.
 \begin{remark}
-It might be tempting to define the pair of intertwiners in a way such that the matrix representation of $I$ equals the matrix transpose of the matrix representing $J$. This can be achieved by not defining $I$ without fractions and introducing the factors that result from the multiplicities $\sigma$ in $J$, but by splitting them evenly and introducing factors of $\frac{1}{\sqrt{\sigma}}$ both in the definition of $I$ and $J$. Although this seems advantageous there is one particular problem with this definition. The usage of squareroot factors might introduce irrational numbers into the intertwiners. As we are going to rely heavily on computer algebra later and the appearance of irrational numbers severely obstructs the computational performance we stick to the squareroot free approach.  
+It might be tempting to define the pair of intertwiners in a way such that the matrix representation of $I$ equals the matrix transpose of the matrix representing $J$. This can be achieved by not defining $I$ without fractions and introducing the factors that result from the multiplicities $\sigma$ in $J$, but by splitting them evenly and introducing factors of $\frac{1}{\sqrt{\sigma}}$ both in the definition of $I$ and $J$. Although this seems advantageous there is one particular problem with this definition. The usage of square root factors might introduce irrational numbers into the intertwiners. As we are going to rely heavily on computer algebra later and the appearance of irrational numbers severely obstructs the computational performance we stick to the square root free approach.  
 \end{remark}
 %
 %reference to problem of constructive gravity in introduction
@@ -846,7 +961,7 @@ These bundle projections provide $J^2F$ with the additional structure of a bundl
 As before we can obtain adapted coordinates $(x^m, v_A, v_{Ai},v_{Aij})$ of $J^2F$ from adapted coordinates $(x^m,v_A)$ on $F$ by defining $x^m(j^2_pG) := x^m(p)$, $v_A(j^2_pG):= v_A(G(p))$, $v_{Ai}(j^2_pG) := v_{Ai}(j^1_pG)$ and $v_{Aij}(j^2_pG) := \partial_i \partial_j G_A \vert _p$. 
 At this point however we run into similar troubles as before, when we tried to use coordinate induced basis vectors to construct a chart on $F$. 
 
-We have specified $4^2\cdot n$ new coordinate functions $v_{Aij}$ to construct adapted coordinates on $J^2F$. Due to the commutativity of the partial derivatives that are involved in the definition the $v_{Aij}$ actually only constitute $4\cdot (4+1)/2 \cdot n = 10\cdot n$ independent functions. To cope with such problems the standard approach is the introduction of multiindices for higher order jet bundles. We will follow a slightly different approach by making use of the same intertwiner technique that we developed before. By doing so it is easier for us to relate the derivative coordinates $v_{Aij}$ and possible higher jet coordinates with partial derivatives of sections in standard physics notation. 
+We have specified $4^2\cdot n$ new coordinate functions $v_{Aij}$ to construct adapted coordinates on $J^2F$. Due to the commutative property of the partial derivatives that are involved in the definition the $v_{Aij}$ actually only constitute $4\cdot (4+1)/2 \cdot n = 10\cdot n$ independent functions. To cope with such problems the standard approach is the introduction of multi indices for higher order jet bundles. We will follow a slightly different approach by making use of the same intertwiner technique that we developed before. By doing so it is easier for us to relate the derivative coordinates $v_{Aij}$ and possible higher jet coordinates with partial derivatives of sections in standard physics notation. 
 
 We simply proceed along the same lines as before when we constructed a pair of intertwiners for the bundle of symmetric $(0,2)$ tensor fields, i.e. we provide a pair of intertwiners and thereby define $10$ new indices that label second order derivative in terms of the $16$ possible pairs of spacetime indices:
 \begin{align}
@@ -867,7 +982,7 @@ As stated above during this thesis we will in fact never perform explicit comput
 \begin{align}
 (x^m,v_A,v_{Am},v_{AI},v_{AI_{3}},...,v_{AI_{q}}),
 \end{align}
-where we introduced new indices $I_k$ that range from $0$ to $\binom{4+k-1}{k}-1$ and label the independent combinations of partial derivatives of order $k$. In the follwoing when displaying formulae that include such indices $I_k$ we might write $v_{AI_0} \equiv v_m, v_{AI_1} \equiv v_A$ and $v_{AI_2} \equiv v_{AI}$, such that we can concisely write expressions that involve sums involving all such indices:
+where we introduced new indices $I_k$ that range from $0$ to $\binom{4+k-1}{k}-1$ and label the independent combinations of partial derivatives of order $k$. In the following when displaying formulae that include such indices $I_k$ we might write $v_{AI_0} \equiv v_m, v_{AI_1} \equiv v_A$ and $v_{AI_2} \equiv v_{AI}$, such that we can concisely write expressions that involve sums involving all such indices:
 \begin{align}
     u^mv_m + u^Av_A + u^{AI}v_{AI} + ... + u^{AI_q}v_{AI_q} = \sum _{k = 0}^q u^{AI_k}v_{AI_k}.
 \end{align}
@@ -953,9 +1068,9 @@ The action is then defined on all other elements of $T^m_nM$, i.e. on general li
 
 Note that there is a slight duplication in our notation: Before a superscripted $\ast$ denoted the dual of a linear map, the dual of a vector-space/bundle, etc. Here the superscripted $\ast$ denotes the pull back of a given diffeomorphism. The connection between the to notions and henceforth the reason for the apparent duplication in the notation can be explained regarding the standard definition of the pullback: Let $\phi \in \mathrm{Diff}(M)$, $p \in M$, $u \in T_pM$, and  $\omega \in T^{\ast}_{\phi(p)}M$ then pushforward and pullback of $\phi$ restrict to linear maps $(\phi_{\ast}) _p :  T_pM \rightarrow T_{\phi(p)}M$ and $\phi^{\ast}_{\phi(p)} : T^{\ast}_{\phi(p)}M \rightarrow T^{\ast}_pM$, where the pullback is defined by the requirement $\phi^{\ast}_{\phi(p)}\omega (u) := \omega ((\phi_{\ast})_p u)$. Comparing this with definition \ref{dual} the dual of a linear map we see that the pull back really defines the fibre wise dual of the push forward. 
 
-To shorten the notation we will refer to actions of $\mathrm{Diff}(M)$ on the various tensor spaces $T^m_nM$ that can be obtained by means of this pushforward pullback construction simply as pullback actions and denote the corresponding bundle morphisms that cover a given $\phi \in \mathrm{Diff}(M)$ collectively by $\phi_{\ast}$. Which precise tensorbundle is meant can normally be inferred from the context quite easily.\\
+To shorten the notation we will refer to actions of $\mathrm{Diff}(M)$ on the various tensor spaces $T^m_nM$ that can be obtained by means of this pushforward pullback construction simply as pullback actions and denote the corresponding bundle morphisms that cover a given $\phi \in \mathrm{Diff}(M)$ collectively by $\phi_{\ast}$. Which precise tensor bundle is meant can normally be inferred from the context quite easily.\\
 
-Given $\phi \in \mathrm{Diff}(M)$, by this construction we can obtain the corresponding action by bundle isomorphisms on any tensor bundle over $M$. As we have identified the field bundle $F$ with a subbundle of some $T^m_nM$ we can restrict the bundle isomorphisms to $F$ to get an action of $\mathrm{Diff}(M)$ on the field bundle in particular. 
+Given $\phi \in \mathrm{Diff}(M)$, by this construction we can obtain the corresponding action by bundle isomorphisms on any tensor bundle over $M$. As we have identified the field bundle $F$ with a sub bundle of some $T^m_nM$ we can restrict the bundle isomorphisms to $F$ to get an action of $\mathrm{Diff}(M)$ on the field bundle in particular. 
 In order to further lift the action of $\mathrm{Diff}(M)$ to the first jet bundle $J^1F$ and the second jet bundle $J^2F$ respectively we need to develop additional techniques, the main tool being the \textbf{\textit{prolongation of bundle morphisms}}. 
 \begin{definition}[prolongation of morphisms]
 Let $(F_1,\pi_{F_1},M)$ and $(F_2,\pi_{F_2},N)$ be bundles, $\phi : M \rightarrow N$ a diffeomorphism, $f : F_1 \rightarrow F_2$ a bundle morphism covering $\phi$ and $J^1F_1$, $J^1F_2$ the first order jet bundles over $F_1$ and $F_2$ respectively. The first jet bundle lift or prolongation of the bundle morphism $(f,\phi)$ is given by the unique map\footnote{Just as it is the case with bundle morphisms being denoted by pairs $(f,\phi)$ their prolongation should be denoted by triples $(j^1(f),f,\phi)$. However we will lighten their notation to simply $j^1(f)$ if the two remaining maps are clear from the given context.} $j^1(f)$ that lets the diagram in figure (\ref{ProlongMorph}) commutes.
@@ -1095,7 +1210,7 @@ Where we can compute the thus prolonged vector field $j^1(\xi)$ to be given by
     \xi_{J^1F} = \xi^m \frac{\partial}{\partial x^m} + C_{An}^{Bm} v_B \partial_m \xi ^n \frac{\partial}{\partial v_A}\\
     + C_{An}^{Bm} \partial_m \xi^n v_{Bi} \frac{\partial}{\partial v_{Ai}} - v_{An} \partial_m \xi ^n \frac{\partial}{\partial v_{Am}} + C_{An}^{Bm} v_B \partial_m \partial_p \xi^n \frac{\partial}{\partial v_{Ap}}.
 \end{multline}
-In exactly the same way one can now construct prolongations of vectorfield to higher order jet bundles as for instance to the second order jet bundle as it is relevant for our treatment of Lagrangian field theory.
+In exactly the same way one can now construct prolongations of vector field to higher order jet bundles as for instance to the second order jet bundle as it is relevant for our treatment of Lagrangian field theory.
 \begin{align}
     \begin{aligned}
     j^2(\mathcal{f}) : \Gamma(TM) &\longrightarrow \Gamma(TJ^2F)\\
@@ -1149,7 +1264,7 @@ The remaining objects in (\ref{DiffeoEqn}) take exactly this form no matter what
 
 Considering field theories on $J^1F$ this was already presented in \cite{Gotay1992StressEnergyMomentumTA}, where the authors used a similar PDE system for the Lagrangian to construct a universal energy momentum tensor that is conserved for any diffeomorphism invariant field theory.
 
-In the context of constructive gravity it is worth to mention that as we required diffeomorphism invariance of the gravitational theory any Lagrangian that might describe it neccessarly needs to solve the PDE system (\ref{DiffeoEqn}). To put it differently by finding the general solution to the Lagrangian equivariance PDE for a given gravitational field bundle we would obtain the largest possible set of candidates for the Lagrangian of this theory of gravity. Without further requirements of the gravitatinal theory finding Lagrangians that describe the diffeomorphism invariant gravitational dynamics of a given gravitational field therefore boils down to solving the above PDE system (\ref{DiffeoEqn}). 
+In the context of constructive gravity it is worth to mention that as we required diffeomorphism invariance of the gravitational theory any Lagrangian that might describe it necessarily needs to solve the PDE system (\ref{DiffeoEqn}). To put it differently by finding the general solution to the Lagrangian equivariance PDE for a given gravitational field bundle we would obtain the largest possible set of candidates for the Lagrangian of this theory of gravity. Without further requirements of the gravitational theory finding Lagrangians that describe the diffeomorphism invariant gravitational dynamics of a given gravitational field therefore boils down to solving the above PDE system (\ref{DiffeoEqn}). 
 
 In particular from the diffeomorphism equivariance equations we easily see that in order to simplify the task of solving the System we might proceed as follows:
 We first solve the corresponding \textit{\textbf{invariance equation}}, the system (\ref{DiffeoEqn}) with the second equation being replaced by the corresponding homogeneous equation
@@ -1160,7 +1275,7 @@ A solution to this system describes a map $L_{scal}: J^2F \rightarrow \mathbb{R}
 \begin{align}
     L_{scal} \circ j^2(\phi) = L_{scal}.
 \end{align}
-Once we obtain the general solution to these difeomorphism invariance equations $L_{scal}$ multiplying by any particular solution of (\ref{DiffeoEqn}) yields a solution of the diffeomorphism equivariance equations. We might for instance take this particular solution to only depend on the coordinates of $F$ and not on the derivative coordinates. Such solutions can normaly be found more easily as then all terms in (\ref{DiffeoEqn}) that contain derivatives w.r.t. the derivative coordinates on $J^2F$ drop out. Conversely given any two solution to the equivariance equations taking their quotient yields a solution to the invariance equations. These arguments show that there really is a one to one correspondence between solutions of the equivariance and invariance equations. If solving the invariance equation really gives advantages over solving the PDE (\ref{DiffeoEqn}) can only be decided with concrete examples at hand. Details regarding these considerations can be found in theorem (\ref{GeneralSol}) and the corresponding proof. \\
+Once we obtain the general solution to these difeomorphism invariance equations $L_{scal}$ multiplying by any particular solution of (\ref{DiffeoEqn}) yields a solution of the diffeomorphism equivariance equations. We might for instance take this particular solution to only depend on the coordinates of $F$ and not on the derivative coordinates. Such solutions can normally be found more easily as then all terms in (\ref{DiffeoEqn}) that contain derivatives w.r.t. the derivative coordinates on $J^2F$ drop out. Conversely given any two solution to the equivariance equations taking their quotient yields a solution to the invariance equations. These arguments show that there really is a one to one correspondence between solutions of the equivariance and invariance equations. If solving the invariance equation really gives advantages over solving the PDE (\ref{DiffeoEqn}) can only be decided with concrete examples at hand. Details regarding these considerations can be found in theorem (\ref{GeneralSol}) and the corresponding proof. \\
 
 Note that the first equation in the PDE system (\ref{DiffeoEqn}) simply requires the Lagrangian to be independent of the coordinates of the spacetime manifold. This is of course a requirement posed on the Lagrangian as a bundle map on $J^2F$ not on the corresponding composition with a given section of $J^2F$ as all such compositions are necessary $x^m$-dependent. The first equation can hence be trivially solved and we might use its implications in the following. For instance we can now write $L(v_A.v_{Ai},v_{AI})$ for the coordinate expression of the Lagrangian, discharging the explicit $x^m$-dependency.\\
 
@@ -1249,7 +1364,7 @@ In addition to the time differential and time vector field on $M$ a slicing also
 \phi_{\ast}: T(\Sigma \times \mathbb{R}) \longrightarrow TM.
 \end{align}
 One can now show that $T(\Sigma \times \mathbb{R}) \cong \pi_{\Sigma}^{\ast}T\Sigma \oplus \pi_{\mathbb{R}}^{\ast} T\mathbb{R}$. And hence in total we have: $TM \cong \pi_{\Sigma}^{\ast}T\Sigma \oplus \pi_{\mathbb{R}}^{\ast} T\mathbb{R}$.
-Here $F\oplus E$ denotes the direct sum or whitney sum (for details see the first chapter of \cite{nla.cat-vn705150}) of the vector bundles over the common base space $M$, i.e. the vector bundle with fibre at $p \in M$ given by the direct sum of vectorspaces $\pi_F^{-1}(p) \oplus \pi_E^{-1}(p)$. $\pi_{\Sigma}^{\ast}T\Sigma$ and $\pi_{\mathbb{R}}^{\ast}T\mathbb{R}$ denotes the pullback\footnote{Given a bundle $(F,\pi_F,M)$ and a map $h: N \rightarrow M$, the pullback of the bundle $F$ along $h$ is the bundle over $N$ with total space $h^{\ast}F := \{ (n,f) \in N \times F \ \vert \  h(n) = \pi_F(f)\}$, and bundle projection $\pi_{h^{\ast}F}(n,f) = n$ (see \cite{doi:10.1142/3867}). Note that this construction makes the map $\tilde{h}: f^{\ast}F \rightarrow F$ defined by $\tilde{h}(n,f) = f$ a bundle morphism covering $h$, i.e the following diagram commutes. 
+Here $F\oplus E$ denotes the direct sum or whitney sum (for details see the first chapter of \cite{nla.cat-vn705150}) of the vector bundles over the common base space $M$, i.e. the vector bundle with fibre at $p \in M$ given by the direct sum of vector spaces $\pi_F^{-1}(p) \oplus \pi_E^{-1}(p)$. $\pi_{\Sigma}^{\ast}T\Sigma$ and $\pi_{\mathbb{R}}^{\ast}T\mathbb{R}$ denotes the pullback\footnote{Given a bundle $(F,\pi_F,M)$ and a map $h: N \rightarrow M$, the pullback of the bundle $F$ along $h$ is the bundle over $N$ with total space $h^{\ast}F := \{ (n,f) \in N \times F \ \vert \  h(n) = \pi_F(f)\}$, and bundle projection $\pi_{h^{\ast}F}(n,f) = n$ (see \cite{doi:10.1142/3867}). Note that this construction makes the map $\tilde{h}: f^{\ast}F \rightarrow F$ defined by $\tilde{h}(n,f) = f$ a bundle morphism covering $h$, i.e the following diagram commutes. 
 \begin{center}
 \begin{tikzpicture}
 \node (M) at (0,0) {$N$};
@@ -1261,11 +1376,11 @@ Here $F\oplus E$ denotes the direct sum or whitney sum (for details see the firs
 \draw [<-] (M) -- node[pos=0.5, left] {$\pi_{h^{\ast}F}$} (M2);
 \draw [<-] (N) -- node[pos=0.5, right] {$\pi_F$} (N2);
 \end{tikzpicture}
-\end{center}} of vector bundles $T\Sigma$ and $T\mathbb{R}$ over $\Sigma$ and $\mathbb{R}$ to the common basespace $\Sigma \times \mathbb{R}$ by making use of the two canonical projections. In the following we write
+\end{center}} of vector bundles $T\Sigma$ and $T\mathbb{R}$ over $\Sigma$ and $\mathbb{R}$ to the common base space $\Sigma \times \mathbb{R}$ by making use of the two canonical projections. In the following we write
 \begin{align}
     TM = \mathcal{T}\Sigma \oplus \mathcal{V}\Sigma
 \end{align} 
-for this direct sum decomposition of the tangent bundle and call the summands \textit{\textbf{tangential}} and \textit{\textbf{vertical subbundle}} respectively.  
+for this direct sum decomposition of the tangent bundle and call the summands \textit{\textbf{tangential}} and \textit{\textbf{vertical sub bundle}} respectively.  
 
 In particular vector fields on $M$ can uniquely be \textit{\textbf{decomposed}} w.r.t. this split. Given a vector field $\xi \in \Gamma(TM)$ we write $\xi = \xi_{\parallel} + \xi_{\perp} $ for this decomposition, with $\xi_{\parallel} \in \Gamma(\mathcal{T}\Sigma)$ and $\xi_{\perp} \in \Gamma(\mathcal{V}\Sigma)$ called tangential and vertical part of $\xi$.
 %is the following really true, probably only up to canonical isomorphisms
@@ -1273,7 +1388,7 @@ In particular vector fields on $M$ can uniquely be \textit{\textbf{decomposed}} 
 The vectors in $\mathcal{T}\Sigma$ satisfy: $\mathrm{d}t(\xi_{\parallel})=0$, the vectors in $\mathcal{V}\Sigma$ are parallel to $\frac{\partial}{\partial t}$  . Note that the direct sum split of $TM$ naturally induces a direct some split of the Lie algebra actions on $F$ and $J^1F$ (and also $J^2F$ if we would work on the second order jet bundle) as the previously constructed Lie algebra morphisms (\ref{LieF}) and (\ref{LieJ1}) are in particular linear maps on the fibres of $TM$ and hence respect the direct sum structure.\\
 
 We call a coordinate system $(x^m)$ on $M$ \textit{\textbf{adapted}} to the slicing $\phi$ if there exists an adapted coordinate system $(y^{\alpha},z)$ on $\Sigma \times \mathbb{R}$ s.t. $x^0 = z \circ \phi^{-1}$ and $x^{\alpha} = y^{\alpha} \circ \phi^{-1}$. Therefore in adapted coordinates the embedded hypersurfaces are characterized by $x^0 = const$ and the chart induced vector fields satisfy $\frac{\partial}{\partial t} = \lambda \cdot \frac{\partial}{\partial x^0}$ for some $\lambda$ that only depends on $x^0$ and $\mathrm{d}t\left(\frac{\partial}{\partial x^{\alpha}}\right) = 0$.
-Note that in adapted coordinates we thus have in particular that the induced spatial coordinate fields $\frac{\partial}{\partial x^{\alpha}}$ are sections of the tangential subbundle $\mathcal{T}\Sigma$ whereas $\frac{\partial}{\partial x^0}$ defines a section of the vertical subbundle $\mathcal{V}\Sigma$. Hence in such coordinates we can express the decomposition of vector fields as 
+Note that in adapted coordinates we thus have in particular that the induced spatial coordinate fields $\frac{\partial}{\partial x^{\alpha}}$ are sections of the tangential sub bundle $\mathcal{T}\Sigma$ whereas $\frac{\partial}{\partial x^0}$ defines a section of the vertical sub bundle $\mathcal{V}\Sigma$. Hence in such coordinates we can express the decomposition of vector fields as 
 \begin{align}
     \xi = \xi_{\perp} + \xi_{\parallel} = N  \frac{\partial }{\partial t} + N^{\alpha} \frac{\partial}{\partial x^{\alpha}} = N \cdot \lambda \frac{\partial}{\partial x^0} + N^{\alpha} \frac{\partial}{\partial x^{\alpha}},
 \end{align}
@@ -1284,7 +1399,7 @@ In the following we work mainly over one embedded hypersurface. Given a slicing 
 
 Furthermore we find that the restriction of the direct sum split of the tangent bundle to $\Sigma_{t_0}$\footnote{It is important to observe the difference between the restricted tangent bundle $TM\vert_{\Sigma_{t_0}}$ and the tangent bundle of the embedded hypersurface $T\Sigma_{t_0}$. While the former contains a 4-dimensional vector space at each hypersurface point the latter only has 3-dimensional fibres. The difference lies precisely in the vertical bundle over the hypersuface $\mathcal{V}\Sigma_{t_0}$.} is given by $TM \vert _{\Sigma_{t_0}} = T\Sigma _{t_0} \oplus \mathcal{V}\Sigma _{t_0}$. Note that the restriction of the tangential bundle $\mathcal{T}\Sigma_{t_0}$ is precisely given by the tangent bundle over the embedded hypersurface $T\Sigma_{t_0}$.
 
-We are then in particular interested in the question how hypersurface quantities change under a change of slicing $\phi$ and hence an induced change  of the embedding $\phi_{t_0}$. By previous arguments changing the slicing corresponds to the action of a diffeomorphism. Infinitesimaly this is described by the Lie algebra action of a vector field $\xi$. Note that whether we can take the standard action of diffeomorphism and vector fields on $M$ or have to take the previously computed lifted actions (\ref{LieF}) on $F$, (\ref{LieJ1}) on $J^1F$, etc. depends on the kind of the objects that we act on.  Given $\xi$ we decompose it into its tangential and vertical part $\xi_{\parallel}$ and $\xi_{\perp}$ to obtain derivative operators that describe the infinitesimal tangential and vertical change of hypersurface quantities.  In adapted coordinates we obtain such tangential and vertical vector fields by specifying component functions
+We are then in particular interested in the question how hypersurface quantities change under a change of slicing $\phi$ and hence an induced change  of the embedding $\phi_{t_0}$. By previous arguments changing the slicing corresponds to the action of a diffeomorphism. Infinitesimally this is described by the Lie algebra action of a vector field $\xi$. Note that whether we can take the standard action of diffeomorphism and vector fields on $M$ or have to take the previously computed lifted actions (\ref{LieF}) on $F$, (\ref{LieJ1}) on $J^1F$, etc. depends on the kind of the objects that we act on.  Given $\xi$ we decompose it into its tangential and vertical part $\xi_{\parallel}$ and $\xi_{\perp}$ to obtain derivative operators that describe the infinitesimal tangential and vertical change of hypersurface quantities.  In adapted coordinates we obtain such tangential and vertical vector fields by specifying component functions
  $N^a : M \rightarrow \mathbb{R}$ and $N^a : M \rightarrow \mathbb{R}$. We define: 
 \begin{align}
     \begin{aligned}
@@ -1321,10 +1436,10 @@ The commutator of a tangential and a vertical vector field yields a vertical vec
 Finally any two vertical vector fields commute. This commutator algebra encodes the change of hypersurface quantities on $\Sigma_{t_0}$ under a change of the slicing of spacetime. It is therefore often called the \textit{\textbf{hypersurface deformation algebra}}.\\
 
 \begin{remark}
-Note that in traditional terms the hypersurface deformation algebra is mostly obtained by computing commutators of vectorfields on the infinite dimensional manifold of embeddings of a given $\Sigma$ in $M$ (see \cite{HOJMAN197688} and \cite{doi:10.1063/1.522976}). We deliberately decided for an alternative approach here, as already in the formulation of Lagrangian field theory we saw how working with rigorously defined objects constructed over the spacetime manifold instead of a heuristical treatment involving infinite dimensional function spaces led to a much clearer description that essentially involved the same information. In other words if working on infinte dimensional spaces can be avoided we simply avoid it. We will encunter this guideline again later on when we construct poisson brackets to encorporate dynamics in terms of the Hamiltonian formulation of field theory.
+Note that in traditional terms the hypersurface deformation algebra is mostly obtained by computing commutators of vector fields on the infinite dimensional manifold of embeddings of a given $\Sigma$ in $M$ (see \cite{HOJMAN197688} and \cite{doi:10.1063/1.522976}). We deliberately decided for an alternative approach here, as already in the formulation of Lagrangian field theory we saw how working with rigorously defined objects constructed over the spacetime manifold instead of a heuristic treatment involving infinite dimensional function spaces led to a much clearer description that essentially involved the same information. In other words if working on infinte dimensional spaces can be avoided we simply avoid it. We will encounter this guideline again later on when we construct Poisson brackets to incorporate dynamics in terms of the Hamiltonian formulation of field theory.
 \end{remark}
 
-One often encounters the situation where the direct sum split of the tangent bundle is not obtained from the time vector field $\frac{\partial}{\partial t}$ that is induced by the given slicing but by means of some physically motivated notion that at each point of the embedded hypersurface $\Sigma_{t_0}$ distinguishes a vertical vector. For instance this can be achieved by making use of a given \textit{\textbf{observer definition}} for the field theory at hand. For the embedded hypersurface $\Sigma_{t_0}$ one constructs the direct sum split by defining the vertical subbundle as span of the "time" vector field seen as time direction by observers that travel through $p \in \Sigma_{t_0}$ and have a spatial frame lying in the tangent plane $T_p\Sigma_{t_0}$.
+One often encounters the situation where the direct sum split of the tangent bundle is not obtained from the time vector field $\frac{\partial}{\partial t}$ that is induced by the given slicing but by means of some physically motivated notion that at each point of the embedded hypersurface $\Sigma_{t_0}$ distinguishes a vertical vector. For instance this can be achieved by making use of a given \textit{\textbf{observer definition}} for the field theory at hand. For the embedded hypersurface $\Sigma_{t_0}$ one constructs the direct sum split by defining the vertical sub bundle as span of the "time" vector field seen as time direction by observers that travel through $p \in \Sigma_{t_0}$ and have a spatial frame lying in the tangent plane $T_p\Sigma_{t_0}$.
 
 Taking the canonical formulation of General Relativity\footnote{For further information regarding some of the provided examples from General Relativity we kindly refer to the standard text books as for instance \cite{Misner1973}. For observer definitions in more general spacetime geometries see \cite{2011PhRvD..83d4047R}.} as an example, given $\Sigma_{t_0}$ and frame fields $e_{\alpha}$ that locally at each point $p \in \Sigma_{t_0}$ in consideration form a basis of $T_p\Sigma_{t_0}$ and satisfy $g(e_{\alpha},e_{\beta}) = \eta_{\alpha \beta}$, to complete the three frame fields to a viable observer frame\footnote{Recall that an observer in GR is defined as a curve $\gamma : \mathbb{R} \rightarrow M$ together with curves $e_{\alpha} : \mathbb{R} \rightarrow TM$, s.t. $ e_a(\lambda) :=(\dot{\gamma}(\lambda),e_{\alpha}(\lambda))$ forms a basis of $T_{\gamma(\lambda)}M$ and $g(e_a(\lambda),e_b(\lambda)) = \eta_{ab}$, , for each $\lambda$.} one needs to choose $e_0$ s.t. 
 \begin{align}
@@ -1332,7 +1447,7 @@ Taking the canonical formulation of General Relativity\footnote{For further info
 \end{align}
 These two conditions are then often referred to as frame conditions. One can then split the tangent space $T_pM$ at each $p \in \Sigma_{t_0}$ into the vertical part spanned by $e_0(p)$,  $\mathcal{V}_p\Sigma_{t_0} = \langle  e_0(p) \rangle$ and tangential part $T_p\Sigma_{t_0}$ . In particular one sees that now by the two frame conditions, the vertical time direction and thereby the vertical sub bundle and the split itself depend on the metric. Along the same lines given any other field theory with a notion for an observer one can then use the observer definition to construct the vertical sub bundle of $TM$ in similar fashion. \\
 
-One way of defining observers from any matter theory that uses the given gravitational field as geometric background can be found in \cite{2018PhRvD..97h4036D} and \cite{2011PhRvD..83d4047R} and also \cite{Rivera}. There the authors construct an observer notion that suits a general gravitational field theory from the \textbf{\textit{principal polynomial}}\footnote{Loosly speaking the principal polynomial encodes the causal structure of the matter EOM. In the following chapter we will encounter this object in more detail.} $\mathcal{P}_{mat}(v_A)$ of the corresponding matter EOM. Note that the principal polynomial in particular depends on the coordinates of the field bundle, i.e. is field dependent. The vertical vector field is then obtained in similar fashion compared with the standard GR case. The principal polynomial allows one to define a map that can be used to normalize the conormal and map the result to a corresponding normal vector.
+One way of defining observers from any matter theory that uses the given gravitational field as geometric background can be found in \cite{2018PhRvD..97h4036D} and \cite{2011PhRvD..83d4047R} and also \cite{Rivera}. There the authors construct an observer notion that suits a general gravitational field theory from the \textbf{\textit{principal polynomial}}\footnote{Loosely speaking the principal polynomial encodes the causal structure of the matter EOM. In the following chapter we will encounter this object in more detail.} $\mathcal{P}_{mat}(v_A)$ of the corresponding matter EOM. Note that the principal polynomial in particular depends on the coordinates of the field bundle, i.e. is field dependent. The vertical vector field is then obtained in similar fashion compared with the standard GR case. The principal polynomial allows one to define a map that can be used to normalize the co-normal and map the result to a corresponding normal vector.
 
 All these constructions have one thing in common: the vertical sub bundle of the direct sum split of $TM$ is now field dependent. As consequence, if one wants to deduce the hypersurface deformation algebra corresponding to a field dependent direct sum split it no longer suffices to consider the commutators of tangential and vertical vector fields over $\Sigma_{t_0}$. To account for the additional field dependence one now has to work with the induced vector fields on the field bundle\footnote{In the following we assume that the direct sum split only depends on the fields and not on their derivatives. Otherwise we would need to work on the jet bundle $J^qF$ of appropriate order.} $F$. To obtain the corresponding hypersurface deformation algebra one then computes commutators between the lifts of tangential and vertical vector fields according to the Lie algebra morphism (\ref{LieF}).
 
@@ -1359,15 +1474,15 @@ Again we define tangential and vertical deformation operators for arbitrary $N^a
 and restrict to the case where the component functions $N^{\alpha}$, $N$ and $e^n$ do not depend on the coordinates $x^0$.
 
 When computing commutators of $\mathcal{D}_F$ and $\mathcal{H}_F$ we can use the fact that the map $\mathcal{f}: \Gamma(TM) \rightarrow \Gamma(TF)$ that was defined in (\ref{LieF}) defines a Lie algebra morphism and hence preserves the commutator.
-Comparing to the previous case (\ref{Alg}) we get however additional contributions whenever $\frac{\partial}{\partial v_A}$ acts on $e_0^n$. These contributions precisely account for the change of $e_0$ that is induced by a change of the fields in $F$ under the action of vectorfields. The only commutator that does not involve such contributions is the one between two parallel vector fields. Therefore for this commutator we simply get:
+Comparing to the previous case (\ref{Alg}) we get however additional contributions whenever $\frac{\partial}{\partial v_A}$ acts on $e_0^n$. These contributions precisely account for the change of $e_0$ that is induced by a change of the fields in $F$ under the action of vector fields. The only commutator that does not involve such contributions is the one between two parallel vector fields. Therefore for this commutator we simply get:
 \begin{align}\label{FDD}
     \left [ \mathcal{D}_F(N^{\alpha}), \mathcal{D}_F(M^{\alpha})\right ] &= \mathcal{D}_F(\mathcal{L}_{\vec{N}}M^{\beta}).
 \end{align}
 The two remaining commutators in general contain additional contributions. As these additional contributions obviously depend on the explicit form of the field dependency of $e_0$ we illustrate their appearance for the case of canonical GR. With slight modifications in the computations this will then of course also cover the case where for a given field theory the observer definition and thereby the vertical vector field $e_0$ is construction in analogy to the standard GR case, but with an effective metric that is constructed from the field instead of the fundamental metric field in GR, as it is for instance the case for the observer definition in \cite{2018PhRvD..97h4036D}, \cite{2011PhRvD..83d4047R} and \cite{Rivera}.\\
 
-Following the usual way of obtaining the vertical vector field once the embedded hypersurface $\Sigma_{t_0}$ is specified one starts by taking a conormal vectorfield to $\Sigma_{t_0}$, i.e. a 1-form $\tilde{n} \in \Gamma(\Lambda^1M)$ that restricts to zero on each tangent plane of the hypersurface, $\tilde{n} \vert_{T\Sigma_{t_0}} = 0$. Then one uses the inverse metric to normalize the conormal 1-form, in other words one defines a unit conormal by $n := \frac{1}{\sqrt{ \vert g^{-1}(\tilde{n},\tilde{n}) \vert }} \cdot \tilde{n}$. The vertical vector field is then given by $e_0 := g^{-1}(n, - )$. 
+Following the usual way of obtaining the vertical vector field once the embedded hypersurface $\Sigma_{t_0}$ is specified one starts by taking a co-normal vector field to $\Sigma_{t_0}$, i.e. a 1-form $\tilde{n} \in \Gamma(\Lambda^1M)$ that restricts to zero on each tangent plane of the hypersurface, $\tilde{n} \vert_{T\Sigma_{t_0}} = 0$. Then one uses the inverse metric to normalize the co-normal 1-form, in other words one defines a unit co-normal by $n := \frac{1}{\sqrt{ \vert g^{-1}(\tilde{n},\tilde{n}) \vert }} \cdot \tilde{n}$. The vertical vector field is then given by $e_0 := g^{-1}(n, - )$. 
 
-Working in adapted coordinates $\mathrm{d}x^0$ defines such a conormal 1-form. Hence we get the the vertical vector field by $e_0 := \frac{1}{\sqrt{\vert g^{00} \vert }} g^{a0} \frac{\partial}{\partial x^a}$.
+Working in adapted coordinates $\mathrm{d}x^0$ defines such a co-normal 1-form. Hence we get the the vertical vector field by $e_0 := \frac{1}{\sqrt{\vert g^{00} \vert }} g^{a0} \frac{\partial}{\partial x^a}$.
 In particular as one can readily check with this vertical vector field we have $g(e_0,e_0) = 1$ and $g(e_0,\frac{\partial}{\partial x^{\alpha}}) = 0$. If we chose any additional spatial observer vector fields $e_{\alpha}$ in the tangential sub bundle of $\Sigma_{t_0}$, as the coordinate fields $\frac{\partial}{\partial x^{\alpha}}$ at each point of the embedded hypersurface constitute a basis of the tangential subspace, they are necessarily of the form $e_{\alpha} = e_{\alpha}^{\beta} \frac{\partial}{\partial x^{\beta}}$. Hence $e_0$ completes them to a valid GR observer frame.
 The deformation operators can then be obtained as
 \begin{align}
@@ -1376,7 +1491,7 @@ The deformation operators can then be obtained as
     \mathcal{H}_F(N) &= N \frac{1}{\sqrt{\vert g^{00} \vert }} g^{a0} \frac{\partial}{\partial x^a} +2 g^{\mu (p\vert} \delta^{\vert q)}_{n} \partial_{\mu} \biggl (N \frac{1}{\sqrt{\vert g^{00} \vert }} g^{n0} \biggr )  \frac{\partial}{\partial g ^{pq}},
     \end{aligned}
 \end{align}
-where we inserted the expression for $C^{Am}_{Bn} \equiv C^{abm}_{cdn} = +2g^{m(a\vert}\delta^{\vert b)}_n$ for the case of the field being given by the inverse metric and further simplified the occuring expressions by aking use of the fact that $N^{\alpha},M$ and $e_0^a$ only depend on the hypersurface coordinates $x^\alpha$.
+where we inserted the expression for $C^{Am}_{Bn} \equiv C^{abm}_{cdn} = +2g^{m(a\vert}\delta^{\vert b)}_n$ for the case of the field being given by the inverse metric and further simplified the occurring expressions by akin use of the fact that $N^{\alpha},M$ and $e_0^a$ only depend on the hypersurface coordinates $x^\alpha$.
 
 For this example we do not work in the coordinates on the field bundle that are constructed by means of the intertwiners in order to put the focus on similarities to the standard formulation of canonical GR. We start with the commutator between a  tangential and a vertical vector field.
 %
@@ -1404,7 +1519,7 @@ We proceed with the commutator of two vertical vector fields:
     \left[ \mathcal{H}_F(N), \mathcal{H}_F(M) \right] = \left( N\partial_{\mu} M - M \partial_{\mu}N  \right) \cdot \biggl[ \frac{1}{g^{00}} g^{\mu 0} g^{a0} \frac{\partial}{\partial x^a}  \\
     -2 g^{\mu (p\vert} \delta^{\vert q)}_{n} \frac{1}{\sqrt{\vert g^{00} \vert }} g^{n0}  \frac{\partial}{\partial g ^{pq}} \biggl( \frac{1}{\sqrt{\vert g^{00} \vert }} g^{a0} \biggr) \frac{\partial}{\partial x^a} \biggr] + \tilde{C}^{pq} \frac{\partial}{\partial g^{pq}}.
 \end{multline}
-Again we focus on the extra terms proportional to $\frac{\partial}{\partial x^a}$. Using the previously computed result for the derivatives w.r.t. the metric components one finds that the two terms of that kind collaps to 
+Again we focus on the extra terms proportional to $\frac{\partial}{\partial x^a}$. Using the previously computed result for the derivatives w.r.t. the metric components one finds that the two terms of that kind collapse to 
 \begin{align}
     \left[ \mathcal{H}_F(N), \mathcal{H}_F(M) \right] = \bigl( g^{\mu \alpha} - \frac{1}{g^{00}} g^{0\alpha} g^{0 \mu} \bigr) \left( N\partial_{\mu} M - M \partial_{\mu}N  \right) \frac{\partial}{\partial x^{\alpha}} + \tilde{C}^{pq} \frac{\partial}{\partial g^{pq}}.
 \end{align}
@@ -1416,7 +1531,7 @@ Hence the commutator between two vertical vector fields yields a tangential vect
 In particular we observe that this last commutation relation is now field dependent. This field dependence can be traced back to the definition of the vertical vector field that is used for the direct sum split and involves the field. 
 In particular it is not contributed by some instrinsic property of the theory at hand but solely depends on the chosen observer definition and the thus defined vertical vector field.\\
 
-The commutator algebra that is generated by the three commutation relations (\ref{FDD}), (\ref{FDH}) and (\ref{FHH}) is the form of the hypersurface deformation algebra that is usually presented in the literature\footnote{In most cases the algebra is presented with minus signs on the right hand side of each of the three commutation relations. The sign discrepancy results from different ways of defining the Lie bracket structure for vector fields. If one wants to work with the usual definition of the Lie algebra as left invariant vectorfields on a given Lie group then the Lie bracket of two vector fields is actually the negative of their commutator. Details can be found in \cite{1985AnPhy.164..288I}.}, most famously in \cite{HOJMAN197688}. In this context the appearance of the field components in the last commutation relation is usually referred to by stating that the commutator of two vertical vector fields involves structure functions instead of structure constants. Much work regarding this aspect of the hypersurface deformation algebra was contributed in \cite{1985AnPhy.164..288I} and \cite{1985AnPhy.164..316I}. Note that already there the authors remark that the appearance of the metric in the last commutator results from the metric dependent definition of the vertical vector field. 
+The commutator algebra that is generated by the three commutation relations (\ref{FDD}), (\ref{FDH}) and (\ref{FHH}) is the form of the hypersurface deformation algebra that is usually presented in the literature\footnote{In most cases the algebra is presented with minus signs on the right hand side of each of the three commutation relations. The sign discrepancy results from different ways of defining the Lie bracket structure for vector fields. If one wants to work with the usual definition of the Lie algebra as left invariant vector fields on a given Lie group then the Lie bracket of two vector fields is actually the negative of their commutator. Details can be found in \cite{1985AnPhy.164..288I}.}, most famously in \cite{HOJMAN197688}. In this context the appearance of the field components in the last commutation relation is usually referred to by stating that the commutator of two vertical vector fields involves structure functions instead of structure constants. Much work regarding this aspect of the hypersurface deformation algebra was contributed in \cite{1985AnPhy.164..288I} and \cite{1985AnPhy.164..316I}. Note that already there the authors remark that the appearance of the metric in the last commutator results from the metric dependent definition of the vertical vector field. 
 
 With the observer definition presented in \cite{2018PhRvD..97h4036D}, \cite{2011PhRvD..83d4047R} and \cite{Rivera} the authors derive a hypersurface deformation algebra similar to the one obtained in the standard case but with the appearance of different field dependent quantities in the commutator of two vertical vector fields. With the direct sum split of this observer definition the first two commutators remain the same whereas the commutator of two vertical vector fields now reads
 \begin{align}
@@ -1424,7 +1539,7 @@ With the observer definition presented in \cite{2018PhRvD..97h4036D}, \cite{2011
 \end{align}
 where $\mathcal{P}_{mat}(v_A)^{\mu \alpha}$ is a quantity that is obtained from the \textit{\textbf{principal polynomial}} $\mathcal{P}_{mat}(v_A)$ of the underlying matter theory used as starting point and $\mathrm{deg}(\mathcal{P}_{mat}(v_A))$ denotes its polynomial degree. Also here the appearance of these field dependent quantities in the commutation relation results from the field dependent definition of the vertical vector field in terms of the observer notion that is used for the direct sum split.
 \section{Constraint Hamiltonian Dynamics}
-In the previous section we have developed the necessary kinematical tools for the canonical treatment of field theories, mainly the notion  of a slicing of the spacetime manifold and the associated split of the tangent bundle. With these tools at hand we will now proceed with our analysis of diffeomorphism invariant field theories by constructing \textbf{\textit{Hamiltonian dynamics}} from a given Lagrangian.
+In the previous section we have developed the necessary kinematic tools for the canonical treatment of field theories, mainly the notion  of a slicing of the spacetime manifold and the associated split of the tangent bundle. With these tools at hand we will now proceed with our analysis of diffeomorphism invariant field theories by constructing \textbf{\textit{Hamiltonian dynamics}} from a given Lagrangian.
 
 The diffeomorphism invariance of a given field theory will make its appearance in the Hamiltonian formulation by the form of \textit{\textbf{constraints}} on the conjugate momenta that will then force us to treat the system by means of the techniques developed by Dirac to ensure consistency of Constraint Hamiltonian dynamics.
 
@@ -1456,7 +1571,7 @@ The bundle $J^1(F_{t_0})$ is the first order jet bundle that is constructed over
 Furthermore $(\mathcal{V}F)_{t_0}$ denotes the restriction of the vertical sub bundle $\mathcal{V}F$ of $TF$. The vertical sub bundle is the sub bundle of $TF$, and hence in particular a bundle over $F$, that is obtained from $TF$ as fibre wise kernel of the vector bundle morphism $(\pi_F)_{\ast} : TF \rightarrow
 TM$. Details can be found in \cite{1998physics...1019G}. 
 
-Note that only the vertical subbundle of $TF$ can be be obtained naturally from a given bundle $F$. Furthermore $\mathcal{V}F$ can also be given the structure of a bundle over $M$ with projection $\pi_{\mathcal{V}}:=\pi_{TM} \circ (\pi_F)_{\ast}$. We can think of the restriction of the vertical bundle to the embedded hypersurface as encoding the derivative contributions to a spacetime 1-jet $j^1_pG$ that are vertical to the embedded hypersurface.
+Note that only the vertical sub bundle of $TF$ can be be obtained naturally from a given bundle $F$. Furthermore $\mathcal{V}F$ can also be given the structure of a bundle over $M$ with projection $\pi_{\mathcal{V}}:=\pi_{TM} \circ (\pi_F)_{\ast}$. We can think of the restriction of the vertical bundle to the embedded hypersurface as encoding the derivative contributions to a spacetime 1-jet $j^1_pG$ that are vertical to the embedded hypersurface.
 
 In particular the map $\beta_{t_0}$ allows us now to decompose a spacetime 1-jet over $\Sigma_{t_0}$ into a spatial 1-jet and a time derivative
 \begin{align}
@@ -1522,13 +1637,13 @@ In adapted coordinates we obtain the following expression fot the time dependent
     \mathcal{H}_{t_0}(x^\mu, v_A, v_{A\mu},\pi^A) = \pi^A v_A \mathrm{d}^3x - L_{t_0}(x^\mu,v_A,v_{A\mu},\dot{v}_A) \mathrm{d}^3x.
 \end{align}
 
-At this point we would like to remark that the autors in \cite{2004math.ph..11032G} follow a slightly different route to nevertheless arrive at a similar expression for the Hamiltonian. They first integrate the Lagrangian evaluated for a given section of $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ over $\Sigma_{t_0}$ to define a functional on the space of such sections. Then the fibre derivative is taken with respect to this functional to obtain the corresponding integrated version of the Hamiltonian as Legendre transform. 
+At this point we would like to remark that the authors in \cite{2004math.ph..11032G} follow a slightly different route to nevertheless arrive at a similar expression for the Hamiltonian. They first integrate the Lagrangian evaluated for a given section of $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ over $\Sigma_{t_0}$ to define a functional on the space of such sections. Then the fibre derivative is taken with respect to this functional to obtain the corresponding integrated version of the Hamiltonian as Legendre transform. 
 Hence compared with the approach here they start working on the usual canonical phase space\footnote{One usually defines the canonical phase space at a given time $t_0$ as the space of all local sections of the canonical configuration bundle.} and therefore dealing with functionals earlier. 
 
 Although this is the standard approach
-we decided to take an alternative route. The reason for this decision lies in our goal of deducing implications of the diffeomorphism invariance of a given Lagrangian on the corresponding Hamiltonian formulation. To be more precise we are interested in consequences of the PDE system (\ref{DiffeoEqn}) that such a Lagrangian then necessarily has to solve, on the constructed Hamiltonian. In particular we would like to make use of these PDEs for the Lagrangian when computing the time evolution a given Hamiltonian provides by means of a yet to define poisson structure. Just as it was the case for the Lagrangian picture, where we were able to avoid working on infinite dimensional spaces of  sections we would then like to achieve something similar, i.e. avoid working on the canonical phase space and hence with functionals.
+we decided to take an alternative route. The reason for this decision lies in our goal of deducing implications of the diffeomorphism invariance of a given Lagrangian on the corresponding Hamiltonian formulation. To be more precise we are interested in consequences of the PDE system (\ref{DiffeoEqn}) that such a Lagrangian then necessarily has to solve, on the constructed Hamiltonian. In particular we would like to make use of these PDEs for the Lagrangian when computing the time evolution a given Hamiltonian provides by means of a yet to define Poisson structure. Just as it was the case for the Lagrangian picture, where we were able to avoid working on infinite dimensional spaces of  sections we would then like to achieve something similar, i.e. avoid working on the canonical phase space and hence with functionals.
 
-Furthermore it is worth mentioning that here in our approach the Legendre transform of the time dependent Lagrangian is only taken w.r.t. the time derivative coordinates $\dot{v}_A$, in contrast to the multimomentum approach where one defines conjugate momenta for all derivative coordinates of the field as it is for instance discussed in \cite{1998physics...1019G}. \\
+Furthermore it is worth mentioning that here in our approach the Legendre transform of the time dependent Lagrangian is only taken w.r.t. the time derivative coordinates $\dot{v}_A$, in contrast to the multi-momentum approach where one defines conjugate momenta for all derivative coordinates of the field as it is for instance discussed in \cite{1998physics...1019G}. \\
 
 To proceed further note that $F_{t_0}$ just as $(\mathcal{V}F)_{t_0}^{\dagger}$ define bundles over $\Sigma_{t_0}$. Hence we can construct their jet bundles of some given finite order $q$, $J^q(F_{t_0})$ and $J^q((\mathcal{V}F)_{t_0}^{\dagger})$. 
 We define for all $q>0$
@@ -1561,7 +1676,7 @@ where $j^q\phi$ denotes the prolongation of sections of $\mathcal{K}^0_{t_0}$ to
 In the following we will only work with local functionals. 
 Given this definition we can now define a poisson structure on the canonical phase space 
 \begin{definition}[poisson bracket]
-Let $\mathcal{f},\mathcal{g} : \mathcal{K}^q_{t_0} \rightarrow \Lambda^3\Sigma_{t_0} $ with coordinate expressions $\mathcal{f} = f\mathrm{d}^3x$ and $\mathcal{g} = g\mathrm{d}^3x$. Denote the corresponding local functionals as $\mathcal{S}_{\mathcal{f}}, \mathcal{S}_{\mathcal{g}}$. We define their poisson bracket as the phase space functional given by:
+Let $\mathcal{f},\mathcal{g} : \mathcal{K}^q_{t_0} \rightarrow \Lambda^3\Sigma_{t_0} $ with coordinate expressions $\mathcal{f} = f\mathrm{d}^3x$ and $\mathcal{g} = g\mathrm{d}^3x$. Denote the corresponding local functionals as $\mathcal{S}_{\mathcal{f}}, \mathcal{S}_{\mathcal{g}}$. We define their Poisson bracket as the phase space functional given by:
 \begin{align}
 \left \{ \mathcal{S}_{\mathcal{f}}, \mathcal{S}_{\mathcal{g}} \right \}[\phi] := \int _{\Sigma_{t_0}} \mathrm{d}^3x \left ( \frac{\delta f}{\delta v_A} \frac{\delta g}{\delta \pi^A} - \frac{\delta g}{\delta v_A} \frac{\delta f}{\delta \pi^A}     \right ) \circ j^q(\phi)  .
 \end{align}
@@ -1613,7 +1728,7 @@ where the product of $\Lambda^3\Sigma_{t_0}$-valued maps is defined by $f \mathr
 
 Our main goal in the following section will be to translate the PDE system (\ref{DiffeoEqn}) that is obtained from the diffeomorphism equivariance of the Lagrangian into a language that allows us to use the resulting equations in the formulation of Hamiltonian dynamics. To this end we chose adapted coordinates on $J^1F$ that additionally satisfy $x^0 = t$ and hence we find $\frac{\partial}{\partial t} = \frac{\partial}{\partial x^0}$ and $\dot{v}_A = v_{A0}$. 
 
-From the expression (\ref{LieJ1}) of the Lie algebra morphism $j^1(\mathcal{f})$ that lifts vectorfields $\xi \in \Gamma(TM)$ to vector fields on $J^1F$ we then find that using the decomposition map $\beta_{t_0}$ the lift of vectorfields to $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ reads:
+From the expression (\ref{LieJ1}) of the Lie algebra morphism $j^1(\mathcal{f})$ that lifts vector fields $\xi \in \Gamma(TM)$ to vector fields on $J^1F$ we then find that using the decomposition map $\beta_{t_0}$ the lift of vector fields to $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ reads:
 \begin{align}\label{LieJ1Dec}
 \begin{aligned}
     \xi_{J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}} = \ &\xi^m \frac{\partial}{\partial x^m} + C_{An}^{Bm} v_B \partial_{m} \xi ^n \frac{\partial}{\partial v_A}
@@ -1629,7 +1744,7 @@ From the expression (\ref{LieJ1}) of the Lie algebra morphism $j^1(\mathcal{f})$
 \end{aligned}
 \end{align}
 %use x^0 or t ???
-If a given Lagrangian on $J^1F$ is now diffeomorphism invariant from this action of vectorfields on the space of functions on $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ we obtain the following system of PDEs for the corresponding time dependent Lagrangian with coordinate expression $\mathcal{L}_{t_0} = L_{t_0}\mathrm{d}^3x$:
+If a given Lagrangian on $J^1F$ is now diffeomorphism invariant from this action of vector fields on the space of functions on $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ we obtain the following system of PDEs for the corresponding time dependent Lagrangian with coordinate expression $\mathcal{L}_{t_0} = L_{t_0}\mathrm{d}^3x$:
 \begin{align}\label{diffeoHam}
     \begin{aligned}
     0 = &\partial_m L_{t_0} \\
@@ -1668,7 +1783,7 @@ Contracting the EOM with $C_{An}^{C0}v_C$ we get:
 \end{multline}
 Note that only the first term contains second time derivatives. Precisely this term however vanishes due to the last equation in (\ref{EOM}) evaluated for the case of $L$ being a first order Lagrangian. Hence contracting the EOM with $C_{An}^{C0}v_C$ yields for independent linear combinations that are of first derivative order in the time-derivatives.
 
-In the case of second derivative order PDE systems that describe the time evolution of some field\footnote{More precisely we consider such PDE systems that are hyperbolic in the sense that the cauchy problem is well posed for appropriate cauchy surfaces and initial conditions. We will provide a more detailed formulation regarding this in the next chapter.} over $M$ the values of the field together with its first derivatives must be specified on suitable hypersurface of $M$ as \textbf{\textbf{initial values}} in order to uniquely determine solutions away from the hypersurface. 
+In the case of second derivative order PDE systems that describe the time evolution of some field\footnote{More precisely we consider such PDE systems that are hyperbolic in the sense that the Cauchy problem is well posed for appropriate Cauchy surfaces and initial conditions. We will provide a more detailed formulation regarding this in the next chapter.} over $M$ the values of the field together with its first derivatives must be specified on suitable hypersurface of $M$ as \textbf{\textbf{initial values}} in order to uniquely determine solutions away from the hypersurface. 
 
 
 Any individual equation appearing in the system that is of lower than second derivative order in the time derivatives then does not contribute dynamical information to the evolution process described by the system but  rather poses a restriction on the possible choices of the initial values on the hypersurface . In other words the previously obtained 4 linear combinations that were only of first time derivative order are no evolution equations but  constrain the possible initial data one may specify. These PDEs are then called \textbf{\textit{constraints}}.
@@ -1712,7 +1827,7 @@ We now use that the bracket is only defined up to a total divergence and subtrac
 \begin{align}
     \left \{H_{t_0}, C_m \right \} = -L_{t_0}^{:A} C_{Am}^{B0} v_B - L_{t_0}^{:A\mu} C_{Am}^{B0}v_{B \mu} - \pi^A C_{Am}^{B0} \dot{v}_B.
 \end{align}
-Reexpressing this result with the use of the second equation in (\ref{diffeoHam}) we find 
+Re-expressing this result with the use of the second equation in (\ref{diffeoHam}) we find 
 \begin{align}
     \left \{H_{t_0}, C_m \right \} = -\pi^A v_{A\mu} \delta^{\mu}_m - \pi^A \dot{v}_A \delta^0_m + L_{t_0}\delta^0_m.
 \end{align}
@@ -1723,7 +1838,7 @@ Seperating this equation for the cases $m=0$ and $m = \mu$ we find in particular
     \left \{C_{\mu} , H_{t_0}\right \} &= \pi^A v_{A\mu} =: \mathbf{D}_{\mu}.
 \end{aligned}
 \end{align}
-Continuing the Dirac procedure we have to add also these in Diracs terminology \textit{\textbf{secondary constraints}} with multiplier functions $N=N(x^{\alpha})$ and $N^{\mu}= N^{\mu}(x^{\alpha})$ to the Hamiltonian. We get
+Continuing the Dirac procedure we have to add also these in Dirac's terminology \textit{\textbf{secondary constraints}} with multiplier functions $N=N(x^{\alpha})$ and $N^{\mu}= N^{\mu}(x^{\alpha})$ to the Hamiltonian. We get
 \begin{align}
 H_{2} = N \cdot \mathbf{H} + N^{\mu} \cdot \mathbf{D}_{\mu} + \lambda^0 C_0 + \lambda^{\mu}C_{\mu}.
 \end{align}
