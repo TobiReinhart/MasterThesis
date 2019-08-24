@@ -1,0 +1,3139 @@
+\dictum{
+Here we display the additional results from the two exemplary applications of the developed framework for constructing perturbative diffeomorphism invariant theories of gravity causal compatible with a given matter theory. 
+All provided results were obtained by utilizing the developed computer programm \cite{sparse-tensor}.
+More suspicious readers are kindly invited to check the displayed results. The equations that are necessary for this are included in the \textit{Gravity.DiffeoSymEqns} submodule in \cite{sparse-tensor}.
+}
+\section{2nd-Order Metric Gravity}\label{AppGR}
+In the following, the various expressions for the linearly independent Lorentz invariant expansion coefficients with the given index structure and symmetry that we obtained by means of the developed computer program are displayed. In order to allow for a concise notation we display these in terms of the inverse Minkowski metric $\eta^{ab}$, and the contravariant Levi-Civita symbol $\epsilon^{abcd}$ and furthermore do not denote their symmetries explicitly, as these can easily be read off from the way they appear in the expansion (\ref{LGR}). It is, however, essential to keep in mind that their symmetrization yields further factors that therefore are present when we insert these in the perturbative equivariance equations. We find from the developed computer program:\\
+
+\begin{longtable}{LLL} \toprule
+\begin{aligned}
+&\textbf{coefficient}\\
+&(\text{\small abtract indices})
+\end{aligned} &
+\begin{aligned}
+&\textbf{coefficient}\\
+&(\text{\small spacetime indices})
+\end{aligned} &
+\begin{aligned}
+&\textbf{ansatz}\\
+&\hspace{1cm}
+\end{aligned}\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a_0}  & \boldsymbol{a_0} & \boldsymbol{\mu_1} \\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{A}}  & \boldsymbol{a^{ab}} & \boldsymbol{\mu_2} \cdot \eta^{ab} \\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{AI}} & \boldsymbol{a^{abpq}}  &  \boldsymbol{\nu_1} \cdot \eta^{ab}\eta^{pq} + \boldsymbol{\nu_2} \cdot \eta^{pa} \eta^{bq} \\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{AB}} &  \boldsymbol{a^{abcd}}  &  \boldsymbol{\mu_3} \cdot \eta^{ab}\eta^{cd} + \boldsymbol{\mu_4} \cdot  \eta^{ca} \eta^{bd}\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{ApBq}} & \boldsymbol{a^{abpcdq}}  & 
+\begin{aligned}
+&\hphantom{+ \ }\boldsymbol{\nu_3} \cdot \eta^{ab}\eta^{pc}\eta^{dq}
++\boldsymbol{\nu_4} \cdot \eta^{ab}\eta^{pq}\eta^{cd}
++\boldsymbol{\nu_5} \cdot \eta^{ap}\eta^{bc}\eta^{dq}
+\\
+&+\boldsymbol{\nu_6} \cdot \eta^{ac}\eta^{bd}\eta^{pq}
++\boldsymbol{\nu_7} \cdot \eta^{ac}\eta^{bq}\eta^{pd} +
+\boldsymbol{\nu_8} \cdot \epsilon^{apcq}\eta^{bd}    
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{ABI}} & \boldsymbol{a^{abcdpq}}  & 
+\begin{aligned}
+&\hphantom{+ \ }\boldsymbol{\nu_9} \cdot \eta^{ab}\eta^{cd}\eta^{pq}
++\boldsymbol{\nu_{10}} \cdot \eta^{ab}\eta^{cp}\eta^{dq}
++\boldsymbol{\nu_{11}} \cdot \eta^{ac}\eta^{bd}\eta^{pq}
+\\
+&+\boldsymbol{\nu_{12}} \cdot \eta^{ac}\eta^{bp}\eta^{dq}
++\boldsymbol{\nu_{13}} \cdot \eta^{ap}\eta^{bq}\eta^{cd}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{ABC}} & \boldsymbol{a^{abcdef}}  & 
+\boldsymbol{\mu_5}\cdot \eta^{ab}\eta^{cd}\eta^{ef}
++\boldsymbol{\mu_6}\cdot \eta^{ab}\eta^{ce}\eta^{df}
++\boldsymbol{\mu_7}\cdot \eta^{ac}\eta^{be}\eta^{df}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{ABpCq}}  &  \boldsymbol{a^{abcdpefq}}  &
+\begin{aligned}
+&\hphantom{+ \ }\boldsymbol{\nu_{14}}\cdot\eta^{ab}\eta^{cd}\eta^{pe}\eta^{fq}
++\boldsymbol{\nu_{15}}\cdot\eta^{ab}\eta^{cd}\eta^{pq}\eta^{ef}\\
+&+\boldsymbol{\nu_{16}}\cdot\eta^{ab}\eta^{cp}\eta^{de}\eta^{fq}
++\boldsymbol{\nu_{17}}\cdot\eta^{ab}\eta^{ce}\eta^{df}\eta^{pq}\\
+&+\boldsymbol{\nu_{18}}\cdot\eta^{ab}\eta^{ce}\eta^{dq}\eta^{pf}
++\boldsymbol{\nu_{19}}\cdot\eta^{ac}\eta^{bd}\eta^{pe}\eta^{fq}\\
+&+\boldsymbol{\nu_{20}}\cdot\eta^{ac}\eta^{bd}\eta^{pq}\eta^{ef}
++\boldsymbol{\nu_{21}}\cdot\eta^{ac}\eta^{bp}\eta^{de}\eta^{fq}\\
+&+\boldsymbol{\nu_{22}}\cdot\eta^{ac}\eta^{bp}\eta^{dq}\eta^{ef}
++\boldsymbol{\nu_{23}}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fq}\\
+&+\boldsymbol{\nu_{24}}\cdot\eta^{ac}\eta^{be}\eta^{df}\eta^{pq}
++\boldsymbol{\nu_{25}}\cdot\eta^{ac}\eta^{be}\eta^{dq}\eta^{pf}\\
+&+\boldsymbol{\nu_{26}}\cdot\eta^{ac}\eta^{bq}\eta^{dp}\eta^{ef}
++\boldsymbol{\nu_{27}}\cdot\eta^{ac}\eta^{bq}\eta^{de}\eta^{pf}\\
+&+\boldsymbol{\nu_{28}}\cdot\eta^{ap}\eta^{bq}\eta^{cd}\eta^{ef}
++\boldsymbol{\nu_{29}}\cdot\eta^{ap}\eta^{bq}\eta^{ce}\eta^{df}\\
+&+\boldsymbol{\nu_{30}}\cdot\epsilon^{acpe}\eta^{bd}\eta^{fq}
++\boldsymbol{\nu_{31}}\cdot\epsilon^{acpe}\eta^{bf}\eta^{dq}\\
+&+\boldsymbol{\nu_{32}}\cdot\epsilon^{acpe}\eta^{bq}\eta^{df}
++\boldsymbol{\nu_{33}}\cdot\epsilon^{acpq}\eta^{bd}\eta^{ef}\\ 
+&+\boldsymbol{\nu_{34}}\cdot\epsilon^{acpq}\eta^{be}\eta^{df} 
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{ABCI}}  &  \boldsymbol{a^{abcdefpq}}  &
+\begin{aligned}
+&\hphantom{+ \ }\boldsymbol{\nu_{35}}\cdot\eta^{ab}\eta^{cd}\eta^{ef}\eta^{pq}
++\boldsymbol{\nu_{36}}\cdot\eta^{ab}\eta^{cd}\eta^{ep}\eta^{fq}\\
+&+\boldsymbol{\nu_{37}}\cdot\eta^{ab}\eta^{ce}\eta^{df}\eta^{pq}
++\boldsymbol{\nu_{38}}\cdot\eta^{ab}\eta^{ce}\eta^{dp}\eta^{fq}\\
+&+\boldsymbol{\nu_{39}}\cdot\eta^{ab}\eta^{cp}\eta^{dq}\eta^{ef}
++\boldsymbol{\nu_{40}}\cdot\eta^{ac}\eta^{bd}\eta^{ef}\eta^{pq}\\
+&+\boldsymbol{\nu_{41}}\cdot\eta^{ac}\eta^{bd}\eta^{ep}\eta^{fq}
++\boldsymbol{\nu_{42}}\cdot\eta^{ac}\eta^{be}\eta^{df}\eta^{pq}\\
+&+\boldsymbol{\nu_{43}}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fq}
++\boldsymbol{\nu_{44}}\cdot\eta^{ac}\eta^{bp}\eta^{dq}\eta^{ef}\\
+&+\boldsymbol{\nu_{45}}\cdot\eta^{ae}\eta^{bf}\eta^{cp}\eta^{dq}
++\boldsymbol{\nu_{46}}\cdot\eta^{ae}\eta^{bp}\eta^{cf}\eta^{dq}\\
+&+\boldsymbol{\nu_{47}}\cdot\epsilon^{acep}\eta^{bf}\eta^{dq}
+\end{aligned}
+\\
+\addlinespace
+\bottomrule
+\caption{Lorentz Invariant Expansion Coefficients for Metric Gravity Lagrangian (\ref{LGR}).}\label{LorentzGR1}
+\end{longtable}
+
+\vspace{1cm}
+
+From inserting these expansion coefficients into the perturbative equivariance equations, we get the following relation between the parameters.\\
+
+\begin{longtable}{RLRLRL}\toprule
+\textbf{parameter} & \textbf{solution \ \ \ \ } &
+\textbf{parameter} & \textbf{solution \ \ \ \ } &
+\textbf{parameter} & \textbf{solution \ \ \ \ } \\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\mu_{2}} &  1/4\cdot \boldsymbol{\mu_1} &
+\boldsymbol{\mu_{3}} & 1/32\cdot \boldsymbol{\mu_1} &
+\boldsymbol{\mu_{4}} & -1/16\cdot \boldsymbol{\mu_1}\\
+\addlinespace
+\boldsymbol{\mu_{5}} & 1/384\cdot \boldsymbol{\mu_1} &
+\boldsymbol{\mu_{6}} & -1/64\cdot \boldsymbol{\mu_1} &
+\boldsymbol{\mu_{7}} & 1/48\cdot \boldsymbol{\mu_1}\\
+\addlinespace
+\boldsymbol{\nu_{2}} & -\boldsymbol{\nu_1} &
+\boldsymbol{\nu_{3}} & -\boldsymbol{\nu_1} &
+\boldsymbol{\nu_{4}} & 1/4\cdot \boldsymbol{\nu_1}\\
+\addlinespace
+\boldsymbol{\nu_{5}} & \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{6}} & -3/4 \cdot  \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{7}} & 1/2\cdot \boldsymbol{\nu_1}\\
+\addlinespace
+\boldsymbol{\nu_{8}} &  0 &
+\boldsymbol{\nu_{9}} & 1/4\cdot \boldsymbol{\nu_1}  &
+\boldsymbol{\nu_{10}}  & -1/4 \cdot  \boldsymbol{\nu_1}\\
+\addlinespace
+\boldsymbol{\nu_{11}} & -1/2\cdot \boldsymbol{\nu_1}  &
+\boldsymbol{\nu_{12}} & \boldsymbol{\nu_1}  &
+\boldsymbol{\nu_{13}}  & -1/2\cdot \boldsymbol{\nu_1}\\
+\addlinespace
+\boldsymbol{\nu_{14}} & -1/4\cdot \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{15}} & 1/16\cdot \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{16}} & 1/4\cdot \boldsymbol{\nu_1} \\
+\addlinespace
+\boldsymbol{\nu_{17}} & -3/16\cdot \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{18}} & 1/8\cdot \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{19}} & 1/2\cdot \boldsymbol{\nu_1} \\
+\addlinespace
+\boldsymbol{\nu_{20}} & -1/4\cdot \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{21}}  & - \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{22}}  & 1/2\cdot \boldsymbol{\nu_1}\\
+\addlinespace
+\boldsymbol{\nu_{23}} & -1/2\cdot \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{24}} & 3/4\cdot \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{25}} & -1/4\cdot \boldsymbol{\nu_1} \\
+\addlinespace
+\boldsymbol{\nu_{26}} & 1/2\cdot \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{27}} & -1/2\cdot \boldsymbol{\nu_1}&
+\boldsymbol{\nu_{28}} & -1/8\cdot \boldsymbol{\nu_1}\\
+\addlinespace
+\boldsymbol{\nu_{29}} & 3/8\cdot \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{30}} &  0 &
+\boldsymbol{\nu_{31}} & 0 \\
+\addlinespace
+\boldsymbol{\nu_{32}} & 0  &
+\boldsymbol{\nu_{33}} & 0 &
+\boldsymbol{\nu_{34}} &  0 \\
+\addlinespace
+\boldsymbol{\nu_{35}} & 1/32\cdot \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{36}} & -1/32\cdot \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{37}} & -1/8\cdot \boldsymbol{\nu_1}\\
+\addlinespace
+\boldsymbol{\nu_{38}} & 1/4\cdot \boldsymbol{\nu_1}  &
+\boldsymbol{\nu_{39}} & -1/8\cdot \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{40}} & -1/16\cdot \boldsymbol{\nu_1}\\
+\addlinespace
+\boldsymbol{\nu_{41}} & 1/16\cdot \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{42}} & 1/4\cdot \boldsymbol{\nu_1}  &
+\boldsymbol{\nu_{43}} & -1/2\cdot \boldsymbol{\nu_1}\\
+\addlinespace
+\boldsymbol{\nu_{44}} & 1/4\cdot \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{45}} & 1/4\cdot \boldsymbol{\nu_1} &
+\boldsymbol{\nu_{46}} & -1/4\cdot \boldsymbol{\nu_1}\\
+\addlinespace
+\boldsymbol{\nu_{47}} & 0  &
+&   &    &  \\
+\addlinespace
+\bottomrule
+\caption{Solution of Metric Gravity Pertubrative Equivariance Equations. }\label{GRSol}
+\end{longtable}
+
+\vspace{1cm}
+
+\section{2nd-Order Area Metric Gravity}\label{AppArea}
+Following along the lines prescribed in (\ref{defI}) and (\ref{defJ}) we get the following non-vanishing components for the $\boldsymbol{I^A_{abcd}}$ and $\boldsymbol{J_A^{abcd}}$ intertwiners on $F_{Area}$:\\
+
+\newpage 
+
+\begin{longtable}{RLRLRL}\toprule
+\textbf{component} & \textbf{value \ \ \ \ } &
+\textbf{component} & \textbf{value \ \ \ \ } &
+\textbf{component} & \textbf{value \ \ \ \ } \\
+\addlinespace
+\midrule 
+\addlinespace
+\boldsymbol{I^{0}_{0101}} & 1 &
+\boldsymbol{I^{0}_{0110}} & -1 &
+\boldsymbol{I^{0}_{1001}} & -1 \\
+\addlinespace
+\boldsymbol{I^{0}_{1010}} & 1 &
+\boldsymbol{I^{1}_{0102}} & 1 & 
+\boldsymbol{I^{1}_{0120}} & -1 \\
+\addlinespace
+\boldsymbol{I^{1}_{0201}} & 1 &  
+\boldsymbol{I^{1}_{0210}} & -1 &  
+\boldsymbol{I^{1}_{1002}} & -1 \\
+\addlinespace
+\boldsymbol{I^{1}_{1020}} & 1 &
+\boldsymbol{I^{1}_{2001}} & -1 &  
+\boldsymbol{I^{1}_{2010}} & 1 \\
+\addlinespace
+\boldsymbol{I^{2}_{0103}} & 1   &  
+\boldsymbol{I^{2}_{0130}} & -1   &  
+\boldsymbol{I^{2}_{0301}} & 1   \\
+\addlinespace
+\boldsymbol{I^{2}_{0310}} & -1   &  
+\boldsymbol{I^{2}_{1003}} & -1   &  
+\boldsymbol{I^{2}_{1030}} & 1       \\
+\addlinespace
+\boldsymbol{I^{2}_{3001}} & -1   &  
+\boldsymbol{I^{2}_{3010}} & 1  &  
+\boldsymbol{I^{3}_{0112}} & 1       \\
+\addlinespace
+\boldsymbol{I^{3}_{0121}} & -1   &  
+\boldsymbol{I^{3}_{1012}} & -1   &  
+\boldsymbol{I^{3}_{1021}} & 1       \\
+\addlinespace
+\boldsymbol{I^{3}_{1201}} & 1   &  
+\boldsymbol{I^{3}_{1210}} & -1   &  
+\boldsymbol{I^{3}_{2101}} & -1       \\
+\addlinespace
+\boldsymbol{I^{3}_{2110}} & 1   &  
+\boldsymbol{I^{4}_{0113}} & 1   &  
+\boldsymbol{I^{4}_{0131}} & -1       \\
+\addlinespace
+\boldsymbol{I^{4}_{1013}} & -1   &  
+\boldsymbol{I^{4}_{1031}} & 1   &  
+\boldsymbol{I^{4}_{1301}} & 1       \\
+\addlinespace
+\boldsymbol{I^{4}_{1310}} & -1   &  
+\boldsymbol{I^{4}_{3101}} & -1   &  
+\boldsymbol{I^{4}_{3110}} & 1       \\
+\addlinespace
+\boldsymbol{I^{5}_{0123}} & 1   &  
+\boldsymbol{I^{5}_{0132}} & -1   &  
+\boldsymbol{I^{5}_{1023}} & -1       \\
+\addlinespace
+\boldsymbol{I^{5}_{1032}} & 1   &  
+\boldsymbol{I^{5}_{2301}} & 1   &  
+\boldsymbol{I^{5}_{2310}} & -1       \\
+\addlinespace
+\boldsymbol{I^{5}_{3201}} & -1   &  
+\boldsymbol{I^{5}_{3210}} & 1   &  
+\boldsymbol{I^{6}_{0202}} & 1       \\
+\addlinespace
+\boldsymbol{I^{6}_{0220}} & -1   &  
+\boldsymbol{I^{6}_{2002}} & -1   &  
+\boldsymbol{I^{6}_{2020}} & 1       \\
+\addlinespace
+\boldsymbol{I^{7}_{0203}} & 1   &  
+\boldsymbol{I^{7}_{0230}} & -1   &  
+\boldsymbol{I^{7}_{0302}} & 1       \\
+\addlinespace
+\boldsymbol{I^{7}_{0320}} & -1   &  
+\boldsymbol{I^{7}_{2003}} & -1   &  
+\boldsymbol{I^{7}_{2030}} & 1       \\
+\addlinespace
+\boldsymbol{I^{7}_{3002}} & -1   &  
+\boldsymbol{I^{7}_{3020}} & 1   &  
+\boldsymbol{I^{8}_{0212}} & 1       \\
+\addlinespace
+\boldsymbol{I^{8}_{0221}} & -1   &  
+\boldsymbol{I^{8}_{1202}} & 1   &  
+\boldsymbol{I^{8}_{1220}} & -1       \\
+\addlinespace
+\boldsymbol{I^{8}_{2012}} & -1   &  
+\boldsymbol{I^{8}_{2021}} & 1   &  
+\boldsymbol{I^{8}_{2102}} & -1       \\
+\addlinespace
+\boldsymbol{I^{8}_{2120}} & 1   &  
+\boldsymbol{I^{9}_{0213}} & 1   &  
+\boldsymbol{I^{9}_{0231}} & -1       \\
+\addlinespace
+\boldsymbol{I^{9}_{1302}} & 1   &  
+\boldsymbol{I^{9}_{1320}} & -1   &  
+\boldsymbol{I^{9}_{2013}} & -1       \\
+\addlinespace
+\boldsymbol{I^{9}_{2031}} & 1   &  
+\boldsymbol{I^{9}_{3102}} & -1   &  
+\boldsymbol{I^{9}_{3120}} & 1       \\
+\addlinespace
+\boldsymbol{I^{10}_{0223}} & 1   &  
+\boldsymbol{I^{10}_{0232}} & -1   &  
+\boldsymbol{I^{10}_{2023}} & -1       \\
+\addlinespace
+\boldsymbol{I^{10}_{2032}} & 1   &  
+\boldsymbol{I^{10}_{2302}} & 1   &  
+\boldsymbol{I^{10}_{2320}} & -1       \\
+\addlinespace
+\boldsymbol{I^{10}_{3202}} & -1   &  
+\boldsymbol{I^{10}_{3220}} & 1   &  
+\boldsymbol{I^{11}_{0303}} & 1       \\
+\addlinespace
+\boldsymbol{I^{11}_{0330}} & -1   &  
+\boldsymbol{I^{11}_{3003}} & -1   &  
+\boldsymbol{I^{11}_{3030}} & 1       \\
+\addlinespace
+\boldsymbol{I^{12}_{0312}} & 1   &  
+\boldsymbol{I^{12}_{0321}} & -1   &  
+\boldsymbol{I^{12}_{1203}} & 1       \\
+\addlinespace
+\boldsymbol{I^{12}_{1230}} & -1   &  
+\boldsymbol{I^{12}_{2103}} & -1   &  
+\boldsymbol{I^{12}_{2130}} & 1       \\
+\addlinespace
+\boldsymbol{I^{12}_{3012}} & -1   &  
+\boldsymbol{I^{12}_{3021}} & 1   &  
+\boldsymbol{I^{13}_{0313}} & 1       \\
+\addlinespace
+\boldsymbol{I^{13}_{0331}} & -1   &  
+\boldsymbol{I^{13}_{1303}} & 1   &  
+\boldsymbol{I^{13}_{1330}} & -1       \\
+\addlinespace
+\boldsymbol{I^{13}_{3013}} & -1   &  
+\boldsymbol{I^{13}_{3031}} & 1   &  
+\boldsymbol{I^{13}_{3103}} & -1       \\
+\addlinespace
+\boldsymbol{I^{13}_{3130}} & 1   &  
+\boldsymbol{I^{14}_{0323}} & 1   &  
+\boldsymbol{I^{14}_{0332}} & -1       \\
+\addlinespace
+\boldsymbol{I^{14}_{2303}} & 1   &  
+\boldsymbol{I^{14}_{2330}} & -1   &  
+\boldsymbol{I^{14}_{3023}} & -1       \\
+\addlinespace
+\boldsymbol{I^{14}_{3032}} & 1   &  
+\boldsymbol{I^{14}_{3203}} & -1   &  
+\boldsymbol{I^{14}_{3230}} & 1       \\
+\addlinespace
+\boldsymbol{I^{15}_{1212}} & 1   &  
+\boldsymbol{I^{15}_{1221}} & -1   &  
+\boldsymbol{I^{15}_{2112}} & -1       \\
+\addlinespace
+\boldsymbol{I^{15}_{2121}} & 1   &  
+\boldsymbol{I^{16}_{1213}} & 1   &  
+\boldsymbol{I^{16}_{1231}} & -1       \\
+\addlinespace
+\boldsymbol{I^{16}_{1312}} & 1   &  
+\boldsymbol{I^{16}_{1321}} & -1   &  
+\boldsymbol{I^{16}_{2113}} & -1       \\
+\addlinespace
+\boldsymbol{I^{16}_{2131}} & 1   &  
+\boldsymbol{I^{16}_{3112}} & -1   &  
+\boldsymbol{I^{16}_{3121}} & 1       \\
+\addlinespace
+\boldsymbol{I^{17}_{1223}} & 1   &  
+\boldsymbol{I^{17}_{1232}} & -1   &  
+\boldsymbol{I^{17}_{2123}} & -1       \\
+\addlinespace
+\boldsymbol{I^{17}_{2132}} & 1   &  
+\boldsymbol{I^{17}_{2312}} & 1   &  
+\boldsymbol{I^{17}_{2321}} & -1       \\
+\addlinespace
+\boldsymbol{I^{17}_{3212}} & -1   &  
+\boldsymbol{I^{17}_{3221}} & 1   &  
+\boldsymbol{I^{18}_{1313}} & 1       \\
+\addlinespace
+\boldsymbol{I^{18}_{1331}} & -1   &  
+\boldsymbol{I^{18}_{3113}} & -1   &  
+\boldsymbol{I^{18}_{3131}} & 1       \\
+\addlinespace
+\boldsymbol{I^{19}_{1323}} & 1   &  
+\boldsymbol{I^{19}_{1332}} & -1   &  
+\boldsymbol{I^{19}_{2313}} & 1       \\
+\addlinespace
+\boldsymbol{I^{19}_{2331}} & -1   &  
+\boldsymbol{I^{19}_{3123}} & -1   &  
+\boldsymbol{I^{19}_{3132}} & 1       \\
+\addlinespace
+\boldsymbol{I^{19}_{3213}} & -1   &  
+\boldsymbol{I^{19}_{3231}} & 1   &  
+\boldsymbol{I^{20}_{2323}} & 1       \\
+\addlinespace
+\boldsymbol{I^{20}_{2332}} & -1   &  
+\boldsymbol{I^{20}_{3223}} & -1   &  
+\boldsymbol{I^{20}_{3232}} & 1   \\
+\addlinespace
+\bottomrule
+\caption{Components: Area Metric I Intertwiner.}\label{AreaI}
+\end{longtable}
+
+
+
+\begin{longtable}{RLRLRL}\toprule
+\textbf{component} & \textbf{value \ \ \ \ } &
+\textbf{component} & \textbf{value \ \ \ \ } &
+\textbf{component} & \textbf{value \ \ \ \ } \\
+\addlinespace
+\midrule 
+\addlinespace
+\boldsymbol{J_{0}^{0101}} & 1/4 & 
+\boldsymbol{J_{0}^{0110}} & -1/4 & 
+\boldsymbol{J_{0}^{1001}} & -1/4 \\
+\addlinespace
+\boldsymbol{J_{0}^{1010}} & 1/4 & 
+\boldsymbol{J_{1}^{0102}} & 1/8 & 
+\boldsymbol{J_{1}^{0120}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{1}^{0201}} & 1/8 & 
+\boldsymbol{J_{1}^{0210}} & -1/8 & 
+\boldsymbol{J_{1}^{1002}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{1}^{1020}} & 1/8 & 
+\boldsymbol{J_{1}^{2001}} & -1/8 & 
+\boldsymbol{J_{1}^{2010}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{2}^{0103}} & 1/8 & 
+\boldsymbol{J_{2}^{0130}} & -1/8 & 
+\boldsymbol{J_{2}^{0301}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{2}^{0310}} & -1/8 & 
+\boldsymbol{J_{2}^{1003}} & -1/8 & 
+\boldsymbol{J_{2}^{1030}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{2}^{3001}} & -1/8 & 
+\boldsymbol{J_{2}^{3010}} & 1/8 & 
+\boldsymbol{J_{3}^{0112}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{3}^{0121}} & -1/8 & 
+\boldsymbol{J_{3}^{1012}} & -1/8 & 
+\boldsymbol{J_{3}^{1021}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{3}^{1201}} & 1/8 &
+\boldsymbol{J_{3}^{1210}} & -1/8 & 
+\boldsymbol{J_{3}^{2101}} & -1/8\\
+\addlinespace
+\boldsymbol{J_{3}^{2110}} & 1/8 & 
+\boldsymbol{J_{4}^{0113}} & 1/8 & 
+\boldsymbol{J_{4}^{0131}} & -1/8 \\ 
+\addlinespace
+\boldsymbol{J_{4}^{1013}} & -1/8 & 
+\boldsymbol{J_{4}^{1031}} & 1/8 & 
+\boldsymbol{J_{4}^{1301}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{4}^{1310}} & -1/8 & 
+\boldsymbol{J_{4}^{3101}} & -1/8  &
+\boldsymbol{J_{4}^{3110}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{5}^{0123}} & 1/8 & 
+\boldsymbol{J_{5}^{0132}} & -1/8 & 
+\boldsymbol{J_{5}^{1023}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{5}^{1032}} & 1/8 & 
+\boldsymbol{J_{5}^{2301}} & 1/8 & 
+\boldsymbol{J_{5}^{2310}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{5}^{3201}} & -1/8 & 
+\boldsymbol{J_{5}^{3210}} & 1/8 & 
+\boldsymbol{J_{6}^{0202}} & 1/4 \\
+\addlinespace
+\boldsymbol{J_{6}^{0220}} & -1/4 & 
+\boldsymbol{J_{6}^{2002}} & -1/4 & 
+\boldsymbol{J_{6}^{2020}} & 1/4 \\
+\addlinespace
+\boldsymbol{J_{7}^{0203}} & 1/8 & 
+\boldsymbol{J_{7}^{0230}} & -1/8 & 
+\boldsymbol{J_{7}^{0302}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{7}^{0320}} & -1/8 & 
+\boldsymbol{J_{7}^{2003}} & -1/8 & 
+\boldsymbol{J_{7}^{2030}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{7}^{3002}} & -1/8 & 
+\boldsymbol{J_{7}^{3020}} & 1/8 & 
+\boldsymbol{J_{8}^{0212}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{8}^{0221}} & -1/8 & 
+\boldsymbol{J_{8}^{1202}} & 1/8 & 
+\boldsymbol{J_{8}^{1220}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{8}^{2012}} & -1/8 & 
+\boldsymbol{J_{8}^{2021}} & 1/8 & 
+\boldsymbol{J_{8}^{2102}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{8}^{2120}} & 1/8 & 
+\boldsymbol{J_{9}^{0213}} & 1/8 &
+\boldsymbol{J_{9}^{0231}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{9}^{1302}} & 1/8 & 
+\boldsymbol{J_{9}^{1320}} & -1/8 & 
+\boldsymbol{J_{9}^{2013}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{9}^{2031}} & 1/8 & 
+\boldsymbol{J_{9}^{3102}} & -1/8 & 
+\boldsymbol{J_{9}^{3120}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{10}^{0223}} & 1/8 & 
+\boldsymbol{J_{10}^{0232}} & -1/8 &
+\boldsymbol{J_{10}^{2023}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{10}^{2032}} & 1/8 & 
+\boldsymbol{J_{10}^{2302}} & 1/8 & 
+\boldsymbol{J_{10}^{2320}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{10}^{3202}} & -1/8 & 
+\boldsymbol{J_{10}^{3220}} & 1/8 & 
+\boldsymbol{J_{11}^{0303}} & 1/4 \\
+\addlinespace
+\boldsymbol{J_{11}^{0330}} & -1/4 & 
+\boldsymbol{J_{11}^{3003}} & -1/4 & 
+\boldsymbol{J_{11}^{3030}} & 1/4 \\
+\addlinespace
+\boldsymbol{J_{12}^{0312}} & 1/8 & 
+\boldsymbol{J_{12}^{0321}} & -1/8 & 
+\boldsymbol{J_{12}^{1203}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{12}^{1230}} & -1/8 & 
+\boldsymbol{J_{12}^{2103}} & -1/8 & 
+\boldsymbol{J_{12}^{2130}} & 1/8 \\ 
+\addlinespace
+\boldsymbol{J_{12}^{3012}} & -1/8 & 
+\boldsymbol{J_{12}^{3021}} & 1/8 & 
+\boldsymbol{J_{13}^{0313}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{13}^{0331}} & -1/8 & 
+\boldsymbol{J_{13}^{1303}} & 1/8 & 
+\boldsymbol{J_{13}^{1330}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{13}^{3013}} & -1/8 & 
+\boldsymbol{J_{13}^{3031}} & 1/8 & 
+\boldsymbol{J_{13}^{3103}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{13}^{3130}} & 1/8 & 
+\boldsymbol{J_{14}^{0323}} & 1/8 & 
+\boldsymbol{J_{14}^{0332}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{14}^{2303}} & 1/8 & 
+\boldsymbol{J_{14}^{2330}} & -1/8 & 
+\boldsymbol{J_{14}^{3023}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{14}^{3032}} & 1/8 & 
+\boldsymbol{J_{14}^{3203}} & -1/8 & 
+\boldsymbol{J_{14}^{3230}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{15}^{1212}} & 1/4 & 
+\boldsymbol{J_{15}^{1221}} & -1/4 & 
+\boldsymbol{J_{15}^{2112}} & -1/4 \\
+\addlinespace
+\boldsymbol{J_{15}^{2121}} & 1/4 & 
+\boldsymbol{J_{16}^{1213}} & 1/8 & 
+\boldsymbol{J_{16}^{1231}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{16}^{1312}} & 1/8 & 
+\boldsymbol{J_{16}^{1321}} & -1/8 & 
+\boldsymbol{J_{16}^{2113}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{16}^{2131}} & 1/8 & 
+\boldsymbol{J_{16}^{3112}} & -1/8 & 
+\boldsymbol{J_{16}^{3121}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{17}^{1223}} & 1/8 & 
+\boldsymbol{J_{17}^{1232}} & -1/8 & 
+\boldsymbol{J_{17}^{2123}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{17}^{2132}} & 1/8 & 
+\boldsymbol{J_{17}^{2312}} & 1/8 & 
+\boldsymbol{J_{17}^{2321}} & -1/8 \\
+\addlinespace
+\boldsymbol{J_{17}^{3212}} & -1/8 & 
+\boldsymbol{J_{17}^{3221}} & 1/8 & 
+\boldsymbol{J_{18}^{1313}} & 1/4 \\
+\addlinespace
+\boldsymbol{J_{18}^{1331}} & -1/4 & 
+\boldsymbol{J_{18}^{3113}} & -1/4 & 
+\boldsymbol{J_{18}^{3131}} & 1/4 \\
+\addlinespace
+\boldsymbol{J_{19}^{1323}} & 1/8 & 
+\boldsymbol{J_{19}^{1332}} & -1/8 & 
+\boldsymbol{J_{19}^{2313}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{19}^{2331}} & -1/8 & 
+\boldsymbol{J_{19}^{3123}} & -1/8 & 
+\boldsymbol{J_{19}^{3132}} & 1/8 \\
+\addlinespace
+\boldsymbol{J_{19}^{3213}} & -1/8 & 
+\boldsymbol{J_{19}^{3231}} & 1/8 & 
+\boldsymbol{J_{20}^{2323}} & 1/4 \\
+\addlinespace
+\boldsymbol{J_{20}^{2332}} & -1/4 & 
+\boldsymbol{J_{20}^{3223}} & -1/4 & 
+\boldsymbol{J_{20}^{3232}} & 1/4 \\
+\addlinespace
+\bottomrule
+\caption{Components: Area Metric J Intertwiner.}\label{AreaJ}
+\end{longtable}
+
+\vspace{1cm}
+
+When computing the Lorentz invariant expansion coefficients that occur in (\ref{LArea}) using efficient compute algebra is now essential. In principle, they are constructed precisely the same way as in the metric case. As a result of the increased fiber dimension of $F_{Area}$ compared with the metric field bundle $F_{GR}$ however, the general expressions for these Lorentz invariant coefficients are strikingly more complicated. We again do not display the factor-less symmetrizations explicitly to allow for more concise expressions.\\
+
+
+\begin{longtable}{LLL} \toprule
+\begin{aligned}
+&\textbf{coefficient}\\
+&(\text{\small abtract indices})
+\end{aligned} &
+\begin{aligned}
+&\textbf{coefficient}\\
+&(\text{\small spacetime indices})
+\end{aligned} &
+\begin{aligned}
+&\textbf{ansatz}\\
+&\hspace{1cm}
+\end{aligned}\\
+\addlinespace
+\midrule
+\addlinespace 
+\boldsymbol{a_0} & \boldsymbol{a_0}  & \boldsymbol{\mu_1} \\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{A}} &  \boldsymbol{a^{abcd}}  & \boldsymbol{\mu_2} \cdot \eta^{ac} \eta^{bd} + \boldsymbol{\mu_{3}} \cdot \epsilon^{abcd} \\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{AI}} & \boldsymbol{a^{abcdpq}}  & 
+\begin{aligned}
+&\hphantom{+ \ }\boldsymbol{\nu_{1}}\cdot\eta^{ac}\eta^{bd}\eta^{pq}
++\boldsymbol{\nu_{2}}\cdot\eta^{ac}\eta^{bp}\eta^{dq}\\
+&+\boldsymbol{\nu_{3}}\cdot\epsilon^{abcd}\eta^{pq}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{AB}} &  \boldsymbol{a^{abcdefgh}} &
+\begin{aligned}
+&\hphantom{+ \ }\boldsymbol{\mu_{4}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}
++\boldsymbol{\mu_{5}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fh}\\
+&+\boldsymbol{\mu_{6}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dh} 
++\boldsymbol{\mu_{7}}\cdot\eta^{ae}\eta^{bg}\eta^{cf}\eta^{dh}\\
+&+\boldsymbol{\mu_{8}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fh}
++\boldsymbol{\mu_{9}}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{ApBq}} & \boldsymbol{a^{abcdpefghq}}  &
+\begin{aligned}
+&\hphantom{+ \ }\boldsymbol{\nu_{4}}\cdot\eta^{ac}\eta^{bd}\eta^{pe}\eta^{fg}\eta^{hq}
++\boldsymbol{\nu_{5}}\cdot\eta^{ac}\eta^{bd}\eta^{pq}\eta^{eg}\eta^{fh}\\
+&+\boldsymbol{\nu_{6}}\cdot\eta^{ac}\eta^{bp}\eta^{de}\eta^{fg}\eta^{hq}
++\boldsymbol{\nu_{7}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{pf}\eta^{hq}\\
+&+\boldsymbol{\nu_{8}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{pq}\eta^{fh}
++\boldsymbol{\nu_{9}}\cdot\eta^{ac}\eta^{be}\eta^{dq}\eta^{pg}\eta^{fh}\\
+&+\boldsymbol{\nu_{10}}\cdot\eta^{ap}\eta^{be}\eta^{cf}\eta^{dg}\eta^{hq}
++\boldsymbol{\nu_{11}}\cdot\eta^{ap}\eta^{be}\eta^{cg}\eta^{dh}\eta^{fq}\\
+&+\boldsymbol{\nu_{12}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dh}\eta^{pq}
++\boldsymbol{\nu_{13}}\cdot\epsilon^{abcd}\eta^{pe}\eta^{fg}\eta^{hq}\\
+&+\boldsymbol{\nu_{14}}\cdot\epsilon^{abcd}\eta^{pq}\eta^{eg}\eta^{fh}
++\boldsymbol{\nu_{15}}\cdot\epsilon^{abpe}\eta^{cf}\eta^{dg}\eta^{hq}\\
+&+\boldsymbol{\nu_{16}}\cdot\epsilon^{abpe}\eta^{cg}\eta^{dq}\eta^{fh}
++\boldsymbol{\nu_{17}}\cdot\epsilon^{abef}\eta^{cp}\eta^{dg}\eta^{hq}\\
+&+\boldsymbol{\nu_{18}}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}\eta^{pq}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{ABI}} & \boldsymbol{a^{abcdefghpq}} &
+\begin{aligned}
+&\hphantom{+ \ }\boldsymbol{\nu_{19}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}\eta^{pq}
++\boldsymbol{\nu_{20}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fp}\eta^{hq}\\
+&+\boldsymbol{\nu_{21}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fh}\eta^{pq}
++\boldsymbol{\nu_{22}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fp}\eta^{hq}\\
+&+\boldsymbol{\nu_{23}}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fg}\eta^{hq}
++\boldsymbol{\nu_{24}}\cdot\eta^{ac}\eta^{bp}\eta^{dq}\eta^{eg}\eta^{fh}\\
+&+\boldsymbol{\nu_{25}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dh}\eta^{pq}
++\boldsymbol{\nu_{26}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dp}\eta^{hq}\\
+&+\boldsymbol{\nu_{27}}\cdot\eta^{ae}\eta^{bg}\eta^{cf}\eta^{dh}\eta^{pq}
++\boldsymbol{\nu_{28}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fh}\eta^{pq}\\
+&+\boldsymbol{\nu_{29}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fp}\eta^{hq}
++\boldsymbol{\nu_{30}}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}\eta^{pq}\\
+&+\boldsymbol{\nu_{31}}\cdot\epsilon^{abef}\eta^{cg}\eta^{dp}\eta^{hq}
++\boldsymbol{\nu_{32}}\cdot\epsilon^{abep}\eta^{cf}\eta^{dg}\eta^{hq}\\
+&+\boldsymbol{\nu_{33}}\cdot\epsilon^{abep}\eta^{cg}\eta^{dh}\eta^{fq}
++\boldsymbol{\nu_{34}}\cdot\epsilon^{efgh}\eta^{ac}\eta^{bd}\eta^{pq}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{ABC}} & \boldsymbol{a^{abcdefghijkl}}  &
+\begin{aligned}
+&\hphantom{+ \ }\boldsymbol{\nu_{10}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}\eta^{ik}\eta^{jl}
++\boldsymbol{\nu_{11}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{jl}\\
+&+\boldsymbol{\nu_{12}}\cdot\eta^{ac}\eta^{bd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hl}
++\boldsymbol{\nu_{13}}\cdot\eta^{ac}\eta^{bd}\eta^{ei}\eta^{fk}\eta^{gj}\eta^{hl}\\
+&+\boldsymbol{\nu_{14}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fi}\eta^{hk}\eta^{jl}
++\boldsymbol{\nu_{15}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hk}\eta^{jl}\\
+&+\boldsymbol{\nu_{16}}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hl}+\boldsymbol{\nu_{17}}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dk}\eta^{gj}\eta^{hl}
+\\
+&+\boldsymbol{\nu_{18}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fh}\eta^{ik}\eta^{jl}
++\boldsymbol{\nu_{19}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{jl}\\
+&+\boldsymbol{\nu_{20}}\cdot\epsilon^{abcd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hl}
++\boldsymbol{\nu_{21}}\cdot\epsilon^{abcd}\eta^{ei}\eta^{fk}\eta^{gj}\eta^{hl}\\
+&+\boldsymbol{\nu_{22}}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}\eta^{ik}\eta^{jl}
++\boldsymbol{\nu_{23}}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hk}\eta^{jl}\\
+&+\boldsymbol{\nu_{24}}\cdot\epsilon^{abef}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hl}
+\end{aligned} 
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{ABpCq}} & \boldsymbol{a^{abcdefghpijklq}}  &
+\text{displayed seperately in Table \ref{lorentzAreaExtra1}} 
+
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{a^{ABCI}} & \boldsymbol{a^{abcdefhijklpq}}  & 
+\text{displayed seperately in Table \ref{lorentzAreaExtra2}.}
+\\
+\addlinespace
+\bottomrule
+\caption{Lorentz Invariant Ansätze for Perturbative Area Metric Gravity Lagrangian (\ref{LArea}).}\label{LorentzArea}
+\end{longtable}
+
+\begin{longtable}{L}\toprule
+\boldsymbol{a^{abcdefghpijklq}} \\
+\addlinespace
+\midrule
+\addlinespace
+\hphantom{+ }\boldsymbol{\nu_{35}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}\eta^{pi}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{36}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}\eta^{pq}\eta^{ik}\eta^{jl}
++\boldsymbol{\nu_{37}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fp}\eta^{hi}\eta^{jk}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{38}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{pj}\eta^{lq}
++\boldsymbol{\nu_{39}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{pq}\eta^{jl}
++\boldsymbol{\nu_{40}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fi}\eta^{hq}\eta^{pk}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{41}}\cdot\eta^{ac}\eta^{bd}\eta^{ep}\eta^{fi}\eta^{gj}\eta^{hk}\eta^{lq}
++\boldsymbol{\nu_{42}}\cdot\eta^{ac}\eta^{bd}\eta^{ep}\eta^{fi}\eta^{gk}\eta^{hl}\eta^{jq}
++\boldsymbol{\nu_{43}}\cdot\eta^{ac}\eta^{bd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hl}\eta^{pq}\\
+\addlinespace
++\boldsymbol{\nu_{44}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fh}\eta^{pi}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{45}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fh}\eta^{pq}\eta^{ik}\eta^{jl}
++\boldsymbol{\nu_{46}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fp}\eta^{hi}\eta^{jk}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{47}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fp}\eta^{hq}\eta^{ik}\eta^{jl}
++\boldsymbol{\nu_{48}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fi}\eta^{hk}\eta^{pj}\eta^{lq}
++\boldsymbol{\nu_{49}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fi}\eta^{hk}\eta^{pq}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{50}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fi}\eta^{hq}\eta^{pk}\eta^{jl}
++\boldsymbol{\nu_{51}}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fg}\eta^{hi}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{52}}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fg}\eta^{hq}\eta^{ik}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{53}}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fi}\eta^{gj}\eta^{hk}\eta^{lq}
++\boldsymbol{\nu_{54}}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fi}\eta^{gk}\eta^{hl}\eta^{jq}
++\boldsymbol{\nu_{55}}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fi}\eta^{gk}\eta^{hq}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{56}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hp}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{57}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hj}\eta^{pk}\eta^{lq}
++\boldsymbol{\nu_{58}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hk}\eta^{pj}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{59}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hk}\eta^{pl}\eta^{jq}
++\boldsymbol{\nu_{60}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hk}\eta^{pq}\eta^{jl}
++\boldsymbol{\nu_{61}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hq}\eta^{pk}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{62}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fp}\eta^{gj}\eta^{hk}\eta^{lq}
++\boldsymbol{\nu_{63}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fp}\eta^{gk}\eta^{hl}\eta^{jq}
++\boldsymbol{\nu_{64}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fj}\eta^{gp}\eta^{hk}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{65}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fk}\eta^{gj}\eta^{hq}\eta^{pl}
++\boldsymbol{\nu_{66}}\cdot\eta^{ac}\eta^{be}\eta^{dq}\eta^{fg}\eta^{hp}\eta^{ik}\eta^{jl}
++\boldsymbol{\nu_{67}}\cdot\eta^{ac}\eta^{be}\eta^{dq}\eta^{fg}\eta^{hi}\eta^{pk}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{68}}\cdot\eta^{ac}\eta^{bp}\eta^{dq}\eta^{eg}\eta^{fh}\eta^{ik}\eta^{jl}
++\boldsymbol{\nu_{69}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dh}\eta^{pi}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{70}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dh}\eta^{pq}\eta^{ik}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{71}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dp}\eta^{hi}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{72}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dp}\eta^{hq}\eta^{ik}\eta^{jl}
++\boldsymbol{\nu_{73}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{di}\eta^{hp}\eta^{jk}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{74}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{di}\eta^{hj}\eta^{pk}\eta^{lq}
++\boldsymbol{\nu_{75}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{di}\eta^{hk}\eta^{pj}\eta^{lq}
++\boldsymbol{\nu_{76}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{di}\eta^{hk}\eta^{pl}\eta^{jq}\\
+\addlinespace
++\boldsymbol{\nu_{77}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{di}\eta^{hk}\eta^{pq}\eta^{jl}
++\boldsymbol{\nu_{78}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{di}\eta^{hq}\eta^{pk}\eta^{jl}
++\boldsymbol{\nu_{79}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dq}\eta^{hp}\eta^{ik}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{80}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dq}\eta^{hi}\eta^{pk}\eta^{jl}
++\boldsymbol{\nu_{81}}\cdot\eta^{ae}\eta^{bf}\eta^{cp}\eta^{di}\eta^{gj}\eta^{hk}\eta^{lq}
++\boldsymbol{\nu_{82}}\cdot\eta^{ae}\eta^{bf}\eta^{cp}\eta^{di}\eta^{gk}\eta^{hl}\eta^{jq}\\
+\addlinespace
++\boldsymbol{\nu_{83}}\cdot\eta^{ae}\eta^{bf}\eta^{cp}\eta^{di}\eta^{gk}\eta^{hq}\eta^{jl}
++\boldsymbol{\nu_{84}}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dj}\eta^{gp}\eta^{hk}\eta^{lq}
++\boldsymbol{\nu_{85}}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hl}\eta^{pq}\\
+\addlinespace
++\boldsymbol{\nu_{86}}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dk}\eta^{gp}\eta^{hj}\eta^{lq}
++\boldsymbol{\nu_{87}}\cdot\eta^{ae}\eta^{bg}\eta^{cf}\eta^{dh}\eta^{pi}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{88}}\cdot\eta^{ae}\eta^{bg}\eta^{cf}\eta^{dh}\eta^{pq}\eta^{ik}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{89}}\cdot\eta^{ae}\eta^{bp}\eta^{cf}\eta^{di}\eta^{gj}\eta^{hk}\eta^{lq}
++\boldsymbol{\nu_{90}}\cdot\eta^{ae}\eta^{bp}\eta^{cf}\eta^{di}\eta^{gk}\eta^{hq}\eta^{jl}
++\boldsymbol{\nu_{91}}\cdot\eta^{ae}\eta^{bi}\eta^{cf}\eta^{dj}\eta^{gp}\eta^{hk}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{92}}\cdot\eta^{ae}\eta^{bi}\eta^{cf}\eta^{dj}\eta^{gk}\eta^{hl}\eta^{pq}
++\boldsymbol{\nu_{93}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fh}\eta^{pi}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{94}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fh}\eta^{pq}\eta^{ik}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{95}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fp}\eta^{hi}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{96}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{pj}\eta^{lq}
++\boldsymbol{\nu_{97}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{pq}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{98}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fi}\eta^{hq}\eta^{pk}\eta^{jl}
++\boldsymbol{\nu_{99}}\cdot\epsilon^{abcd}\eta^{ep}\eta^{fi}\eta^{gj}\eta^{hk}\eta^{lq}
++\boldsymbol{\nu_{100}}\cdot\epsilon^{abcd}\eta^{ep}\eta^{fi}\eta^{gk}\eta^{hl}\eta^{jq}\\
+\addlinespace
++\boldsymbol{\nu_{101}}\cdot\epsilon^{abcd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hl}\eta^{pq}
++\boldsymbol{\nu_{102}}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}\eta^{pi}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{103}}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}\eta^{pq}\eta^{ik}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{104}}\cdot\epsilon^{abef}\eta^{cg}\eta^{dp}\eta^{hi}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{105}}\cdot\epsilon^{abef}\eta^{cg}\eta^{dp}\eta^{hq}\eta^{ik}\eta^{jl}
++\boldsymbol{\nu_{106}}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hp}\eta^{jk}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{107}}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hj}\eta^{pk}\eta^{lq}
++\boldsymbol{\nu_{108}}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hk}\eta^{pj}\eta^{lq}
++\boldsymbol{\nu_{109}}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hk}\eta^{pl}\eta^{jq}\\
+\addlinespace
++\boldsymbol{\nu_{110}}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hk}\eta^{pq}\eta^{jl}
++\boldsymbol{\nu_{111}}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hq}\eta^{pk}\eta^{jl}
++\boldsymbol{\nu_{112}}\cdot\epsilon^{abef}\eta^{cg}\eta^{dq}\eta^{hp}\eta^{ik}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{113}}\cdot\epsilon^{abef}\eta^{cg}\eta^{dq}\eta^{hi}\eta^{pk}\eta^{jl}
++\boldsymbol{\nu_{114}}\cdot\epsilon^{abef}\eta^{cp}\eta^{di}\eta^{gj}\eta^{hk}\eta^{lq}
++\boldsymbol{\nu_{115}}\cdot\epsilon^{abef}\eta^{cp}\eta^{di}\eta^{gk}\eta^{hl}\eta^{jq}\\
+\addlinespace
++\boldsymbol{\nu_{116}}\cdot\epsilon^{abef}\eta^{cp}\eta^{di}\eta^{gk}\eta^{hq}\eta^{jl}
++\boldsymbol{\nu_{117}}\cdot\epsilon^{abef}\eta^{ci}\eta^{dj}\eta^{gp}\eta^{hk}\eta^{lq}
++\boldsymbol{\nu_{118}}\cdot\epsilon^{abef}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hl}\eta^{pq}\\
+\addlinespace
++\boldsymbol{\nu_{119}}\cdot\epsilon^{abef}\eta^{ci}\eta^{dk}\eta^{gp}\eta^{hj}\eta^{lq}
++\boldsymbol{\nu_{120}}\cdot\epsilon^{abep}\eta^{cf}\eta^{dg}\eta^{hi}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{121}}\cdot\epsilon^{abep}\eta^{cf}\eta^{dg}\eta^{hq}\eta^{ik}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{122}}\cdot\epsilon^{abep}\eta^{cf}\eta^{di}\eta^{gj}\eta^{hk}\eta^{lq}
++\boldsymbol{\nu_{123}}\cdot\epsilon^{abep}\eta^{cf}\eta^{di}\eta^{gk}\eta^{hl}\eta^{jq}
++\boldsymbol{\nu_{124}}\cdot\epsilon^{abep}\eta^{cf}\eta^{di}\eta^{gk}\eta^{hq}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{125}}\cdot\epsilon^{abep}\eta^{cg}\eta^{dh}\eta^{fi}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{126}}\cdot\epsilon^{abep}\eta^{cg}\eta^{dh}\eta^{fq}\eta^{ik}\eta^{jl}
++\boldsymbol{\nu_{127}}\cdot\epsilon^{abep}\eta^{cg}\eta^{di}\eta^{fj}\eta^{hk}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{128}}\cdot\epsilon^{abep}\eta^{cg}\eta^{di}\eta^{fk}\eta^{hq}\eta^{jl}
++\boldsymbol{\nu_{129}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dg}\eta^{hp}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{130}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dg}\eta^{hj}\eta^{pk}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{131}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dg}\eta^{hk}\eta^{pj}\eta^{lq}
++\boldsymbol{\nu_{132}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dg}\eta^{hk}\eta^{pl}\eta^{jq}
++\boldsymbol{\nu_{133}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dg}\eta^{hk}\eta^{pq}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{134}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dg}\eta^{hq}\eta^{pk}\eta^{jl}
++\boldsymbol{\nu_{135}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dp}\eta^{gj}\eta^{hk}\eta^{lq}
++\boldsymbol{\nu_{136}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dp}\eta^{gk}\eta^{hl}\eta^{jq}\\
+\addlinespace
++\boldsymbol{\nu_{137}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dp}\eta^{gk}\eta^{hq}\eta^{jl}
++\boldsymbol{\nu_{138}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dj}\eta^{gp}\eta^{hk}\eta^{lq}
++\boldsymbol{\nu_{139}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dj}\eta^{gk}\eta^{hl}\eta^{pq}\\
+\addlinespace
++\boldsymbol{\nu_{140}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dk}\eta^{gp}\eta^{hj}\eta^{lq}
++\boldsymbol{\nu_{141}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dk}\eta^{gp}\eta^{hl}\eta^{jq}
++\boldsymbol{\nu_{142}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dk}\eta^{gj}\eta^{hq}\eta^{pl}\\
+\addlinespace
++\boldsymbol{\nu_{143}}\cdot\epsilon^{abeq}\eta^{cf}\eta^{dg}\eta^{hp}\eta^{ik}\eta^{jl}
++\boldsymbol{\nu_{144}}\cdot\epsilon^{efgh}\eta^{ac}\eta^{bd}\eta^{pi}\eta^{jk}\eta^{lq}\\
+\addlinespace
+\bottomrule
+\caption{Lorentz Invariant Ansatz: $a^{abcdefghpijklq}$.}\label{lorentzAreaExtra1}
+\end{longtable}
+
+\vspace{1cm}
+
+\begin{longtable}{L}\toprule
+\boldsymbol{a^{abcdefhijklpq}} \\
+\addlinespace
+\midrule
+\addlinespace
+\hphantom{+}\boldsymbol{\nu_{145}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}\eta^{ik}\eta^{jl}\eta^{pq}
++\boldsymbol{\nu_{146}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}\eta^{ik}\eta^{jp}\eta^{lq}
++\boldsymbol{\nu_{147}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{jl}\eta^{pq}\\
+\addlinespace
++\boldsymbol{\nu_{148}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{jp}\eta^{lq}
++\boldsymbol{\nu_{149}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fi}\eta^{hp}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{150}}\cdot\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fp}\eta^{hq}\eta^{ik}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{151}}\cdot\eta^{ac}\eta^{bd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hl}\eta^{pq}
++\boldsymbol{\nu_{152}}\cdot\eta^{ac}\eta^{bd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hp}\eta^{lq}
++\boldsymbol{\nu_{153}}\cdot\eta^{ac}\eta^{bd}\eta^{ei}\eta^{fk}\eta^{gj}\eta^{hl}\eta^{pq}\\
+\addlinespace
++\boldsymbol{\nu_{154}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fh}\eta^{ik}\eta^{jl}\eta^{pq}
++\boldsymbol{\nu_{155}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fh}\eta^{ik}\eta^{jp}\eta^{lq}
++\boldsymbol{\nu_{156}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fi}\eta^{hk}\eta^{jl}\eta^{pq}\\
+\addlinespace
++\boldsymbol{\nu_{157}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fi}\eta^{hk}\eta^{jp}\eta^{lq}
++\boldsymbol{\nu_{158}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fi}\eta^{hp}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{159}}\cdot\eta^{ac}\eta^{be}\eta^{dg}\eta^{fp}\eta^{hq}\eta^{ik}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{160}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hk}\eta^{jl}\eta^{pq}
++\boldsymbol{\nu_{161}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hk}\eta^{jp}\eta^{lq}
++\boldsymbol{\nu_{162}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fg}\eta^{hp}\eta^{jk}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{163}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fj}\eta^{gk}\eta^{hl}\eta^{pq}
++\boldsymbol{\nu_{164}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fj}\eta^{gk}\eta^{hp}\eta^{lq}
++\boldsymbol{\nu_{165}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fk}\eta^{gj}\eta^{hp}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{166}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fk}\eta^{gl}\eta^{hp}\eta^{jq}
++\boldsymbol{\nu_{167}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fp}\eta^{gj}\eta^{hk}\eta^{lq}
++\boldsymbol{\nu_{168}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fp}\eta^{gk}\eta^{hl}\eta^{jq}\\
+\addlinespace
++\boldsymbol{\nu_{169}}\cdot\eta^{ac}\eta^{be}\eta^{di}\eta^{fp}\eta^{gk}\eta^{hq}\eta^{jl}
++\boldsymbol{\nu_{170}}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fg}\eta^{hq}\eta^{ik}\eta^{jl}
++\boldsymbol{\nu_{171}}\cdot\eta^{ac}\eta^{be}\eta^{dp}\eta^{fi}\eta^{gj}\eta^{hk}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{172}}\cdot\eta^{ac}\eta^{bi}\eta^{dk}\eta^{eg}\eta^{fp}\eta^{hq}\eta^{jl}
++\boldsymbol{\nu_{173}}\cdot\eta^{ac}\eta^{bi}\eta^{dk}\eta^{ej}\eta^{fp}\eta^{gl}\eta^{hq}
++\boldsymbol{\nu_{174}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dh}\eta^{ik}\eta^{jl}\eta^{pq}\\
+\addlinespace
++\boldsymbol{\nu_{175}}\cdot\eta^{ae}\eta^{bf}\eta^{cg}\eta^{dh}\eta^{ik}\eta^{jp}\eta^{lq}
++\boldsymbol{\nu_{176}}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hl}\eta^{pq}
++\boldsymbol{\nu_{177}}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hp}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{178}}\cdot\eta^{ae}\eta^{bf}\eta^{ci}\eta^{dk}\eta^{gj}\eta^{hl}\eta^{pq}
++\boldsymbol{\nu_{179}}\cdot\eta^{ae}\eta^{bg}\eta^{cf}\eta^{dh}\eta^{ik}\eta^{jl}\eta^{pq}
++\boldsymbol{\nu_{180}}\cdot\eta^{ae}\eta^{bg}\eta^{cf}\eta^{dh}\eta^{ik}\eta^{jp}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{181}}\cdot\eta^{ae}\eta^{bg}\eta^{ci}\eta^{dj}\eta^{fk}\eta^{hl}\eta^{pq}
++\boldsymbol{\nu_{182}}\cdot\eta^{ae}\eta^{bg}\eta^{ci}\eta^{dj}\eta^{fk}\eta^{hp}\eta^{lq}
++\boldsymbol{\nu_{183}}\cdot\eta^{ae}\eta^{bi}\eta^{cg}\eta^{dk}\eta^{fp}\eta^{hq}\eta^{jl}\\
+\addlinespace
++ \boldsymbol{\nu_{184}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fh}\eta^{ik}\eta^{jl}\eta^{pq}
++\boldsymbol{\nu_{185}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fh}\eta^{ik}\eta^{jp}\eta^{lq}
++\boldsymbol{\nu_{186}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{jl}\eta^{pq}\\
+\addlinespace
++\boldsymbol{\nu_{187}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fi}\eta^{hk}\eta^{jp}\eta^{lq}
++\boldsymbol{\nu_{188}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fi}\eta^{hp}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{189}}\cdot\epsilon^{abcd}\eta^{eg}\eta^{fp}\eta^{hq}\eta^{ik}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{190}}\cdot\epsilon^{abcd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hl}\eta^{pq}
++\boldsymbol{\nu_{191}}\cdot\epsilon^{abcd}\eta^{ei}\eta^{fj}\eta^{gk}\eta^{hp}\eta^{lq}
++\boldsymbol{\nu_{192}}\cdot\epsilon^{abcd}\eta^{ei}\eta^{fk}\eta^{gj}\eta^{hl}\eta^{pq}\\
+\addlinespace
++\boldsymbol{\nu_{193}}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}\eta^{ik}\eta^{jl}\eta^{pq}
++\boldsymbol{\nu_{194}}\cdot\epsilon^{abef}\eta^{cg}\eta^{dh}\eta^{ik}\eta^{jp}\eta^{lq}
++\boldsymbol{\nu_{195}}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hk}\eta^{jl}\eta^{pq}\\
+\addlinespace
++\boldsymbol{\nu_{196}}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hk}\eta^{jp}\eta^{lq}
++\boldsymbol{\nu_{197}}\cdot\epsilon^{abef}\eta^{cg}\eta^{di}\eta^{hp}\eta^{jk}\eta^{lq}
++\boldsymbol{\nu_{198}}\cdot\epsilon^{abef}\eta^{cg}\eta^{dp}\eta^{hq}\eta^{ik}\eta^{jl}\\
+\addlinespace
++\boldsymbol{\nu_{199}}\cdot\epsilon^{abef}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hl}\eta^{pq}
++\boldsymbol{\nu_{200}}\cdot\epsilon^{abef}\eta^{ci}\eta^{dj}\eta^{gk}\eta^{hp}\eta^{lq}
++\boldsymbol{\nu_{201}}\cdot\epsilon^{abef}\eta^{ci}\eta^{dk}\eta^{gj}\eta^{hl}\eta^{pq}\\
+\addlinespace
++\boldsymbol{\nu_{202}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dj}\eta^{gk}\eta^{hl}\eta^{pq}
++\boldsymbol{\nu_{203}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dj}\eta^{gk}\eta^{hp}\eta^{lq}
++\boldsymbol{\nu_{204}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dk}\eta^{gj}\eta^{hl}\eta^{pq}\\
+\addlinespace
++\boldsymbol{\nu_{205}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dk}\eta^{gj}\eta^{hp}\eta^{lq}
++\boldsymbol{\nu_{206}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dk}\eta^{gl}\eta^{hp}\eta^{jq}
++\boldsymbol{\nu_{207}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dp}\eta^{gj}\eta^{hk}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{208}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dp}\eta^{gk}\eta^{hl}\eta^{jq}
++\boldsymbol{\nu_{209}}\cdot\epsilon^{abei}\eta^{cf}\eta^{dp}\eta^{gk}\eta^{hq}\eta^{jl}
++\boldsymbol{\nu_{210}}\cdot\epsilon^{abep}\eta^{cf}\eta^{di}\eta^{gj}\eta^{hk}\eta^{lq}\\
+\addlinespace
++\boldsymbol{\nu_{211}}\cdot\epsilon^{abij}\eta^{ce}\eta^{df}\eta^{gk}\eta^{hl}\eta^{pq}
++\boldsymbol{\nu_{212}}\cdot\epsilon^{abij}\eta^{ce}\eta^{df}\eta^{gk}\eta^{hp}\eta^{lq}
++\boldsymbol{\nu_{213}}\cdot\epsilon^{abij}\eta^{ce}\eta^{dk}\eta^{fp}\eta^{gl}\eta^{hq}\\
+\addlinespace
++\boldsymbol{\nu_{214}}\cdot\epsilon^{abip}\eta^{ce}\eta^{df}\eta^{gj}\eta^{hk}\eta^{lq}
++\boldsymbol{\nu_{215}}\cdot\epsilon^{abip}\eta^{ce}\eta^{df}\eta^{gk}\eta^{hl}\eta^{jq}
++\boldsymbol{\nu_{216}}\cdot\epsilon^{ijkl}\eta^{ac}\eta^{bd}\eta^{eg}\eta^{fh}\eta^{pq}\\
+\addlinespace
+\bottomrule
+\caption{Lorentz Invariant Ansatz: $a^{abcdefhijklpq}$.}\label{lorentzAreaExtra2}
+\end{longtable}
+
+\vspace{1cm}
+
+Inserting these expressions in the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}) ans solving these with respect to the $52$ parameters:\\
+
+\begin{multline}\label{AreaParas}
+\bigl\{ \ 
+\boldsymbol{\mu_{3}},\boldsymbol{\mu_{5}},\boldsymbol{\mu_{6}},\boldsymbol{\mu_{7}},\boldsymbol{\mu_{11}},\boldsymbol{\mu_{13}},\boldsymbol{\mu_{14}},\boldsymbol{\mu_{17}},\boldsymbol{\mu_{19}},\boldsymbol{\mu_{23}},\boldsymbol{\nu_{7}},\boldsymbol{\nu_{9}},\boldsymbol{\nu_{11}},\boldsymbol{\nu_{20}},\boldsymbol{\nu_{41}},\boldsymbol{\nu_{42}},\boldsymbol{\nu_{48}},\boldsymbol{\nu_{51}},\boldsymbol{\nu_{55}},\boldsymbol{\nu_{58}},
+\\
+\boldsymbol{\nu_{59}},\boldsymbol{\nu_{69}},\boldsymbol{\nu_{77}},\boldsymbol{\nu_{79}},\boldsymbol{\nu_{80}},
+\boldsymbol{\nu_{81}},\boldsymbol{\nu_{83}},\boldsymbol{\nu_{90}},\boldsymbol{\nu_{108}},\boldsymbol{\nu_{109}},\boldsymbol{\nu_{119}},\boldsymbol{\nu_{124}},\boldsymbol{\nu_{127}},\boldsymbol{\nu_{131}},\boldsymbol{\nu_{132}},\boldsymbol{\nu_{135}},\boldsymbol{\nu_{137}},
+\\
+\boldsymbol{\nu_{139}},\boldsymbol{\nu_{149}},\boldsymbol{\nu_{151}},\boldsymbol{\nu_{153}},\boldsymbol{\nu_{155}},\boldsymbol{\nu_{160}},\boldsymbol{\nu_{164}},\boldsymbol{\nu_{165}},\boldsymbol{\nu_{175}},\boldsymbol{\nu_{178}},\boldsymbol{\nu_{181}},\boldsymbol{\nu_{194}},\boldsymbol{\nu_{202}},\boldsymbol{\nu_{204}},\boldsymbol{\nu_{206}}
+\ \bigr\}
+\\
+\end{multline}
+
+We get the following expressions for the remaining $188$ parameters in terms of these:\\
+
+\begingroup
+\renewcommand{\arraystretch}{2.0}
+\begin{longtable}{LL}\toprule
+\addlinespace
+\textbf{parameter} & \textbf{solution} \\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\mu_{1}} & -1536\,\boldsymbol{\mu_{5}}-3072\,\boldsymbol{\mu_{6}}-1536\,\boldsymbol{\mu_{7}}-192\,\boldsymbol{\mu_{3}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\mu_{2}} & -16\,\boldsymbol{\mu_{5}}-32\,\boldsymbol{\mu_{6}}-16\,\boldsymbol{\mu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\mu_{4}} & -1/4\,\boldsymbol{\mu_{5}}-1/3\,\boldsymbol{\mu_{6}}+1/12\,\boldsymbol{\mu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\mu_{8}} & 8\,\boldsymbol{\mu_{19}}+1/6\,\boldsymbol{\mu_{7}}-1/6\,\boldsymbol{\mu_{6}}+8\,\boldsymbol{\mu_{23}}-1/24\,\boldsymbol{\mu_{5}}-4\,\boldsymbol{\mu_{11}}-14/3\,\boldsymbol{\mu_{14}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\mu_{9}} & -24\,\boldsymbol{\mu_{23}}+1/8\,\boldsymbol{\mu_{5}}+12\,\boldsymbol{\mu_{11}}+14\,\boldsymbol{\mu_{14}}-24\,\boldsymbol{\mu_{19}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\mu_{10}} & -{\frac {5\,\boldsymbol{\mu_{11}}}{36}}-{\frac {\boldsymbol{\mu_{6}}}{864}}+{\frac {\boldsymbol{\mu_{7}}}{864}}+1/12\,\boldsymbol{\mu_{13}}-{\frac{\boldsymbol{\mu_{14}}}{216}}+1/36\,\boldsymbol{\mu_{17}}+{\frac {\boldsymbol{\mu_{5}}}{1728}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\mu_{12}} & 1/48\,\boldsymbol{\mu_{6}}-{\frac {\boldsymbol{\mu_{7}}}{192}}-1/2\,\boldsymbol{\mu_{11}}-1/2\,\boldsymbol{\mu_{13}}-1/2\,\boldsymbol{\mu_{14}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\mu_{15}} & -\boldsymbol{\mu_{14}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\mu_{16}} & -{\frac {\boldsymbol{\mu_{5}}}{96}}-1/6\,\boldsymbol{\mu_{14}}-1/24\,\boldsymbol{\mu_{6}}-1/48\,\boldsymbol{\mu_{7}}-1/2\,\boldsymbol{\mu_{17}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\mu_{18}} & -{\frac {\boldsymbol{\mu_{6}}}{288}}-{\frac {\boldsymbol{\mu_{7}}}{2304}}+1/8\,\boldsymbol{\mu_{13}}-{\frac{\boldsymbol{\mu_{14}}}{72}}-1/12\,\boldsymbol{\mu_{19}}-{\frac {\boldsymbol{\mu_{5}}}{1152}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\mu_{20}} & 
+\begin{aligned}
+&-{\frac {17\,\boldsymbol{\mu_{7}}}{3456}}-1/12\,\boldsymbol{\mu_{13}}-1/36\,\boldsymbol{\mu_{17}}+{\frac {7\,\boldsymbol{\mu_{6}}}{1728}}-{\frac {7\,\boldsymbol{\mu_{19}}}{12}}-{\frac{7\,\boldsymbol{\mu_{23}}}{36}}\\
+&+{\frac{7\,\boldsymbol{\mu_{5}}}{6912}}+{\frac {7\,\boldsymbol{\mu_{11}}}{72}}+{\frac {49\,\boldsymbol{\mu_{14}}}{432}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\mu_{21}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {\boldsymbol{\mu_{6}}}{432}}-{\frac{\boldsymbol{\mu_{7}}}{1728}}-1/3\,\boldsymbol{\mu_{19}}+1/6\,\boldsymbol{\mu_{13}}+1/18\,\boldsymbol{\mu_{17}}-1/9\,\boldsymbol{\mu_{23}}\\
+&+{\frac {\boldsymbol{\mu_{5}}}{1728}}+1/18\,\boldsymbol{\mu_{11}}+{\frac {7\,\boldsymbol{\mu_{14}}}{108}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\mu_{22}} & {\frac {\boldsymbol{\mu_{5}}}{192}}+1/4\,\boldsymbol{\mu_{11}}+1/3\,\boldsymbol{\mu_{14}}+{\frac {\boldsymbol{\mu_{6}}}{96}}+{\frac{\boldsymbol{\mu_{7}}}{192}}-1/4\,\boldsymbol{\mu_{23}}-1/2\,\boldsymbol{\mu_{19}}+1/8\,\boldsymbol{\mu_{17}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\mu_{24}} & -{\frac {\boldsymbol{\mu_{5}}}{128}}-3/4\,\boldsymbol{\mu_{11}}-{\frac {7\,\boldsymbol{\mu_{14}}}{8}}+3/2\,\boldsymbol{\mu_{19}}+1/2\,\boldsymbol{\mu_{23}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{1}} & -64\,\boldsymbol{\nu_{83}}-32\,\boldsymbol{\nu_{90}}-48\,\boldsymbol{\nu_{59}}+2\,\boldsymbol{\nu_{9}}-48\,\boldsymbol{\nu_{48}}-16\,\boldsymbol{\nu_{55}}-48\,\boldsymbol{\nu_{58}}-1/2\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{2}} & 4\,\boldsymbol{\nu_{7}}-16\,\boldsymbol{\nu_{9}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{3}} & 3/4\,\boldsymbol{\nu_{7}}-3\,\boldsymbol{\nu_{9}}-32\,\boldsymbol{\nu_{83}}-16\,\boldsymbol{\nu_{90}}-24\,\boldsymbol{\nu_{59}}-24\,\boldsymbol{\nu_{48}}-8\,\boldsymbol{\nu_{55}}-24\,\boldsymbol{\nu_{58}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{4}} & -8\,\boldsymbol{\nu_{83}}-4\,\boldsymbol{\nu_{90}}-6\,\boldsymbol{\nu_{59}}+1/4\,\boldsymbol{\nu_{9}}-6\,\boldsymbol{\nu_{48}}-2\,\boldsymbol{\nu_{55}}-6\,\boldsymbol{\nu_{58}}+{\frac {7\,\boldsymbol{\nu_{7}}}{16}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{5}} & 
+\begin{aligned}
+&\hphantom{-}{\frac {\boldsymbol{\nu_{7}}}{96}}-8/3\,\boldsymbol{\nu_{48}}-4/3\,\boldsymbol{\nu_{55}}-8/3\,\boldsymbol{\nu_{59}}+1/8\,\boldsymbol{\nu_{11}}-4\,\boldsymbol{\nu_{83}}-2\,\boldsymbol{\nu_{90}}\\
+&-8/
+3\,\boldsymbol{\nu_{58}}+{\frac {5\,\boldsymbol{\nu_{9}}}{24}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{6}} & -3/4\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{8}} & 16\,\boldsymbol{\nu_{83}}+8\,\boldsymbol{\nu_{90}}+8\,\boldsymbol{\nu_{59}}+8\,\boldsymbol{\nu_{48}}+8\,\boldsymbol{\nu_{55}}+8\,\boldsymbol{\nu_{58}}-1/2\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{10}} & -2\,\boldsymbol{\nu_{7}}+4\,\boldsymbol{\nu_{9}}+2\,\boldsymbol{\nu_{11}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{12}} & 1/8\,\boldsymbol{\nu_{7}}+2\,\boldsymbol{\nu_{59}}+2\,\boldsymbol{\nu_{48}}-2\,\boldsymbol{\nu_{55}}+2\,\boldsymbol{\nu_{58}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{13}} & 
+\begin{aligned}
+&\hphantom{-}
+{\frac {224\,\boldsymbol{\nu_{108}}}{61}}+{\frac {3\,\boldsymbol{\nu_{7}}}{32}}-{\frac {16\,\boldsymbol{\nu_{124}}}{61}}-{\frac {48\,\boldsymbol{\nu_{131}}}{61}}-{\frac{48\,\boldsymbol{\nu_{132}}}{61}}+{\frac {80\,\boldsymbol{\nu_{127}}}{61}}-3\,\boldsymbol{\nu_{48}}\\
+&-\boldsymbol{\nu_{55}}-3\,\boldsymbol{\nu_{59}}-{\frac {436\,\boldsymbol{\nu_{83}}}{61}}+{\frac {70\,\boldsymbol{\nu_{90}}}{61}}+{\frac {224\,\boldsymbol{\nu_{109}}}{61}}-{\frac {1264\,\boldsymbol{\nu_{137}}}{61}}-3\,\boldsymbol{\nu_{58}}\\
+&-3/8\,\boldsymbol{\nu_{9}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{14}} & 
+\begin{aligned} 
+&\hphantom{-}{\frac {152\,\boldsymbol{\nu_{108}}}{61}}-{\frac {5\,\boldsymbol{\nu_{7}}}{48}}+{\frac {24\,\boldsymbol{\nu_{124}}}{61}}-{\frac {28\,\boldsymbol{\nu_{131}}}{183}}-{\frac{28\,\boldsymbol{\nu_{132}}}{183}}+{\frac {128\,\boldsymbol{\nu_{127}}}{183}}\\
+&-1/3\,\boldsymbol{\nu_{48}}+1/3\,\boldsymbol{\nu_{55}}-1/3\,\boldsymbol{\nu_{59}}+1/8\,\boldsymbol{\nu_{11}}-{\frac {356\,\boldsymbol{\nu_{83}}}{183}}+{\frac {356\,\boldsymbol{\nu_{90}}}{183}}\\
+&+{\frac {152\,\boldsymbol{\nu_{109}}}{61}}-{\frac{2120\,\boldsymbol{\nu_{137}}}{183}}-1/3\,\boldsymbol{\nu_{58}}+1/6\,\boldsymbol{\nu_{9}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{15}} & 
+\begin{aligned} 
+&-{\frac {48\,\boldsymbol{\nu_{124}}}{61}}+{\frac {672\,\boldsymbol{\nu_{109}}}{61}}-{\frac{3792\,\boldsymbol{\nu_{137}}}{61}}+{\frac {240\,\boldsymbol{\nu_{127}}}{61}}+{\frac {672\,
+\boldsymbol{\nu_{108}}}{61}}-{\frac {144\,\boldsymbol{\nu_{132}}}{61}}\\
+&-{\frac {144\,\boldsymbol{\nu_{131}}}{61}}-{\frac {576\,\boldsymbol{\nu_{83}}}{61}}+{\frac {576\,\boldsymbol{\nu_{90}}}{61}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{16}} & 
+\begin{aligned} 
+-&{\frac {16\,\boldsymbol{\nu_{124}}}{61}}+{\frac {224\,\boldsymbol{\nu_{109}}}{61}}-{\frac {1264\,\boldsymbol{\nu_{137}}}{61}}+{\frac {80\,\boldsymbol{\nu_{127}}}{61}}+{
+\frac {224\,\boldsymbol{\nu_{108}}}{61}}-{\frac {48\,\boldsymbol{\nu_{132}}}{61}}\\
+&-{\frac {48\,\boldsymbol{\nu_{131}}}{61}}-{\frac {192\,\boldsymbol{\nu_{83}}}{61}}+{\frac {192\,\boldsymbol{\nu_{90}}}{61}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{17}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {8\,\boldsymbol{\nu_{124}}}{61}}-{\frac {112\,\boldsymbol{\nu_{109}}}{61}}+{\frac {632\,\boldsymbol{\nu_{137}}}{61}}-{\frac {40\,\boldsymbol{\nu_{127}}}{61}}-{\frac {112\,\boldsymbol{\nu_{108}}}{61}}+{\frac {24\,\boldsymbol{\nu_{132}}}{61}}\\
+&+{\frac {24\,\boldsymbol{\nu_{131}}}{61}} +{\frac {96\,\boldsymbol{\nu_{83}}}{61}}-{\frac {96\,
+\boldsymbol{\nu_{90}}}{61}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{18}} & 
+\begin{aligned}
+&-{\frac {232\,\boldsymbol{\nu_{108}}}{61}}-{\frac {88\,\boldsymbol{\nu_{124}}}{61}}-{\frac {20\,\boldsymbol{\nu_{131}}}{61}}-{\frac {20\,\boldsymbol{\nu_{132}}}{61}}-{\frac {48\,\boldsymbol{\nu_{127}}}{61}}+{\frac {164\,\boldsymbol{\nu_{83}}}{61}}\\
+&-{\frac {164\,\boldsymbol{\nu_{90}}}{61}}-{\frac {232\,\boldsymbol{\nu_{109}}}{61}}+{\frac{856\,\boldsymbol{\nu_{137}}}{61}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{19}} & 
+\begin{aligned} 
+&-1/2\,\boldsymbol{\nu_{20}}-4\,\boldsymbol{\nu_{69}}-4/3\,\boldsymbol{\nu_{80}}-4\,\boldsymbol{\nu_{83}}+4/3\,\boldsymbol{\nu_{51}}-4\,\boldsymbol{\nu_{90}}+5/6\,\boldsymbol{\nu_{59}}\\
+&-{\frac{5\,\boldsymbol{\nu_{9}}}{16}}
+-5/6\,\boldsymbol{\nu_{48}}+1/6\,\boldsymbol{\nu_{55}}+5/6\,\boldsymbol{\nu_{58}}-{\frac {17\,\boldsymbol{\nu_{7}}}{192}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{21}} &
+\begin{aligned}
+&\hphantom{+}4\,\boldsymbol{\nu_{80}}+32\,\boldsymbol{\nu_{83}}-4\,\boldsymbol{\nu_{51}}+16\,\boldsymbol{\nu_{90}}+8\,\boldsymbol{\nu_{59}}+5/4\,\boldsymbol{\nu_{9}}+4\,\boldsymbol{\nu_{48}}+8\,\boldsymbol{\nu_{58}}\\
+&+3/8\, \boldsymbol{\nu{7}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{22}} & -32\,\boldsymbol{\nu_{83}}-16\,\boldsymbol{\nu_{90}}-8\,\boldsymbol{\nu_{59}}-\boldsymbol{\nu_{9}}-8\,\boldsymbol{\nu_{58}}-1/2\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{23}} & 32\,\boldsymbol{\nu_{83}}+16\,\boldsymbol{\nu_{90}}+8\,\boldsymbol{\nu_{59}}+8\,\boldsymbol{\nu_{58}}+3/4\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{24}} & 4\,\boldsymbol{\nu_{83}}+2\,\boldsymbol{\nu_{90}}+3\,\boldsymbol{\nu_{59}}-1/8\,\boldsymbol{\nu_{9}}+3\,\boldsymbol{\nu_{48}}+\boldsymbol{\nu_{55}}+3\,\boldsymbol{\nu_{58}}+1/32\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{25}} & -4\,\boldsymbol{\nu_{83}}+2\,\boldsymbol{\nu_{90}}-4\,\boldsymbol{\nu_{59}}-1/4\,\boldsymbol{\nu_{9}}-4\,\boldsymbol{\nu_{58}}+1/8\,\boldsymbol{\nu_{7}}+8\,\boldsymbol{\nu_{69}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{26}} & 32\,\boldsymbol{\nu_{83}}+16\,\boldsymbol{\nu_{90}}+8\,\boldsymbol{\nu_{59}}+2\,\boldsymbol{\nu_{9}}+8\,\boldsymbol{\nu_{58}}+1/4\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{27}} & 
+\begin{aligned} 
+&-16\,\boldsymbol{\nu_{69}}-16\,\boldsymbol{\nu_{83}}-16\,\boldsymbol{\nu_{90}}+6\,\boldsymbol{\nu_{59}}-\boldsymbol{\nu_{9}}+6\,\boldsymbol{\nu_{58}}-{\frac{9\,\boldsymbol{\nu_{7}}}{16}}-4\,\boldsymbol{\nu_{80}}+4\,\boldsymbol{\nu_{51}}\\
+&+2\,\boldsymbol{\nu_{48}}+2\,\boldsymbol{\nu_{55}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{28}} & 
+\begin{aligned} 
+&-{\frac {29\,\boldsymbol{\nu_{108}}}{61}}-2\,\boldsymbol{\nu_{69}}-{\frac {11\,\boldsymbol{\nu_{7}}}{768}}-{\frac {127\,\boldsymbol{\nu_{124}}}{366}}+{\frac{28\,\boldsymbol{\nu_{131}}}{61}}+{\frac {51\,\boldsymbol{\nu_{132}}}{244}}-{\frac {11\,\boldsymbol{\nu_{127}}}{732}}\\
+&+\boldsymbol{\nu_{79}}+1/2\,\boldsymbol{\nu_{51}}+{\frac {19\,\boldsymbol{\nu_{48}}}{24}}
++{\frac {13\,\boldsymbol{\nu_{55}}}{24}}+{\frac {43\,\boldsymbol{\nu_{59}}}{24}}-1/6\,\boldsymbol{\nu_{80}}+{\frac {917\,\boldsymbol{\nu_{83}}}{732}}\\
+&-{\frac {92\,\boldsymbol{\nu_{90}}}{183}}+{\frac {3\,\boldsymbol{\nu_{109}}}{122}}+{\frac {153\,\boldsymbol{\nu_{137}}}{122}}-1/4\,\boldsymbol{\nu_{20}}+{\frac {43\,\boldsymbol{\nu_{58}}}{24}}-{\frac {7\,\boldsymbol{\nu_{9}}}{64}},
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{29}} & 
+\begin{aligned} 
+&\hphantom{-}1/2\,\boldsymbol{\nu_{20}}+{\frac {16\,\boldsymbol{\nu_{124}}}{61}}+{\frac {304\,\boldsymbol{\nu_{109}}}{183}}-{\frac {444\,\boldsymbol{\nu_{137}}}{61}}+{\frac {4\,\boldsymbol{\nu_{127}}}{183}}+{\frac {304\,\boldsymbol{\nu_{108}}}{183}}\\
+&-{\frac {100\,\boldsymbol{\nu_{132}}}{183}}-{\frac {100\,\boldsymbol{\nu_{131}}}{183}}-{\frac {1132\,\boldsymbol{\nu_{83}}}{183}}-{\frac {332\,\boldsymbol{\nu_{90}}}{183}}-4/3\,\boldsymbol{\nu_{59}}-4/3\,\boldsymbol{\nu_{58}}\\
+&-1/8\,\boldsymbol{\nu_{7}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{30}} & 
+\begin{aligned} 
+&\hphantom{-}{\frac {174\,\boldsymbol{\nu_{108}}}{61}}+{\frac {5\,\boldsymbol{\nu_{7}}}{128}}+{\frac {127\,\boldsymbol{\nu_{124}}}{61}}-{\frac {168\,\boldsymbol{\nu_{131}}}{61}}-{\frac{153\,\boldsymbol{\nu_{132}}}{122}}+{\frac {11\,\boldsymbol{\nu_{127}}}{122}}-6\,\boldsymbol{\nu_{79}}\\
+&-\boldsymbol{\nu_{51}}-9/4\,\boldsymbol{\nu_{48}}-7/4\,\boldsymbol{\nu_{55}}-5/4\,\boldsymbol{\nu_{59}}-\boldsymbol{\nu_{80}}+{\frac {59\,\boldsymbol{\nu_{83}}}{122}}+{\frac {62\,\boldsymbol{\nu_{90}}}{61}}-{\frac{9\,\boldsymbol{\nu_{109}}}{61}}\\
+&-{\frac {459\,\boldsymbol{\nu_{137}}}{61}}-5/4\,\boldsymbol{\nu_{58}}+{\frac {7\,\boldsymbol{\nu_{9}}}{32}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{31}} & 
+\begin{aligned}
+&-{\frac {48\,\boldsymbol{\nu_{124}}}{61}}-{\frac {304\,\boldsymbol{\nu_{109}}}{61}}+{\frac {1332\,\boldsymbol{\nu_{137}}}{61}}-{\frac {4\,\boldsymbol{\nu_{127}}}{61}}-{\frac{304\,\boldsymbol{\nu_{108}}}{61}}+{\frac {100\,\boldsymbol{\nu_{132}}}{61}}\\
+&+{\frac {100\,\boldsymbol{\nu_{131}}}{61}}+{\frac {156\,\boldsymbol{\nu_{83}}}{61}}-{\frac {156\,\boldsymbol{\nu_{90}}}{61}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{32}} & 3/16\,\boldsymbol{\nu_{7}}-3/4\,\boldsymbol{\nu_{9}}-8\,\boldsymbol{\nu_{83}}-4\,\boldsymbol{\nu_{90}}-6\,\boldsymbol{\nu_{59}}-6\,\boldsymbol{\nu_{48}}-2\,\boldsymbol{\nu_{55}}-6\,\boldsymbol{\nu_{58}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{33}} & 
+\begin{aligned}
+&-{\frac {48\,
+\boldsymbol{\nu_{124}}}{61}}-{\frac {304\,\boldsymbol{\nu_{109}}}{61}}+{\frac {1332\,\boldsymbol{\nu_{137}}}{61}}-{\frac {4\,\boldsymbol{\nu_{127}}}{61}}-{\frac {304\,\boldsymbol{\nu_{108}}}{61}}+{\frac {100\,\boldsymbol{\nu_{132}}}{61}}\\
+&+{\frac {100\,\boldsymbol{\nu_{131}}}{61}}-{\frac {88\,\boldsymbol{\nu_{83}}}{61}}-{\frac {278\,\boldsymbol{\nu_{90}}}{61}}+{\frac {3\,\boldsymbol{\nu_{7}}}{32}}-3/8\,\boldsymbol{\nu_{9}}-3\,\boldsymbol{\nu_{59}}-3\,\boldsymbol{\nu_{48}}\\
+&-\boldsymbol{\nu_{55}}-3\,\boldsymbol{\nu_{58}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{34}} & 
+\begin{aligned}
+&-{\frac {11\,\boldsymbol{\nu_{108}}}{183}}-2\,\boldsymbol{\nu_{69}}-{\frac {65\,\boldsymbol{\nu_{7}}}{768}}-{\frac {103\,\boldsymbol{\nu_{124}}}{366}}+{\frac {59\,\boldsymbol{\nu_{131}}}{183}}+{\frac {53\,\boldsymbol{\nu_{132}}}{732}}-{\frac {7\,\boldsymbol{\nu_{127}}}{732}}\\
+&+\boldsymbol{\nu_{79}}+1/2\,\boldsymbol{\nu_{51}}+{\frac {25\,\boldsymbol{\nu_{48}}}{24}}+5/8\,\boldsymbol{\nu_{55}}+{\frac {11\,\boldsymbol{\nu_{59}}}{8}}-1/6\,\boldsymbol{\nu_{80}}-{\frac {947\,\boldsymbol{\nu_{83}}}{732}}\\
+&-{\frac {533\,\boldsymbol{\nu_{90}}}{366}}+{\frac {161\,\boldsymbol{\nu_{109}}}{366}}
+-{\frac {69\,\boldsymbol{\nu_{137}}}{122}}\hphantom{=}+{\frac {11\,\boldsymbol{\nu_{58}}}{8}}-{\frac {5\,\boldsymbol{\nu_{9}}}{64}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{35}} & 
+\begin{aligned} 
+&-1/2\,\boldsymbol{\nu_{69}}+{\frac {31\,\boldsymbol{\nu_{7}}}{1536}}+1/6\,\boldsymbol{\nu_{51}}+{\frac {67\,\boldsymbol{\nu_{48}}}{48}}+1/48\,\boldsymbol{\nu_{55}}+{\frac{65\,\boldsymbol{\nu_{59}}}{48}}-1/6\,\boldsymbol{\nu_{80}}\\
+&-1/4\,\boldsymbol{\nu_{90}}-3/16\,\boldsymbol{\nu_{20}}-1/2\,\boldsymbol{\nu_{41}}+\boldsymbol{\nu_{42}}+{\frac {65\,\boldsymbol{\nu_{58}}}{48}}-{\frac {21\,\boldsymbol{\nu_{9}}}{128}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{36}} & 
+\begin{aligned}
+&-{\frac {3\,\boldsymbol{\nu_{20}}}{64}}-{\frac {305\,\boldsymbol{\nu_{7}}}{55296}}-{\frac {2011\,\boldsymbol{\nu_{9}}}{13824}}+{\frac{7\,\boldsymbol{\nu_{11}}}{2304}}+1/4\,\boldsymbol{\nu_{42}}+{\frac {1231\,\boldsymbol{\nu_{48}}}{1728}}+{\frac {31\,\boldsymbol{\nu_{51}}}{144}}+\\
+&{\frac {593\,\boldsymbol{\nu_{55}}}{1728}}+{\frac {841\,\boldsymbol{\nu_{58}}}{1728}}+{\frac {841\,\boldsymbol{\nu_{59}}}{1728}}
+-1/4\,\boldsymbol{\nu_{69}}+{\frac {5\,\boldsymbol{\nu_{77}}}{24}}+1/6\,\boldsymbol{\nu_{79}}-{\frac {
+23\,\boldsymbol{\nu_{80}}}{144}}\\
+&+1/32\,\boldsymbol{\nu_{81}}-{\frac {50597\,\boldsymbol{\nu_{83}}}{52704}}-{\frac {61859\,\boldsymbol{\nu_{90}}}{105408}}-{\frac{143\,\boldsymbol{\nu_{108}}}{4392}}-{\frac {103\,\boldsymbol{\nu_{109}}}{8784}}\\
+&+{\frac {\boldsymbol{\nu_{119}}}{72}}-{\frac {53\,\boldsymbol{\nu_{124}}}{1098}}-{\frac {1249\,\boldsymbol{\nu_{127}}}{52704}}+{\frac {2101\,\boldsymbol{\nu_{131}}}{26352}}+{\frac{359\,\boldsymbol{\nu_{132}}}{52704}}\\
+&+1/8\,\boldsymbol{\nu_{135}}-{\frac {295\,\boldsymbol{\nu_{137}}}{6588}}+1/12\,\boldsymbol{\nu_{139}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{37}} & 
+\begin{aligned} 
+&-3/4\,\boldsymbol{\nu_{48}}-1/2\,\boldsymbol{\nu_{59}}+1/4\,\boldsymbol{\nu_{83}}+1/8\,\boldsymbol{\nu_{90}}+3/16\,\boldsymbol{\nu_{20}}+3/4\,\boldsymbol{\nu_{41}}\\
+&-3/2\,\boldsymbol{\nu_{42}}-1/2\,\boldsymbol{\nu_{58}}+{
+\frac {3\,\boldsymbol{\nu_{9}}}{32}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{38}} &
+\begin{aligned}
+&\hphantom{+}1/16\,\boldsymbol{\nu_{7}}+\boldsymbol{\nu_{48}}+\boldsymbol{\nu_{59}}+\boldsymbol{\nu_{83}}+1/2\,\boldsymbol{\nu_{90}}-1/4\,\boldsymbol{\nu_{20}}-\boldsymbol{\nu_{41}}+2\,
+\boldsymbol{\nu_{42}}\\
+&+\boldsymbol{\nu_{58}}-1/8\,\boldsymbol{\nu_{9}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{39}} &
+\begin{aligned} 
+&\hphantom{-}{\frac {5\,\boldsymbol{\nu_{20}}}{32}}-
+{\frac {193\,\boldsymbol{\nu_{7}}}{1536}}+{\frac {293\,\boldsymbol{\nu_{9}}}{384}}+{\frac {7
+\,\boldsymbol{\nu_{11}}}{64}}-1/4\,\boldsymbol{\nu_{41}}-\boldsymbol{\nu_{42}}-{\frac {43\,\boldsymbol{\nu_{48}}}{48}}-{\frac {7\,\boldsymbol{\nu_{51}}}{12}}\\
+&-{\frac {7\,\boldsymbol{\nu_{55}}}{16}}-3/16\,\boldsymbol{\nu_{58}}-3/16\,\boldsymbol{\nu_{59}}+\boldsymbol{\nu_{69}}-1/2\,\boldsymbol{\nu_{77}}+{\frac {7\,\boldsymbol{\nu_{80}}}{12}}-1/8\,\boldsymbol{\nu_{81}}\\
+&+{\frac {6679\,\boldsymbol{\nu_{83}}}{1464}}+{\frac {
+8419\,\boldsymbol{\nu_{90}}}{2928}}+{\frac {53\,\boldsymbol{\nu_{108}}}{122}}+{\frac {45\,
+\boldsymbol{\nu_{109}}}{244}}
+-1/2\,\boldsymbol{\nu_{119}}+{\frac {79\,\boldsymbol{\nu_{124}}}{122}}\\
+&+{
+\frac {323\,\boldsymbol{\nu_{127}}}{1464}}-{\frac {347\,\boldsymbol{\nu_{131}}}{732}}-{
+\frac {877\,\boldsymbol{\nu_{132}}}{1464}}-1/2\,\boldsymbol{\nu_{135}}-{\frac {65\,\boldsymbol{\nu_{137}}}{366}}-\boldsymbol{\nu_{139}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{40}} & 
+\begin{aligned}
+&\hphantom{+}1/32\,\boldsymbol{\nu_{7}}+5/4\,\boldsymbol{\nu_{48}}+\boldsymbol{\nu_{59}}+1/4\,\boldsymbol{\nu_{83}}+1/8\,\boldsymbol{\nu_{90}}-1/8\,\boldsymbol{\nu_{20}}-1/4\,\boldsymbol{\nu_{41}}\\
+&+1/2\,\boldsymbol{\nu_{42}}+\boldsymbol{\nu_{58}}-{\frac {3\,\boldsymbol{\nu_{9}}}{32}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{43}} & 
+\begin{aligned}
+&-{\frac {53\,\boldsymbol{\nu_{108}}}{244}}+{\frac {227\,\boldsymbol{\nu_{7}}}{3072}}-{\frac {79\,\boldsymbol{\nu_{124}}}{244}}+1/4\,\boldsymbol{\nu_{135}}+{\frac {347\,\boldsymbol{\nu_{131}}}{1464}}+{\frac {877\,\boldsymbol{\nu_{132}}}{2928}}\\
+&-{\frac {323\,\boldsymbol{\nu_{127}}}{2928}}-{\frac {19\,\boldsymbol{\nu_{48}}}{96}}-{\frac {5\,\boldsymbol{\nu_{55}}}{96}}-{\frac {43\,\boldsymbol{\nu_{59}}}{96}}+1/16\,\boldsymbol{\nu_{81}}-{\frac {7\,\boldsymbol{\nu_{11}}}{128}}\\
+&-{\frac 
+{2653\,\boldsymbol{\nu_{83}}}{2928}}-{\frac {2929\,\boldsymbol{\nu_{90}}}{5856}}-{\frac {45\,\boldsymbol{\nu_{109}}}{488}}+{\frac {65\,\boldsymbol{\nu_{137}}}{732}}+1/4\,\boldsymbol{\nu_{41}}+1/
+4\,\boldsymbol{\nu_{42}}\\
+&-{\frac {43\,\boldsymbol{\nu_{58}}}{96}}-{\frac {167\,\boldsymbol{\nu_{9}}}{768}}+1/4\,\boldsymbol{\nu_{119}}+1/2\,\boldsymbol{\nu_{139}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{44}} &
+\begin{aligned}
+&\hphantom{+}1/2\,\boldsymbol{\nu_{80}}+4\,\boldsymbol{\nu_{83}}-1/2\,\boldsymbol{\nu_{51}}+2\,\boldsymbol{\nu_{90}}-1/2\,\boldsymbol{\nu_{59}}+{\frac {9\,\boldsymbol{\nu_{9}}}{32}}-1/2\,\boldsymbol{\nu_{48}}\\
+&-1/2\,\boldsymbol{\nu_{58}}+{\frac {3\,\boldsymbol{\nu_{7}}}{64}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{45}} & 
+\begin{aligned} 
+&-{\frac {4\,\boldsymbol{\nu_{108}}}{183}}+{\frac {299\,\boldsymbol{\nu_{7}}}{2304}}-{\frac {25\,\boldsymbol{\nu_{124}}}{732}}-1/2\,\boldsymbol{\nu_{135}}-{\frac {265\,\boldsymbol{\nu_{131}}}{1098}}+{\frac {142\,\boldsymbol{\nu_{132}}}{549}}\\
+&+{\frac {35\,\boldsymbol{\nu_{127}}}{1098}}-\boldsymbol{\nu_{79}}-5/6\,\boldsymbol{\nu_{51}}-{\frac {169\,\boldsymbol{\nu_{48}}}{72}}-{
+\frac {107\,\boldsymbol{\nu_{55}}}{72}}-{\frac {85\,\boldsymbol{\nu_{59}}}{72}}+1/2\,\boldsymbol{\nu_{80}}\\
+&-{\frac {7\,\boldsymbol{\nu_{11}}}{96}}-5/6\,\boldsymbol{\nu_{77}}+{\frac {5101\,\boldsymbol{\nu_{83}}}{1098}}+{\frac {2585\,\boldsymbol{\nu_{90}}}{1098}}-{\frac {4\,\boldsymbol{\nu_{109}}}{
+183}}\\
+&+{\frac {785\,\boldsymbol{\nu_{137}}}{2196}}-{\frac {85\,\boldsymbol{\nu_{58}}}{72}}+{
+\frac {175\,\boldsymbol{\nu_{9}}}{576}}+1/6\,\boldsymbol{\nu_{119}}\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{46}} & -4\,\boldsymbol{\nu_{83}}-2\,\boldsymbol{\nu_{90}}-\boldsymbol{\nu_{59}}-\boldsymbol{\nu_{48}}-\boldsymbol{\nu_{58}}-1/8\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{47}} & -2\,\boldsymbol{\nu_{83}}-\boldsymbol{\nu_{90}}-1/8\,\boldsymbol{\nu_{9}}+1/2\,\boldsymbol{\nu_{48}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{49}} & 
+\begin{aligned} 
+&\hphantom{+}\boldsymbol{\nu_{77}}-\boldsymbol{\nu_{80}}-9\,\boldsymbol{\nu_{83}}+\boldsymbol{\nu_{51}}-9/2\,\boldsymbol{\nu_{90}}-1/2
+\,\boldsymbol{\nu_{59}}-5/8\,\boldsymbol{\nu_{9}}+\boldsymbol{\nu_{48}}+\boldsymbol{\nu_{55}}\\
+&-1/2\,\boldsymbol{\nu_{58}}-1/16
+\,\boldsymbol{\nu_{7}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{50}} & 
+4\,\boldsymbol{\nu_{83}}+2\,\boldsymbol{\nu_{90}}+1/4\,\boldsymbol{\nu_{9}}-\boldsymbol{\nu_{48}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{52}} & -\boldsymbol{\nu_{79}}+\boldsymbol{\nu_{83}}+1/2\,\boldsymbol{\nu_{90}}-1/2\,\boldsymbol{\nu_{59}}+1/8\,\boldsymbol{\nu_{9}}-\boldsymbol{\nu_{48}}-1/2\,\boldsymbol{\nu_{55}}-1/2\,\boldsymbol{\nu_{58}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{53}} & -1/8\,\boldsymbol{\nu_{11}}-1/2\,\boldsymbol{\nu_{59}}-1/2\,\boldsymbol{\nu_{9}}-1/2\,\boldsymbol{\nu_{48}}+1/2
+\,\boldsymbol{\nu_{55}}-1/2\,\boldsymbol{\nu_{58}}+{\frac {7\,\boldsymbol{\nu_{7}}}{32}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{54}} & 
+\begin{aligned}
+&-1/
+16\,\boldsymbol{\nu_{11}}-4\,\boldsymbol{\nu_{83}}-2\,\boldsymbol{\nu_{90}}-3/4\,\boldsymbol{\nu_{59}}-3/8\,\boldsymbol{\nu_{9}}+3/4\,\boldsymbol{\nu_{48}}-1/4\,\boldsymbol{\nu_{55}}\\
+&-3/4\,\boldsymbol{\nu_{58}}+{\frac {3\,\boldsymbol{\nu_{7}}}{64}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{56}} & 2\,\boldsymbol{\nu_{83}}-\boldsymbol{\nu_{51}}+\boldsymbol{\nu_{90}}-1/2\,\boldsymbol{\nu_{55}}+{\frac {7\,\boldsymbol{\nu_{7}}}{64}}-1/2\,\boldsymbol{\nu_{59}}-1/2\,\boldsymbol{\nu_{48}}-1/2\,\boldsymbol{\nu_{58}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{57}} &  2\,\boldsymbol{\nu_{51}}+2\,\boldsymbol{\nu_{59}}+\boldsymbol{\nu_{48}}+\boldsymbol{\nu_{55}}+
+\boldsymbol{\nu_{58}}-1/16\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{60}} & 
+\begin{aligned}
+&-\boldsymbol{\nu_{77}}+\boldsymbol{\nu_{80}}+8\,\boldsymbol{\nu_{83}}-\boldsymbol{\nu_{51}}+4\,\boldsymbol{\nu_{90}}-1/2\,\boldsymbol{\nu_{59}}+5/8\,\boldsymbol{\nu_{9}}-2\,\boldsymbol{\nu_{48}}\\
+&-\boldsymbol{\nu_{55}}-1/2\,\boldsymbol{\nu_{58}}+1/16\,\boldsymbol{\nu_{7}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{61}} & 
+\begin{aligned}
+&-\boldsymbol{\nu_{80}}
+-4\,\boldsymbol{\nu_{83}}-2\,\boldsymbol{\nu_{90}}-1/2\,\boldsymbol{\nu_{59}}-{\frac {5\,\boldsymbol{\nu_{9}}}{16}
+}+1/2\,\boldsymbol{\nu_{48}}+1/2\,\boldsymbol{\nu_{55}}\\
+&-1/2\,\boldsymbol{\nu_{58}}-1/32\,\boldsymbol{\nu_{7}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\nu_
+{{62}} & \boldsymbol{\nu_{59}}+1/4\,\boldsymbol{\nu_{9}}+\boldsymbol{\nu_{48}}-\boldsymbol{\nu_{55}}+\boldsymbol{\nu_{58}}-1/16
+\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{63}} & 4\,\boldsymbol{\nu_{83}}+2\,\boldsymbol{\nu_{90}}+5/4\,\boldsymbol{\nu_{59}}+3/8
+\,\boldsymbol{\nu_{9}}-1/4\,\boldsymbol{\nu_{48}}-1/4\,\boldsymbol{\nu_{55}}+5/4\,\boldsymbol{\nu_{58}}-{\frac {
+\boldsymbol{\nu_{7}}}{64}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{64}} & 2\,\boldsymbol{\nu_{83}}+\boldsymbol{\nu_{90}}+1/2\,\boldsymbol{\nu_{59}}-1/
+8\,\boldsymbol{\nu_{9}}+1/2\,\boldsymbol{\nu_{48}}+1/2\,\boldsymbol{\nu_{55}}+1/2\,\boldsymbol{\nu_{58}}+{\frac {3
+\,\boldsymbol{\nu_{7}}}{32}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{65}} & -1/2\,\boldsymbol{\nu_{59}}-1/2\,\boldsymbol{\nu_{48}}+1/2\,\boldsymbol{\nu_{55}}-1/2\,\boldsymbol{\nu_{58}}-1/32\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{66}} &
+\begin{aligned}
+&\hphantom{+}\boldsymbol{\nu_{79}}-1/2\,\boldsymbol{\nu_{83}}-1/4\,\boldsymbol{\nu_{90}}-5/8\,\boldsymbol{\nu_{59}}-{\frac {\boldsymbol{\nu_{9}}}{64}}-5/8\,
+\boldsymbol{\nu_{48}}+1/8\,\boldsymbol{\nu_{55}}\\
+&-5/8\,\boldsymbol{\nu_{58}}+{\frac {\boldsymbol{\nu_{7}}}{256}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{67}} & \boldsymbol{\nu_{80}}+2\,\boldsymbol{\nu_{83}}+\boldsymbol{\nu_{90}}+2\,\boldsymbol{\nu_{59}}+1/8\,\boldsymbol{\nu_{9}}+2\,\boldsymbol{\nu_{48}}+2\,\boldsymbol{\nu_{58}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{68}} & {\frac {11\,\boldsymbol{\nu_{7}}}{1536}}-{\frac {5\,\boldsymbol{\nu_{48}}}{24}}-1/24\,\boldsymbol{\nu_{55}}-{\frac {5\,\boldsymbol{\nu_{59}}}{24}}-{\frac {\boldsymbol{\nu_{11}}}{128}}-1/4\,\boldsymbol{\nu_{83}}-1/8\,\boldsymbol{\nu_{90}}-{
+\frac {5\,\boldsymbol{\nu_{58}}}{24}}-{\frac {5\,\boldsymbol{\nu_{9}}}{384}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{70}} & 
+\begin{aligned} 
+&\hphantom{+}1/3
+\,\boldsymbol{\nu_{135}}-{\frac {113\,\boldsymbol{\nu_{124}}}{366}}-{\frac {65\,\boldsymbol{\nu_{109}}
+}{366}}+{\frac {169\,\boldsymbol{\nu_{137}}}{244}}-{\frac {15\,\boldsymbol{\nu_{127}}}{122}}
+-{\frac {21\,\boldsymbol{\nu_{108}}}{61}}\\
+&+{\frac {9\,\boldsymbol{\nu_{132}}}{122}}+{\frac {
+44\,\boldsymbol{\nu_{131}}}{183}}+1/2\,\boldsymbol{\nu_{79}}-{\frac {7\,\boldsymbol{\nu_{77}}}{36}}-{
+\frac {\boldsymbol{\nu_{11}}}{96}}+1/18\,\boldsymbol{\nu_{80}}+{\frac {259\,\boldsymbol{\nu_{83}}}{4392
+}}\\
+&+1/9\,\boldsymbol{\nu_{51}}-{\frac {3629\,\boldsymbol{\nu_{90}}}{8784}}+{\frac {73\,\boldsymbol{\nu_{59}}}{288}}-{\frac {91\,\boldsymbol{\nu_{9}}}{2304}}+{\frac {97\,\boldsymbol{\nu_{48}}}{288}
+}+{\frac {59\,\boldsymbol{\nu_{55}}}{288}}+{\frac {73\,\boldsymbol{\nu_{58}}}{288}}\\
+&+{\frac {
+11\,\boldsymbol{\nu_{7}}}{9216}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{71}} & \boldsymbol{\nu_{83}}+\boldsymbol{\nu_{51}}+1/2\,\boldsymbol{\nu_{90}}
++\boldsymbol{\nu_{55}}-1/32\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{72}} &
+\begin{aligned}
+&-\boldsymbol{\nu_{79}}+2\,\boldsymbol{\nu_{83}}+\boldsymbol{\nu_{90}}+1/8\,\boldsymbol{\nu_{59}}+{\frac {9\,\boldsymbol{\nu_{9}}}{64}}-3/8\,\boldsymbol{\nu_{48}}-1/8\,
+\boldsymbol{\nu_{55}}+1/8\,\boldsymbol{\nu_{58}}\\
+&-{\frac {\boldsymbol{\nu_{7}}}{256}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{73}} & 2\,\boldsymbol{\nu_{83}}-\boldsymbol{\nu_{51}}+\boldsymbol{\nu_{90}}-\boldsymbol{\nu_{55}}+1/8\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{74}} & 2\,
+\boldsymbol{\nu_{51}}+\boldsymbol{\nu_{59}}+2\,\boldsymbol{\nu_{55}}-1/8\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{75}} & \boldsymbol{\nu_{58}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{76}} & \boldsymbol{\nu_{83}}+1/2\,\boldsymbol{\nu_{90}}+\boldsymbol{\nu_{59}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{78}} & -\boldsymbol{\nu_{80}}-5\,\boldsymbol{\nu_{83}}-5/2\,\boldsymbol{\nu_{90}}-\boldsymbol{\nu_{59}}-3/8\,\boldsymbol{\nu_{9}}-\nu_{{58}
+}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{82}}&=1/2\,\boldsymbol{\nu_{81}}+5/2\,\boldsymbol{\nu_{83}}+2\,\boldsymbol{\nu_{90}}+\boldsymbol{\nu_{59}}+
+1/4\,\boldsymbol{\nu_{9}}+\boldsymbol{\nu_{58}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{84}} & 1/2\,\boldsymbol{\nu_{81}}-5/2\,\boldsymbol{\nu_{83}}-1
+/4\,\boldsymbol{\nu_{90}}-1/2\,\boldsymbol{\nu_{59}}-1/8\,\boldsymbol{\nu_{9}}-1/2\,\boldsymbol{\nu_{58}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\nu_{{85
+}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {227\,\boldsymbol{\nu_{108}}}{366}}+{\frac {179\,\boldsymbol{\nu_{7}}}{4608}}+{
+\frac {229\,\boldsymbol{\nu_{124}}}{732}}-{\frac {13\,\boldsymbol{\nu_{131}}}{2196}}+{\frac 
+{523\,\boldsymbol{\nu_{132}}}{4392}}+{\frac {511\,\boldsymbol{\nu_{127}}}{4392}}\\
+&-1/2\,\boldsymbol{\nu_{79}}-1/4\,\boldsymbol{\nu_{51}}-{\frac {103\,\boldsymbol{\nu_{48}}}{144}}-{\frac {65\,\boldsymbol{\nu_{55}}}{144}}-{\frac {55\,\boldsymbol{\nu_{59}}}{144}}+1/12\,\boldsymbol{\nu_{80}}\\
+&-1/48\,\boldsymbol{\nu_{11}}-1/3\,\boldsymbol{\nu_{77}}+{\frac {3251\,\boldsymbol{\nu_{83}}}{4392}}
++{\frac {1943\,
+\boldsymbol{\nu_{90}}}{2196}}+{\frac {271\,\boldsymbol{\nu_{109}}}{732}}-{\frac {2479\,\boldsymbol{\nu_{137}}}{1098}}\\
+&-{\frac {55\,\boldsymbol{\nu_{58}}}{144}}+{\frac {73\,\boldsymbol{\nu_{9}}}{
+1152}}+1/3\,\boldsymbol{\nu_{119}}+\boldsymbol{\nu_{139}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{86}} & -\boldsymbol{\nu_{81}}+4\,\boldsymbol{\nu_{83}}+1/2\,\boldsymbol{\nu_{90}}+\boldsymbol{\nu_{59}}+1/2\,\boldsymbol{\nu_{9}}+\boldsymbol{\nu_{58}}-1/8\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{87}} & 
+\begin{aligned}
+&-2\,\boldsymbol{\nu_{69}}-{\frac {5\,\boldsymbol{\nu_{7}}}{128}}+1/2\,\boldsymbol{\nu_{51}}
++1/4\,\boldsymbol{\nu_{48}}+1/4\,\boldsymbol{\nu_{55}}+1/4\,\boldsymbol{\nu_{59}}-1/2\,\boldsymbol{\nu_{80}}\\
+&-4\,
+\boldsymbol{\nu_{83}}-2\,\boldsymbol{\nu_{90}}+1/4\,\boldsymbol{\nu_{58}}-{\frac {5\,\boldsymbol{\nu_{9}}}{16}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{88}} & 
+\begin{aligned}
+&-1/6\,\boldsymbol{\nu_{119}}-1/6\,\boldsymbol{\nu_{135}}+{\frac {159\,\boldsymbol{\nu_{124}}
+}{244}}+{\frac {23\,\boldsymbol{\nu_{109}}}{61}}-{\frac {3827\,\boldsymbol{\nu_{137}}}{2196}
+}+{\frac {235\,\boldsymbol{\nu_{127}}}{1098}}\\
+&+{\frac {130\,\boldsymbol{\nu_{108}}}{183}}-{
+\frac {223\,\boldsymbol{\nu_{132}}}{549}}-{\frac {263\,\boldsymbol{\nu_{131}}}{1098}}+2/9\,
+\boldsymbol{\nu_{77}}+1/16\,\boldsymbol{\nu_{11}}-1/9\,\boldsymbol{\nu_{80}}\\
+&-{\frac {925\,\boldsymbol{\nu_{83}}}{
+732}}+1/9\,\boldsymbol{\nu_{51}}+{\frac {325\,\boldsymbol{\nu_{90}}}{1464}}+{\frac {13\,\boldsymbol{\nu_{59}}}{144}}+{\frac {41\,\boldsymbol{\nu_{9}}}{1152}}+{\frac {49\,\boldsymbol{\nu_{48}}}{
+144}}\\
+&+{\frac {59\,\boldsymbol{\nu_{55}}}{144}}+{\frac {13\,\boldsymbol{\nu_{58}}}{144}}-{
+\frac {37\,\boldsymbol{\nu_{7}}}{512}},
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{89}} & -8\,\boldsymbol{\nu_{83}}-\boldsymbol{\nu_{90}}-2\,
+\boldsymbol{\nu_{59}}-1/2\,\boldsymbol{\nu_{9}}-2\,\boldsymbol{\nu_{58}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{91}} & -1/2\,\boldsymbol{\nu_{90}}+1/
+8\,\boldsymbol{\nu_{9}}-1/16\,\boldsymbol{\nu_{7}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{92}} & 
+\begin{aligned}
+&-{\frac {227\,\boldsymbol{\nu_{108}}}{183
+}}-{\frac {107\,\boldsymbol{\nu_{7}}}{2304}}-{\frac {229\,\boldsymbol{\nu_{124}}}{366}}+{
+\frac {13\,\boldsymbol{\nu_{131}}}{1098}}-{\frac {523\,\boldsymbol{\nu_{132}}}{2196}}-{
+\frac {511\,\boldsymbol{\nu_{127}}}{2196}}\\
+&+\boldsymbol{\nu_{79}}+{\frac {31\,\boldsymbol{\nu_{48}}}{72}
+}+{\frac {29\,\boldsymbol{\nu_{55}}}{72}}+{\frac {37\,\boldsymbol{\nu_{59}}}{72}}+1/3\,\boldsymbol{\nu_{80}}+1/24\,\boldsymbol{\nu_{11}}\\
+&-1/3\,\boldsymbol{\nu_{77}}+{\frac {5533\,\boldsymbol{\nu_{83}}}{2196}
+}+{\frac {253\,\boldsymbol{\nu_{90}}}{1098}}-{\frac {271\,\boldsymbol{\nu_{109}}}{366}}+{
+\frac {2479\,\boldsymbol{\nu_{137}}}{549}}+{\frac {37\,\boldsymbol{\nu_{58}}}{72}}\\
+&+{\frac {
+107\,\boldsymbol{\nu_{9}}}{576}}-2/3\,\boldsymbol{\nu_{119}}-2\,\boldsymbol{\nu_{139}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{93}} & 
+\begin{aligned}
+&-{
+\frac {583\,\boldsymbol{\nu_{108}}}{1464}}-1/4\,\boldsymbol{\nu_{69}}+{\frac {85\,\boldsymbol{\nu_{7}}
+}{6144}}-{\frac {91\,\boldsymbol{\nu_{124}}}{2928}}+{\frac {199\,\boldsymbol{\nu_{131}}}{
+1464}}+{\frac {613\,\boldsymbol{\nu_{132}}}{5856}}\\
+&-{\frac {205\,\boldsymbol{\nu_{127}}}{1952
+}}+1/8\,\boldsymbol{\nu_{79}}+1/16\,\boldsymbol{\nu_{51}}+{\frac {67\,\boldsymbol{\nu_{48}}}{192}}+{
+\frac {13\,\boldsymbol{\nu_{55}}}{192}}+{\frac {25\,\boldsymbol{\nu_{59}}}{64}}-1/48\,\boldsymbol{\nu_{80}}\\
+&+{\frac {3001\,\boldsymbol{\nu_{83}}}{5856}}-{\frac {8\,\boldsymbol{\nu_{90}}}{183}}-{
+\frac {983\,\boldsymbol{\nu_{109}}}{2928}}+{\frac {979\,\boldsymbol{\nu_{137}}}{976}}-{
+\frac {3\,\boldsymbol{\nu_{20}}}{32}}-1/4\,\boldsymbol{\nu_{41}}+1/2\,\boldsymbol{\nu_{42}}\\
+&+{\frac {25
+\,\boldsymbol{\nu_{58}}}{64}}-{\frac {23\,\boldsymbol{\nu_{9}}}{512}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{94}} & 
+\begin{aligned}
+&-{\frac {3
+\,\boldsymbol{\nu_{20}}}{128}}+{\frac {1301\,\boldsymbol{\nu_{7}}}{110592}}-{\frac {1001\,
+\boldsymbol{\nu_{9}}}{27648}}-{\frac {31\,\boldsymbol{\nu_{11}}}{4608}}+1/8\,\boldsymbol{\nu_{42}}+{
+\frac {125\,\boldsymbol{\nu_{48}}}{3456}}+{\frac {5\,\boldsymbol{\nu_{51}}}{288}}\\
+&+{\frac {67
+\,\boldsymbol{\nu_{55}}}{3456}}+{\frac {191\,\boldsymbol{\nu_{58}}}{3456}}+{\frac {191\,\boldsymbol{\nu_{59}}}{3456}}-1/8\,\boldsymbol{\nu_{69}}-1/48\,\boldsymbol{\nu_{77}}+1/24\,\boldsymbol{\nu_{79}}-{
+\frac {\boldsymbol{\nu_{80}}}{288}}\\
+&+{\frac {\boldsymbol{\nu_{81}}}{192}}+{\frac {7289\,\boldsymbol{\nu_{83}}}{105408}}-{\frac {16225\,\boldsymbol{\nu_{90}}}{210816}}-{\frac {1045\,\boldsymbol{\nu_{108}}}{8784}}-{\frac {1541\,\boldsymbol{\nu_{109}}}{17568}}+{\frac {5\,\nu_{{
+119}}}{144}}\\
+&-{\frac {409\,\boldsymbol{\nu_{124}}}{8784}}-{\frac {3215\,\nu_{{127}
+}}{105408}}+{\frac {3191\,\boldsymbol{\nu_{131}}}{52704}}+{\frac {5833\,\boldsymbol{\nu_{132}}}{105408}}+1/48\,\boldsymbol{\nu_{135}}+{\frac {823\,\boldsymbol{\nu_{137}}}{3294}}\\
+&+1/24\,
+\boldsymbol{\nu_{139}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{95}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {35\,\boldsymbol{\nu_{108}}}{61}}-{\frac {3\,\boldsymbol{\nu_{7}}}{128}}-{\frac {5\,\boldsymbol{\nu_{124}}}{122}}-{\frac {15\,\boldsymbol{\nu_{131}}}{122}
+}-{\frac {15\,\boldsymbol{\nu_{132}}}{122}}+{\frac {25\,\boldsymbol{\nu_{127}}}{122}}-3/8\,
+\boldsymbol{\nu_{48}}\\
+&-1/4\,\boldsymbol{\nu_{59}}-{\frac {301\,\boldsymbol{\nu_{83}}}{488}}+{\frac {53\,
+\boldsymbol{\nu_{90}}}{976}}+{\frac {35\,\boldsymbol{\nu_{109}}}{61}}-{\frac {106\,\boldsymbol{\nu_{137}}}{61}}+{\frac {3\,\boldsymbol{\nu_{20}}}{32}}+3/8\,\boldsymbol{\nu_{41}}\\
+&-3/4\,\boldsymbol{\nu_{42}}-1
+/4\,\boldsymbol{\nu_{58}}+{\frac {3\,\boldsymbol{\nu_{9}}}{64}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{96}} & 
+\begin{aligned}
+&-{\frac {88\,\boldsymbol{\nu_{108}}}{183}}+1/32\,\boldsymbol{\nu_{7}}+{\frac {5\,\boldsymbol{\nu_{124}}}{61}}+{\frac {29
+\,\boldsymbol{\nu_{131}}}{366}}+{\frac {29\,\boldsymbol{\nu_{132}}}{366}}+{\frac {5\,\boldsymbol{\nu_{127}}}{732}}+1/2\,\boldsymbol{\nu_{48}}\\
+&+1/3\,\boldsymbol{\nu_{59}}+{\frac {119\,\boldsymbol{\nu_{83}}}{
+183}}+{\frac {73\,\boldsymbol{\nu_{90}}}{732}}-{\frac {88\,\boldsymbol{\nu_{109}}}{183}}+{
+\frac {119\,\boldsymbol{\nu_{137}}}{122}}-1/8\,\boldsymbol{\nu_{20}}-1/2\,\boldsymbol{\nu_{41}}\\
+&+\boldsymbol{\nu_{42}}+1/3\,\boldsymbol{\nu_{58}}-1/16\,\boldsymbol{\nu_{9}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{97}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {5\,\boldsymbol{\nu_{20}}
+}{64}}-{\frac {839\,\boldsymbol{\nu_{7}}}{9216}}+{\frac {587\,\boldsymbol{\nu_{9}}}{2304}}+{
+\frac {25\,\boldsymbol{\nu_{11}}}{384}}-1/8\,\boldsymbol{\nu_{41}}-1/2\,\boldsymbol{\nu_{42}}+{\frac {
+43\,\boldsymbol{\nu_{48}}}{288}}\\
+&-1/24\,\boldsymbol{\nu_{51}}+{\frac {29\,\boldsymbol{\nu_{55}}}{288}}+{
+\frac {37\,\boldsymbol{\nu_{58}}}{288}}+{\frac {37\,\boldsymbol{\nu_{59}}}{288}}+1/2\,\boldsymbol{\nu_{69}}+1/12\,\boldsymbol{\nu_{77}}+1/24\,\boldsymbol{\nu_{80}}\\
+&-1/16\,\boldsymbol{\nu_{81}}+{\frac {3409\,
+\boldsymbol{\nu_{83}}}{8784}}+{\frac {10201\,\boldsymbol{\nu_{90}}}{17568}}+{\frac {105\,\boldsymbol{\nu_{108}}}{244}}+{\frac {149\,\boldsymbol{\nu_{109}}}{488}}-{\frac {5\,\boldsymbol{\nu_{119}}
+}{12}}\\
+&+{\frac {21\,\boldsymbol{\nu_{124}}}{61}}+{\frac {1289\,\boldsymbol{\nu_{127}}}{8784}}-{\frac {1625\,\boldsymbol{\nu_{131}}}{4392}}-{\frac {3799\,\boldsymbol{\nu_{132}}}{8784}}-1
+/4\,\boldsymbol{\nu_{135}}
+-{\frac {577\,\boldsymbol{\nu_{137}}}{1098}}\\
+&-1/2\,\boldsymbol{\nu_{139}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\nu_
+{{98}} & 
+\begin{aligned}
+&-{\frac {59\,\boldsymbol{\nu_{108}}}{183}}+{\frac {\boldsymbol{\nu_{7}}}{64}}-{\frac 
+{3\,\boldsymbol{\nu_{124}}}{122}}+{\frac {17\,\boldsymbol{\nu_{131}}}{183}}+{\frac {17\,\boldsymbol{\nu_{132}}}{183}}-{\frac {8\,\boldsymbol{\nu_{127}}}{183}}+1/8\,\boldsymbol{\nu_{48}}\\
+&+1/6\,\boldsymbol{\nu_{59}}+{\frac {283\,\boldsymbol{\nu_{83}}}{488}}+{\frac {105\,\boldsymbol{\nu_{90}}}{976}}-{
+\frac {59\,\boldsymbol{\nu_{109}}}{183}}+{\frac {129\,\boldsymbol{\nu_{137}}}{122}}-1/16\,
+\boldsymbol{\nu_{20}}\\
+&-1/8\,\boldsymbol{\nu_{41}}+1/4\,\boldsymbol{\nu_{42}}+1/6\,\boldsymbol{\nu_{58}}-{\frac {\boldsymbol{\nu_{9}}}{64}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{99}} & 
+\begin{aligned}
+&\hphantom{-}{\frac {74\,\boldsymbol{\nu_{108}}}{183}}+{\frac {23\,\boldsymbol{\nu_{7}}}{768}}+{\frac {11\,\boldsymbol{\nu_{124}}}{122}}+1/3\,\boldsymbol{\nu_{135}}+{\frac {
+19\,\boldsymbol{\nu_{131}}}{183}}-{\frac {23\,\boldsymbol{\nu_{132}}}{366}}+{\frac {79\,\boldsymbol{\nu_{127}}}{366}}\\
+&-3/8\,\boldsymbol{\nu_{48}}+{\frac {5\,\boldsymbol{\nu_{55}}}{24}}-{\frac {13
+\,\boldsymbol{\nu_{59}}}{24}}+1/6\,\boldsymbol{\nu_{81}}-{\frac {56\,\boldsymbol{\nu_{83}}}{61}}-{
+\frac {5\,\boldsymbol{\nu_{90}}}{61}}+{\frac {13\,\boldsymbol{\nu_{109}}}{183}}\\
+&-{\frac {443
+\,\boldsymbol{\nu_{137}}}{366}}+1/2\,\boldsymbol{\nu_{41}}-{\frac {13\,\boldsymbol{\nu_{58}}}{24}}-{
+\frac {9\,\boldsymbol{\nu_{9}}}{64}}
++1/3\,\boldsymbol{\nu_{119}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{100}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {10\,\boldsymbol{\nu_{108}}}{183}}+{\frac {23\,\boldsymbol{\nu_{7}}}{1536}}+{\frac {31\,\boldsymbol{\nu_{124}}}{244}}+1/6\,\boldsymbol{\nu_{135}}+{\frac {35\,\boldsymbol{\nu_{131}}}{732}}-{\frac {13\,
+\boldsymbol{\nu_{132}}}{366}}+{\frac {107\,\boldsymbol{\nu_{127}}}{1464}}\\
+&+1/16\,\boldsymbol{\nu_{48}}+{\frac {5\,\boldsymbol{\nu_{55}}}{48}}-{\frac {13\,\boldsymbol{\nu_{59}}}{48}}+1/12\,\boldsymbol{\nu_{81}}-{\frac {148\,\boldsymbol{\nu_{83}}}{183}}-{\frac {463\,\boldsymbol{\nu_{90}}}{1464}}-{
+\frac {41\,\boldsymbol{\nu_{109}}}{366}}\\
+&-{\frac {139\,\boldsymbol{\nu_{137}}}{366}}+1/2\,\boldsymbol{\nu_{42}}-{\frac {13\,\boldsymbol{\nu_{58}}}{48}}-{\frac {13\,\boldsymbol{\nu_{9}}}{128}}+1/6
+\,\boldsymbol{\nu_{119}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{101}} & 
+\begin{aligned} 
+&\hphantom{+}{\frac {209\,\boldsymbol{\nu_{7}}}{4608}}-{\frac {61\,
+\boldsymbol{\nu_{9}}}{576}}-{\frac {25\,\boldsymbol{\nu_{11}}}{768}}+1/8\,\boldsymbol{\nu_{41}}+1/8\,
+\boldsymbol{\nu_{42}}-{\frac {17\,\boldsymbol{\nu_{48}}}{72}}-1/24\,\boldsymbol{\nu_{51}}\\
+&-{\frac {17\,
+\boldsymbol{\nu_{55}}}{144}}-{\frac {89\,\boldsymbol{\nu_{58}}}{288}}-{\frac {89\,\boldsymbol{\nu_{59}}}{288}}-1/24\,\boldsymbol{\nu_{77}}-1/8\,\boldsymbol{\nu_{79}}+1/32\,\boldsymbol{\nu_{81}}-{\frac {385
+\,\boldsymbol{\nu_{83}}}{1098}}\\
+&-{\frac {6895\,\boldsymbol{\nu_{90}}}{35136}}-{\frac {53\,\boldsymbol{\nu_{108}}}{732}}-{\frac {53\,\boldsymbol{\nu_{109}}}{732}}+{\frac {5\,\boldsymbol{\nu_{119}}
+}{24}}-{\frac {377\,\boldsymbol{\nu_{124}}}{2928}}-{\frac {445\,\boldsymbol{\nu_{127}}}{8784
+}}\\
+&+{\frac {469\,\boldsymbol{\nu_{131}}}{4392}}+{\frac {1487\,\boldsymbol{\nu_{132}}}{8784}}+
+1/8\,\boldsymbol{\nu_{135}}-{\frac {179\,\boldsymbol{\nu_{137}}}{2196}}+1/4\,\boldsymbol{\nu_{139}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{102}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {155\,\boldsymbol{\nu_{124}}}{488}}+{\frac {331\,\boldsymbol{\nu_{109}}}{488
+}}-{\frac {809\,\boldsymbol{\nu_{137}}}{488}}+{\frac {219\,\boldsymbol{\nu_{127}}}{976}}+{
+\frac {257\,\boldsymbol{\nu_{108}}}{244}}-{\frac {473\,\boldsymbol{\nu_{132}}}{976}}\\
+&-{\frac 
+{41\,\boldsymbol{\nu_{131}}}{61}}-3/4\,\boldsymbol{\nu_{79}}-1/8\,\boldsymbol{\nu_{80}}-{\frac {\boldsymbol{\nu_{83}}}{976}}-1/8\,\boldsymbol{\nu_{51}}+{\frac {23\,\boldsymbol{\nu_{90}}}{122}}-{\frac {5\,
+\boldsymbol{\nu_{59}}}{32}}\\
+&+{\frac {7\,\boldsymbol{\nu_{9}}}{256}}-{\frac {9\,\boldsymbol{\nu_{48}}}{32
+}}-{\frac {7\,\boldsymbol{\nu_{55}}}{32}}-{\frac {5\,\boldsymbol{\nu_{58}}}{32}}+{\frac {5\,
+\boldsymbol{\nu_{7}}}{1024}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{103}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {89\,\boldsymbol{\nu_{108}}}{183}}-{\frac {
+67\,\boldsymbol{\nu_{7}}}{9216}}+{\frac {53\,\boldsymbol{\nu_{124}}}{732}}-{\frac {140\,\boldsymbol{\nu_{131}}}{549}}-{\frac {1691\,\boldsymbol{\nu_{132}}}{8784}}+{\frac {907\,\boldsymbol{\nu_{127}}}{8784}}\\
+&-1/4\,\boldsymbol{\nu_{79}}+{\frac {11\,\boldsymbol{\nu_{48}}}{288}}+{\frac {
+\boldsymbol{\nu_{55}}}{288}}+{\frac {5\,\boldsymbol{\nu_{59}}}{288}}-1/12\,\boldsymbol{\nu_{80}}+1/16\,\boldsymbol{\nu_{81}}+{\frac {\boldsymbol{\nu_{11}}}{192}}\\
+&+1/12\,\boldsymbol{\nu_{77}}-{\frac {3409\,
+\boldsymbol{\nu_{83}}}{8784}}+{\frac {779\,\boldsymbol{\nu_{90}}}{17568}}+{\frac {529\,\boldsymbol{\nu_{109}}}{1464}}-{\frac {4463\,\boldsymbol{\nu_{137}}}{4392}}+{\frac {5\,\boldsymbol{\nu_{58}}
+}{288}}\\
+&-{\frac {5\,\boldsymbol{\nu_{9}}}{2304}}-1/12\,\boldsymbol{\nu_{119}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{104}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {175\,\boldsymbol{\nu_{124}}}{244}}-{\frac {437\,\boldsymbol{\nu_{109}}}{244}}+{\frac 
+{649\,\boldsymbol{\nu_{137}}}{244}}-{\frac {225\,\boldsymbol{\nu_{127}}}{488}}-{\frac {127\,
+\boldsymbol{\nu_{108}}}{122}}+{\frac {135\,\boldsymbol{\nu_{132}}}{488}}\\
+&-{\frac {6\,\boldsymbol{\nu_{131}}}{61}}-3/2\,\boldsymbol{\nu_{79}}-1/4\,\boldsymbol{\nu_{80}}+{\frac {235\,\boldsymbol{\nu_{83}}}{
+488}}-1/4\,\boldsymbol{\nu_{51}}-{\frac {13\,\boldsymbol{\nu_{90}}}{122}}-{\frac {5\,\boldsymbol{\nu_{59}}}{16}}\\
+&+{\frac {7\,\boldsymbol{\nu_{9}}}{128}}-{\frac {9\,\boldsymbol{\nu_{48}}}{16}}-{
+\frac {7\,\boldsymbol{\nu_{55}}}{16}}-{\frac {5\,\boldsymbol{\nu_{58}}}{16}}+{\frac {5\,\boldsymbol{\nu_{7}}}{512}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{105}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {227\,\boldsymbol{\nu_{124}}}{1464}}-{\frac {1165
+\,\boldsymbol{\nu_{109}}}{1464}}+{\frac {3049\,\boldsymbol{\nu_{137}}}{1464}}-{\frac {167\,
+\boldsymbol{\nu_{127}}}{976}}-{\frac {491\,\boldsymbol{\nu_{108}}}{732}}+{\frac {149\,\boldsymbol{\nu_{132}}}{976}}\\
+&+{\frac {11\,\boldsymbol{\nu_{131}}}{122}}-1/4\,\boldsymbol{\nu_{79}}-1/24\,\boldsymbol{\nu_{80}}+{\frac {751\,\boldsymbol{\nu_{83}}}{2928}}-1/12\,\boldsymbol{\nu_{51}}-{\frac {71\,
+\boldsymbol{\nu_{90}}}{366}}\\
+&-{\frac {3\,\boldsymbol{\nu_{59}}}{32}}+{\frac {7\,\boldsymbol{\nu_{9}}}{
+768}}-{\frac {3\,\boldsymbol{\nu_{48}}}{32}}-{\frac {11\,\boldsymbol{\nu_{55}}}{96}}-1/32\,
+\boldsymbol{\nu_{58}}+{\frac {13\,\boldsymbol{\nu_{7}}}{3072}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{106}} & 
+\begin{aligned} 
+&-{\frac {75\,\boldsymbol{\nu_{124}}}{244}}+{\frac {13\,\boldsymbol{\nu_{109}}}{244}}+{\frac {297\,\boldsymbol{\nu_{137}}
+}{244}}-{\frac {43\,\boldsymbol{\nu_{127}}}{488}}-{\frac {85\,\boldsymbol{\nu_{108}}}{122}}-{\frac {23\,\boldsymbol{\nu_{132}}}{488}}\\
+&+{\frac {20\,\boldsymbol{\nu_{131}}}{61}}+3/2\,\boldsymbol{\nu_{79}}+1/4\,\boldsymbol{\nu_{80}}-{\frac {31\,\boldsymbol{\nu_{83}}}{488}}+1/4\,\boldsymbol{\nu_{51}}-{
+\frac {19\,\boldsymbol{\nu_{90}}}{61}}+{\frac {5\,\boldsymbol{\nu_{59}}}{16}}\\
+&-{\frac {7\,\boldsymbol{\nu_{9}}}{128}}+{\frac {9\,\boldsymbol{\nu_{48}}}{16}}+{\frac {7\,\boldsymbol{\nu_{55}}}{16}}+
+{\frac {5\,\boldsymbol{\nu_{58}}}{16}}-{\frac {5\,\boldsymbol{\nu_{7}}}{512}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{107}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {67\,\boldsymbol{\nu_{124}}}{122}}-{\frac {145\,\boldsymbol{\nu_{109}}}{122}}+{\frac {
+176\,\boldsymbol{\nu_{137}}}{61}}-{\frac {121\,\boldsymbol{\nu_{127}}}{244}}-{\frac {42\,\boldsymbol{\nu_{108}}}{61}}+{\frac {97\,\boldsymbol{\nu_{132}}}{244}}\\
+&-{\frac {43\,\boldsymbol{\nu_{131}}
+}{122}}-3\,\boldsymbol{\nu_{79}}-1/2\,\boldsymbol{\nu_{80}}+{\frac {205\,\boldsymbol{\nu_{83}}}{244}}-1
+/2\,\boldsymbol{\nu_{51}}-{\frac {11\,\boldsymbol{\nu_{90}}}{122}}-5/8\,\boldsymbol{\nu_{59}}\\
+&+{\frac {7
+\,\boldsymbol{\nu_{9}}}{64}}-{\frac {9\,\boldsymbol{\nu_{48}}}{8}}-{\frac {7\,\boldsymbol{\nu_{55}}}{8}
+}-5/8\,\boldsymbol{\nu_{58}}+{\frac {5\,\boldsymbol{\nu_{7}}}{256}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{110}} & 
+\begin{aligned}
+&\hphantom{+}1/2\,\boldsymbol{\nu_{119}}+{\frac {107\,\boldsymbol{\nu_{124}}}{244}}-{\frac {39\,\boldsymbol{\nu_{109}}}{61}}+{
+\frac {593\,\boldsymbol{\nu_{137}}}{732}}-{\frac {20\,\boldsymbol{\nu_{127}}}{183}}-{\frac {
+39\,\boldsymbol{\nu_{108}}}{61}}\\
+&+{\frac {73\,\boldsymbol{\nu_{132}}}{183}}+{\frac {73\,\boldsymbol{\nu_{131}}}{183}}-1/32\,\boldsymbol{\nu_{11}}-{\frac {209\,\boldsymbol{\nu_{83}}}{366}}-{\frac {
+131\,\boldsymbol{\nu_{90}}}{732}}-{\frac {7\,\boldsymbol{\nu_{59}}}{24}}-{\frac {17\,\boldsymbol{\nu_{9}}}{192}}\\
+&-{\frac {7\,\boldsymbol{\nu_{48}}}{24}}-{\frac {5\,\boldsymbol{\nu_{55}}}{24}}-{
+\frac {7\,\boldsymbol{\nu_{58}}}{24}}+{\frac {29\,\boldsymbol{\nu_{7}}}{768}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{111}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {21\,\boldsymbol{\nu_{124}}}{61}}+{\frac {72\,\boldsymbol{\nu_{109}}}{61}}-{\frac {232
+\,\boldsymbol{\nu_{137}}}{61}}+{\frac {17\,\boldsymbol{\nu_{127}}}{61}}+{\frac {72\,\boldsymbol{\nu_{108}}}{61}}-{\frac {57\,\boldsymbol{\nu_{132}}}{122}}\\
+&-{\frac {57\,\boldsymbol{\nu_{131}}}{
+122}}-{\frac {45\,\boldsymbol{\nu_{83}}}{122}}+{\frac {45\,\boldsymbol{\nu_{90}}}{122}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{112}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {75\,\boldsymbol{\nu_{127}}}{976}}-{\frac {53\,\boldsymbol{\nu_{124}}}{1464}}
++{\frac {193\,\boldsymbol{\nu_{109}}}{1464}}-{\frac {283\,\boldsymbol{\nu_{137}}}{1464}}+{
+\frac {5\,\boldsymbol{\nu_{108}}}{732}}-{\frac {45\,\boldsymbol{\nu_{132}}}{976}}+{\frac {
+\boldsymbol{\nu_{131}}}{61}}\\
+&+1/4\,\boldsymbol{\nu_{79}}+1/24\,\boldsymbol{\nu_{80}}-{\frac {235\,\boldsymbol{\nu_{83}}}{2928}}+1/12\,\boldsymbol{\nu_{51}}+{\frac {13\,\boldsymbol{\nu_{90}}}{732}}+{\frac {3
+\,\boldsymbol{\nu_{59}}}{32}}-{\frac {7\,\boldsymbol{\nu_{9}}}{768}}\\
+&+{\frac {3\,\boldsymbol{\nu_{48}}}{32}}+{\frac {11\,\boldsymbol{\nu_{55}}}{96}}+1/32\,\boldsymbol{\nu_{58}}-{\frac {13\,\boldsymbol{\nu_{7}}}{3072}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{113}} & 
+\begin{aligned}
+&-{\frac {17\,\boldsymbol{\nu_{124}}}{61}}-{\frac {6\,\boldsymbol{\nu_{109}}}{61}}+{\frac {60\,\boldsymbol{\nu_{137}}}{61}}-{\frac {13\,\boldsymbol{\nu_{127}}}{
+122}}-{\frac {6\,\boldsymbol{\nu_{108}}}{61}}+{\frac {10\,\boldsymbol{\nu_{132}}}{61}}\\
+&+{
+\frac {10\,\boldsymbol{\nu_{131}}}{61}}+{\frac {19\,\boldsymbol{\nu_{83}}}{122}}-{\frac {19
+\,\boldsymbol{\nu_{90}}}{122}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{114}} & 
+\begin{aligned}
+&-\boldsymbol{\nu_{119}}+{\frac {6\,\boldsymbol{\nu_{124}}}{
+61}}+{\frac {15\,\boldsymbol{\nu_{109}}}{122}}+{\frac {47\,\boldsymbol{\nu_{137}}}{61}}-{
+\frac {59\,\boldsymbol{\nu_{127}}}{244}}-{\frac {23\,\boldsymbol{\nu_{108}}}{61}}-{\frac {
+111\,\boldsymbol{\nu_{132}}}{244}}\\
+&-{\frac {43\,\boldsymbol{\nu_{131}}}{61}}+{\frac {105\,\boldsymbol{\nu_{83}}}{244}}+{\frac {39\,\boldsymbol{\nu_{90}}}{122}}+3/8\,\boldsymbol{\nu_{59}}+{\frac {3
+\,\boldsymbol{\nu_{9}}}{64}}+3/8\,\boldsymbol{\nu_{48}}+1/8\,\boldsymbol{\nu_{55}}\\
+&+3/8\,\boldsymbol{\nu_{58}}-{
+\frac {3\,\boldsymbol{\nu_{7}}}{256}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{115}} & 
+\begin{aligned}
+&-1/2\,\boldsymbol{\nu_{119}}-{\frac {59\,
+\boldsymbol{\nu_{124}}}{244}}+{\frac {33\,\boldsymbol{\nu_{109}}}{244}}+{\frac {341\,\boldsymbol{\nu_{137}}}{244}}+{\frac {41\,\boldsymbol{\nu_{127}}}{488}}-{\frac {7\,\boldsymbol{\nu_{108}}}{61
+}}-{\frac {49\,\boldsymbol{\nu_{132}}}{488}}\\
+&-{\frac {55\,\boldsymbol{\nu_{131}}}{244}}+{
+\frac {231\,\boldsymbol{\nu_{83}}}{488}}-{\frac {6\,\boldsymbol{\nu_{90}}}{61}}+3/16\,\boldsymbol{\nu_{59}}+{\frac {3\,\boldsymbol{\nu_{9}}}{128}}+3/16\,\boldsymbol{\nu_{48}}+1/16\,\boldsymbol{\nu_{55}}\\
+&+3/
+16\,\boldsymbol{\nu_{58}}-{\frac {3\,\boldsymbol{\nu_{7}}}{512}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{116}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {43\,\boldsymbol{\nu_{124}}}{122}}-{\frac {57\,\boldsymbol{\nu_{109}}}{61}}+{\frac {347\,\boldsymbol{\nu_{137}}
+}{122}}-{\frac {16\,\boldsymbol{\nu_{127}}}{61}}-{\frac {57\,\boldsymbol{\nu_{108}}}{61}}+{
+\frac {7\,\boldsymbol{\nu_{132}}}{122}}\\
+&+{\frac {7\,\boldsymbol{\nu_{131}}}{122}}+{\frac {14
+\,\boldsymbol{\nu_{83}}}{61}}-{\frac {14\,\boldsymbol{\nu_{90}}}{61}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{117}} & 
+\begin{aligned}
+&-1/2\,\nu_
+{{119}}-{\frac {13\,\boldsymbol{\nu_{124}}}{244}}+{\frac {91\,\boldsymbol{\nu_{109}}}{122}}-
+{\frac {783\,\boldsymbol{\nu_{137}}}{244}}+{\frac {65\,\boldsymbol{\nu_{127}}}{244}}+{\frac 
+{91\,\boldsymbol{\nu_{108}}}{122}}\\
+&-{\frac {39\,\boldsymbol{\nu_{132}}}{244}}-{\frac {39\,\boldsymbol{\nu_{131}}}{244}}-{\frac {95\,\boldsymbol{\nu_{83}}}{244}}+{\frac {95\,\boldsymbol{\nu_{90}}}{
+244}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{118}} & 
+\begin{aligned}
+&-1/2\,\boldsymbol{\nu_{139}}-1/2\,\boldsymbol{\nu_{119}}-{\frac {119\,\boldsymbol{\nu_{124}}}{488}}+{\frac {19\,\boldsymbol{\nu_{109}}}{488}}+{\frac {437\,\boldsymbol{\nu_{137}}
+}{366}}-{\frac {151\,\boldsymbol{\nu_{127}}}{2928}}\\
+&-{\frac {41\,\boldsymbol{\nu_{108}}}{122}
+}-{\frac {373\,\boldsymbol{\nu_{132}}}{2928}}+{\frac {11\,\boldsymbol{\nu_{131}}}{183}}+3/4
+\,\boldsymbol{\nu_{79}}+1/32\,\boldsymbol{\nu_{11}}+1/8\,\boldsymbol{\nu_{80}}\\
+&+{\frac {1375\,\boldsymbol{\nu_{83}}
+}{2928}}+1/8\,\boldsymbol{\nu_{51}}+{\frac {17\,\boldsymbol{\nu_{90}}}{183}}+{\frac {43\,\boldsymbol{\nu_{59}}}{96}}+{\frac {47\,\boldsymbol{\nu_{9}}}{768}}+{\frac {55\,\boldsymbol{\nu_{48}}}{96}
+}+{\frac {41\,\boldsymbol{\nu_{55}}}{96}}\\
+&+{\frac {43\,\boldsymbol{\nu_{58}}}{96}}-{\frac {
+131\,\boldsymbol{\nu_{7}}}{3072}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{120}} & 
+\begin{aligned}
+&-{\frac {101\,\boldsymbol{\nu_{124}}}{122}}+{
+\frac {11\,\boldsymbol{\nu_{109}}}{122}}+{\frac {195\,\boldsymbol{\nu_{137}}}{122}}-{\frac {
+149\,\boldsymbol{\nu_{127}}}{244}}-{\frac {25\,\boldsymbol{\nu_{108}}}{61}}-{\frac {301\,\boldsymbol{\nu_{132}}}{244}}\\
+&+{\frac {\boldsymbol{\nu_{131}}}{61}}+3\,\boldsymbol{\nu_{79}}+1/2\,\boldsymbol{\nu_{80}}-{\frac {45\,\boldsymbol{\nu_{83}}}{244}}+1/2\,\boldsymbol{\nu_{51}}-{\frac {69\,\boldsymbol{\nu_{90}}
+}{122}}+5/8\,\boldsymbol{\nu_{59}}-{\frac {7\,\boldsymbol{\nu_{9}}}{64}}\\
+&+{\frac {9\,\boldsymbol{\nu_{48}}}{8}}+{\frac {7\,\boldsymbol{\nu_{55}}}{8}}+5/8\,\boldsymbol{\nu_{58}}-{\frac {5\,\boldsymbol{\nu_{7}}}{256}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{121}} & 
+\begin{aligned}
+&-{\frac {257\,\boldsymbol{\nu_{124}}}{732}}+{\frac {487\,\boldsymbol{\nu_{109}}}{732}}-{\frac {749\,\boldsymbol{\nu_{137}}}{244}}-{\frac {53\,\boldsymbol{\nu_{127}}}{1464}}+{\frac {335\,\boldsymbol{\nu_{108}}}{366}}-{\frac {749\,\boldsymbol{\nu_{132}}}{
+1464}}\\
+&-{\frac {25\,\boldsymbol{\nu_{131}}}{183}}+1/2\,\boldsymbol{\nu_{79}}+1/32\,\boldsymbol{\nu_{11}}+1/12\,\boldsymbol{\nu_{80}}+{\frac {115\,\boldsymbol{\nu_{83}}}{1464}}+1/6\,\boldsymbol{\nu_{51}}\\
+&+{
+\frac {100\,\boldsymbol{\nu_{90}}}{183}}+{\frac {23\,\boldsymbol{\nu_{59}}}{48}}+{\frac {9\,
+\boldsymbol{\nu_{9}}}{128}}+{\frac {23\,\boldsymbol{\nu_{48}}}{48}}+{\frac {7\,\boldsymbol{\nu_{55}}}{
+16}}+{\frac {17\,\boldsymbol{\nu_{58}}}{48}}-{\frac {71\,\boldsymbol{\nu_{7}}}{1536}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{122}} & 
+\begin{aligned}
+&-\boldsymbol{\nu_{135}}-{\frac {11\,\boldsymbol{\nu_{124}}}{61}}-{\frac {29\,\boldsymbol{\nu_{109}}}{61}}+{\frac {229\,\boldsymbol{\nu_{137}}}{61}}-{\frac {73\,\boldsymbol{\nu_{127}}}{122}}
+-{\frac {90\,\boldsymbol{\nu_{108}}}{61}}+{\frac {117\,\boldsymbol{\nu_{132}}}{122}}\\
+&+{\frac 
+{28\,\boldsymbol{\nu_{131}}}{61}}-{\frac {81\,\boldsymbol{\nu_{83}}}{122}}-{\frac {51\,\boldsymbol{\nu_{90}}}{61}}-3/4\,\boldsymbol{\nu_{59}}-{\frac {3\,\boldsymbol{\nu_{9}}}{32}}-3/4\,\boldsymbol{\nu_{48}}
+-1/4\,\boldsymbol{\nu_{55}}\\
+&-3/4\,\boldsymbol{\nu_{58}}+{\frac {3\,\boldsymbol{\nu_{7}}}{128}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{123}} & 
+\begin{aligned}
+&-1/2\,\boldsymbol{\nu_{135}}-{\frac {25\,\boldsymbol{\nu_{124}}}{61}}-{\frac {93\,\boldsymbol{\nu_{109}}}{122}}+{\frac {282\,\boldsymbol{\nu_{137}}}{61}}-{\frac {49\,\boldsymbol{\nu_{127}}}{
+244}}-{\frac {77\,\boldsymbol{\nu_{108}}}{61}}\\
+&+{\frac {127\,\boldsymbol{\nu_{132}}}{244}}+{
+\frac {33\,\boldsymbol{\nu_{131}}}{122}}-{\frac {41\,\boldsymbol{\nu_{83}}}{244}}-{\frac {71
+\,\boldsymbol{\nu_{90}}}{122}}-3/8\,\boldsymbol{\nu_{59}}-{\frac {3\,\boldsymbol{\nu_{9}}}{64}}-3/8\,
+\boldsymbol{\nu_{48}}\\
+&-1/8\,\boldsymbol{\nu_{55}}-3/8\,\boldsymbol{\nu_{58}}+{\frac {3\,\boldsymbol{\nu_{7}}}{256}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{125}} & 
+\begin{aligned}
+&-{\frac {13\,\boldsymbol{\nu_{124}}}{122}}-{\frac {123\,\boldsymbol{\nu_{109}}}{122}}+{\frac {188\,\boldsymbol{\nu_{137}}}{61}}-{\frac {53\,\boldsymbol{\nu_{127}}}{244}}-
+{\frac {31\,\boldsymbol{\nu_{108}}}{61}}-{\frac {17\,\boldsymbol{\nu_{132}}}{244}}\\
+&+{\frac {
+11\,\boldsymbol{\nu_{131}}}{61}}+{\frac {115\,\boldsymbol{\nu_{83}}}{244}}-{\frac {115\,\boldsymbol{\nu_{90}}}{244}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{126}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {13\,\boldsymbol{\nu_{124}}}{244}}+{\frac {\boldsymbol{\nu_{109}}}{244}}-{\frac {457\,\boldsymbol{\nu_{137}}}{732}}-{\frac {85\,\boldsymbol{\nu_{127}}
+}{1464}}+{\frac {31\,\boldsymbol{\nu_{108}}}{122}}-{\frac {193\,\boldsymbol{\nu_{132}}}{1464
+}}-{\frac {5\,\boldsymbol{\nu_{131}}}{732}}\\
+&+{\frac {\boldsymbol{\nu_{11}}}{64}}+{\frac {265
+\,\boldsymbol{\nu_{83}}}{1464}}+{\frac {71\,\boldsymbol{\nu_{90}}}{366}}+{\frac {7\,\boldsymbol{\nu_{59}}}{48}}+{\frac {17\,\boldsymbol{\nu_{9}}}{384}}+{\frac {7\,\boldsymbol{\nu_{48}}}{48}}+{
+\frac {5\,\boldsymbol{\nu_{55}}}{48}}+{\frac {7\,\boldsymbol{\nu_{58}}}{48}}\\
+&-{\frac {29\,\boldsymbol{\nu_{7}}}{1536}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{128}} & 
+\begin{aligned}
+&-{\frac {38\,\boldsymbol{\nu_{124}}}{61}}+{\frac {44\,
+\boldsymbol{\nu_{109}}}{61}}-{\frac {196\,\boldsymbol{\nu_{137}}}{61}}+{\frac {7\,\boldsymbol{\nu_{127}}}{61}}+{\frac {44\,\boldsymbol{\nu_{108}}}{61}}+{\frac {8\,\boldsymbol{\nu_{132}}}{61}}+{
+\frac {8\,\boldsymbol{\nu_{131}}}{61}}\\
+&-{\frac {29\,\boldsymbol{\nu_{83}}}{61}}+{\frac {29\,
+\boldsymbol{\nu_{90}}}{61}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{129}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {71\,\boldsymbol{\nu_{124}}}{122}}+{\frac {43
+\,\boldsymbol{\nu_{109}}}{122}}-{\frac {613\,\boldsymbol{\nu_{137}}}{122}}+{\frac {327\,\boldsymbol{\nu_{127}}}{244}}+{\frac {113\,\boldsymbol{\nu_{108}}}{61}}-{\frac {\boldsymbol{\nu_{132}}}{244
+}}-{\frac {46\,\boldsymbol{\nu_{131}}}{61}}\\
+&-3\,\boldsymbol{\nu_{79}}-1/2\,\boldsymbol{\nu_{80}}-{\frac 
+{65\,\boldsymbol{\nu_{83}}}{244}}-1/2\,\boldsymbol{\nu_{51}}+{\frac {62\,\boldsymbol{\nu_{90}}}{61}}-5/
+8\,\boldsymbol{\nu_{59}}+{\frac {7\,\boldsymbol{\nu_{9}}}{64}}\\
+&-{\frac {9\,\boldsymbol{\nu_{48}}}{8}}-{
+\frac {7\,\boldsymbol{\nu_{55}}}{8}}-5/8\,\boldsymbol{\nu_{58}}+{\frac {5\,\boldsymbol{\nu_{7}}}{256}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{130}} & 
+\begin{aligned}
+&-{\frac {97\,\boldsymbol{\nu_{124}}}{61}}+{\frac {77\,\boldsymbol{\nu_{109}}}{61
+}}+{\frac {84\,\boldsymbol{\nu_{137}}}{61}}-{\frac {67\,\boldsymbol{\nu_{127}}}{122}}-{
+\frac {106\,\boldsymbol{\nu_{108}}}{61}}-{\frac {33\,\boldsymbol{\nu_{132}}}{122}}\\
+&+{\frac {
+14\,\boldsymbol{\nu_{131}}}{61}}+6\,\boldsymbol{\nu_{79}}+\boldsymbol{\nu_{80}}
+-{\frac {71\,\boldsymbol{\nu_{83}}
+}{122}}+\boldsymbol{\nu_{51}}-{\frac {56\,\boldsymbol{\nu_{90}}}{61}}+5/4\,\boldsymbol{\nu_{59}}-{
+\frac {7\,\boldsymbol{\nu_{9}}}{32}}\\
+&+9/4\,\boldsymbol{\nu_{48}}+7/4\,\boldsymbol{\nu_{55}}+5/4\,\boldsymbol{\nu_{58}}-{\frac {5\,\boldsymbol{\nu_{7}}}{128}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{133}} & 
+\begin{aligned}
+&-\boldsymbol{\nu_{119}}+{\frac {93\,
+\boldsymbol{\nu_{124}}}{122}}+{\frac {20\,\boldsymbol{\nu_{109}}}{61}}-{\frac {41\,\boldsymbol{\nu_{137}}}{366}}+{\frac {4\,\boldsymbol{\nu_{127}}}{183}}+{\frac {20\,\boldsymbol{\nu_{108}}}{61}}-
+{\frac {161\,\boldsymbol{\nu_{132}}}{183}}\\
+&-{\frac {161\,\boldsymbol{\nu_{131}}}{183}}+1/16\,
+\boldsymbol{\nu_{11}}+{\frac {149\,\boldsymbol{\nu_{83}}}{183}}+{\frac {251\,\boldsymbol{\nu_{90}}}{366
+}}+{\frac {7\,\boldsymbol{\nu_{59}}}{12}}+{\frac {17\,\boldsymbol{\nu_{9}}}{96}}+{\frac {7\,
+\boldsymbol{\nu_{48}}}{12}}\\
+&+{\frac {5\,\boldsymbol{\nu_{55}}}{12}}+{\frac {7\,\boldsymbol{\nu_{58}}}{12
+}}-{\frac {29\,\boldsymbol{\nu_{7}}}{384}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{134}} & -{\frac {26\,\boldsymbol{\nu_{124}}}{
+61}}-{\frac {2\,\boldsymbol{\nu_{109}}}{61}}+{\frac {20\,\boldsymbol{\nu_{137}}}{61}}+{
+\frac {8\,\boldsymbol{\nu_{127}}}{61}}-{\frac {2\,\boldsymbol{\nu_{108}}}{61}}+{\frac {44\,
+\boldsymbol{\nu_{132}}}{61}}+{\frac {44\,\boldsymbol{\nu_{131}}}{61}}-{\frac {7\,\boldsymbol{\nu_{83}}
+}{61}}+{\frac {7\,\boldsymbol{\nu_{90}}}{61}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{136}} & 
+\begin{aligned}
+&\hphantom{+}1/2\,\boldsymbol{\nu_{135}}+{
+\frac {7\,\boldsymbol{\nu_{124}}}{61}}+{\frac {24\,\boldsymbol{\nu_{109}}}{61}}-{\frac {179
+\,\boldsymbol{\nu_{137}}}{61}}-{\frac {9\,\boldsymbol{\nu_{127}}}{122}}+{\frac {24\,\boldsymbol{\nu_{108}}}{61}}-{\frac {19\,\boldsymbol{\nu_{132}}}{122}}\\
+&-{\frac {19\,\boldsymbol{\nu_{131}}}{
+122}}-{\frac {15\,\boldsymbol{\nu_{83}}}{122}}+{\frac {15\,\boldsymbol{\nu_{90}}}{122}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{138}} & 
+\begin{aligned} 
+&-\boldsymbol{\nu_{135}}-{\frac {47\,\boldsymbol{\nu_{124}}}{61}}-{\frac {13\,\boldsymbol{\nu_{109}}}{61}}+{\frac {252\,\boldsymbol{\nu_{137}}}{61}}-{\frac {79\,\boldsymbol{\nu_{127}}}{
+122}}-{\frac {74\,\boldsymbol{\nu_{108}}}{61}}+{\frac {23\,\boldsymbol{\nu_{132}}}{122}}\\
+&-{
+\frac {19\,\boldsymbol{\nu_{131}}}{61}}+{\frac {153\,\boldsymbol{\nu_{83}}}{122}}+{\frac {15
+\,\boldsymbol{\nu_{90}}}{61}}+3/4\,\boldsymbol{\nu_{59}}+{\frac {3\,\boldsymbol{\nu_{9}}}{32}}+3/4\,\boldsymbol{\nu_{48}}+1/4\,\boldsymbol{\nu_{55}}\\
+&+3/4\,\boldsymbol{\nu_{58}}-{\frac {3\,\boldsymbol{\nu_{7}}}{128}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{140}} & 
+\begin{aligned} 
+&\hphantom{+}\boldsymbol{\nu_{135}}+{\frac {44\,\boldsymbol{\nu_{124}}}{61}}+{\frac {55\,\boldsymbol{\nu_{109}}}{61}}-{\frac {428\,\boldsymbol{\nu_{137}}}{61}}+{\frac {109\,\boldsymbol{\nu_{127}}
+}{122}}+{\frac {116\,\boldsymbol{\nu_{108}}}{61}}-{\frac {41\,\boldsymbol{\nu_{132}}}{122}}\\
+&+
+{\frac {10\,\boldsymbol{\nu_{131}}}{61}}-{\frac {225\,\boldsymbol{\nu_{83}}}{122}}+{\frac {
+21\,\boldsymbol{\nu_{90}}}{61}}-3/4\,\boldsymbol{\nu_{59}}-{\frac {3\,\boldsymbol{\nu_{9}}}{32}}-3/4\,
+\boldsymbol{\nu_{48}}-1/4\,\boldsymbol{\nu_{55}}\\
+&-3/4\,\boldsymbol{\nu_{58}}+{\frac {3\,\boldsymbol{\nu_{7}}}{128}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{141}} & 
+\begin{aligned}
+&-\boldsymbol{\nu_{135}}-{\frac {45\,\boldsymbol{\nu_{124}}}{61}}-{\frac {41\,
+\boldsymbol{\nu_{109}}}{61}}+{\frac {349\,\boldsymbol{\nu_{137}}}{61}}-{\frac {99\,\boldsymbol{\nu_{127}}}{122}}-{\frac {102\,\boldsymbol{\nu_{108}}}{61}}+{\frac {35\,\boldsymbol{\nu_{132}}}{122}
+}\\
+&-{\frac {13\,\boldsymbol{\nu_{131}}}{61}}+{\frac {201\,\boldsymbol{\nu_{83}}}{122}}-{\frac 
+{9\,\boldsymbol{\nu_{90}}}{61}}+3/4\,\boldsymbol{\nu_{59}}+{\frac {3\,\boldsymbol{\nu_{9}}}{32}}+3/4\,
+\boldsymbol{\nu_{48}}+1/4\,\boldsymbol{\nu_{55}}\\
+&+3/4\,\boldsymbol{\nu_{58}}-{\frac {3\,\boldsymbol{\nu_{7}}}{128}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{142}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {22\,\boldsymbol{\nu_{124}}}{61}}+{\frac {58\,\boldsymbol{\nu_{109}}}{61
+}}-{\frac {214\,\boldsymbol{\nu_{137}}}{61}}+{\frac {12\,\boldsymbol{\nu_{127}}}{61}}+{
+\frac {58\,\boldsymbol{\nu_{108}}}{61}}+{\frac {5\,\boldsymbol{\nu_{132}}}{61}}+{\frac {5\,
+\boldsymbol{\nu_{131}}}{61}}\\
+&-{\frac {41\,\boldsymbol{\nu_{83}}}{61}}+{\frac {41\,\boldsymbol{\nu_{90}}
+}{61}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{143}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {53\,\boldsymbol{\nu_{124}}}{732}}-{\frac {193\,\boldsymbol{\nu_{109}}}{732}}+{\frac {283\,\boldsymbol{\nu_{137}}}{732}}+{\frac {169\,\boldsymbol{\nu_{127}}
+}{488}}-{\frac {5\,\boldsymbol{\nu_{108}}}{366}}+{\frac {45\,\boldsymbol{\nu_{132}}}{488}}-{
+\frac {2\,\boldsymbol{\nu_{131}}}{61}}\\
+&-1/2\,\boldsymbol{\nu_{79}}-1/12\,\boldsymbol{\nu_{80}}+{\frac {
+235\,\boldsymbol{\nu_{83}}}{1464}}-1/6\,\boldsymbol{\nu_{51}}-{\frac {13\,\boldsymbol{\nu_{90}}}{366}}-
+3/16\,\boldsymbol{\nu_{59}}+{\frac {7\,\boldsymbol{\nu_{9}}}{384}}\\
+&-3/16\,\boldsymbol{\nu_{48}}-{\frac {
+11\,\boldsymbol{\nu_{55}}}{48}}-1/16\,\boldsymbol{\nu_{58}}+{\frac {13\,\boldsymbol{\nu_{7}}}{1536}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{144}} & 
+\begin{aligned}
+&-{\frac {233\,\boldsymbol{\nu_{108}}}{1464}}-1/4\,\boldsymbol{\nu_{69}}-{\frac {
+83\,\boldsymbol{\nu_{7}}}{6144}}-{\frac {385\,\boldsymbol{\nu_{124}}}{2928}}+{\frac {185\,
+\boldsymbol{\nu_{131}}}{1464}}+{\frac {923\,\boldsymbol{\nu_{132}}}{5856}}\\
+&-{\frac {481\,\boldsymbol{\nu_{127}}}{5856}}+1/8\,\boldsymbol{\nu_{79}}+1/16\,\boldsymbol{\nu_{51}}+{\frac {43\,\boldsymbol{\nu_{48}}}{192}}+{\frac {7\,\boldsymbol{\nu_{55}}}{64}}+{\frac {17\,\boldsymbol{\nu_{59}}}{64}}-1/48
+\,\boldsymbol{\nu_{80}}\\
+&-{\frac {29\,\boldsymbol{\nu_{83}}}{5856}}-{\frac {443\,\boldsymbol{\nu_{90}}}{
+2928}}+{\frac {83\,\boldsymbol{\nu_{109}}}{2928}}+{\frac {435\,\boldsymbol{\nu_{137}}}{976}}
++{\frac {17\,\boldsymbol{\nu_{58}}}{64}}+{\frac {\boldsymbol{\nu_{9}}}{512}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{145}} & 
+\begin{aligned}
+&-1/48\,\boldsymbol{\nu_{149}}+1/4\,\boldsymbol{\nu_{151}}+1/4\,\boldsymbol{\nu_{153}}+1/6\,\boldsymbol{\nu_{155}}-{
+\frac {13\,\boldsymbol{\nu_{160}}}{48}}+2/9\,\boldsymbol{\nu_{164}}\\
+&+{\frac {35\,\boldsymbol{\nu_{165}}
+}{144}}+1/4\,\boldsymbol{\nu_{175}}+1/24\,\boldsymbol{\nu_{178}}+1/16\,\boldsymbol{\nu_{181}}+1/12\,\boldsymbol{\nu_{202}}-1/24\,\boldsymbol{\nu_{204}}\\
+&+1/24\,\boldsymbol{\nu_{206}}-{\frac {\boldsymbol{\nu_{20}}}{96}}+
+{\frac {419\,\boldsymbol{\nu_{7}}}{18432}}+{\frac {575\,\boldsymbol{\nu_{9}}}{4608}}-{\frac 
+{49\,\boldsymbol{\nu_{48}}}{1152}}-{\frac {29\,\boldsymbol{\nu_{51}}}{192}}-{\frac {23\,\boldsymbol{\nu_{55}}}{384}}+\\
+&{\frac {161\,\boldsymbol{\nu_{58}}}{288}}+{\frac {161\,\boldsymbol{\nu_{59}}}{
+288}}-{\frac {13\,\boldsymbol{\nu_{69}}}{48}}+1/24\,\boldsymbol{\nu_{79}}+{\frac {95\,\boldsymbol{\nu_{80}}}{576}}+{\frac {1727\,\boldsymbol{\nu_{83}}}{732}}\\
+&+{\frac {12323\,\boldsymbol{\nu_{90}}
+}{11712}}-{\frac {11\,\boldsymbol{\nu_{108}}}{4392}}+{\frac {161\,\boldsymbol{\nu_{109}}}{
+8784}}-{\frac {103\,\boldsymbol{\nu_{124}}}{8784}}-{\frac {7\,\boldsymbol{\nu_{127}}}{17568}
+}+{\frac {59\,\boldsymbol{\nu_{131}}}{4392}}\\
+&+{\frac {53\,\boldsymbol{\nu_{132}}}{17568}}-{
+\frac {23\,\boldsymbol{\nu_{137}}}{976}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{146}} & 
+\begin{aligned}
+&-1/2\,\boldsymbol{\nu_{175}}-{\frac {11
+\,\boldsymbol{\nu_{164}}}{72}}-1/3\,\boldsymbol{\nu_{155}}-1/6\,\boldsymbol{\nu_{69}}-{\frac {31\,\boldsymbol{\nu_{7}}}{1152}}+{\frac {7\,\boldsymbol{\nu_{51}}}{72}}+{\frac {7\,\boldsymbol{\nu_{48}}}{144}}\\
+&+
+{\frac {7\,\boldsymbol{\nu_{55}}}{144}}-{\frac {5\,\boldsymbol{\nu_{59}}}{12}}-{\frac {7\,
+\boldsymbol{\nu_{80}}}{72}}+1/3\,\boldsymbol{\nu_{149}}-{\frac {83\,\boldsymbol{\nu_{83}}}{36}}-{\frac 
+{89\,\boldsymbol{\nu_{90}}}{72}}-{\frac {\boldsymbol{\nu_{20}}}{64}}-{\frac {5\,\boldsymbol{\nu_{58}}}{
+12}}\\
+&-{\frac {7\,\boldsymbol{\nu_{165}}}{36}}-{\frac {77\,\boldsymbol{\nu_{9}}}{576}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{147}} & 
+\begin{aligned}
+&\hphantom{+}1/2\,\boldsymbol{\nu_{69}}-{\frac {67\,\boldsymbol{\nu_{7}}}{1536}}-2\,\boldsymbol{\nu_{151}}-\boldsymbol{\nu_{153}}+{\frac {5\,\boldsymbol{\nu_{51}}}{24}}+{\frac {5\,\boldsymbol{\nu_{48}}}{48}}+{\frac {5\,\boldsymbol{\nu_{55}}}{48}}-{\frac {47\,\boldsymbol{\nu_{59}}}{48}}\\
+&-{\frac {5\,\nu
+_{{80}}}{24}}+\boldsymbol{\nu_{160}}-4\,\boldsymbol{\nu_{83}}-7/4\,\boldsymbol{\nu_{90}}+1/16\,\boldsymbol{\nu_{20}}-{\frac {47\,\boldsymbol{\nu_{58}}}{48}}-3/16\,\boldsymbol{\nu_{9}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{148}} & 
+\begin{aligned}
+&-{\frac {
+\boldsymbol{\nu_{7}}}{256}}+1/4\,\boldsymbol{\nu_{51}}+1/8\,\boldsymbol{\nu_{48}}+1/8\,\boldsymbol{\nu_{55}}+5/8\,
+\boldsymbol{\nu_{59}}-1/4\,\boldsymbol{\nu_{80}}-\boldsymbol{\nu_{149}}\\
+&+3/2\,\boldsymbol{\nu_{83}}+3/4\,\boldsymbol{\nu_{90}}
++1/16\,\boldsymbol{\nu_{20}}+5/8\,\boldsymbol{\nu_{58}}+1/8\,\boldsymbol{\nu_{9}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{150}} & 
+\begin{aligned}
+&\hphantom{+}1/4\,\boldsymbol{\nu_{69}}-{\frac {5\,\boldsymbol{\nu_{7}}}{1536}}+1/24\,\boldsymbol{\nu_{51}}+{\frac {5\,\boldsymbol{\nu_{48}}}{24}}+1/12\,\boldsymbol{\nu_{55}}+{\frac {11\,\boldsymbol{\nu_{59}}}{48}}-1/24\,\boldsymbol{\nu_{80}}\\
+&+5/8\,\boldsymbol{\nu_{83}}+{\frac {7\,\boldsymbol{\nu_{90}}}{16}}+1/32\,\boldsymbol{\nu_{20}}+{
+\frac {11\,\boldsymbol{\nu_{58}}}{48}}+1/16\,\boldsymbol{\nu_{9}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{152}} & 
+\begin{aligned}
+&\hphantom{+}\boldsymbol{\nu_{149}}-
+\boldsymbol{\nu_{165}}-\boldsymbol{\nu_{164}}-1/8\,\boldsymbol{\nu_{20}}-5\,\boldsymbol{\nu_{83}}-5/2\,\boldsymbol{\nu_{90}}-
+5/4\,\boldsymbol{\nu_{59}}-3/8\,\boldsymbol{\nu_{9}}\\
+&-5/4\,\boldsymbol{\nu_{58}}-{\frac {3\,\boldsymbol{\nu_{7}}}{
+128}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{154}} & 
+\begin{aligned}
+&-1/2\,\boldsymbol{\nu_{155}}+5/6\,\boldsymbol{\nu_{160}}-{\frac {13\,\boldsymbol{\nu_{164}}}{16}}-3/4\,\boldsymbol{\nu_{165}}-1/4\,\boldsymbol{\nu_{181}}-1/2\,\boldsymbol{\nu_{202}}\\
+&+1/4\,
+\boldsymbol{\nu_{204}}-1/4\,\boldsymbol{\nu_{206}}-{\frac {221\,\boldsymbol{\nu_{7}}}{6144}}-{\frac {
+545\,\boldsymbol{\nu_{9}}}{1536}}-{\frac {19\,\boldsymbol{\nu_{48}}}{192}}+{\frac {11\,\boldsymbol{\nu_{51}}}{48}}+{\frac {\boldsymbol{\nu_{55}}}{64}}\\
+&-{\frac {343\,\boldsymbol{\nu_{58}}}{192}}-{
+\frac {343\,\boldsymbol{\nu_{59}}}{192}}+\boldsymbol{\nu_{69}}-1/4\,\boldsymbol{\nu_{79}}-{\frac {5\,
+\boldsymbol{\nu_{80}}}{16}}-{\frac {4445\,\boldsymbol{\nu_{83}}}{732}}\\
+&-{\frac {15131\,\boldsymbol{\nu_{90}}}{5856}}+{\frac {11\,\boldsymbol{\nu_{108}}}{732}}-{\frac {161\,\boldsymbol{\nu_{109}}}{
+1464}}+{\frac {103\,\boldsymbol{\nu_{124}}}{1464}}+{\frac {7\,\boldsymbol{\nu_{127}}}{2928}}
+-{\frac {59\,\boldsymbol{\nu_{131}}}{732}}\\
+&-{\frac {53\,\boldsymbol{\nu_{132}}}{2928}}+{
+\frac {69\,\boldsymbol{\nu_{137}}}{488}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{156}} & {\frac {\boldsymbol{\nu_{7}}}{256}}+3/8
+\,\boldsymbol{\nu_{59}}-\boldsymbol{\nu_{160}}+3/2\,\boldsymbol{\nu_{83}}+3/4\,\boldsymbol{\nu_{90}}+3/8\,\boldsymbol{\nu_{58}}+1/8\,\boldsymbol{\nu_{9}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{157}} & 
+\begin{aligned}
+&\hphantom{+}\boldsymbol{\nu_{164}}+{\frac {11\,\boldsymbol{\nu_{7}}}{128}}
+-1/2\,\boldsymbol{\nu_{51}}-1/4\,\boldsymbol{\nu_{48}}-1/4\,\boldsymbol{\nu_{55}}+5/4\,\boldsymbol{\nu_{59}}+1/2\,
+\boldsymbol{\nu_{80}}+7\,\boldsymbol{\nu_{83}}\\
+&+7/2\,\boldsymbol{\nu_{90}}+5/4\,\boldsymbol{\nu_{58}}+\boldsymbol{\nu_{165}}+3
+/8\,\boldsymbol{\nu_{9}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{158}} & 
+\begin{aligned}
+&-\boldsymbol{\nu_{165}}-\boldsymbol{\nu_{164}}-\boldsymbol{\nu_{80}}-12\,\boldsymbol{\nu_{83}}+\boldsymbol{\nu_{51}}-6\,\boldsymbol{\nu_{90}}-2\,\boldsymbol{\nu_{59}}-5/8\,\boldsymbol{\nu_{9}}+1/2\,\boldsymbol{\nu_{48}}\\
+&+1/2\,\boldsymbol{\nu_{55}}-2\,\boldsymbol{\nu_{58}}-{\frac {5\,\boldsymbol{\nu_{7}}}{32}}
+ \end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{159}} & 
+\begin{aligned}
+&-{\frac {11\,\boldsymbol{\nu_{7}}}{512}}+1/4\,\boldsymbol{\nu_{51}}-1/16\,\boldsymbol{\nu_{48}}+1
+/16\,\boldsymbol{\nu_{55}}-{\frac {5\,\boldsymbol{\nu_{59}}}{16}}-1/4\,\boldsymbol{\nu_{80}}-7/4\,\boldsymbol{\nu_{83}}\\
+&-{\frac {7\,\boldsymbol{\nu_{90}}}{8}}-{\frac {5\,\boldsymbol{\nu_{58}}}{16}}-{\frac {
+11\,\boldsymbol{\nu_{9}}}{128}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{161}} & 
+\begin{aligned}
+&-\boldsymbol{\nu_{164}}-{\frac {11\,\boldsymbol{\nu_{7}}}{
+128}}+1/2\,\boldsymbol{\nu_{51}}+1/4\,\boldsymbol{\nu_{48}}+1/4\,\boldsymbol{\nu_{55}}-3/2\,\boldsymbol{\nu_{59}}-
+1/2\,\boldsymbol{\nu_{80}}-8\,\boldsymbol{\nu_{83}}\\
+&-4\,\boldsymbol{\nu_{90}}-3/2\,\boldsymbol{\nu_{58}}-\boldsymbol{\nu_{165}}-{\frac {15\,\boldsymbol{\nu_{9}}}{32}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{162}} & 
+\begin{aligned}
+&\hphantom{+}\boldsymbol{\nu_{165}}+\boldsymbol{\nu_{164}}+1/2
+\,\boldsymbol{\nu_{80}}+12\,\boldsymbol{\nu_{83}}-1/2\,\boldsymbol{\nu_{51}}+6\,\boldsymbol{\nu_{90}}+5/2\,\boldsymbol{\nu_{59}}+{\frac {11\,\boldsymbol{\nu_{9}}}{16}}\\
+&-1/4\,\boldsymbol{\nu_{48}}-1/4\,\boldsymbol{\nu_{55}}+5/2\,
+\boldsymbol{\nu_{58}}+1/8\,\boldsymbol{\nu_{7}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{163}} & 
+13/2\,\boldsymbol{\nu_{83}}+{\frac {13\,\boldsymbol{\nu_{90}}}{4}}+{\frac {13\,\boldsymbol{\nu_{59}}}{8}}+{\frac {13\,\boldsymbol{\nu_{58}}}{8}}+{
+\frac {15\,\boldsymbol{\nu_{7}}}{256}}-\boldsymbol{\nu_{160}}+3/8\,\boldsymbol{\nu_{9}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{166}}&-
+\boldsymbol{\nu_{165}}-\boldsymbol{\nu_{164}}+4\,\boldsymbol{\nu_{69}}+2\,\boldsymbol{\nu_{83}}+3\,\boldsymbol{\nu_{90}}-\boldsymbol{\nu_{59}}+1/8\,\boldsymbol{\nu_{9}}-\boldsymbol{\nu_{58}}+{\frac {3\,\boldsymbol{\nu_{7}}}{32}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\nu_{{167}
+}& -\boldsymbol{\nu_{165}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{168}} & 2\,\boldsymbol{\nu_{69}}+\boldsymbol{\nu_{83}}+3/2\,\boldsymbol{\nu_{90}}-1/
+2\,\boldsymbol{\nu_{59}}+1/16\,\boldsymbol{\nu_{9}}-1/2\,\boldsymbol{\nu_{58}}+{\frac {3\,\boldsymbol{\nu_{7}}}{64
+}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{169}} &
+\begin{aligned}
+&\hphantom{+}\boldsymbol{\nu_{80}}+2\,\boldsymbol{\nu_{83}}-\boldsymbol{\nu_{51}}+\boldsymbol{\nu_{90}}-1/2\,\boldsymbol{\nu_{59}}+1/8\,\boldsymbol{\nu_{9}}-1/2\,\boldsymbol{\nu_{48}}-1/2\,\boldsymbol{\nu_{55}}\\
+&-1/2\,\boldsymbol{\nu_{58}}
++{\frac {3\,\boldsymbol{\nu_{7}}}{64}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{170}} & {\frac {7\,\boldsymbol{\nu_{7}}}{1024}}+{
+\frac {9\,\boldsymbol{\nu_{48}}}{32}}+{\frac {3\,\boldsymbol{\nu_{55}}}{32}}+{\frac {21\,\boldsymbol{\nu_{59}}}{32}}+{\frac {15\,\boldsymbol{\nu_{83}}}{8}}+{\frac {15\,\boldsymbol{\nu_{90}}}{16}}
++{\frac {21\,\boldsymbol{\nu_{58}}}{32}}+{\frac {29\,\boldsymbol{\nu_{9}}}{256}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{171}} & 
+\begin{aligned}
+&\hphantom{+}\boldsymbol{\nu_{165}}+\boldsymbol{\nu_{164}}+\boldsymbol{\nu_{80}}+2\,\boldsymbol{\nu_{83}}-\boldsymbol{\nu_{51}}+\boldsymbol{\nu_{90}}-1/2\,\boldsymbol{\nu_{59}}\\
+&+1/8\,\boldsymbol{\nu_{9}}-1/2\,\boldsymbol{\nu_{48}}-1/2\,\boldsymbol{\nu_{55}}-1/2\,
+\boldsymbol{\nu_{58}}+{\frac {3\,\boldsymbol{\nu_{7}}}{64}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{172}} & 
+\begin{aligned}
+&\hphantom{+}  {\frac {\boldsymbol{\nu_{7}}}{
+64}}+1/4\,\boldsymbol{\nu_{51}}-1/4\,\boldsymbol{\nu_{48}}+1/4\,\boldsymbol{\nu_{59}}-1/4\,\boldsymbol{\nu_{80}}+
+\boldsymbol{\nu_{83}}+1/2\,\boldsymbol{\nu_{90}}+1/4\,\boldsymbol{\nu_{58}}\\
+&+{\frac {3\,\boldsymbol{\nu_{9}}}{64}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{173}} & 
+\begin{aligned}
+&\hphantom{+}1/2\,\boldsymbol{\nu_{80}}-\boldsymbol{\nu_{83}}-1/2\,\boldsymbol{\nu_{51}}-1/2\,\boldsymbol{\nu_{90}}
+-3/4\,\boldsymbol{\nu_{59}}-1/16\,\boldsymbol{\nu_{9}}-1/4\,\boldsymbol{\nu_{48}}\\
+&-1/4\,\boldsymbol{\nu_{55}}-3/4\,
+\boldsymbol{\nu_{58}}+{\frac {\boldsymbol{\nu_{7}}}{128}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{174}} & 
+\begin{aligned}
+&\hphantom{+}1/24\,\boldsymbol{\nu_{149}}+1/6
+\,\boldsymbol{\nu_{151}}-1/6\,\boldsymbol{\nu_{153}}-{\frac {11\,\boldsymbol{\nu_{160}}}{72}}+{\frac {7
+\,\boldsymbol{\nu_{164}}}{72}}+{\frac {\boldsymbol{\nu_{165}}}{72}}-1/2\,\boldsymbol{\nu_{175}}\\
+&-1/12\,
+\boldsymbol{\nu_{178}}+1/8\,\boldsymbol{\nu_{181}}+1/6\,\boldsymbol{\nu_{202}}-1/12\,\boldsymbol{\nu_{204}}+1/12\,
+\boldsymbol{\nu_{206}}-{\frac {\boldsymbol{\nu_{20}}}{192}}-{\frac {3\,\boldsymbol{\nu_{7}}}{2048}}\\
+&+{
+\frac {95\,\boldsymbol{\nu_{9}}}{2304}}+{\frac {13\,\boldsymbol{\nu_{48}}}{144}}+{\frac {\boldsymbol{\nu_{51}}}{144}}+1/24\,\boldsymbol{\nu_{55}}+{\frac {215\,\boldsymbol{\nu_{58}}}{576}}+{\frac 
+{215\,\boldsymbol{\nu_{59}}}{576}}-1/3\,\boldsymbol{\nu_{69}}\\
+&+1/12\,\boldsymbol{\nu_{79}}+1/48\,\boldsymbol{\nu_{80}}+{\frac {371\,\boldsymbol{\nu_{83}}}{488}}+{\frac {1343\,\boldsymbol{\nu_{90}}}{5856}}-{
+\frac {11\,\boldsymbol{\nu_{108}}}{2196}}+{\frac {161\,\boldsymbol{\nu_{109}}}{4392}}\\
+&-{
+\frac {103\,\boldsymbol{\nu_{124}}}{4392}}-{\frac {7\,\boldsymbol{\nu_{127}}}{8784}}+{\frac 
+{59\,\boldsymbol{\nu_{131}}}{2196}}+{\frac {53\,\boldsymbol{\nu_{132}}}{8784}}-{\frac {23\,
+\boldsymbol{\nu_{137}}}{488}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{176}} & 
+\begin{aligned}
+&-{\frac {\boldsymbol{\nu_{7}}}{64}}-1/16\,\boldsymbol{\nu_{51}}-1/8\,\boldsymbol{\nu_{48}}-1/16\,\boldsymbol{\nu_{55}}-{\frac {11\,\boldsymbol{\nu_{59}}}{16}}+1/16
+\,\boldsymbol{\nu_{80}}+1/2\,\boldsymbol{\nu_{160}}\\
+&-9/4\,\boldsymbol{\nu_{83}}-{\frac {9\,\boldsymbol{\nu_{90}}}{8
+}}-1/2\,\boldsymbol{\nu_{178}}-1/2\,\boldsymbol{\nu_{181}}-{\frac {11\,\boldsymbol{\nu_{58}}}{16}}-{
+\frac {33\,\boldsymbol{\nu_{9}}}{256}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{177}} &
+\begin{aligned}
+&-\boldsymbol{\nu_{165}}-3/2\,\boldsymbol{\nu_{164}}+
+2\,\boldsymbol{\nu_{69}}-1/2\,\boldsymbol{\nu_{80}}-3\,\boldsymbol{\nu_{83}}+1/2\,\boldsymbol{\nu_{51}}-1/2\,\boldsymbol{\nu_{90}}-\boldsymbol{\nu_{59}}\\
+&-3/16\,\boldsymbol{\nu_{9}}+1/4\,\boldsymbol{\nu_{48}}+1/4\,\boldsymbol{\nu_{55}}-\boldsymbol{\nu_{58}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{179}} &
+\begin{aligned}
+&-1/12\,\boldsymbol{\nu_{149}}-1/3\,\boldsymbol{\nu_{151}}+1/3\,\boldsymbol{\nu_{153}}
++1/2\,\boldsymbol{\nu_{155}}-1/36\,\boldsymbol{\nu_{160}}+{\frac {89\,\boldsymbol{\nu_{164}}}{144}}\\
+&+{
+\frac {13\,\boldsymbol{\nu_{165}}}{18}}+\boldsymbol{\nu_{175}}+1/6\,\boldsymbol{\nu_{178}}+1/6\,\boldsymbol{\nu_{202}}-1/12\,\boldsymbol{\nu_{204}}+1/12\,\boldsymbol{\nu_{206}}\\
+&+1/24\,\boldsymbol{\nu_{20}}+{\frac {5\,
+\boldsymbol{\nu_{7}}}{128}}+{\frac {623\,\boldsymbol{\nu_{9}}}{2304}}-{\frac {13\,\boldsymbol{\nu_{48}}
+}{288}}-{\frac {19\,\boldsymbol{\nu_{51}}}{72}}-{\frac {3\,\boldsymbol{\nu_{55}}}{32}}+{
+\frac {131\,\boldsymbol{\nu_{58}}}{144}}\\
+&+{\frac {131\,\boldsymbol{\nu_{59}}}{144}}-1/12\,\boldsymbol{\nu_{69}}+1/12\,\boldsymbol{\nu_{79}}+{\frac {7\,\boldsymbol{\nu_{80}}}{24}}+{\frac {12779\,
+\boldsymbol{\nu_{83}}}{2928}}+{\frac {3157\,\boldsymbol{\nu_{90}}}{1464}}\\
+&-{\frac {11\,\boldsymbol{\nu_{108}}}{2196}}+{\frac {161\,\boldsymbol{\nu_{109}}}{4392}}-{\frac {103\,\boldsymbol{\nu_{124}}}{4392}}-{\frac {7\,\boldsymbol{\nu_{127}}}{8784}}+{\frac {59\,\boldsymbol{\nu_{131}}}{2196
+}}+{\frac {53\,\boldsymbol{\nu_{132}}}{8784}}\\
+&-{\frac {23\,\boldsymbol{\nu_{137}}}{488}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{180}} & 
+\begin{aligned}
+&-2\,\boldsymbol{\nu_{175}}-\boldsymbol{\nu_{164}}-\boldsymbol{\nu_{155}}-{\frac {5\,\boldsymbol{\nu_{7}}}{
+64}}+1/2\,\boldsymbol{\nu_{51}}+1/4\,\boldsymbol{\nu_{48}}+1/4\,\boldsymbol{\nu_{55}}-{\frac {11\,\boldsymbol{\nu_{59}}}{8}}\\
+&-1/2\,\boldsymbol{\nu_{80}}-15/2\,\boldsymbol{\nu_{83}}-{\frac {15\,\boldsymbol{\nu_{90}}}{4}
+}-1/16\,\boldsymbol{\nu_{20}}-{\frac {11\,\boldsymbol{\nu_{58}}}{8}}-\boldsymbol{\nu_{165}}-{\frac {29
+\,\boldsymbol{\nu_{9}}}{64}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{182}} & \boldsymbol{\nu_{164}}-4\,\boldsymbol{\nu_{69}}-2\,\boldsymbol{\nu_{83}}-
+3\,\boldsymbol{\nu_{90}}+\boldsymbol{\nu_{59}}-1/8\,\boldsymbol{\nu_{9}}+\boldsymbol{\nu_{58}}-{\frac {3\,\boldsymbol{\nu_{7}}}{32}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{183}} & -2\,\boldsymbol{\nu_{83}}-\boldsymbol{\nu_{90}}-1/2\,\boldsymbol{\nu_{59}}-1/8\,\boldsymbol{\nu_{9}}-1/2\,\boldsymbol{\nu_{58}}-{\frac {\boldsymbol{\nu_{7}}}{64}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{184}} & 
+\begin{aligned}
+&-1/48\,\nu_
+{{149}}+1/12\,\boldsymbol{\nu_{151}}+1/6\,\boldsymbol{\nu_{153}}+1/12\,\boldsymbol{\nu_{155}}+{\frac {5
+\,\boldsymbol{\nu_{160}}}{144}}+{\frac {13\,\boldsymbol{\nu_{164}}}{192}}\\
+&+{\frac {5\,\boldsymbol{\nu_{165}}}{48}}+1/4\,\boldsymbol{\nu_{175}}-1/48\,\boldsymbol{\nu_{181}}+1/6\,\boldsymbol{\nu_{194}}-1/24\,
+\boldsymbol{\nu_{202}}-1/48\,\boldsymbol{\nu_{204}}\\
+&+1/48\,\boldsymbol{\nu_{206}}+{\frac {119\,\boldsymbol{\nu_{7}}}{18432}}+{\frac {283\,\boldsymbol{\nu_{9}}}{9216}}-{\frac {\boldsymbol{\nu_{48}}}{1152}}-{
+\frac {7\,\boldsymbol{\nu_{51}}}{576}}-{\frac {\boldsymbol{\nu_{55}}}{1152}}+{\frac {71\,\boldsymbol{\nu_{58}}}{576}}\\
+&+{\frac {71\,\boldsymbol{\nu_{59}}}{576}}+1/48\,\boldsymbol{\nu_{69}}+1/32\,
+\boldsymbol{\nu_{79}}+{\frac {13\,\boldsymbol{\nu_{80}}}{576}}+{\frac {13379\,\boldsymbol{\nu_{83}}}{
+23424}}+{\frac {6995\,\boldsymbol{\nu_{90}}}{23424}}\\
+&-{\frac {109\,\boldsymbol{\nu_{108}}}{
+17568}}+{\frac {331\,\boldsymbol{\nu_{109}}}{35136}}-{\frac {37\,\boldsymbol{\nu_{124}}}{
+3904}}-{\frac {25\,\boldsymbol{\nu_{127}}}{70272}}+{\frac {101\,\boldsymbol{\nu_{131}}}{8784
+}}+{\frac {259\,\boldsymbol{\nu_{132}}}{70272}}\\
+&+{\frac {5\,\boldsymbol{\nu_{137}}}{3904}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{185}} & 
+\begin{aligned}
+&\hphantom{+}1/6\,\boldsymbol{\nu_{149}}-1/6\,\boldsymbol{\nu_{155}}-{\frac {89\,\boldsymbol{\nu_{164}}
+}{288}}-{\frac {23\,\boldsymbol{\nu_{165}}}{72}}-1/2\,\boldsymbol{\nu_{175}}-1/3\,\boldsymbol{\nu_{194}}\\
+&+1/24\,\boldsymbol{\nu_{206}}-{\frac {\boldsymbol{\nu_{20}}}{64}}-{\frac {77\,\boldsymbol{\nu_{7}}}{
+4096}}-{\frac {1271\,\boldsymbol{\nu_{9}}}{9216}}-{\frac {23\,\boldsymbol{\nu_{48}}}{1152}}+
+{\frac {\boldsymbol{\nu_{51}}}{72}}-{\frac {13\,\boldsymbol{\nu_{55}}}{1152}}-{\frac {217\,
+\boldsymbol{\nu_{58}}}{384}}\\
+&-{\frac {217\,\boldsymbol{\nu_{59}}}{384}}-1/12\,\boldsymbol{\nu_{79}}-1/24
+\,\boldsymbol{\nu_{80}}-{\frac {13375\,\boldsymbol{\nu_{83}}}{5856}}-{\frac {13327\,\boldsymbol{\nu_{90}}}{11712}}+{\frac {17\,\boldsymbol{\nu_{108}}}{549}}\\
+&-{\frac {47\,\boldsymbol{\nu_{109}}}{
+4392}}+{\frac {121\,\boldsymbol{\nu_{124}}}{4392}}+{\frac {5\,\boldsymbol{\nu_{127}}}{4392}}
+-{\frac {311\,\boldsymbol{\nu_{131}}}{8784}}-{\frac {8\,\boldsymbol{\nu_{132}}}{549}}-{
+\frac {65\,\boldsymbol{\nu_{137}}}{976}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{186}} & 
+\begin{aligned}
+&-\boldsymbol{\nu_{151}}-1/2\,\boldsymbol{\nu_{153}}-1/12\,\boldsymbol{\nu_{160}}+1/4\,\boldsymbol{\nu_{181}}+1/2\,\boldsymbol{\nu_{202}}+1/4\,\boldsymbol{\nu_{204}}\\
+&+1/32\,\boldsymbol{\nu_{20}}+{\frac {25\,\boldsymbol{\nu_{7}}}{6144}}+{\frac {41\,\boldsymbol{\nu_{9}}
+}{1536}}-{\frac {5\,\boldsymbol{\nu_{48}}}{64}}-{\frac {7\,\boldsymbol{\nu_{51}}}{48}}-{
+\frac {17\,\boldsymbol{\nu_{55}}}{192}}-{\frac {41\,\boldsymbol{\nu_{58}}}{192}}-{\frac {41
+\,\boldsymbol{\nu_{59}}}{192}}\\
+&+1/4\,\boldsymbol{\nu_{69}}-1/8\,\boldsymbol{\nu_{79}}+{\frac {5\,\boldsymbol{\nu_{80}}}{48}}+{\frac {101\,\boldsymbol{\nu_{83}}}{1952}}+{\frac {163\,\boldsymbol{\nu_{90}}}{
+976}}+{\frac {29\,\boldsymbol{\nu_{108}}}{488}}-{\frac {3\,\boldsymbol{\nu_{109}}}{976}}\\
+&+{
+\frac {127\,\boldsymbol{\nu_{124}}}{2928}}+{\frac {11\,\boldsymbol{\nu_{127}}}{5856}}-{
+\frac {7\,\boldsymbol{\nu_{131}}}{122}}-{\frac {51\,\boldsymbol{\nu_{132}}}{1952}}-{\frac {
+153\,\boldsymbol{\nu_{137}}}{976}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{187}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {17\,\boldsymbol{\nu_{164}}}{24}}-{
+\frac {29\,\boldsymbol{\nu_{108}}}{244}}-\boldsymbol{\nu_{69}}-{\frac {\boldsymbol{\nu_{7}}}{128}}-{
+\frac {127\,\boldsymbol{\nu_{124}}}{1464}}+{\frac {7\,\boldsymbol{\nu_{131}}}{61}}+{\frac {
+51\,\boldsymbol{\nu_{132}}}{976}}\\
+&-{\frac {11\,\boldsymbol{\nu_{127}}}{2928}}+1/4\,\boldsymbol{\nu_{79}}
++{\frac {5\,\boldsymbol{\nu_{51}}}{24}}+{\frac {5\,\boldsymbol{\nu_{48}}}{24}}+1/6\,\boldsymbol{\nu_{55}}+4/3\,\boldsymbol{\nu_{59}}-1/8\,\boldsymbol{\nu_{80}}\\
+&-1/2\,\boldsymbol{\nu_{206}}-1/2\,\boldsymbol{\nu_{149}}+{
+\frac {8359\,\boldsymbol{\nu_{83}}}{2928}}+{\frac {2621\,\boldsymbol{\nu_{90}}}{2928}}+{
+\frac {3\,\boldsymbol{\nu_{109}}}{488}}+{\frac {153\,\boldsymbol{\nu_{137}}}{488}}\\
+&+1/32\,\boldsymbol{\nu_{20}}+4/3\,\boldsymbol{\nu_{58}}+{\frac {7\,\boldsymbol{\nu_{165}}}{12}}+{\frac {35\,\boldsymbol{\nu_{9}}}{192}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{188}} & 
+\begin{aligned}
+&-{\frac {17\,\boldsymbol{\nu_{164}}}{24}}-{\frac {65\,\boldsymbol{\nu_{108}}}{732}}+\boldsymbol{\nu_{69}}+{\frac {79\,\boldsymbol{\nu_{124}}}{1464}}-{\frac {17
+\,\boldsymbol{\nu_{131}}}{366}}+{\frac {47\,\boldsymbol{\nu_{132}}}{2928}}+{\frac {\boldsymbol{\nu_{127}}}{976}}\\
+&-1/4\,\boldsymbol{\nu_{79}}-{\frac {5\,\boldsymbol{\nu_{51}}}{24}}-{\frac {5\,\boldsymbol{\nu_{48}}}{24}}-1/6\,\boldsymbol{\nu_{55}}-{\frac {17\,\boldsymbol{\nu_{59}}}{12}}+1/8\,\boldsymbol{\nu_{80}}+1/2\,\boldsymbol{\nu_{206}}\\
+&+1/2\,\boldsymbol{\nu_{149}}-{\frac {9023\,\boldsymbol{\nu_{83}}}{2928}}-
+{\frac {3421\,\boldsymbol{\nu_{90}}}{2928}}-{\frac {313\,\boldsymbol{\nu_{109}}}{1464}}+{
+\frac {291\,\boldsymbol{\nu_{137}}}{488}}-{\frac {17\,\boldsymbol{\nu_{58}}}{12}}\\
+&-{\frac {7
+\,\boldsymbol{\nu_{165}}}{12}}-{\frac {35\,\boldsymbol{\nu_{9}}}{192}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{189}} & 
+\begin{aligned}
+&-{\frac {
+123\,\boldsymbol{\nu_{108}}}{976}}+1/8\,\boldsymbol{\nu_{69}}+{\frac {11\,\boldsymbol{\nu_{7}}}{12288}}
+-{\frac {17\,\boldsymbol{\nu_{124}}}{5856}}+{\frac {11\,\boldsymbol{\nu_{131}}}{488}}+{
+\frac {149\,\boldsymbol{\nu_{132}}}{3904}}-{\frac {13\,\boldsymbol{\nu_{127}}}{11712}}\\
+&-1/16
+\,\boldsymbol{\nu_{79}}-1/32\,\boldsymbol{\nu_{51}}-{\frac {19\,\boldsymbol{\nu_{48}}}{384}}-{\frac {13
+\,\boldsymbol{\nu_{55}}}{384}}-{\frac {43\,\boldsymbol{\nu_{59}}}{384}}+{\frac {\boldsymbol{\nu_{80}}}{
+96}}+{\frac {19\,\boldsymbol{\nu_{83}}}{11712}}\\
+&-{\frac {71\,\boldsymbol{\nu_{90}}}{1464}}-{
+\frac {307\,\boldsymbol{\nu_{109}}}{1952}}+{\frac {1179\,\boldsymbol{\nu_{137}}}{1952}}+{
+\frac {\boldsymbol{\nu_{20}}}{64}}-{\frac {43\,\boldsymbol{\nu_{58}}}{384}}+{\frac {7\,\boldsymbol{\nu_{9}}}{1024}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{190}} &
+\begin{aligned}
+&\hphantom{+}{\frac {5\,\boldsymbol{\nu_{164}}}{576}}+1/16\,\boldsymbol{\nu_{69}}+{\frac {25\,\boldsymbol{\nu_{7}}}{18432}}+{\frac {5\,\boldsymbol{\nu_{151}}}{12}}+1/12\,
+\boldsymbol{\nu_{153}}+{\frac {11\,\boldsymbol{\nu_{51}}}{288}}-{\frac {17\,\boldsymbol{\nu_{48}}}{1152
+}}\\
+&+{\frac {\boldsymbol{\nu_{55}}}{128}}+{\frac {5\,\boldsymbol{\nu_{59}}}{576}}-{\frac {11\,
+\boldsymbol{\nu_{80}}}{288}}-1/16\,\boldsymbol{\nu_{206}}+{\frac {5\,\boldsymbol{\nu_{160}}}{144}}-1/48
+\,\boldsymbol{\nu_{149}}+{\frac {19\,\boldsymbol{\nu_{83}}}{288}}\\
+&+{\frac {37\,\boldsymbol{\nu_{90}}}{
+576}}-1/24\,\boldsymbol{\nu_{178}}-1/8\,\boldsymbol{\nu_{181}}-{\frac {5\,\boldsymbol{\nu_{202}}}{24}}-
+1/16\,\boldsymbol{\nu_{204}}+{\frac {\boldsymbol{\nu_{20}}}{384}}+{\frac {5\,\boldsymbol{\nu_{58}}}{576
+}}\\
+&-{\frac {\boldsymbol{\nu_{165}}}{144}}+{\frac {47\,\boldsymbol{\nu_{9}}}{9216}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{191}} &
+\begin{aligned}
+&-{\frac {17\,\boldsymbol{\nu_{164}}}{24}}+{\frac {11\,\boldsymbol{\nu_{108}}}{732}}+\boldsymbol{\nu_{69}}+{\frac {\boldsymbol{\nu_{7}}}{64}}+{\frac {103\,\boldsymbol{\nu_{124}}}{1464}}-{\frac {
+59\,\boldsymbol{\nu_{131}}}{732}}-{\frac {53\,\boldsymbol{\nu_{132}}}{2928}}\\
+&+{\frac {7\,\boldsymbol{\nu_{127}}}{2928}}-1/4\,\boldsymbol{\nu_{79}}-{\frac {5\,\boldsymbol{\nu_{51}}}{24}}-{\frac {5
+\,\boldsymbol{\nu_{48}}}{24}}-1/6\,\boldsymbol{\nu_{55}}-5/4\,\boldsymbol{\nu_{59}}+1/8\,\boldsymbol{\nu_{80}}\\
+&+1/2
+\,\boldsymbol{\nu_{206}}+1/2\,\boldsymbol{\nu_{149}}-{\frac {2409\,\boldsymbol{\nu_{83}}}{976}}-{\frac 
+{763\,\boldsymbol{\nu_{90}}}{976}}-{\frac {161\,\boldsymbol{\nu_{109}}}{1464}}+{\frac {69\,
+\boldsymbol{\nu_{137}}}{488}}\\
+&-1/16\,\boldsymbol{\nu_{20}}-5/4\,\boldsymbol{\nu_{58}}-{\frac {7\,\boldsymbol{\nu_{165}}}{12}}-{\frac {35\,\boldsymbol{\nu_{9}}}{192}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{192}} & 
+\begin{aligned}
+&-{\frac {5\,\boldsymbol{\nu_{164}}}{288}}-1/8\,\boldsymbol{\nu_{69}}-{\frac {23\,\boldsymbol{\nu_{7}}}{4608}}+1/6\,\boldsymbol{\nu_{151}}+1/3\,\boldsymbol{\nu_{153}}+{\frac {\boldsymbol{\nu_{51}}}{144}}+{\frac {5\,\boldsymbol{\nu_{48}}}{576}}+{\frac {\boldsymbol{\nu_{55}}}{192}}\\
+&-1/36\,\boldsymbol{\nu_{59}}-{\frac {\boldsymbol{\nu_{80}}
+}{144}}+1/8\,\boldsymbol{\nu_{206}}+{\frac {\boldsymbol{\nu_{160}}}{72}}+1/24\,\boldsymbol{\nu_{149}}-{
+\frac {49\,\boldsymbol{\nu_{83}}}{144}}-{\frac {67\,\boldsymbol{\nu_{90}}}{288}}\\
+&+1/12\,\boldsymbol{\nu_{178}}-1/12\,\boldsymbol{\nu_{202}}-1/8\,\boldsymbol{\nu_{204}}-{\frac {\boldsymbol{\nu_{20}}}{192}}-1/
+36\,\boldsymbol{\nu_{58}}+{\frac {\boldsymbol{\nu_{165}}}{72}}-{\frac {107\,\boldsymbol{\nu_{9}}}{4608}
+}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{193}} & 
+\begin{aligned}
+&-1/16\,\boldsymbol{\nu_{160}}+{\frac {11\,\boldsymbol{\nu_{164}}}{192}}+1/24\,
+\boldsymbol{\nu_{165}}+1/8\,\boldsymbol{\nu_{178}}+1/32\,\boldsymbol{\nu_{181}}-1/2\,\boldsymbol{\nu_{194}}\\
+&+1/16\,
+\boldsymbol{\nu_{202}}+1/32\,\boldsymbol{\nu_{204}}-1/16\,\boldsymbol{\nu_{206}}+{\frac {11\,\boldsymbol{\nu_{7}}
+}{16384}}+{\frac {289\,\boldsymbol{\nu_{9}}}{12288}}-{\frac {5\,\boldsymbol{\nu_{48}}}{1536}
+}-{\frac {\boldsymbol{\nu_{51}}}{96}}\\
+&-{\frac {5\,\boldsymbol{\nu_{55}}}{512}}+{\frac {211\,
+\boldsymbol{\nu_{58}}}{1536}}+{\frac {211\,\boldsymbol{\nu_{59}}}{1536}}-1/8\,\boldsymbol{\nu_{69}}-{
+\frac {3\,\boldsymbol{\nu_{79}}}{64}}-{\frac {\boldsymbol{\nu_{80}}}{192}}+{\frac {19061\,
+\boldsymbol{\nu_{83}}}{46848}}\\
+&+{\frac {2273\,\boldsymbol{\nu_{90}}}{23424}}-{\frac {499\,\boldsymbol{\nu_{108}}}{11712}}-{\frac {1547\,\boldsymbol{\nu_{109}}}{23424}}+{\frac {47\,\boldsymbol{\nu_{124}}}{7808}}-{\frac {7\,\boldsymbol{\nu_{127}}}{46848}}-{\frac {\boldsymbol{\nu_{131}}}{
+5856}}\\
+&+{\frac {541\,\boldsymbol{\nu_{132}}}{46848}}+{\frac {1761\,\boldsymbol{\nu_{137}}}{
+7808}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{195}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {65\,\boldsymbol{\nu_{108}}}{976}}-{\frac {37\,\boldsymbol{\nu_{7}}}{4096}}-{\frac {79\,\boldsymbol{\nu_{124}}}{1952}}+{\frac {17\,\boldsymbol{\nu_{131}}}{488
+}}-{\frac {47\,\boldsymbol{\nu_{132}}}{3904}}-{\frac {3\,\boldsymbol{\nu_{127}}}{3904}}+3/16
+\,\boldsymbol{\nu_{79}}\\
+&+{\frac {\boldsymbol{\nu_{48}}}{128}}+{\frac {3\,\boldsymbol{\nu_{55}}}{128}}-{
+\frac {39\,\boldsymbol{\nu_{59}}}{128}}+1/16\,\boldsymbol{\nu_{80}}+1/4\,\boldsymbol{\nu_{160}}-{\frac 
+{4763\,\boldsymbol{\nu_{83}}}{3904}}-{\frac {251\,\boldsymbol{\nu_{90}}}{488}}\\
+&+{\frac {313\,
+\boldsymbol{\nu_{109}}}{1952}}-{\frac {873\,\boldsymbol{\nu_{137}}}{1952}}-3/8\,\boldsymbol{\nu_{181}}-
+3/4\,\boldsymbol{\nu_{202}}-3/8\,\boldsymbol{\nu_{204}}\\
+&-{\frac {39\,\boldsymbol{\nu_{58}}}{128}}-{
+\frac {73\,\boldsymbol{\nu_{9}}}{1024}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{196}} & 
+\begin{aligned}
+&-{\frac {7\,\boldsymbol{\nu_{164}}}{16}}
++{\frac {19\,\boldsymbol{\nu_{108}}}{122}}+3/2\,\boldsymbol{\nu_{69}}+{\frac {63\,\boldsymbol{\nu_{7}}
+}{2048}}+{\frac {3\,\boldsymbol{\nu_{124}}}{122}}-{\frac {25\,\boldsymbol{\nu_{131}}}{488}}-
+{\frac {25\,\boldsymbol{\nu_{132}}}{488}}\\
+&+{\frac {\boldsymbol{\nu_{127}}}{488}}-{\frac {3\,
+\boldsymbol{\nu_{48}}}{64}}-{\frac {\boldsymbol{\nu_{55}}}{64}}-{\frac {39\,\boldsymbol{\nu_{59}}}{64}}
++3/4\,\boldsymbol{\nu_{206}}-{\frac {139\,\boldsymbol{\nu_{83}}}{976}}+{\frac {1559\,\boldsymbol{\nu_{90}}}{1952}}\\
+&+{\frac {19\,\boldsymbol{\nu_{109}}}{122}}-{\frac {333\,\boldsymbol{\nu_{137}}}{
+488}}-{\frac {39\,\boldsymbol{\nu_{58}}}{64}}-1/4\,\boldsymbol{\nu_{165}}-{\frac {3\,\boldsymbol{\nu_{9}}}{512}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{197}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {7\,\boldsymbol{\nu_{164}}}{16}}+{\frac {57\,\boldsymbol{\nu_{108}}}{122}}-3/2\,\boldsymbol{\nu_{69}}-{\frac {63\,\boldsymbol{\nu_{7}}}{2048}}+{\frac {9\,
+\boldsymbol{\nu_{124}}}{122}}-{\frac {75\,\boldsymbol{\nu_{131}}}{488}}-{\frac {75\,\boldsymbol{\nu_{132}}}{488}}\\
+&+{\frac {3\,\boldsymbol{\nu_{127}}}{488}}+{\frac {3\,\boldsymbol{\nu_{48}}}{64}}
++{\frac {\boldsymbol{\nu_{55}}}{64}}+{\frac {39\,\boldsymbol{\nu_{59}}}{64}}-3/4\,\nu_{{206}
+}-{\frac {173\,\boldsymbol{\nu_{83}}}{976}}-{\frac {935\,\boldsymbol{\nu_{90}}}{1952}}\\
+&+{
+\frac {57\,\boldsymbol{\nu_{109}}}{122}}-{\frac {999\,\boldsymbol{\nu_{137}}}{488}}+{\frac {
+39\,\boldsymbol{\nu_{58}}}{64}}+1/4\,\boldsymbol{\nu_{165}}+{\frac {3\,\boldsymbol{\nu_{9}}}{512}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{198}} & 
+{\frac {3\,\boldsymbol{\nu_{124}}}{61}}+{\frac {19\,\boldsymbol{\nu_{109}}}{61}}-{
+\frac {333\,\boldsymbol{\nu_{137}}}{244}}+{\frac {\boldsymbol{\nu_{127}}}{244}}+{\frac {19\,
+\boldsymbol{\nu_{108}}}{61}}-{\frac {25\,\boldsymbol{\nu_{132}}}{244}}-{\frac {25\,\boldsymbol{\nu_{131}}}{244}}-{\frac {39\,\boldsymbol{\nu_{83}}}{244}}+{\frac {39\,\boldsymbol{\nu_{90}}}{244}}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{199}} &
+\begin{aligned}
+&-{\frac {11\,\boldsymbol{\nu_{108}}}{1952}}-3/16\,\boldsymbol{\nu_{69}}-{\frac {
+33\,\boldsymbol{\nu_{7}}}{8192}}-{\frac {103\,\boldsymbol{\nu_{124}}}{3904}}+{\frac {59\,\boldsymbol{\nu_{131}}}{1952}}+{\frac {53\,\boldsymbol{\nu_{132}}}{7808}}-{\frac {7\,\boldsymbol{\nu_{127}}}{7808}}\\
+&+{\frac {3\,\boldsymbol{\nu_{79}}}{32}}+1/16\,\boldsymbol{\nu_{51}}+{\frac {33\,\boldsymbol{\nu_{48}}}{256}}+{\frac {19\,\boldsymbol{\nu_{55}}}{256}}+{\frac {77\,\boldsymbol{\nu_{59}}}{
+256}}-1/32\,\boldsymbol{\nu_{80}}-1/8\,\boldsymbol{\nu_{160}}\\
+&+{\frac {3445\,\boldsymbol{\nu_{83}}}{7808
+}}+{\frac {565\,\boldsymbol{\nu_{90}}}{3904}}+{\frac {161\,\boldsymbol{\nu_{109}}}{3904}}-{
+\frac {207\,\boldsymbol{\nu_{137}}}{3904}}+3/16\,\boldsymbol{\nu_{181}}\\
+&+1/8\,\boldsymbol{\nu_{202}}+1/
+16\,\boldsymbol{\nu_{204}}+{\frac {77\,\boldsymbol{\nu_{58}}}{256}}+{\frac {51\,\boldsymbol{\nu_{9}}}{
+2048}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{200}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {7\,\boldsymbol{\nu_{164}}}{16}}-{\frac {11\,\boldsymbol{\nu_{108}}}{1464}}-\boldsymbol{\nu_{69}}-{\frac {23\,\boldsymbol{\nu_{7}}}{1536}}-{\frac {103\,\boldsymbol{\nu_{124}}}{2928}}+{\frac {59\,\boldsymbol{\nu_{131}}}{1464}}+{\frac {53\,\boldsymbol{\nu_{132}}
+}{5856}}-{\frac {7\,\boldsymbol{\nu_{127}}}{5856}}\\
+&+1/8\,\boldsymbol{\nu_{79}}-1/16\,\boldsymbol{\nu_{51}}+1/48\,\boldsymbol{\nu_{48}}+{\frac {7\,\boldsymbol{\nu_{59}}}{16}}+{\frac {5\,\boldsymbol{\nu_{80}}
+}{48}}-1/4\,\boldsymbol{\nu_{206}}+{\frac {2347\,\boldsymbol{\nu_{83}}}{5856}}\\
+&-{\frac {1615
+\,\boldsymbol{\nu_{90}}}{5856}}+{\frac {161\,\boldsymbol{\nu_{109}}}{2928}}-{\frac {69\,\boldsymbol{\nu_{137}}}{976}}+{\frac {7\,\boldsymbol{\nu_{58}}}{16}}+1/4\,\boldsymbol{\nu_{165}}+{\frac {3
+\,\boldsymbol{\nu_{9}}}{128}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{201}} &
+\begin{aligned}
+&\hphantom{+}{\frac {11\,\boldsymbol{\nu_{108}}}{976}}+3/8\,\boldsymbol{\nu_{69}}+{\frac {65\,\boldsymbol{\nu_{7}}}{4096}}+{\frac {103\,\boldsymbol{\nu_{124}}}{1952}}
+-{\frac {59\,\boldsymbol{\nu_{131}}}{976}}-{\frac {53\,\boldsymbol{\nu_{132}}}{3904}}+{
+\frac {7\,\boldsymbol{\nu_{127}}}{3904}}\\
+&-3/16\,\boldsymbol{\nu_{79}}-{\frac {3\,\boldsymbol{\nu_{51}}}{
+32}}-{\frac {25\,\boldsymbol{\nu_{48}}}{128}}-{\frac {15\,\boldsymbol{\nu_{55}}}{128}}-{
+\frac {33\,\boldsymbol{\nu_{59}}}{128}}+1/32\,\boldsymbol{\nu_{80}}+{\frac {947\,\boldsymbol{\nu_{83}}
+}{3904}}\\
+&+{\frac {533\,\boldsymbol{\nu_{90}}}{1952}}-{\frac {161\,\boldsymbol{\nu_{109}}}{
+1952}}+{\frac {207\,\boldsymbol{\nu_{137}}}{1952}}-{\frac {33\,\boldsymbol{\nu_{58}}}{128}}+
+{\frac {15\,\boldsymbol{\nu_{9}}}{1024}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{203}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {11\,\boldsymbol{\nu_{108}}}{732
+}}-\boldsymbol{\nu_{69}}-{\frac {97\,\boldsymbol{\nu_{7}}}{3072}}+{\frac {103\,\boldsymbol{\nu_{124}}}{
+1464}}-{\frac {59\,\boldsymbol{\nu_{131}}}{732}}-{\frac {53\,\boldsymbol{\nu_{132}}}{2928}}+
+{\frac {7\,\boldsymbol{\nu_{127}}}{2928}}\\
+&-1/4\,\boldsymbol{\nu_{79}}+1/8\,\boldsymbol{\nu_{51}}+{\frac 
+{5\,\boldsymbol{\nu_{48}}}{96}}+1/32\,\boldsymbol{\nu_{55}}+{\frac {11\,\boldsymbol{\nu_{59}}}{32}}-{
+\frac {5\,\boldsymbol{\nu_{80}}}{24}}-{\frac {1981\,\boldsymbol{\nu_{83}}}{2928}}\\
+&-{\frac {
+1297\,\boldsymbol{\nu_{90}}}{1464}}-{\frac {161\,\boldsymbol{\nu_{109}}}{1464}}+{\frac {69\,
+\boldsymbol{\nu_{137}}}{488}}+{\frac {11\,\boldsymbol{\nu_{58}}}{32}}-{\frac {9\,\boldsymbol{\nu_{9}}}{
+256}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{205}} &
+\begin{aligned}
+&-\boldsymbol{\nu_{206}}-{\frac {103\,\boldsymbol{\nu_{124}}}{488}}+{\frac 
+{161\,\boldsymbol{\nu_{109}}}{488}}-{\frac {207\,\boldsymbol{\nu_{137}}}{488}}-{\frac {7\,
+\boldsymbol{\nu_{127}}}{976}}-{\frac {11\,\boldsymbol{\nu_{108}}}{244}}+{\frac {53\,\boldsymbol{\nu_{132}}}{976}}\\
+&+{\frac {59\,\boldsymbol{\nu_{131}}}{244}}+3/4\,\boldsymbol{\nu_{79}}+1/8\,\boldsymbol{\nu_{80}}-{\frac {215\,\boldsymbol{\nu_{83}}}{976}}+1/8\,\boldsymbol{\nu_{51}}+{\frac {2\,\boldsymbol{\nu_{90}}}{61}}+{\frac {5\,\boldsymbol{\nu_{59}}}{32}}\\
+&-{\frac {7\,\boldsymbol{\nu_{9}}}{256}}+{
+\frac {9\,\boldsymbol{\nu_{48}}}{32}}+{\frac {7\,\boldsymbol{\nu_{55}}}{32}}+{\frac {5\,\boldsymbol{\nu_{58}}}{32}}-{\frac {5\,\boldsymbol{\nu_{7}}}{1024}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{207}} & 
+\begin{aligned}
+&\hphantom{+}\boldsymbol{\nu_{206}}-{
+\frac {103\,\boldsymbol{\nu_{124}}}{1464}}+{\frac {161\,\boldsymbol{\nu_{109}}}{1464}}+\boldsymbol{\nu_{69}}-{\frac {69\,\boldsymbol{\nu_{137}}}{488}}-{\frac {7\,\boldsymbol{\nu_{127}}}{2928}}-{
+\frac {11\,\boldsymbol{\nu_{108}}}{732}}\\
+&+{\frac {53\,\boldsymbol{\nu_{132}}}{2928}}+{\frac {
+59\,\boldsymbol{\nu_{131}}}{732}}+1/4\,\boldsymbol{\nu_{79}}+{\frac {5\,\boldsymbol{\nu_{80}}}{24}}+{
+\frac {1249\,\boldsymbol{\nu_{83}}}{2928}}-1/8\,\boldsymbol{\nu_{51}}+{\frac {557\,\boldsymbol{\nu_{90}}}{732}}\\
+&-{\frac {17\,\boldsymbol{\nu_{59}}}{32}}+{\frac {3\,\boldsymbol{\nu_{9}}}{256}}-{
+\frac {23\,\boldsymbol{\nu_{48}}}{96}}-{\frac {3\,\boldsymbol{\nu_{55}}}{32}}-{\frac {17\,
+\boldsymbol{\nu_{58}}}{32}}+{\frac {115\,\boldsymbol{\nu_{7}}}{3072}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{208}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {3
+\,\boldsymbol{\nu_{124}}}{61}}+{\frac {19\,\boldsymbol{\nu_{109}}}{61}}-{\frac {333\,\boldsymbol{\nu_{137}}}{244}}+{\frac {\boldsymbol{\nu_{127}}}{244}}+{\frac {19\,\boldsymbol{\nu_{108}}}{61}}-
+{\frac {25\,\boldsymbol{\nu_{132}}}{244}}-{\frac {25\,\boldsymbol{\nu_{131}}}{244}}\\
+&-{\frac {
+139\,\boldsymbol{\nu_{83}}}{488}}+{\frac {95\,\boldsymbol{\nu_{90}}}{976}}-{\frac {3\,\boldsymbol{\nu_{59}}}{32}}-{\frac {3\,\boldsymbol{\nu_{9}}}{256}}-{\frac {3\,\boldsymbol{\nu_{48}}}{32}}-1/
+32\,\boldsymbol{\nu_{55}}-{\frac {3\,\boldsymbol{\nu_{58}}}{32}}\\
+&+{\frac {3\,\boldsymbol{\nu_{7}}}{1024}
+}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{209}} &
+\begin{aligned}
+&-{\frac {12\,\boldsymbol{\nu_{124}}}{61}}-{\frac {76\,\boldsymbol{\nu_{109}}}{
+61}}+{\frac {333\,\boldsymbol{\nu_{137}}}{61}}-{\frac {\boldsymbol{\nu_{127}}}{61}}-{\frac {
+76\,\boldsymbol{\nu_{108}}}{61}}+{\frac {25\,\boldsymbol{\nu_{132}}}{61}}+{\frac {25\,\nu_{{
+131}}}{61}}\\
+&+{\frac {39\,\boldsymbol{\nu_{83}}}{61}}-{\frac {39\,\boldsymbol{\nu_{90}}}{61}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{210}} &
+\begin{aligned}
+&-\boldsymbol{\nu_{206}}-{\frac {103\,\boldsymbol{\nu_{124}}}{732}}+{\frac {161\,
+\boldsymbol{\nu_{109}}}{732}}-\boldsymbol{\nu_{69}}-{\frac {69\,\boldsymbol{\nu_{137}}}{244}}-{\frac {7
+\,\boldsymbol{\nu_{127}}}{1464}}-{\frac {11\,\boldsymbol{\nu_{108}}}{366}}\\
+&+{\frac {53\,\boldsymbol{\nu_{132}}}{1464}}+{\frac {59\,\boldsymbol{\nu_{131}}}{366}}+1/2\,\boldsymbol{\nu_{79}}-1/12\,
+\boldsymbol{\nu_{80}}-{\frac {1313\,\boldsymbol{\nu_{83}}}{1464}}+1/4\,\boldsymbol{\nu_{51}}\\
+&-{\frac {
+1249\,\boldsymbol{\nu_{90}}}{1464}}+1/2\,\boldsymbol{\nu_{59}}-1/16\,\boldsymbol{\nu_{9}}+1/3\,\boldsymbol{\nu_{48}}+1/4\,\boldsymbol{\nu_{55}}+1/2\,\boldsymbol{\nu_{58}}-{\frac {7\,\boldsymbol{\nu_{7}}}{192}}
+ \end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{211}} &
+\begin{aligned}
+&-{\frac {239\,\boldsymbol{\nu_{108}}}{1952}}+{\frac {27\,\boldsymbol{\nu_{7}}}{8192}}-
+{\frac {175\,\boldsymbol{\nu_{124}}}{3904}}+{\frac {67\,\boldsymbol{\nu_{131}}}{976}}+{
+\frac {353\,\boldsymbol{\nu_{132}}}{7808}}-{\frac {19\,\boldsymbol{\nu_{127}}}{7808}}\\
+&+{
+\frac {3\,\boldsymbol{\nu_{79}}}{32}}+1/32\,\boldsymbol{\nu_{51}}+{\frac {17\,\boldsymbol{\nu_{48}}}{
+256}}+{\frac {11\,\boldsymbol{\nu_{55}}}{256}}+{\frac {49\,\boldsymbol{\nu_{59}}}{256}}-1/8
+\,\boldsymbol{\nu_{160}}\\
+&+{\frac {4645\,\boldsymbol{\nu_{83}}}{7808}}+{\frac {55\,\boldsymbol{\nu_{90}}
+}{244}}-{\frac {295\,\boldsymbol{\nu_{109}}}{3904}}+{\frac {1791\,\boldsymbol{\nu_{137}}}{
+3904}}+3/16\,\boldsymbol{\nu_{181}}\\
+&+1/8\,\boldsymbol{\nu_{202}}+1/16\,\boldsymbol{\nu_{204}}+{\frac {49
+\,\boldsymbol{\nu_{58}}}{256}}+{\frac {59\,\boldsymbol{\nu_{9}}}{2048}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{212}} &
+\begin{aligned}
+&\hphantom{+}{\frac {
+7\,\boldsymbol{\nu_{164}}}{32}}+{\frac {217\,\boldsymbol{\nu_{108}}}{2928}}-1/2\,\boldsymbol{\nu_{69}}-
+{\frac {23\,\boldsymbol{\nu_{7}}}{3072}}-{\frac {31\,\boldsymbol{\nu_{124}}}{5856}}-{\frac {
+\boldsymbol{\nu_{131}}}{183}}-{\frac {247\,\boldsymbol{\nu_{132}}}{11712}}\\
+&+{\frac {5\,\boldsymbol{\nu_{127}}}{11712}}+1/16\,\boldsymbol{\nu_{79}}-1/32\,\boldsymbol{\nu_{51}}+{\frac {\boldsymbol{\nu_{48}}}{
+96}}+{\frac {7\,\boldsymbol{\nu_{59}}}{32}}+{\frac {5\,\boldsymbol{\nu_{80}}}{96}}-1/8\,\boldsymbol{\nu_{206}}\\
+&+{\frac {1879\,\boldsymbol{\nu_{83}}}{11712}}-{\frac {1147\,\boldsymbol{\nu_{90}}}{
+11712}}+{\frac {617\,\boldsymbol{\nu_{109}}}{5856}}-{\frac {735\,\boldsymbol{\nu_{137}}}{
+1952}}+{\frac {7\,\boldsymbol{\nu_{58}}}{32}}\\
+&+1/8\,\boldsymbol{\nu_{165}}+{\frac {3\,\boldsymbol{\nu_{9}}}{256}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{213}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {79\,\boldsymbol{\nu_{124}}}{488}}-{\frac {313\,\boldsymbol{\nu_{109}}}{488}}+{\frac {873\,\boldsymbol{\nu_{137}}}{488}}+{\frac {3\,\boldsymbol{\nu_{127}}
+}{976}}-{\frac {65\,\boldsymbol{\nu_{108}}}{244}}+{\frac {47\,\boldsymbol{\nu_{132}}}{976}}\\
+&-
+{\frac {17\,\boldsymbol{\nu_{131}}}{122}}-3/4\,\boldsymbol{\nu_{79}}-1/8\,\boldsymbol{\nu_{80}}+{\frac 
+{371\,\boldsymbol{\nu_{83}}}{976}}-1/8\,\boldsymbol{\nu_{51}}-{\frac {47\,\boldsymbol{\nu_{90}}}{244}}\\
+&-
+{\frac {5\,\boldsymbol{\nu_{59}}}{32}}+{\frac {7\,\boldsymbol{\nu_{9}}}{256}}-{\frac {9\,\boldsymbol{\nu_{48}}}{32}}-{\frac {7\,\boldsymbol{\nu_{55}}}{32}}-{\frac {5\,\boldsymbol{\nu_{58}}}{32}}+
+{\frac {5\,\boldsymbol{\nu_{7}}}{1024}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{214}} &
+\begin{aligned}
+&-{\frac {11\,\boldsymbol{\nu_{108}}}{732
+}}-1/2\,\boldsymbol{\nu_{69}}-{\frac {37\,\boldsymbol{\nu_{7}}}{1536}}-{\frac {103\,\boldsymbol{\nu_{124}}}{1464}}+{\frac {59\,\boldsymbol{\nu_{131}}}{732}}+{\frac {53\,\boldsymbol{\nu_{132}}}{
+2928}}-{\frac {7\,\boldsymbol{\nu_{127}}}{2928}}\\
+&+1/4\,\boldsymbol{\nu_{79}}+1/8\,\boldsymbol{\nu_{51}}+
+{\frac {17\,\boldsymbol{\nu_{48}}}{48}}+3/16\,\boldsymbol{\nu_{55}}+{\frac {7\,\boldsymbol{\nu_{59}}}{
+16}}-1/24\,\boldsymbol{\nu_{80}}-{\frac {581\,\boldsymbol{\nu_{83}}}{2928}}\\
+&-{\frac {883\,\boldsymbol{\nu_{90}}}{2928}}+{\frac {161\,\boldsymbol{\nu_{109}}}{1464}}-{\frac {69\,\boldsymbol{\nu_{137}}}{488}}+{\frac {7\,\boldsymbol{\nu_{58}}}{16}}-{\frac {\boldsymbol{\nu_{9}}}{128}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{215}} & 
+\begin{aligned}
+&\hphantom{+}{\frac {7\,\boldsymbol{\nu_{164}}}{32}}+{\frac {217\,\boldsymbol{\nu_{108}}}{976}}-3/4
+\,\boldsymbol{\nu_{69}}-{\frac {5\,\boldsymbol{\nu_{7}}}{256}}-{\frac {31\,\boldsymbol{\nu_{124}}}{1952
+}}-{\frac {\boldsymbol{\nu_{131}}}{61}}-{\frac {247\,\boldsymbol{\nu_{132}}}{3904}}\\
+&+{\frac {
+5\,\boldsymbol{\nu_{127}}}{3904}}+3/16\,\boldsymbol{\nu_{79}}+1/32\,\boldsymbol{\nu_{51}}+3/16\,\boldsymbol{\nu_{48}}+{\frac {3\,\boldsymbol{\nu_{55}}}{32}}+{\frac {7\,\boldsymbol{\nu_{59}}}{16}}\\
+&+1/32\,\boldsymbol{\nu_{80}}-1/8\,\boldsymbol{\nu_{206}}-{\frac {73\,\boldsymbol{\nu_{83}}}{3904}}-{\frac {659\,
+\boldsymbol{\nu_{90}}}{3904}}+{\frac {617\,\boldsymbol{\nu_{109}}}{1952}}-{\frac {2205\,\boldsymbol{\nu_{137}}}{1952}}\\
+&+{\frac {7\,\boldsymbol{\nu_{58}}}{16}}+1/8\,\boldsymbol{\nu_{165}}+{\frac {
+\boldsymbol{\nu_{9}}}{128}}
+\end{aligned}
+\\
+\addlinespace
+\midrule
+\addlinespace
+\boldsymbol{\nu_{216}} & 
+\begin{aligned}
+&-{\frac {\boldsymbol{\nu_{149}}}{96}}-1/24\,\boldsymbol{\nu_{151}}+1/24\,\boldsymbol{\nu_{153}}+{\frac {\boldsymbol{\nu_{160}}}{96}}+{\frac {5\,\boldsymbol{\nu_{164}}}{384}}+1/48\,\boldsymbol{\nu_{165}}+1/48\,\boldsymbol{\nu_{178}}\\
+&+1/48\,\boldsymbol{\nu_{202}}-1/32\,
+\boldsymbol{\nu_{204}}+1/32\,\boldsymbol{\nu_{206}}+{\frac {\boldsymbol{\nu_{20}}}{768}}+{\frac {67\,
+\boldsymbol{\nu_{7}}}{49152}}+{\frac {9\,\boldsymbol{\nu_{9}}}{4096}}-{\frac {41\,\boldsymbol{\nu_{48}}}{1536}}\\
+&-{\frac {\boldsymbol{\nu_{51}}}{64}}-{\frac {9\,\boldsymbol{\nu_{55}}}{512}}-{\frac 
+{17\,\boldsymbol{\nu_{58}}}{512}}-{\frac {17\,\boldsymbol{\nu_{59}}}{512}}+1/32\,\boldsymbol{\nu_{69}}-
+1/32\,\boldsymbol{\nu_{79}}+{\frac {\boldsymbol{\nu_{80}}}{192}}\\
+&+{\frac {199\,\boldsymbol{\nu_{83}}}{
+11712}}+{\frac {851\,\boldsymbol{\nu_{90}}}{46848}}+{\frac {11\,\boldsymbol{\nu_{108}}}{5856
+}}-{\frac {161\,\boldsymbol{\nu_{109}}}{11712}}+{\frac {103\,\boldsymbol{\nu_{124}}}{11712}}
++{\frac {7\,\boldsymbol{\nu_{127}}}{23424}}\\
+&-{\frac {59\,\boldsymbol{\nu_{131}}}{5856}}-{
+\frac {53\,\boldsymbol{\nu_{132}}}{23424}}+{\frac {69\,\boldsymbol{\nu_{137}}}{3904}}
+\end{aligned}
+\\
+\addlinespace
+\bottomrule
+\caption{Solution of Perturbative Area Metric Equivariance Equations.}\label{AreaSol}
+\end{longtable}
+\endgroup
