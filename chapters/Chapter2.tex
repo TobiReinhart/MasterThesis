@@ -559,9 +559,8 @@ We start our development of a framework that will allow us to construct perturba
 \begin{align}
     (v_{AI_k}) := (x^m,v_A,v_{Ap},v_{AI}).
 \end{align}
-In order to distinguish the appearing derivative indices $I_k,J_k,...$ that label higher spacetime derivatives from those that label higher derivatives w.r.t. the coordinates of $J^2F$ we denote the latter ones by caligraphic letters
-%add this to introduction !!!
-$\mathcal{I}_k, \mathcal{J}_k$, ... . Finally we introduce the coordinate expression of the deviation from the expansion point 
+In order to distinguish the appearing derivative indices $I_k,J_k,...$ that label higher spacetime derivatives from those that label higher derivatives w.r.t. the coordinates of $J^2F$ we denote the latter ones by letters
+$\tilde{I}_k, \tilde{J}_k$, ... . Finally we introduce the coordinate expression of the deviation from the expansion point 
 \begin{align}
     (H_{AI_k}) := (v_{AI_k}) - (N_{AI_k}) = (x^m-x_0^m,v_A-N_A,v_{Ap},v_{AI}).
 \end{align}
@@ -570,13 +569,13 @@ Before we write down the concrete expression for the expansion of the Lagrangian
 \begin{align} \label{generalPowerSL}
     \begin{aligned}
     &L_{per} \cdot  \mathrm{d}^4x = \mathcal{L}_{per} : J^2F \longrightarrow \Lambda^4M \\
-    &L_{per} = \sum_{n=0}^r \sum_{k_1,...,k_n = 0}^2 a^{\mathcal{I}_k} \cdot J_{\mathcal{I}_k}^{A_1I_{k_1}...A_nI_{k_n}} H_{A_1I_{k_1}} \cdot ... \cdot H_{A_nI_{k_n}}
+    &L_{per} = \sum_{n=0}^r \sum_{k_1,...,k_n = 0}^2 a^{\tilde{I}_k} \cdot J_{\tilde{I}_k}^{A_1I_{k_1}...A_nI_{k_n}} H_{A_1I_{k_1}} \cdot ... \cdot H_{A_nI_{k_n}}
     \end{aligned}
 \end{align}
 %rewrite this ???
 %
 %
-As before the $a^{\mathcal{I}_k} =: a^{A_1I_{k_1}...A_nI_{k_n}}$ are constants. 
+As before the $a^{\tilde{I}_k} =: a^{A_1I_{k_1}...A_nI_{k_n}}$ are constants. 
 In order to clarify this last expression further, we now explicitly provide the first three orders of this expansion. For that particular case, we drop any numerical factors due to the intertwiners as this simply corresponds to redefining the constants. Furthermore as before we are going to split the sums over the ${A_iI_{k_i}}$ into the different contributions $(v_A,v_{Ap},v_{AI})$:
 \begin{align}\label{LPert}
 \begin{aligned}
@@ -648,7 +647,7 @@ We evaluate the equation at $x_0=0$ to find in the first-order the trivial equat
 Inserting the series ansatz and evaluating at $x_0=0$ now yields the equation $a_1=0$. Although the prolonged ODE is of second derivative order, after evaluating it at the expansion point, we now obtained an equation for the first-order expansion coefficient. Proceeding with the next orders we will find $a_2 = 1$ and $a_i = 0$ for $i < 2$. Hence the power series solution reads $f_{per} = a_0 + x^2$, which obviously is correct solution. Nevertheless, during each step of the construction of this power series solution, we had to prolong the ODE one order further than it is usually required for the given order of the expansion constants. This was necessary due to the fact that although the ODE was of first derivative order, at the expansion point $x_0=0$ the only term that contains first-order derivatives vanishes. If we had constructed a power series solution around any other point $x_0 \neq 0$ this would not have happened. Note that this vanishing of the highest derivative order at the expansion point is in one to one correspondence with the rank defects that were featured by (\ref{DiffeoEqnFormal}) when evaluated at the expansion point provided by $N_A$. 
 
 Returning now to our original problem the construction of power series solutions to (\ref{DiffeoEqnFormal}) we thus can proceed as usual, by successively prolonging the PDE and inserting the series expansion, we only have to keep in mind that in order to obtain the general solution up to a given order we actually have to prolong to one order higher in order to take the additional lower-order equations stemming from the rank defect at $N_A$ into account.  At first sight, this might sound like a massive disadvantage as with each prolongation order the PDE gets increasingly magnified in its size. We are, however, in the fortunate situation that we can predict the precise form of the additionally occurring lower-order equations in arbitrary order. All these equations simply encode the Lorentz invariance of the various expansion constants. In particular, note that by taking appropriate prolongations of the second equation in (\ref{DiffeoEqnFormal}) we can really construct such lower-order equations that govern the Lorentz invariance for all expansion constants in the general power series expansion of the Lagrangian. 
-Considering this we can severely reduce the dimensions of any linear equation systems that may arise during the construction of such power series solutions by not taking the expansion constants $a^{\mathcal{I}_k} \equiv a_0, a^A, a^{Ap},...$ as arbitrary constants and then solve the appropriate newly obtained lower-order equations to ensure that they describe the components of Lorentz invariant tensors, but by including from the very beginning only such expansion coefficients in the power series that are Lorentz invariant.
+Considering this we can severely reduce the dimensions of any linear equation systems that may arise during the construction of such power series solutions by not taking the expansion constants $a^{\tilde{I}_k} \equiv a_0, a^A, a^{Ap},...$ as arbitrary constants and then solve the appropriate newly obtained lower-order equations to ensure that they describe the components of Lorentz invariant tensors, but by including from the very beginning only such expansion coefficients in the power series that are Lorentz invariant.
 
 As we are dealing with linear equations, it suffices to construct a basis of the appropriate space of Lorentz invariant constant tensors of the corresponding valence and symmetry. This can be achieved by making use of some well-known results from classical invariant theory, more precisely the so-called \textit{\textbf{first fundamental theorem}} (see \cite{Aslaksen1995InvariantTO} and also \cite{PROCESI1976306}). Roughly speaking and restricting attention to the special orthogonal groups $SO(n)$ it states all objects that are invariant under the $(m,n)$ tensor representation, i.e. the tensor product of $m$ copies of the fundamental $SO(n)$ representation and $n$ copies of its dual, for $m \neq n$ can be obtained by forming expressions that solely involve the $SO(n)$ invariant metric\footnote{Which is given by $\eta_{ab}$ for the special case of the Lorentz group $SO(1,3)$.}, the $n$-dimensional Levi-Civita symbol $\epsilon_{a1...an}$ and the corresponding contravariant objects. Applying this to the special case of the Lorentz group $SO(1,3)$ at hand we find that for a given kind of expansion coefficient, for instance $a^{AB}$ we can obtain a basis of Lorentz invariant expressions by first writing down the most general expression for $a^{AB}$ that can be constructed from the invariant metric $\eta_{ab}$, its inverse $\eta^{ab}$, $\epsilon_{abcd}$ and $\epsilon^{abcd}$ that is consistent with the symmetries and the index structure of $a^{AB}$. To that end it is best to transform $a^{AB}$ back to the form involving spacetime indices for instance $a^{abcdefgh} := a^{AB}J_A^{abcd}J_B^{efgh}$, if the gravitational field is described by a rank $(0,4)$ tensor field. It is then straight forward to reduce the most general expression obtained in this fashion to a basis by removing linear dependencies.
 
@@ -864,10 +863,10 @@ We complete the chapter by providing an explicit Algorithm \ref{Algo2} for the p
 \KwData{Matter theory $\mathcal{L}_{mat} : F_{grav} \times J^1F_{mat} \rightarrow \Lambda^4M$, expansion order $k \in \mathbb{N}$, flat Lorentz invariant expansion point $p_0 \in F_{grav}$}
 \KwResult{Most general diffeomorphism invariant, causal compatible gravitational Lagrangian expanded as finite power series $\mathcal{L}_{grav,per}$ to order $k$ around $p_0$.}
 Compute the constant tensors $C^{Bm}_{An}$. \\
-Expand the Lagrangian as described in (\ref{generalPowerSL}) around $p_0 \equiv (x_0^m,N_A,0,0)$ with expansion coefficients $a^{\mathcal{I}_k}$.\\
-Restrict to those $a^{\mathcal{I}_k}$ that generate $2^{\text{nd}}$-derivative-order EOM. \\
-Insert the most generall Lorentz invariant expressions for the $a^{\mathcal{I}_k}$.\\
-Solve the perturbative equivariance equations for the $a^{\mathcal{I}_k}$ by plugging in $L_{grav,per}$ in (\ref{DiffeoEqnFormal}) and all necessary prolongations and evaluating the resulting expressions at $p_0$.\\
+Expand the Lagrangian as described in (\ref{generalPowerSL}) around $p_0 \equiv (x_0^m,N_A,0,0)$ with expansion coefficients $a^{\tilde{I}_k}$.\\
+Restrict to those $a^{\tilde{I}_k}$ that generate $2^{\text{nd}}$-derivative-order EOM. \\
+Insert the most generall Lorentz invariant expressions for the $a^{\tilde{I}_k}$.\\
+Solve the perturbative equivariance equations for the $a^{\tilde{I}_k}$ by plugging in $L_{grav,per}$ in (\ref{DiffeoEqnFormal}) and all necessary prolongations and evaluating the resulting expressions at $p_0$.\\
 Compute the induced expansion of the Principal Symbol.\\
 Chose a $(n-4) \times (n-4)$ full ranked submatrix of the Principal Symbol by removing rows $(A_1...A_4)$ and columns $(B_1...B_4)$ from it. \\
 Compute the expansion of the determinant of the chosen submatrix.\\

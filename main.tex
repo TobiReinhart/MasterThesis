@@ -119,15 +119,7 @@
   \endtitlepage% X
 }
 \usepackage{xkeyval}
-\newenvironment{Zusammenfassung}{%
-  \titlepage% X
-  \null\vfil% X
-  \begin{center}\normalfont\usekomafont{disposition}Zusammenfassung\end{center}%
-}{%
-  \par
-  \vfil\null% X
-  \endtitlepage% X
-}
+
 
 
 
@@ -181,12 +173,12 @@ Incorporating two fundamental requirements into our endeavor, diffeomorphism inv
 Proving that the PDE system is involutive and hence allows for a perturbative treatment, we develop a framework for the construction of perturbative theories of gravity, described in terms of a power series expansions of the gravitational Lagrangian that satisfy the two conditions. The two crucial requirements are then expressed by linear equations for the expansion coefficients of the power series which can readily be solved using a computer algebra program that we specifically designed for this purpose. We test the thus obtained framework treating two examples of particular interest, namely the construction of a perturbative metric theory of gravity --- which turns out to be equivalent to General relativity --- and the generalization to so-called Area Metric Gravity.
 \end{abstract}
 
-\begin{Zusammenfassung}
-In dieser Arbeit untersuchen wir die zentrale Frage des Forschungsgebietes Constructive Gravity, nämlich wie sich Gravitationsdynamik aus grundlegenden Forderungen herleiten lässt anstatt diese zu postulieren.
-Unter der Verwendung zweier solcher grundlegender Forderungen, der Diffeomorphismen Invarianz der Gravitations Theorie sowie deren kausaler Kompatibilität mit einer gegebenen Materie Theorie, nutzen wir moderne mathematische Techniken wie die Theorie der Jet Bündel und Aspekte aus der formellen Theorie partieller Differentialgleichungen um die beiden Forderungen in rigorose Mathematik zu übersetzen. So leiten wir ein zur geforderten Diffeomorphismen Invarianz äquivalentes System aus linearen partiellen Differentialgleichungen erster Ordnung her. Die Forderung nach kausaler Kompatibilität kann schließlich als Bedingung an das Prinzipal Polynom der Gravitations Theorie, einem speziellen Bestandteil der Gravitations Bewegungsgleichung, formuliert werden. 
-Weiterhin beweisen wir dass das System aus partiellen Diffferentialgleichungen involutiv ist und daher eine störungstheoretische Betrachtung ermöglicht. So entwickeln wir ein Rahmenwerk für die Konstruktion von störungstheoretischen Reihenentwicklungen von Gravitationstheorien, die die beiden fundamentalen Bedingungen erfüllen. Unter Verwendung der Reihenentwicklung offenbaren sich die beiden fundamentalen Bedingungen als lineare Gleichungen für die entsprechenden Entwicklungskoeffizienten. Diese können mithilfe eines speziell für diesen Zweck von uns entwickelten Computerprogramms gelöst werden.
+\begin{abstract}
+In dieser Arbeit untersuchen wir die zentrale Frage des Forschungsgebietes Constructive Gravity: Wie kann Gravitationsdynamik aus grundlegenden Forderungen hergeleitet werden, anstatt diese zu postulieren.
+Unter der Verwendung zweier solcher grundlegender Forderungen, der Diffeomorphismen Invarianz der Gravitations Theorie sowie deren kausaler Kompatibilität mit einer gegebenen Materie Theorie, nutzen wir moderne mathematische Techniken wie die Theorie der Jet Bündel und Aspekte aus der formellen Theorie partieller Differentialgleichungen, um die beiden Forderungen in rigorose Mathematik zu übersetzen. So leiten wir ein zur geforderten Diffeomorphismen Invarianz äquivalentes System aus linearen partiellen Differentialgleichungen erster Ordnung her. Die Forderung nach kausaler Kompatibilität kann schließlich als Bedingung an das Prinzipal Polynom der Gravitations Theorie, einem speziellen Bestandteil der Gravitations Bewegungsgleichung, formuliert werden. 
+Weiterhin beweisen wir, dass das System aus partiellen Diffferentialgleichungen involutiv ist und daher eine störungstheoretische Betrachtung ermöglicht. So entwickeln wir ein Rahmenwerk für die Konstruktion von störungstheoretischen Reihenent- wicklungen von Gravitationstheorien, die die beiden fundamentalen Bedingungen erfüllen. Unter Verwendung der Reihenentwicklung offenbaren sich die beiden fundamentalen Bedingungen als lineare Gleichungen für die entsprechenden Entwicklungskoeffizienten. Diese können mithilfe eines speziell für diesen Zweck von uns entwickelten Computerprogramms gelöst werden.
 Wir testen die von uns entwickelten Techniken an zwei besonders bedeutenden Beispielen, der Konstruktion einer störungstheoretischen, metrischen Gravitations Theorie --- welche sich letztendlich als äquivalent zur Allgemeinen Relativitätstheorie herausstellt ---  sowie der Verallgemeinerung hin zur sogenannten Area Metrischen Gravitation. 
-\end{Zusammenfassung}
+\end{abstract}
 
 \tableofcontents
 
@@ -195,24 +187,23 @@ Wir testen die von uns entwickelten Techniken an zwei besonders bedeutenden Beis
 \listoflistings
 
 \chapter*{Acknowledgments}
-Firstly I would like to thank Frederic Schuller without whose inspiring ideas this thesis undoubtedly would not have been possible. Frederic without your distinctive way of motivating your students, I certainly would not have worked as hard on this thesis as I did.
+Firstly, I would like to thank Frederic Schuller without whose inspiring ideas this thesis undoubtedly would not have been possible. Frederic without your distinctive way of motivating your students, I certainly would not have worked as hard on this thesis as I did.
 
-Further, I would like to thank Jörn Wilms for accepting my thesis as an official supervisor
-and thereby allowed me to register it formally. 
+Further, I would like to thank Jörn Wilms for accepting my thesis as an official supervisor and thereby allowed me to register it formally. 
 I also have to thank Marcus Werner (Yukawa Institute for Theoretical Physics in Kyoto, Japan) who in collaboration with the Universe Journal provided financial support for my participation at the 15th Marcel Grossmann meeting in Rome. 
-Besides of that, I would also like to mention that a large number of computer calculations that were carried out during this thesis were only possible due to the great IT-infrastructure that the physics department provides for their students. 
+Besides, I would also like to mention that a large number of computer calculations that were carried out during this thesis were only possible due to the great IT-infrastructure that the physics department provides for their students. 
 
 
 Moreover, I would like to thank my colleagues for helping me in numerous aspects and never becoming tired of answering my countless questions.
 Amongst them, I would especially like to thank Nils Alex.
 Not only did he provide a patient instructor in introducing me to the world of software engineering, 
-but a large part of the results that are presented in this thesis were, in fact, developed in collaboration with him. 
+but a large part of the results that are presented in this thesis was, in fact, developed in collaboration with him. 
 
 
 I would also like to thank my family for tirelessly supporting my passion for physics and my friends for accepting my lack of time.
 Especially I would like to thank my girlfriend Nici not only for her assistance in nearly every part of my life but also
 for tolerating that during numerous occasions throughout the day my mind almost entirely revolves around physics. 
-Special thank is also due to our cat Lucky, who selflessly provided me accompany during the long periods of writing this thesis. 
+Special thanks are also due to our cat Lucky, who selflessly provided me accompany during the long periods of writing this thesis. 
 
 Lastly, I certainly have to acknowledge anyone who will prove the stamina of not only reading but also finishing this rather long master's thesis. I appreciate it. 
 
