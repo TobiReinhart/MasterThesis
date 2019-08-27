@@ -374,7 +374,7 @@ We end this section by reformulating the previous results in terms of a definite
 \KwData{Matter theory $ \mathcal{L}_{mat} : F_{grav} \times J^1F_{mat} \longrightarrow \Lambda^4M$.
 }
 \KwResult{Most general diffeomorphism invariant, causal compatible $\mathcal{L}_{grav} : J^2F_{grav} \longrightarrow \Lambda^4M$ .}
-Compute the constant tensors $C^{Bm}_{An}$. \\
+Compute the vertical coefficients $C^{Bm}_{An}$ of the infinitesimal diffeomorphism action on $F_{grav}$. \\
 Set up the equivariance equations (\ref{DiffeoEqn}). \\
 Solve the equivariance equations (\ref{DiffeoEqn}) to obtain the most general $L_{grav}(x^m,v_A,v_{Am},v_{AI})$.\\
 Compute the EOM $\frac{\delta L_{grav}}{\delta v_A}$.\\
@@ -694,7 +694,7 @@ Finally, prolonging the PDE to third derivative order inserting the power series
 Together with the requirement that the expansion constants are Lorentz invariant these equations really contain all information that we can extract from the PDE (\ref{DiffeoEqnFormal}) for the construction of the power series Lagrangian. In particular, as we have shown that the PDE is involutive, we are now sure that we do not miss hidden information.  By means of this perturbative power series solution, the requirement of constructing diffeomorphism invariant Lagrangians for any given field theory hence boils down to the much simpler quest of solving the above system of linear equations.
 Note that we could no easily derive a similar expression for the higher-order contributions to such a power series expansion. Is the resulting linear systems then however become extensively complicated and in most cases practically unsolvable we only provide the linear systems contributing to the first three orders of the power series Lagrangian here. 
 
-Besides these equations take precisely this form no matter what specific field is in consideration. The only quantities in the above linear equations (\ref{order1}), (\ref{order2}) and (\ref{order3}) that explicitly depend on the chosen field bundle are the constant tensors $C_{An}^{Bm}$ that are easily obtained from the infinitesimal diffeomorphism action on the field bundle $F$.  For that reason, we have also cast the treatment of such equations into a computer program. Once we have specified the particular field bundle that we wish to work on and the expansion point we therefore only need to set up the computer with the expression for $C_{An}^{Bm}$ and the appropriate ranges for the fiber indices of the field bundle $A$ as initial input, the construction of the appropriate Lorentz invariant expansion coefficients and the subsequent solution of the above linear equations is then treated fully automatically. Details can again be found in chapter \ref{computerAlg}. 
+Besides these equations take precisely this form no matter what specific field is in consideration. The only quantities in the above linear equations (\ref{order1}), (\ref{order2}) and (\ref{order3}) that explicitly depend on the chosen field bundle are the vertical coefficients $C^{Bm}_{An}$ of the infinitesimal diffeomorphism action on $F$. For that reason, we have also cast the treatment of such equations into a computer program. Once we have specified the particular field bundle that we wish to work on and the expansion point we therefore only need to set up the computer with the expression for $C_{An}^{Bm}$ and the appropriate ranges for the fiber indices of the field bundle $A$ as initial input, the construction of the appropriate Lorentz invariant expansion coefficients and the subsequent solution of the above linear equations is then treated fully automatically. Details can again be found in chapter \ref{computerAlg}. 
 
 We end this chapter by examining how we can incorporate the requirement of causal compatibility of matter and gravitational equations in the perturbative approach.
 We assume again that we are handed a matter theory 
@@ -862,7 +862,7 @@ We complete the chapter by providing an explicit Algorithm \ref{Algo2} for the p
 \SetAlgoLined
 \KwData{Matter theory $\mathcal{L}_{mat} : F_{grav} \times J^1F_{mat} \rightarrow \Lambda^4M$, expansion order $k \in \mathbb{N}$, flat Lorentz invariant expansion point $p_0 \in F_{grav}$}
 \KwResult{Most general diffeomorphism invariant, causal compatible gravitational Lagrangian expanded as finite power series $\mathcal{L}_{grav,per}$ to order $k$ around $p_0$.}
-Compute the constant tensors $C^{Bm}_{An}$. \\
+Compute the vertical coefficients $C^{Bm}_{An}$ of the infinitesimal diffeomorphism action on $F_{grav}$. \\
 Expand the Lagrangian as described in (\ref{generalPowerSL}) around $p_0 \equiv (x_0^m,N_A,0,0)$ with expansion coefficients $a^{\tilde{I}_k}$.\\
 Restrict to those $a^{\tilde{I}_k}$ that generate $2^{\text{nd}}$-derivative-order EOM. \\
 Insert the most generall Lorentz invariant expressions for the $a^{\tilde{I}_k}$.\\
