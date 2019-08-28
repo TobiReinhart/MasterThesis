@@ -338,13 +338,38 @@ Given a function $f \in C^{\infty}(F)$, with coordinate expression $f(x^m, v_A)$
 \begin{align}\label{totDer}
     D_j g = \sum _{k = 0}^{q}  v_{AI_{k+1}}I^{I_{k+1}}_{ji_1...i_k}J_{J_k}^{i_1...i_k}\partial^{AJ_k} g.
 \end{align}
+Moreover, we can also define higher-order total derivatives:
+\begin{align}\label{highrTotder}
+    D_{I_k} = J_{I_k}^{i_1...i_k}D_{i_1} ...  D_{i_k}.
+\end{align}
+When computing several such higher-order total derivatives, we can combine them as follows:
+\begin{align}
+D_{I_k} \circ D_{J_m} = J_{I_k}^{i_1...i_k}J_{J_m}^{j_1...j_m}D_{i_1}  ...  D_{i_k}  D_{j_1}  ...  D_{j_m}.
+\end{align}
+Note that the intertwiners $J_{I_k}^{i_1...i_k}$ and $J_{J_m}^{j_1...j_m}$ encode the total symmetry in the two sets of spacetime indices $\{i_1,...,i_k\}$ and $\{j_i,...,j_m\}$, respectively, but not the additional total symmetry w.r.t. any permutation of spacetime indices that mixes the two sets, that is enforced by the contraction against $D_{i_1}  ...  D_{i_k}  D_{j_1}  ...  D_{j_m}$.
+To further account for such additional symmetries, we need to combine the two sets of spacetime indices in a new derivative index of order $k+m$. This suggests the definition of an additional intertwiner map that relates a derivative index of order $k+m$ with a pair of derivative indices of order $k$ and $m$:
+\begin{align}
+   v_{AI_{k+m}} := v_{AI_k} v_{AI_m}
+   \underbrace{I^{I_K}_{i_1...i_k}I^{I_m}_{j_1...j_m}J^{i_1...i_k j_1...j_m}_{I_{k+m}}}_{\substack{=: J^{I_k I_m}_{I_{k+m}}}}  \   ,
+\end{align}
+where the last intertwiner $J^{i_1...i_k j_1...j_m}_{I_{k+m}}$ is simply the standard intertwiner for indices of order $k+m$.
+Similarly, we define:
+\begin{align}
+    I^{I_{k+m}}_{I_k I_m} := J_{I_k}^{i_1...i_k}J_{I_m}^{j_1...j_m}I^{I_{k+m} }_{i_1...i_k j_1...j_m},
+\end{align}
+As we then again recover the usual relation \begin{align}
+J^{I_kI_m}_{I_{k+m}} I^{J_{k+m}}_{I_k I_m} = \delta^{J_{k+m}}_{I_{k+m}}.
+\end{align}
+With this definition and further using the inverse relation to $(\ref{highrTotder})$, we find that the composition of total derivatives can equivalently be computed as:
+\begin{align}
+   D_{I_k} \circ D_{I_m} =  I^{I_{k+m} }_{I_k I_m} D_{I_{k+m}}.
+\end{align}
  
 
 Lastly, with the definition of the total derivative at hand, given a function on some finite order jet bundle $f \in C^{\infty}(J^qF)$ with coordinate expression $f(x^m,v_A,v_{Am},v_{AI},v_{AI_{3}},...,v_{AI_{q}})$ we define its \textit{\textbf{variational derivative}} as: 
 \begin{align}\label{varDer}
-\frac{\delta f}{\delta v_A} := \partial^{A}g + \sum _{k = 1}^q (-1)^k D_{I_k}(\partial^{AI_k}f),
+\frac{\delta f}{\delta v_A} := \partial^{A}g + \sum _{k = 1}^q (-1)^k D_{I_k}(\partial^{AI_k}f).
 \end{align}
-where $D_I := J_I ^{ij} D_i D_j$ and similar $D_{I_k} := J_{I_k}^{i_1...i_k} D_{i_1} ... D_{i_k}$.
 Note that in particular the variational derivative of a function on the $q$th-order jet-bundle in general yields a function on the $2q$th-order jet bundle.
 
 Now we have finally developed the necessary structure to give a precise definition of a \textbf{\textit{Lagrangian}} for a field theory whose dynamical objects are sections of the field bundle $(F, \pi_F,M)$.
@@ -538,16 +563,8 @@ We start by applying the above construction to the pullback action of diffeomorp
     \xi_F = \xi^m \frac{\partial}{\partial x^m} + \xi^A \frac{\partial}{\partial v_A} &= \xi^m \frac{\partial}{\partial x^m} + C_{An}^{Bm} v_B \partial_m \xi ^n \frac{\partial}{\partial v_A}. 
 \end{aligned}
 \end{align}
-%
-%
-%
-%
-%
-%Change the name of constant tensors
-%
-%
-%
-Here the constant tensor $C_{An}^{Bm}$ describes the vertical part of $\xi_F$, i.e., the part of the vector field that lies in the kernel of $(\pi_F)_{\ast}$. We will call $C_{An}^{Bm}$ the \textit{\textbf{vertical coefficient}} of the infinitesimal  diffeomorphism action on $F$. The precise form of the vertical coefficient clearly depends on the specific nature, i.e., rank and symmetries of the tensor fields in consideration.
+Note that the fact that the vertical component of the lifted vector field --- the part of (\ref{LieF}) that is proportional to $\frac{\partial}{\partial v_A}$ and hence lies in the kernel of $(\pi_F)_{\ast}$ --- is linear in the fibre coordinates $v_A$. This is a consequence of restricting attention to field bundles that describe tensor fields.
+The constant tensor $C_{An}^{Bm}$ that describes the vertical part of $\xi_F$, will in the following be called the \textit{\textbf{vertical coefficient}} of the infinitesimal  diffeomorphism action on $F$. The precise form of the vertical coefficient clearly depends on the specific nature, i.e., rank and symmetries of the tensor fields in consideration.
 It can most easily be computed by making use of the standard rules of computing Lie derivatives in coordinates and further using:
 \begin{align}
     \mathcal{L}_{\xi} G_A = \partial_m G_A \xi^m + C_{An}^{Bm} G_B \partial_m \xi ^n.
@@ -1013,7 +1030,7 @@ where on $\Sigma_{t_0}$ in adapted coordinates $x^0=const$.
 
 The bundle $J^1(F_{t_0})$ is the first-order jet bundle that is constructed over the restricted field bundle $F_{t_0}$. In particular, as the restricted field bundle is a bundle with base space $\Sigma_{t_0}$, this is now a bundle over the embedded hypersurface as well. The elements in $J^1(F_{t_0})$ are spatial 1-jets of sections of this bundle. They are obtained by adjoining spatial derivatives along $\Sigma_{t_0}$ to such a section. In adapted coordinates we have: 
 \begin{align}
-(j^1_pG_{t_0}) = (x^{\mu},G_A,\partial_{\mu} G_A) \big \vert.
+(j^1_pG_{t_0}) = (x^{\mu},G_A,\partial_{\mu} G_A) \big \vert_p.
 \end{align}
 
 Compared to the information contained in a spacetime jet, the spatial 1-jet of a section lacks the contribution of derivatives in a direction that is vertical to the embedded hypersurface, i.e., a direction described by a tangential vector in $\mathcal{V}\Sigma_{t_0}$. It can be shown (cf. \cite{1998physics...1019G}) that these missing derivative contributions are precisely encoded by the elements of
