@@ -1,15 +1,17 @@
 \dictum{
-We gather main results and techniques from the formal approach to PDE theory with the focus lying in particular on the construction of formal power series solutions to a given PDE. These techniques allow us to formulate a second and final requirement that is posed on the gravitational dynamics if spacetime is additionally inhabited by a matter field: the causal compatibility between matter and gravitational EOM. Thus PDE theory bridges the gap between gravitational and matter dynamics.
-Moreover, we develop a concise framework for the perturbative computation of gravitational Lagrangians that we formulate in terms of a perturbative construction algorithm.
+We gather main results and techniques from the formal approach to PDE theory with the focus lying in particular on the construction of power series solutions to a given PDE. These techniques allow us to formulate a second and final requirement that is posed on the gravitational dynamics if spacetime is additionally inhabited by a matter field: the causal compatibility between matter and gravitational EOM. Thus PDE theory bridges the gap between gravitational and matter dynamics.
+Moreover, we develop a concise framework for the perturbative computation of gravitational Lagrangians that we formulate in terms of an explicit perturbative construction algorithm.
 }
 \section{Formal Theory, Symbols and Involution}
-Given the achievement of translating the first requirement we wish to pose on any gravitational dynamics --- the invariance under spacetime diffeomorphisms --- into an equivalent linear, first-order PDE system that we presented in the previous chapter any further considerations we provide in this chapter aim to solve one of the following two problems:
+Given the achievement of translating the first requirement we wish to pose on any gravitational dynamics --- the invariance under spacetime diffeomorphisms --- into an equivalent linear, first-order PDE system that we presented in the previous chapter, any further considerations that we provide in this chapter aim to solve one of the following two problems:
 \begin{itemize}
-    \item Assume we are given a concrete matter theory that employs a certain tensor field as background geometry. Once we have solved the stated PDE system for that specific tensor field, we obtain a gravitational Lagrangian that describes the dynamics of this tensor field. The gravitational dynamics is however not independent of the matter field, as the latter will appear as source term in the gravitational EOM, describing how gravity is generated.
+    \item Assume we are given a concrete matter theory that employs a certain tensor field as background geometry.
+    Such a matter theory could, for instance, be phenomenologically motivated. As we do not want to specify the values of the tensorial background geometry by hand we pursue the goal of supplementing the matter theory with dynamical equations that allow us to predict values of the tensor field, i.e., we complete the matter theory with an appropriate theory of gravity for the tensorial geometry. To that end, we try to solve the equivariance equations (\ref{DiffeoEqn}) specifically for the given tensor field. 
+    Once we have solved the stated PDE system, we obtain a gravitational Lagrangian that describes the dynamics of this tensor field. The gravitational dynamics is however not independent of the matter field, as the latter will appear as source term in the gravitational EOM, describing how gravity is generated.
     The matter and gravity EOM actually constitute a coupled system (see Figure \ref{MatterGrav}), neither of the EOM can be solved independently. This raises the question of how we can ensure the two theories are, in fact, compatible in the sense that the given EOMs can be solved together.
-    \item The above consideration obviously requires that we can obtain solutions to the equivariance PDE. This itself in no way constitutes a simple task and certainly demands specific techniques.
+    \item The above consideration obviously requires that we are able to obtain solutions to the equivariance PDE. This itself in no way constitutes a simple task and certainly demands specific techniques.
 \end{itemize}
-Although these two problems at first glance seem to have not much in common, it turns out that the key to the solution of either lies in an in-depth treatment of partial differential equations. 
+Although these two problems at first glance seem to have not much in common, it turns out that the key to the solution of either one of them lies in an in-depth treatment of partial differential equations. 
 To that end, we will develop some additional tools and techniques that are indispensable for the  \textit{\textbf{formal theory}} PDEs.
 
 \begin{figure}[hbt!]
@@ -30,17 +32,16 @@ background};
 
 The formal theory of partial differential equations is phrased in terms of differential geometry. A PDE is defined as a submanifold of a jet bundle that is constructed over the bundle with base space coordinates being provided by the \textit{\textbf{independent variables}} and fiber coordinates given by the \textit{\textbf{dependent variables}} of the given problem. The advantage of such a description of partial differential equations does not only lie in the fact that one works now with coordinate independent geometric objects, but the jet bundle approach also enables one to treat the derivatives of a given function as algebraically independent new variables. Thus many problems that arise in the context of PDEs can be stated and solved in terms of basic \textit{\textbf{linear algebra}}. This, in particular yields the additional convenience that many of those arising problems can be tackled by using \textbf{\textit{computer algebra}}.
 
-An Introduction to the formal theory of partial differential equations can be found in \cite{saunders_1989}. A comprehensive treatment is provided in \cite{seiler2009involution} were also deeper results regarding the algebraic and homological aspects of the formal PDE theory are included. We will especially follow along the lines of \cite{seiler1994analysis} as there the relevant notions are concisely described with just the right level of rigor that is necessary for our subsequent developments. We start by stating the needed definitions, most of which can be found in \cite{seiler1994analysis}.
+An introduction to the formal theory of partial differential equations can be found in \cite{saunders_1989}. A comprehensive treatment is provided in \cite{seiler2009involution} were also deeper results regarding the algebraic and homological aspects of the formal PDE theory are included. We will especially follow along the lines of \cite{seiler1994analysis} as there the relevant notions are concisely described with just the right level of rigor that is necessary for our subsequent developments. We start by stating the needed definitions, most of which can be found in \cite{seiler1994analysis}.
 \begin{definition}[PDE]
 Let $(F,\pi_F,M)$ be a bundle and $J^qF$ the $q$th-order jet bundle over $F$. A $q$th-order PDE $R_q$ on $F$ is a  submanifold of $J^qF$. A solution to a given PDE is a section $G \in \Gamma(F)$ s.t. the jet prolongation $j^q(G)$ lies entirely in $R_q$.  
 \end{definition}
 Sometimes one additionally requires $R_q$ to be fibered. Thereby one ensures that the PDE poses no restrictions on the independent variables, i.e., the base space coordinates on $M$ (this version is for instance used in \cite{seiler1994analysis}).
 For many of the following computations, it is crucial to know the dimension of the jet bundle of order $q$ over a bundle $F$ with base space dimension $m$ and fiber dimension $n$:
-
 \begin{align}
     \mathrm{dim}J^qF = n\binom{m+q}{q}
 \end{align}
-From this definition of a PDE one can obtain a PDE in the traditional sense by specifying an additional vector bundle $(E,\pi_E,M)$ over the same base space together with a bundle morphism
+From this definition of a PDE one can obtain a PDE in the traditional sense by specifying an additional vector bundle $(E,\pi_E,M)$ over the same base space together with a bundle morphism:
 \begin{align}
     \begin{aligned}
     \Phi : J^qF &\longrightarrow E\\
@@ -52,50 +53,52 @@ the PDE is described by the individual component  equations:
 \begin{align}
     \Phi^{\tilde{B}}(x^a, v_A, v_{Ap},...v_{AI_q}) = 0.
 \end{align}
-Whenever we will work with such a representation of a PDE, w.l.o.g. we will always assume that the bundle morphism $\Phi^{\tilde{B}}$ is specified such that the individual component equations are really independent, i.e. the bundle morphism is non-degenerate. 
+Whenever we will work with such a representation of a PDE, w.l.o.g. we will always assume that the bundle morphism $\Phi^{\tilde{B}}$ is specified such that the individual component equations are really independent, i.e., the bundle morphism is non-degenerate. 
 
 Given such a representation of a PDE, we can apply the usual jet bundle operations to the individual component functions $\Phi^{\tilde{B}}$, i.e., we can \textit{\textbf{prolong}} them to higher derivative orders by taking the previously defined \textit{\textbf{total derivative}} of the representation $\Phi^{\tilde{B}}$ along any base space direction and we can use the jet bundle projections to \textit{\textbf{project}} them to any lower derivative order at wish. We denote the PDE that is described by the combined set of the given equations $\Phi^{\tilde{B}}=0$ and all possible prolongations $D_i\Phi^{\tilde{B}}=0$ by $R_{q+1} \subset J^{q+1}F$. Similarly we denote higher prolongations of a PDE by $R_{q+r}$. We call $R_{q+r}$ the \textit{\textbf{prolongation}} of $R_q$ to $(q+r)$th-order or short the $r$th prolongation of $R_q$. 
 
 Considering this, it is particularly interesting to first prolong a given PDE and then use the jet projections to define $R_q^{(1)} := \pi_{(q+1),q}\left ( R_{q+1} \right ) \subset J^qF $. As the following example taken from \cite{seiler1994analysis} illustrates this in general does not recover the original equation but only a subset $R_q^{(1)} \subset R_q$, i.e., prolonging and projecting might reveal additional equations.
 \begin{example}\label{ExamplePDE}
-Consider the PDE on the first-order jet bundle over the trivial bundle $\mathbb{R}^3 \times \mathbb{R}$ with jet bundle  coordinates $(x,y,z,u,u_x,u_y,u_z)$ defined by 
+Consider the PDE on the first-order jet bundle over the trivial bundle $\mathbb{R}^3 \times \mathbb{R}$ with jet bundle  coordinates $(x,y,z,u,u_x,u_y,u_z)$ defined by: 
 \begin{align}
     R_1 : \begin{cases} u_z + y \cdot u_x &= 0 \\
                         u_y &= 0.
             \end{cases}
 \end{align}
-prolonging the first equation w.r.t. $y$, i.e., applying the total derivative 
+prolonging the first equation w.r.t. $y$, i.e., applying the total derivative: 
 \begin{align}
 D_y = \partial_y + u_{xy} \cdot \partial_{u_x} + u_{yy} \cdot \partial_{u_y} + u_{yz} \cdot \partial_{u_z}
 \end{align}
-to it we obtain the equation $u_{yz} + y \cdot u_{xy} + u_x =0$. Prolonging the second equation w.r.t. $x$ and $z$, however, shows that all second-order derivatives in the newly obtained equation vanish and we are left with $u_x = 0$. Inserting this equation into the first equation we furthermore find $u_z = 0$. Hence we find that the prolonged and projected system is given by 
+to it we obtain the equation $u_{yz} + y \cdot u_{xy} + u_x =0$. Prolonging the second equation w.r.t. $x$ and $z$, however, shows that all second-order derivatives in the newly obtained equation vanish and we are left with $u_x = 0$. Inserting this equation into the first equation we furthermore find $u_z = 0$. Hence we find that the prolonged and projected system is given by: 
 \begin{align}\label{prolo}
     R_1^{(1)} : \begin{cases} u_x = 0 \\
                         u_y = 0\\
                         u_z = 0 .
             \end{cases}
 \end{align}
-Note that the involved prolongations were mandatory to get this result; the additional equations in (\ref{prolo})  can not be obtained by purely algebraic manipulations. 
+Note that the involved prolongations were mandatory to get this result; the additional equations in (\ref{prolo})  cannot be obtained by purely algebraic manipulations. 
 \end{example}
 Such additional independent equations that can only be obtained by prolonging to a higher-order and then projecting the PDE again to the previous order are called \textit{\textbf{integrability conditions}}. 
 Usually, they might be found by constructing a specific linear combination of prolonged equations and thereby eliminating appropriate terms that contain derivatives of leading order such that one ends up with an equation of sub-maximal derivative order. In our example, we prolonged the first equation w.r.t. $y$ and then subtracted the prolongation of the second equation w.r.t $x$ and $z$ to discard the second derivatives $u_{xy}$ and $u_{yz}$ respectively. 
 
 If a PDE $R_q$ already contains all its integrability conditions, i.e., if for all $n\geq 0$ it holds that $R_{q+n}^{(1)} = R_{q+n}$ we call it \textit{\textbf{formally integrable}}.
-Formal integrability is of particular importance when computing \textbf{\textit{power series solutions}} to a given PDE. The essence of the computation of power series solutions is to make a general power series ansatz with arbitrary expansion coefficients for the solution of the PDE and then, by successively inserting the ansatz into the PDE and all necessary prolongations, and evaluating the resulting equations at the expansion point, deriving linear equations for the expansion coefficients. 
-To be more precise, we are not interested in computing such solutions up to infinte order and then summing up the series to obtain a real solution of the PDE, but we will simply abort the power series construction after some finite order, neglecting all further contributions that are obtained in higher orders.
+Formal integrability is of particular importance when computing \textbf{\textit{power series solutions}} to a given PDE. The essence of the computation of power series solutions is making a general power series ansatz with arbitrary expansion coefficients for the solution of the PDE and then, by successively inserting the ansatz into the PDE and all necessary prolongations, and evaluating the resulting equations at the expansion point, deriving linear equations for the expansion coefficients. 
+To be more precise, we are not interested in computing such solutions up to infinite order and then summing up the series to obtain a real solution of the PDE, but we will simply abort the power series construction after some finite order, neglecting all further contributions that are obtained in higher orders.
+If for some reason, the individual contributions are known to decrease with an increase in their order, the aborted power series solution yields a reasonable approximation to the real situation. 
 In other words we will consider a \textit{\textbf{perturbative}} treatment of the PDE.
 Thus we will only construct the power series ansatz\footnote{Such an ansatz should probably better be called a polynomial ansatz, but to emphasis the similarities to the case of computing real power series solutions we will stick to calling it a (finite) power series ansatz.} up to the desired finite order.
+
 Using adapted coordinates on $F$, such a finite power series solution to a given PDE $R_q$, described by the equations $\Phi^{\tilde{A}} = 0$, can be computed as follows: We take a point $p_0 \in M$ --- in the adapted coordinates on $F$ we define: $x^m(p_0) =: x_0^m$ --- and construct a general section $G\in\Gamma(F)$ as arbitrary, finite power series around $x_0$:
 \begin{align}
 \begin{aligned}
     G_A(x^m) :=  \sum_{k=0}^{r} a_{AI_k}I^{I_k}_{i_1...i_k}(x^{i_1}-x_0^{i_1}) \cdot ... \cdot (x^{i_k}- x_0^{i_k}), 
 \end{aligned}
 \end{align}
-where $a_{AI_k}$ are constants. Note in particular that the $q$th jet prolongation of $G$ evaluated at $p_0$ then yields up to combinatorial\footnote{This is a result from our factor-less definition of the finite power series. The factor-less definition is used as it is in closer relation to the later treatment of perturbative Lagrangians.} factors the following coordinate expression:
+where $a_{AI_k}$ are constants. Note in particular that the $q$th jet prolongation of $G$ evaluated at $p_0$ then yields, up to combinatorial\footnote{This is a result from our factor-less definition of the finite power series. The factor-less definition is used as it is in closer relation to the later treatment of perturbative Lagrangians.} factors, the following coordinate expression:
 \begin{align}
     j^k(G)(p_0) \equiv \left ( x_0^m, a_A, a_{Am}, a_{AI}, ... a_{AI_q} \right ).
 \end{align}
-Hence plugging in the finite power series into the PDE $\Phi^{\tilde{A}} =0$ and evaluating at $x^m=x^m_0$ yields a purely algebraic equation system for the expansion coefficients up to order $q$, that we can readily solve. Prolonging the equation to order $q+r$ and then plugging in the power series ansatz we obtain algebraic equations for the higher expansion coefficients up to order $q+r$ that feature the priorly solved coefficients $a_{AI_0},...,a_{AI_q}$ as inhomogenities. We then can solve these equations for the new expansion coefficients $a_{AI_{q+1}}...a_{AI_{q+r}}$. The solutions, in general, will be given by expressions that contain the lower order coefficients.
+Hence plugging in the finite power series into the PDE $\Phi^{\tilde{A}} =0$ and evaluating at $x^m=x^m_0$ yields a purely algebraic equation system for the expansion coefficients up to order $q$, that we can readily solve. Prolonging the equation to order $q+r$ and then plugging in the power series ansatz we obtain algebraic equations for the higher expansion coefficients up to order $q+r$ that feature the priorly solved coefficients $a_{AI_0},...,a_{AI_q}$ as inhomogeneities. We then can solve these equations for the new expansion coefficients $a_{AI_{q+1}}...a_{AI_{q+r}}$. The solutions, in general, will be given by expressions that contain the lower-order coefficients.
 The algebraic equation system that we obtain looks as follows:
 \begin{align}
 \begin{aligned}
@@ -105,28 +108,31 @@ R_{q+r} &:  D_{J_r}\Phi^{\tilde{A}}(x_0^m,a_A,...,a_{AI_{q+r}}) &&= 0,
 \end{align}
 where as before $D_{J_r} = J^{i_1...i_r}_{J_r} D_{i_1} ... D_{i_r}$.
 
-The occurrence of integrability conditions during prolongations of the PDE then hinders one to construct such power series solution order by order. Potentially occurring integrability conditions yield further equations for lower order coefficients that only are present after higher-order prolongations are computed. Thus, once one has solved the problem up to some finite order $r$, it might happen that integrability conditions of higher prolongation order yield additional equations that further restrict the obtained solution. 
-Hence the computed solution is in fact too general, i.e. it includes fake solutions.
-One can, however, in most cases, not easily predict during which prolongations these integrability conditions appear. Therefore, if a PDE is not formally integrable, i.e., if it generates integrability conditions, one can never be sure that obtained perturbative solutions are not too general. To put it differently, one can never be sure if all information that is contained in the PDE is also included into the construction of the power series solution, or if information remains hidden in integrability conditions.
-Although the perturbative treatment of PDEs compromises a vast field in theoretical physics, techniques that allow for the proof of formal integrability of a given PDE that we will subsequently present seem to be to a large extent unknown in this area of research. 
+The occurrence of integrability conditions during prolongations of the PDE then hinders one to construct such a power series solution order by order. Potentially occurring integrability conditions yield further equations for lower-order coefficients that only are present after higher-order prolongations are computed. Thus, once one has solved the problem up to some finite order $r$, it might happen that integrability conditions of higher prolongation order yield additional equations that further restrict the obtained solution. 
+Hence the computed solution is, in fact, too general, i.e., it includes fake solutions.
+One can, however, in most cases, not easily predict during which prolongations these integrability conditions appear. Therefore, if a PDE is not formally integrable, i.e., if it generates integrability conditions, one can never be sure that obtained perturbative solutions are not too general. To put it differently, one can never be sure if all information that is contained in the PDE is also included in the construction of the power series solution, or if information remains hidden in integrability conditions.
 
-We have seen that the occurrence of integrability conditions thoroughly disturbs the order by order construction of power series solutions, and hence provides the notion of a formally integrable PDE with its significance. Without further developments, checking formal integrability of a given PDE is, however, extensively involved, as in principle one would need to check the infinite number of conditions $R_{q+r}^{(1)} = R_{q+r}$ corresponding to an infinite number of prolongations and projections of the PDE. Thus the subsequent developments concentrate on the question of how we might predict in advance whether or not integrability conditions occur during the prolongation of a given PDE, without actually carrying out the prolongation.
+Although the perturbative treatment of PDEs compromises a vast field in theoretical physics, techniques that allow the proof of formal integrability of a given PDE that we will subsequently present, seem to be to a large extent unknown in this area of research. 
 
-To that end, we take a closer look at the order by order construction of power series solutions.
+Summing up, we have thus seen that the occurrence of integrability conditions thoroughly disturbs the order by order construction of power series solutions. When treating a specific PDE perturbatively, it is, therefore, essential to first check whether or not the PDE is formally integrable; if it is not any obtained solution is practically meaningless.
+As we, in particular, want to develop a framework for the perturbative treatment of the equivariance equation (\ref{DiffeoEqn}), we hence have to establish techniques for proofing formal integrability.
+Explicitly checking formal integrability of a given PDE is, however, extensively involved, as in principle one would need to probe the infinite number of conditions $R_{q+r}^{(1)} = R_{q+r}$ corresponding to an infinite number of prolongations and projections that one would need to compute. Thus subsequent developments concentrate on how we can predict in advance whether or not integrability conditions occur during specific prolongations of a given PDE, without actually carrying out the explicit computation.
+
+To that end, we take a closer look at a specific step that is involved in  the order by order construction of power series solutions, namely the step of solving the various linear systems.
 In each order $q+r$ only a certain number of the newly obtained highest order coefficients $a_{AI_{q+r}}$ is in fact determined by the prolonged PDE $R_{q+r}$, some of the coefficients are not governed by the PDE at all and can hence be chosen freely.
-For the particular case of \textit{\textbf{quasilinear}}\footnote{Note that although if $R_q$ is not quasilinear, all the prolongations will be quasilinear as the total derivative always yields quasilinear equations. For the same reason PDEs that are obtained as EOMs to a given Lagrangian will always be quasilinear.} PDEs, i.e., PDEs that are linear in the highest order derivatives that occur, the expansion coefficients that can be chosen freely are given by the kernel of a matrix that is obtained from the highest derivative part of the PDE. This matrix is called the \textit{\textbf{symbol}} of the PDE.
+For the particular case of \textit{\textbf{quasilinear}}\footnote{Note that although if $R_q$ is not quasilinear, all its prolongations will be quasilinear as the total derivative always yields quasilinear equations. For the same reason PDEs that are obtained as EOMs to a given Lagrangian will always be quasilinear.} PDEs, i.e., PDEs that are linear in the highest order derivatives that occur, the expansion coefficients that can be chosen freely are given by the kernel of a matrix that is obtained from the highest derivative part of the PDE. This matrix is called the \textit{\textbf{symbol}} of the PDE.
 \begin{definition}[symbol]
 Given a PDE $R_q$ with representation $\Phi^{\tilde{B}}=0$, its symbol is the following matrix that only contains the highest-derivative-order contributions to $R_q$:
 \begin{align}
     M_q : M_q^{(\tilde{B})({AI_q})} := \left ( \frac{\partial \Phi^{\tilde{B}}}{\partial v_{AI_q}} \right ).
 \end{align}
-The rows of the symbol are labeled by the independent equations $\tilde{B}$, i.e. the components of $(\Phi^{\tilde{B}})$, the columns are labeled the different highest-derivative-order contributions $(AI_q)$.
+The rows of the symbol are labeled by the independent equations $\tilde{B}$, i.e., the components of $(\Phi^{\tilde{B}})$, the columns are labeled the different highest-derivative-order contributions $(AI_q)$.
 Similarly we can directly obtain the symbol of the prolonged equations $R_{q+r}$ as:
 \begin{align}\label{proSym}
     M_{q+r} : M_{q+r} ^{(\tilde{B}I_r) (AI_{q+r})}:= \left ( \frac{\partial D_{I_r}\Phi^{\tilde{B}
     }}{\partial v_{AI_{q+r}}} \right ). 
 \end{align}
-Note that now the rows are labeled by order $r$ prolongations of individual equations $(\tilde{B}I_r)$\footnote{As the notation of: $M_{q+r} ^{(\tilde{B}I_r) (AI_{q+r})}$ for the prolonged symbol really only is used to indicate the way we arrange the different contributions in the matrix thou shalt not be confused by the appearance of $I_r$ in upper position on the left-hand-side and in lower position on the right-hand-side.}.
+Note that now the rows are labeled by order $r$ prolongations of individual equations $(\tilde{B}I_r)$\footnote{As the notation of: $M_{q+r} ^{(\tilde{B}I_r) (AI_{q+r})}$ for the prolonged symbol really only is used to indicate the way we arrange the different contributions in the matrix the reader should not be confused by the appearance of $I_r$ in upper position on the left-hand-side and in lower position on the right-hand-side.}.
 \end{definition}
 It is important to observe that the symbol of a quasilinear PDE really only collects its highest-derivative-order coefficients in matrix form.
 If the PDE $R_q$ contains a contribution proportional to $\frac{\partial \Phi^{\tilde{B}}}{\partial v_{AI_q}}$ , recalling the definition of the total derivative (\ref{totDer}), we find that the prolonged PDE $R_{q+r}$ involves precisely the same contribution, but multiple times and possibly in multiple of its individual equations. 
@@ -157,12 +163,13 @@ When constructing order by order power series solutions
 a general power series ansatz contains
 $n\binom{m+q-1}{m-1}$ undetermined expansion coefficients $a_{AI_q}$ of order $q$th. 
 Precisely those expansion coefficients $a_{AI_q}$ that lie in the kernel of the symbol $M_q$ are not restricted by the PDE $R_q$ and thus can be specified arbitrarily. In particular, the number of such arbitrary expansion coefficients equals the dimension of the kernel of $M_q$. 
-Hence the rank of the symbol $M_q$ contains the entire information regarding how many undetermined expansion coefficients of order $q$ appear in the general power series solution.
-Similarly, The ranks of the prolonged symbols $M_{q+r}$ yield this information for higher order expansion coefficients $a_{AI_{q+r}}$.
-If we restrict attention to analytic solutions of a given PDE, and further disregard questions concerning the convergence of the power series solutions for a moment, then such undetermined expansion coefficients in the general power series solution are in one-to-one correspondence with arbitrary Taylor coefficients in the expansion of the general analytic solution. Thus the symbol $M_q$ and all its prolongations $M_{q+r}$ govern all the information of how many arbitrary Taylor coefficients the general analytic solution of the PDE contains, i.e. these matrices contain the entire information about the size of the formal\footnote{As we disregarded the question of convergence of power series solutions such power series are also called formal power series. } solution space of the given PDE. 
+Hence the rank of the symbol $M_q$ contains the complete information regarding how many undetermined expansion coefficients of order $q$ appear in the general power series solution.
+Similarly, the ranks of the prolonged symbols $M_{q+r}$ yield this information for higher-order expansion coefficients $a_{AI_{q+r}}$.
 
-For our future developments the symbol, however, foremost attains its significance due to its close relation to the occurrence of integrability conditions.
-Note that for integrability conditions to occur during a prolongation it must be possible to form a certain linear combination of prolonged equations that does not contain contributions in the highest derivative order. Such linear combinations only exist if the symbol has sub-maximal rank, i.e. suffers from rank defects, as the specific linear combination of equations that does not contain contributions in highest derivative order then precisely produces a zero-row in the symbol matrix. This can be seen in more detail by prolonging a given PDE and then taken its linearization, i.e., the Jacobi matrix of its representation:
+If we restrict attention to analytic solutions of a given PDE, and further disregard questions concerning the convergence of the power series solutions for a moment, then such undetermined expansion coefficients in the general power series solution are in one-to-one correspondence with arbitrary Taylor coefficients in the expansion of the general analytic solution. Thus the symbol $M_q$ and all its prolongations $M_{q+r}$ govern all the information of how many arbitrary Taylor coefficients the general analytic solution of the PDE contains, i.e., these matrices contain the entire information about the size of the formal\footnote{As we disregarded the question of convergence of power series solutions such power series are also called formal power series. } solution space of the given PDE. 
+
+For our future developments, the symbol, however, foremost attains its significance due to its close relation to the occurrence of integrability conditions.
+Note that for integrability conditions to occur during a prolongation, it must be possible to form a certain linear combination of prolonged equations that does not contain contributions in the highest derivative order. Such linear combinations only exist if the symbol has sub-maximal rank, i.e., suffers from rank defects, as the specific linear combination of equations that does not contain contributions in highest derivative order then precisely produces a zero-row in the symbol matrix. This can be seen in more detail by prolonging a given PDE and then taken its linearization, i.e., the Jacobi matrix of its representation:
 \begin{align}
 \def\arraystretch{2.5}
 \begin{bmatrix}
@@ -175,35 +182,37 @@ The lower right block is simply the Jacobi matrix of the un-prolonged PDE. The u
 There exist essentially three possibilities:
 \begin{itemize}
     \item If the corresponding linear operation also produces a zero row in the upper right block, we are left with an overall zero row which thus can be removed. 
-    Hence in this case we do not end up with an integrability condition.\\
+    Hence, in this case, we do not end up with an integrability condition.\\
     \item If the obtained row in the upper right block is not equal to zero, there might nevertheless exist a linear combination of equations in the original system $R_q$ that is equivalent to this row. 
     If this is the case the newly obtained equation does not add information to the system and hence can be discarded. Thus also then we do not obtain an integrability condition but merely find a redundant description of the system.\\
     \item Only if the row that is produced in the upper right block yields a new equation that is independent of the original system we have found an integrability condition.  
 \end{itemize}
 Hence for an integrability condition to occur, it is necessary, but not sufficient to have a sub-maximal rank in the prolonged symbol.
 
-The above discovery, that qualitatively relates rank defects in the prolonged symbol to the possible occurrence of integrability conditions further allows one  to also quantitatively deduce the number of integrability conditions that occur during a prolongation.
+The above discovery that qualitatively relates rank defects in the prolonged symbol to the possible occurrence of integrability conditions further allows one  to also quantitatively deduce the number of integrability conditions that occur during a prolongation.
 The following formula relates the manifold dimension of the prolonged and projected PDE $R_q^{(1)}$, i.e., the system that contains all integrability conditions that occur during the prolongation to the next higher order, to the manifold dimension of the prolonged PDE $R_{q+1}$ and the dimension of the solution space of the prolonged symbol $\mathrm{dim(}M_{q+1})$, i.e., the dimension of its kernel. The formula is proven in \cite{seiler1994analysis}:
 \begin{align}
     \mathrm{dim}(R_{q}^{(1)}) = \mathrm{dim}(R_{q+1}) - \mathrm{dim}(M_{q+1}).
 \end{align}
 
-Given this observation we deduce that we can avoid the possible occurrence of integrability conditions entirely by performing only such prolongations that are certain to not produce rank defects in the prolonged symbol. Such prolongations obviously only constitute a subset of all possible prolongations and hence, in general, do not yield all independent equations of the prolonged PDE. In special cases, they, however, nevertheless contain the full information of $R_{q+1}$.
+Given this observation, we deduce that we can avoid the possible occurrence of integrability conditions entirely by performing only such prolongations that are certain not to produce rank defects in the prolonged symbol. Such prolongations obviously only constitute a subset of all possible prolongations and hence, in general, do not yield all independent equations of the prolonged PDE. In special cases, they, however, nevertheless contain at least the entire information about the highest derivative order equations in $R_{q+1}$.
 
 We follow \cite{seiler1994analysis} in introducing the \textit{\textbf{class}} of a \textit{\textbf{derivative index}} $I_k$. We label the coordinates of $M$ from $1$ to $m$ and call the label of a specific coordinate $x^j$ its class. The notion of introducing class labels can then be extended to higher derivative indices $I_k$, by defining the label of such an index as the according to the base space coordinate labeling, smallest $i$ s.t. there exist $j_2,...,j_k\geq i$ with $I^{I_k}_{ij_2...j_k} \neq 0$, i.e., the "smallest" base space derivative label that occurs in the higher derivative index $I_k$.
 
-We proceed by sorting the columns of the solved symbol $M_q$ according to classes without demanding a particular ordering of the elements inside a given class, i.e. we sort the derivative indices with the largest possible class to the leftmost columns of the matrix and those belonging to the smallest class to its rightmost columns.
+We proceed by sorting the columns of the solved symbol $M_q$ according to classes without demanding a particular order of the elements inside a given class, i.e., we sort the derivative indices with the largest possible class to the leftmost columns of the matrix and those belonging to the smallest class to its rightmost columns.
 The following considerations only involve linear algebra. Therefore we are free to apply linear operations to the symbol $M_q$ to equivalently work with its reduced row-echelon form. We call the thus obtained row reduced symbol matrix the solved form of $M_q$. 
-It is important that we only perform row-operations on the symbol, such that the class ordering of its columns remains intact.
-We call a row of $M_q$ with pivot\footnote{The pivot of a row is its first non-zero element.} belonging to a column of class $k$ a row of class $k$, and we denote the number of rows in $M_q$ that are of class $k$ by $\beta_q(k)$. Note that there is no deeper meaning to the class of a derivative index. We could, in particular, apply a simple change of coordinates on $J^qF$ to thoroughly mix up the class ordering. The reason why we nevertheless sort the columns of $M_q$ according to classes is that we will use this labeling to introduce a systematic way of computing all possible prolongations that are guaranteed not to produce rank defects in the symbol and therefore are also certainly free of integrability conditions.
+It is crucial that we only perform row-operations on the symbol, such that the class order of its columns remains intact.
+We call a row of $M_q$ with pivot\footnote{The pivot of a row is its first non-zero element.} belonging to a column of class $k$ a row of class $k$, and we denote the number of rows in $M_q$ that are of class $k$ by $\beta_q(k)$. Note that there is no deeper meaning to the class of a derivative index. We could, in particular, apply a simple change of coordinates on $J^qF$ to thoroughly mix up the class order. The reason why we nevertheless sort the columns of $M_q$ according to classes is that we will use this labeling to introduce a systematic way of computing all possible prolongations that are guaranteed not to produce rank defects in the symbol and therefore are also certainly free of integrability conditions.
 
 This can be achieved by proceeding as follows:
-Given an equation that corresponds to a row of class $k$, we only prolong it w.r.t. $D_j$ for  $j \leq k$. The corresponding independent variables $x^j$ where $j \leq k$ are then called the \textbf{\textit{multiplicative variables}} of this equation. If we proceed like this for the whole PDE, i.e., prolonging each equation only with respect to its multiplicative variables, we are guaranteed to not produce integrability conditions. All prolongations that are obtained in such a way will have distinct pivot elements in $M_{q+1}$ and hence are independent. Therefore we get no rank defects in the prolonged symbol and hence no integrability conditions.
+Given an equation that corresponds to a row of class $k$, we only prolong it w.r.t. $D_j$ for  $j \leq k$. The corresponding independent variables $x^j$ where $j \leq k$ are then called the \textbf{\textit{multiplicative variables}} of this equation. If we proceed like this for the whole PDE, i.e., prolonging each equation only with respect to its multiplicative variables, we are guaranteed not to produce integrability conditions. All prolongations that are obtained in such a way will have distinct pivot elements in $M_{q+1}$ and hence are independent. Therefore we get no rank defects in the prolonged symbol and hence no integrability conditions.
 
-For the above reason it would be particularly nice to be able to prolong the equations of a given PDE $R_q$ only w.r.t. to their multiplicative variables and nevertheless know that one obtains all independent equations of $R_{q+1}$ by doing so, as this would  guarantee that during the prolongation to order $q+1$ the PDE never generates integrability conditions that are of maximal order, i.e. of order $q+1$.
-Note that prolongations w.r.t. non-multiplicative multiplicative variables might nevertheless contribute independent equations, but these are then necessarily of lower order, i.e. these precisely are integrability conditions. The idea to distinguish PDEs $R_q$ for which all independent equations can be obtained by multiplicative prolongations only leads to the notation of an \textit{\textbf{involutive symbol}}. 
+For the above reason it would be particularly advantageous to be able to prolong the equations of a given PDE $R_q$ only w.r.t. to their multiplicative variables and nevertheless know that one obtains all independent equations of $R_{q+1}$ by doing so, as this would  guarantee that during the prolongation to order $q+1$ the PDE never generates integrability conditions that are of maximal order, i.e., of order $q+1$.
+Note that prolongations w.r.t. non-multiplicative multiplicative variables might nevertheless contribute independent equations, but these are then necessarily of lower order, i.e., these precisely are integrability conditions.
+In particular, \textit{\textbf{all}} non-multiplicative prolongations either are redundant or yield integrability conditions.
+The idea to distinguish PDEs $R_q$ for which all independent equations can be obtained by multiplicative prolongations only leads to the notation of an \textit{\textbf{involutive symbol}}. 
 \begin{definition}[involutive symbol]
-The symbol $M_q$ of a PDE $R_q$ is called involutive if 
+The symbol $M_q$ of a PDE $R_q$ is called involutive if:
 \begin{align}\label{sumBeta}
     \sum_{k=1}^m k\beta_q(k) = \mathrm{rank}(M_{q+1}).
 \end{align}
@@ -215,7 +224,8 @@ We thus have to restrict to $\delta$-regular coordinates for the above definitio
 Hence for concrete computations in principle, one would have to check that the chosen coordinates are $\delta$-regular.  We will however not be too much concerned by that restriction as in the future developments we will only have to deal with linear PDEs, and for such we will trivially obtain the maximum value of the sum from the dimension of the underlying space of independent variables, without ever having to introduce classes of derivative indices.
 \end{remark}
 Note that the sum of these beta numbers is a lower bound for the rank of the prolonged symbol $M_{q+1}$. $\sum_{k=1}^m \beta(k)$ is precisely the number of independent equations of order $q+1$ that can be obtained by prolongations with respect to multiplicative variables only.  
-Hence for a PDE with an involutive symbol, we can obtain all independent equations of order $q+1$ by prolongations with respect to multiplicative variables only. Any prolongation w.r.t. a non-multiplicative variable then is necessary either redundant or of sub-maximal order $\geq q$ and hence might produces integrability conditions. 
+Hence for a PDE with an involutive symbol, we can obtain all independent equations of order $q+1$ by prolongations with respect to multiplicative variables only. Any prolongation w.r.t. a non-multiplicative variable then is necessary either redundant or of sub-maximal order $\geq q$ and produces integrability conditions. 
+Thus, if the symbol of a given PDE is involutive, for each equation, we can split the possible prolongations into two disjoint sets, those w.r.t. a multiplicative variable that are hence free of integrability conditions, and those w.r.t. a non-multiplicative variable which if the resulting equation is independent of the PDE must produce integrability conditions.
 
 There are further exciting properties of involutive symbols, most of which can be found in \cite{seiler2009involution} and \cite{seiler2009involution}. It is also worth noting that the idea of analyzing the generation of integrability conditions along the lines presented above can be traced back to early works of Janet \cite{janet1920systemes}, \cite{MSM_1927__21__1_0} and Riquier \cite{bateman_1910} in the context of Janet-Riquier theory.
 
@@ -256,7 +266,7 @@ The prolonged system $R_2$ is given by the following $8$ equations:
                         (viii) \ \ \ \ u_{yz} &= 0 
             \end{cases}
 \end{align}
-We can use equation $6$ and equation $8$ to remove all second derivative order contributions from equation $4$.
+We can use equation $vi$ and equation $viii$ to remove all second derivative order contributions from equation $iv$.
 The prolonged symbol $M_2$ thus reads:
 \begin{align}
 M_2 : \begin{cases}
@@ -279,12 +289,13 @@ u_{xx} & u_{xy} & u_{xz} & u_{yy} & u_{yz} & u_{z} \\
 Here we reordered the rows and removed all zero-rows. The rank of matrix $M_2$ clearly is $5$. Therefore the symbol of this example is involutive.
 \end{example}
 
-The involution of the symbol of a PDE is of particular importance as it allows for an efficient criterion whether or not the given PDE if formally integrable, i.e. whether or not it generates integrability conditions during its prolongations.
+The involution of the symbol of a PDE is of particular importance as it allows for an efficient criterion whether or not the given PDE if formally integrable, i.e., whether or not it generates integrability conditions during its prolongations.
+The basic idea is to distinguish the special class of PDEs $R_q$, for which all equations contained in the prolongation $R_{q+1}$ can be reached by prolongations w.r.t. multiplicative variables only. As such multiplicative prolongations are free of integrability conditions, we then know fur sure that the system does not produce integrability conditions during the prolongation to order $q+1$. The astonishing fact, however, is that this then holds also true for all further prolongations, the PDE is then, in fact, formally integrable. 
 If a PDE does not only feature an involutive symbol, but further also is formally integrable, we call the \textit{\textbf{PDE involutive}}.
 \begin{definition}[involutive PDE] \label{invol}
 We call a PDE $R_q$ involutive if it is formally integrable and its symbol $M_q$ is involutive.
 \end{definition}
-Unlike formal integrability, the stronger requirement of an involutive PDE, that in particular encompasses formal integrability, can actually be checked in a finite number of steps.
+Unlike formal integrability, the stronger requirement of an involutive PDE, which in particular encompasses formal integrability, can actually be checked in a finite number of steps.
 To illustrate this we first supplement the following result that is proven in \cite{seiler1994analysis}:
 \begin{theorem}\label{invoCons}
 Let $R_q$ be a PDE with involutive symbol $M_q$ then it holds that:
@@ -297,40 +308,76 @@ Let $R_q$ be a PDE with involutive symbol $M_q$ then it holds that:
 Can be found in \cite{seiler1994analysis}.
 \end{proof}
 It is essential to understand the second implication of the involution of $M_q$. The left-hand side of the equality is obtained by taking the prolonged and projected equation $R_q^{(1)}$ and prolonging it to order $q+1$. In particular, any integrability conditions that is obtained during the projection is hence also prolonged. The right-hand side is given by taking the prolonged equation $R_{q+1}$, prolonging it to order $q+2$, and then projecting it down to order $q+1$. Therefore the equality states that for the case of PDEs with involutive symbol all integrability conditions that might be found during the projection from the second prolongation with order $q+2$ to order $q+1$ are actually prolongations of integrability conditions that were obtained one order before, during the prolongation to order $q+1$.
-Using these two implications of the involution of $M_q$ we can proof the following statement
+Using these two implications of the involution of $M_q$ we can proof the following statement.
 \begin{theorem}
 A PDE $R_q$ is involutive according to definition (\ref{invol}) if its symbol $M_q$ is involutive and performing one prolongation and projection reveals no additional integrability conditions: $R_q^{(1)} = R_q$ .
 \end{theorem}
 \begin{proof}
 The following proof can also be found in (\cite{seiler1994analysis}). As it is quite short we nevertheless also provide it here explicitly.
-Looking at the definition of an involutive PDE we have to proof that the assumption $R_q^{(1)} = R_q$ already guarantees formal intgerabillity, i.e., it holds for all $r \in \mathbb{N}$ that $R_{q+r}^{(1)} = R_{q+r}$. We proof the statement by induction and start with $r=0$. Here the requirement reads $R_q^{(1)}=R_q$ which is precisely the assumption of the theorem. Assuming it holds that $R_{q+r}^{(1)}=R_{q+r}$, as $M_q$ is involutive, theorem (\ref{invoCons}) states that $M_{q+r}$ is involutive too and hence using again the above theorem (\ref{invoCons}) we find that $R_{q+r+1}^{(1)}= (R_{q+r}^{(1)})_{+1}$. Using the induction hypotheses $(i.h.)$ we thus have in total
+Looking at the definition of an involutive PDE we have to proof that the assumption $R_q^{(1)} = R_q$ already guarantees formal integrability, i.e., it holds for all $r \in \mathbb{N}$ that $R_{q+r}^{(1)} = R_{q+r}$. We proof the statement by induction and start with $r=0$. Here the requirement reads $R_q^{(1)}=R_q$ which is precisely the assumption of the theorem. Assuming it holds that $R_{q+r}^{(1)}=R_{q+r}$, as $M_q$ is involutive, theorem (\ref{invoCons}) states that $M_{q+r}$ is involutive too and hence using again the above theorem (\ref{invoCons}) we find that $R_{q+r+1}^{(1)}= (R_{q+r}^{(1)})_{+1}$. Using the induction hypotheses $(i.h.)$ we thus have in total:
 \begin{align}
    R_{q+r+1}^{(1)} \overset{(\ref{invoCons})}{=} (R_{q+r}^{(1)})_{+1} \overset{(i.h.)}{=} (R_{q+r})_{+1} = R_{q+r+1} 
 \end{align}
 which completes the proof. 
 \end{proof}
-Hence to proof involution of a given PDE, which in  particular compromises formal integrability, we only have to proof the involution of the symbol ---which only encompasses standard linear algebra--- and then check whether one further prolongation and projection reveals integrability conditions. Therefore in concrete applications we proceed as follows: We first compute the symbol $M_q$ and its prolongation to check whether $M_q$ meets the requirement 
-
+Hence to proof involution of a given PDE, which in  particular compromises formal integrability, we only have to proof the involution of the symbol ---which only encompasses standard linear algebra--- and then check whether one further prolongation and projection reveals integrability conditions. Therefore in concrete applications we proceed as follows: We first compute the symbol $M_q$ and its prolongation to check whether $M_q$ meets the requirement: 
 \begin{align}
         \sum_{k=1}^m k\beta_q(k) = \mathrm{rank}(M_{q+1}).
 \end{align}
-If it does, we proceed by computing the prolonged PDE $R_{q+1}$ to investigate whether or not one further prolongation reveals additional integrability conditions. This can be achieved by comparing dimensions
-\begin{align}
+If it does, we proceed by computing the prolonged PDE $R_{q+1}$ to investigate whether or not one further prolongation reveals additional integrability conditions. This can be achieved by comparing dimensions:
+\begin{align}\label{dims}
     \mathrm{dim}(R_q^{(1)}) = \mathrm{dim}(R_{q+1}) - \mathrm{dim}(M_{q+1}) \stackrel{?}{=} \mathrm{dim}(R_q).
 \end{align}
 If this requirement is also met the PDE is involutive and hence in particular formally integrable. We are then in a position where we can apply perturbative techniques like the construction of power series solutions to solve the given PDE order by order without running into trouble due to the generation of integrability conditions.
 
-If either one of the above conditions is not met, one needs to work somewhat harder. It can be proven that any given PDE can be completed to an equivalent involutive PDE that has the same solution space by a finite number of prolongations. This fact is famously known as \textbf{\textit{Cartan-Kuranishi Theorem}}. A proof of it can be found in \cite{sweeney1968}. Further details are included in \cite{seiler2009involution} and \cite{seiler1994analysis}.
+\begin{example}
+We consider again the PDE from Example (\ref{ExamplePDE}):
+\begin{align}
+    R_1 : \begin{cases} u_z + y \cdot u_x &= 0\\
+                        u_y &= 0.
+            \end{cases}
+\end{align}
+With prolonged system being given as:
+\begin{align}
+    R_2 : \begin{cases} u_z + y \cdot u_x &= 0 \\
+                        u_y &= 0. \\
+                        u_{xz} + y \cdot u_{xx} &= 0 \\
+                        u_x + u_{yz} + y \cdot u_{xy} &= 0 \\
+                        u_{zz} + y \cdot u_{xz} &= 0 \\
+                        u_{xy} &= 0 \\
+                        u_{yy} &= 0 \\
+                        u_{yz} &= 0 
+            \end{cases}
+\end{align}
+
+We have already shown that the symbol is involutive. 
+The rank of the prolonged symbol $M_2$ was computed to be $5$. As there exist $6$ independent $2$nd-order derivatives, the dimension of its solution space is given by:
+\begin{align}
+    \mathrm{dim}(M_2) = 1.
+\end{align}
+The prolonged PDE $R_2$ is described by $8$ independent equations for $10$ coordinate functions $u,u_x,...,u_{zz}$ and hence has dimension:
+\begin{align}
+    \mathrm{dim}(R_2) = 2.
+\end{align}
+Thus, by using the formula (\ref{dims}), we find that:
+\begin{align}
+    \mathrm{dim}(R_1^{(1)}) = 2 - 1 = 1,
+\end{align}
+i.e., there exists one integrability condition and the PDE is not involutive. This is consistent with the previous treatment (\ref{ExamplePDE}).
+\end{example}
+
+
+If either one of the above conditions is not met, one needs to work somewhat harder. It can be proven that any given PDE can be completed to an equivalent involutive PDE that has the same solution space by a finite number of prolongations and projections. This fact is famously known as \textbf{\textit{Cartan-Kuranishi Theorem}}. A proof of it can be found in \cite{sweeney1968}. Further details are included in \cite{seiler2009involution} and \cite{seiler1994analysis}.
 
 In this thesis, we will never have to complete a PDE to involution. This is a considerable advantage as it will turn out that the PDE (\ref{DiffeoEqn}) encoded the diffeomorphism invariance of a given Lagrangian is rather sizable, and therefore any concrete computation involving it poses a real technical problem not to mention the technicalities arising if we had to work with its prolongation. 
 
 Before we proceed with a more in-depth investigation of the PDE (\ref{DiffeoEqn}) from the formal PDE theoretic point of view, we would like to return to the priorly mentioned fact that the extensive use of linear algebra in formal PDE theory allows one to solve many of the associated problems utilizing computer algebra systems. There already exist several implementations that were developed for precisely that task. One such can be found in the last chapters of \cite{seiler1994analysis} although it seems like there is not much recent contribution to this project. Another such tool consists of the Maple package Janet (see \cite{Janet2} and \cite{Janet}) that implements similar techniques stemming mainly from Janet-Riquier theory in the computer algebra system Maple. 
-Although for our case the treatment of the PDEs that will arise once we consider concrete examples of our developed framework in chapter 4 employing computer algebra will be inevitable we won't use either of the implementations presented above. The reason for that is the fact that the sheer dimension of the systems that we will encounter forces us to use computer algebra that is more specialized towards the systems concerning memory usage. To that end, the computer algebra that we used for these examples was newly developed to a large extent. Details can be found in chapter \ref{computerAlg}.    
+Although for our case the treatment of the PDEs that will arise once we consider concrete examples of our developed framework in chapter 4 employing computer algebra will be inevitable, we won't use either of the implementations presented above. The reason for that is the fact that the sheer dimension of the systems that we will encounter forces us to use computer algebra that is more specialized towards efficient memory usage. To that end, the computer algebra that we used for these examples was newly developed to a large extent. Details can be found in chapter \ref{computerAlg}.    
 
 \section{Causal Compatibility of Matter and Gravitational Dynamics}
 Besides its role in the definition of an involutive PDE, the symbol turns out to be also closely related to the causal structure of a given PDE. To that end, we define its principal part, the so-called \textbf{\textit{Principal Symbol}}.
 \begin{definition}[Principal Symbol] \label{PSym}
-Let $\Gamma(\Lambda^1M) \ni k = k_{a} \mathrm{d}x^a$ be a one form. The Principal Symbol to a given PDE $R_q$ described as kernel of the map $\Phi^{\tilde{A}}$ is the matrix
+Let $\Gamma(\Lambda^1M) \ni k = k_{a} \mathrm{d}x^a$ be a one form. The Principal Symbol to a given PDE $R_q$ described as kernel of the map $\Phi^{\tilde{A}}$ is the matrix:
 \begin{align}
     T^{\tilde{A} B}(k) = \left ( \frac{\partial \Phi^{\tilde{A}}}{\partial v_{BI_q}} \right ) J_{I_q}^{i_1...i_q} k_{i_1} \cdot ... \cdot k_{i_q}.
 \end{align}
