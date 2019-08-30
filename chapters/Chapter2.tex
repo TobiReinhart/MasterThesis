@@ -375,135 +375,165 @@ Before we proceed with a more in-depth investigation of the PDE (\ref{DiffeoEqn}
 Although for our case the treatment of the PDEs that will arise once we consider concrete examples of our developed framework in chapter 4 employing computer algebra will be inevitable, we won't use either of the implementations presented above. The reason for that is the fact that the sheer dimension of the systems that we will encounter forces us to use computer algebra that is more specialized towards efficient memory usage. To that end, the computer algebra that we used for these examples was newly developed to a large extent. Details can be found in chapter \ref{computerAlg}.    
 
 \section{Causal Compatibility of Matter and Gravitational Dynamics}
-Besides its role in the definition of an involutive PDE, the symbol turns out to be also closely related to the causal structure of a given PDE. To that end, we define its principal part, the so-called \textbf{\textit{Principal Symbol}}.
+In the previous developments of techniques for the construction of power series solutions to a given PDE, the essential information was contained in the highest derivative part of the PDE, its symbol. 
+It further turns out that this highest derivative part of the PDE also contains the entire information regarding the causal structure of the PDE. To that end, we introduce a second way of collecting the information of the highest-derivative-order contributions of a PDE, the so-called \textbf{\textit{Principal Symbol}}.
 \begin{definition}[Principal Symbol] \label{PSym}
-Let $\Gamma(\Lambda^1M) \ni k = k_{a} \mathrm{d}x^a$ be a one form. The Principal Symbol to a given PDE $R_q$ described as kernel of the map $\Phi^{\tilde{A}}$ is the matrix:
+Let $ k \in T^{\ast}M$ be a  1-form, in holonomic coordinates on $T^{\ast}M$ we write: $k_{a} \mathrm{d}x^a$. The Principal Symbol to a given $q$th order PDE $R_q$ that is described as kernel of the map $\Phi^{\tilde{A}}$, is the matrix:
 \begin{align}
-    T^{\tilde{A} B}(k) = \left ( \frac{\partial \Phi^{\tilde{A}}}{\partial v_{BI_q}} \right ) J_{I_q}^{i_1...i_q} k_{i_1} \cdot ... \cdot k_{i_q}.
+    T^{\tilde{A} B}(k_a) = \left ( \frac{\partial \Phi^{\tilde{A}}}{\partial v_{BI_q}} \right ) J_{I_q}^{i_1...i_q} k_{i_1} \cdot ... \cdot k_{i_q}.
 \end{align}
 \end{definition}
 \begin{remark}
 Note that it is essential to complete a given PDE to its equivalent involutive form before one can obtain its Principal Symbol in a meaningful way. The reason for that lies in the fact that lower derivative order terms that therefore a priory are not present in the Principal Symbol might nevertheless generate integrability conditions that enter in the highest derivative order. Obviously, the completion to involution depends on the given PDE. Hence in the following treatment, we will assume that all involved PDEs are already involutive.
 \end{remark}
-The entries of the Principal Symbol are homogeneous polynomials in the components of the one form $k_a$.
-The connection of the Principal Symbol to the causal structure of a given PDE can be nicely illustrated by considering \textit{\textbf{wave like}} solutions to the PDE in the \textit{\textbf{infinite frequency}} limit. 
-More precisely, we insert the following ansatz into the PDE:
-\begin{align}\label{waveAns}
-    G_A(x^m) = a_A(x^m) \cdot \mathrm{Re}\left \{ e^{\frac{iS(x^m)}{\lambda}} \right \},
-\end{align}
-Plugging this ansatz into the PDE, described by $\Phi^{\tilde{A}}=0$ and taking the infinite frequency limit $\lambda \rightarrow 0$ one obtains in leading order, i.e., in $\lambda^{-q}$ the following equation
+The principal symbol does not only depend on the 1-form $k$ but of course also defines a map on $J^qF$. Thus we should more appropriately write:
 \begin{align}
-    \left ( \frac{\partial \Phi^{\tilde{A}}}{\partial v_{BI_q}} \right ) J_{I_q}^{i_1...i_q} k_{i_1} \cdot ... \cdot k_{i_q} = 0,
+    T^{A\tilde{B}} = T^{A\tilde{B}}\underbrace{(k_a,x^m,v_A,...,v_{AI_q})}_{T^{\ast}M \times J^qF},
 \end{align}
-where now $k_a = - \partial_aS(x^m)$. Hence if the ansatz shall provide a solution to the PDE in the desired limit, it, in particular, has to solve $T^{\tilde{A} B}(k) = 0$. The infinite frequency limit $\lambda \rightarrow 0 $ is sometimes also called \textit{\textbf{geometric optical limit}}. In terms of standard electrodynamics on a possibly curved background, it treats light propagation through approximating light waves as geometrical rays. Also in the context of any other PDE at hand, this limit can be thought of as describing the ray approximation to the propagation of wave-like solutions. Further information can be found in \cite{seiler1994analysis}, \cite{2012arXiv1211.1914K}, \cite{2011PhRvD..83d4047R} and \cite{2018PhRvD..97h4036D}.
+i.e., understand the principal symbol as a matrix-valued map on $T^{\ast}M \times J^qF$. 
+For notational simplicity we will however briefly write $T^{A\tilde{B}}(k_a)$ most of the time, as this is the crucial dependency of the principal symbol during all further considerations.
 
-To sum up we have seen that in order for the ansatz (\ref{waveAns}) to yield a nontrivial solution with $k_a \neq 0$ to the given PDE $k_a$ has to satisfy the condition $T^{\tilde{A} B}(k) = 0$. To that end, the Principal Symbol must not be injective. The non-injectivity of $T^{\tilde{A} B}(k)$ can be expressed by the vanishing of certain polynomials that can be obtained as sub determinants of the Principal Symbol. To clarify that last statement further, we will in the following restrict to the case where the representation of the PDE is obtained from Euler-Lagrange equations of a Lagrangian. Then we have in particular the situation where the Principal Symbol matrix is a square matrix. We write 
-\begin{align}
-T^{A B}(k) =  \left ( \frac{\partial E^{A}}{\partial v_{BI_q}} \right ) J_{I_q}^{i_1...i_q} k_{i_1} \cdot ... \cdot k_{i_q}.
+The entries of the Principal Symbol are homogeneous polynomials in the components of the 1-form $k_a$.
+The connection of the Principal Symbol to the causal structure of a given PDE can be illustrated best by considering \textit{\textbf{wave like}} solutions to the PDE in the \textit{\textbf{infinite frequency}} limit (cf. \cite{2012arXiv1211.1914K}, \cite{2011PhRvD..83d4047R} and \cite{2018PhRvD..97h4036D}). 
+The infinite frequency limit $\lambda \rightarrow 0 $ is sometimes also called \textit{\textbf{geometric optical limit}}. In terms of standard electrodynamics on a possibly curved background, it treats light propagation by approximating light waves as geometrical rays. Also, in the context of any other PDE at hand, this limit can be interpreted as describing the ray approximation to the propagation of wave-like solutions.
+More precisely, we consider the following formal WKB\footnote{Wentzel-Kramers-Brillouin.} expansion as an ansatz for solutions of the PDE $R_q$:
+\begin{align}\label{waveAns}
+    G_A(x^m) = \mathrm{Re}\left \{ e^{\frac{iS(x^m)}{\lambda}} \cdot   \bigl [ a_A(x^m) + \mathcal{O}(\lambda) \bigr ]\right \},
 \end{align}
-In the simplest case, the non-injectivity can now be described as the vanishing of the determinant $\mathrm{det}(T^A_B(k))$. There is, however, a slight obstruction to this. If the theory at hand satisfies gauge symmetries then $T^A_B(k)$ is necessarily non-injective irrespective of the particular $k_a$ (see for instance \cite{2018PhRvD..97h4036D}).
+Plugging this ansatz into the PDE and taking the infinite frequency limit $\lambda \rightarrow 0$ one obtains in leading order, i.e., in $\lambda^{-q}$th order the following equation
+\begin{align}
+    \underbrace{\left ( \frac{\partial \Phi^{\tilde{A}}}{\partial v_{BI_q}} \right ) J_{I_q}^{i_1...i_q} k_{i_1} \cdot ... \cdot k_{i_q}}_{T^{\tilde{A} B}(k_a)} a_B(x^m) = 0,
+\end{align}
+where now $k_a = - \partial_aS(x^m)$ is the wave covector\footnote{The wave covector $k_a(x^m)$ is the conormal of the wave front at $x^m$.} of the ansatz, and thus encodes the direction the wave travels. Hence if the ansatz shall provide a solution to the PDE in the desired limit, it, in particular, has to solve 
+\begin{align}\label{solvabilityCond}
+    T^{\tilde{A} B}(k_a) a_B(x^m) = 0
+\end{align} 
+Therefore, if we want to obtain non-trivial solutions with $a_A(x^m) \neq 0$ the Principal Symbol
+$T^{\tilde{A} B}(k_a)$, with $k_a$ being the components of the wave covector of the ansatz, must be non-injective.
+
+Non-injectivity of a general, non-square matrix can be expressed by the vanishing of several of its sub determinants. As we will restrict attention to PDEs that are obtained as Euler-Lagrange equations of a given Lagrangian, we will, however, have the special situation where the Principal Symbol matrix is square. We thus can write: 
+\begin{align}
+T^{A B}(k_a) =  \left ( \frac{\partial E^{A}}{\partial v_{BI_q}} \right ) J_{I_q}^{i_1...i_q} k_{i_1} \cdot ... \cdot k_{i_q}.
+\end{align}
+In the simplest case, the non-injectivity can now be imposed as the vanishing of the determinant of this square matrix.
+
+There is, nonetheless, a slight obstruction to this. If the Lagrangian field theory at hand satisfies gauge symmetries then $T^A_B(k_a)$ is necessarily non-injective, irrespective of the particular 1-form $k_a$. The reason for this is the following: In the infinite frequency limit the presence of an $s$-dimensional gauge symmetry establishes itself by the fact that given a solution of (\ref{solvabilityCond}), we immediately get $s$ additional, independent functions $\tilde{a}^{(i)}_A(x^m)$ that are connected to $a_A(x^m)$ via the $s$ independent gauge transformations, i.e. that lie on the same gauge-orbit as $a_A(x^m)$. We call two functions that are related by a gauge transformation gauge-equivalent. As the field theory was assumed to be gauge invariant and $a_A(x^m)$ was assumed to be a solution to (\ref{solvabilityCond}), the $s$ additional functions necessarily also solve (\ref{solvabilityCond}). In particular there exist $s$ independent functions that are gauge-equivalent to the trivial solution $a_A(x^m) = 0$.    
+These functions thus lie in the kernel of the principal symbol matrix, independent of the specific 1-form $k_a$.
+Hence whenever the field theory features a $s$-dimensional gauge symmetry, the principal symbol of the corresponding EOM has at least $s$-dimensional kernel (cf. \cite{2018PhRvD..97h4036D}). 
 
 Returning to the relevant example of $E^A$ describing the second derivative order EOM of a diffeomorphism invariant theory of gravity, we find that the Principal Symbol takes the following form:
 \begin{align}
-    T^{A B} (k) = \left (\frac{\partial E^A}{\partial v_{BI}} \right )J_I^{pq} k_p k_q = E^{A: BI} J_I^{pq} k_p k_q.
+    T^{A B} (k_a) = \left (\frac{\partial E^A}{\partial v_{BI}} \right )J_I^{pq} k_p k_q = E^{A: BI} J_I^{pq} k_p k_q.
 \end{align}
 Taking now a closer look at the PDE (\ref{DiffeoEqn}) that such EOM then necessarily  satisfy we find from the last such equation:
 \begin{align}\label{symbolDef}
 \begin{aligned}
-    T^{A B} (k) C_{An}^{Cm}v_Ck_m &= 0 \\
-    T^{B A} (k) C_{An}^{Cm}v_Ck_m &= 0 .
+    T^{A B} (k_a) C_{An}^{Cm}v_Ck_m &= 0 \\
+    T^{B A} (k_a) C_{An}^{Cm}v_Ck_m &= 0 .
 \end{aligned}
 \end{align}
-Hence there exits 4 independent vectors $C_{An}^{Cm}v_Ck_m$ that are in the kernel of the Principal Symbol and $T^{AB}(k)$ is not injective but as a 4-dimensional rank defect\footnote{Note that this is closely related to the previous derivation of the 4 constraints of such EOM.}. To compensate for that we have to require $T^{AB}(k)$ to not only be injective but to have at least a 5 dimensional kernel in order to ensure to have at least a one dimensional subspace in this kernel of $T^{AB}(k)$ that is not generate simply due to the gauge symmetry of the theory at hand. More formally we require that the adjunct matrix of order $4$ vanishes. Here the adjunct matrix of order $4$ is the $\binom{n}{4} \times \binom{n}{4}$ square matrix, with $n$ as before being the fiber dimension of the relevant field bundle, that has entries given by the order $4$ sub determinants of $T^{AB}(k)$:
-\begin{align}\label{MinorDef}
-    Q_{(A_1...A_4) (B_1...B_4)}(k) := \frac{\partial^4 (\mathrm{det}(T^{AB}(k)))}{\partial T^{A_1 B_1}(k) ... \partial T^{A_4 B_4}(k)}.
-\end{align}
-In other words we index the entries of the adjunct matrix $Q_{(A_1...A_4) (B_1...B_4)}(k)$ by a symmetric 4 tuple of rows $(A_1...A_4)$ and a symmetric 4 tuple of columns $(B_1...B_4)$ that encode the rows and columns that must be removed from the matrix $T^{AB}$ to obtain a certain $(n-4) \times (n-4)$ submatrix. The value of $Q_{(A_1...A_4) (B_1...B_4)}(k)$ is then given by the determinant of this submatrix. 
-%check row columns problem !
-%
-%
-%
-% !!!!!!!!!!!
-One can show (\cite{2018PhRvD..97h4036D} and \cite{2009JPhA...42U5402I}) that due to the existence of the 4 independent null vectors in (\ref{symbolDef}) also this requirement of a vanishing adjunct matrix\footnote{Obviously one can obtain similar results for other gauge symmetries \cite{2018PhRvD..97h4036D}. The only difference then lies in the particular expression for the null vectors and the dimension of the rank defect in the symbol.} boils down to the vanishing of a certain homogeneous polynomial in the components $k_a$. More rigorously one obtains the following general expression for the entries of the adjunct matrix of order 4 that holds for any diffeomorphism invariant field theory at hand:
-\begin{align}\label{diffeoMinor}
-    Q_{(A_1...A_4) (B_1...B_4)}(k) = \epsilon^{0123} \epsilon^{0123} \chi_{A_10}(k) \cdot ... \cdot \chi_{A_43}(k) \cdot \chi_{B_10}(k) \cdot ... \cdot \chi_{B_43}(k) \cdot \mathcal{P}(k),
-\end{align}
-%check this, maybe actually epsilon is evaluated ???
-% 
-%
-%
-%
-where $\chi_{Am}(k) = C^{Bm}_{An} v_B k_m$ are the 4 independent vectors that constitute the kernel of the Principal Symbol. Hence the non trivial zeros of the adjunct matrix are completely determined by the zeros of $\mathcal{P}(k)$. We call this homogeneous degree $2n-16$ polynomial in the components $k_a$ the \textit{\textbf{Principal Polynomial}}  $\mathcal{P}(k)$ of the EOM.
-This explicit form of the entries of the adjunct matrix of order 4 is also vital for concretely computing the Principal Polynomial. We simply have to take a $(n-4) \times (n-4)$ submatrix of the Principal Symbol with non-vanishing determinant by removing 4 rows $(A_1...A_4)$ and 4 columns $(B_1...B_4)$. From the choice of removed rows and columns, we can compute the occurring prefactor expression 
-\begin{align}\label{prefacF}
-f_{(A_1...A_4)(B_1...B_4)}(k) := \epsilon^{0123} \epsilon^{0123} \chi_{A_10}(k) \cdot ... \cdot \chi_{A_43}(k) \cdot \chi_{B_10}(k) \cdot ... \cdot \chi_{B_43}(k).
-\end{align}
-Then we compute the determinant of the chosen submatrix, i.e., the explicit value $Q_{(A_1...A_4)(B_1...B_4)}(k)$. The Principal Polynomial can now be obtained by dividing the determinant by the computed prefactor:
+Hence, due to the diffeomorphism symmetry, there exist four independent vectors:
 \begin{align}
-    \mathcal{P}(k) = \frac{Q_{(A_1...A_4)(B_1...B_4)}(k)}{f_{(A_1...A_4)(B_1...B_4)}(k)}.
+   \chi_{An}(k_a) =  C_{An}^{Cm}v_Ck_m
+\end{align} that are in the kernel of the Principal Symbol and $T^{AB}(k)$ is not injective but as a 4-dimensional rank defect\footnote{Note that this is closely related to the previous four constraints that any diffeomorphism invariant field theory necessarily contains amongst its EOM (see chapter \ref{ConstrainedDyn}).}. To compensate for that, we have to require the 1-form $k_a$ to be given s.t. $T^{AB}(k_a)$ is not only non-injective but has at least a 5-dimensional kernel. Then there necessarily exists at least a one dimensional subspace in this kernel of $T^{AB}(k_a)$ that is not gauge-equivalent to the trivial solution $a_A(x^m) = 0$. Hence, $k_a$ represents the wave covector of a physically non-trivial wave solution of the PDE (at least in the $\lambda \rightarrow 0$ limit).
+
+The condition of having at least a $5$ dimensional kernel of the principal symbol can be expressed more formally by requiring that its adjunct matrix of order four vanishes. Given the $n \times n$ matrix $T^{AB}(k_a)$, its adjunct matrix of order four is the $\binom{n}{4} \times \binom{n}{4}$ square matrix that has entries equal to the order four sub determinants of $T^{AB}(k_a)$:
+\begin{align}\label{MinorDef}
+    Q_{(A_1...A_4) (B_1...B_4)}(k_a) := \frac{\partial^4 (\mathrm{det}(T^{AB}(k_a)))}{\partial T^{A_1 B_1}(k_a) ... \partial T^{A_4 B_4}(k_a)}.
 \end{align}
-In particular, the only technical complexity in this computation is provided by calculating one order 4 subdeterminant of the Principal Symbol. 
+Consequently, we index an entry of the order four adjunct matrix $Q_{(A_1...A_4) (B_1...B_4)}(k_a)$ by a symmetric $4$-tuples of rows $(A_1...A_4)$ and columns $(B_1...B_4)$ that encode the rows and columns that are removed from the matrix $T^{AB}(k_a)$ to obtain a certain $(n-4) \times (n-4)$ submatrix of it. The value of $Q_{(A_1...A_4) (B_1...B_4)}(k_a)$ is then given by the determinant of this submatrix. 
+
+One can show (\cite{2018PhRvD..97h4036D} and \cite{2009JPhA...42U5402I}) that the requirement of a vanishing order four adjunct matrix\footnote{Obviously one can obtain similar results for other gauge symmetries \cite{2018PhRvD..97h4036D}. The only difference then lies in the particular expression for the null vectors and the dimension of the rank defect in the symbol.} boils down to the vanishing of a certain homogeneous polynomial in the components $k_a$. More rigorously one obtains the following general expression for the entries of the order four adjunct matrix of the Principal Symbol that holds for any diffeomorphism invariant field theory at hand:
+\begin{align}\label{diffeoMinor}
+    Q_{(A_1...A_4) (B_1...B_4)}(k_a) = \epsilon^{i_1...i_4} \epsilon^{j_1...j_4} \chi_{A_1i_1}(k_a) \cdot ... \cdot \chi_{A_4i_4}(k_a) \cdot \chi_{B_1j_1}(k_a) \cdot ... \cdot \chi_{B_4j_4}(k_a) \cdot \mathcal{P}(k_a),
+\end{align}
+
+Hence the non trivial zeros of the adjunct matrix are completely determined by the zeros of $\mathcal{P}(k_a)$. We call this homogeneous degree $2n-16$ polynomial in the components $k_a$ the \textit{\textbf{Principal Polynomial}} $\mathcal{P}(k_a)$ of the EOM.
+This explicit form of the entries of the adjunct matrix of order four is also vital for concretely computing the Principal Polynomial. We simply have to find one single $(n-4) \times (n-4)$ submatrix of the Principal Symbol with non-vanishing determinant by removing four rows $(A_1...A_4)$ and four columns $(B_1...B_4)$. From the choice of removed rows and columns, we can compute the occurring prefactor expression 
+\begin{align}\label{prefacF}
+f_{(A_1...A_4)(B_1...B_4)}(k_a) := \epsilon^{i_1...i_4} \epsilon^{j_1...j_4} \chi_{A_1i_1}(k_a) \cdot ... \cdot \chi_{A_4i_4}(k_a) \cdot \chi_{B_1j_1}(k_a) \cdot ... \cdot \chi_{B_4j_4}(k_a).
+\end{align}
+Then we compute the determinant of the chosen submatrix, $Q_{(A_1...A_4)(B_1...B_4)}(k_a)$. The Principal Polynomial can now be obtained by dividing the determinant by the computed prefactor:
+\begin{align}
+    \mathcal{P}(k_a) = \frac{Q_{(A_1...A_4)(B_1...B_4)}(k_a)}{f_{(A_1...A_4)(B_1...B_4)}(k_a)}.
+\end{align}
+In particular, the only technical complexity in this computation is provided by calculating one order four subdeterminant of the Principal Symbol. 
+
 Note that if the theory at hand incorporates different gauge symmetries than the discussed diffeomorphism invariance one can obtain similar formulae with the particular order of the appropriate submatrices and the expression for the prefactor obviously depending on the specific form of the gauge symmetry.
 \begin{definition}[Principal Polynomial of EOM]
-Given a field bundle $(F,\pi_F,M)$ with $n$-dimensional fibers and a Lagrangian on $F$ that generates EOM with derivative order $q$. Let  $T^{AB}(k)$ be the Principal Symbol of the EOM. Assume further that the $s$ vectors $\chi_{A1}(k),...,\chi_{As}(k)$ form a basis of $\mathrm{ker}(T^{AB}(k))$. The Principal Polynomial $\mathcal{P}(k)$
-is the homogeneous degree $qn - (q+2)s$ polynomial in the components $k_a$ that satisfies the following relation with the components of the adjunct matrix $Q_{(A_1...A_s)(B_1...B_s)}(k)$ of $T^{AB}(k)$:
+Given a field bundle $(F,\pi_F,M)$ with $n$-dimensional fibers and a Lagrangian on $F$ that generates EOM with derivative order $q$, let  $T^{AB}(k_a)$ be the Principal Symbol of the EOM. Assume further that the $s$ vectors $(\chi_{A\sigma}(k_a))_{\sigma=1,...,s}$ generate the $s$ independent gauge transformations. The Principal Polynomial $\mathcal{P}(k_a)$
+is the homogeneous degree $q\cdot n - (q+2)s$ polynomial in the components $k_a$:
 \begin{align}
-   Q_{(A_1...A_s)(B_1...B_s)}(k) = \epsilon^{i_1...i_s} \epsilon^{j_1...j_s} \chi_{A_1i_1}(k)\cdot ... \cdot \chi_{A_si_s}(k) \cdot \chi_{B_1j_1}(k) \cdot ... \cdot \chi_{B_sj_s}(k) \cdot \mathcal{P}(k).
+\mathcal{P}(k_a) := \frac{Q_{(A_1...A_s)(B_1...B_s)}(k_a)}{\epsilon^{\sigma_1...\sigma_s} \epsilon^{\tau_1...\tau_s} \chi_{A_1\sigma_1}(k_a)\cdot ... \cdot \chi_{A_s\sigma_s}(k_a) \cdot \chi_{B_1\tau_1}(k_a) \cdot ... \cdot \chi_{B_s\tau_s}(k_a)},
 \end{align}
+where $Q_{(A_1...A_s)(B_1...B_s)}(k_a)$ is any specific component of the order $s$ adjunct matrix of $T^{AB}(k_a)$.
 \end{definition}
-Hence we have seen that for a wave ansatz of the form (\ref{waveAns}) to provide a non trivial solution to the given PDE, the corresponding gradients $k_a = - \partial_aS(x^m)$ must be zeros of the Principal Polynomial, i.e., yield $\mathcal{P}(k) = 0$.
-Such one forms are called \textit{\textbf{characteristic}} one forms. We can now restrict the Principal Polynomial to a given point $p \in M$ to obtain 
-\begin{align}
-    \begin{aligned}
-    \mathcal{P}_p : T^{\ast}_pM &\longrightarrow \mathbb{R}\\
-    k &\longmapsto \mathcal{P}(k).
-    \end{aligned}
-\end{align}
-The set of one forms that are characteristic in $p \in M$ is then precisely given as \textbf{\textit{vanishing set}} of the polynomial function $\mathcal{P}_p$ and will be denoted by $V_p(\mathcal{P}_p)$. Sometimes it is also called characteristic variety as it can be shown that this indeed defines a variety in the strict algebraic sense. Returning to our wave ansatz, we now see that precisely those $k \in V_p(\mathcal{P}_p)$ are admissible wave covectors for a non-trivial solution of the given PDE. Hence the Principal Polynomial encodes the complete information regarding the propagation of such wave-like solutions in the geometric optical limit.
+Hence, for a wave ansatz of the form (\ref{waveAns}) to provide a non trivial solution to the given PDE, the corresponding gradients $k_a = - \partial_aS(x^m)$ must be zeros of the Principal Polynomial, i.e., yield $\mathcal{P}(k_a) = 0$.
+Such 1-forms are called \textit{\textbf{characteristic}} 1-forms. We denote the set of 1-forms that are characteristic in $p \in M$, i.e., the $k_a \in T_p^{\ast}M$, for which the principal  polynomial $\mathcal{P}(k_a)$ vanishes by $V_p(\mathcal{P})$. Returning to our wave ansatz, we now see that exactly those $k_a \in V_p(\mathcal{P})$ are admissible wave covectors for a non-trivial solution of the given PDE. Hence the Principal Polynomial encodes the complete information regarding the propagation of such wave-like solutions in the geometric optical limit.
 
-We will also use the Principal Polynomial to decide whether or not a given PDE is \textit{\textbf{predictive}} in the sense that the PDE allows us to specify initial data on a suitable hypersurface of $M$ and the use the PDE to uniquely predict the values of the involved fields away from the initial data hypersurface. We follow along the lines of the second chapter of \cite{Rivera}.
+In addition to encoding information about the propagation of wave-like solutions of infinite frequency, the Principal Polynomial also allows one to decide whether or not a given PDE is \textit{\textbf{predictive}}, in the sense that the PDE allows one to specify initial data on a suitable hypersurface of $M$ and then use the PDE to uniquely predict the values of the involved fields away from the initial data hypersurface. We follow along the lines of the second chapter of \cite{Rivera}.
 \begin{definition}[Cauchy problem]
-We call the Cauchy problem to a given PDE well-posed if specifying suitable initial data on a suitable initial data hypersurface there exists a unique solution of the PDE satisfying the initial data and depending continuously on the chosen data.  
+We call the Cauchy problem to a given PDE well-posed if specifying suitable initial data on a suitable initial data hypersurface yields a unique solution of the PDE that satisfies the initial data and depends continuously on it.  
 \end{definition}
 As explained in \cite{Rivera}, this should really be a fundamental requirement fulfilled by any meaningful physical field theory. Roughly speaking, it states that the EOM of the given theory can be used to evolve collected, i.e., measured data in order to predict future values of the appropriate fields.
-Before we can finally explore the implications of a well-posed initial value problem on the corresponding Principal Polynomial, we quickly recall the following definition, which also can be found in \cite{Rivera}:
+Before we can finally explore the implications of a well-posed initial value problem on the corresponding Principal Polynomial, we quickly recall the following definition of a hyperbolic polynomial. For further information regarding hyperbolic polynomials see also (\cite{2012arXiv1212.6696K} and \cite{Bauschke98hyperbolicpolynomials}).
 \begin{definition}[hyperbolic polynomial]
-A homogeneous polynomial $\mathcal{P}_p : T_p^{\ast}M \rightarrow \mathbb{R}$ is called hyperbolic w.r.t. $h\in T_p^{\ast}M$ with $\mathcal{P}(h) \neq 0$ if for all $q\in T_p^{\ast}M$ the equation $\mathcal{P}(q + \lambda h)=0$ only has real solutions $\lambda \in \mathbb{R}$.
+Let $\mathbb{R}[x]$ denote the ring of polynomials in the variables $(x^1,...,x^d)$ with real coefficients.
+A homogeneous degree $d$ polynomial $P \in \mathbb{R}[x]$ is called hyperbolic w.r.t. $h\in \mathbb{R}^d$ with $P(h) \neq 0$ if for all $t\in \mathbb{R}^d$, the univariat polynomial
+$P(t + \lambda h) \in \mathbb{R}[\lambda]$ has only real roots, i.e.,
+the equation $P(t + \lambda h)=0$ only has real solutions $\lambda \in \mathbb{R}$.
 \end{definition}
-\begin{remark}
-If a given polynomial $\mathcal{P}_p$ is hyperbolic and hence we find such $h\in T^{\ast}_pM$ one actually readily obtaines further $\tilde{h}\in T^{\ast}_pM$ such that $\mathcal{P}_p$ is hyperbolic w.r.t. those $\tilde{h}$ as well. In fact one can show (see for instance \cite{Rivera} and \cite{10.2307/24900665}) that $\mathcal{P}_p$ is then also hyperbolic w.r.t any covector in 
+If a given polynomial $P \in \mathbb{R}[x]$ is hyperbolic and hence we find such $h\in \mathbb{R}^d$ one actually readily obtains further $\tilde{h}\in \mathbb{R}^d$, such that $P$ is hyperbolic w.r.t. those $\tilde{h}$, as well. In fact one can show (see for instance \cite{Rivera} and \cite{10.2307/24900665}) that $P$ is then also hyperbolic w.r.t any: 
 \begin{align}
-    C_p(\mathcal{P}_p,h) := \{ \tilde{h} \in T_p^{\ast}M \ \vert \ \mathcal{P}_p(\tilde{h}- \lambda h) = 0 \implies \lambda > 0\}.
+    C(P,h) := \{ \tilde{h} \in \mathbb{R}^d \ \vert \ P(\tilde{h}- \lambda h) = 0 \implies \lambda > 0\}.
 \end{align}
-We call $C_p(\mathcal{P}_p,h)$ the \textbf{\textit{hyperbolicity cone}} containing $h$. One can also show that $C_p(\mathcal{P}_p,h)$ indeed constitutes an open and convex cone \cite{10.2307/24900665}.
-\end{remark}
-The notion of hyperbolic polynomials and the corresponding hyperbolicity cones is best illustrated by a picture. 
+We call $C(P,h)$ the \textbf{\textit{hyperbolicity cone}} of $P$, containing $h$. One can also show that $C(P,h)$ indeed constitutes an open and convex cone \cite{10.2307/24900665}.
+
+The set of hyperbolic directions $h\in \mathbb{R}^d$ of a given hyperbolic polynomial $P$ might very well be composed of several connected components. For instance, one can readily show that whenever $P$ is hyperbolic w.r.t. $h\in \mathbb{R}^d$ it necessarily is also hyperbolic w.r.t. $-h$. For further developments, we will thus select one connected component of the set of such hyperbolic directions, and subsequently call it the hyperbolicity cone of $P$: $C(P)$. We will later comment on the deeper physical meaning that such a choice of hyperbolicity cone provides.
+
+The notion of hyperbolic polynomials and the corresponding hyperbolicity cones is best illustrated by a picture (Figure \ref{hyperbol}). 
 \begin{figure}[hbt!]
     \centering
-    \includegraphics[width=0.8\textwidth]{Poly.pdf}
-    \caption{Hyperbolicity Cone $C_p$ and Vanishing Set $V_p$ of a Second and a Fourth Degree Polynomial (see \cite{Rivera}).}
+    \includegraphics[width=\textwidth]{Poly.pdf}
+    \caption{Hyperbolicity Cone and Vanishing Set of a Second and a Fourth Degree Polynomial (see \cite{Rivera}).}
     \label{hyperbol}
 \end{figure}
-One can now see the underlying geometric interpretation hyperbolic covectors for a given polynomial. If $\mathcal{P}_p$ is hyperbolic w.r.t. $h$ than any affine line in direction $h$ intersects $\mathrm{deg}(\mathcal{P}_p)$ times with the vanishing set $V_p(\mathcal{P}_p)$.
+One can now see the underlying geometric interpretation of  hyperbolic directions  $h\in \mathbb{R}^d$ for a given polynomial $P$. If $P$ is hyperbolic w.r.t. $h$ than any affine line in direction $h$ intersects $\mathrm{deg}(P) = d$ times with the vanishing set $V(P)$.
+
 Finally, we can state the connection between hyperbolic polynomials and the well-posedness of the Cauchy problem.
 \begin{theorem}
-If a given PDE is well-posed in a region of $M$ than the Principal Polynomial restricts to a hyperbolic polynomial $\mathcal{P}_p$ at every $p$ in that region. Furthermore at $p \in M$ exactly those hypersurfaces containing $p$ and having a co-normal vector that is hyperbolic w.r.t. $\mathcal{P}_p$ are suitable \textit{\textbf{initial data hypersurfaces}}, i.e., yield a well-posed Cauchy problem.
+If the Cauchy-Problem of a given PDE is well-posed in a region of $M$, then the Principal Polynomial necessarily restricts to a hyperbolic polynomial on $T_p^{\ast}M$ for every $p$ contained in that region. Furthermore, exactly those hypersurfaces that have at every point a conormal which is hyperbolic w.r.t. $\mathcal{P}$ are admissible \textit{\textbf{initial data hypersurfaces}}, i.e., serve the purpose of specifying initial data.
 \end{theorem}
 \begin{proof}
-The proof can be found in \cite{Hormander1977} and \cite{Ivrii_1974}.
+The proof can be found in \cite{Hormander1977}\footnote{Much information is also contained in Hörmander's book series on partial differential equations (\cite{hormander1994analysis}, \cite{hormander2004analysis}, \cite{hormander2009analysis}, and \cite{hormander2015analysis}).} and also in \cite{Ivrii_1974}. 
 \end{proof}
-Hence we can sum up the situation as follows: If we have given a predictive PDE in the sense that there exist hypersurfaces such that the corresponding Cauchy problem is well-posed, then we can calculate the Principal Polynomial of this PDE. This Principal Polynomial is then necessarily a hyperbolic polynomial when restricted to the appropriate points $p \in M$. As shown above, the zero variety of the Principal Polynomial describes the propagation of waves in the infinite frequency limit. Furthermore, from the Principal Polynomial, we can compute the hyperbolicity cones. These then precisely encode the admissible initial data hypersurface of the given PDE.
+In the following, we proceed as before and select at each spacetime point a connected component of the set of hyperbolic covectors that is encoded by $\mathcal{P}$. We denote the thus provided hyperbolicity cone of the principal polynomial $\mathcal{P}$ at $p \in M$ as $C_p(\mathcal{P}) \subset T_p^{\ast}M$.
+Moreover, we require that the choice of hyperbolicity cone varies smoothly w.r.t. the individual spacetime points, i.e., it is made in such a way that the following map:
+\begin{align}
+\begin{aligned}
+\pi_{\mathcal{P}}: \{ C_p(\mathcal{P}) \ \vert \ p \in M\}=: C(\mathcal{P}) &\longrightarrow M\\
+C_p(\mathcal{P}) &\longmapsto p,
+\end{aligned}
+\end{align}
+defines a smooth subbundle $(C(\mathcal{P}), \pi_{\mathcal{P}}, M) \subset T^{\ast}M$.
+Choosing such a hyperbolicity cone at each spacetime point distinguishes a specific, connected subset of possible initial data hypersurface conormals. These then can be used to define a smooth distribution of cones on the tangent bundle $C^{\#} \subset TM$. Details how is construction can be carried out are provided in \cite{Rivera} and also \cite{2012arXiv1211.1914K} for a slightly different approach.
+The distribution of tangent space cones then encodes feasible future directions at the particular spacetime points.
+Thus, in conclusion,  the choice of hyperbolicity cones endows the spacetime manifold $M$ with a \textit{\textbf{time orientation}} (cf. \cite{2012arXiv1211.1914K} and \cite{Rivera}).
 
-The above consideration immediately opens up a problem that we are going to outline in the following. In the first section, we developed the necessary techniques that allowed us to phrase the requirement of diffeomorphism invariance in terms of a linear, first-order PDE. Given a particular spacetime geometry in terms of a field bundle $F_{grav}$ computing solutions to the corresponding equivariance equation (\ref{DiffeoEqn}) would yield a diffeomorphism invariant theory of gravity in terms of a Lagrangian for the gravitational field and the corresponding gravitational equations of motion.  
+In total, we can sum up the situation as follows: If we are given a predictive PDE ---in the sense that there exist hypersurfaces such that the corresponding Cauchy problem is well-posed--- then we can calculate the Principal Polynomial of this PDE. This Principal Polynomial is then necessarily hyperbolic. As shown above, the zero variety of the Principal Polynomial describes the propagation of waves in the infinite frequency limit. Furthermore, from the Principal Polynomial, we can compute the hyperbolicity cones. These then precisely encode the admissible initial data hypersurface of the given PDE.
 
-On the other hand, in order to really put that theory into use and calculate predictions, we additionally would need a theory of the matter that couples to that particular gravitational field. In the context of Constructive Gravity, usually one even assumes that the matter theory is given first according to some phenomenological observation and one then tries to construct a compatible theory of gravity. In either case, we get a set of matter EOM additional to the gravitational EOM.
+The above consideration immediately opens up a problem that we are going to outline in the following. In the first section, we developed the necessary techniques that allowed us to phrase the requirement of diffeomorphism invariance in terms of a linear, first-order PDE. Given a particular spacetime geometry, i.e., given a field bundle $F_{grav}$, computing solutions to the corresponding equivariance equation (\ref{DiffeoEqn}) would yield a diffeomorphism invariant theory of gravity described by a Lagrangian for the gravitational field and the corresponding gravitational EOM.
+If the theory of gravity is additionally required to be predictive, then the corresponding gravitational principal polynomial $\mathcal{P}_{grav}$ is hyperbolic.
 
-More precisely, the situation now looks as follows.
-The gravitational Lagrangian is given by a bundle map:
+On the other hand, in order to really put that theory to use and derive predictions meaningful predictions from it, that in particular can be probed in experiments, we additionally need a theoretical description of the matter that couples to that particular gravitational field and foremost also generates it.
+This additional matter theory is then prescribed on top of the geometric background that is provided by the gravitational field. If we also require matter to be governed by predictive EOM than also the matter principal polynomial $\mathcal{P}_{mat}$ is necessarily hyperbolic.
+
+More precisely, the situation now looks as follows:
+As before, gravitational Lagrangian is given by a bundle map:
 \begin{align}
     \mathcal{L}_{grav} : J^2F_{grav} \longrightarrow \Lambda^4M
 \end{align}
-Where $F_{grav}$ is the gravitational field bundle. Additionally we now also have a matter field described by a Lagrangian that depends on the values of the matter field, its first derivatives\footnote{We might also here consider the case where the Lagrangian also depends on second derivatives of the matter field and is thus required to be degenerate s.t. the matter EOM are again of second derivative order, but for simplicity, we restrict to first-order matter Lagrangians.} but also exploits the spacetime geometry provided by the gravitational field. Thus the matter Lagrangian is a bundle map
+Where $F_{grav}$ is the gravitational field bundle. Additionally we now also have a matter field described by a Lagrangian that depends on the values of the matter field and its first derivatives\footnote{We might also here consider the case where the Lagrangian also depends on second derivatives of the matter field and is thus required to be degenerate s.t. the matter EOM are again of second derivative order, but for simplicity, we restrict to first-order matter Lagrangians.}, but also exploits the spacetime geometry provided by the gravitational field. Thus the matter Lagrangian is a bundle map
 \begin{align}
     \mathcal{L}_{mat} : F_{grav} \times J^1F_{mat} \longrightarrow \Lambda^4M,
 \end{align}
@@ -523,40 +553,41 @@ The matter EOM is given by
 \begin{align}
     0 = \frac{\delta \mathcal{L}_{mat}}{\delta \phi^{\tilde{A}}}.
 \end{align}
-We can then compute the two Principal Polynomials that correspond to the two EOMs, $\mathcal{P}_{grav}$ and $\mathcal{P}_{mat}$. Note in particular that these will depend both on the values of the gravitational field. We denote the corresponding vanishing sets by $V_{p,grav}$ and $V_{p,mat}$. As we require both theories to be predictive, i.e., have well-posed Cauchy problems we can also compute the two hyperbolicity cones $C_{p,grav}$ and $C_{p,mat}$ that at each spacetime point $p\in M$ encode the possible choices of initial data hypersurfaces for the two theories. 
+We can then compute the two Principal Polynomials that correspond to the two EOMs, $\mathcal{P}_{grav}$ and $\mathcal{P}_{mat}$. Note in particular that these will depend both on the values of the gravitational field. We denote the corresponding vanishing sets by $V_{p,grav}$ and $V_{p,mat}$. As we required both theories to be predictive, i.e., have well-posed Cauchy problems we can also compute the two hyperbolicity cones $C_{p,grav}$ and $C_{p,mat}$ that at each spacetime point $p\in M$ encode the possible choices of initial data hypersurfaces for the two theories. 
 
-Doing this at given $p \in M$ we would now end up with one of the following three situations of which we will show in the following only one can serve the purpose of describing a meaningful physical theory:
-%3 possible situations
-%add figures here ???
+Doing this at given $p \in M$ we would now end up with one of the following three situations of which we will show in that only one can serve the purpose of describing a meaningful physical theory:
 \begin{itemize}
     \item $C_{p,grav} \neq C_{p,mat}$ and $V_{p,grav} \neq V_{p,mat}$
     
 This situation obviously incorporates the special case where the two hyperbolicity cones are disjoint. This case can be immediately ruled out as then there would not exist a single initial data hypersurface that is common to both theories and hence could serve as a starting point for solving the coupled matter gravity system.   
 
-Also, if the two hyperbolicity cones are not disjoint but nevertheless do not coincide we immediately get problems. Then we would either find a suitable matter initial data hypersurface that is no admissible initial data hypersurface for the gravitational EOM, or vice versa we would find a gravitational initial data hypersurface that could not serve for specifying the initial data for the matter EOM. As it can be seen, for instance in \cite{Rivera} and \cite{2011PhRvD..83d4047R} the hyperbolicity cone of a given EOM is in close relation with feasible observer definitions for the underlying theory. Any physically meaningful observer must be able to collect data in his spatial surrounding and use the EOM provided by the theory to evolve this initial data to future values and thereby make physical predictions. To allow for this process, the spatial surrounding of any possible observer must serve as initial data hypersurface. Hence if there exist initial data hypersurfaces that are exclusive to either the matter or the gravitational EOM, we would end up with certain observers that are limited to one of the two theories. Such observers could in particular meaningfully measure data and predict processes in the corresponding free theory, being either the matter theory or gravity, but become meaningless once the coupled case is concerned.
+Also, if the two hyperbolicity cones are not disjoint but nevertheless do not coincide we immediately get problems. Then we would either find a suitable matter initial data hypersurface that is no admissible initial data hypersurface for the gravitational EOM, or vice versa we would find a gravitational initial data hypersurface that can not serve the purpose of specifying initial data for the matter EOM. As can be seen, for instance in \cite{Rivera}, and also in \cite{2011PhRvD..83d4047R} the hyperbolicity cones of a given EOM are in close relation with feasible observer definitions for the underlying theory. Any physically meaningful observer must be able to collect data in his spatial surroundings and use the EOM provided by the theory to evolve this initial data to future values and thereby make physical predictions. To allow for this process, the spatial surrounding of any possible observer must serve as initial data hypersurface. Hence if there exist initial data hypersurfaces that are exclusive to either the matter or the gravitational EOM, we would end up with certain observers that are limited to one of the two theories. Such observers could in particular meaningfully measure data and predict processes in the corresponding free theory, being either the matter theory or gravity, but become meaningless once the coupled case is concerned.
 
 In the following we want to restrict to situations that allow for a unified observer definition, i.e., the observers of gravity and matter theory obey the same laws and in particular posses the same properties no matter if the two theories are coupled or one considers the case of a free treatment of either one independently. Hence we dismiss the case where $C_{p,grav} \neq C_{p,mat}$.
 
 \item $C_{p,grav} = C_{p,mat}$ and $V_{p,grav} \neq V_{p,mat}$ 
 
-For this case, all initial data hypersurfaces are common to both theories. Nevertheless, the vanishing sets of the two Principal Polynomials differ. We have seen that these vanishing sets govern the propagation behavior of wave-like solutions in the infinite frequency limit. It might hence be possible that if $V_{p,grav} \neq V_{p,mat}$ the wave propagation of matter waves and gravitational waves shows quite different properties. The structure provided by the vanishing sets of the two Principal Polynomials, in particular, governs the information regarding future domains that such a propagating wave might causally influence — doing so it particular encodes the speed of such waves. 
+In this case, all initial data hypersurfaces are common to both theories. Nevertheless, the vanishing sets of the two Principal Polynomials differ. We have seen that these vanishing sets govern the propagation behavior of wave-like solutions in the infinite frequency limit. It might hence be possible that, if $V_{p,grav} \neq V_{p,mat}$, the wave propagation of matter waves and gravitational waves shows quite different properties. The structure provided by the vanishing sets of the two Principal Polynomials, in particular, governs the information regarding future domains that such a propagating wave might causally influence — doing so it particular encodes the speed of such waves. 
 
 With the recent detection of gravitational waves \cite{2017ApJ...848L..12A}, \cite{2017PhRvL.119n1101A} and \cite{2016PhRvL.116f1102A} also further insight regarding their propagating speed is gained rapidly. 
-To provide an example using the observed time difference between the gravitational wave event GW170817 and the gamma-ray burst GRB 170817A emitted by a Binary Neutron Star Merger the propagation speed of gravitational waves has already be constrained to deviate no more than $-3\cdot 10^{{-}15}c$ and $+7\cdot 10^{{-}16}c$ from the speed of light $c$ (see \cite{2017ApJ...848L..13A}). Hence it seems reasonable to additionally require that $V_{p,grav} = V_{p,mat}$ to incorporate the thus already observed similarities in the propagation of gravitational and matter waves into our framework. We are hence left with the final option.
+To provide an example using the observed time difference between the gravitational wave event GW170817 and the gamma-ray burst GRB 170817A emitted by a Binary Neutron Star Merger the propagation speed of gravitational waves has already be constrained to deviate no more than $-3\cdot 10^{{-}15}c$ and $+7\cdot 10^{{-}16}c$ from the speed of light $c$ (see \cite{2017ApJ...848L..13A}). Hence it seems reasonable to additionally require that $V_{p,grav} = V_{p,mat}$, in order to incorporate the thus already observed similarities in the propagation of gravitational and matter waves into our framework. We are therefore left with the final option.
 \item $C_{p,grav} = C_{p,mat}$ and $V_{p,grav} = V_{p,mat}$ 
 
 This situation is the only option left and henceforth precisely what we will require in the following. Not only all possible initial value hypersurfaces and therefore all possible observers of the matter and gravity EOM then coincide, but this option also requires that the causal structure in the form of wave propagation in the infinite frequency limit is the same for the two theories.  
 \end{itemize}
+\begin{remark}
+Note that the requirement $V_{p,grav} = V_{p,mat}$ could be loosened to the point where we only impose that $V_{p,mat} \subset V_{p,grav}$. This would still be consistent with the measured propagation speed of gravitational waves, as then, in particular, every wave covector of the matter theory serves as wave covector of gravitational waves. Further wave covectors that are exclusive to gravitational waves do not necessarily contradict observations. Such waves might have simply not been detected, yet. This could, for instance, be explained if such covectors correspond to massive modes which thus decay faster and therefore are harder to observe in large distances from the source. Nevertheless restricting to $V_{p,grav} = V_{p,mat}$ for the future developments yet to come seems reasonable.
+We will even see that at least in the two perturbative examples that we are going to treat in the next chapter, the two requirements are in fact equivalent.
+\end{remark}
 The previous investigation yields the second and last requirement that we wish to pose on the theory of gravity that we want to construct. We require that given a matter theory that employs the theory of gravity as geometric background, the two theories are \textit{\textbf{compatible}} in their \textit{\textbf{causal structure}} in the sense that the two Principal Polynomials at each point yield the same vanishing set, i.e., it holds for all $p \in M$ that: 
 \begin{align}
     V_{p,grav} = V_{p,mat}.
 \end{align}
-Note that then $C_{p,grav} = C_{p,mat}$ immediately follows. Further note that as here we are working with vanishing sets of individual polynomials, the above condition simply requires the two polynomials to be compromised of the same irreducible polynomial factors. In most relevant cases, the factorization of the polynomials can easily be obtained. In other words here we do not need to work with the polynomial ideals that vanish on the respective sets and hence do not need further techniques from algebraic geometry such as Gröbner basis that allow for efficiently deciding whether or not a given polynomial lies inside such an ideal and hence vanishes on the corresponding set.  
-%remove last statement
+Note that then $C_{p,grav} = C_{p,mat}$ immediately follows. Further note that the above condition, the equality of the two vanishing sets, simply requires the two polynomials to be compromised of the same irreducible polynomial factors. In most relevant cases, the factorization of the polynomials can easily be obtained.
 
-Summing up the previous achievements it is now conceptually apparent how we must proceed to find the most general gravitational Lagrangian that is compatible with any given matter theory. We first solve the equivariance equations (\ref{DiffeoEqn}) to implement the required diffeomorphism invariance of the theory of gravity paying close attention to make sure that the resulting EOM are of no higher than second derivative order. Then we compute the gravitational Principal Polynomial and compare it to the one obtained from the matter theory. We require that at each spacetime point the two polynomials define the same vanishing set and by this get further conditions the gravitational Lagrangian has to solve, this time encoding the causal compatibility between matter theory and gravity.
 
-We end this section by reformulating the previous results in terms of a definite construction recipe that is displayed as the Algorithm \ref{Algo1}.
+Summing up the previous achievements, it is now conceptually apparent how we must proceed to find the most general gravitational Lagrangian that is compatible with any given matter theory. We first solve the equivariance equations (\ref{DiffeoEqn}) to implement the required diffeomorphism invariance of the theory of gravity paying close attention to make sure that the resulting EOM are of no higher than second derivative order. Then we compute the gravitational Principal Polynomial and compare it to the one obtained from the matter theory. We require that at each spacetime point the two polynomials define the same vanishing set and by this get further conditions the gravitational Lagrangian has to solve, this time encoding the causal compatibility between matter theory and gravity.
+We end this section by formulating this results in terms of a definite construction manual that is displayed as the Algorithm \ref{Algo1}.
 \begin{algorithm}[hbt!]
 \SetAlgoLined
 \KwData{Matter theory $ \mathcal{L}_{mat} : F_{grav} \times J^1F_{mat} \longrightarrow \Lambda^4M$.
@@ -776,7 +807,7 @@ In order to clarify this last expression further, we now explicitly provide the 
     &+ a^{Ap BI CJ} H_{Ap} H_{BI} H_{CJ} + a^{AIBJCK} H_{AI} H_{BJ} H_{CK} + \mathcal{O}(4),
 \end{aligned}
 \end{align}
-where $\mathcal{O}(4)$ denotes terms that are of order 4 or higher in any $(H_{AI_k})$. We now proceed exactly as outlined before in calculating the perturbative solution to solution to (\ref{DiffeoEqn}) from the above power series ansatz of the Lagrangian. We start by plugging in the expansion (\ref{LPert}) into the PDE (\ref{DiffeoEqnFormal}) and evaluate at the expansion point $p_0$. Note that evaluating at $p_0$ in coordinates corresponds to evaluating at $(H_{AI_k})=0$. This then yields equations for the expansion constants $a_0, a^A, a^{Ap}$ and $a^{AI}$. To obtain equations for the remaining higher-order expansion coefficients, we simply prolong the PDE again insert the series expansion and evaluate at $p_0$. As we have shown that PDE (\ref{DiffeoEqnFormal}) is involutive, there will not occur integrability conditions.
+where $\mathcal{O}(4)$ denotes terms that are of order four or higher in any $(H_{AI_k})$. We now proceed exactly as outlined before in calculating the perturbative solution to solution to (\ref{DiffeoEqn}) from the above power series ansatz of the Lagrangian. We start by plugging in the expansion (\ref{LPert}) into the PDE (\ref{DiffeoEqnFormal}) and evaluate at the expansion point $p_0$. Note that evaluating at $p_0$ in coordinates corresponds to evaluating at $(H_{AI_k})=0$. This then yields equations for the expansion constants $a_0, a^A, a^{Ap}$ and $a^{AI}$. To obtain equations for the remaining higher-order expansion coefficients, we simply prolong the PDE again insert the series expansion and evaluate at $p_0$. As we have shown that PDE (\ref{DiffeoEqnFormal}) is involutive, there will not occur integrability conditions.
 
 There is, however, one obstruction to this procedure that will become noticeable by providing additional lower-order equations that are revealed only after prolongations, yet they have nothing to do with integrability conditions. 
 The reason for this obstruction is that the chosen $\eta$-induced expansion point in general features higher symmetry than an arbitrary point in $J^2F$. More precisely since we required $N_A(\eta_{ab})$ to be constructed from the Minkowski metric through products, sums and possibly contractions, it is \textit{\textbf{Lorentz invariant}}. To further investigate the consequences thereof we consider first an arbitrary flat expansion point $\tilde{p}_0 \in J^2F$ with coordinates $(\tilde{x}_0^m,M_A,0,0)$. Evaluating the second equation in (\ref{DiffeoEqnFormal}) for this point yields:
@@ -928,7 +959,7 @@ Reading of the values in constant and linear order from the expansion of the EOM
 \end{align}
 Note that the Principal Symbol and thus also the Principal Polynomial could in general also depend on the coordinates $v_{Ap}$ as the EOM would then be still of second derivative order. We could then immediately exclude such contributions containing derivative coordinates $v_{Ap}$ from our discussion as the matter polynomial cannot contain such and in the end we want to require that the two polynomial describe at each $p \in M$ the same vanishing set. Hence from now only we assume that the gravitational Principal Symbol $T(v_A)$ only depends on $v_A$. If this is not the case for a concrete gravitational Lagrangian the above obviously yields a further condition, namely restricting to the sub theory that does satisfy this. 
 
-Recall that before in the exact setting we obtained the Principal Polynomial from the Principal Symbol by computing any non-vanishing order 4 sub determinant that was obtained by removing rows $(A_1...A_4)$ and columns $(B_1...B_4)$ from the symbol, and then dividing by the expression by the appropriate prefactor (\ref{prefacF})
+Recall that before in the exact setting we obtained the Principal Polynomial from the Principal Symbol by computing any non-vanishing order four sub determinant that was obtained by removing rows $(A_1...A_4)$ and columns $(B_1...B_4)$ from the symbol, and then dividing by the expression by the appropriate prefactor (\ref{prefacF})
 Note that also the expression $\chi_{An}(v_A) = C_{An}^{Bm}v_Bk_m$ is linear in $v_A$ and hence also the prefactor contributes in different orders. We expand $\chi_{An}$ around $p_0$ to obtain
 \begin{align}
 \chi_{An}(v_A) =  C^{Bm}_{An} N_B k_m + C^{Bm}_{An} H_B k_m =: (\chi_0)_{An} + (\chi_1)^B_{An}H_B
@@ -958,7 +989,7 @@ where the symmetric 4-tuples $(A_1...A_4)$ and $(B_1...B_4)$ denote the removed 
     + \mathcal{O}(3)  
 \end{multline}
 Using now the expansion of the determinant around the identity matrix for the second factor in the above expression and the linearity and cyclicity of the trace we
-find the following expansion for this order 4 sub determinant 
+find the following expansion for this order four sub determinant 
 \begin{multline}
     \mathrm{det}\left(T_{(A_1...A_4)(B_1...B_4)}(v_A)\right) = (D_0)_{(A_1...A_4)(B_1...B_4)} + (D_1)^C_{(A_1...A_4)(B_1...B_4)}H_C\\
     +(D_2)^{CD}_{(A_1...A_4)(B_1...B_4)}H_CH_D
@@ -1028,7 +1059,7 @@ Where $\mathcal{P}_{grav}^{{p_1}...{p_r}}$ is are function on $F$ that is totall
 %
 This can be seen by starting from the PDE that the EOM have to satisfy as an implication of the equivariance (\ref{EOM}) and applying the total derivative $D_{AI}$ to obtain a similar PDE for subexpression $\left ( \frac{\partial E^A}{\partial V_{BI}} \right )$ that is involved in the Principal Symbol. Proceeding along the same lines for the remaining steps that are involved in the computation of the Principal Polynomial, one then finds the above PDE. 
 
-The numerical factor $r/2 = (n-8)$ in front of the $\delta^m_n$ term is obtained as this factor encodes the density weight of the function at hand. In this language, PDE (\ref{EOM}) then states that the EOM $E^A$ defines a density of weight 1 and further prolonging this PDE w.r.t. $v_{AI}$ reveals that also the Principal Symbol has density weight 1. Computing the determinant of a $(n-4) \times (n-4)$ submatrix of the Principal Symbol changes the weight to $n-4-2$. This can, for instance, be seen when expressing the determinant of the Principal Symbol w.r.t. the Levi-Civita symbols and then obtain the order $4$ sub determinant by deriving $4$ times w.r.t. the components of the Principal Symbol, as explained in (\ref{MinorDef}). To achieve this, we need $n$ copies of the Principal Symbol, each of which has weight 1 and two covariant Levi-Civita symbols of dimension $n$ that carry density weight $-1$. This yields a total weight of $n-2$. Deriving $4$ times w.r.t. the components of the Principal Symbol reduces the factor to $n-6$. Finally, according to (\ref{diffeoMinor}) this sub determinant equals the product between Principal Symbol and the corresponding prefactor. This prefactor involves two $4$-dimensional contravariant Levi-Civita symbols that hence contribute $+2$ to the weight. Hence the weight of the Principal Polynomial is given by $n-8$, which thus explains the origin of the numerical factor in the above PDE. 
+The numerical factor $r/2 = (n-8)$ in front of the $\delta^m_n$ term is obtained as this factor encodes the density weight of the function at hand. In this language, PDE (\ref{EOM}) then states that the EOM $E^A$ defines a density of weight 1 and further prolonging this PDE w.r.t. $v_{AI}$ reveals that also the Principal Symbol has density weight 1. Computing the determinant of a $(n-4) \times (n-4)$ submatrix of the Principal Symbol changes the weight to $n-4-2$. This can, for instance, be seen when expressing the determinant of the Principal Symbol w.r.t. the Levi-Civita symbols and then obtain the order four sub determinant by deriving four times w.r.t. the components of the Principal Symbol, as explained in (\ref{MinorDef}). To achieve this, we need $n$ copies of the Principal Symbol, each of which has weight 1 and two covariant Levi-Civita symbols of dimension $n$ that carry density weight $-1$. This yields a total weight of $n-2$. Deriving four times w.r.t. the components of the Principal Symbol reduces the factor to $n-6$. Finally, according to (\ref{diffeoMinor}) this sub determinant equals the product between Principal Symbol and the corresponding prefactor. This prefactor involves two $4$-dimensional contravariant Levi-Civita symbols that hence contribute $+2$ to the weight. Hence the weight of the Principal Polynomial is given by $n-8$, which thus explains the origin of the numerical factor in the above PDE. 
 
 The all-important observation is now that any perturbative expansion of the Principal Symbol around the Lorentz-invariant expansion point $p_0$ that we might obtain necessarily provides a power series solution of the form
 \begin{align}
