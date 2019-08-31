@@ -314,9 +314,9 @@ As stated above during this thesis, we will, in fact, never perform explicit com
 \begin{align}
 (x^m,v_A,v_{Am},v_{AI},v_{AI_{3}},...,v_{AI_{q}}),
 \end{align}
-where we introduced new indices $I_k$ that range from $0$ to $\binom{4+k-1}{k}-1$ and label the independent combinations of partial derivatives of order $k$. In the following, when displaying formulae that include such indices $I_k$ we might write $v_{AI_0} \equiv v_m, v_{AI_1} \equiv v_A$ and $v_{AI_2} \equiv v_{AI}$, such that we can concisely write expressions that involve sums involving all such indices:
+where we introduced new indices $I_k$ that range from $0$ to $\binom{4+k-1}{k}-1$ and label the independent combinations of partial derivatives of order $k$. In the following, when displaying formulae that include such indices $I_k$ we might write $v_{AI_0} \equiv v_A, v_{AI_1} \equiv v_{Am}$ and $v_{AI_2} \equiv v_{AI}$, such that we can concisely write expressions that involve sums involving all such indices:
 \begin{align}
-    a^mv_m + a^Av_A + a^{AI}v_{AI} + ... + a^{AI_q}v_{AI_q} = \sum _{k = 0}^q a^{AI_k}v_{AI_k}.
+   a^Av_A + a^{AI}v_{AI} + ... + a^{AI_q}v_{AI_q} = \sum _{k = 0}^q a^{AI_k}v_{AI_k}.
 \end{align}
 Note that we use no summation convention over $k$, but explicitly write out such sums.
 As before we denote the corresponding intertwiners mapping between the representation of derivative in terms of such indices and the spacetime representation by:
@@ -357,7 +357,7 @@ Similarly, we define:
 \begin{align}
     I^{I_{k+m}}_{I_k I_m} := J_{I_k}^{i_1...i_k}J_{I_m}^{j_1...j_m}I^{I_{k+m} }_{i_1...i_k j_1...j_m},
 \end{align}
-As we then again recover the usual relation \begin{align}
+As we then again recover the usual relation. \begin{align}
 J^{I_kI_m}_{I_{k+m}} I^{J_{k+m}}_{I_k I_m} = \delta^{J_{k+m}}_{I_{k+m}}.
 \end{align}
 With this definition and further using the inverse relation to $(\ref{highrTotder})$, we find that the composition of total derivatives can equivalently be computed as:
@@ -381,7 +381,7 @@ Here $\Lambda^4 M$ denotes the volume bundle on $M$. Alternatively, we could hav
     \mathcal{L}(x^m,v_A,v_{Ai},v_{AI}) = L(x^m,v_A,v_{Ai},v_{AI}) \mathrm{d}x^0 \wedge \mathrm{d}x^1 \wedge \mathrm{d}x^2 \wedge \mathrm{d}x^3 = L \mathrm{d}^4x.
 \end{align} 
 
-As the Lagrangian is a volume form valued bundle map, we can take any section $G \in \Gamma(F)$, prolong it to $j^2(G) \in \Gamma(J^2F)$ and compose the result with $\mathcal{L}$ to obtain section of the volume bundle over $M$, $\mathcal{L}(j^2(G)) \in \Gamma(\Lambda^4M)$ which thus can be integrated over spacetime regions. Given a Lagrangian this procedure defines a \textit{\textbf{local action functional}} on the space of fields $\Gamma(F)$:
+As the Lagrangian is a volume form valued bundle map, we can take any section $G \in \Gamma(F)$, prolong it to $j^2(G) \in \Gamma(J^2F)$ and compose the result with $\mathcal{L}$ to obtain a section of the volume bundle over $M$, $\mathcal{L}(j^2(G)) \in \Gamma(\Lambda^4M)$ which thus can be integrated over spacetime regions. Given a Lagrangian this procedure defines a \textit{\textbf{local action functional}} on the space of fields $\Gamma(F)$:
 \begin{align}
 \begin{aligned}
     \mathcal{S}_{\mathcal{L}} : \Gamma(F) &\longrightarrow \mathcal{R} \\
@@ -434,7 +434,7 @@ To shorten the notation we will refer to actions of $\mathrm{Diff}(M)$ on the va
 Given $\phi \in \mathrm{Diff}(M)$, by this construction, we can obtain the corresponding action by bundle isomorphisms on any tensor bundle over $M$. As we have identified the field bundle $F$ with a subbundle of some $T^m_nM$ we can restrict the bundle isomorphisms to $F$ to get an action of $\mathrm{Diff}(M)$ on the field bundle in particular. 
 To further lift the action of $\mathrm{Diff}(M)$ to the first jet bundle $J^1F$ and the second jet bundle $J^2F$,respectively, we need to develop additional techniques, the primary tool being the \textbf{\textit{prolongation of bundle morphisms}}. 
 \begin{definition}[prolongation of morphisms]
-Let $(F_1,\pi_{F_1},M)$ and $(F_2,\pi_{F_2},N)$ be bundles, $\phi : M \rightarrow N$ a diffeomorphism, $f : F_1 \rightarrow F_2$ a bundle morphism covering $\phi$ and $J^1F_1$, $J^1F_2$ the first-order jet bundles over $F_1$ and $F_2$, respectively. The first jet bundle lift or prolongation of the bundle morphism $(f,\phi)$ is given by the unique map\footnote{Just as it is the case with bundle morphisms being denoted by pairs $(f,\phi)$ their prolongation should be denoted by triples $(j^1(f),f,\phi)$. However, we will lighten their notation to simply $j^1(f)$ if the two remaining maps are clear from the given context.} $j^1(f)$ that lets the diagram in Figure \ref{ProlongMorph} commutes.
+Let $(F_1,\pi_{F_1},M)$ and $(F_2,\pi_{F_2},N)$ be bundles, $\phi : M \rightarrow N$ a diffeomorphism, $f : F_1 \rightarrow F_2$ a bundle morphism covering $\phi$ and $J^1F_1$, $J^1F_2$ the first-order jet bundles over $F_1$ and $F_2$, respectively. The first jet bundle lift or prolongation of the bundle morphism $(f,\phi)$ is given by the unique map\footnote{Just as it is the case with bundle morphisms being denoted by pairs $(f,\phi)$ their prolongation should be denoted by triples $(j^1(f),f,\phi)$. However, we will lighten their notation to simply $j^1(f)$ if the two remaining maps are clear from the given context.} $j^1(f)$ that lets the diagram in Figure \ref{ProlongMorph} commute.
 \begin{figure}[hbt!]
 \centering
 \begin{tikzpicture}
