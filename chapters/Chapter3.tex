@@ -6,7 +6,7 @@ As a first example, we consider the case where the gravitational field is provid
 
 Note that the case of gravity being described by a metric tensor field not only is the standard example and hence excellent for testing our framework, from the point of view of Constructive gravity it is also unique as the metric tensor is the "smallest" structure --- in the sense that the corresponding field bundle has the least dimensional fibers --- that allows for the support of a non trivial matter theory.
 
-In the simplest possible case the matter field is described by a scalar field, i.e., a spacetime function $\phi \in C^{\infty}(M,\mathbb{R})$ which corresponds to the trivial matter field bundle $M \times \mathbb{R}$. We are again restricting to matter theories that are described by first-derivative-order Lagrangians and hence generate second-derivative-order EOM. In the simplest case, the matter EOM are linear. This corresponds to a quadratic matter Lagrangian. Denoting adapted coordinates on $J^1(M \times \mathbb{R})$ by $(x^m,\phi,\phi_m)$ the most general, such matter Lagrangian is given as
+In the simplest possible case the matter field is described by a scalar field, i.e., a spacetime function $\phi \in C^{\infty}(M,\mathbb{R})$ which corresponds to the trivial matter field bundle $M \times \mathbb{R}$. We are again restricting to matter theories that are described by first-derivative-order Lagrangians and hence generate second-derivative-order EOM. In the simplest case, the matter EOM are linear. This corresponds to a quadratic matter Lagrangian. Denoting adapted coordinates on $J^1(M \times \mathbb{R})$ by $(x^m,\phi,\phi_m)$ the most general, such matter Lagrangian is given as:
 \begin{align}\label{KGL}
     \mathcal{L}_{KG} = \frac{1}{2} \left ( B^{ab} \phi_a \phi_b - m^2 \phi^2\right )\omega \mathrm{d}^4x.
 \end{align}
@@ -26,19 +26,19 @@ We start by introducing the necessary structure on $F_{GR}$. We have already see
 \end{align}
 and similar for the inverse metric $g^{-1} \in \Gamma(F_{GR}^{\ast})$.
 Following along the lines described in algorithm \ref{Algo2} we choose $J^2F_{GR} \ni p_0 \equiv (x_0^m,\eta_A,0,0) =: (N_{AI})$ where $\eta_A = J^{ab}_A \eta_{ab}$ as $\eta$-induced expansion point. Furthermore, we choose to construct the perturbative gravitational Lagrangian up to order $k=3$. 
-Next, we compute the coordinate expression of the Lie derivative of a metric tensor field to obtain the vertical coefficients $C_{An}^{Bm}$. We get
+Next, we compute the coordinate expression of the Lie derivative of a metric tensor field to obtain the vertical coefficients $C_{An}^{Bm}$. We get:
 \begin{align}
     \mathcal{L}_{\xi} g_{ab} = \partial_m g_{ab} \cdot \xi^m + \left (-2 \delta_n^{(c\vert} \delta_{(a}^m \delta_{b)}^{\vert d)} \right ) g_{cd} \partial_m \xi^n.
 \end{align}
-Inserting $g_{cd} = I^B_{cd} g_B$ further contracting the whole expression with $J^{ab}_A$ to convert the free $ab$ indices to a $A$ index we find.
+Inserting $g_{cd} = I^B_{cd} g_B$ further contracting the whole expression with $J^{ab}_A$ to convert the free $ab$ indices to a $A$ index we find:
 \begin{align}
     \mathcal{L}_{\xi} g_A = \partial_m g_A \xi^m + \left (-2 I^B_{nb}J^{mb}_{A} \right )g_B \partial_m \xi ^n. 
 \end{align}
-Here we also used that the two intertwiners $I^A_{ab}$ and $J_A^{ab}$ are symmetric in their spacetime indices. Thus we can simply read off from the last expression
+Here we also used that the two intertwiners $I^A_{ab}$ and $J_A^{ab}$ are symmetric in their spacetime indices. Thus we can simply read off from the last expression:
 \begin{align}
     C_{An}^{Bm} = -2 I^B_{nb}J_A^{mb}.
 \end{align}
-As before we define $(H_{AI}) := (v_{AI}) - (N_{AI})$ to obtain the most general expansion of the Lagrangian that generates second-derivative-order EOM by
+As before we define $(H_{AI}) := (v_{AI}) - (N_{AI})$ to obtain the most general expansion of the Lagrangian that generates second-derivative-order EOM by:
 \begin{align}\label{LGR}
     L_{GR,per} =  a_0 + a^A H_A + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ApBq} H_{Ap}H_{Bq} + a^{ABI} H_{A} H_{BI} \\
     + a^{ABC} H_a H_B H_C + a^{ABpCq} H_{A}H_{Bp}H_{Cq} +
@@ -54,7 +54,7 @@ Nevertheless providing an illustrative example we consider the expansion coeffic
     \item[(ii)] $\eta^{ac} \eta^{bd}$ 
     \item[(iii)] $\eta^{ad} \eta^{bc}$.
 \end{itemize}
-Enforcing the symmetries on these $3$ expressions, we find that (i) already features the desired symmetries and (ii) and (iii) both provide the symmetry once we symmetrize in $(ab)$. These two terms then are precisely the same. We thus find that 
+Enforcing the symmetries on these $3$ expressions, we find that (i) already features the desired symmetries and (ii) and (iii) both provide the symmetry once we symmetrize in $(ab)$. These two terms then are precisely the same. We thus find that:
 \begin{align}\label{ansatzExample}
     a^{AB} = I^{A}_{ab}I^{B}_{cd} \left ( 8\mu_3 \cdot \eta^{ab}\eta^{cd} + 8\mu_4 \cdot \eta^{c(a} \eta^{b)d}   \right ).
 \end{align}
@@ -83,11 +83,11 @@ Here we separated the appearing constants in those that appear in front of terms
 
 According to algorithm \ref{Algo2} the next step consists of inserting these expansion coefficients and the previously computed expression for the constant tensor $C_{An}^{Bm}$ into the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}). These are then linear equations for the unknown constants $\{ \mu_1,...,\mu_7\}$ and $\{\nu_1,...,\nu_{47}\}$. The solution we get from doing this by using our computer program is displayed in equation (\ref{GRSol}) in the appendix. Note that the expansion (\ref{LGR}) in generall features $15.906$ undetermined constants in the $9$ expansion coefficients. The restriction to those that define the components of Lorentz invariant tensor that is demanded by the perturbative equivariance equations reduces these to $54$ constants. Solving the perturbative equivariance equations then further decreases the number of undetermined parameters to $2$. Also, observe that in the solution, there is no contribution from terms that involve $\epsilon^{abcd}$. In fact, the constant parameters in front of expansion coefficients that contain the Levi-Civita symbol are the only ones that the equivariance equations set to zero.  
 
-We continue with construction algorithm \ref{Algo2} by computing the perturbative expansion of the gravitational principal polynomial. Inserting the solution for the expansion coefficients (\ref{GRSol}) into (\ref{LGR}) now yields the most general diffeomorphism invariant perturbative Lagrangian. Normally we would now proceed by plugging the solved expansion coefficients into the perturbative EOM (\ref{EOMPert}) and then compute the corresponding expansion of the principal symbol and polynomial as outlined in the last chapter. It is, however, worth noting that for the simple case of the gravitational field being provided by a metric tensor it is actually not necessary to follow along with these general steps. We can, in fact, save ourselves much work by taking a closer look at equation (\ref{polyEqn}) that the principal polynomial has to satisfy as a consequence of the diffeomorphism equivariance. For the metric tensor field, this equation takes the particularly simple form
+We continue with construction algorithm \ref{Algo2} by computing the perturbative expansion of the gravitational principal polynomial. Inserting the solution for the expansion coefficients (\ref{GRSol}) into (\ref{LGR}) now yields the most general diffeomorphism invariant perturbative Lagrangian. Normally we would now proceed by plugging the solved expansion coefficients into the perturbative EOM (\ref{EOMPert}) and then compute the corresponding expansion of the principal symbol and polynomial as outlined in the last chapter. It is, however, worth noting that for the simple case of the gravitational field being provided by a metric tensor it is actually not necessary to follow along with these general steps. We can, in fact, save ourselves much work by taking a closer look at equation (\ref{polyEqn}) that the principal polynomial has to satisfy as a consequence of the diffeomorphism equivariance. For the metric tensor field, this equation takes the particularly simple form:
 \begin{align}\label{metricPoly}
     0 = \partial^A \mathcal{P}_{GR}^{abcd} C_{An}^{Bm} v_B - 4\mathcal{P}_{GR}^{(abc\vert m} \delta_n^{\vert d)} + 2 \mathcal{P}_{GR}^{abcd} \delta^m_n.
 \end{align}
-We now expand $\mathcal{P}_{GR}^{abcd}$ around $(N_{A}) = (x_0^m, \eta_A)$ and construct a power series solution to (\ref{metricPoly}). From before we know that given the expansion of the Lagrangian up to third order we only need to expand the polynomial up to first order and hence also the totally symmetric expression $\mathcal{P}_{GR}^{abcd}$ is expanded up to linear order. We get 
+We now expand $\mathcal{P}_{GR}^{abcd}$ around $(N_{A}) = (x_0^m, \eta_A)$ and construct a power series solution to (\ref{metricPoly}). From before we know that given the expansion of the Lagrangian up to third order we only need to expand the polynomial up to first order and hence also the totally symmetric expression $\mathcal{P}_{GR}^{abcd}$ is expanded up to linear order. We get:
 \begin{align}
     \mathcal{P}_{GR}^{abcd} = (P_0)_{GR}^{abcd} + (P_1)_{GR}^{abcdA} H_A + \mathcal{O}(2).
 \end{align}
@@ -103,7 +103,7 @@ Upon inserting the thereby obtained expansion in (\ref{metricPoly}) and evaluati
 \begin{align}
     b = a \ \ \text{and} \ \ c = -2a.
 \end{align}
-Inserting this into $\mathcal{P}_{GR}^{abcd}$ and contracting again against $k_a\cdot ...\cdot k_d$ in total we find the following expression for the most general linear-order expansion of the principal polynomial that is consistent with the diffeomorphism equivariance of $L_{GR,per}$
+Inserting this into $\mathcal{P}_{GR}^{abcd}$ and contracting again against $k_a\cdot ...\cdot k_d$ in total we find the following expression for the most general linear-order expansion of the principal polynomial that is consistent with the diffeomorphism equivariance of $L_{GR,per}$:
 \begin{align}
 \begin{aligned}
     \mathcal{P}_{GR} &= a \cdot  \eta(k) \cdot \left [\eta(k) + H \cdot \eta(k)  -
@@ -140,7 +140,7 @@ As mentioned earlier in this section Lovelock has shown that the only diffeomorp
 \begin{align}
     L_{EH} := \kappa \sqrt{\vert \mathrm{det} \left ( I^A_{pq}v_A \right ) \vert }  \left( R + \Lambda \right ),
 \end{align}
-where the two constant parameters, $\kappa$, and $\Lambda$ are called gravitational constant and cosmological constant respectively. Here $R$ is the so-called Ricci scalar. As we have mentioned earlier in this thesis, one usually first constructs the Riemann tensor, the curvature  $2$-form of the unique metric compatible connection on the frame bundle over $M$. From this one obtains the Ricci tensor by computing its trace. Finally one contracts the Ricci-tensor with the inverse metric to end up with the Ricci scalar $R$. From the point of view of classical field theory, all the deeper connections to Riemannian geometry that are present in the above procedure are, however, actually not necessary. The only relevant fact one really needs is that the Ricci scalar defines a function on $J^2F_{GR}$. To that end recall that any non-degenerate metric defines a smooth bundle isomorphism 
+where the two constant parameters, $\kappa$, and $\Lambda$ are called gravitational constant and cosmological constant respectively. Here $R$ is the so-called Ricci scalar. As we have mentioned earlier in this thesis, one usually first constructs the Riemann tensor, the curvature  $2$-form of the unique metric compatible connection on the frame bundle over $M$. From this one obtains the Ricci tensor by computing its trace. Finally one contracts the Ricci-tensor with the inverse metric to end up with the Ricci scalar $R$. From the point of view of classical field theory, all the deeper connections to Riemannian geometry that are present in the above procedure are, however, actually not necessary. The only relevant fact one really needs is that the Ricci scalar defines a function on $J^2F_{GR}$. To that end recall that any non-degenerate metric defines a smooth bundle isomorphism:
 \begin{align}\label{music}
 \begin{aligned}
 \flat : TM &\longrightarrow T^{\ast}M\\
@@ -194,11 +194,11 @@ From considerations involving the Lorentz force one similarly obtains that the m
 \begin{align}
     F = d A.
 \end{align}
-Finally one assumes that the two 2-forms $F$ and $H$ are related via a local and linear spacetime relation. Writing the 2 forms in terms of some chart induced basis $F = F_{ab} = \mathrm{d}x^a \otimes \mathrm{d}x^b$ with $F_{ab} = - F_{ba}$ and similar for $H$ specifying such a relation requires an additional $(0,4)$ tensor field $G$ that obeys the following symmetries
+Finally one assumes that the two 2-forms $F$ and $H$ are related via a local and linear spacetime relation. Writing the 2 forms in terms of some chart induced basis $F = F_{ab} = \mathrm{d}x^a \otimes \mathrm{d}x^b$ with $F_{ab} = - F_{ba}$ and similar for $H$ specifying such a relation requires an additional $(0,4)$ tensor field $G$ that obeys the following symmetries:
 \begin{align}\label{areaSym}
     G_{abcd} = -G_{bacd} = G_{cdab}.
 \end{align}
-Note that such a tensor field at each spacetime point $p\in M$ defines a symmetric inner product on the space of $2$-forms $\Lambda^2_pM$. Consequently we will call such a tensor field an \textbf{\textit{area metric}} tensor field and denote the bundle of these area metric tensors by $F_{Area}$. Due to (\ref{areaSym}) one need $21$ independent component functions to uniquely specify such an area metric. Thus $F_{Area}$ has $21$ dimensional fibers.   In the following we restrict the bundle of such area metric tensor fields $G$ by requiring that the inner product they define is non degenerate for all $p$ in the sense that $G$ provides us with a bundle isomorphism 
+Note that such a tensor field at each spacetime point $p\in M$ defines a symmetric inner product on the space of $2$-forms $\Lambda^2_pM$. Consequently we will call such a tensor field an \textbf{\textit{area metric}} tensor field and denote the bundle of these area metric tensors by $F_{Area}$. Due to (\ref{areaSym}) one need $21$ independent component functions to uniquely specify such an area metric. Thus $F_{Area}$ has $21$ dimensional fibers.   In the following we restrict the bundle of such area metric tensor fields $G$ by requiring that the inner product they define is non degenerate for all $p$ in the sense that $G$ provides us with a bundle isomorphism: 
 \begin{align}
 \flat_{Area} : \Lambda^2M \longrightarrow (\Lambda^2M)^{\ast} = A^2_0M,
 \end{align}
@@ -246,7 +246,7 @@ The other possibility is given when the representative of the equivalence class 
 \begin{align}
     [v_{ijkl}] = \{v_{ijkl},v_{jikl}, v_{klij}, v_{lkji}, -v_{jikl}, -v_{ijlk}, -v_{lkij}, v_{klji} \}.
 \end{align}
-Such classes have multiplicity 8. The intertwiners $I^A_{abcd}$ and $J_A^{abcd}$ can now be constructed according to (\ref{defI}) and (\ref{defJ}). The explicit non-vanishing components of these intertwiners are displayed in the appendix (\ref{AreaI}) and (\ref{AreaJ}). Using these we define the new adapted coordinate functions on $F_{Area}$ and its dual $F_{Area}^{\ast}$
+Such classes have multiplicity 8. The intertwiners $I^A_{abcd}$ and $J_A^{abcd}$ can now be constructed according to (\ref{defI}) and (\ref{defJ}). The explicit non-vanishing components of these intertwiners are displayed in the appendix (\ref{AreaI}) and (\ref{AreaJ}). Using these we define the new adapted coordinate functions on $F_{Area}$ and its dual $F_{Area}^{\ast}$:
 \begin{align}
     \begin{aligned}
     v_A = J_A^{abcd}v_{abcd} \\
@@ -324,7 +324,7 @@ Following algorithm \ref{Algo2} we now compute the principal polynomials of the 
                 &= \bigl\{  \bigl[ 1 - \frac{1}{2} A \eta(H) - \frac{1}{4} A \epsilon(H) +  \frac{1}{24} \epsilon(H) \bigr] \eta(k) - \frac{1}{2} H(k)       \bigr\}^2 + \mathcal{O}(2).
 \end{aligned}
 \end{align}
-Here we defined $v_{\flat_{Area}}^A = v^A \circ \flat_{Area}$ and used $v_{\flat_{Area}}^A J_A^{abcd} I^B_{cdef}v_B = 4 \delta^{[a}_e \delta^{b]}_f$ to expand $v^A_{\flat_{Area}}$ around $N_A$. Further, we defined
+Here we defined $v_{\flat_{Area}}^A = v^A \circ \flat_{Area}$ and used $v_{\flat_{Area}}^A J_A^{abcd} I^B_{cdef}v_B = 4 \delta^{[a}_e \delta^{b]}_f$ to expand $v^A_{\flat_{Area}}$ around $N_A$. Further, we defined:
 \begin{align}
 \begin{aligned}
 \eta(H) &:= \eta^{ac}\eta^{bd} I^A_{abcd} H_A, \\ 
@@ -346,12 +346,12 @@ To explain this further first note that since there still appear $52$ constant p
 
 Nevertheless, with the available resources, the program did not terminate in adequate time. Thus the only way we nevertheless were able to obtain an expression for the polynomial was by evaluating the $7$ parameters that appear in $T_0$ at randomly generated integer values and then only computing the principal polynomial with the remaining parameters from the two third-order coefficients $a^{ABpCq}$ and $a^{ABCI}$. Taking a closer look at (\ref{polyMatrices}) these parameters only appear in traces, not in determinants or inverses. We then proceeded by performing this computation to obtain the principal polynomial several times, each time taking newly obtained random integers for the $7$ parameters in $T_0$. Doing so, we observed that they only contribute an overall factor to the principal polynomial (\ref{AreaPoly}). We have to admit that this was not done often enough to rigorously interpolate the precise way the prefactor depends on these $7$ parameters. This is however not necessary as we are only interested in the vanishing set of the area metric gravity polynomial. 
 
-Note that, as we are only interested in the vanishing set of the principal polynomial, we can multiply a given polynomial with a non-vanishing scalar density of arbitrary weight. The expansion to linear order of such a density admits the general form
+Note that, as we are only interested in the vanishing set of the principal polynomial, we can multiply a given polynomial with a non-vanishing scalar density of arbitrary weight. The expansion to linear order of such a density admits the general form:
 \begin{align}\label{dens}
 \omega = 1+ b_1 \cdot (\eta(H) + \frac{1}{2} \epsilon(H)) + \frac{b_2}{12}\epsilon(H) + \mathcal{O}(2),
 \end{align}
 for arbitrary constants $b_1$ and $b_2$.
-Multiplying  (\ref{GLEDPoly}) with such a density we see that perturbatively the GLED polynomial describes the same vanishing set as 
+Multiplying  (\ref{GLEDPoly}) with such a density we see that perturbatively the GLED polynomial describes the same vanishing set as:
 \begin{align} \label{GLEDPoly2}
 \begin{aligned}
     \widetilde{\mathcal{P}}_{GLED}(k) = \omega \cdot \mathcal{P}_{GLED} = 
