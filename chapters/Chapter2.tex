@@ -8,7 +8,7 @@ Given the achievement of translating the first requirement we wish to pose on an
     \item Assume we are given a concrete matter theory that employs a certain tensor field as background geometry.
     Such a matter theory could, for instance, be phenomenologically motivated. As we do not want to specify the values of the tensorial background geometry by hand we pursue the goal of supplementing the matter theory with dynamical equations that allow us to predict values of the tensor field, i.e., we complete the matter theory with an appropriate theory of gravity for the tensorial geometry. To that end, we try to solve the equivariance equations (\ref{DiffeoEqn}) specifically for the given tensor field. 
     Once we have solved the stated PDE system, we obtain a gravitational Lagrangian that describes the dynamics of this tensor field. The gravitational dynamics is however not independent of the matter field, as the latter will appear as source term in the gravitational EOM, describing how gravity is generated.
-    The matter and gravity EOM actually constitute a coupled system (see Figure \ref{MatterGrav}), neither of the EOM can be solved independently. This raises the question of how we can ensure the two theories are, in fact, compatible in the sense that the given EOMs can be solved together.
+    The matter and gravity EOM actually constitute a coupled system (see figure \ref{MatterGrav}), neither of the EOM can be solved independently. This raises the question of how we can ensure the two theories are, in fact, compatible in the sense that the given EOMs can be solved together.
     \item The above consideration obviously requires that we are able to obtain solutions to the equivariance PDE. This itself in no way constitutes a simple task and certainly demands specific techniques.
 \end{itemize}
 Although these two problems at first glance seem to have not much in common, it turns out that the key to the solution to either one of them lies in an in-depth treatment of partial differential equations. 
@@ -266,7 +266,7 @@ The prolonged system $R_2$ is given by the following $8$ equations:
                         (viii) \ \ \ \ u_{yz} &= 0 
             \end{cases}
 \end{align}
-We can use equation $vi$ and equation $viii$ to remove all second derivative order contributions from equation $iv$.
+We can use equation $vi$ and equation $viii$ to remove all second-derivative-order contributions from equation $iv$.
 The prolonged symbol $M_2$ thus reads:
 \begin{align}
 M_2 : \begin{cases}
@@ -378,7 +378,7 @@ Although for our case the treatment of the PDEs that will arise once we consider
 In the previous developments of techniques for the construction of power series solutions to a given PDE, the essential information was contained in the highest derivative part of the PDE, its symbol. 
 It further turns out that this highest derivative part of the PDE also contains the entire information regarding the causal structure of the PDE. To that end, we introduce a second way of collecting the information of the highest-derivative-order contributions of a PDE, the so-called \textbf{\textit{principal symbol}}.
 \begin{definition}[principal symbol] \label{PSym}
-Let $ k \in T^{\ast}M$ be a  1-form, in holonomic coordinates on $T^{\ast}M$ we write: $k_{a} \mathrm{d}x^a$. The principal symbol to a given $q$th order PDE $R_q$ that is described as kernel of the map $\Phi^{\tilde{A}}$, is the matrix:
+Let $ k \in T^{\ast}M$ be a  1-form, in holonomic coordinates on $T^{\ast}M$ we write: $k_{a} \mathrm{d}x^a$. The principal symbol to a given $q$th-order PDE, $R_q$ that is described as kernel of the map $\Phi^{\tilde{A}}$, is the matrix:
 \begin{align}
     T^{\tilde{A} B}(k_a) = \left ( \frac{\partial \Phi^{\tilde{A}}}{\partial v_{BI_q}} \right ) J_{I_q}^{i_1...i_q} k_{i_1} \cdot ... \cdot k_{i_q}.
 \end{align}
@@ -400,7 +400,7 @@ More precisely, we consider the following formal WKB\footnote{Wentzel-Kramers-Br
 \begin{align}\label{waveAns}
     G_A(x^m) = \mathrm{Re}\left \{ e^{\frac{iS(x^m)}{\lambda}} \cdot   \bigl [ a_A(x^m) + \mathcal{O}(\lambda) \bigr ]\right \},
 \end{align}
-Plugging this ansatz into the PDE and taking the infinite frequency limit $\lambda \rightarrow 0$ one obtains in leading order, i.e., in $\lambda^{-q}$th order the following equation
+Plugging this ansatz into the PDE and taking the infinite frequency limit $\lambda \rightarrow 0$ one obtains in leading order, i.e., in $\lambda^{-q}$th order, the following equation
 \begin{align}
     \underbrace{\left ( \frac{\partial \Phi^{\tilde{A}}}{\partial v_{BI_q}} \right ) J_{I_q}^{i_1...i_q} k_{i_1} \cdot ... \cdot k_{i_q}}_{T^{\tilde{A} B}(k_a)} a_B(x^m) = 0,
 \end{align}
@@ -421,7 +421,7 @@ There is, nonetheless, a slight obstruction to this. If the Lagrangian field the
 These functions thus lie in the kernel of the principal symbol matrix, independent of the specific 1-form $k_a$.
 Hence whenever the field theory features a $s$-dimensional gauge symmetry, the principal symbol of the corresponding EOM has at least $s$-dimensional kernel (cf. \cite{2018PhRvD..97h4036D}). 
 
-Returning to the relevant example of $E^A$ describing the second derivative order EOM of a diffeomorphism invariant theory of gravity, we find that the principal symbol takes the following form:
+Returning to the relevant example of $E^A$ describing the second-derivative-order EOM of a diffeomorphism invariant theory of gravity, we find that the principal symbol takes the following form:
 \begin{align}
     T^{A B} (k_a) = \left (\frac{\partial E^A}{\partial v_{BI}} \right )J_I^{pq} k_p k_q = E^{A: BI} J_I^{pq} k_p k_q.
 \end{align}
@@ -432,24 +432,24 @@ Taking now a closer look at the PDE (\ref{DiffeoEqn}) that such EOM then necessa
     T^{B A} (k_a) C_{An}^{Cm}v_Ck_m &= 0 .
 \end{aligned}
 \end{align}
-Hence, due to the diffeomorphism symmetry, there exist four independent vectors:
+Hence, due to the diffeomorphism symmetry, there exist $4$ independent vectors:
 \begin{align}
    \chi_{An}(k_a) =  C_{An}^{Cm}v_Ck_m
-\end{align} that are in the kernel of the principal symbol and $T^{AB}(k)$ is not injective but as a 4-dimensional rank defect\footnote{Note that this is closely related to the previous four constraints that any diffeomorphism invariant field theory necessarily contains amongst its EOM (see chapter \ref{ConstrainedDyn}).}. To compensate for that, we have to require the 1-form $k_a$ to be given s.t. $T^{AB}(k_a)$ is not only non-injective but has at least a 5-dimensional kernel. Then there necessarily exists at least a one dimensional subspace in this kernel of $T^{AB}(k_a)$ that is not gauge-equivalent to the trivial solution $a_A(x^m) = 0$. Hence, $k_a$ represents the wave covector of a physically non-trivial wave solution to the PDE (at least in the $\lambda \rightarrow 0$ limit).
+\end{align} that are in the kernel of the principal symbol and $T^{AB}(k)$ is not injective but as a 4-dimensional rank defect\footnote{Note that this is closely related to the previous $4$ constraints that any diffeomorphism invariant field theory necessarily contains amongst its EOM (see chapter \ref{ConstrainedDyn}).}. To compensate for that, we have to require the 1-form $k_a$ to be given s.t. $T^{AB}(k_a)$ is not only non-injective but has at least a 5-dimensional kernel. Then there necessarily exists at least a one dimensional subspace in this kernel of $T^{AB}(k_a)$ that is not gauge-equivalent to the trivial solution $a_A(x^m) = 0$. Hence, $k_a$ represents the wave covector of a physically non-trivial wave solution to the PDE (at least in the $\lambda \rightarrow 0$ limit).
 
-The condition of having at least a $5$ dimensional kernel of the principal symbol can be expressed more formally by requiring that its adjunct matrix of order four vanishes. Given the $n \times n$ matrix $T^{AB}(k_a)$, its adjunct matrix of order four is the $\binom{n}{4} \times \binom{n}{4}$ square matrix that has entries equal to the order four sub determinants of $T^{AB}(k_a)$:
+The condition of having at least a $5$ dimensional kernel of the principal symbol can be expressed more formally by requiring that its adjunct matrix of order $4$ vanishes. Given the $n \times n$ matrix $T^{AB}(k_a)$, its adjunct matrix of order $4$ is the $\binom{n}{4} \times \binom{n}{4}$ square matrix that has entries equal to the order $4$ sub determinants of $T^{AB}(k_a)$:
 \begin{align}\label{MinorDef}
     Q_{(A_1...A_4) (B_1...B_4)}(k_a) := \frac{\partial^4 (\mathrm{det}(T^{AB}(k_a)))}{\partial T^{A_1 B_1}(k_a) ... \partial T^{A_4 B_4}(k_a)}.
 \end{align}
-Consequently, we index an entry of the order four adjunct matrix $Q_{(A_1...A_4) (B_1...B_4)}(k_a)$ by a symmetric $4$-tuples of rows $(A_1...A_4)$ and columns $(B_1...B_4)$ that encode the rows and columns that are removed from the matrix $T^{AB}(k_a)$ to obtain a certain $(n-4) \times (n-4)$ submatrix of it. The value of $Q_{(A_1...A_4) (B_1...B_4)}(k_a)$ is then given by the determinant of this submatrix. 
+Consequently, we index an entry of the order $4$ adjunct matrix $Q_{(A_1...A_4) (B_1...B_4)}(k_a)$ by a symmetric $4$-tuples of rows $(A_1...A_4)$ and columns $(B_1...B_4)$ that encode the rows and columns that are removed from the matrix $T^{AB}(k_a)$ to obtain a certain $(n-4) \times (n-4)$ submatrix of it. The value of $Q_{(A_1...A_4) (B_1...B_4)}(k_a)$ is then given by the determinant of this submatrix. 
 
-One can show (\cite{2018PhRvD..97h4036D} and \cite{2009JPhA...42U5402I}) that the requirement of a vanishing order four adjunct matrix\footnote{Obviously one can obtain similar results for other gauge symmetries \cite{2018PhRvD..97h4036D}. The only difference then lies in the particular expression for the null vectors and the dimension of the rank defect in the symbol.} boils down to the vanishing of a certain homogeneous polynomial in the components $k_a$. More rigorously one obtains the following general expression for the entries of the order four adjunct matrix of the principal symbol that holds for any diffeomorphism invariant field theory at hand:
+One can show (\cite{2018PhRvD..97h4036D} and \cite{2009JPhA...42U5402I}) that the requirement of a vanishing order $4$ adjunct matrix\footnote{Obviously one can obtain similar results for other gauge symmetries \cite{2018PhRvD..97h4036D}. The only difference then lies in the particular expression for the null vectors and the dimension of the rank defect in the symbol.} boils down to the vanishing of a certain homogeneous polynomial in the components $k_a$. More rigorously one obtains the following general expression for the entries of the order $4$ adjunct matrix of the principal symbol that holds for any diffeomorphism invariant field theory at hand:
 \begin{align}\label{diffeoMinor}
     Q_{(A_1...A_4) (B_1...B_4)}(k_a) = \epsilon^{i_1...i_4} \epsilon^{j_1...j_4} \chi_{A_1i_1}(k_a) \cdot ... \cdot \chi_{A_4i_4}(k_a) \cdot \chi_{B_1j_1}(k_a) \cdot ... \cdot \chi_{B_4j_4}(k_a) \cdot \mathcal{P}(k_a),
 \end{align}
 
 Hence the non-trivial zeros of the adjunct matrix are completely determined by the zeros of $\mathcal{P}(k_a)$. We call this homogeneous degree $2n-16$ polynomial in the components $k_a$ the \textit{\textbf{principal polynomial}} $\mathcal{P}(k_a)$ of the EOM.
-This explicit form of the entries of the adjunct matrix of order four is also vital for concretely computing the principal polynomial. We simply have to find one single $(n-4) \times (n-4)$ submatrix of the principal symbol with non-vanishing determinant by removing four rows $(A_1...A_4)$ and four columns $(B_1...B_4)$. From the choice of removed rows and columns, we can compute the occurring prefactor expression 
+This explicit form of the entries of the adjunct matrix of order $4$ is also vital for concretely computing the principal polynomial. We simply have to find one single $(n-4) \times (n-4)$ submatrix of the principal symbol with non-vanishing determinant by removing $4$ rows $(A_1...A_4)$ and $4$ columns $(B_1...B_4)$. From the choice of removed rows and columns, we can compute the occurring prefactor expression 
 \begin{align}\label{prefacF}
 f_{(A_1...A_4)(B_1...B_4)}(k_a) := \epsilon^{i_1...i_4} \epsilon^{j_1...j_4} \chi_{A_1i_1}(k_a) \cdot ... \cdot \chi_{A_4i_4}(k_a) \cdot \chi_{B_1j_1}(k_a) \cdot ... \cdot \chi_{B_4j_4}(k_a).
 \end{align}
@@ -457,7 +457,7 @@ Then we compute the determinant of the chosen submatrix, $Q_{(A_1...A_4)(B_1...B
 \begin{align}
     \mathcal{P}(k_a) = \frac{Q_{(A_1...A_4)(B_1...B_4)}(k_a)}{f_{(A_1...A_4)(B_1...B_4)}(k_a)}.
 \end{align}
-In particular, the only technical complexity in this computation is provided by calculating one order four subdeterminant of the principal symbol. 
+In particular, the only technical complexity in this computation is provided by calculating one order $4$ subdeterminant of the principal symbol. 
 
 Note that if the theory at hand incorporates gauge symmetries different from the discussed case of diffeomorphism invariance, one can obtain similar formulae with the particular order of the appropriate submatrices and the expression for the prefactor obviously depending on the specific form of the gauge symmetry.
 \begin{definition}[principal polynomial of EOM]
@@ -491,7 +491,7 @@ We call $C(P,h)$ the \textbf{\textit{hyperbolicity cone}} of $P$, containing $h$
 
 The set of hyperbolic directions $h\in \mathbb{R}^d$ of a given hyperbolic polynomial $P$ might very well be composed of several connected components. For instance, one can readily show that whenever $P$ is hyperbolic w.r.t. $h\in \mathbb{R}^d$ it necessarily is also hyperbolic w.r.t. $-h$. For further developments, we will thus select one connected component of the set of such hyperbolic directions, and subsequently call it the hyperbolicity cone of $P$: $C(P)$. We will later comment on the deeper physical meaning that such a choice of hyperbolicity cone provides.
 
-The notion of hyperbolic polynomials and the corresponding hyperbolicity cones is best illustrated by a picture (Figure \ref{hyperbol}). 
+The notion of hyperbolic polynomials and the corresponding hyperbolicity cones is best illustrated by a picture (figure \ref{hyperbol}). 
 \begin{figure}[hbt!]
     \centering
     \includegraphics[width=\textwidth]{Poly.pdf}
@@ -549,7 +549,7 @@ The gravitational EOM now feature an inhomogeneous term that describes how matte
 \begin{align}
     0 = \frac{\delta \mathcal{L}_{tot}}{\delta v_A} = \frac{\delta \mathcal{L}_{grav}}{\delta v_A} + \frac{\delta \mathcal{L}_{mat}}{\delta v_A}.
 \end{align}
-The matter EOM is given by 
+The matter EOM are given by 
 \begin{align}
     0 = \frac{\delta \mathcal{L}_{mat}}{\delta \phi^{\tilde{A}}}.
 \end{align}
@@ -587,7 +587,7 @@ Note that then $C_{p,grav} = C_{p,mat}$ immediately follows. Further note that t
 
 
 Summing up the previous achievements, it is now conceptually apparent how we must proceed to find the most general gravitational Lagrangian that is compatible with any given matter theory. We first solve the equivariance equations (\ref{DiffeoEqn}) to implement the required diffeomorphism invariance of the theory of gravity paying close attention to make sure that the resulting EOM are of no higher than second derivative order. Then we compute the gravitational principal polynomial and compare it to the one obtained from the matter theory. We require that at each spacetime point the two polynomials define the same vanishing set and by this get further conditions the gravitational Lagrangian has to solve, this time encoding the causal compatibility between matter theory and gravity.
-We end this section by formulating this results in terms of a definite construction manual that is displayed as the Algorithm \ref{Algo1}.
+We end this section by formulating this results in terms of a definite construction manual that is displayed as the algorithm \ref{Algo1}.
 \begin{algorithm}[hbt!]
 \SetAlgoLined
 \KwData{Matter theory: $ \mathcal{L}_{mat} : F_{grav} \times J^1F_{mat} \longrightarrow \Lambda^4M$.
@@ -673,23 +673,23 @@ We take an arbitrary row $\sigma$, for $\sigma=1,...,140$, and consider the corr
 In other words $\mathrm{cls}$ returns the class of a given row
 We now show that prolonging this equation w.r.t. an arbitrary non-multiplicative variable $y_b$ for $b>\mathrm{cls}(\sigma)$ yields no additional independent contribution to the prolonged symbol. This is achieved by showing that we can add prolongations w.r.t. multiplicative variables to such a non-multiplicative prolongation $D_bE_{\sigma}$ and thereby obtain an equation of first derivative order which is thus not present in $M_2$. Note that in the matrix (\ref{symbolMat}) multiplicative variables of a given row are exactly those corresponding to the columns that are right to the normalized pivot elements (including these) and thus contain the functions $a^{\alpha}_{\tau}$. Non-multiplicative variables correspond to the columns left to the pivots that hence contain only zeros.
 
-Prolonging $E_{\sigma}$ w.r.t. such a $y_b$, i.e., computing $D_bE_{\sigma}$ we get second-order derivatives of the form $y_{bc}$ for $c < \mathrm{cls}(\sigma)$, where $y_c$ is multiplicative for $E_{\sigma}$. Considering a particular such $c$ as an example, we can now get rid of this second order derivative contribution by utilizing the equation with pivot of class $b$. As $b>c$ such an equation necessarily exists; this can easily be seen from the upper triangular structure of the solved symbol. More precisely this equation is explicitly given by $E_{\mathrm{cls}(b)}$.
+Prolonging $E_{\sigma}$ w.r.t. such a $y_b$, i.e., computing $D_bE_{\sigma}$ we get second-order derivatives of the form $y_{bc}$ for $c < \mathrm{cls}(\sigma)$, where $y_c$ is multiplicative for $E_{\sigma}$. Considering a particular such $c$ as an example, we can now get rid of this second-order derivative contribution by utilizing the equation with pivot of class $b$. As $b>c$ such an equation necessarily exists; this can easily be seen from the upper triangular structure of the solved symbol. More precisely this equation is explicitly given by $E_{\mathrm{cls}(b)}$.
 Since $c<b$, $y_c$ is multiplicative for $E_{\mathrm{cls}(b)}$. We prolong $E_{\mathrm{cls}(b)}$ w.r.t. $y_c$, scale it appropriately, by the negative of the coefficient of $l_{bc}$ in the previously computed non-multiplicative prolongation $D_bE_{\sigma}$ and add it to this equation. Doing so we remove the entire contribution from $y_{bc}$. Similarly, one can get rid of all further second derivative contributions contained in $D_bE_{\sigma}$. In total we therefore see that we can add multiplicative prolongations to remove the whole second derivative order of such a non-multiplicative prolongation $D_bE_{\sigma}$.
 Hence any non-multiplicative prolongation does not contribute an independent new second-derivative-order equation to the prolonged symbol $M_2$ and the symbol. The symbol is, therefore, involutive. 
 
-To proof that not only the symbol but also the PDE (\ref{DiffeoEqnFormal}) itself is involutive, we have to show that the PDE generates no integrability conditions after one prolongation. We have already discussed that prolonging each equation only w.r.t. its multiplicative variables never produces integrability conditions. Furthermore, we have just shown that any prolongation w.r.t. non-multiplicative variables can be reduced to first derivative order by adding further multiplicative prolongations in the way it is outlined above. Hence the question is if the first derivative order contributions that we get from such a procedure are already included in $R_1$ or contribute additional independent equations. 
+To proof that not only the symbol but also the PDE (\ref{DiffeoEqnFormal}) itself is involutive, we have to show that the PDE generates no integrability conditions after one prolongation. We have already discussed that prolonging each equation only w.r.t. its multiplicative variables never produces integrability conditions. Furthermore, we have just shown that any prolongation w.r.t. non-multiplicative variables can be reduced to first derivative order by adding further multiplicative prolongations in the way it is outlined above. Hence the question is if the first-derivative-order contributions that we get from such a procedure are already included in $R_1$ or contribute additional independent equations. 
 
 We first consider the homogeneous case. We take again the $m$th equation and work as before in the coordinates $y^a$ on $J^2F$ that solve the symbol $M_1$ to (\ref{symbolMat}). Note that this homogeneous linear first-order PDE can then be concisely written as:
 \begin{align}
-    E_{\sigma} = l_{\mathrm{cls}(\sigma)} + \sum_{i = \sigma}^{\mathcal{k}} a^{\sigma}_{\mathrm{cls}(i)} l_{\mathrm{cls}(i) } .
+    E_{\sigma} = l_{\mathrm{cls}(\sigma)} + \sum_{i = \sigma+1}^{\mathcal{k}} a^{\sigma}_{\mathrm{cls}(i)} l_{\mathrm{cls}(i) } .
 \end{align}
 We can equivalently write this in the form of vector fields on $J^2F$. We define for $\sigma = 1,...,140$ the vector fields $\zeta_{\sigma} \in \Gamma(J^2F) $ corresponding to $E_{\sigma}$:
 \begin{align}
-    \zeta_{\sigma} := \frac{\partial}{\partial y_{\mathrm{cls}(\sigma})} + \sum_{i = \sigma}^{\mathcal{k}} a^{\sigma}_{\mathrm{cls}(i)} \frac{\partial}{\partial y_{\mathrm{cls}(i)}}.
+    \zeta_{\sigma} := \frac{\partial}{\partial y_{\mathrm{cls}(\sigma})} + \sum_{i = \sigma+1}^{\mathcal{k}} a^{\sigma}_{\mathrm{cls}(i)} \frac{\partial}{\partial y_{\mathrm{cls}(i)}}.
 \end{align}
 The solutions to the given homogeneous PDE are then precisely those functions on $J^2F$ that are invariant under these vector fields, i.e., that satisfy $\zeta_{\sigma} f = 0$ for all values of $\sigma$.
 Note that we obtained the homogeneous PDE from precisely such an invariance requirement. The only difference to the previous case is that we now work coordinates that render the symbol particularly simple. 
-In terms of vector fields this corresponds to the fact that the $\zeta_{\sigma}$ commute (see also \cite{seiler1994analysis}):
+In terms of vector fields this corresponds to the fact that the $\zeta_{\sigma}$ commute (cf. \cite{seiler1994analysis}):
 \begin{align}
     \left [ \zeta_{\sigma}, \zeta_{\tau}\right ] =0.
 \end{align}
@@ -721,7 +721,7 @@ vanish on $R_1$ (see  \cite{seiler1994analysis} and also Example 2.3.12 in \cite
 We can now use that the first contribution vanishes, $\llbracket E_{\sigma}, E_{\tau} \rrbracket = 0$, as this again is essentially nothing different but the commutator of the two vector fields $[\zeta_{\sigma},\zeta_{\tau}]$ expressed in terms of the quantities $E_{\tau}$ and $E_{\sigma}$. We are thus left with the second term $- \sum_{i=1}^{\mathcal{k}} \frac{\partial E_{\tau}}{\partial l_i} l_i$, but as the equation $E_{\tau}$ is in particular linear in the $l_i$ this again yields $E_{\tau}$ and hence vanishes on $R_1$. Along the same lines one can proceed with the case of $E_{\tau}$ also containing extra contributions from $+l$. In total we thus find that also the inhomogeneous PDE is involutive which proofs the statement.
 \end{proof}
 
-We can now apply the previously developed techniques to obtain a power series solution to the PDE (\ref{DiffeoEqnFormal}). This then yields a finite order power series expansion of the requested gravitational Lagrangian of which we can, of course, compute the Euler Lagrange equations in the appropriate perturbative order. In other words, we thus get a perturbative theory of gravity. We consider the result that the PDE (\ref{DiffeoEqnFormal}) is involutive to be essential for this approach as only now as we have proven that we can be sure the contribution to the perturbative Lagrangian that we compute up to some finite order will not change in any higher-order of the power series procedure. Differently stated only with the PDE being involutive we can be one hundred percent sure to really extract all the information relevant for the particular order from the PDE and not end up with a solution that is too general. 
+We can now apply the previously developed techniques to obtain a power series solution to the PDE (\ref{DiffeoEqnFormal}). This then yields a finite-order power series expansion of the requested gravitational Lagrangian of which we can, of course, compute the Euler Lagrange equations in the appropriate perturbative order. In other words, we thus get a perturbative theory of gravity. We consider the result that the PDE (\ref{DiffeoEqnFormal}) is involutive to be essential for this approach as only now as we have proven that we can be sure the contribution to the perturbative Lagrangian that we compute up to some finite order will not change in any higher-order of the power series procedure. Differently stated only with the PDE being involutive we can be one hundred percent sure to really extract all the information relevant for the particular order from the PDE and not end up with a solution that is too general. 
 
 Note that from the point of view of formal theory, involution of a PDE is not only essential for the construction of power series solutions. Previously we have already stated that one of the key ideas behind a PDE with involutive symbol lies in the fact that one is then able to predict the rank of the prolonged symbol employing (\ref{sumBeta}) without actually having to compute the relevant prolongations. As for an involutive symbol according to (\ref{invoCons}) also all prolonged symbols are involutive one can thus obtain formulae that also allow for the prediction of the ranks of higher-order prolongations of the symbol. Recall that the rank of the symbol $M_q$ essentially determines the number of expansion constants of order $q$ that one might specify arbitrarily when constructing a power series solution to the PDE. Thereby the various ranks of the symbol govern the entire information regarding the solution space of the given PDE.
 Thus the involution of the PDE (\ref{DiffeoEqnFormal}) allows us to formulate the following statement about its general solution for arbitrary field bundles $F$.
@@ -841,7 +841,7 @@ In order to clarify this last expression further, we now explicitly provide the 
     &+ a^{Ap BI CJ} H_{Ap} H_{BI} H_{CJ} + a^{AIBJCK} H_{AI} H_{BJ} H_{CK} + \mathcal{O}(4),
 \end{aligned}
 \end{align}
-where $\mathcal{O}(4)$ denotes terms that are of order four or higher in any $(H_{AI_k})$. We now proceed exactly as outlined before in calculating the perturbative solution to solution to (\ref{DiffeoEqn}) from the above power series ansatz of the Lagrangian. We start by plugging in the expansion (\ref{LPert}) into the PDE (\ref{DiffeoEqnFormal}) and evaluate at the expansion point $p_0$. Note that evaluating at $p_0$ in coordinates corresponds to evaluating at $(H_{AI_k})=0$. This then yields equations for the expansion constants $a_0, a^A, a^{Ap}$ and $a^{AI}$. To obtain equations for the remaining higher-order expansion coefficients, we simply prolong the PDE and again insert the series expansion and evaluate at $p_0$. As we have shown that PDE (\ref{DiffeoEqnFormal}) is involutive, there will not occur any integrability conditions.
+where $\mathcal{O}(4)$ denotes terms that are of order $4$ or higher in any $(H_{AI_k})$. We now proceed exactly as outlined before in calculating the perturbative solution to solution to (\ref{DiffeoEqn}) from the above power series ansatz of the Lagrangian. We start by plugging in the expansion (\ref{LPert}) into the PDE (\ref{DiffeoEqnFormal}) and evaluate at the expansion point $p_0$. Note that evaluating at $p_0$ in coordinates corresponds to evaluating at $(H_{AI_k})=0$. This then yields equations for the expansion constants $a_0, a^A, a^{Ap}$ and $a^{AI}$. To obtain equations for the remaining higher-order expansion coefficients, we simply prolong the PDE and again insert the series expansion and evaluate at $p_0$. As we have shown that PDE (\ref{DiffeoEqnFormal}) is involutive, there will not occur any integrability conditions.
 
 There is, however, one obstruction to this procedure that will become noticeable by providing additional lower-order equations that are revealed only after prolongations, yet they have nothing to do with integrability conditions. 
 The reason for this obstruction is that the chosen $\eta$-induced expansion point in general features higher symmetry than an arbitrary point in $J^2F$. More precisely since we required $N_A(\eta_{ab})$ to be constructed from the Minkowski metric through products, sums and possibly contractions, it is \textit{\textbf{Lorentz invariant}}. To further investigate the consequences thereof we consider first an arbitrary flat expansion point $\tilde{p}_0 \in J^2F$ with coordinates $(\tilde{x}_0^m,M_A,0,0)$. Evaluating the second equation in (\ref{DiffeoEqnFormal}) for this point yields:
@@ -853,24 +853,24 @@ Conversely evaluating the same equation at the $\eta$-induced expansion point we
 \begin{align}\label{RankDef}
     0 = l^A \vert_{p_0} C^{BM}_{An}N_B
 \end{align}
-provides only ten independent equations. The reason for this rank defect and foremost, its connection to the observed Lorentz invariance can be observed by considering the expression $K_{m[rs]}^n :=\eta_{m[r}\delta_{s]}^n$. 
-Taking a closer look at the six individual expressions that can be obtained from the six possible values of the anti symmetric index pair  $\{K_{m[rs]}^n \ \vert \ r < s \} $ we find that they all are by construction anti symmetric w.r.t. the Minkowski metric, i.e., they satisfy: 
+provides only $10$ independent equations. The reason for this rank defect and foremost, its connection to the observed Lorentz invariance can be observed by considering the expression $K_{m[rs]}^n :=\eta_{m[r}\delta_{s]}^n$. 
+Taking a closer look at the $6$ individual expressions that can be obtained from the $6$ possible values of the anti symmetric index pair  $\{K_{m[rs]}^n \ \vert \ r < s \} $ we find that they all are by construction anti symmetric w.r.t. the Minkowski metric, i.e., they satisfy: 
 \begin{align}
 K_{m[rs]}^n\eta_{n p} - m \leftrightarrow p = 0.
 \end{align}
 Furthermore, they are all linearly independent when identified as real $4 \times 4$ matrices. Considering the dimension of the vector space of $4 \times 4$ matrices that are anti symmetric w.r.t. the matrix expression of $\eta_{ab}$ we find that  the expressions $K_{m[rs]}^n$ even constitute a basis of the vector space of $\eta$-antisymmetric matrices. 
 
-One can show that the Lie algebra of the Lorentz group $SO(1,3)$ is isomorphic to the Lie algebra that is obtained by equipping this vector space of $\eta$-antisymmetric matrices with the standard matrix commutator. Hence these six matrices actually yield a basis of the Lie algebra $\mathrm{Lie}(SO(1,3))$. One often calls such matrices the \textit{\textbf{generators}} of the corresponding group as finite group elements can be obtained by applying the exponential map to linear combinations of them. Much information regarding the Lorentz group can be found in \cite{doi:10.1142/p199} and \cite{naimark2014linear}.
+One can show that the Lie algebra of the Lorentz group $SO(1,3)$ is isomorphic to the Lie algebra that is obtained by equipping this vector space of $\eta$-antisymmetric matrices with the standard matrix commutator. Hence these $6$ matrices actually yield a basis of the Lie algebra $\mathrm{Lie}(SO(1,3))$. One often calls such matrices the \textit{\textbf{generators}} of the corresponding group as finite group elements can be obtained by applying the exponential map to linear combinations of them. Much information regarding the Lorentz group can be found in \cite{doi:10.1142/p199} and \cite{naimark2014linear}.
 
 It is now clear that it henceforth holds that:
 \begin{align}
     0 = C^{Bm}_{An}N_B K_{m[rs]}^n,
 \end{align}
-as this is nothing but the infinitesimal change of $N_A$ under Lorentz transformations, but as $N_A$ is solely constructed from $\eta_{ab}$ and hence Lorentz invariant this infinitesimal change obviously vanishes. As there exist six independent generators of the Lorentz group we can thus obtain six independent vanishing linear combinations of the 16 equations in (\ref{RankDef}):
+as this is nothing but the infinitesimal change of $N_A$ under Lorentz transformations, but as $N_A$ is solely constructed from $\eta_{ab}$ and hence Lorentz invariant this infinitesimal change obviously vanishes. As there exist $6$ independent generators of the Lorentz group we can thus obtain $6$ independent vanishing linear combinations of the $16$ equations in (\ref{RankDef}):
 \begin{align}
     0 = a^A C^{BM}_{An}N_B K_{m[rs]}^n,
 \end{align}
-leaving us with ten independent equations. At first sight, it seems as if due to the higher symmetry of the expansion points, the equations are now weaker. This is, however, not true as the Lorentz invariance of the expansion point $N_A$ also influences the power series solution in higher-order. To illustrate this effect we consider the prolongation of the second equation in (\ref{DiffeoEqnFormal}) w.r.t. $v_B$, i.e., we apply the total derivative $D_B$ to this equation. We get the second-derivative-order equation:
+leaving us with $10$ independent equations. At first sight, it seems as if due to the higher symmetry of the expansion points, the equations are now weaker. This is, however, not true as the Lorentz invariance of the expansion point $N_A$ also influences the power series solution in higher order. To illustrate this effect we consider the prolongation of the second equation in (\ref{DiffeoEqnFormal}) w.r.t. $v_B$, i.e., we apply the total derivative $D_B$ to this equation. We get the second-derivative-order equation:
 \begin{multline}
     0 = l^AC_{An}^{Bm} + l^{AB}C_{An}^{Cm}v_C + l^{BAp} \bigl[ C_{An}^{Cm} \delta_p^q - \delta_A^C \delta_m^n \bigr] v_{Cq}\\
     + l^{BAI} \bigl[ C_{An}^{Cm} \delta_I^J - 2 \delta_A^C J_I^{pm} I^J_{pn}  \bigr] v_{CJ} + l^{B} \delta^m_n.
@@ -893,7 +893,7 @@ The general solution is given by $f(x) = x^2 +c$ where $c=const$. We construct a
 \begin{align}
     f_{per} = \sum_{i=0}^k a_i x^i.
 \end{align}
-We evaluate the equation at $x_0=0$ to find in the first-order the trivial equation $0=0$. Note that the ODE is of first derivative order. Hence, in general, we would expect to obtain equations for $a_1$ from inserting the power series ansatz. We proceed by prolonging the ODE to obtain the second-derivative-order equation:
+We evaluate the equation at $x_0=0$ to find in the first order the trivial equation $0=0$. Note that the ODE is of first derivative order. Hence, in general, we would expect to obtain equations for $a_1$ from inserting the power series ansatz. We proceed by prolonging the ODE to obtain the second-derivative-order equation:
 \begin{align}
     0 = f^{\prime}(x) + x \cdot f^{\prime \prime}(x) - 4 x.
 \end{align}
@@ -919,7 +919,7 @@ Moreover, the additional restriction to Lorentz invariant expansion coefficients
 In addition to that, from the expansion (\ref{LPert}), one can readily compute the contribution the individual terms yield in the EOM.  As we required these to be of second derivative order, such that the associated Hamiltonian formulation is free of instabilities, we can additionally drop terms in the power series expansion that contain either contributions from $H_{AI_k}$ with $k>2$, or that feature expressions of the form $H_{AI_2}\cdot H_{AI_k}$ where $k\geq 1$, as all such expressions contribute higher than $2$nd derivative orders once we apply the variational derivative to them.
 
 Finally, the requirement of causal compatibility between matter and gravitational EOM demands that the gravitational principal polynomial generates the same distribution of vanishing sets as the matter principal polynomial. As the matter theory is prescribed by a Lagrangian on $J^1F_{mat} \times F_{grav}$ also the matter principal polynomial only depends on the gravitational fiber coordinates $v_A$, not on any gravitational derivative coordinates $v_{AI_k}$ for $k\geq 1$.
-As a consequence of the causal compatibility requirement also the gravitational principal polynomial must hence only depend on the coordinates on $F_{grav}$. Thus we must discard all terms from (\ref{LPert}) that contains a total number of derivatives\footnote{Here we do not refer to the specific derivative order but really mean the total number of derivatives. For instance, $H_{AI}$ and $H_{Ap} \cdot H_{Bq}$ both contain a total number of two derivatives, whereas $H^{Ap}H_{Bq}H_{CI}$ includes four derivatives.} higher than two, as for the case of second derivative order EOM these terms then necessarily must contain derivative contributions in the principal symbol.
+As a consequence of the causal compatibility requirement also the gravitational principal polynomial must hence only depend on the coordinates on $F_{grav}$. Thus we must discard all terms from (\ref{LPert}) that contains a total number of derivatives\footnote{Here we do not refer to the specific derivative order but really mean the total number of derivatives. For instance, $H_{AI}$ and $H_{Ap} \cdot H_{Bq}$ both contain a total number of two derivatives, whereas $H^{Ap}H_{Bq}H_{CI}$ includes $4$ derivatives.} higher than two, as for the case of second-derivative-order EOM these terms then necessarily must contain derivative contributions in the principal symbol.
 In the following we will call this quantity, the total number of derivative indices that occur in an ansatz $a^{\tilde{I}_k}$, its \textit{\textbf{cumulative derivative order}}.  
 
 After all, we find that the following general expansion remains: 
@@ -971,16 +971,16 @@ that exploits the gravitational field as geometric background. Along the previou
     \mathcal{L}_{grav,per} : J^2F_{grav} \longrightarrow \Lambda^4M,
 \end{align}
 and implement the required diffeomorphism invariance by solving the linear systems for the expansion coefficients that are obtained from inserting the power series around $p_0 \in J^2F_{grav}$ into (\ref{DiffeoEqnFormal}). 
-Following along the lines of the construction recipe Algorithm \ref{Algo1} we would now have to compute the matter and gravitational principal polynomials.
+Following along the lines of the construction recipe algorithm \ref{Algo1} we would now have to compute the matter and gravitational principal polynomials.
 These obviously must now also be computed perturbatively. 
 To lighten the notation, we will drop the explicit $k$ dependency in the following and write $\mathcal{P}_{mat}$ instead of $\mathcal{P}_{mat}(k)$ and analogously for the gravitational principal polynomial. It is straight forward how we can expand $\mathcal{P}_{mat}$ in coordinates around the chosen expansion point $p_0$ up to some arbitrary order, as we can easily derive the corresponding full, i.e., non-perturbative expression $\mathcal{P}_{mat}$ from the matter EOM. We get the following expansion of $\mathcal{P}_{mat}$ up to and including the quadratic order in $H_A$:
 \begin{align}
     \mathcal{P}_{mat}(v_A) = (P_{mat})_{0} + (P_{mat})^A_1 H_A+ (P_{mat})^{AB}_2 H_A H_B +\mathcal{O}(3),
 \end{align}
-where $(P_{mat})_0 = \mathcal{P}_{mat}(N_A)$, $(P_{mat})_1^A = \partial^A \mathcal{P}_{mat} \vert _{N_A}$, and similar for $(P_{mat})^{AB}_2$. Of course one readily computes similar expression for expansion up to higher-order. 
+where $(P_{mat})_0 = \mathcal{P}_{mat}(N_A)$, $(P_{mat})_1^A = \partial^A \mathcal{P}_{mat} \vert _{N_A}$, and similar for $(P_{mat})^{AB}_2$. Of course one readily computes similar expression for expansion up to higher order. 
 
 Finding the expansion of the gravitational principal polynomial requires somewhat more work as we do not have access to the full expression for $\mathcal{P}_{grav}$. All we can provide is the perturbative expansion of the Lagrangian. From this, we can compute perturbative EOM and also a perturbative expression for the principal symbol of the EOM.
-Note that when expanding the Lagrangian up to order $k$ from applying the variational derivative $\frac{\partial}{\partial v_A}$ we will get the corresponding EOM up to order $k-1$. They are then necessarily quasilinear and by requirement of second derivative order. According to definition (\ref{PSym}), we can obtain the principal symbol by deriving the EOM w.r.t. the highest occurring derivative  --- as the EOM is linear in the highest derivative this simply admits to taking the coefficients in front of $v_{AI}$ --- and then contracting with $J_I^{pq} k_p, k_q$, for $k_p$ being the components of some 1-form on the base manifold $M$. 
+Note that when expanding the Lagrangian up to order $k$ from applying the variational derivative $\frac{\partial}{\partial v_A}$ we will get the corresponding EOM up to order $k-1$. They are then necessarily quasilinear and by requirement of second derivative order. According to definition (\ref{PSym}), we can obtain the principal symbol by deriving the EOM w.r.t. the highest occurring derivative  --- as the EOM are linear in the highest derivative this simply admits to taking the coefficients in front of $v_{AI}$ --- and then contracting with $J_I^{pq} k_p, k_q$, for $k_p$ being the components of some 1-form on the base manifold $M$. 
 The explicit formula for the EOM corresponding to the expansion (\ref{LperRed}) can be computed as:
 \begin{align}\label{EOMPert}
     \begin{aligned}
@@ -1006,7 +1006,7 @@ Reading of the values in constant and linear order from the expansion of the EOM
 \end{align}
 Note that the principal symbol and thus also the principal polynomial could in general also depend on the coordinates $v_{Ap}$ as the EOM would then be still of second derivative order. We however excluded such contributions already in the general power series Lagrangian (\ref{LperRed}),  as the matter polynomial cannot contain such and in the end we want to require that the two polynomials describe at each $p \in M$ the same vanishing set. 
 
-Recall that before in the exact setting we obtained the principal polynomial from the principal symbol by computing any non-vanishing order four sub determinant that was obtained by removing rows $(A_1...A_4)$ and columns $(B_1...B_4)$ from the symbol, and then dividing the expression by the appropriate prefactor (\ref{prefacF}).
+Recall that before in the exact setting we obtained the principal polynomial from the principal symbol by computing any non-vanishing order $4$ sub determinant that was obtained by removing rows $(A_1...A_4)$ and columns $(B_1...B_4)$ from the symbol, and then dividing the expression by the appropriate prefactor (\ref{prefacF}).
 Note that also the expression $\chi_{An}(v_A) = C_{An}^{Bm}v_Bk_m$ is linear in $v_A$ and hence also the prefactor contributes in different orders. We expand $\chi_{An}$ around $p_0$ to obtain:
 \begin{align}
 \chi_{An}(v_A) =  C^{Bm}_{An} N_B k_m + C^{Bm}_{An} H_B k_m =: (\chi_0)_{An} + (\chi_1)^B_{An}H_B.
@@ -1040,7 +1040,7 @@ where the symmetric 4-tuples $(A_1...A_4)$ and $(B_1...B_4)$ denote the removed 
     + \mathcal{O}(3)  
 \end{multline}
 Using now the expansion of the determinant around the identity matrix for the second factor in the above expression and the linearity and cyclicity of the trace we
-find the following expansion for this order four sub determinant:
+find the following expansion for this order-$4$ sub determinant:
 \begin{multline}
     \mathrm{det}\left(T_{(A_1...A_4)(B_1...B_4)}(v_A)\right) = (D_0)_{(A_1...A_4)(B_1...B_4)} + (D_1)^C_{(A_1...A_4)(B_1...B_4)}H_C\\
     +(D_2)^{CD}_{(A_1...A_4)(B_1...B_4)}H_CH_D
@@ -1064,7 +1064,7 @@ with the contributions in the individual orders being given as:
     - \mathrm{Tr}\Bigl  (((T_0)^{-1}_{(A_1...A_4)(B_1...B_4)})^2 \cdot (T_1)_{(A_1...A_4)(B_1...B_4)}^{C} \cdot (T_1)_{(A_1...A_4)(B_1...B_4)}^{D}  \Bigr )    \Bigr \} \Bigr ]
     \end{aligned}
 \end{align}
-On the other hand, using (\ref{diffeoMinor}) we can express the different order contributions to the determinant of such a submatrix by means of an expansion of the gravitational principal polynomial:
+On the other hand, using (\ref{diffeoMinor}) we can express the different-order contributions to the determinant of such a submatrix by means of an expansion of the gravitational principal polynomial:
 \begin{align}
     \mathcal{P}_{grav}(v_A) = (P_{grav})_{0} + (P_{grav})^A_1 H_A+ (P_{grav})^{AB}_2 H_A H_B +\mathcal{O}(3).
 \end{align}
@@ -1088,13 +1088,13 @@ Using now the constant-order principal polynomial that we thus obtain we get the
 \begin{align}\label{POLY2}
     (P_{grav})^C_1= \frac{(D_1)^C_{(A_1...A_4)(B_1...B_4)} - (f_1)^C_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_0}{(f_0)_{(A_1...A_4)(B_1...B_4)}}.
 \end{align}
-Moreover, from this expression for the linear-order, we can obtain the quadratic-order of the gravitational principal polynomial by:
+Moreover, from this expression for the linear order, we can obtain the quadratic order of the gravitational principal polynomial by:
 \begin{multline}\label{POLY3}
     (P_{grav})_2 = \\
     \frac{(D_2)^{CD}_{(A_1...A_4)(B_1...B_4)}-\left [ (f_1)^C_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})^D_1  +(f_2)^{CD}_{(A_1...A_4)(B_1...B_4)} \cdot (P_{grav})_0 \right ]}{(f_0)_{(A_1...A_4)(B_1...B_4)}}.
 \end{multline}
 In total proceeding as outlined above, we there obtain the expansion of the gravitational principal polynomial from the power series expansion of the Lagrangian.
-Note that we could now proceed along the same lines to obtain the corresponding contributions to the principal polynomial in higher-order. This is in principal straight forward with the only exception being that the expressions get increasingly involved. For that reason, we did not provide these here. When tackling practical problems in most cases constructing the perturbative Lagrangian beyond fourth-order is computationally intractable and hence providing the formulae for computation of the principal polynomial up to second-order almost always suffices.
+Note that we could now proceed along the same lines to obtain the corresponding contributions to the principal polynomial in higher order. This is in principal straight forward with the only exception being that the expressions get increasingly involved. For that reason, we did not provide these here. When tackling practical problems in most cases constructing the perturbative Lagrangian beyond $4$th order is computationally intractable and hence providing the formulae for computation of the principal polynomial up to second order almost always suffices.
 
 Before we proceed further, we would like to quickly remark on some consequences of the Lorentz invariance of the chosen expansion point $p_0$ on the possible values that we can obtain for the contributions to the gravitational principal polynomial in the individual orders. Recall that for second-derivative-order, diffeomorphism invariant theories the principal polynomial is a homogeneous polynomial in the components of some 1-form $k_m$ on $M$ in degree $r := 2n-16$. We hence can write it as:
 \begin{align}
@@ -1110,7 +1110,7 @@ Where $\mathcal{P}_{grav}^{{p_1}...{p_r}}$ is a function on $F$ that is totally 
 %
 This can be seen by starting from the PDE that the EOM have to satisfy as an implication of the equivariance (\ref{EOM}) and applying the total derivative $D_{AI}$ to obtain a similar PDE for subexpression $\left ( \frac{\partial E^A}{\partial V_{BI}} \right )$ that is involved in the principal symbol. Proceeding along the same lines for the remaining steps that are involved in the computation of the principal polynomial, one then finds the above equation. 
 
-The numerical factor $r/2 = (n-8)$ in front of the $\delta^m_n$ term is obtained as this factor encodes the density weight of the principal polynomial. Using the language of tensor densities, PDE (\ref{EOM}) states that the EOM $E^A$ defines a density of weight one and further prolonging this PDE w.r.t. $v_{AI}$ reveals that also the principal symbol has density weight one. Computing the determinant of a $(n-4) \times (n-4)$ submatrix of the principal symbol changes the weight to $n-4-2$. This can, for instance, be seen when expressing the determinant of the principal symbol w.r.t. the Levi-Civita symbols and then obtaining the order four sub determinant by deriving four times w.r.t. the components of the principal symbol, as explained in (\ref{MinorDef}). To achieve this, we need $n$ copies of the principal symbol, each of which has weight one and two covariant Levi-Civita symbols of dimension $n$ that carry density weight $-1$. This yields a total weight of $n-2$. Deriving four times w.r.t. the components of the principal symbol reduces the factor to $n-6$. Finally, according to (\ref{diffeoMinor}) this sub determinant equals the product between the principal symbol and the corresponding prefactor. This prefactor involves two $4$-dimensional contravariant Levi-Civita symbols that hence contribute $+2$ to the weight. Therefore the weight of the principal polynomial is given by $n-8$, which thus explains the origin of the numerical factor in the above PDE. 
+The numerical factor $r/2 = (n-8)$ in front of the $\delta^m_n$ term is obtained as this factor encodes the density weight of the principal polynomial. Using the language of tensor densities, PDE (\ref{EOM}) states that the EOM tensor $E^A$ defines a density of weight one and further prolonging this PDE w.r.t. $v_{AI}$ reveals that also the principal symbol has density weight one. Computing the determinant of a $(n-4) \times (n-4)$ submatrix of the principal symbol changes the weight to $n-4-2$. This can, for instance, be seen when expressing the determinant of the principal symbol w.r.t. the Levi-Civita symbols and then obtaining the order $4$ sub determinant by deriving $4$ times w.r.t. the components of the principal symbol, as explained in (\ref{MinorDef}). To achieve this, we need $n$ copies of the principal symbol, each of which has weight one and two covariant Levi-Civita symbols of dimension $n$ that carry density weight $-1$. This yields a total weight of $n-2$. Deriving $4$ times w.r.t. the components of the principal symbol reduces the factor to $n-6$. Finally, according to (\ref{diffeoMinor}) this sub determinant equals the product between the principal symbol and the corresponding prefactor. This prefactor involves two $4$-dimensional contravariant Levi-Civita symbols that hence contribute $+2$ to the weight. Therefore the weight of the principal polynomial is given by $n-8$, which thus explains the origin of the numerical factor in the above PDE. 
 
 The all-important observation is now that any perturbative expansion of the principal symbol around the Lorentz-invariant expansion point $p_0$ that we might obtain necessarily provides a power series solution of the form:
 \begin{align}
@@ -1126,7 +1126,7 @@ Given now the expansion of the gravitational principal polynomial we can compute
 \end{align}
 where $k$ is the desired order of the power series expansion of the gravitational Lagrangian. This then ultimately also includes our second requirement, the causal compatibility between matter and gravitational dynamics perturbatively. 
 
-We complete the chapter by providing an explicit Algorithm \ref{Algo2} for the perturbative construction of diffeomorphism invariant gravitational theories that are compatible with a given matter theory. 
+We complete the chapter by providing an explicit algorithm \ref{Algo2} for the perturbative construction of diffeomorphism invariant gravitational theories that are compatible with a given matter theory. 
 Unlike the full construction algorithm (\ref{Algo1}), which suffered from the difficulty of computing the general solution to the equivariance equation, this perturbative construction algorithm now really is applicable. 
 With this achievement, the construction of alternative matter theories, at least perturbatively, boils down to choosing physically meaningful gravitational field bundles for the description of the gravitational field, computing the appropriate dynamics then merely corresponds to feeding the algorithm with the necessary input data.  
 \begin{algorithm}[hbt!]
@@ -1142,7 +1142,7 @@ Compute the induced expansion of the principal symbol.\\
 Chose a $(n-4) \times (n-4)$ full ranked submatrix of the principal symbol by removing rows $(A_1...A_4)$ and columns $(B_1...B_4)$ from it. \\
 Compute the expansion of the determinant of the chosen submatrix.\\
 Compute the induced expansion of the corresponding prefactors $f_{(A_1...A_4)(B_1...B_4)}$. \\
-Compute the expansion of the gravitational principal polynomial with the use of the general expression (\ref{diffeoMinor}) with expansion (\ref{minorPoly}), i.e., by solving (\ref{POLY1}), (\ref{POLY2}), (\ref{POLY3}) and similar for higher-orders. \\
+Compute the expansion of the gravitational principal polynomial with the use of the general expression (\ref{diffeoMinor}) with expansion (\ref{minorPoly}), i.e., by solving (\ref{POLY1}), (\ref{POLY2}), (\ref{POLY3}) and similar for higher orders. \\
 Compute the expansion of the matter principal polynomial up to order $k-2$.\\
 Solve $\sum_{i=0}^{k-2} (V_{mat})_i = \sum _{i=0}^{k-2}(V_{grav})_i + \mathcal{O}(k-2)$ w.r.t. the remaining undetermined constants in $L_{grav,per}$.
  \caption{Perturbative Construction of Gravitational Lagrangian}\label{Algo2}

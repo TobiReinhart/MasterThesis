@@ -89,9 +89,9 @@ On the other hand existing tensor algebra systems (such as Cadabra (see \cite{ca
 These observations led us to develop our own computer algebra framework. We quickly summarize the main ideas that underlie its construction.
 As a first observation note that except for parameters that label the independent Lorentz invariant expressions in the expansion coefficients and thus occur linearly in the perturbative equivariance equations all remaining expressions only contain rational numbers. In particular, the components of the tensors involved in these equations are explicitly known. Besides, when solving the perturbative equivariance equations, we need to evaluate the tensorial equation for all its free indices, and thus, the explicit components are also all needed. Hence, in fact, we never have to treat the occurring tensors symbolically as abstract objects but can think of them as containers that are simply used to store values in a particular way. 
 
-Furthermore, it is crucial to grasp that the use of abstract indices $I, A, ...$ leads to a severe reduction in computation costs and is thus best included in the computer program. For instance, contracting two blocks with $4$ indices each that both admit the symmetry of an Area Metric tensor against each other requires the summation of $4^4 = 256$ expressions. In contrast to that introducing an abstract index $A = 0,...,20$ that runs over the independent components such an Area Metric block contains, the contraction only requires the summation of $21$ expressions.
+Furthermore, it is crucial to grasp that the use of abstract indices $I, A, ...$ leads to a severe reduction in computation costs and is thus best included in the computer program. For instance, contracting two blocks with $4$ indices each that both admit the symmetry of an area metric tensor against each other requires the summation of $4^4 = 256$ expressions. In contrast to that introducing an abstract index $A = 0,...,20$ that runs over the independent components such an area metric block contains, the contraction only requires the summation of $21$ expressions.
 
-Finally, we can additionally derive a benefit from the fact that the tensors that occur in the treatment of the perturbative equivariance equations are to a large extent only sparsely occupied. Hence it is best to also only work with the non zero components in the computer program. Providing an example the Area Metric intertwiner with components displayed in (\ref{AreaI}) only contains $144$ non-vanishing components out of a total of $21 \cdot 4^4 = 5376$ total components which admits to an occupation level of around $2.68 \%$.
+Finally, we can additionally derive a benefit from the fact that the tensors that occur in the treatment of the perturbative equivariance equations are to a large extent only sparsely occupied. Hence it is best to also only work with the non zero components in the computer program. Providing an example the area metric intertwiner with components displayed in (\ref{AreaI}) only contains $144$ non-vanishing components out of a total of $21 \cdot 4^4 = 5376$ total components which admits to an occupation level of around $2.68 \%$.
 
 Summing up, we want to incorporate the following functionality in our computer program:
 \begin{itemize}
@@ -128,7 +128,7 @@ type TMap k v = [(k,v)]
 \end{center}
 where the subtensors have rank \mintinline{haskell}{n} and constructs from it a \mintinline{haskell}{Tensor (n+1) k v} with rank \mintinline{haskell}{n+1} and \mintinline{haskell}{ZeroTensor} simply represents a tensors of arbitrary rank with all components being identical zero. Thus a tensor is represented as ordered forest\footnote{A collection of disjoint ordered trees.} with additional type information regarding rank, index type, and stored values. Including an ordering of the individual sibling sets \footnote{We call a collection of nodes that have a common parent node a sibling set.} allows for faster insertion and lookup operations. All further functions that we define for the types \mintinline{haskell}{Tensor} and \mintinline{haskell}{TMap} will maintain this ordering.
 
-To retrieve a value of a tensor of rank \mintinline{haskell}{n} we need to specify \mintinline{haskell}{n} values of the appropriate type \mintinline{haskell}{k}. It is important to understand that the distinction between the individual indices is not provided by some abstract labels that are attached to them but simply by their position. To provide an example, Figure \ref{ExampleTens} displays the forest structure of a rank $2$ tensor that uses \mintinline{haskell}{Ind3} types, i.e., spacetime indices with potential values between $0$ and $3$ as index type and stores rational numbers as values.
+To retrieve a value of a tensor of rank \mintinline{haskell}{n} we need to specify \mintinline{haskell}{n} values of the appropriate type \mintinline{haskell}{k}. It is important to understand that the distinction between the individual indices is not provided by some abstract labels that are attached to them but simply by their position. To provide an example, figure \ref{ExampleTens} displays the forest structure of a rank $2$ tensor that uses \mintinline{haskell}{Ind3} types, i.e., spacetime indices with potential values between $0$ and $3$ as index type and stores rational numbers as values.
 \begin{figure}[hbt!]
 \centering
 \begin{tikzpicture}[roundnode/.style={rectangle, draw=black, fill=LG, very thick, minimum size=7mm},]
@@ -331,7 +331,7 @@ tensorTrans (i ,j) ZeroTensor = ZeroTensor
 \caption{Transposition of Tensors in two Indices.}\label{TensorTrans}
 \end{listing}
 
-The two indices w.r.t. which the tensor is transposed are provided by the integer tuple, where the indices are labeled w.r.t. their position starting from 0. The function first traverses the tensor until the level\footnote{We will call the distance of a given node to the root node of the appropriate tree the level of the node.} specified by the first, i.e., the smaller integer is reached. Then all corresponding sub tensors are completely flattened to lists of indices value pairs. This is precisely what \mintinline{haskell}{toListT} does. Now in each of the thus obtained indices value lists of the various sub tensors by using the function \mintinline{haskell}{swapHead} the first and the $j$th entry of the indices are swapped. Finally, by using  \mintinline{haskell}{fromListT}, the indices value lists are again transformed into a tensor.  Applying this function to the previously provided rank 2 example tensor with the integer pair given as \mintinline{haskell}{(0,1)} we obtain the following transposed rank 2 tensors that are displayed in Figure \ref{ExampleTensTrans}.
+The two indices w.r.t. which the tensor is transposed are provided by the integer tuple, where the indices are labeled w.r.t. their position starting from 0. The function first traverses the tensor until the level\footnote{We will call the distance of a given node to the root node of the appropriate tree the level of the node.} specified by the first, i.e., the smaller integer is reached. Then all corresponding sub tensors are completely flattened to lists of indices value pairs. This is precisely what \mintinline{haskell}{toListT} does. Now in each of the thus obtained indices value lists of the various sub tensors by using the function \mintinline{haskell}{swapHead} the first and the $j$th entry of the indices are swapped. Finally, by using  \mintinline{haskell}{fromListT}, the indices value lists are again transformed into a tensor.  Applying this function to the previously provided rank 2 example tensor with the integer pair given as \mintinline{haskell}{(0,1)} we obtain the following transposed rank 2 tensors that are displayed in figure \ref{ExampleTensTrans}.
 
 \begin{figure}[hbt!]
 \centering
@@ -419,7 +419,7 @@ evalTens ind indVal (Tensor m)
 
 If the tensor is to be evaluated for its $0$th index, we simply look up the corresponding value in the top level of the forest. In any other case, we first shift the corresponding level of the forest that is to be evaluated to the front to then again proceed as described in the prior case. Evaluating a tensor for a particular value of one of its indices then return the appropriate sub tensor. 
 
-Up to now we only treated tensors with a single type of indices, for instance, in the example of Figure \ref{ExampleTens} the tensor only had contravariant spacetime indices. We can, however, easily generalize the above such that also covariant indices can be incorporated. This is simply achieved by additionally appending a tensor of the given index type as values
+Up to now we only treated tensors with a single type of indices, for instance, in the example of figure \ref{ExampleTens} the tensor only had contravariant spacetime indices. We can, however, easily generalize the above such that also covariant indices can be incorporated. This is simply achieved by additionally appending a tensor of the given index type as values
 to the first tensor:
 \begin{center}
 \begin{cminted}{haskell}
@@ -535,7 +535,7 @@ There is, however, an additional dimension dependent mechanism that generates fu
 
 In order to distinguish such additional linear dependencies that are generated in this fashion, from the former case we introduce the following terminology: We call a set of ansätze \textit{\textbf{algebraically linear dependent}} if there exists a non-trivial linear combination of these that yields identical zero. In particular, when investigating algebraic linear dependencies, there is no need to evaluate the components of the expressions explicitly. Algebraic linear dependency is therefore completely independent of the given dimension that we work in. We call it \textbf{\textit{numerically linear dependent}} if there exists a non-trivial linear combination that vanishes when evaluated on all possible index combinations. This now clearly is a dimension dependent notion as for instance an expression that is totally antisymmetric in $5$ indices evaluates to zero on all possible index combinations when working in $4$ dimension, it, however, does not so if working in $5$ dimensions or higher. Obviously, every algebraically linear dependent set of ansätze is also numerically linear dependent. The converse is, however, clearly not true. 
 
-The above considerations are best seen when working out a particular example: We take the two expressions $\epsilon^{abcd} \eta^{pq}$ and $\epsilon^{abcp} \eta^{dq}$ and symmetrize s.t. the expressions admit the Area Metric symmetry in $abcd$, i.e. are antisymmetric in $ab$ and $cd$ and additionally obey the block symmetry $(ab) \leftrightarrow (cd)$. Doing so we get the two ansätze: 
+The above considerations are best seen when working out a particular example: We take the two expressions $\epsilon^{abcd} \eta^{pq}$ and $\epsilon^{abcp} \eta^{dq}$ and symmetrize s.t. the expressions admit the area metric symmetry in $abcd$, i.e. are antisymmetric in $ab$ and $cd$ and additionally obey the block symmetry $(ab) \leftrightarrow (cd)$. Doing so we get the two ansätze: 
 \begin{itemize}
 \item[(i)] $\epsilon^{abcd} \eta^{pq}$ 
 \item[(ii)] $\epsilon^{abcp} \eta^{dq} - \epsilon^{abdp} \eta^{cq} + \epsilon^{cdap} \eta^{bq} - \epsilon^{cdbp} \eta^{aq}$.
@@ -599,7 +599,7 @@ To provide an example of the data types that are used to encode such expressions
 3a_1 \cdot \left (\eta^{ab}\eta^{cd}\eta^{ef} + \eta^{ab}\eta^{ce}\eta^{df} + \eta^{ab}\eta^{cf}\eta^{de} \right ) + a_2 \cdot \left ( \eta^{ac} \eta^{bd} \eta^{ef} + \eta^{ac} \eta^{be} \eta^{df} -2 \eta^{ad} \eta^{be} \eta^{cf} \right ) \\
 + a_3 \cdot \left ( \eta^{ad} \eta^{bc} \eta^{ef} - \eta^{ad} \eta^{bf} \eta^{ce} \right ) + a_4 \cdot \left ( \epsilon^{abcd} \eta^{ef} + \epsilon^{abce} \eta^{df}  \right )   .
 \end{multline}
-The corresponding representation using the \mintinline{haskell}{AnsatzForestEta} and \mintinline{haskell}{AnsatzForestEta} data types can be seen in Figure \ref{AnsatzExprExForest}.
+The corresponding representation using the \mintinline{haskell}{AnsatzForestEta} and \mintinline{haskell}{AnsatzForestEta} data types can be seen in figure \ref{AnsatzExprExForest}.
 
 
 \begin{figure}
@@ -1008,7 +1008,7 @@ type STTens n1 n2 v = AbsTensor2 n1 n2 Ind3 v
 \end{cminted}
 \end{center}
 
-Moreover, also a more general tensor type that we heavily used for the Area Metric computations. This tensor type features 3 different index types each appearing in contravariant and covariant position. The first index type ranges over the Area Metric degrees of freedom and thus ranges from $0$ to $20$, the second index type labels second derivative pairs, and hence runs form $0$ to $9$, and the last type is again the usual spacetime index:
+Moreover, also a more general tensor type that we heavily used for the area metric computations. This tensor type features 3 different index types each appearing in contravariant and covariant position. The first index type ranges over the area metric degrees of freedom and thus ranges from $0$ to $20$, the second index type labels second derivative pairs, and hence runs form $0$ to $9$, and the last type is again the usual spacetime index:
 \begin{center}
 \begin{cminted}{haskell}
 type ATens n1 n2 n3 n4 n5 n6 v = 
@@ -1346,10 +1346,10 @@ mkAnsatzTensorEig' ord symmetries = mkAnsatzTensorEig
 The developed sparse-tensor library also provides further functions that can be useful when working with the ansatz forest data types. Details can again be found in \cite{sparse-tensor}, specifically in the \textit{LorentzGenerator} submodule. 
 
 \section{A Step-By-Step Example}
-In this section, we are going to consider an example that shall nicely illustrate how the sparse-tensor package can be used to deal with the kind of problems that arise in the perturbative approach to Constructive Gravity. To that end, we are going to consider the two linear-order perturbative equivariance equations (\ref{order1}) in the context of Area Metric Gravity. 
+In this section, we are going to consider an example that shall nicely illustrate how the sparse-tensor package can be used to deal with the kind of problems that arise in the perturbative approach to Constructive Gravity. To that end, we are going to consider the two linear-order perturbative equivariance equations (\ref{order1}) in the context of area metric gravity. 
 
-The first step is determining the different indices and thus the abstract tensor type that is needed for the treatment of perturbative Area Metric Gravity. 
-We need one index type that runs over Area Metric degrees of freedom, one index type for second-order spacetime derivatives and one index type for treating spacetime indices. The corresponding tensor type was already introduced before:
+The first step is determining the different indices and thus the abstract tensor type that is needed for the treatment of perturbative area metric gravity. 
+We need one index type that runs over area metric degrees of freedom, one index type for second-order spacetime derivatives and one index type for treating spacetime indices. The corresponding tensor type was already introduced before:
 
 \begin{center}
 \begin{cminted}{haskell}
@@ -1386,7 +1386,7 @@ instance TIndex Ind3 where
 \end{cminted} 
 \end{center}
 
-When taking a closer look at the equations (\ref{order1}), we see that albeit of the three Lorentz invariant basis tensors $a^{A}$, $a^{AI}$ and $a_0$ we further need the two Area Metric intertwiners $I^I_{abcd}$, $J_I^{abcd}$ with components being displayed in (\ref{AreaI}) and (\ref{AreaJ}), the J-intertwiner of a symmetric index pair whose components can be found in (\ref{interJMet})  , the flat background Area Metric $N_A$ and the 4 dimensional Kronecker delta $\delta^a_b$. 
+When taking a closer look at the equations (\ref{order1}), we see that albeit of the three Lorentz invariant basis tensors $a^{A}$, $a^{AI}$ and $a_0$ we further need the two area metric intertwiners $I^I_{abcd}$, $J_I^{abcd}$ with components being displayed in (\ref{AreaI}) and (\ref{AreaJ}), the J-intertwiner of a symmetric index pair whose components can be found in (\ref{interJMet})  , the flat background area metric $N_A$ and the 4 dimensional Kronecker delta $\delta^a_b$. 
 The Kronecker delta can readily be obtained (\ref{Kronecker}).
 
 \begin{listing}[hbt!]
@@ -1467,9 +1467,9 @@ interJArea = fromListT6 $ fmap (fmap SField) $ filter (\(i,k) -> k /= 0) $
 \caption{Construction of Area Metric J Intertwiner.}\label{ConstrInterJArea}
 \end{listing}
 
-Here \mintinline{haskell}{trianMap2} is a Map that relates the indices of a symmetric pair of spacetime indices to the corresponding abstract index of type \mintinline{haskell}{Ind9}, \mintinline{haskell}{trianMapArea} is a Map that relates the 4 spacetime indices of a given Area Metric to the corresponding abstract index, \mintinline{haskell}{canonicalizeArea} is a function that brings a set of 4 spacetime indices obeying the Area Metric symmetries to canonical order taking into account possible signs that might occur during the resorting, \mintinline{haskell}{jMult2} is a function that computes the $\sigma$ multiplicity of the symmetric index pair and \mintinline{haskell}{jMultArea} computes the $\sigma$ multiplicity (see discussion following definition \ref{interDef} for the precise definition of these multiplicities $\sigma$) of a given set of 4 spacetime indices that correspond to one Area Metric.
+Here \mintinline{haskell}{trianMap2} is a Map that relates the indices of a symmetric pair of spacetime indices to the corresponding abstract index of type \mintinline{haskell}{Ind9}, \mintinline{haskell}{trianMapArea} is a Map that relates the $4$ spacetime indices of a given area metric to the corresponding abstract index, \mintinline{haskell}{canonicalizeArea} is a function that brings a set of $4$ spacetime indices obeying the area metric symmetries to canonical order taking into account possible signs that might occur during the resorting, \mintinline{haskell}{jMult2} is a function that computes the $\sigma$ multiplicity of the symmetric index pair and \mintinline{haskell}{jMultArea} computes the $\sigma$ multiplicity (see discussion following definition \ref{interDef} for the precise definition of these multiplicities $\sigma$) of a given set of $4$ spacetime indices that correspond to one area metric.
 
-From the two Area Metric intertwiners, we can compute the constant tensor $C^{Am}_{Bn}$ according to (\ref{areaGotayMInter}):
+From the two area metric intertwiners, we can compute the constant tensor $C^{Am}_{Bn}$ according to (\ref{areaGotayMInter}):
 
 \begin{center}
 \begin{cminted}{haskell}
@@ -1479,7 +1479,7 @@ interArea = (-4) &. contrATens3 (1,1) (contrATens3 (2,2) $
 \end{cminted}
 \end{center}
 
-The flat background Area Metric can be constructed as (\ref{ConstrFlatArea}).
+The flat background area metric can be constructed as (\ref{ConstrFlatArea}).
 
 \begin{listing}[hbt!]
 \begin{minted}[frame = lines, framesep = 2.5mm, baselinestretch =
@@ -1502,7 +1502,7 @@ let ans0 = fromListT6' [(([],[],[],[],[],[]), AnsVar $
 \end{cminted}
 \end{center}
 
-The second expansion coefficient is given by $a^A = I^A_{abcd} a^{abcd}$, where the indices $(abcd)$ feature the Area Metric symmetries. In order to use our functions for constructing the appropriate Lorentz invariant basis tensors we need to provide the symmetry at hand as a value of type \mintinline{haskell}{Symmetry} and also need to provide a list of index value lists that are necessary for the evaluation. Labeling the indices $(abcd)$ by the integers $(1,2,3,4)$ the symmetry is given as 
+The second expansion coefficient is given by $a^A = I^A_{abcd} a^{abcd}$, where the indices $(abcd)$ feature the area metric symmetries. In order to use our functions for constructing the appropriate Lorentz invariant basis tensors we need to provide the symmetry at hand as a value of type \mintinline{haskell}{Symmetry} and also need to provide a list of index value lists that are necessary for the evaluation. Labeling the indices $(abcd)$ by the integers $(1,2,3,4)$ the symmetry is given as 
 
 \begin{center}
 \begin{cminted}{haskell}
@@ -1527,7 +1527,7 @@ areaList4 = list
 \caption{Construction of Area Metric Evaluation List 1.}\label{ConstrAreaList4}
 \end{listing}
 
-As before \mintinline{haskell}{trianMapArea} is a Map that relates a block of 4 spacetime indices with Area Metric symmetries to an abstract Area Metric index and \mintinline{haskell}{areaMult} is a function that computes the multiplicity of a given set of 4 spacetime indices with Area Metric symmetry. Note that we do not only need to provide the index value list that is necessary for the evaluation of the ansatz forests, but also need to include the multiplicities of the index values and the corresponding abstract indices as we want to make use of the function \mintinline{haskell}{mkAnsatzTensorEigAbs} to evaluate the ansatz forests to the chosen abstract tensor type \mintinline{haskell}{ATens}. We can now construct the basis for the expansion coefficient $a^{A}$ by invoking:
+As before \mintinline{haskell}{trianMapArea} is a Map that relates a block of 4 spacetime indices with area metric symmetries to an abstract area metric index and \mintinline{haskell}{areaMult} is a function that computes the multiplicity of a given set of 4 spacetime indices with area metric symmetry. Note that we do not only need to provide the index value list that is necessary for the evaluation of the ansatz forests, but also need to include the multiplicities of the index values and the corresponding abstract indices as we want to make use of the function \mintinline{haskell}{mkAnsatzTensorEigAbs} to evaluate the ansatz forests to the chosen abstract tensor type \mintinline{haskell}{ATens}. We can now construct the basis for the expansion coefficient $a^{A}$ by invoking:
 
 \begin{center}
 \begin{cminted}{haskell}

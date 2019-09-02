@@ -48,7 +48,7 @@ This is, for instance, the case considering the field bundle for a metric tensor
 As we are going to deal with the bundle $(F, \pi_F, M)$ in a rather abstract setting, we do not follow this practice but stick to accurate coordinates $(x^m,v_A)$ on $F$. 
 In order to relate the thus obtained intrinsic description of $F$ to the one that is provided by considering $F$ as being an embedded subbundle in $T^m_n M$ we construct vector bundle isomorphisms that allow us to identify the two perspectives. We quickly recall the definition of a \textit{\textbf{bundle morphism}}:
 \begin{definition}[bundle morphism]
-Given two bundles $(F_1, \pi_{F_1}, M)$ and $(F_2, \pi_{F_2}, N)$, a bundle morphism covering $h : M \rightarrow N$ is a smooth map $f : F_1 \rightarrow F_2$ such that the diagram in Figure \ref{BundleMorph} commutes.
+Given two bundles $(F_1, \pi_{F_1}, M)$ and $(F_2, \pi_{F_2}, N)$, a bundle morphism covering $h : M \rightarrow N$ is a smooth map $f : F_1 \rightarrow F_2$ such that the diagram in figure \ref{BundleMorph} commutes.
 \begin{figure}[hbt!]
 \centering 
 \begin{tikzpicture}
@@ -116,7 +116,7 @@ Computing similar coordinate expressions for the pair of intertwiners of the dua
          (J^{\ast})^{-1} &= I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot v_A \otimes  v^{b_1 ... b_n}_{a_1 ... a_m}.
     \end{aligned}
 \end{align} 
-Hence, although the constructed intertwiners for the dual field bundle define different maps, their components w.r.t. a given chart are already given by the intertwiners of the field bundle $(I,J)$ if one agrees on choosing the appropriate dual coordinates with a given choice of coordinates. Therefore in the following, we will drop the distinction of intertwiners for the field bundle and its dual.  This should not cause confusion, as when working with dual coordinates on the dual field bundle already the index position of the fiber coordinates $v_A$, and $v^{A}$ respectively contains the information regarding which intertwiner relates these coordinates to those one $T^m_n M$, and $T^n_mM$ respectively. In total, we find the following relations connecting the two ways of equipping the field bundle and its dual with coordinates: 
+Hence, although the constructed intertwiners for the dual field bundle define different maps, their components w.r.t. a given chart are already given by the intertwiners of the field bundle $(I,J)$ if one agrees on choosing the appropriate dual coordinates with a given choice of coordinates. Therefore in the following, we will drop the distinction of intertwiners for the field bundle and its dual.  This should not cause confusion, as when working with dual coordinates on the dual field bundle already the index position of the fiber coordinates $v_A$, and $v^{A}$ respectively contains the information regarding which intertwiner relates these coordinates to those on $T^m_n M$, and $T^n_mM$ respectively. In total, we find the following relations connecting the two ways of equipping the field bundle and its dual with coordinates: 
 \begin{align} \label{interRel}
     \begin{aligned}
     & v^{a_1 ... a_m}_{b_1 ... b_n} & = & \ \ I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot v_{A},\\  
@@ -246,12 +246,12 @@ Given adapted coordinates $(x^m,v_A)$ on $F$ we get induced adapted coordinates 
 \begin{align}
 v_{Ai}(j^1_pG) := \partial_iG_A \big \vert_p.
 \end{align}
-We could now define \textit{\textbf{higher-order jet bundles}} in a similar fashion, by calling two sections of $F$ \textit{\textbf{q-equivalent}} or equivalent in order $q$ at $p \in M$ if in any coordinate system covering $p$ they agree in their first $q$ partial derivatives evaluated at $p$. There are, however, arguments why we do not have to work with jet bundles higher than second-order if we wish to define a physically meaningful Lagrangian field theory.
+We could now define \textit{\textbf{higher-order jet bundles}} in a similar fashion, by calling two sections of $F$ \textit{\textbf{q-equivalent}} or equivalent in order $q$ at $p \in M$ if in any coordinate system covering $p$ they agree in their first $q$ partial derivatives evaluated at $p$. There are, however, arguments why we do not have to work with jet bundles higher than second order if we wish to define a physically meaningful Lagrangian field theory.
 
 As we want to use the jet-bundle formalism to define a Lagrangian and then obtain equations of motion (in short EOM) for the gravitational field as the corresponding Euler-Lagrange Equations, the order of the jet bundle is ultimately connected to the order of the highest derivative appearing in the EOM. In the following, we want to restrict to cases where the EOM are of no higher than second derivative order. The reason for this restriction is the famous \textbf{\textit{Ostrogratsky}} construction \cite{Ostrogradsky:1850fid}. 
 % review this statement 
 
-Simply stated, starting from Lagrangians that generate equations of motion with higher than second-order time derivatives, one obtains instabilities in the associated Hamiltonian formulation. From the perspective of covariant Lagrangian field theory, there is no distinct time direction, and hence the only way of preventing the theory from these kinds of instabilities once we pass to the Hamiltonian formulation is by restricting the Lagrangian such that the generated EOM are of second-derivative-order altogether. For further information see \cite{2015arXiv150602210W}. 
+Simply stated, starting from Lagrangians that generate equations of motion with higher than second-order time derivatives, one obtains instabilities in the associated Hamiltonian formulation. From the perspective of covariant Lagrangian field theory, there is no distinct time direction, and hence the only way of preventing the theory from these kinds of instabilities once we pass to the Hamiltonian formulation is by restricting the Lagrangian such that the generated EOM are of second derivative order altogether. For further information see \cite{2015arXiv150602210W}. 
 
 The appropriate setting for such Lagrangians is the \textbf{\textit{second-order jet bundle}}. Although completely analog to the definitions involved in the construction of the first-order jet bundle we quickly define the necessary ingredients. 
 \begin{definition}[2-jet]
@@ -310,7 +310,7 @@ We then define the intertwiners as before by (\ref{defI}) and (\ref{defJ}).
 This choice is given by the intertwiners specified by the matrices displayed in (\ref{interIMet}) and (\ref{interJMet}) that were obtained as a pair of intertwiners for a metric tensor field. The reason for this coincidence is apparent, as in both cases, we are dealing with symmetric index pairs. 
 
 \begin{remark}
-As stated above during this thesis, we will, in fact, never perform explicit computations on a jet bundle that is of higher than second-order. To nevertheless be able to provide some of the relevant definitions on jet bundles of arbitrary order we will in the following denote adapted coordinates on $J^qF$ by: 
+As stated above during this thesis, we will, in fact, never perform explicit computations on a jet bundle that is of higher than second order. To nevertheless be able to provide some of the relevant definitions on jet bundles of arbitrary order we will in the following denote adapted coordinates on $J^qF$ by: 
 \begin{align}
 (x^m,v_A,v_{Am},v_{AI},v_{AI_{3}},...,v_{AI_{q}}),
 \end{align}
@@ -370,13 +370,13 @@ Lastly, with the definition of the total derivative at hand, given a function on
 \begin{align}\label{varDer}
 \frac{\delta f}{\delta v_A} := \partial^{A}g + \sum _{k = 1}^q (-1)^k D_{I_k}(\partial^{AI_k}f).
 \end{align}
-Note that in particular the variational derivative of a function on the $q$th-order jet-bundle in general yields a function on the $2q$th-order jet bundle.
+Note that in particular the variational derivative of a function on the $q$th-order jet bundle in general yields a function on the $2q$th-order jet bundle.
 
 Now we have finally developed the necessary structure to give a precise definition of a \textbf{\textit{Lagrangian}} for a field theory whose dynamical objects are sections of the field bundle $(F, \pi_F,M)$.
 \begin{definition}[Lagrangian]
 A second-order Lagrangian on $(F,\pi_F,M)$ is a bundle map $\mathcal{L} : J^2F \rightarrow \Lambda^4M$ that covers $id_M$.
 \end{definition}
-Here $\Lambda^4 M$ denotes the volume bundle on $M$. Alternatively, we could have required $\mathcal{L}$ to take values in the bundle of scalar densities of weight 1 over $M$. In coordinates we have: 
+Here $\Lambda^4 M$ denotes the volume bundle on $M$. Alternatively, we could have required $\mathcal{L}$ to take values in the bundle of scalar densities of weight $1$ over $M$. In coordinates we have: 
 \begin{align}
     \mathcal{L}(x^m,v_A,v_{Ai},v_{AI}) = L(x^m,v_A,v_{Ai},v_{AI}) \mathrm{d}x^0 \wedge \mathrm{d}x^1 \wedge \mathrm{d}x^2 \wedge \mathrm{d}x^3 = L \mathrm{d}^4x.
 \end{align} 
@@ -388,7 +388,7 @@ As the Lagrangian is a volume form valued bundle map, we can take any section $G
     G &\longmapsto \mathcal{S}_{\mathcal{L}}[G] := \int \mathcal{L}(j^2(G)).
 \end{aligned}
 \end{align}
-The whole situation with the various maps that are involved in this construction is displayed in Figure \ref{diagram1}. 
+The whole situation with the various maps that are involved in this construction is displayed in figure \ref{diagram1}. 
 \begin{figure}[hbt!]
 \centering
 \begin{tikzpicture}
@@ -435,7 +435,7 @@ To shorten the notation we will refer to actions of $\mathrm{Diff}(M)$ on the va
 Given $\phi \in \mathrm{Diff}(M)$, by this construction, we can obtain the corresponding action by bundle isomorphisms on any tensor bundle over $M$. As we have identified the field bundle $F$ with a subbundle of some $T^m_nM$ we can restrict the bundle isomorphisms to $F$ to get an action of $\mathrm{Diff}(M)$ on the field bundle in particular. 
 To further lift the action of $\mathrm{Diff}(M)$ to the first jet bundle $J^1F$ and the second jet bundle $J^2F$,respectively, we need to develop additional techniques, the primary tool being the \textbf{\textit{prolongation of bundle morphisms}}. 
 \begin{definition}[prolongation of morphisms]
-Let $(F_1,\pi_{F_1},M)$ and $(F_2,\pi_{F_2},N)$ be bundles, $\phi : M \rightarrow N$ a diffeomorphism, $f : F_1 \rightarrow F_2$ a bundle morphism covering $\phi$ and $J^1F_1$, $J^1F_2$ the first-order jet bundles over $F_1$ and $F_2$, respectively. The first jet bundle lift or prolongation of the bundle morphism $(f,\phi)$ is given by the unique map\footnote{Just as it is the case with bundle morphisms being denoted by pairs $(f,\phi)$ their prolongation should be denoted by triples $(j^1(f),f,\phi)$. However, we will lighten their notation to simply $j^1(f)$ if the two remaining maps are clear from the given context.} $j^1(f)$ that lets the diagram in Figure \ref{ProlongMorph} commute.
+Let $(F_1,\pi_{F_1},M)$ and $(F_2,\pi_{F_2},N)$ be bundles, $\phi : M \rightarrow N$ a diffeomorphism, $f : F_1 \rightarrow F_2$ a bundle morphism covering $\phi$ and $J^1F_1$, $J^1F_2$ the first-order jet bundles over $F_1$ and $F_2$, respectively. The first jet bundle lift or prolongation of the bundle morphism $(f,\phi)$ is given by the unique map\footnote{Just as it is the case with bundle morphisms being denoted by pairs $(f,\phi)$ their prolongation should be denoted by triples $(j^1(f),f,\phi)$. However, we will lighten their notation to simply $j^1(f)$ if the two remaining maps are clear from the given context.} $j^1(f)$ that lets the diagram in figure \ref{ProlongMorph} commute.
 \begin{figure}[hbt!]
 \centering
 \begin{tikzpicture}
@@ -480,7 +480,7 @@ From the definition of the prolongation of bundle morphisms we then find:
 \begin{align}
     j^1f_{sec} \circ j^1 \circ G = j^1 \circ f_{sec} \circ G.
 \end{align}
-In other words, the induced action of bundle morphisms on sections commutes with the operation of prolonging the involved section and bundle morphisms, respectively. We can either first map a section of $F_1$ by using the bundle morphisms $(f,\phi)$ to a section of $F_2$ and then prolong it to a section of $J^1F_2$ or we prolong it first to a section of $J^1F_1$ and then map it with the prolonged bundle morphism $(j^1(f),f,\phi)$ to a section of $J^1F_2$, the result is the same. The situation is displayed in Figure \ref{BundleMorphSec}. 
+In other words, the induced action of bundle morphisms on sections commutes with the operation of prolonging the involved section and bundle morphisms, respectively. We can either first map a section of $F_1$ by using the bundle morphisms $(f,\phi)$ to a section of $F_2$ and then prolong it to a section of $J^1F_2$ or we prolong it first to a section of $J^1F_1$ and then map it with the prolonged bundle morphism $(j^1(f),f,\phi)$ to a section of $J^1F_2$, the result is the same. The situation is displayed in figure \ref{BundleMorphSec}. 
 
 \begin{figure}[hbt!]
 \centering 
@@ -497,7 +497,7 @@ In other words, the induced action of bundle morphisms on sections commutes with
 \caption{Commutative Diagram: Prolongation of Bundle Morphisms Applied to Sections.}\label{BundleMorphSec}
 \end{figure}
 
-We can prolong bundle morphisms to any higher-order jet bundle by an equivalent definition, i.e., by defining $j^k(f)$ s.t. the diagram in Figure \ref{POrolongK} commutes:
+We can prolong bundle morphisms to any higher-order jet bundle by an equivalent definition, i.e., by defining $j^k(f)$ s.t. the diagram in figure \ref{POrolongK} commutes:
 \begin{figure}[hbt!]
 \centering
 \begin{tikzpicture}
@@ -522,7 +522,7 @@ One can in particular show that the jet prolongation of bundle morphism behaves 
 
 Now we are in a position where we can formulate what we mean by requiring the gravitational theory to be invariant under spacetime diffeomorphisms in a precise manner. We start by recalling the definition of an \textit{\textbf{equivariant}} map. Further information regarding this can be found in \cite{doi:10.1142/3867}.
 \begin{definition}[equivariance]
-Let $M$ and $N$ be some spaces that both carry an action of a group $\mathcal{G}$, $\rho : \mathcal{G} \rightarrow \mathrm{Aut}(M)$ and $\sigma : \mathcal{G} \rightarrow \mathrm{N}$. We call a function $f : M \rightarrow N$ equivariant w.r.t. $\rho$ and $\sigma$ if it holds for all $g \in \mathcal{G}$ that: $f \circ \rho(g) = \sigma(g) \circ f(m)$, i.e., if the diagram displayed in Figure \ref{EquiDia} commutes for all $g \in \mathcal{G}$:
+Let $M$ and $N$ be some spaces that both carry an action of a group $\mathcal{G}$, $\rho : \mathcal{G} \rightarrow \mathrm{Aut}(M)$ and $\sigma : \mathcal{G} \rightarrow \mathrm{N}$. We call a function $f : M \rightarrow N$ equivariant w.r.t. $\rho$ and $\sigma$ if it holds for all $g \in \mathcal{G}$ that: $f \circ \rho(g) = \sigma(g) \circ f(m)$, i.e., if the diagram displayed in figure \ref{EquiDia} commutes for all $g \in \mathcal{G}$:
 \begin{figure}[hbt!]
 \centering
 \begin{tikzpicture}
@@ -664,7 +664,7 @@ Once we obtain the general solution to these diffeomorphism invariance equations
 
 Note that the first equation in the PDE system (\ref{DiffeoEqn}) simply requires the Lagrangian to be independent of the coordinates of the spacetime manifold. This is, of course, a requirement posed on the Lagrangian as a bundle map on $J^2F$, not on the corresponding composition with a given section of $J^2F$ as all such compositions are necessarily $x^m$-dependent. The first equation can hence be trivially solved, and we might use its implications in the following. For instance, we can now write $L(v_A.v_{Ai},v_{AI})$ for the coordinate expression of the Lagrangian, dismissing the explicit $x^m$-dependency.
 
-Before proceeding with the next section, we quickly deduce the implications for the EOM that are generated by diffeomorphism invariant Lagrangians. The EOM of a given Lagrangian $\mathcal{L}$ can be obtained by taking its variational derivative, in coordinates $E^A := \frac{\delta \mathcal{L}}{\delta v_A}$, composing it with the prolongation of a section of the field bundle and then equating to zero. In the following, we will also refer to $E^A$ as equations of motion. If the Lagrangian is given as a function on the second jet bundle, then the EOM are generally functions on the fourth jet bundle $J^4F$. As mentioned before we are however particularly interested in the case where the Lagrangian is degenerate in the sense that also the EOM are functions on $J^2F$, and hence a meaningful Hamiltonian formulation exists.
+Before proceeding with the next section, we quickly deduce the implications for the EOM that are generated by diffeomorphism invariant Lagrangians. The EOM of a given Lagrangian $\mathcal{L}$ can be obtained by taking its variational derivative, in coordinates $E^A := \frac{\delta \mathcal{L}}{\delta v_A}$, composing it with the prolongation of a section of the field bundle and then equating to zero. In the following, we will also refer to $E^A$ as equations of motion. If the Lagrangian is given as a function on the second jet bundle, then the EOM are generally functions on the $4$th jet bundle $J^4F$. As mentioned before we are however particularly interested in the case where the Lagrangian is degenerate in the sense that also the EOM are functions on $J^2F$, and hence a meaningful Hamiltonian formulation exists.
 \begin{theorem}[diffeomorphism equivariant EOM]
 Given a Lagrangian on $J^2F$ that describes a diffeomorphism invariant field theory with second-order EOM, in the usual coordinates: $E^A := \frac{\delta \mathcal{L}}{\delta v_A}$, then the equations of motion satisfy the following linear first-order PDE system:
 \begin{align}\label{EOM}
@@ -690,7 +690,7 @@ Summing up we have derived linear first-order PDE systems for the Lagrangian or 
 
 
 \section{Canonical Kinematics and Hypersurface Deformations}
-In the following two sections we are going to investigate implications of the required diffeomorphism invariance for the \textit{\textbf{canonical formulation}} of a given field theory. For that purpose we mainly concern field theories that are described by a \textit{\textbf{first-order}} Lagrangian, i.e., a function on $J^1F$. Working on $J^2F$ as before we would necessarily have to consider the case where the Lagrangian is degenerate such that the EOM are nevertheless of second-order and the Hamiltonian formulation is free of Ostrogratsky instabilities. The degeneracy of the Lagrangian would then, however, impede the canonical formulation of the theory\footnote{We remark that, although posing further technical difficulties, we expect a generalization of the following derivations to the case of degenerate Lagrangians on $J^2F$ to be straight forward.}.
+In the following two sections we are going to investigate implications of the required diffeomorphism invariance for the \textit{\textbf{canonical formulation}} of a given field theory. For that purpose we mainly concern field theories that are described by a \textit{\textbf{first-order}} Lagrangian, i.e., a function on $J^1F$. Working on $J^2F$ as before we would necessarily have to consider the case where the Lagrangian is degenerate such that the EOM are nevertheless of second order and the Hamiltonian formulation is free of Ostrogratsky instabilities. The degeneracy of the Lagrangian would then, however, impede the canonical formulation of the theory\footnote{We remark that, although posing further technical difficulties, we expect a generalization of the following derivations to the case of degenerate Lagrangians on $J^2F$ to be straight forward.}.
 
 The main idea that is used when transferring from a given Lagrangian field theory to the associated Hamiltonian formulation is that of decomposing the spacetime manifold $M$ into a disjoint set of 3-dimensional manifolds that are smoothly parametrized by a time parameter. As a consequence, one can then accordingly decompose any structure that is prescribed on $M$. In order to achieve this we follow \cite{2004math.ph..11032G} and introduce the notion of a \textit{\textbf{slicing}}, sometimes also called a \textit{\textbf{3+1-split}}, of the spacetime manifold $M$.
 \begin{definition}[slicing]
@@ -722,7 +722,7 @@ Note that it is, a priori, not clear whether or not such a slicing exists for a 
 \caption{Commutative Diagram: Slicing induced Time Function.}\label{DiagrTime}
 \end{figure}
 
-In addition to the smoothly parameterized family of embeddings $\phi_{\lambda}$ a slicing on $M$ immediately induces a \textit{\textbf{time vector field}} and a \textit{\textbf{time differential}} one form on $M$. The one form can be obtained as differential $\mathrm{d}t$ of the function $t:=\pi_{\mathbb{R}} \circ \phi^{-1}$, where $\pi_{\mathbb{R}}$ denotes the canonical project of $\Sigma \times \mathbb{R}$ onto the second factor. The situation is displayed in Figure \ref{DiagrTime}.
+In addition to the smoothly parameterized family of embeddings $\phi_{\lambda}$ a slicing on $M$ immediately induces a \textit{\textbf{time vector field}} and a \textit{\textbf{time differential}} one form on $M$. The  $1$-form can be obtained as differential $\mathrm{d}t$ of the function $t:=\pi_{\mathbb{R}} \circ \phi^{-1}$, where $\pi_{\mathbb{R}}$ denotes the canonical project of $\Sigma \times \mathbb{R}$ onto the second factor. The situation is displayed in figure \ref{DiagrTime}.
 The time vector field can be constructed by first defining for all $s \in \Sigma$ the following map: 
 \begin{align}
 \begin{aligned}
@@ -730,7 +730,7 @@ The time vector field can be constructed by first defining for all $s \in \Sigma
     \lambda &\longmapsto \phi(s,\lambda).
 \end{aligned}
 \end{align}
-These maps define curves on $M$. They track the path of specific spatial point $s \in \Sigma$ through spacetime, defined by the family of embeddings. The situation can be seen in Figure \ref{Slicing}.
+These maps define curves on $M$. They track the path of specific spatial point $s \in \Sigma$ through spacetime, defined by the family of embeddings. The situation can be seen in figure \ref{Slicing}.
 
 \begin{figure}[hbt!]
 \centering
@@ -1223,7 +1223,7 @@ From this PDE system, we deduce the first consequence of the underlying diffeomo
 \begin{align}\label{ConstrPi}
     0=\pi^A C_{An}^{B0}v_B.
 \end{align}
-There exist four independent linear combinations of the canonical momenta that vanish. This poses a problem for the Hamiltonian formulation as the fiber derivative that allowed us to obtain canonical momenta from the given Lagrangian and hence define the Hamiltonian is then no longer injective. To put it simply, the number of independent fiber coordinates on the field bundle $F$ is given by its fiber dimension. On the other hand, due to the four vanishing linear combinations of canonical momenta, the image of the fiber derivative has dimension four less.
+There exist $4$ independent linear combinations of the canonical momenta that vanish. This poses a problem for the Hamiltonian formulation as the fiber derivative that allowed us to obtain canonical momenta from the given Lagrangian and hence define the Hamiltonian is then no longer injective. To put it simply, the number of independent fiber coordinates on the field bundle $F$ is given by its fiber dimension. On the other hand, due to the $4$ vanishing linear combinations of canonical momenta, the image of the fiber derivative has dimension $4$ less.
 
 This is something that we could have already seen from the PDE system that encodes diffeomorphism invariance on the level of the EOM (\ref{EOM}). For theories that are described by a Lagrangian on $J^1F$ evaluating the last equation for $m=p=q=0$ we get: 
 \begin{align}\label{Constr1}
@@ -1241,10 +1241,10 @@ Contracting the EOM with $C_{An}^{C0}v_C$ we get:
     E^A C_{An}^{C0}v_C = L^{:A0:B0}v_{B00}C_{An}^{C0}v_C + 2L^{:A\mu : B 0} v_{B\mu 0}C_{An}^{C0}v_C + L^{:A\mu : B \nu} v_{B\mu \nu}C_{An}^{C0}v_C\\
     + \text{lower derivative order}.
 \end{multline}
-Note that only the first term contains second-order time derivatives. Precisely this term, however, vanishes due to the last equation in (\ref{EOM}) evaluated for the case of $L$ being a first-order Lagrangian. Hence contracting the EOM with $C_{An}^{C0}v_C$ reveals four independent linear combinations of EOM that are of first derivative order in the time-derivatives.
+Note that only the first term contains second-order time derivatives. Precisely this term, however, vanishes due to the last equation in (\ref{EOM}) evaluated for the case of $L$ being a first-order Lagrangian. Hence contracting the EOM with $C_{An}^{C0}v_C$ reveals $4$ independent linear combinations of EOM that are of first derivative order in the time-derivatives.
 
 In the case of second-derivative-order PDE systems that describe the time evolution of some field\footnote{More precisely we consider such PDE systems that are hyperbolic in the sense that the Cauchy problem is well-posed for appropriate Cauchy surfaces and initial conditions. We will provide a more detailed formulation regarding this in the next chapter.} over $M$ the values of the field together with its first derivatives must be specified on a suitable hypersurface of $M$ as \textbf{\textbf{initial values}} to uniquely determine solutions away from the hypersurface. 
-Any individual equation appearing in the system that is of lower than second-derivative-order in the time derivatives then does not contribute dynamical information to the evolution process described by the system but instead poses a restriction on the possible choices of the initial values on the hypersurface. In other words, the previously obtained four linear combinations that were only of first-derivative-order in the time derivatives are no evolution equations but constrain the possible initial data one may specify. These PDEs are then called \textbf{\textit{constraints}}.
+Any individual equation appearing in the system that is of lower than second derivative order in the time derivatives then does not contribute dynamical information to the evolution process described by the system but instead poses a restriction on the possible choices of the initial values on the hypersurface. In other words, the previously obtained $4$ linear combinations that were only of first derivative order in the time derivatives are no evolution equations but constrain the possible initial data one may specify. These PDEs are then called \textbf{\textit{constraints}}.
 Similarly, one also calls the conditions on the canonical momenta in the Hamiltonian formulation (\ref{ConstrPi}) constraints.
 
 The treatment of Hamiltonian systems with constraints requires specific care as one needs to ensure that once initial data in terms of values for the field and the canonical momenta $(v_A,\pi^B)$ at given time is chosen, the time evolution generated by the Hamiltonian is such that also for later times the thus obtained values of the field and momenta satisfy the constraints. One often states that \textbf{\textit{consistency}} of the Hamiltonian formulation requires that the time evolution does not leave the constraint surface, i.e., the vanishing set of the constraints.
@@ -1310,7 +1310,7 @@ H_{2} &= N \cdot \mathbf{H} + N^{\mu} \cdot \mathbf{D}_{\mu} + \lambda^0 C_0 + \
 \end{aligned}
 \end{align}
 We call the thus computed time evolution of the primary constraints the \textit{\textbf{Hamiltonian constraint}} $\mathbf{H}$ and the \textit{\textbf{diffeomorphism constraint}} $\mathbf{D}_{\mu}$.
-We find that the new Hamiltonian $H_{2}$ is given by a linear combination of the four primary and four secondary constraints and hence vanishes on the constraint surface. This observation is summarized in the following theorem.
+We find that the new Hamiltonian $H_{2}$ is given by a linear combination of the $4$ primary and $4$ secondary constraints and hence vanishes on the constraint surface. This observation is summarized in the following theorem.
 \begin{theorem}
 The Hamiltonian $H$ corresponding to any given diffeomorphism invariant Lagrangian field theory on $J^1F$ is a linear combination of constraints, i.e., \textbf{\textit{fully constraint}} and hence vanishes weakly:
 \begin{align}
