@@ -526,7 +526,7 @@ mapTo3 :: (v1 -> v2) -> AbsTensor3 n1 n2 n3 k1 k2 v1 ->
                         AbsTensor3 n1 n2 n3 k1 k2 v2
 mapTo3 = fmap . fmap . fmap
 \end{minted}
-\caption{Function that Descents 3 Tensor Levels.}\label{mapTo3}
+\caption{Descending 3 Tensor Levels.}\label{mapTo3}
 \end{listing}
 Using this, we can, for instance, symmetrize a given tensor in the covariant indices of the second index type by the function (\ref{ASymDeep}).
 \begin{listing}[hbt!]
@@ -850,7 +850,7 @@ getEpsilonInds inds = allInds
             allInds = map (\x -> map (x ++) $
                       getEtaInds (inds \\ x) ) epsInds 
 \end{minted} 
-\caption{Computation of All Possible Index Sortings.}\label{AllInds}
+\caption{Computation of All Possible Index Orders.}\label{AllInds}
 \end{listing}
 
 Note that in \cite{sparse-tensor} we further reduced these index lists by filtering already here some of the linear dependencies that will later arise due to the symmetrization. This is not necessary as we will treat linear dependencies later anyway. It does, however, increase performance as the lists that are consumed by the algorithm are then smaller from the very beginning.  
@@ -1254,7 +1254,7 @@ reduceAnsatzEpsilonEig symL epsL evalM
                                       (addOrDiscardEpsilonEig symL evalM)
                                       (ans1,rDat1) restEpsL
 \end{minted} 
-\caption{Reduce Linear Dependencies: the Efficient Way.}\label{redMem}
+\caption{Reduce Linear Dependencies: the "Efficient" Way.}\label{redMem}
 \end{listing}
 Finally, now we can also provide functions (\ref{mkAnsatzEig1}), (\ref{mkAnsatzEig2}) and (\ref{mkAnsatzEig3}) that return a triplet consisting of two ansatz forests corresponding to a Lorentz invariant basis of given rank and symmetry and one tensor that includes all their values, this time employing the memory-optimized algorithm. 
 \begin{listing}[hbt!]
