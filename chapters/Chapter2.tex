@@ -435,7 +435,8 @@ Taking now a closer look at the PDE (\ref{DiffeoEqn}) that such EOM then necessa
 Hence, due to the diffeomorphism symmetry, there exist $4$ independent vectors:
 \begin{align}
    \chi_{An}(k_a) =  C_{An}^{Cm}v_Ck_m
-\end{align} that are in the kernel of the principal symbol and $T^{AB}(k)$ is not injective but as a 4-dimensional rank defect\footnote{Note that this is closely related to the previous $4$ constraints that any diffeomorphism invariant field theory necessarily contains amongst its EOM (see chapter \ref{ConstrainedDyn}).}. To compensate for that, we have to require the 1-form $k_a$ to be given s.t. $T^{AB}(k_a)$ is not only non-injective but has at least a 5-dimensional kernel. Then there necessarily exists at least a one dimensional subspace in this kernel of $T^{AB}(k_a)$ that is not gauge-equivalent to the trivial solution $a_A(x^m) = 0$. Hence, $k_a$ represents the wave covector of a physically non-trivial wave solution to the PDE (at least in the $\lambda \rightarrow 0$ limit).
+\end{align}
+that are in the kernel of the principal symbol and $T^{AB}(k)$ is not injective but as a 4-dimensional rank defect\footnote{Note that this is closely related to the previous $4$ constraints that any diffeomorphism invariant field theory necessarily contains amongst its EOM (see chapter \ref{ConstrainedDyn}).}. To compensate for that, we have to require the 1-form $k_a$ to be given s.t. $T^{AB}(k_a)$ is not only non-injective but has at least a 5-dimensional kernel. Then there necessarily exists at least a one dimensional subspace in this kernel of $T^{AB}(k_a)$ that is not gauge-equivalent to the trivial solution $a_A(x^m) = 0$. Hence, $k_a$ represents the wave covector of a physically non-trivial wave solution to the PDE (at least in the $\lambda \rightarrow 0$ limit).
 
 The condition of having at least a $5$ dimensional kernel of the principal symbol can be expressed more formally by requiring that its adjunct matrix of order $4$ vanishes. Given the $n \times n$ matrix $T^{AB}(k_a)$, its adjunct matrix of order $4$ is the $\binom{n}{4} \times \binom{n}{4}$ square matrix that has entries equal to the order $4$ sub determinants of $T^{AB}(k_a)$:
 \begin{align}\label{MinorDef}
@@ -492,10 +493,62 @@ We call $C(P,h)$ the \textbf{\textit{hyperbolicity cone}} of $P$, containing $h$
 The set of hyperbolic directions $h\in \mathbb{R}^d$ of a given hyperbolic polynomial $P$ might very well be composed of several connected components. For instance, one can readily show that whenever $P$ is hyperbolic w.r.t. $h\in \mathbb{R}^d$ it necessarily is also hyperbolic w.r.t. $-h$. For further developments, we will thus select one connected component of the set of such hyperbolic directions, and subsequently call it the hyperbolicity cone of $P$: $C(P)$. We will later comment on the deeper physical meaning that such a choice of hyperbolicity cone provides.
 
 The notion of hyperbolic polynomials and the corresponding hyperbolicity cones is best illustrated by a picture (figure \ref{hyperbol}). 
-\begin{figure}[hbt!]
-    \centering
-    \includegraphics[width=\textwidth]{Poly.pdf}
-    \caption{Hyperbolicity Cone and Vanishing Set of a Second and a Fourth Degree Polynomial (see \cite{Rivera}).}
+\begin{figure}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\begin{tikzpicture}[tdplot_main_coords]
+  \coordinate (O) at (0,0,0);
+  
+  \node (A) at (1,1,0) {$\boldsymbol{V_p^{(1)}}$};
+  \draw[->, thick] (A) to [out = 70, in =320] (1,1,1.25);
+  \node (B) at (-1,-1,0.5) {$\boldsymbol{V_p^{(2)}}$};
+  \draw[->, thick] (B) to [out = 120, in =240] (-1.5,-1,2);
+  \node (C) at (0,0,5) {$\boldsymbol{C}_p$};
+  \draw[->, thick] (C) to [out = 210, in =90] (-0.5,-0.5,3.5);
+
+  \begin{scope}[rotate around x = 25]
+  \coneback[surface1]{-4}{2}{-15}
+  \conefront[surface1]{-4}{2}{-15}
+  \coneback[surface1]{4}{2}{15}
+  \conefront[surface1]{4}{2}{15}
+  \end{scope}
+
+  \begin{scope}[rotate around y = 20]
+  \coneback[surface1]{-3}{3}{-10}
+  \conefront[surface1]{-3}{3}{-10}
+  \coneback[surface1]{3}{3}{10}
+  \conefront[surface1]{3}{3}{10}
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\begin{tikzpicture}[tdplot_main_coords]
+  \coordinate (O) at (0,0,0);
+  
+  \node (A2) at (1,1,0) {$\boldsymbol{\widetilde{V}_p^{(1)}}$};
+  \draw[->, thick] (A2) to [out = 70, in =320] (1,1,1.25);
+  \node (B2) at (-1.5,-1.5,1) {$\boldsymbol{\widetilde{V}_p^{(2)}}$};
+  \draw[->, thick] (B2) to [out = 120, in =180] (-1,-1,3);
+  \node (C2) at (0.5,0.5,5.5) {$\boldsymbol{\widetilde{C}_p}$};
+  \draw[->, thick] (C2) to [out = 210, in =90] (0,0,4);
+
+  \begin{scope}[rotate around x = 10, rotate around y = 10]
+  \coneback[surface1]{-4}{2}{-15}
+  \conefront[surface1]{-4}{2}{-15}
+  \coneback[surface1]{4}{2}{15}
+  \conefront[surface1]{4}{2}{15}
+
+  \coneback[surface1]{-3}{3}{-10}
+  \conefront[surface1]{-3}{3}{-10}
+  \coneback[surface1]{3}{3}{10}
+  \conefront[surface1]{3}{3}{10}
+\end{scope}
+\end{tikzpicture} 
+\end{center}
+\end{minipage}
+    \caption[Hyperbolic Polynomials of degree $4$.]{Vanishing $V_p$, $\widetilde{V}_p$ and hyperbolicity cones $C_p$, $\widetilde{C}_p$ of two degree $4$ hyperbolic polynomials; in both cases the vanishing sets are given as union of the individual cones $V_p = V_p^{(1)} \cup V_p^{(2)}$, $\widetilde{V} = \widetilde{V}_p^{(1)} \cup \widetilde{V}_p^{(2)}$, the hyperbolicity are provided by their intersection $Cp = V_p^{(1)} \cap C_p^{(2)}$,  $\widetilde{C}_p = \widetilde{C}_p^{(1)} \cap \widetilde{C}_p^{(2)}$.}
     \label{hyperbol}
 \end{figure}
 One can now see the underlying geometric interpretation of  hyperbolic directions  $h\in \mathbb{R}^d$ for a given polynomial $P$. If $P$ is hyperbolic w.r.t. $h$ then any affine line in direction $h$ intersects $\mathrm{deg}(P) = d$ times with the vanishing set $V(P)$.
@@ -602,6 +655,12 @@ Calculate the principal polynomials $\mathcal{P}_{grav}$ and $\mathcal{P}_{mat}$
 Determine the arbitrary quantities in $L_{grav}$ s.t. for all $p \in M$ : $V_{p,grav} = V_{p,mat}.$
  \caption{Construction of Gravitational Lagrangian}\label{Algo1}
 \end{algorithm}
+
+%wann \mathcal{L} wann L ???
+%
+%
+%
+% ??????
 
 
 \section{Perturbative Approach to Constructive Gravity}

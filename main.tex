@@ -75,7 +75,19 @@
 }
 
 %Diagrams
-\usepackage{tikz}
+\usepackage{tikz,tikz-3dplot}
+\tdplotsetmaincoords{90}{45}
+\tdplotsetrotatedcoords{-90}{180}{-90}
+
+
+%drawing cones
+\tikzset{surface1/.style={draw=black, fill=gray, fill opacity=.30}}
+\newcommand{\coneback}[4][]{
+  \draw[canvas is xy plane at z=#2, #1] (45-#4:#3) arc (45-#4:225+#4:#3) -- (O) --cycle;
+  }
+\newcommand{\conefront}[4][]{
+  \draw[canvas is xy plane at z=#2, #1] (45-#4:#3) arc (45-#4:-135+#4:#3) -- (O) --cycle;
+  }
 \usetikzlibrary{shapes}
 \tikzset{every picture/.style=remember picture}
 \newcommand{\mathnode}[1]{%
