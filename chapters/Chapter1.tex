@@ -620,7 +620,7 @@ the Lagrangian of a diffeomorphism invariant field theory.
 Let $(F,\pi_f,M)$ be the field bundle and $J^2F$ denote the second-order jet bundle over $F$. Furthermore let $(E, \pi_E, M)$ be a second bundle over $M$ with adapted coordinates $(x^m, u_{\tilde{A}})$ that carries an action of $\mathrm{Diff}(M)$ which is infinitesimally described by a Lie algebra morphism $\mathcal{e}: \Gamma(TM) \rightarrow \Gamma(TE)$ with coordinate expression $\mathcal{e}(\xi) = \xi^m \frac{\partial}{\partial x^m} + K_{\tilde{A}n}^{\tilde{B}m} u_{\tilde{B}} \partial_m \xi^n \frac{\partial}{\partial u_{\tilde{A}}}$. Assume that we are given a bundle morphism $f : J^2F \rightarrow E$ covering $id_M$ that is equivariant w.r.t. the lifted action of $\mathrm{Diff}(M)$ on $J^2F$ and the action $\mathcal{e}$ on $E$, then in coordinates $f^{\tilde{A}}$ satisfies the following set of linear first-order partial differential equations:
 \begin{align}
 \begin{aligned}
-    0 &= f^{\tilde{C}:m} \\
+    0 &= f^{\tilde{C}}_{:m} \\
     0 &= f^{\tilde{C}:A} C_{An}^{Bm} v_B + f^{\tilde{C}:Ap} \bigl[ C_{An}^{Bm} \delta_p^q - \delta_A^B \delta_m^n \bigr] v_{Bq} + f^{\tilde{C}:AI} \bigl[ C_{An}^{Bm} \delta_I^J - 2 \delta_A^B J_I^{pm} I^J_{pn}  \bigr] v_{BJ} - f^{\tilde{A}}K_{\tilde{A}n}^{\tilde{C}m}\\
     0 &= f^{\tilde{C}:A(p\vert}C_{An}^{B \vert m)} v_B + f^{\tilde{C}: AI} \bigl[ C_{An}^{B(m\vert} 2 J_I^{\vert p) q} - \delta^B_A J_I ^{pm} \delta_n^q \bigr] v_{Bq} \\
     0 &= f^{\tilde{C}:AI} C_{An}^{B(m\vert} v_B J_I^{\vert p q )}.
@@ -638,7 +638,7 @@ Similar PDEs can also be obtained for equivariant functions on higher-order jet 
 Note that from the last theorem we can conclude in particular that the Lagrangian of diffeomorphisms invariant field theories, in local coordinates given by $\mathcal{L} = L \mathrm{d}^4x$ on $J^2F$ satisfies the following linear first-order PDE system:  
 \begin{align}\label{DiffeoEqn}
 \begin{aligned}
-    0 &= L^{:m} \\
+    0 &= L_{:m} \\
     0 &= L^{:A} C_{An}^{Bm} v_B + L^{:Ap} \bigl[ C_{An}^{Bm} \delta_p^q - \delta_A^B \delta_m^n \bigr] v_{Bq} + L^{:AI} \bigl[ C_{An}^{Bm} \delta_I^J - 2 \delta_A^B J_I^{pm} I^J_{pn}  \bigr] v_{BJ} + L \delta^m_n \\
     0 &= L^{:A(p\vert}C_{An}^{B \vert m)} v_B + L^{: AI} \bigl[ C_{An}^{B(m\vert} 2 J_I^{\vert p) q} - \delta^B_A J_I ^{pm} \delta_n^q \bigr] v_{Bq} \\
     0 &= L^{:AI} C_{An}^{B(m\vert} v_B J_I^{\vert p q )}.
@@ -668,7 +668,7 @@ Before proceeding with the next section, we quickly deduce the implications for 
 Given a Lagrangian on $J^2F$ that describes a diffeomorphism invariant field theory with second-order EOM, in the usual coordinates: $E^A := \frac{\delta \mathcal{L}}{\delta v_A}$, then the equations of motion satisfy the following linear first-order PDE system:
 \begin{align}\label{EOM}
     \begin{aligned}
-    0 &= E^{C:m} \\
+    0 &= E^C_{:m} \\
     0 &= E^{C:A} C_{An}^{Bm} v_B + E^{C:Ap} \bigl[ C_{An}^{Bm} \delta_p^q - \delta_A^B \delta_m^n \bigr] v_{Bq} + E^{C:AI} \bigl[ C_{An}^{Bm} \delta_I^J - 2 \delta_A^B J_I^{pm} I^J_{pn}  \bigr] v_{BJ}\\
     &+ E^C \delta^m_n + E^A C_{An}^{Cm}  \\
     0 &= E^{C:A(p\vert}C_{An}^{B \vert m)} v_B + E^{C: AI} \bigl[ C_{An}^{B(m\vert} 2 J_I^{\vert p) q} - \delta^B_A J_I ^{pm} \delta_n^q \bigr] v_{Bq} \\
@@ -799,12 +799,12 @@ One readily finds that $\frac{\partial}{\partial t}$ and $\mathrm{d}t$ are dual 
 
 Given the fact that $\mathrm{d}t$ and $\frac{\partial}{\partial t}$ were obtained from the given slicing this immediately raises the question of how the time differential, time vector field, and all further objects that will subsequently be defined in terms of these, change under a change of slicing. If $\phi : \Sigma \times \mathbb{R} \rightarrow M $ and $\psi : \Sigma \times \mathbb{R} \rightarrow M$ are two slicings then we obtain a diffeomorphism on $M$ by taking $\psi \circ \phi^{-1}$. Conversely given a slicing $\phi$ any diffeomorphism $\rho \in \mathrm{Diff}(M)$ defines a second slicing by $\rho \circ \phi $. Hence changing the slicing is in one to one correspondence with diffeomorphisms on $M$. 
 
-In addition to the time differential and time vector field on $M$ a slicing also induces a \textbf{\textit{direct sum split}} of the tangent bundle over $M$. Given a slicing $\phi : \Sigma \times \mathbb{R} \rightarrow M$ we can compute its pushforward to obtain a vector bundle isomorphism:
-\begin{align}
-\phi_{\ast}: T(\Sigma \times \mathbb{R}) \longrightarrow TM.
-\end{align}
-Any tangent space over a product of manifolds can be decomposed into a direct sum of the tangent spaces of the individual factors. More precisely one can show that $T(\Sigma \times \mathbb{R}) \cong \pi_{\Sigma}^{\ast}T\Sigma \oplus \pi_{\mathbb{R}}^{\ast} T\mathbb{R}$. And hence in total we have: $TM \cong \pi_{\Sigma}^{\ast}T\Sigma \oplus \pi_{\mathbb{R}}^{\ast} T\mathbb{R}$.
-Here $\pi_{\Sigma}^{\ast}T\Sigma$ and $\pi_{\mathbb{R}}^{\ast}T\mathbb{R}$ denote the pullbacks\footnote{Given a bundle $(F,\pi_F,M)$ and a map $h: N \rightarrow M$, the pullback of the bundle $F$ along $h$ is the bundle over $N$ with total space $h^{\ast}F := \{ (n,f) \in N \times F \ \vert \  h(n) = \pi_F(f)\}$, and bundle projection $\pi_{h^{\ast}F}(n,f) = n$ (see \cite{doi:10.1142/3867}). Note that this construction makes the map $\tilde{h}: f^{\ast}F \rightarrow F$ defined by $\tilde{h}(n,f) = f$ a bundle morphism covering $h$, i.e the following diagram commutes. 
+For the following considerations we quickly recall some basic operations of constructing new fiber bundles from given ones. One of such procedure is given by the pull back of a fiber bundle.
+\begin{definition}[pull back bundle]
+Given a bundle $(F,\pi_F,M)$ and a map $h: N \rightarrow M$, the pullback of the bundle $F$ along $h$ is the bundle over $N$ with total space $h^{\ast}F := \{ (n,f) \in N \times F \ \vert \  h(n) = \pi_F(f)\}$, and bundle projection $\pi_{h^{\ast}F}(n,f) = n$ (see \cite{doi:10.1142/3867}).
+\end{definition}
+\begin{remark}
+Note that this construction makes the map $\tilde{h}: f^{\ast}F \rightarrow F$ defined by $\tilde{h}(n,f) = f$ a bundle morphism covering $h$, i.e the following diagram commutes. 
 \begin{center}
 \begin{tikzpicture}
 \node (M) at (0,0) {$N$};
@@ -816,10 +816,31 @@ Here $\pi_{\Sigma}^{\ast}T\Sigma$ and $\pi_{\mathbb{R}}^{\ast}T\mathbb{R}$ denot
 \draw [<-] (M) -- node[pos=0.5, left] {$\pi_{h^{\ast}F}$} (M2);
 \draw [<-] (N) -- node[pos=0.5, right] {$\pi_F$} (N2);
 \end{tikzpicture}
-\end{center}} of the bundles $T\Sigma$ and $T\mathbb{R}$ over $\Sigma$ and $\mathbb{R}$ to the common base space $\Sigma \times \mathbb{R}$ by making use of the two canonical projections.
-Moreover, given two vector bundles $(F,\pi_F,M)$ and $(E,\pi_E,M)$ over the same base space $M$, $F\oplus E$ denotes their direct sum or Whitney sum (for details see the first chapter of \cite{nla.cat-vn705150}). The Whitney sum of two vector bundles is the new vector bundle with fiber at $p \in M$ given by the direct sum of vector spaces $\pi_F^{-1}(p) \oplus \pi_E^{-1}(p)$. 
-Note that the Whitney sum can only be constructed for two vector bundles with common base space.
-Using the fact that all isomorphisms in the above construction are isomorphisms of vector bundles and thus preserve the Whitney sum decomposition we find that also the spacetime tangent bundle then necessarily decomposes into a Whitney sum. In the following we, write:
+\end{center}
+\end{remark}
+
+We will further see a close connection between the product structure of a given manifold and an induced fiber wise direct sum decomposition of its tangential bundle. To that end, we lift the notion of direct sums from vector spaces to vector bundles and define the so-called Whitney sum (for details see the first chapter of \cite{nla.cat-vn705150} and also \cite{hilton_1952}).
+\begin{definition}[Whitney sum]
+Given two bundles $(F, \pi_F, M)$ and $(E, \pi_E, N)$, their product is the bundle with total space $F \times M$ base space $M \times N$ and projection $\pi_F \times \pi_E$. If additionally, $M = N$, we can pull back the product bundle $F \times E$ along the diagonal map $\Delta :M \rightarrow M \times M$, with $\Delta(p):= (p,p)$. The result is denoted as
+\begin{align}
+    E \otimes F := \Delta^{\ast}(E \times F)
+\end{align}
+and called the direct sum or Whitney sum of the two bundles $E$ and $F$. 
+\end{definition}
+\begin{remark}
+Note that the fiber of $E \otimes F$ over $P \in M $ is then precisely given by the product $\pi_F^{-1}(p)\times\pi_{E}^{-1}(p)$. 
+Note that the Whitney sum only exists for bundles over the same base space as it relies on the existence of the diagonal map. 
+When both $E$ and $F$ are vector bundles we can also give their Whitney sum the structure of a vector bundle. The bundle $E \oplus F$ is then exactly obtained the fiberwhise direct sum of $E$ and $F$.  
+\end{remark}
+
+In the following, we outline how,
+in addition to the time differential and time vector field on $M$, a slicing also induces a \textbf{\textit{direct sum split}} of the tangent bundle over $M$. Given a slicing $\phi : \Sigma \times \mathbb{R} \rightarrow M$ we can compute its pushforward to obtain a vector bundle isomorphism:
+\begin{align}
+\phi_{\ast}: T(\Sigma \times \mathbb{R}) \longrightarrow TM.
+\end{align}
+Any tangent space over a product of manifolds can be decomposed into a direct sum of the tangent spaces of the individual factors. More precisely one can show that $T(\Sigma \times \mathbb{R}) \cong \pi_{\Sigma}^{\ast}T\Sigma \oplus \pi_{\mathbb{R}}^{\ast} T\mathbb{R}$. And hence in total we have: $TM \cong \pi_{\Sigma}^{\ast}T\Sigma \oplus \pi_{\mathbb{R}}^{\ast} T\mathbb{R}$.
+
+Using the fact that all isomorphisms in the previous construction are isomorphisms of vector bundles and thus preserve the Whitney sum decomposition we find that also the spacetime tangent bundle then necessarily decomposes into a Whitney sum. In the following we, write:
 \begin{align}
     TM = \mathcal{T}\Sigma \oplus \mathcal{V}\Sigma
 \end{align} 

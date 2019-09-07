@@ -19,7 +19,6 @@
 
 \usepackage{blkarray, bigstrut} 
 
-
 %mathmode columns
 \newcolumntype{L}{>{$}l<{$}}
 \newcolumntype{C}{>{$}c<{$}}
@@ -79,7 +78,6 @@
 \tdplotsetmaincoords{90}{45}
 \tdplotsetrotatedcoords{-90}{180}{-90}
 
-
 %drawing cones
 \tikzset{surface1/.style={draw=black, fill=gray, fill opacity=.30}}
 \newcommand{\coneback}[4][]{
@@ -117,8 +115,17 @@
 \newtheorem{example}{Example}[chapter]
 
 %Bibliography
-\usepackage[backend=biber, style=alphabetic, sorting=ynt]{biblatex}
+\usepackage[backend=biber, 
+            style=phys,
+            biblabel=brackets,
+            chaptertitle=false,
+            pageranges=false,
+            eprint=true,
+            doi=true,
+            maxbibnames=3]{biblatex}
 \addbibresource{references.bib}
+\DeclareFieldFormat{pages}{#1}
+
 
 \AtEveryBibitem{%
   \ifentrytype{misc}{%

@@ -492,9 +492,9 @@ We call $C(P,h)$ the \textbf{\textit{hyperbolicity cone}} of $P$, containing $h$
 
 The set of hyperbolic directions $h\in \mathbb{R}^d$ of a given hyperbolic polynomial $P$ might very well be composed of several connected components. For instance, one can readily show that whenever $P$ is hyperbolic w.r.t. $h\in \mathbb{R}^d$ it necessarily is also hyperbolic w.r.t. $-h$. For further developments, we will thus select one connected component of the set of such hyperbolic directions, and subsequently call it the hyperbolicity cone of $P$: $C(P)$. We will later comment on the deeper physical meaning that such a choice of hyperbolicity cone provides.
 
-The notion of hyperbolic polynomials and the corresponding hyperbolicity cones is best illustrated by a picture (figure \ref{hyperbol}). 
+The notion of hyperbolic polynomials and the corresponding hyperbolicity cones is best illustrated by a picture (figure \ref{Poly}). 
 \begin{figure}
-\begin{minipage}{0.5\textwidth}
+\begin{minipage}{0.45\textwidth}
 \begin{center}
 \begin{tikzpicture}[tdplot_main_coords]
   \coordinate (O) at (0,0,0);
@@ -503,8 +503,10 @@ The notion of hyperbolic polynomials and the corresponding hyperbolicity cones i
   \draw[->, thick] (A) to [out = 70, in =320] (1,1,1.25);
   \node (B) at (-1,-1,0.5) {$\boldsymbol{V_p^{(2)}}$};
   \draw[->, thick] (B) to [out = 120, in =240] (-1.5,-1,2);
-  \node (C) at (0,0,5) {$\boldsymbol{C}_p$};
-  \draw[->, thick] (C) to [out = 210, in =90] (-0.5,-0.5,3.5);
+  \node (C1) at (-2.5,-2,4) {$\boldsymbol{C}^{(2)}_p$};
+  \draw[->, thick] (C1) to [out = 0, in =90] (-2,-1.4,3.1);
+  \node (C2) at (1,3,4) {$\boldsymbol{C}^{(1)}_p$};
+  \draw[->, thick] (C2) to [out = 180, in =90] (1.2,1,2.5);
 
   \begin{scope}[rotate around x = 25]
   \coneback[surface1]{-4}{2}{-15}
@@ -522,7 +524,7 @@ The notion of hyperbolic polynomials and the corresponding hyperbolicity cones i
 \end{tikzpicture}
 \end{center}
 \end{minipage}
-\begin{minipage}{0.5\textwidth}
+\begin{minipage}{0.45\textwidth}
 \begin{center}
 \begin{tikzpicture}[tdplot_main_coords]
   \coordinate (O) at (0,0,0);
@@ -531,8 +533,10 @@ The notion of hyperbolic polynomials and the corresponding hyperbolicity cones i
   \draw[->, thick] (A2) to [out = 70, in =320] (1,1,1.25);
   \node (B2) at (-1.5,-1.5,1) {$\boldsymbol{\widetilde{V}_p^{(2)}}$};
   \draw[->, thick] (B2) to [out = 120, in =180] (-1,-1,3);
-  \node (C2) at (0.5,0.5,5.5) {$\boldsymbol{\widetilde{C}_p}$};
-  \draw[->, thick] (C2) to [out = 210, in =90] (0,0,4);
+  \node (C3) at (-1,-1.5,5) {$\boldsymbol{\widetilde{C}^{(1)}_p}$};
+  \draw[->, thick] (C3) to [out = 230, in =90] (-1.4,-1.8,3);
+  \node (C4) at (1,1,5) {$\boldsymbol{\widetilde{C}^{(2)}_p}$};
+  \draw[->, thick] (C4) to [out = 200, in =90] (0,0,3.8);
 
   \begin{scope}[rotate around x = 10, rotate around y = 10]
   \coneback[surface1]{-4}{2}{-15}
@@ -548,10 +552,10 @@ The notion of hyperbolic polynomials and the corresponding hyperbolicity cones i
 \end{tikzpicture} 
 \end{center}
 \end{minipage}
-    \caption[Hyperbolic Polynomials of degree $4$.]{Vanishing $V_p$, $\widetilde{V}_p$ and hyperbolicity cones $C_p$, $\widetilde{C}_p$ of two degree $4$ hyperbolic polynomials; in both cases the vanishing sets are given as union of the individual cones $V_p = V_p^{(1)} \cup V_p^{(2)}$, $\widetilde{V} = \widetilde{V}_p^{(1)} \cup \widetilde{V}_p^{(2)}$, the hyperbolicity are provided by their intersection $Cp = V_p^{(1)} \cap C_p^{(2)}$,  $\widetilde{C}_p = \widetilde{C}_p^{(1)} \cap \widetilde{C}_p^{(2)}$.}
-    \label{hyperbol}
+    \caption[Hyperbolic Polynomials of Degree $4$.]{Vanishing sets $V_p$, $\widetilde{V}_p$ and hyperbolicity cones $C_p$, $\widetilde{C}_p$ of two degree $4$ hyperbolic polynomials; in both cases the vanishing sets are given as union of the individual cones $V_p = V_p^{(1)} \cup V_p^{(2)}$, $\widetilde{V} = \widetilde{V}_p^{(1)} \cup \widetilde{V}_p^{(2)}$, the hyperbolicity cones are provided by their intersection $C_p = C_p^{(1)} \cap C_p^{(2)}$,  $\widetilde{C}_p = \widetilde{C}_p^{(1)} \cap \widetilde{C}_p^{(2)}$.}
+    \label{Poly}
 \end{figure}
-One can now see the underlying geometric interpretation of  hyperbolic directions  $h\in \mathbb{R}^d$ for a given polynomial $P$. If $P$ is hyperbolic w.r.t. $h$ then any affine line in direction $h$ intersects $\mathrm{deg}(P) = d$ times with the vanishing set $V(P)$.
+One can now also see the underlying geometric interpretation of  hyperbolic directions  $h\in \mathbb{R}^d$ for a given polynomial $P$. If $P$ is hyperbolic w.r.t. $h$ then any affine line in direction $h$ intersects $\mathrm{deg}(P) = d$ times with the vanishing set $V(P)$.
 
 Finally, we can state the connection between hyperbolic polynomials and the well-posedness of the Cauchy problem.
 \begin{theorem}
@@ -586,11 +590,13 @@ As before, gravitational Lagrangian is given by a bundle map:
 \begin{align}
     \mathcal{L}_{grav} : J^2F_{grav} \longrightarrow \Lambda^4M
 \end{align}
-Where $F_{grav}$ is the gravitational field bundle. Additionally we now also have a matter field described by a Lagrangian that depends on the values of the matter field and its first derivatives\footnote{We might also here consider the case where the Lagrangian also depends on second derivatives of the matter field and is thus required to be degenerate s.t. the matter EOM are again of second derivative order, but for simplicity, we restrict to first-order matter Lagrangians.}, but also exploits the spacetime geometry provided by the gravitational field. Thus the matter Lagrangian is a bundle map
+Where $F_{grav}$ is the gravitational field bundle. Additionally we now also have a matter field described by a Lagrangian that depends on the values of the matter field and its first derivatives\footnote{We might also here consider the case where the Lagrangian also depends on second derivatives of the matter field and is thus required to be degenerate s.t. the matter EOM are again of second derivative order, but for simplicity, we restrict to first-order matter Lagrangians.}, but also exploits the spacetime geometry provided by the gravitational field. 
+We introduce an additional vector bundle $F_{mat} \subset T^{\tilde{m}}_{\tilde{n}}M$.
+Thus the matter Lagrangian is a bundle map
 \begin{align}
-    \mathcal{L}_{mat} : F_{grav} \times J^1F_{mat} \longrightarrow \Lambda^4M,
+    \mathcal{L}_{mat} : F_{grav} \oplus J^1F_{mat} \longrightarrow \Lambda^4M,
 \end{align}
-where $F_{mat}$ is the matter field bundle. In the following we will denote adapted coordinates on $J^1F_{mat}$ by $(x^m,\phi^{\tilde{A}},\phi^{\tilde{A}}_m)$ Hence the total Lagrangian is given by:
+where $F_{mat}$ is called the matter field bundle. In the following we will denote adapted coordinates on $J^1F_{mat}$ by $(x^m,\phi^{\tilde{A}},\phi^{\tilde{A}}_m)$ Hence the total Lagrangian is given by:
 \begin{align}
 \begin{aligned}
     \mathcal{L}_{tot} : J^2F_{grav} \times J^1F_{mat} &\longrightarrow \Lambda^4M \\
@@ -608,7 +614,7 @@ The matter EOM are given by
 \end{align}
 We can then compute the two principal polynomials that correspond to the two EOMs, $\mathcal{P}_{grav}$ and $\mathcal{P}_{mat}$. Note in particular that these will depend both on the values of the gravitational field. We denote the corresponding vanishing sets by $V_{p,grav}$ and $V_{p,mat}$. As we required both theories to be predictive, i.e., have well-posed Cauchy problems we can also compute the two hyperbolicity cones $C_{p,grav}$ and $C_{p,mat}$ that at each spacetime point $p\in M$ encode the possible choices of initial data hypersurfaces for the two theories. 
 
-Doing this at given $p \in M$ we would now end up with one of the following three situations of which we will show in that only one can serve the purpose of describing a meaningful physical theory:
+Doing this at given $p \in M$ we would now end up with one of the following three situations of which we will show in the following that only one can serve the purpose of describing a meaningful physical theory:
 \begin{itemize}
     \item $C_{p,grav} \neq C_{p,mat}$ and $V_{p,grav} \neq V_{p,mat}$
     
@@ -643,7 +649,7 @@ Summing up the previous achievements, it is now conceptually apparent how we mus
 We end this section by formulating this results in terms of a definite construction manual that is displayed as the algorithm \ref{Algo1}.
 \begin{algorithm}[hbt!]
 \SetAlgoLined
-\KwData{Matter theory: $ \mathcal{L}_{mat} : F_{grav} \times J^1F_{mat} \longrightarrow \Lambda^4M$.
+\KwData{Matter theory: $ \mathcal{L}_{mat} : F_{grav} \oplus J^1F_{mat} \longrightarrow \Lambda^4M$.
 }
 \KwResult{Most general diffeomorphism invariant, causal compatible theory of gravity: $\mathcal{L}_{grav} : J^2F_{grav} \longrightarrow \Lambda^4M$ .}
 Compute the vertical coefficients $C^{Bm}_{An}$ of the infinitesimal diffeomorphism action on $F_{grav}$. \\
@@ -675,7 +681,7 @@ We have already gathered the necessary techniques that allow us to construct per
 \mathcal{L} : J^2F \longrightarrow \Gamma^4M.
 \end{align}
 Abstractly the PDE (\ref{DiffeoEqn}) is then defined as a submanifold of the first-order jet bundle $J^1(J^2F \times \Lambda^4M)$ over the trivial bundle $J^2F \times \Lambda^4M$. 
-We denote adapted coordinates on $J^1(J^2F \times \Lambda^4M)$ by $(x^m,v_A,v_{Am},v_{AI},l,l^{m},l^{A},l^{Am},l^{AI})$ such that we obtain the formal representation of the PDE (\ref{DiffeoEqn}) by replacing the bundle map $L$ the derivatives $L^{:m},L^{:A},...$ with fiber coordinates $l$ and derivative coordinates $l^m,l^A,...$. Hence in terms of formal PDE theory the equivariance equation reads:
+We denote adapted coordinates on $J^1(J^2F \times \Lambda^4M)$ by $(x^m,v_A,v_{Am},v_{AI},l,l^{m},l^{A},l^{Am},l^{AI})$ such that we obtain the formal representation of the PDE (\ref{DiffeoEqn}) by replacing the bundle map $L$ the derivatives $L_{:m},L^{:A},...$ with fiber coordinates $l$ and derivative coordinates $l^m,l^A,...$. Hence in terms of formal PDE theory the equivariance equation reads:
 \begin{align}\label{DiffeoEqnFormal}
 \begin{aligned}
     0 &= l^{m} \\
@@ -796,7 +802,7 @@ where $r:=\mathcal{k}-140$, $\Psi_1,...\Psi_r$ are $r$ functionally independent 
 where $\omega$ is any explicit solution to the PDE. 
 \end{theorem}
 \begin{proof}
-The proof of the first statement is given by Proposition 7.1 in \cite{seiler1994analysis}. Further information can in particular be found in chapter 3 of \cite{seiler2009involution} and \cite{articleCH}. 
+The proof of the first statement is given by proposition 7.1 in \cite{seiler1994analysis}. Further information can in particular be found in chapter 3 of \cite{seiler2009involution} and \cite{articleCH}. 
 
 The second statement then simply follows from the previously stated fact that given an arbitrary solution $\mathcal{F}$ of the homogeneous PDE, multiplying by any solution $\omega$ of the inhomogeneous system yields again a solution to the inhomogeneous system and vice versa the quotient of any two solutions of the inhomogeneous PDE defines again a solution to the homogeneous system. The first part of this statement is simply a result of the linearity of the given PDE. For simplicity, we consider the case of a single equation: 
 \begin{align}
@@ -905,7 +911,7 @@ where $\mathcal{O}(4)$ denotes terms that are of order $4$ or higher in any $(H_
 There is, however, one obstruction to this procedure that will become noticeable by providing additional lower-order equations that are revealed only after prolongations, yet they have nothing to do with integrability conditions. 
 The reason for this obstruction is that the chosen $\eta$-induced expansion point in general features higher symmetry than an arbitrary point in $J^2F$. More precisely since we required $N_A(\eta_{ab})$ to be constructed from the Minkowski metric through products, sums and possibly contractions, it is \textit{\textbf{Lorentz invariant}}. To further investigate the consequences thereof we consider first an arbitrary flat expansion point $\tilde{p}_0 \in J^2F$ with coordinates $(\tilde{x}_0^m,M_A,0,0)$. Evaluating the second equation in (\ref{DiffeoEqnFormal}) for this point yields:
 \begin{align}
-    0 = l^A \vert _{\tilde{p}_0} C^{BM}_{An}M_B.
+    0 = l^A \vert _{\tilde{p}_0} C^{Bm}_{An}M_B.
 \end{align}
 When evaluated at a general point, these are 16 independent equations. 
 Conversely evaluating the same equation at the $\eta$-induced expansion point we find that:
@@ -977,14 +983,14 @@ Moreover, the additional restriction to Lorentz invariant expansion coefficients
 
 In addition to that, from the expansion (\ref{LPert}), one can readily compute the contribution the individual terms yield in the EOM.  As we required these to be of second derivative order, such that the associated Hamiltonian formulation is free of instabilities, we can additionally drop terms in the power series expansion that contain either contributions from $H_{AI_k}$ with $k>2$, or that feature expressions of the form $H_{AI_2}\cdot H_{AI_k}$ where $k\geq 1$, as all such expressions contribute higher than $2$nd derivative orders once we apply the variational derivative to them.
 
-Finally, the requirement of causal compatibility between matter and gravitational EOM demands that the gravitational principal polynomial generates the same distribution of vanishing sets as the matter principal polynomial. As the matter theory is prescribed by a Lagrangian on $J^1F_{mat} \times F_{grav}$ also the matter principal polynomial only depends on the gravitational fiber coordinates $v_A$, not on any gravitational derivative coordinates $v_{AI_k}$ for $k\geq 1$.
+Finally, the requirement of causal compatibility between matter and gravitational EOM demands that the gravitational principal polynomial generates the same distribution of vanishing sets as the matter principal polynomial. As the matter theory is prescribed by a Lagrangian on $J^1F_{mat} \oplus F_{grav}$ also the matter principal polynomial only depends on the gravitational fiber coordinates $v_A$, not on any gravitational derivative coordinates $v_{AI_k}$ for $k\geq 1$.
 As a consequence of the causal compatibility requirement also the gravitational principal polynomial must hence only depend on the coordinates on $F_{grav}$. Thus we must discard all terms from (\ref{LPert}) that contains a total number of derivatives\footnote{Here we do not refer to the specific derivative order but really mean the total number of derivatives. For instance, $H_{AI}$ and $H_{Ap} \cdot H_{Bq}$ both contain a total number of two derivatives, whereas $H^{Ap}H_{Bq}H_{CI}$ includes $4$ derivatives.} higher than two, as for the case of second-derivative-order EOM these terms then necessarily must contain derivative contributions in the principal symbol.
 In the following we will call this quantity, the total number of derivative indices that occur in an ansatz $a^{\tilde{I}_k}$, its \textit{\textbf{cumulative derivative order}}.  
 
 After all, we find that the following general expansion remains: 
 \begin{multline}\label{LperRed}
      L_{per} = a_0 + a^A H_A + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ApBq} H_{Ap}H_{Bq} + a^{ABI} H_{A} H_{BI} \\
-    + a^{ABC} H_a H_B H_C + a^{ABpCq} H_{A}H_{Bp}H_{Cq} +
+    + a^{ABC} H_a H_B H_C + a^{ABpCq} H_{A}H_{Bp}H_{Cq}
     + a^{ABCI} H_A H_B H_{CI} 
     + \mathcal{O}(4).
 \end{multline}
@@ -995,7 +1001,7 @@ Inserting this in the last 3 equations of the PDE (\ref{DiffeoEqnFormal}) and ev
     &0 = a^{AI}C_{An}^{B(m\vert }N_B J^{\vert pq)}_I.
     \end{aligned}
 \end{align}
-doing the same for the prolonged PDE we find: 
+Doing the same for the prolonged PDE we find: 
 \begin{align}\label{order2}
     \begin{aligned}
     &0 = a^A C_{An}^{Bm} + 2 a^{AB}C_{An}^{Cm}N_C + a^B\delta^m_n\\
@@ -1023,7 +1029,7 @@ Besides these equations take precisely this form no matter what specific field i
 We end this chapter by examining how we can incorporate the requirement of causal compatibility of matter and gravitational equations in the perturbative approach.
 We assume again that we are handed a matter theory: 
 \begin{align}
-    \mathcal{L}_{mat} : F_{grav} \times J^1F_{mat} \longrightarrow \Lambda^4M,
+    \mathcal{L}_{mat} : F_{grav} \oplus J^1F_{mat} \longrightarrow \Lambda^4M,
 \end{align}
 that exploits the gravitational field as geometric background. Along the previously prescribed lines we can now construct a perturbative expansion of the requested gravitational Lagrangian:
 \begin{align}
@@ -1039,7 +1045,7 @@ To lighten the notation, we will drop the explicit $k$ dependency in the followi
 where $(P_{mat})_0 = \mathcal{P}_{mat}(N_A)$, $(P_{mat})_1^A = \partial^A \mathcal{P}_{mat} \vert _{N_A}$, and similar for $(P_{mat})^{AB}_2$. Of course one readily computes similar expression for expansion up to higher order. 
 
 Finding the expansion of the gravitational principal polynomial requires somewhat more work as we do not have access to the full expression for $\mathcal{P}_{grav}$. All we can provide is the perturbative expansion of the Lagrangian. From this, we can compute perturbative EOM and also a perturbative expression for the principal symbol of the EOM.
-Note that when expanding the Lagrangian up to order $k$ from applying the variational derivative $\frac{\partial}{\partial v_A}$ we will get the corresponding EOM up to order $k-1$. They are then necessarily quasilinear and by requirement of second derivative order. According to definition (\ref{PSym}), we can obtain the principal symbol by deriving the EOM w.r.t. the highest occurring derivative  --- as the EOM are linear in the highest derivative this simply admits to taking the coefficients in front of $v_{AI}$ --- and then contracting with $J_I^{pq} k_p, k_q$, for $k_p$ being the components of some 1-form on the base manifold $M$. 
+Note that when expanding the Lagrangian up to order $k$ from applying the variational derivative $\frac{\partial}{\partial v_A}$ we will get the corresponding EOM up to order $k-1$. They are then necessarily quasilinear and by requirement of second derivative order. According to definition (\ref{PSym}), we can obtain the principal symbol by deriving the EOM w.r.t. the highest occurring derivative  --- as the EOM are linear in the highest derivative this simply admits to taking the coefficients in front of $v_{AI}$ --- and then contracting with $k_I :=J_I^{pq} k_pk_q$, for $k_p$ being the components of some 1-form on the base manifold $M$. 
 The explicit formula for the EOM corresponding to the expansion (\ref{LperRed}) can be computed as:
 \begin{align}\label{EOMPert}
     \begin{aligned}
@@ -1058,11 +1064,19 @@ In particular, observe that the thus obtained principal symbol is now given up t
 Reading of the values in constant and linear order from the expansion of the EOM we find:
 \begin{align}
     \begin{aligned}
-    T_0^{AB} &= \left [a^{ABI} + a^{BAI} - 2 a^{ApBq}I_{pq}^I  \right ]\\
+    T_0^{AB} &= \left [a^{ABI} + a^{BAI} - 2 a^{ApBq}I_{pq}^I  \right ] \cdot k_I\\
     \\
-    (T_1^{AB})^C &= \left [2a^{ACBI} -2a^{CApBq}I_{pq}^I + 2a^{BCAI} \right ]. 
+    (T_1^{AB})^C &= \left [2a^{ACBI} -2a^{CApBq}I_{pq}^I + 2a^{BCAI} \right ] \cdot k_I. 
     \end{aligned}
 \end{align}
+%
+%
+%
+%
+%
+%
+%
+% check this !
 Note that the principal symbol and thus also the principal polynomial could in general also depend on the coordinates $v_{Ap}$ as the EOM would then be still of second derivative order. We however excluded such contributions already in the general power series Lagrangian (\ref{LperRed}),  as the matter polynomial cannot contain such and in the end we want to require that the two polynomials describe at each $p \in M$ the same vanishing set. 
 
 Recall that before in the exact setting we obtained the principal polynomial from the principal symbol by computing any non-vanishing order $4$ sub determinant that was obtained by removing rows $(A_1...A_4)$ and columns $(B_1...B_4)$ from the symbol, and then dividing the expression by the appropriate prefactor (\ref{prefacF}).
@@ -1081,7 +1095,9 @@ Note that all these complications only arise once we try to compute the closed f
 \begin{align}\label{detExp}
     \mathrm{det}(I+M) = 1 + \mathrm{Tr}(M) + \frac{(\mathrm{Tr}(M))^2- \mathrm{Tr}(M^2)}{2} + \mathcal{O}(3). 
 \end{align}
-As we required the chosen $(n-4)\times (n-4)$ submatrix of the principal symbol to have non-vanishing determinant, the constant order of this submatrix will be invertible.
+Note that the $(n-4)\times (n-4)$ submatrix of the principal symbol must be chosen such that it has full rank, i.e., such that the determinant still is a function of $k_a$ and not identically zero. 
+Then
+the constant order of this submatrix will also be invertible.
 \begin{remark}
 Obviously concretely finding such a submatrix involves some trial and error. Nevertheless, as here we are only interested in the distinction of whether the determinant is zero or not, the involved computations do not yield technical problems. This is true as we can simply evaluate all symbolic entries of the matrix at some random integers and compute its rank using, for instance, a fraction free implementation of Gaussian elimination. The thus computed rank always provides a lower bound for the true symbolic rank. In the worst case by randomly evaluating the symbolic entries, we generate additional linear dependencies of the rows or columns of the matrix. Hence when the randomly evaluated matrix has full rank, we know that the symbolic matrix must have non-zero determinant. This is a huge advantage over computing the rank symbolically as now the computation only involves integer arithmetic which is not only much more efficient than performing symbolic computations but also remarkably stable, as no round offs are performed.
 \end{remark}
@@ -1190,7 +1206,7 @@ Unlike the full construction algorithm (\ref{Algo1}), which suffered from the di
 With this achievement, the construction of alternative matter theories, at least perturbatively, boils down to choosing physically meaningful gravitational field bundles for the description of the gravitational field, computing the appropriate dynamics then merely corresponds to feeding the algorithm with the necessary input data.  
 \begin{algorithm}[hbt!]
 \SetAlgoLined
-\KwData{Matter theory: $\mathcal{L}_{mat} : F_{grav} \times J^1F_{mat} \rightarrow \Lambda^4M$, expansion order: $k \in \mathbb{N}$, flat Lorentz invariant expansion point: $p_0 \in F_{grav}$}
+\KwData{Matter theory: $\mathcal{L}_{mat} : F_{grav} \oplus J^1F_{mat} \rightarrow \Lambda^4M$, expansion order: $k \in \mathbb{N}$, flat Lorentz invariant expansion point: $p_0 \in F_{grav}$}
 \KwResult{Most general diffeomorphism invariant, causal compatible gravitational Lagrangian expanded as finite power series $\mathcal{L}_{grav,per}$ to order $k$ around $p_0$.}
 Compute the vertical coefficients $C^{Bm}_{An}$ of the infinitesimal diffeomorphism action on $F_{grav}$. \\
 Expand the Lagrangian as described in (\ref{generalPowerSL}) around $p_0 \equiv (x_0^m,N_A,0,0)$ with expansion coefficients $a^{\tilde{I}_k}$.\\
@@ -1198,7 +1214,7 @@ Restrict to those $a^{\tilde{I}_k}$ with cumulative derivative order $\leq 2$.\\
 Insert the most general Lorentz invariant expressions for the $a^{\tilde{I}_k}$.\\
 Solve the perturbative equivariance equations such as (\ref{order1}), (\ref{order2}) and (\ref{order3}) for the $a^{\tilde{I}_k}$ by plugging in $L_{grav,per}$ in (\ref{DiffeoEqnFormal}) and all necessary prolongations and evaluating the resulting expressions at $p_0$.\\
 Compute the induced expansion of the principal symbol.\\
-Chose a $(n-4) \times (n-4)$ full ranked submatrix of the principal symbol by removing rows $(A_1...A_4)$ and columns $(B_1...B_4)$ from it. \\
+Choose a $(n-4) \times (n-4)$ full ranked submatrix of the principal symbol by removing rows $(A_1...A_4)$ and columns $(B_1...B_4)$ from it. \\
 Compute the expansion of the determinant of the chosen submatrix.\\
 Compute the induced expansion of the corresponding prefactors $f_{(A_1...A_4)(B_1...B_4)}$. \\
 Compute the expansion of the gravitational principal polynomial with the use of the general expression (\ref{diffeoMinor}) with expansion (\ref{minorPoly}), i.e., by solving (\ref{POLY1}), (\ref{POLY2}), (\ref{POLY3}) and similar for higher orders. \\

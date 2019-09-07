@@ -212,7 +212,7 @@ Note that in absence of a (pseudo)-Riemanian metric the Hodge star operator requ
 
 From considering the appropriate dimensions of $F$ and $H$ on finds that the only viable Lagrangian constructed from $F$ and $H$ is given by $F \wedge H$. Expressing this in terms of the constitutive relation between $H$ and $F$ we finally arrive at the Lagrangian of so-called \textbf{\textit{General Linear Electrodynamics}} (in short GLED):
 \begin{align}
-    \mathcal{L}_{GLED} = \omega_G G^{abcd}F_{ab}F_{cd}\mathrm{d}^4x.
+    \mathcal{L}_{GLED} =  G^{abcd}F_{ab}F_{cd}\omega_G\mathrm{d}^4x.
 \end{align}
 Note that this really defines the most general quadratic Lagrangian which thus generates linear EOM that one can specify in terms of the electromagnetic field strength 2-form $F$. In particular this Lagrangian contains the standard Maxwell electrodynamics on a metric background for the special case $G^{abcd} = 2 g^{c^[a}g^{b]d}$ and $\omega_{G}=\sqrt{\vert -\mathrm{det}(g) \vert}$.
 
@@ -225,7 +225,7 @@ F = F_{ab} \cdot  \mathrm{d}x^a \otimes \mathrm{d}x^b = 2 \partial_{[a} A_{b]} \
 \end{align}
 Thus $F$ can be understood as a function on the first-order jet bundle $J^1(\Lambda^1M)$. We again use adapted coordinate $(x^m,A_a,A_{am})$ on this bundle. Together with the area metric field bundle $F_{Area}$ and the bundle isomorphism $\flat_{Area}$ we thus see that the GLED Lagrangian describes a bundle map:
 \begin{align}
-\mathcal{L}_{GLED} : F_{Area} \times J^1(\Lambda^1M) \rightarrow \Lambda^4M,
+\mathcal{L}_{GLED} : F_{Area} \oplus J^1(\Lambda^1M) \rightarrow \Lambda^4M,
 \end{align}
 where now also $\omega_G$ is understood as a bundle map on $\Lambda^1M$.  
 
