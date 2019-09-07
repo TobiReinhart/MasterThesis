@@ -111,7 +111,7 @@ We can now choose adapted coordinates $(x^m,v_A)$ on the field bundle, and the c
 Computing similar coordinate expressions for the pair of intertwiners of the dual field bundle $((I^{\ast})^{-1}, (J^{\ast})^{-1})$ one finds that:
 \begin{align} \label{dualInterAbs}
     \begin{aligned}
-         (I^{\ast})^{-1} &= J^{b_1 ... b_n}_{A a_1 ... a_m} \cdot v^A \otimes  v^{a_1 ... a_m}_{b_1 ... b_n}.\\
+         (I^{\ast})^{-1} &= J^{b_1 ... b_n}_{A a_1 ... a_m} \cdot v^A \otimes  v^{a_1 ... a_m}_{b_1 ... b_n}\\
          (J^{\ast})^{-1} &= I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot v_A \otimes  v^{b_1 ... b_n}_{a_1 ... a_m}.
     \end{aligned}
 \end{align} 
@@ -383,8 +383,8 @@ Here $\Lambda^4 M$ denotes the volume bundle on $M$. Alternatively, we could hav
 As the Lagrangian is a volume form valued bundle map, we can take any section $G \in \Gamma(F)$, prolong it to $j^2(G) \in \Gamma(J^2F)$ and compose the result with $\mathcal{L}$ to obtain a section of the volume bundle over $M$, $\mathcal{L}(j^2(G)) \in \Gamma(\Lambda^4M)$ which thus can be integrated over spacetime regions. Given a Lagrangian this procedure defines a \textit{\textbf{local action functional}} on the space of fields $\Gamma(F)$:
 \begin{align}
 \begin{aligned}
-    \mathcal{S}_{\mathcal{L}} : \Gamma(F) &\longrightarrow \mathcal{R} \\
-    G &\longmapsto \mathcal{S}_{\mathcal{L}}[G] := \int \mathcal{L}(j^2(G)).
+    S_{\mathcal{L}} : \Gamma(F) &\longrightarrow \mathcal{R} \\
+    G &\longmapsto S_{\mathcal{L}}[G] := \int \mathcal{L}(j^2(G)).
 \end{aligned}
 \end{align}
 The whole situation with the various maps that are involved in this construction is displayed in figure \ref{diagram1}. 
@@ -554,7 +554,7 @@ Given a Lie group action of some Lie group $\mathcal{G}$ on some manifold $M$, i
     g &\longmapsto \rho(g)(p).
     \end{aligned}
 \end{align}
-This map is differentiable. For each element of the Lie algebra of $\mathcal{G}$ the pushforward of the orbit map at the identity of $\mathcal{G}$ yields a tangent vector at $p$ . Repeating this process for each $p \in M$ one obtains a vector field on $M$. It can then be shown that mapping each $\xi \in \mathrm{Lie}(\mathcal{G})$ to the negative of this vector field defines a morphism of Lie algebras $\mathrm{Lie}(\mathcal{G}) \rightarrow \Gamma(TM)$, i.e., a Lie algebra action of $\mathrm{Lie}(\mathcal{G})$ on $M$. For details see for instance \cite{boothby1989} and \cite{doi:10.1142/3867}.
+This map is differentiable. For each element of the Lie algebra of $\mathcal{G}$ the pushforward of the orbit map at the identity of $\mathcal{G}$ yields a tangent vector at $p$ . Repeating this process for each $p \in M$ one obtains a vector field on $M$. It can then be shown that mapping each $\xi \in \mathrm{Lie}(\mathcal{G})$ to the negative of this vector field defines a morphism of Lie algebras $\mathrm{Lie}(\mathcal{G}) \rightarrow \Gamma(TM)$, i.e., a Lie algebra action of $\mathrm{Lie}(\mathcal{G})$ on $M$. For details see for instance \cite{libermann2012symplectic} and \cite{doi:10.1142/3867}.
 Hence this procedure allows one to derive a Lie algebra action from a given Lie group action. Recall that we already have deduced how diffeomorphisms act on the field bundle $F$ and also on the jet bundles defined over it. Thus we can now use the construction outlined above to obtain from these actions of diffeomorphisms \textit{\textbf{Lie algebra morphisms}} that describe how infinitesimal diffeomorphisms act on these bundles.
 Note that, for the special case of the pullback action of diffeomorphism on tensor bundles $T^m_nM$ over $M$, given a $\xi \in \Gamma(TM)$ the induced action of the corresponding vector field on $T^m_nM$ on sections $G \in \Gamma(T^m_nM)$ is usually called the \textit{\textbf{Lie derivative}} and denoted by $G \mapsto \mathcal{L}_{\xi}G$. 
 
@@ -927,7 +927,7 @@ Taking the canonical formulation of General Relativity\footnote{For further info
 \end{align}
 These two conditions are then often referred to as frame conditions. One can then split the tangent space $T_pM$ at each $p \in \Sigma_{t_0}$ into the vertical part spanned by $e_0(p)$,  $\mathcal{V}_p\Sigma_{t_0} = \langle  e_0(p) \rangle$ and tangential part $T_p\Sigma_{t_0}$ . In particular, one sees that now by the two frame conditions, the vertical time direction and thereby the vertical subbundle and the split itself depend on the metric. Along the same lines given any other field theory with a notion for an observer, one can then use the observer definition to construct the vertical subbundle of $TM$ in a similar fashion. 
 
-One way of defining observers from any given matter field theory that uses the given gravitational field as geometric background can be found in \cite{2018PhRvD..97h4036D} and \cite{2011PhRvD..83d4047R} and also \cite{Rivera}. There the authors construct an observer notion that suits a general gravitational field theory from the \textbf{\textit{principal polynomial}}\footnote{Loosely speaking the principal polynomial encodes the causal structure of the EOM. In the following chapter, we will encounter this object in more detail.} $\mathcal{P}_{mat}(v_A)$ of the given matter EOM. Note that the principal polynomial, in particular, is a function on the field bundle, i.e., is field dependent. The vertical vector field is then obtained similarly as in the standard GR case. The principal polynomial allows one to define a map that can be used to normalize the conormal and map the result to a corresponding normal vector.
+One way of defining observers from any given matter field theory that uses the given gravitational field as geometric background can be found in \cite{2018PhRvD..97h4036D} and \cite{2011PhRvD..83d4047R} and also \cite{Rivera}. There the authors construct an observer notion that suits a general gravitational field theory from the \textbf{\textit{principal polynomial}}\footnote{Loosely speaking the principal polynomial encodes the causal structure of the EOM. In the following chapter, we will encounter this object in more detail.} $\mathcal{P}_{\text{mat}}(v_A)$ of the given matter EOM. Note that the principal polynomial, in particular, is a function on the field bundle, i.e., is field dependent. The vertical vector field is then obtained similarly as in the standard GR case. The principal polynomial allows one to define a map that can be used to normalize the conormal and map the result to a corresponding normal vector.
 
 All these constructions have one thing in common: the vertical subbundle of the direct sum split of $TM$ is now field dependent. As a consequence, if one wants to deduce the hypersurface deformation algebra corresponding to a field-dependent direct sum split, it no longer suffices to consider the commutators of tangential and vertical vector fields over $\Sigma_{t_0}$. To account for the additional field dependence one now has to work with the induced vector fields on the field bundle\footnote{In the following we assume that the direct sum split only depends on the fields and not on their derivatives. Otherwise, we would need to work on the jet bundle $J^qF$ of an appropriate order.} $F$. To obtain the corresponding hypersurface deformation algebra one then computes commutators between the lifts of tangential and vertical vector fields according to the Lie algebra morphism (\ref{LieF}).
 
@@ -1020,9 +1020,9 @@ The commutator algebra that is generated by the three commutation relations (\re
 
 With the observer definition presented in \cite{2018PhRvD..97h4036D}, \cite{2011PhRvD..83d4047R} and \cite{Rivera} the authors derive a hypersurface deformation algebra similar to the one obtained in the standard case but with the appearance of different field-dependent quantities in the commutator of two vertical vector fields. With the direct sum split of this observer definition, the first two commutators remain the same whereas the commutator of two vertical vector fields now reads:
 \begin{align}\label{PolyAlg}
-    \left[\mathcal{H}(N), \mathcal{H}(M) \right] = \left(\mathrm{deg}(\mathcal{P}_{mat}(v_A)) -1\right ) \cdot  \mathcal{D}_F\left(\mathcal{P}_{mat}(v_A)^{\mu \alpha}( N\partial_{\mu} M - M \partial_{\mu}N  ) \right),
+    \left[\mathcal{H}(N), \mathcal{H}(M) \right] = \left(\mathrm{deg}(\mathcal{P}_{\text{mat}}(v_A)) -1\right ) \cdot  \mathcal{D}_F\left(\mathcal{P}_{\text{mat}}(v_A)^{\mu \alpha}( N\partial_{\mu} M - M \partial_{\mu}N  ) \right),
 \end{align}
-where $\mathcal{P}_{mat}(v_A)^{\mu \alpha}$ is a quantity that is obtained from the \textit{\textbf{principal polynomial}} $\mathcal{P}_{mat}(v_A)$ of the underlying matter theory used as starting point and $\mathrm{deg}(\mathcal{P}_{mat}(v_A))$ denotes its polynomial degree. Also here the appearance of these field-dependent quantities in the commutation relation results from the field-dependent definition of the vertical vector field in terms of the observer notion that is used for the direct sum split.
+where $\mathcal{P}_{\text{mat}}(v_A)^{\mu \alpha}$ is a quantity that is obtained from the \textit{\textbf{principal polynomial}} $\mathcal{P}_{\text{mat}}(v_A)$ of the underlying matter theory used as starting point and $\mathrm{deg}(\mathcal{P}_{\text{mat}}(v_A))$ denotes its polynomial degree. Also here the appearance of these field-dependent quantities in the commutation relation results from the field-dependent definition of the vertical vector field in terms of the observer notion that is used for the direct sum split.
 \section{Constrained Hamiltonian Dynamics}\label{ConstrainedDyn}
 In the previous section, we have developed the necessary kinematic tools for the canonical treatment of field theories, mainly the notion of a slicing of the spacetime manifold and the associated split of the tangent bundle. With these tools at hand, we will now proceed with our analysis of diffeomorphism invariant field theories by constructing \textbf{\textit{Hamiltonian dynamics}} from a given Lagrangian.
 The diffeomorphism invariance of a given field theory will make its appearance in the Hamiltonian formulation by the form of \textit{\textbf{constraints}} on the conjugate momenta that will then force us to treat the system utilizing the techniques developed by Dirac to ensure consistency of Constrained Hamiltonian dynamics.
@@ -1153,8 +1153,8 @@ Just as the Lagrangian might be evaluated on the prolongation $j^2\phi$ of secti
 Let $\mathcal{f}: \mathcal{K}^q_{t_0} \rightarrow \Lambda^3\Sigma_{t_0} $ be a bundle map covering $id_{\Sigma_{t_0}}$, in local coordinates\footnote{For simplicity of the notation in the following we will not denote the arguments of such coordinate expressions explicitly.} $\mathcal{f} = f(x^{\mu},v_A,v_{A\mu},v_{AI}, ... v_{AI_k},\pi^A,\pi^A _{\mu}, \pi^A_I ... \pi^A_{I_k})\mathrm{d}^3x$. We define the induced phase space functional as:
 \begin{align}
 \begin{aligned}
-    \mathcal{S}_{\mathcal{f}} : \Gamma(\mathcal{K}^0_{t_0}) &\longrightarrow \mathbb{R}\\
-    \phi &\longmapsto \mathcal{S}_{\mathcal{f}}[\phi] := \int_{\Sigma_{t_0}} \mathrm{d}^3x f \circ j^q(\phi),
+    S_{\mathcal{f}} : \Gamma(\mathcal{K}^0_{t_0}) &\longrightarrow \mathbb{R}\\
+    \phi &\longmapsto S_{\mathcal{f}}[\phi] := \int_{\Sigma_{t_0}} \mathrm{d}^3x f \circ j^q(\phi),
 \end{aligned}
 \end{align}
 where $j^q\phi$ denotes the prolongation of sections of $\mathcal{K}^0_{t_0}$ to sections of $\mathcal{K}^q_{t_0}$. Such phase space functionals are called local functionals.
@@ -1162,9 +1162,9 @@ where $j^q\phi$ denotes the prolongation of sections of $\mathcal{K}^0_{t_0}$ to
 In the following we will only work with local functionals. 
 Given this definition, we can now define a Poisson structure on the canonical phase space 
 \begin{definition}[poisson bracket]
-Let $\mathcal{f},\mathcal{g} : \mathcal{K}^q_{t_0} \rightarrow \Lambda^3\Sigma_{t_0} $ with coordinate expressions $\mathcal{f} = f\mathrm{d}^3x$ and $\mathcal{g} = g\mathrm{d}^3x$. Denote the corresponding local functionals as $\mathcal{S}_{\mathcal{f}}, \mathcal{S}_{\mathcal{g}}$. We define their Poisson bracket as the phase space functional given by:
+Let $\mathcal{f},\mathcal{g} : \mathcal{K}^q_{t_0} \rightarrow \Lambda^3\Sigma_{t_0} $ with coordinate expressions $\mathcal{f} = f\mathrm{d}^3x$ and $\mathcal{g} = g\mathrm{d}^3x$. Denote the corresponding local functionals as $S_{\mathcal{f}}, S_{\mathcal{g}}$. We define their Poisson bracket as the phase space functional given by:
 \begin{align}
-\left \{ \mathcal{S}_{\mathcal{f}}, \mathcal{S}_{\mathcal{g}} \right \}[\phi] := \int _{\Sigma_{t_0}} \mathrm{d}^3x \left ( \frac{\delta f}{\delta v_A} \frac{\delta g}{\delta \pi^A} - \frac{\delta g}{\delta v_A} \frac{\delta f}{\delta \pi^A}     \right ) \circ j^q(\phi)  .
+\left \{ S_{\mathcal{f}}, S_{\mathcal{g}} \right \}[\phi] := \int _{\Sigma_{t_0}} \mathrm{d}^3x \left ( \frac{\delta f}{\delta v_A} \frac{\delta g}{\delta \pi^A} - \frac{\delta g}{\delta v_A} \frac{\delta f}{\delta \pi^A}     \right ) \circ j^q(\phi)  .
 \end{align}
 \end{definition}
 Here $\frac{\delta}{\delta v_A}$ and $\frac{\delta}{\delta \pi^A}$ denote the variational derivatives as they are defined in (\ref{varDer}) in terms of the total derivative (for the definition see (\ref{totDer})) on $\mathcal{K}^q_{t_0}$:
