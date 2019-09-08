@@ -30,11 +30,11 @@ background};
 \caption{Matter Gravity Coupling}\label{MatterGrav}
 \end{figure}
 
-The formal theory of partial differential equations is phrased in terms of differential geometry. A PDE is defined as a submanifold of a jet bundle that is constructed over the bundle with base space coordinates being provided by the \textit{\textbf{independent variables}} and fiber coordinates given by the \textit{\textbf{dependent variables}} of the given problem. The advantage of such a description of partial differential equations does not only lie in the fact that one works now with coordinate independent geometric objects, but the jet bundle approach also enables one to treat the derivatives of a given function as algebraically independent new variables. Thus many problems that arise in the context of PDEs can be stated and solved in terms of basic \textit{\textbf{linear algebra}}. This, in particular yields the additional convenience that many of those arising problems can be tackled by using \textbf{\textit{computer algebra}}.
+The formal theory of partial differential equations is phrased in terms of differential geometry. A PDE is defined as a sub manifold of a jet bundle that is constructed over the bundle with base space coordinates being provided by the \textit{\textbf{independent variables}} and fiber coordinates given by the \textit{\textbf{dependent variables}} of the given problem. The advantage of such a description of partial differential equations does not only lie in the fact that one works now with coordinate independent geometric objects, but the jet bundle approach also enables one to treat the derivatives of a given function as algebraically independent new variables. Thus many problems that arise in the context of PDEs can be stated and solved in terms of basic \textit{\textbf{linear algebra}}. This, in particular yields the additional convenience that many of those arising problems can be tackled by using \textbf{\textit{computer algebra}}.
 
 An introduction to the formal theory of partial differential equations can be found in \cite{saunders_1989}. A comprehensive treatment is provided in \cite{seiler2009involution} were also deeper results regarding the algebraic and homological aspects of the formal PDE theory are included. We will especially follow along the lines of \cite{seiler1994analysis} as there the relevant notions are concisely described with just the right level of rigor that is necessary for our subsequent developments. We start by stating the needed definitions, most of which can be found in \cite{seiler1994analysis}.
 \begin{definition}[PDE]
-Let $(F,\pi_F,M)$ be a bundle and $J^qF$ the $q$th-order jet bundle over $F$. A $q$th-order PDE $R_q$ on $F$ is a  submanifold of $J^qF$. A solution to a given PDE is a section $G \in \Gamma(F)$ s.t. the jet prolongation $j^q(G)$ lies entirely in $R_q$.  
+Let $(F,\pi_F,M)$ be a bundle and $J^qF$ the $q$th-order jet bundle over $F$. A $q$th-order PDE $R_q$ on $F$ is a  sub manifold of $J^qF$. A solution to a given PDE is a section $G \in \Gamma(F)$ s.t. the jet prolongation $j^q(G)$ lies entirely in $R_q$.  
 \end{definition}
 Sometimes one additionally requires $R_q$ to be fibered. Thereby one ensures that the PDE poses no restrictions on the independent variables, i.e., the base space coordinates on $M$ (this version is for instance used in \cite{seiler1994analysis}).
 For many of the following computations, it is crucial to know the dimension of the jet bundle of order $q$ over a bundle $F$ with base space dimension $m$ and fiber dimension $n$:
@@ -676,15 +676,31 @@ Regarding this, we are essentially left with one of two options that avoid the m
 Such an approach will be discussed in \cite{NilsPHD}.
 Alternatively --- and this is the path that we will take in the following --- we can perturbatively solve the equivariance equations by employing the previously developed framework for computing \textit{\textbf{power series solution}} in some finite order. We, in particular, chose this path with the treatment of gravitational waves in mind.  The recent developments in the detection of gravitational waves makes them an excellent tool to test alternatives to GR \cite{2010PhRvD..81f4008Y}, \cite{2011PhRvD..83j4022B}, \cite{2017PhRvD..95j4027Z}, \cite{2013LRR....16....9Y}.
 
-We have already gathered the necessary techniques that allow us to construct perturbative solutions to the equivariance equations in a rigorous fashion in the previous section. Primarily we have seen that such an approach only yields meaningful results if the relevant PDE is \textit{\textbf{involutive}}. We are now going to apply these techniques to the equivariance equations (\ref{DiffeoEqn}). To that end, it is vital to take a closer look at the jet bundle that underlies the geometric treatment of the PDE provided by (\ref{DiffeoEqn}). Recall that the Lagrangian in consideration is given by a bundle map:
+We have already gathered the necessary techniques that allow us to construct perturbative solutions to the equivariance equations in a rigorous fashion in the previous section. Primarily we have seen that such an approach only yields meaningful results if the relevant PDE is \textit{\textbf{involutive}}. We are now going to apply these techniques to the equivariance equations (\ref{DiffeoEqn}). To that end, it is necessary to cast PDE (\ref{DiffeoEqn}) into the geometric language that we employed to formulate PDE theory in the last two sections. Recall that the Lagrangian in consideration is given by a bundle map:
 \begin{align}
 \mathcal{L} : J^2F \longrightarrow \Gamma^4M.
 \end{align}
-Abstractly, the PDE (\ref{DiffeoEqn}) can be defined as a submanifold of the first-order jet bundle $J^1(J^2F \oplus \Lambda^4M)$ with adapted coordinates
+We construct the bundle $J^2F \oplus \Lambda^4M$, with base space $J^2F$ and fiber over $j^2_pG \in J^2F$ given by $\Lambda^4_pM$. Note that $J^2F \oplus \Lambda^4M$ could also be made into a bundle over $M$ --- this is what one considers most of the time when constructing the Whitney sum of budles--- here, however, we define the projection as:
+\begin{align}
+    \begin{aligned}
+     \pi_{J^2F \oplus \Lambda^4M} : J^2F \oplus \Lambda^4M &\longrightarrow J^2F \\
+    \pi_{J^2F \oplus \Lambda^4M} \bigl (j^2_pG,\omega_p \bigr) &:= j^2_pG.
+    \end{aligned}
+\end{align}
+Note that bundle maps $\mathcal{L} : J^2F \rightarrow \Lambda^4M$ that cover $\operatorname{id}_M$ now are in one-to-one correspondence with sections $\sigma \in \Gamma(J^2F \oplus \Lambda^4M)$.
+Given a section $\sigma(j^2_pG):=(j^2_pG,(\omega_{\sigma})_p)$ we obtain a bundle map as 
+\begin{align}\mathcal{L}_{\sigma} (j^2_pG) := (\omega_{\sigma})_p.
+\end{align}
+Conversely, given a bundle map $\mathcal{L}$ we can define a section by 
+\begin{align}
+\sigma_{\mathcal{L}}(j^2_pG) := (j^2_pG, \mathcal{L}(j^2_pG)).
+\end{align}
+Thus, the Lagrangian $\mathcal{L}$ can equivalently be considered a section of $J^2F\oplus \Lambda^4M$. 
+Denoting the single coordinate of the $1$-dimensional fibers on $\Lambda^4M$ as $l$ we express adapted coordinates on $J^1(J^2F \oplus \Lambda^4M)$ as:
 \begin{align}
 (x^m,v_A,v_{Am},v_{AI},l,l^{m},l^{A},l^{Am},l^{AI}).
 \end{align}
-Thus, we obtain the formal representation of PDE (\ref{DiffeoEqn}) by replacing the bundle map $L$ and the derivatives $L_{:m},L^{:A},...$ with fiber coordinates $l$ and derivative coordinates $l^m,l^A,...$. Hence in terms of formal PDE theory the equivariance equation reads:
+Finally, we can obtain the formal representation of (\ref{DiffeoEqn}) by replacing the coordinates expression of the bundle map $L$ and the derivatives $L_{:m},L^{:A},...$ with fiber coordinates $l$ and derivative coordinates $l^m,l^A,...$. Hence in terms of formal PDE theory the equivariance equation reads:
 \begin{align}\label{DiffeoEqnFormal}
 \begin{aligned}
     0 &= l^{m} \\
@@ -693,6 +709,7 @@ Thus, we obtain the formal representation of PDE (\ref{DiffeoEqn}) by replacing 
     0 &= l^{AI} C_{An}^{B(m\vert} v_B J_I^{\vert p q )}.
     \end{aligned}
 \end{align}
+The geometric PDE corresponding to this representation is the precisely the sub manifold of $J^2F\oplus \Lambda^4M$ that is obtained as vanishing set of the representation (\ref{DiffeoEqnFormal}).
 
 We begin the perturbative treatment of Constructive Gravity with one of the main results that in the end justifies the perturbative approach:
 \begin{theorem}
@@ -762,7 +779,7 @@ In terms of vector fields this corresponds to the fact that the $\zeta_{\sigma}$
     \left [ \zeta_{\sigma}, \zeta_{\tau}\right ] =0.
 \end{align}
 
-Carefully analyzing the above procedure, we now find that the remaining first-order equation that is produced when eliminating all second-order contributions of a non-multiplicative prolongation $D_bE_{\sigma}$ by multiplicative prolongations is simply given by the commutator equation:
+Carefully analyzing the above procedure, we now find that the remaining first-order equation that is produced when eliminating all second-order contributions from a non-multiplicative prolongation $D_bE_{\sigma}$ by multiplicative prolongations is simply given by the commutator equation:
 \begin{align}
     \left [\zeta_{\sigma}, \zeta_{\operatorname{cls}(b)} \right] = 0.
 \end{align}
@@ -874,7 +891,7 @@ In most cases this is achieved by constructing $N_A = N_A(\eta_{ab})$ from the M
 
 Note that this clearly restricts the set of field bundles $F$ we can possibly treat to those that are compromised of tensors with an even total rank, as we simply cannot write down expressions with odd rank that are solely constructed from $\eta_{ab}$. This will not affect any further developments as in all examples we will treat, the gravitational field is described by an even rank tensor field. There are even certain arguments mainly stemming from QFT that the gravitational field must be of even rank in order to describe an attractive force (see for instance \cite{vecchiato2017variational}). 
 
-We start our development of a framework that will allow us to construct perturbative expansions of diffeomorphism invariant Lagrangians for arbitrary fields by writing down the general finite power series expansion of an arbitrary such Lagrangian up to some order $r > 0$ around a flat expansion point $p_0 \in J^2F$ with adapted coordinates $p_0 \equiv (x_0^m,N_A, 0, 0)$. Note again that such a Lagrangian is already a bundle map on the second-order jet bundle $J^2F$, the equivariance PDE (\ref{DiffeoEqnFormal}) is then constructed as a submanifold of $J^1(J^2F \oplus \Lambda^4M)$. It is important not to confuse the two different ways the jet bundle construction is involved therein. In order to concisely display such a power series Lagrangian, we need to agree on some further notation. We denote the adapted coordinates on $J^2F$ collectively by:
+We start our development of a framework that will allow us to construct perturbative expansions of diffeomorphism invariant Lagrangians for arbitrary fields by writing down the general finite power series expansion of an arbitrary such Lagrangian up to some order $r > 0$ around a flat expansion point $p_0 \in J^2F$ with adapted coordinates $p_0 \equiv (x_0^m,N_A, 0, 0)$. Note again that such a Lagrangian is already a bundle map on the second-order jet bundle $J^2F$, the equivariance PDE (\ref{DiffeoEqnFormal}) is then constructed as a sub manifold of $J^1(J^2F \oplus \Lambda^4M)$. It is important not to confuse the two different ways the jet bundle construction is involved therein. In order to concisely display such a power series Lagrangian, we need to agree on some further notation. We denote the adapted coordinates on $J^2F$ collectively by:
 \begin{align}
     (v_{AI_k}) := (x^m,v_A,v_{Ap},v_{AI}).
 \end{align}
@@ -928,7 +945,7 @@ K_{m[rs]}^n\eta_{n p} - m \leftrightarrow p = 0.
 \end{align}
 Furthermore, they are all linearly independent when identified as real $4 \times 4$ matrices. Considering the dimension of the vector space of $4 \times 4$ matrices that are anti symmetric w.r.t. the matrix expression of $\eta_{ab}$ we find that  the expressions $K_{m[rs]}^n$ even constitute a basis of the vector space of $\eta$-antisymmetric matrices. 
 
-One can show that the Lie algebra of the Lorentz group $SO(1,3)$ is isomorphic to the Lie algebra that is obtained by equipping this vector space of $\eta$-antisymmetric matrices with the standard matrix commutator. Hence these $6$ matrices actually yield a basis of the Lie algebra $\operatorname{Lie}(SO(1,3))$. One often calls such matrices the \textit{\textbf{generators}} of the corresponding group as finite group elements can be obtained by applying the exponential map to linear combinations of them. Much information regarding the Lorentz group can be found in \cite{doi:10.1142/p199} and \cite{naimark2014linear}.
+One can show that the Lie algebra of the Lorentz group $\operatorname{SO}(1,3)$ is isomorphic to the Lie algebra that is obtained by equipping this vector space of $\eta$-antisymmetric matrices with the standard matrix commutator. Hence these $6$ matrices actually yield a basis of the Lie algebra $\operatorname{Lie}(\operatorname{SO}(1,3))$. One often calls such matrices the \textit{\textbf{generators}} of the corresponding group as finite group elements can be obtained by applying the exponential map to linear combinations of them. Much information regarding the Lorentz group can be found in \cite{doi:10.1142/p199} and \cite{naimark2014linear}.
 
 It is now clear that it henceforth holds that:
 \begin{align}
@@ -951,7 +968,7 @@ If we had chosen a different prolongation, i.e., $D_{Bp}$ or $D_{BI}$, we would 
 \begin{align}\label{ansatz1}
     0 = a^A C^{Bm}_{An}  K_{m[rs]}^n.
 \end{align}
-Note that we can obtain similar equations from arbitrary other prolongations of the second equation in (\ref{DiffeoEqnFormal}), in particular also for higher-order prolongations, we will always obtain equations similar to (\ref{ansatz1}). Ultimately comparing the newly obtained first-derivative-order equation with the condition for $N_A$ to be Lorentz invariant, also the meaning of the above equation (\ref{ansatz1}) becomes clear: the equation simply states that the expansion constants $a^A$ must be the components of a Lorentz invariant tensor. With these new first-order equations at hand, we, therefore, see that the Lorentz invariance of the expansion point $N_A$, in fact, does not yield weaker but stronger equations than a general expansion point, with the only obstruction lying in the fact the additional first-order equations could only be obtained after a prolongation and subsequent evaluation. Note that we could carry through a similar construction for any expansion point $M_A$ that is invariant under any arbitrary subgroup of the infinitesimal $GL(4)$ transformations that are locally induced by the lifted vector fields $\xi_F$. 
+Note that we can obtain similar equations from arbitrary other prolongations of the second equation in (\ref{DiffeoEqnFormal}), in particular also for higher-order prolongations, we will always obtain equations similar to (\ref{ansatz1}). Ultimately comparing the newly obtained first-derivative-order equation with the condition for $N_A$ to be Lorentz invariant, also the meaning of the above equation (\ref{ansatz1}) becomes clear: the equation simply states that the expansion constants $a^A$ must be the components of a Lorentz invariant tensor. With these new first-order equations at hand, we, therefore, see that the Lorentz invariance of the expansion point $N_A$, in fact, does not yield weaker but stronger equations than a general expansion point, with the only obstruction lying in the fact the additional first-order equations could only be obtained after a prolongation and subsequent evaluation. Note that we could carry through a similar construction for any expansion point $M_A$ that is invariant under any arbitrary subgroup of the infinitesimal $\operatorname{GL}(4)$ transformations that are locally induced by the lifted vector fields $\xi_F$. 
 
 Before we proceed with a further investigation of these additional first-order equations, we want to reinforce the remark that these, in fact, have nothing in common with the integrability conditions discussed in the previous sections. Whereas integrability conditions really yield new independent partial differential equations that in particular can be prolonged again and thereby can themselves contribute to further integrability conditions in the situation above, we only obtain lower-order equations once we evaluate the whole equation at a certain point. Such already evaluated equations can obviously not be prolonged. The additional equations are hence not a feature of the PDE itself but of the expansion point. Similar effects can actually already occur during the treatment of a single ordinary differential equation, in short ODE, where the construction of true integrability conditions is clearly not possible. We illustrate the above arguments by considering the following single ODE:
 \begin{align}
@@ -972,9 +989,9 @@ Returning now to our original problem, the construction of power series solution
 At first sight, this might sound like a massive disadvantage as with each prolongation order the PDE gets increasingly magnified in its size. We are, however, in the fortunate situation that we can predict the precise form of the additionally occurring lower-order equations in arbitrary order. All these equations simply encode the Lorentz invariance of the various expansion constants. In particular, note that by taking appropriate prolongations of the second equation in (\ref{DiffeoEqnFormal}) we can really construct such lower-order equations that govern the Lorentz invariance for all expansion constants in the general power series expansion of the Lagrangian. 
 Considering this we can severely reduce the dimensions of any linear equation systems that may arise during the construction of such power series solutions by not taking the expansion constants $a^{\tilde{I}_k} \equiv a_0, a^A, a^{Ap},...$ as arbitrary constants and then solve the appropriate newly obtained lower-order equations to ensure that they describe the components of Lorentz invariant tensors, but by including from the very beginning only such expansion coefficients in the power series that are Lorentz invariant.
 
-As we are dealing with linear equations, it suffices to construct a basis of the appropriate space of Lorentz invariant constant tensors of the corresponding valence and symmetry. This can be achieved by making use of some well-known results from classical invariant theory, more precisely the so-called \textit{\textbf{first fundamental theorem}} (see \cite{Aslaksen1995InvariantTO} and also \cite{PROCESI1976306}). Roughly speaking and restricting attention to the special orthogonal groups $SO(n)$ it states all objects that are invariant under the $(p,q)$ tensor representation -- the tensor product of $p$ copies of the fundamental $SO(n)$ representation and $q$ copies of its dual, for $p \neq q$ --- can be obtained by forming expressions that solely involve the $SO(n)$ invariant metric\footnote{Which is given by $\eta_{ab}$ for the special case of the Lorentz group $SO(1,3)$.}, the $n$-dimensional Levi-Civita symbol $\epsilon_{a_1...a_n}$ and the corresponding contravariant objects. 
+As we are dealing with linear equations, it suffices to construct a basis of the appropriate space of Lorentz invariant constant tensors of the corresponding valence and symmetry. This can be achieved by making use of some well-known results from classical invariant theory, more precisely the so-called \textit{\textbf{first fundamental theorem}} (see \cite{Aslaksen1995InvariantTO} and also \cite{PROCESI1976306}). Roughly speaking and restricting attention to the special orthogonal groups $\operatorname{SO}(n)$ it states all objects that are invariant under the $(p,q)$ tensor representation -- the tensor product of $p$ copies of the fundamental $\operatorname{SO}(n)$ representation and $q$ copies of its dual, for $p \neq q$ --- can be obtained by forming expressions that solely involve the $\operatorname{SO}(n)$ invariant metric\footnote{Which is given by $\eta_{ab}$ for the special case of the Lorentz group $\operatorname{SO}(1,3)$.}, the $n$-dimensional Levi-Civita symbol $\epsilon_{a_1...a_n}$ and the corresponding contravariant objects. 
 
-Applying this to the special case of the Lorentz group $SO(1,3)$ at hand we find that for a given kind of expansion coefficient, for instance $a^{AB}$ we can obtain a basis of Lorentz invariant expressions by first writing down the most general expression for $a^{AB}$ that can be constructed from the invariant metric $\eta_{ab}$, its inverse $\eta^{ab}$, $\epsilon_{abcd}$ and $\epsilon^{abcd}$ that is consistent with the symmetries and the index structure of $a^{AB}$. To that end it is best to transform $a^{AB}$ back to the form involving spacetime indices for instance $a^{abcdefgh} := a^{AB}J_A^{abcd}J_B^{efgh}$, if the gravitational field is described by a rank $(0,4)$ tensor field. It is then straight forward to reduce the most general expression obtained in this fashion to a basis by removing linear dependencies.
+Applying this to the special case of the Lorentz group $\operatorname{SO}(1,3)$ at hand we find that for a given kind of expansion coefficient, for instance $a^{AB}$ we can obtain a basis of Lorentz invariant expressions by first writing down the most general expression for $a^{AB}$ that can be constructed from the invariant metric $\eta_{ab}$, its inverse $\eta^{ab}$, $\epsilon_{abcd}$ and $\epsilon^{abcd}$ that is consistent with the symmetries and the index structure of $a^{AB}$. To that end it is best to transform $a^{AB}$ back to the form involving spacetime indices for instance $a^{abcdefgh} := a^{AB}J_A^{abcd}J_B^{efgh}$, if the gravitational field is described by a rank $(0,4)$ tensor field. It is then straight forward to reduce the most general expression obtained in this fashion to a basis by removing linear dependencies.
 
 Details regarding how one needs to proceed step by step to achieve the above are provided when we discuss particular examples. As this endeavor is straight forward but extensively laborious, it is best done relying on computer algebra. For precisely that purpose, we developed a highly performant computer program. 
 %cite own computer program here
@@ -1198,23 +1215,26 @@ to the above PDE ($\ref{polyEqn}$). Therefore we can apply the same prolongation
 
 Note that although the above discovery nicely illustrates the astonishing influence of the required diffeomorphism invariance on the causal structure of the linearized theory of gravity --- recall that such a linearized theory of gravity, for instance, already contains enough information to predict the propagation of gravitational waves --- there is no way how we can use this fact to obtain a computational advantage. In contrast to the case before, where we noticed that we might use the Lorentz invariance of the expansion coefficients of the gravitational Lagrangian to reduce the dimensionality of the arising linear systems now the further Lorentz invariance of the expansion coefficients of $\mathcal{P}^{p_1...p_r}$ is not deduced as consequence of a requirement that we wish to impose but stems from a  requirement that we already have imposed. If up to this point, we made no mistakes, this simply will come out. It thus can serve as a nice consistency check of any perturbative EOM that we might construct.
 
-Given now the expansion of the gravitational principal polynomial we can compute the vanishing set, where obviously we also have to compute this perturbatively, by dropping terms of higher than the desired order. Doing the same also for expansion of the matter principal polynomial, we finally impose that the obtained perturbative vanishing sets of matter and gravity polynomial coincide in the appropriate perturbative order: 
+Given now the expansion of the gravitational principal polynomial we can compute the vanishing set, where obviously we also have to compute this perturbatively, by dropping terms of higher than the desired order. Doing the same also for expansion of the matter principal polynomial, we finally impose that for all $p \in M$ the obtained perturbative vanishing sets of matter and gravity polynomial coincide in the appropriate perturbative order:
 \begin{align}
-    \sum_{i=0}^{k-2} (V_{\text{mat}})_i = \sum _{i=0}^{k-2}(V_{\text{grav}})_i + \mathcal{O}(k-2),
+  V_{\text{mat},p} = V_{\text{grav},p} + \mathcal{O}(k-2),
 \end{align}
-where $k$ is the desired order of the power series expansion of the gravitational Lagrangian. This then ultimately also includes our second requirement, the causal compatibility between matter and gravitational dynamics perturbatively. 
+where $k$ is the desired order of the power series expansion of the gravitational Lagrangian.
+Computational wise, this condition can be implemented by requiring that perturbatively the two polynomials are compromised of the same set of factors --- Note that we do not require that these factors also occur the same number of times in the two polynomials, this is in general not even possible.
+Given a specific such polynomial, its factorization can easily obtained by using modern computer algebra.
+This then ultimately also includes our second requirement, the causal compatibility between matter and gravitational dynamics perturbatively. 
 
 We complete the chapter by providing an explicit algorithm \ref{Algo2} for the perturbative construction of diffeomorphism invariant gravitational theories that are compatible with a given matter theory. 
 Unlike the full construction algorithm (\ref{Algo1}), which suffered from the difficulty of computing the general solution to the equivariance equation, this perturbative construction algorithm now really is applicable. 
 With this achievement, the construction of alternative matter theories, at least perturbatively, boils down to choosing physically meaningful gravitational field bundles for the description of the gravitational field, computing the appropriate dynamics then merely corresponds to feeding the algorithm with the necessary input data.  
 \begin{algorithm}[hbt!]
 \SetAlgoLined
-\KwData{Matter theory: $\mathcal{L}_{\text{mat}} : F_{\text{grav}} \oplus J^1F_{\text{mat}} \rightarrow \Lambda^4M$, expansion order: $k \in \mathbb{N}$, flat Lorentz invariant expansion point: $p_0 \in F_{\text{grav}}$}
+\KwData{Matter theory: $\mathcal{L}_{\text{mat}} : F_{\text{grav}} \oplus J^1F_{\text{mat}} \rightarrow \Lambda^4M$, expansion order: $k \in \mathbb{N}$, flat Lorentz invariant expansion point: $(x_0^m,N_A)\equiv p_0 \in F_{\text{grav}}$}
 \KwResult{Most general diffeomorphism invariant, causal compatible gravitational Lagrangian expanded as finite power series $\mathcal{L}_{grav,per}$ to order $k$ around $p_0$.}
 Compute the vertical coefficients $C^{Bm}_{An}$ of the infinitesimal diffeomorphism action on $F_{\text{grav}}$. \\
 Expand the Lagrangian as described in (\ref{generalPowerSL}) around $p_0 \equiv (x_0^m,N_A,0,0)$ with expansion coefficients $a^{\tilde{I}_k}$.\\
 Restrict to those $a^{\tilde{I}_k}$ with cumulative derivative order $\leq 2$.\\
-Insert the most general Lorentz invariant expressions for the $a^{\tilde{I}_k}$.\\
+Insert the most general Lorentz invariant expressions for the $a^{\tilde{I}_k}$, (use \cite{sparse-tensor}).\\
 Solve the perturbative equivariance equations such as (\ref{order1}), (\ref{order2}) and (\ref{order3}) for the $a^{\tilde{I}_k}$ by plugging in $L_{grav,per}$ in (\ref{DiffeoEqnFormal}) and all necessary prolongations and evaluating the resulting expressions at $p_0$.\\
 Compute the induced expansion of the principal symbol.\\
 Choose a $(n-4) \times (n-4)$ full ranked submatrix of the principal symbol by removing rows $(A_1...A_4)$ and columns $(B_1...B_4)$ from it. \\
@@ -1222,7 +1242,7 @@ Compute the expansion of the determinant of the chosen submatrix.\\
 Compute the induced expansion of the corresponding prefactors $f_{(A_1...A_4)(B_1...B_4)}$. \\
 Compute the expansion of the gravitational principal polynomial with the use of the general expression (\ref{diffeoMinor}) with expansion (\ref{minorPoly}), i.e., by solving (\ref{POLY1}), (\ref{POLY2}), (\ref{POLY3}) and similar for higher orders. \\
 Compute the expansion of the matter principal polynomial up to order $k-2$.\\
-Solve $\sum_{i=0}^{k-2} (V_{\text{mat}})_i = \sum _{i=0}^{k-2}(V_{\text{grav}})_i + \mathcal{O}(k-2)$ w.r.t. the remaining undetermined constants in $L_{grav,per}$.
+Solve: for all $p\in M : V_{\text{mat},p} = V_{\text{grav},p} + \mathcal{O}(k-2)$ w.r.t. the remaining undetermined constants in $L_{grav,per}$.
  \caption{Perturbative Construction of Gravitational Lagrangian}\label{Algo2}
 \end{algorithm}
 
