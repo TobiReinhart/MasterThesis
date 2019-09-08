@@ -148,7 +148,7 @@ Now we can define:
         0 \ \   &\text{otherwise}. 
     \end{cases}
 \end{align}
-$J^{b_1 ... b_n}_{A a_1 ... a_m}$ is then defined such that the pair of intertwiners satisfies the last condition in (\ref{interRel}), i.e., $J$ is chosen as an left inverse of $I$. On readily finds that:
+$J^{b_1 ... b_n}_{A a_1 ... a_m}$ is then defined such that the pair of intertwiners satisfies the last condition in (\ref{interRel}), i.e., $J$ is chosen as an left inverse of $I$. One readily finds that:
 \begin{align}\label{defJ}
     J^{b_1 ... b_n}_{A a_1 ... a_m} = \begin{cases}  +\frac{1}{\sigma(A)} \ \ &\text{if} \  v^{a_1 ... a_m}_{b_1 ... b_n} \in [A]_+\\
     -\frac{1}{\sigma(A)} \ \  &\text{if} \  v^{a_1 ... a_m}_{b_1 ... b_n} \in [A]_- \\ 
@@ -380,7 +380,7 @@ Here $\Lambda^4 M$ denotes the volume bundle on $M$. Alternatively, we could hav
     \mathcal{L}(x^m,v_A,v_{Ai},v_{AI}) = L(x^m,v_A,v_{Ai},v_{AI}) \mathrm{d}x^0 \wedge \mathrm{d}x^1 \wedge \mathrm{d}x^2 \wedge \mathrm{d}x^3 = L \mathrm{d}^4x.
 \end{align} 
 
-As the Lagrangian is a volume form valued bundle map, we can take any section $G \in \Gamma(F)$, prolong it to $j^2(G) \in \Gamma(J^2F)$ and compose the result with $\mathcal{L}$ to obtain a section of the volume bundle over $M$, $\mathcal{L}(j^2(G)) \in \Gamma(\Lambda^4M)$ which thus can be integrated over spacetime regions. Given a Lagrangian this procedure defines a \textit{\textbf{local action functional}} on the space of fields $\Gamma(F)$:
+As the Lagrangian is a volume form valued bundle map, we can take any section $G \in \Gamma(F)$, prolong it to $j^2(G) \in \Gamma(J^2F)$ and compose the result with $\mathcal{L}$ to obtain a section of the volume bundle over $M$, $\mathcal{L}(j^2(G)) \in \Gamma(\Lambda^4M)$ which thus can be integrated over spacetime regions. Given a Lagrangian, this procedure defines a \textit{\textbf{local action functional}} on the space of fields $\Gamma(F)$:
 \begin{align}
 \begin{aligned}
     S_{\mathcal{L}} : \Gamma(F) &\longrightarrow \mathcal{R} \\
@@ -589,7 +589,7 @@ Where we can compute the thus prolonged vector field $j^1(\xi)$ to be given by
     \xi_{J^1F} = \xi^m \frac{\partial}{\partial x^m} + C_{An}^{Bm} v_B \partial_m \xi ^n \frac{\partial}{\partial v_A}\\
     + C_{An}^{Bm} \partial_m \xi^n v_{Bi} \frac{\partial}{\partial v_{Ai}} - v_{An} \partial_m \xi ^n \frac{\partial}{\partial v_{Am}} + C_{An}^{Bm} v_B \partial_m \partial_p \xi^n \frac{\partial}{\partial v_{Ap}}.
 \end{multline}
-In precisely the same way one can now construct prolongations of vector field to higher-order jet bundles as for instance to the second-order jet bundle as it is relevant for our treatment of Lagrangian field theory:
+In precisely the same way one can now construct prolongations of vector fields to higher-order jet bundles as for instance to the second-order jet bundle as it is relevant for our treatment of Lagrangian field theory:
 \begin{align}
     \begin{aligned}
     j^2(\mathcal{f}) : \Gamma(TM) &\longrightarrow \Gamma(TJ^2F)\\
@@ -610,7 +610,7 @@ Performing a similar computation as before in adapted coordinates $(x^m,v_A,v_{A
 These two expressions describe the infinitesimal action of a diffeomorphism that is induced by a vector field $\xi$ on the first and second jet bundle over the field bundle, respectively. 
 All the involved maps, $j^1(\mathcal{f})$ and $j^2(\mathcal{f})$ or in fact any prolongation to any higher jet bundle $j^q(\mathcal{f})$ define Lie algebra morphisms, and hence one, in particular, finds that they preserve the commutator:
 \begin{align}
-j^q (\mathcal{f})\bigl (  \bigl [\xi, \tilde{\xi}  \bigr ]_{\Gamma(TM)}\bigr) =  \bigl [ j^q(\mathcal{f})(\xi), j^q(\mathcal{f})(\tilde{\xi}) \bigr ]_{\Gamma(TJ^qF)}
+j^q (\mathcal{f})\bigl (  \bigl [\xi, \tilde{\xi}  \bigr ]_{\Gamma(TM)}\bigr) =  \bigl [ j^q(\mathcal{f})(\xi), j^q(\mathcal{f})(\tilde{\xi}) \bigr ]_{\Gamma(TJ^qF)}.
 \end{align}
 Using the prolongation of vector fields to the jet bundle we can now state one of the main results regarding the implications of the diffeomorphism equivariance of bundle maps on the jet bundle. We present a first-order PDE system that
 such an equivariant bundle map necessarily has to solve. 
@@ -691,7 +691,7 @@ Summing up we have derived linear first-order PDE systems for the Lagrangian or 
 \section{Canonical Kinematics and Hypersurface Deformations}
 In the following two sections we are going to investigate implications of the required diffeomorphism invariance for the \textit{\textbf{canonical formulation}} of a given field theory. For that purpose we mainly concern field theories that are described by a \textit{\textbf{first-order}} Lagrangian, i.e., a function on $J^1F$. Working on $J^2F$ as before we would necessarily have to consider the case where the Lagrangian is degenerate such that the EOM are nevertheless of second order and the Hamiltonian formulation is free of Ostrogratsky instabilities. The degeneracy of the Lagrangian would then, however, impede the canonical formulation of the theory\footnote{We remark that, although posing further technical difficulties, we expect a generalization of the following derivations to the case of degenerate Lagrangians on $J^2F$ to be straight forward.}.
 
-The main idea that is used when transferring from a given Lagrangian field theory to the associated Hamiltonian formulation is that of decomposing the spacetime manifold $M$ into a disjoint set of 3-dimensional manifolds that are smoothly parametrized by a time parameter. As a consequence, one can then accordingly decompose any structure that is prescribed on $M$. In order to achieve this we follow \cite{2004math.ph..11032G} and introduce the notion of a \textit{\textbf{slicing}}, sometimes also called a \textit{\textbf{3+1-split}}, of the spacetime manifold $M$.
+The main idea that is used when transferring from a given Lagrangian field theory to the associated Hamiltonian formulation is that of decomposing the spacetime manifold $M$ into a disjoint set of 3-dimensional manifolds that are smoothly parametrized by a time parameter. As a consequence, one can then accordingly decompose any structure that is prescribed on $M$. In order to achieve this, we follow \cite{2004math.ph..11032G} and introduce the notion of a \textit{\textbf{slicing}}, sometimes also called a \textit{\textbf{3+1-split}}, of the spacetime manifold $M$.
 \begin{definition}[slicing]
 A slicing of the spacetime manifold $M$ is a diffeomorphism: 
 \begin{align}
@@ -849,7 +849,7 @@ for this direct sum decomposition of the tangent bundle and call the summands \t
 It is important to note that up to technicalities such as the isomorphism $T(\Sigma \times \mathbb{R}) \cong \pi_{\Sigma}^{\ast}T\Sigma \oplus \pi_{\mathbb{R}}^{\ast} T\mathbb{R}$ and also pulling back the bundles along the canonical projections, the tangential and vertical subbundle of $TM$ are essentially given by the images of $T\Sigma$ and $T\mathbb{R}$ under the pushforward of the slicing $\phi_{\ast}$. 
 
 We can now use this direct sum decomposition of the tangent bundle $TM$ to further decompose structure that is prescribed on it.
-In particular, vector fields on $M$ can uniquely be \textit{\textbf{decomposed}} w.r.t. this split. Given a vector field $\xi \in \Gamma(TM)$ we write $\xi = \xi_{\parallel} + \xi_{\perp} $ for this decomposition, with $\xi_{\parallel} \in \Gamma(\mathcal{T}\Sigma)$ and $\xi_{\perp} \in \Gamma(\mathcal{V}\Sigma)$ called tangential and vertical part of $\xi$. The situation is drawn in Figue \ref{DecompPic}.
+In particular, vector fields on $M$ can uniquely be \textit{\textbf{decomposed}} w.r.t. this split. Given a vector field $\xi \in \Gamma(TM)$ we write $\xi = \xi_{\parallel} + \xi_{\perp} $ for this decomposition, with $\xi_{\parallel} \in \Gamma(\mathcal{T}\Sigma)$ and $\xi_{\perp} \in \Gamma(\mathcal{V}\Sigma)$ called tangential and vertical part of $\xi$. The situation is drawn in figure \ref{DecompPic}.
 
 \begin{figure}[hbt!]
 \centering
