@@ -434,7 +434,7 @@ We can however easily generalize the above to the case of not only incorporating
 \begin{align}
     \mathfrak{T}(V_1,...,V_n) := \bigoplus_{r_1,s_1,...,r_n,s_n \geq 0}T^{r_1}_{s_1}V_1 \otimes ... \otimes T^{r_n}_{s_n}V_n.
 \end{align}
-The elements of this algebra are consequently tensors with $n$-different index types --- in the following formula the type of an index is denoted by an superscripted $(i)$ --- with the $i$th type running over $\mathrm{dim}(V_i)$ and an arbitrary number of indices of each of those types appearing both in contravariant and in covariant position:
+The elements of this algebra are consequently tensors with $n$-different index types --- in the following formula the type of an index is denoted by an superscripted $(i)$ --- with the $i$th type running over $\operatorname{dim}(V_i)$ and an arbitrary number of indices of each of those types appearing both in contravariant and in covariant position:
 \begin{align}
     \mathfrak{T}(V_1,...,V_n) \ni T^{A^{(1)}_1 ... A^{(1)}_{r_1} ... A^{(n)}_1 ... A^{(n)}_{r_n}}
     _{B^{(1)}_1 ... B^{(1)}_{s_1} ... B^{(n)}_1 ... B^{(n)}_{s_n}}.
@@ -607,7 +607,7 @@ It is important to note that there also cannot exist numeric linear dependencies
 
 In total, this shows that whenever an ansatz that features no Levi-Civita symbol evaluates to a non zero contribution all possible ansätze that incorporate an $\epsilon^{abcd}$ evaluate to zero and vice versa. Thus the different types of ansätze are also mutually numerically linearly independent. In particular, we see that the problem of finding a list of ansätze that constitute a basis for the space of Lorentz invariant tensors of given rank and symmetry decouples into the two subproblems of finding those that incorporate an $\epsilon^{abcd}$ and those that do not. The two types of ansätze can hence be treated completely independently. To that end, we also chose to represent them using different data types. 
 
-The data type \mintinline{haskell}{Map k v} that is used in the definition of the two ansatz forest types represents a finite map between keys and values that is internally implemented as binary tree\footnote{Details regarding the implementation can be found in \cite{adams_1993}. The \mintinline{haskell}{Map k v} \cite{HackageMap} and many more datatypes can be found in Haskell's central package archive \cite{Hackage}.}. Thus the \mintinline{haskell}{AnsatzForestEta} data type is a forest with nodes being provided by an \mintinline{haskell}{Eta} value and leafs given by a \mintinline{haskell}{Var} value. Similarly, the \mintinline{haskell}{AnsatzForestEpsilon} type is given by such a forest with the difference that compared to \mintinline{haskell}{AnsatzForestEta} now the first level nodes are occupied by \mintinline{haskell}{Epsilon} values. Note that the individual sibling sets of these forests themselves are not provided by a "linear" data structure s.t. lists but by the binary structure of the \mintinline{haskell}{Map k v}. This enhances performance as some of the ansatz forests that we will treat have up to several thousand elements in a single sibling set, and the binary structure allows for faster insertion and lookup of elements. Such a binary structure, for instance, features $\mathcal{O}(\mathrm{log}(n)$ lookup whereas a single linked list in the worst case only provides $\mathcal{O}(n)$ lookup. 
+The data type \mintinline{haskell}{Map k v} that is used in the definition of the two ansatz forest types represents a finite map between keys and values that is internally implemented as binary tree\footnote{Details regarding the implementation can be found in \cite{adams_1993}. The \mintinline{haskell}{Map k v} \cite{HackageMap} and many more datatypes can be found in Haskell's central package archive \cite{Hackage}.}. Thus the \mintinline{haskell}{AnsatzForestEta} data type is a forest with nodes being provided by an \mintinline{haskell}{Eta} value and leafs given by a \mintinline{haskell}{Var} value. Similarly, the \mintinline{haskell}{AnsatzForestEpsilon} type is given by such a forest with the difference that compared to \mintinline{haskell}{AnsatzForestEta} now the first level nodes are occupied by \mintinline{haskell}{Epsilon} values. Note that the individual sibling sets of these forests themselves are not provided by a "linear" data structure s.t. lists but by the binary structure of the \mintinline{haskell}{Map k v}. This enhances performance as some of the ansatz forests that we will treat have up to several thousand elements in a single sibling set, and the binary structure allows for faster insertion and lookup of elements. Such a binary structure, for instance, features $\mathcal{O}(\operatorname{log}(n)$ lookup whereas a single linked list in the worst case only provides $\mathcal{O}(n)$ lookup. 
 
 Furthermore, when constructing an \mintinline{haskell}{AnsatzForestEta}, we will always ensure that parent nodes are smaller than all of their children, where the order relation is obtained by comparing the individual integers that are contained in a value of type \mintinline{haskell}{Eta}, starting with the first. All further functions will always produce such sorted forests when evaluated on sorted forests as input. 
 
@@ -1177,20 +1177,20 @@ The type alias \mintinline{haskell}{RankDataEig} represents the ansatz forest da
 type RankDataEig = (Mat.MatrixXd, Sparse.SparseMatrixXd)
 \end{cminted}
 \end{center}
-Note that usually, the number of necessary evaluation index value lists by far exceeds the number of variables that are present in a given ansatz forest. Thus the chosen way of evaluating a given forest to a matrix yields a matrix with a large number of columns compared to a small number of rows. In the following, we will refer to this matrix as $M$. The second matrix that is included in \mintinline{haskell}{RankDataEig} is precisely this matrix $M$. To save memory, this matrix is stored in a sparse format. The first matrix in \mintinline{haskell}{RankDataEig} is given by $M M^t$. This matrix is used to achieve performance when computing whether or not a new ansatz is numerically linearly dependent on the current ansatz forest or not. To that end, note that $\mathrm{rank}(MM^t) = \mathrm{rank}(M)$ (see for instance "Bemerkung 2.57" in \cite{LAKnab}). Thus once we have evaluated a new ansatz to a row vector $v$, we can compute the rank of the new ansatz forest that would be obtained by adding the given ansatz to the current forest by:
+Note that usually, the number of necessary evaluation index value lists by far exceeds the number of variables that are present in a given ansatz forest. Thus the chosen way of evaluating a given forest to a matrix yields a matrix with a large number of columns compared to a small number of rows. In the following, we will refer to this matrix as $M$. The second matrix that is included in \mintinline{haskell}{RankDataEig} is precisely this matrix $M$. To save memory, this matrix is stored in a sparse format. The first matrix in \mintinline{haskell}{RankDataEig} is given by $M M^t$. This matrix is used to achieve performance when computing whether or not a new ansatz is numerically linearly dependent on the current ansatz forest or not. To that end, note that $\operatorname{rank}(MM^t) = \operatorname{rank}(M)$ (see for instance "Bemerkung 2.57" in \cite{LAKnab}). Thus once we have evaluated a new ansatz to a row vector $v$, we can compute the rank of the new ansatz forest that would be obtained by adding the given ansatz to the current forest by:
 \begin{align}\label{RankDatmat}
-    \mathrm{rank}\left (\begin{bmatrix}
+    \operatorname{rank}\left (\begin{bmatrix}
         M \\
         \cmidrule(lr){1-1} 
         v
     \end{bmatrix} \right )
-    = \mathrm{rank} \left ( \begin{bmatrix}
+    = \operatorname{rank} \left ( \begin{bmatrix}
         M \\
         \cmidrule(lr){1-1}
         v
     \end{bmatrix} \cdot \begin{bmatrix}
         M^t \ \vert \  v^t 
-    \end{bmatrix} \right ) = \mathrm{rank} \left (\begin{bmatrix}
+    \end{bmatrix} \right ) = \operatorname{rank} \left (\begin{bmatrix}
         MM^t & \vline & M v^t \\
         \cmidrule(lr){1-3}
         (Mv^t)^t & \vline & vv^t 

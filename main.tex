@@ -64,6 +64,8 @@
 \renewcommand\listoflistingscaption{List of source code listings}
 
 %Links
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{url}
 \usepackage{hyperref}
 \hypersetup{
     colorlinks,
@@ -124,15 +126,65 @@
             doi=true,
             maxbibnames=3]{biblatex}
 \addbibresource{references.bib}
+
 \DeclareFieldFormat{pages}{#1}
+%\apptocmd{\UrlBreaks}{\do\f\do\m}{}{}
+%\setcounter{biburllcpenalty}{9000}
+%\setcounter{biburlucpenalty}{9000}
+%\setcounter{biburlnumpenalty}{9000}
 
 
+
+
+\begin{comment}
 \AtEveryBibitem{%
   \ifentrytype{misc}{%
   }{%
     \clearfield{url}%
   }%
 }
+\end{comment}
+
+\AtEveryBibitem{%
+  \ifentrytype{article}{%
+    \clearfield{pages}%
+  }{%
+  }%
+}
+
+\newbibmacro*{bbx:parunit}{%
+  \ifbibliography
+    {\setunit{\bibpagerefpunct}\newblock
+     \usebibmacro{pageref}%
+     \clearlist{pageref}%
+     \setunit{\adddot\par\nobreak}}
+    {}}
+
+\renewbibmacro*{doi+eprint+url}{%
+  \usebibmacro{bbx:parunit}% Added
+  \iftoggle{bbx:doi}
+    {\printfield{doi}}
+    {}%
+  \iftoggle{bbx:eprint}
+    {\usebibmacro{eprint}}
+    {}%
+  \iftoggle{bbx:url}
+    {\usebibmacro{url+urldate}}
+    {}}
+
+\renewbibmacro*{eprint}{%
+  \usebibmacro{bbx:parunit}% Added
+  \iffieldundef{eprinttype}
+    {\printfield{eprint}}
+    {\printfield[eprint:\strfield{eprinttype}]{eprint}}}
+
+\renewbibmacro*{url+urldate}{%
+  \usebibmacro{bbx:parunit}% Added
+  \printfield{url}%
+  \iffieldundef{urlyear}
+    {}
+    {\setunit*{\addspace}%
+     \printtext[urldate]{\printurldate}}}
 
 %Abstract
 \newenvironment{abstract}{%
@@ -189,7 +241,7 @@
 	\includegraphics[width=0.5\textwidth]{fau-siegel.pdf}\par
 	\vspace{1cm}Department of Physics\par
 	Friedrich-Alexander-Universität Erlangen-Nürnberg\par
-	Supervisor: Prof. Dr. Jörn Wilms , Dr. Frederic P. Schuller
+	Supervisor: Prof. Dr. Gerd Leuchs , Dr. Frederic P. Schuller
 	
 	\vfill
 \end{titlepage}
@@ -217,7 +269,7 @@ Wir testen die von uns entwickelten Techniken an zwei besonders bedeutenden Beis
 \chapter*{Acknowledgments}
 Firstly, I would like to thank Frederic Schuller without whose inspiring ideas this thesis undoubtedly would not have been possible. Frederic without your distinctive way of motivating your students, I certainly would not have worked as hard on this thesis as I did.
 
-Further, I would like to thank Jörn Wilms for accepting my thesis as an official supervisor and thereby allowed me to register it formally. 
+Further, I would like to thank Gerd Leuchs for accepting my thesis as an official supervisor and thereby allowed me to register it formally. 
 I also have to thank Marcus Werner (Yukawa Institute for Theoretical Physics in Kyoto, Japan) who in collaboration with the Universe Journal provided financial support for my participation at the 15th Marcel Grossmann meeting in Rome. 
 Besides, I would also like to mention that a large number of computer calculations that were carried out during this thesis were only possible due to the great IT-infrastructure that the physics department provides for their students. 
 

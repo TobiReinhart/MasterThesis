@@ -18,10 +18,10 @@ Let $M$ be an oriented 4-dimensional manifold that represents spacetime. A field
 \begin{align}
 \begin{aligned}
 G : M &\longrightarrow F\\
-& \pi_F \circ G = \mathrm{id}_M.
+& \pi_F \circ G = \operatorname{id}_M.
 \end{aligned}
 \end{align}
-In the following, we will refer to the bundle $F$ as $\textit{\textbf{field bundle}}$.  As we want to consider tensor fields, the field bundle is required to be given by a vector subbundle of some $T^m_n M$. We denote adapted coordinates\footnote{Recall that adapted coordinates $(x^m,v_A)$ on a fiber bundle $(F, \pi_F, M)$ are defined by the requirement that there exits a coordinate chart on $M$, $(y^m)$, s.t. $y^m = x^m \circ \pi_F$, and hence we denote the first $dim(M)$ coordinate functions of both charts by the same label. It should be clear from the context which coordinates are meant, those on $M$ or those on $F$.} on $F$ by $(x^m,v_A)$. Here the abstract index $A$ runs from $0$ to $n - 1$ with $n$ being the fiber dimension of $F$, i.e., $n := \mathrm{dim}(\pi_F^{-1}(p))$ for some $p \in M$. Note that as $F$ is assumed to be a vector bundle, we can always choose adapted coordinates s.t. the $v_A$ are linear on the fibers. Details regarding this remark can be found in \cite{saunders_1989}. In the following, we will only regard such adapted coordinates. The corresponding coordinate representation of sections is denoted by $G_A = v_A \circ G $. Summing up, writing $G_A$ we refer to the coordinate representation of a section, whereas $v_A$ denotes fiber coordinates on $F$.
+In the following, we will refer to the bundle $F$ as $\textit{\textbf{field bundle}}$.  As we want to consider tensor fields, the field bundle is required to be given by a vector subbundle of some $T^m_n M$. We denote adapted coordinates\footnote{Recall that adapted coordinates $(x^m,v_A)$ on a fiber bundle $(F, \pi_F, M)$ are defined by the requirement that there exits a coordinate chart on $M$, $(y^m)$, s.t. $y^m = x^m \circ \pi_F$, and hence we denote the first $dim(M)$ coordinate functions of both charts by the same label. It should be clear from the context which coordinates are meant, those on $M$ or those on $F$.} on $F$ by $(x^m,v_A)$. Here the abstract index $A$ runs from $0$ to $n - 1$ with $n$ being the fiber dimension of $F$, i.e., $n := \operatorname{dim}(\pi_F^{-1}(p))$ for some $p \in M$. Note that as $F$ is assumed to be a vector bundle, we can always choose adapted coordinates s.t. the $v_A$ are linear on the fibers. Details regarding this remark can be found in \cite{saunders_1989}. In the following, we will only regard such adapted coordinates. The corresponding coordinate representation of sections is denoted by $G_A = v_A \circ G $. Summing up, writing $G_A$ we refer to the coordinate representation of a section, whereas $v_A$ denotes fiber coordinates on $F$.
 
 Given a field bundle $(F, \pi_F, M)$, we can define the corresponding $\textit{\textbf{dual field bundle}}$ $(F^{\ast}, \pi_{F^{\ast}},M)$ as its vector bundle dual. We quickly recall the definition of the vector bundle dual and the dual of a linear map.
 \begin{definition}[dual linear map] \label{dual}
@@ -66,7 +66,7 @@ Given two bundles $(F_1, \pi_{F_1}, M)$ and $(F_2, \pi_{F_2}, N)$, a bundle morp
 \end{definition}
 \begin{comment}
 \begin{remark}
-We normally denote a bundle morphism $f$ that covers $h$ as pair $(f,h)$. For the special case $M=N$ and $h=\mathrm{id}_M$ we shorten the notation to simply $f$. Also we might refer to a bundle morphism by the total space function $f$ if $f$ and $h$ are related via some specified construction, i.e., if $f$ can be obtained uniquely once $h$ is given. 
+We normally denote a bundle morphism $f$ that covers $h$ as pair $(f,h)$. For the special case $M=N$ and $h=\operatorname{id}_M$ we shorten the notation to simply $f$. Also we might refer to a bundle morphism by the total space function $f$ if $f$ and $h$ are related via some specified construction, i.e., if $f$ can be obtained uniquely once $h$ is given. 
 \end{remark}
 \end{comment}
 We often consider the case where the bundles carry additional structure on their fibers, for instance, in the case of $(F, \pi_F, M)$ being a vector bundle, an additional vector space structure. Then one is in particular interested in those bundle morphisms that preserve the given structure. To provide an example, a vector bundle morphism between vector bundles $(F_1, \pi_{F_1}, M)$ and $(F_2, \pi_{F_2}, N)$ is defined as a bundle morphism $(f,h)$ that restricts to a linear map on the fibers of $F_1$, i.e., $\forall p \in M$ the restriction $f \vert_{\pi_{F_1}^{-1}(p)}$ defines a linear map.
@@ -82,7 +82,7 @@ Let $(F,\pi_F,M)$ be a vector bundle. We call a pair of vector bundle morphisms 
     \end{aligned}
 \end{align}
 that cover $id_M$, and that additionally satisfy
-$J \circ I = \mathrm{id}_F$ a pair of \textbf{\textit{intertwiners}} for the bundle $(F, \pi_F, M)$.
+$J \circ I = \operatorname{id}_F$ a pair of \textbf{\textit{intertwiners}} for the bundle $(F, \pi_F, M)$.
 \end{definition}
 The last requirement, namely the existence of a left inverse to $I$ ensures that: 
 \begin{align}\tilde{I} : F \longrightarrow I(F) \subset T^m_nM
@@ -416,7 +416,7 @@ It can then even be understood as following from a pure mathematical requirement
 
 In the following, we will show how this requirement can be incorporated in the previously developed framework of Lagrangian field theory. We start by computing the transformation behavior of 2-jets, $j_p^2G \in J^2F$, under spacetime diffeomorphisms.
 
-The action of diffeomorphisms on $M$ naturally lifts to any tensor space over $M$ by the usual push-forward pull-back construction. To be more precise given $\phi \in \mathrm{Diff}(M)$ we can obtain vector bundle isomorphisms $\phi_{\ast} : TM \rightarrow TM $ and $\phi^{\ast} : T^{\ast}M \rightarrow T^{\ast}M$ that cover $\phi$ by taking its pushforward and pullback respectively. As the pull back is a contravariant functor, i.e., $(\phi \circ \psi)^{\ast}=\psi^{\ast}\circ \phi^{\ast}$, given $\phi \in \mathrm{Diff}(M)$ we simply take the pullback along $\phi^{-1}$ to compensate for the change of composition order. The action of diffeomorphisms on tensor spaces over $M$, $T^m_nM$ can then be obtained by tensoring m copies of the pushforward action and n copies of the inverse pull back action. In other words given $\phi \in \mathrm{Diff}(M)$ we get a vector bundle isomorphism on any $T^m_nM$ at wish by:
+The action of diffeomorphisms on $M$ naturally lifts to any tensor space over $M$ by the usual push-forward pull-back construction. To be more precise given $\phi \in \operatorname{Diff}(M)$ we can obtain vector bundle isomorphisms $\phi_{\ast} : TM \rightarrow TM $ and $\phi^{\ast} : T^{\ast}M \rightarrow T^{\ast}M$ that cover $\phi$ by taking its pushforward and pullback respectively. As the pull back is a contravariant functor, i.e., $(\phi \circ \psi)^{\ast}=\psi^{\ast}\circ \phi^{\ast}$, given $\phi \in \operatorname{Diff}(M)$ we simply take the pullback along $\phi^{-1}$ to compensate for the change of composition order. The action of diffeomorphisms on tensor spaces over $M$, $T^m_nM$ can then be obtained by tensoring m copies of the pushforward action and n copies of the inverse pull back action. In other words given $\phi \in \operatorname{Diff}(M)$ we get a vector bundle isomorphism on any $T^m_nM$ at wish by:
 \begin{align}
 \begin{aligned}
     &\underbrace{\phi_{\ast} \otimes ... \otimes \phi_{\ast}}_{\substack{m \  times}} \otimes \underbrace{(\phi^{-1})^{\ast} \otimes ... \otimes (\phi^{-1})^{\ast} }_{\substack{n \  times}} : T^m_nM \longrightarrow T^m_nM \\
@@ -426,13 +426,13 @@ The action of diffeomorphisms on $M$ naturally lifts to any tensor space over $M
 The action is then defined on all other elements of $T^m_nM$, i.e., on general linear combinations of product elements, by extending it linearly.
 
 \begin{comment}
-Note that there is a slight duplication in our notation: Before a superscripted $\ast$ denoted the dual of a linear map, the dual of a vector-space/bundle, etc. Here the superscripted $\ast$ denotes the pull back of a given diffeomorphism. The connection between the two notions and henceforth the reason for the apparent duplication in the notation can be explained regarding the standard definition of the pullback: Let $\phi \in \mathrm{Diff}(M)$, $p \in M$, $u \in T_pM$, and  $\omega \in T^{\ast}_{\phi(p)}M$ then pushforward and pullback of $\phi$ restrict to linear maps $(\phi_{\ast}) _p :  T_pM \rightarrow T_{\phi(p)}M$ and $\phi^{\ast}_{\phi(p)} : T^{\ast}_{\phi(p)}M \rightarrow T^{\ast}_pM$, where the pullback is defined by the requirement $\phi^{\ast}_{\phi(p)}\omega (u) := \omega ((\phi_{\ast})_p u)$. Comparing this with definition \ref{dual} the dual of a linear map we see that the pull back really defines the fiber wise dual of the pushforward. 
+Note that there is a slight duplication in our notation: Before a superscripted $\ast$ denoted the dual of a linear map, the dual of a vector-space/bundle, etc. Here the superscripted $\ast$ denotes the pull back of a given diffeomorphism. The connection between the two notions and henceforth the reason for the apparent duplication in the notation can be explained regarding the standard definition of the pullback: Let $\phi \in \operatorname{Diff}(M)$, $p \in M$, $u \in T_pM$, and  $\omega \in T^{\ast}_{\phi(p)}M$ then pushforward and pullback of $\phi$ restrict to linear maps $(\phi_{\ast}) _p :  T_pM \rightarrow T_{\phi(p)}M$ and $\phi^{\ast}_{\phi(p)} : T^{\ast}_{\phi(p)}M \rightarrow T^{\ast}_pM$, where the pullback is defined by the requirement $\phi^{\ast}_{\phi(p)}\omega (u) := \omega ((\phi_{\ast})_p u)$. Comparing this with definition \ref{dual} the dual of a linear map we see that the pull back really defines the fiber wise dual of the pushforward. 
 \end{comment}
 
-To shorten the notation we will refer to actions of $\mathrm{Diff}(M)$ on the various tensor spaces $T^m_nM$ that can be obtained by means of this pushforward pullback construction simply as pullback actions and denote the corresponding bundle morphisms that cover a given $\phi \in \mathrm{Diff}(M)$ collectively by $\phi_{\ast}$. Which precise tensor bundle is meant can usually be inferred from the context quite easily.
+To shorten the notation we will refer to actions of $\operatorname{Diff}(M)$ on the various tensor spaces $T^m_nM$ that can be obtained by means of this pushforward pullback construction simply as pullback actions and denote the corresponding bundle morphisms that cover a given $\phi \in \operatorname{Diff}(M)$ collectively by $\phi_{\ast}$. Which precise tensor bundle is meant can usually be inferred from the context quite easily.
 
-Given $\phi \in \mathrm{Diff}(M)$, by this construction, we can obtain the corresponding action by bundle isomorphisms on any tensor bundle over $M$. As we have identified the field bundle $F$ with a subbundle of some $T^m_nM$ we can restrict the bundle isomorphisms to $F$ to get an action of $\mathrm{Diff}(M)$ on the field bundle in particular. 
-To further lift the action of $\mathrm{Diff}(M)$ to the first jet bundle $J^1F$ and the second jet bundle $J^2F$,respectively, we need to develop additional techniques, the primary tool being the \textbf{\textit{prolongation of bundle morphisms}}. 
+Given $\phi \in \operatorname{Diff}(M)$, by this construction, we can obtain the corresponding action by bundle isomorphisms on any tensor bundle over $M$. As we have identified the field bundle $F$ with a subbundle of some $T^m_nM$ we can restrict the bundle isomorphisms to $F$ to get an action of $\operatorname{Diff}(M)$ on the field bundle in particular. 
+To further lift the action of $\operatorname{Diff}(M)$ to the first jet bundle $J^1F$ and the second jet bundle $J^2F$,respectively, we need to develop additional techniques, the primary tool being the \textbf{\textit{prolongation of bundle morphisms}}. 
 \begin{definition}[prolongation of morphisms]
 Let $(F_1,\pi_{F_1},M)$ and $(F_2,\pi_{F_2},N)$ be bundles, $\phi : M \rightarrow N$ a diffeomorphism, $f : F_1 \rightarrow F_2$ a bundle morphism covering $\phi$ and $J^1F_1$, $J^1F_2$ the first-order jet bundles over $F_1$ and $F_2$, respectively. The first jet bundle lift or prolongation of the bundle morphism $(f,\phi)$ is given by the unique map\footnote{Just as it is the case with bundle morphisms being denoted by pairs $(f,\phi)$ their prolongation should be denoted by triples $(j^1(f),f,\phi)$. However, we will lighten their notation to simply $j^1(f)$ if the two remaining maps are clear from the given context.} $j^1(f)$ that lets the diagram in figure \ref{ProlongMorph} commute.
 \begin{figure}[hbt!]
@@ -521,7 +521,7 @@ One can in particular show that the jet prolongation of bundle morphism behaves 
 
 Now we are in a position where we can formulate what we mean by requiring the gravitational theory to be invariant under spacetime diffeomorphisms in a precise manner. We start by recalling the definition of an \textit{\textbf{equivariant}} map. Further information regarding this can be found in \cite{doi:10.1142/3867}.
 \begin{definition}[equivariance]
-Let $M$ and $N$ be some spaces that both carry an action of a group $\mathcal{G}$, $\rho : \mathcal{G} \rightarrow \mathrm{Aut}(M)$ and $\sigma : \mathcal{G} \rightarrow \mathrm{N}$. We call a function $f : M \rightarrow N$ equivariant w.r.t. $\rho$ and $\sigma$ if it holds for all $g \in \mathcal{G}$ that: $f \circ \rho(g) = \sigma(g) \circ f(m)$, i.e., if the diagram displayed in figure \ref{EquiDia} commutes for all $g \in \mathcal{G}$:
+Let $M$ and $N$ be some spaces that both carry an action of a group $\mathcal{G}$, $\rho : \mathcal{G} \rightarrow \operatorname{Aut}(M)$ and $\sigma : \mathcal{G} \rightarrow \operatorname{Aut}{N}$. We call a function $f : M \rightarrow N$ equivariant w.r.t. $\rho$ and $\sigma$ if it holds for all $g \in \mathcal{G}$ that: $f \circ \rho(g) = \sigma(g) \circ f(m)$, i.e., if the diagram displayed in figure \ref{EquiDia} commutes for all $g \in \mathcal{G}$:
 \begin{figure}[hbt!]
 \centering
 \begin{tikzpicture}
@@ -539,7 +539,7 @@ Let $M$ and $N$ be some spaces that both carry an action of a group $\mathcal{G}
 \end{definition}
 Finally, we provide a definition for a \textit{\textbf{diffeomorphism invariant Lagrangian field theory}}.
 \begin{definition}
-A Lagrangian field theory described by a second-order Lagrangian $\mathcal{L} : J^2F \rightarrow \Lambda^4 M$ is called diffeomorphism invariant if $\mathcal{L}$ is equivariant w.r.t. the action of $\mathrm{Diff}(M)$ that is obtained by prolonging diffeomorphisms to bundle isomorphisms of $J^2F$ and the pullback action of diffeomorphisms on $\Lambda^4M$, i.e., if it holds for all $\phi \in \mathrm{Diff}(M)$ that: 
+A Lagrangian field theory described by a second-order Lagrangian $\mathcal{L} : J^2F \rightarrow \Lambda^4 M$ is called diffeomorphism invariant if $\mathcal{L}$ is equivariant w.r.t. the action of $\operatorname{Diff}(M)$ that is obtained by prolonging diffeomorphisms to bundle isomorphisms of $J^2F$ and the pullback action of diffeomorphisms on $\Lambda^4M$, i.e., if it holds for all $\phi \in \operatorname{Diff}(M)$ that: 
 \begin{align}
      \mathcal{L}\circ j^2(\phi_{\ast}) = \phi_{\ast} \circ \mathcal{L}.
 \end{align}
@@ -547,14 +547,14 @@ A Lagrangian field theory described by a second-order Lagrangian $\mathcal{L} : 
 
 \textit{\textbf{Infinitesimally}}, on the \textbf{\textit{Lie algebra}} level, diffeomorphisms are described by vector fields $\xi \in \Gamma(M)$ with Lie bracket being provided by the commutator of vector fields. 
 As usual, one can derive an action of a Lie algebra from a given action of the corresponding Lie group.
-Given a Lie group action of some Lie group $\mathcal{G}$ on some manifold $M$, i.e., $\rho : \mathcal{G} \rightarrow \mathrm{Aut}(M)$, one defines for all $p \in M$ the orbit map:
+Given a Lie group action of some Lie group $\mathcal{G}$ on some manifold $M$, i.e., $\rho : \mathcal{G} \rightarrow \operatorname{Aut}(M)$, one defines for all $p \in M$ the orbit map:
 \begin{align}
     \begin{aligned}
     \rho_p : \mathcal{G} &\longrightarrow M \\
     g &\longmapsto \rho(g)(p).
     \end{aligned}
 \end{align}
-This map is differentiable. For each element of the Lie algebra of $\mathcal{G}$ the pushforward of the orbit map at the identity of $\mathcal{G}$ yields a tangent vector at $p$ . Repeating this process for each $p \in M$ one obtains a vector field on $M$. It can then be shown that mapping each $\xi \in \mathrm{Lie}(\mathcal{G})$ to the negative of this vector field defines a morphism of Lie algebras $\mathrm{Lie}(\mathcal{G}) \rightarrow \Gamma(TM)$, i.e., a Lie algebra action of $\mathrm{Lie}(\mathcal{G})$ on $M$. For details see for instance \cite{libermann2012symplectic} and \cite{doi:10.1142/3867}.
+This map is differentiable. For each element of the Lie algebra of $\mathcal{G}$ the pushforward of the orbit map at the identity of $\mathcal{G}$ yields a tangent vector at $p$ . Repeating this process for each $p \in M$ one obtains a vector field on $M$. It can then be shown that mapping each $\xi \in \operatorname{Lie}(\mathcal{G})$ to the negative of this vector field defines a morphism of Lie algebras $\operatorname{Lie}(\mathcal{G}) \rightarrow \Gamma(TM)$, i.e., a Lie algebra action of $\operatorname{Lie}(\mathcal{G})$ on $M$. For details see for instance \cite{libermann2012symplectic} and \cite{doi:10.1142/3867}.
 Hence this procedure allows one to derive a Lie algebra action from a given Lie group action. Recall that we already have deduced how diffeomorphisms act on the field bundle $F$ and also on the jet bundles defined over it. Thus we can now use the construction outlined above to obtain from these actions of diffeomorphisms \textit{\textbf{Lie algebra morphisms}} that describe how infinitesimal diffeomorphisms act on these bundles.
 Note that, for the special case of the pullback action of diffeomorphism on tensor bundles $T^m_nM$ over $M$, given a $\xi \in \Gamma(TM)$ the induced action of the corresponding vector field on $T^m_nM$ on sections $G \in \Gamma(T^m_nM)$ is usually called the \textit{\textbf{Lie derivative}} and denoted by $G \mapsto \mathcal{L}_{\xi}G$. 
 
@@ -617,7 +617,7 @@ such an equivariant bundle map necessarily has to solve.
 This, of course, also applies to the special case of the bundle map in consideration being
 the Lagrangian of a diffeomorphism invariant field theory. 
 \begin{theorem}[equivariance equations]
-Let $(F,\pi_f,M)$ be the field bundle and $J^2F$ denote the second-order jet bundle over $F$. Furthermore let $(E, \pi_E, M)$ be a second bundle over $M$ with adapted coordinates $(x^m, u_{\tilde{A}})$ that carries an action of $\mathrm{Diff}(M)$ which is infinitesimally described by a Lie algebra morphism $\mathcal{e}: \Gamma(TM) \rightarrow \Gamma(TE)$ with coordinate expression $\mathcal{e}(\xi) = \xi^m \frac{\partial}{\partial x^m} + K_{\tilde{A}n}^{\tilde{B}m} u_{\tilde{B}} \partial_m \xi^n \frac{\partial}{\partial u_{\tilde{A}}}$. Assume that we are given a bundle morphism $f : J^2F \rightarrow E$ covering $id_M$ that is equivariant w.r.t. the lifted action of $\mathrm{Diff}(M)$ on $J^2F$ and the action $\mathcal{e}$ on $E$, then in coordinates $f^{\tilde{A}}$ satisfies the following set of linear first-order partial differential equations:
+Let $(F,\pi_f,M)$ be the field bundle and $J^2F$ denote the second-order jet bundle over $F$. Furthermore let $(E, \pi_E, M)$ be a second bundle over $M$ with adapted coordinates $(x^m, u_{\tilde{A}})$ that carries an action of $\operatorname{Diff}(M)$ which is infinitesimally described by a Lie algebra morphism $\mathcal{e}: \Gamma(TM) \rightarrow \Gamma(TE)$ with coordinate expression $\mathcal{e}(\xi) = \xi^m \frac{\partial}{\partial x^m} + K_{\tilde{A}n}^{\tilde{B}m} u_{\tilde{B}} \partial_m \xi^n \frac{\partial}{\partial u_{\tilde{A}}}$. Assume that we are given a bundle morphism $f : J^2F \rightarrow E$ covering $id_M$ that is equivariant w.r.t. the lifted action of $\operatorname{Diff}(M)$ on $J^2F$ and the action $\mathcal{e}$ on $E$, then in coordinates $f^{\tilde{A}}$ satisfies the following set of linear first-order partial differential equations:
 \begin{align}
 \begin{aligned}
     0 &= f^{\tilde{C}}_{:m} \\
@@ -655,7 +655,7 @@ We first solve the corresponding \textit{\textbf{invariance equation}}, the syst
 \begin{align}
     0 &= L_{scal}^{:A} C_{An}^{Bm} v_B + L_{scal}^{:Ap} \bigl[ C_{An}^{Bm} \delta_p^q - \delta_A^B \delta_m^n \bigr] v_{Bq} + L_{scal}^{:AI} \bigl[ C_{An}^{Bm} \delta_I^J - 2 \delta_A^B J_I^{pm} I^J_{pn}  \bigr] v_{BJ}.
 \end{align}
-A solution to this system describes a map $L_{scal}: J^2F \rightarrow \mathbb{R}$ that is invariant under diffeomorphisms, i.e., for all $\phi \in \mathrm{Diff}(M)$ it holds that:
+A solution to this system describes a map $L_{scal}: J^2F \rightarrow \mathbb{R}$ that is invariant under diffeomorphisms, i.e., for all $\phi \in \operatorname{Diff}(M)$ it holds that:
 \begin{align}
     L_{scal} \circ j^2(\phi) = L_{scal}.
 \end{align}
@@ -788,7 +788,7 @@ These maps define curves on $M$. They track the path of specific spatial point $
 \draw[-latex] (5.2,5.5) to (5,7.5); 
 \node at (5.75,7.25) {$\frac{\partial}{\partial t}\big \vert _{\phi_s(\lambda_2)}$};
 \end{tikzpicture} 
-\caption{Slicing of Spacetime into 3-dimensional Slices.}\label{Slicing}
+\caption[Slicing of Spacetime into 3-dimensional Slices.]{Slicing of a $3$-dimensional spacetime into $2$-dimensional slices; the figure shows the embedded hypersurfaces $\Sigma_{\lambda_1}$ and $\Sigma_{\lambda_2}$ and further displays the induced curve through $s \in \Sigma$, $\phi_s$ and its tangential vector $\frac{\partial}{\partial t}\big \vert _{\phi_s(\lambda_2)}$ at the spacetime point $\phi_s(\lambda_2)$.}\label{Slicing}
 \end{figure}
 Therefore each such curve provides us with tangential vectors along it. Using this we can define a vector field on $M$ by defining the value at $p \in M$ to be given by the tangential vector of the specific such curve that is passing through $p$:
 \begin{align}
@@ -797,11 +797,11 @@ Therefore each such curve provides us with tangential vectors along it. Using th
 One readily finds that $\frac{\partial}{\partial t}$ and $\mathrm{d}t$ are dual objects, i.e., $\mathrm{d}t(\frac{\partial}{\partial t}) = 1$ and hence the notation. In the following, we call $t$ time function, $\mathrm{d}t$ time differential and $\frac{\partial}{\partial t}$ time vector field.
 
 
-Given the fact that $\mathrm{d}t$ and $\frac{\partial}{\partial t}$ were obtained from the given slicing this immediately raises the question of how the time differential, time vector field, and all further objects that will subsequently be defined in terms of these, change under a change of slicing. If $\phi : \Sigma \times \mathbb{R} \rightarrow M $ and $\psi : \Sigma \times \mathbb{R} \rightarrow M$ are two slicings then we obtain a diffeomorphism on $M$ by taking $\psi \circ \phi^{-1}$. Conversely given a slicing $\phi$ any diffeomorphism $\rho \in \mathrm{Diff}(M)$ defines a second slicing by $\rho \circ \phi $. Hence changing the slicing is in one to one correspondence with diffeomorphisms on $M$. 
+Given the fact that $\mathrm{d}t$ and $\frac{\partial}{\partial t}$ were obtained from the given slicing this immediately raises the question of how the time differential, time vector field, and all further objects that will subsequently be defined in terms of these, change under a change of slicing. If $\phi : \Sigma \times \mathbb{R} \rightarrow M $ and $\psi : \Sigma \times \mathbb{R} \rightarrow M$ are two slicings then we obtain a diffeomorphism on $M$ by taking $\psi \circ \phi^{-1}$. Conversely given a slicing $\phi$ any diffeomorphism $\rho \in \operatorname{Diff}(M)$ defines a second slicing by $\rho \circ \phi $. Hence changing the slicing is in one to one correspondence with diffeomorphisms on $M$. 
 
 For the following considerations we quickly recall some basic operations of constructing new fiber bundles from given ones. One of such procedure is given by the pull back of a fiber bundle.
 \begin{definition}[pull back bundle]
-Given a bundle $(F,\pi_F,M)$ and a map $h: N \rightarrow M$, the pullback of the bundle $F$ along $h$ is the bundle over $N$ with total space $h^{\ast}F := \{ (n,f) \in N \times F \ \vert \  h(n) = \pi_F(f)\}$, and bundle projection $\pi_{h^{\ast}F}(n,f) = n$ (see \cite{doi:10.1142/3867}).
+Given a bundle $(F,\pi_F,M)$ and a map $h: N \rightarrow M$, the \textit{\textbf{pullback}} of the bundle $F$ along $h$ is the bundle over $N$ with total space $h^{\ast}F := \{ (n,f) \in N \times F \ \vert \  h(n) = \pi_F(f)\}$, and bundle projection $\pi_{h^{\ast}F}(n,f) = n$ (see \cite{doi:10.1142/3867}).
 \end{definition}
 \begin{remark}
 Note that this construction makes the map $\tilde{h}: f^{\ast}F \rightarrow F$ defined by $\tilde{h}(n,f) = f$ a bundle morphism covering $h$, i.e the following diagram commutes. 
@@ -819,17 +819,18 @@ Note that this construction makes the map $\tilde{h}: f^{\ast}F \rightarrow F$ d
 \end{center}
 \end{remark}
 
-We will further see a close connection between the product structure of a given manifold and an induced fiber wise direct sum decomposition of its tangential bundle. To that end, we lift the notion of direct sums from vector spaces to vector bundles and define the so-called Whitney sum (for details see the first chapter of \cite{nla.cat-vn705150} and also \cite{hilton_1952}).
+We will further see a close connection between the product structure of a given manifold and an induced fiber wise direct sum decomposition of its tangential bundle. To that end, we lift the notion of direct sums from vector spaces to vector bundles and define the so-called Whitney sum (for details see the first chapter of \cite{nla.cat-vn705150}, \cite{saunders_1989}, and also \cite{hilton_1952}).
 \begin{definition}[Whitney sum]
-Given two bundles $(F, \pi_F, M)$ and $(E, \pi_E, N)$, their product is the bundle with total space $F \times M$ base space $M \times N$ and projection $\pi_F \times \pi_E$. If additionally, $M = N$, we can pull back the product bundle $F \times E$ along the diagonal map $\Delta :M \rightarrow M \times M$, with $\Delta(p):= (p,p)$. The result is denoted as
+Given two bundles $(F, \pi_F, M)$ and $(E, \pi_E, N)$, their \textit{\textbf{product}} is the bundle with total space $F \times M$ base space $M \times N$ and projection $\pi_F \times \pi_E$. If additionally, $M = N$, we can pull back the product bundle $F \times E$ along the diagonal map $\Delta :M \rightarrow M \times M$, with $\Delta(p):= (p,p)$. The result is denoted as
 \begin{align}
-    E \otimes F := \Delta^{\ast}(E \times F)
+    E \oplus F := \Delta^{\ast}(E \times F)
 \end{align}
-and called the direct sum or Whitney sum of the two bundles $E$ and $F$. 
+and called the direct sum or \textbf{\textit{Whitney sum}} of the two bundles $E$ and $F$. 
 \end{definition}
 \begin{remark}
-Note that the fiber of $E \otimes F$ over $P \in M $ is then precisely given by the product $\pi_F^{-1}(p)\times\pi_{E}^{-1}(p)$. 
-Note that the Whitney sum only exists for bundles over the same base space as it relies on the existence of the diagonal map. 
+Note that the fiber of $E \oplus F$ over $P \in M $ is then precisely given by the product $\pi_F^{-1}(p)\times\pi_{E}^{-1}(p)$. 
+Further note that the Whitney sum only exists for bundles over the same base space $M$ as it relies on the existence of the diagonal map. 
+The Whitney sum is then carries essentially the same information as the product of the two bundles, but as a bundle over $M$ not over $M \times M$.
 When both $E$ and $F$ are vector bundles we can also give their Whitney sum the structure of a vector bundle. The bundle $E \oplus F$ is then exactly obtained the fiberwhise direct sum of $E$ and $F$.  
 \end{remark}
 
@@ -865,7 +866,7 @@ In particular, vector fields on $M$ can uniquely be \textit{\textbf{decomposed}}
 \draw[-latex] (0.8,0.4) -- node[pos=0.5, below] {$\boldsymbol{(\xi_{\parallel})_p}$} (4.2,0.4);
 \draw[dashed] (4.2,0.4) -- (5,2);
 \end{tikzpicture}
-\caption{Direct Sum Decompostion of Vectors.}\label{DecompPic}
+\caption[Direct Sum Decompostion of Vectors.]{The figure illustrates the direct sum decomposition of vectors $\xi_p \in T_pM$ into their tangential and vertical parts $(\xi_{\parallel})_p \in \mathcal{T}_pM$ and $(\xi_{\perp})_p \in \mathcal{V}_pM$ that is induced by the slicing. }\label{DecompPic}
 \end{figure}
 
 The vectors in $\mathcal{T}\Sigma$ satisfy: $\mathrm{d}t(\xi_{\parallel})=0$, the vectors in $\mathcal{V}\Sigma$ are parallel to $\frac{\partial}{\partial t}$  . Note that the direct sum split of $TM$ naturally induces a direct some split of the Lie algebra actions on $F$ and $J^1F$ (and also $J^2F$ if we worked on the second-order jet bundle) as the previously constructed Lie algebra morphisms (\ref{LieF}) and (\ref{LieJ1}) are in particular linear maps on the fibers of $TM$ and hence respect the direct sum structure.
@@ -1020,9 +1021,9 @@ The commutator algebra that is generated by the three commutation relations (\re
 
 With the observer definition presented in \cite{2018PhRvD..97h4036D}, \cite{2011PhRvD..83d4047R} and \cite{Rivera} the authors derive a hypersurface deformation algebra similar to the one obtained in the standard case but with the appearance of different field-dependent quantities in the commutator of two vertical vector fields. With the direct sum split of this observer definition, the first two commutators remain the same whereas the commutator of two vertical vector fields now reads:
 \begin{align}\label{PolyAlg}
-    \left[\mathcal{H}(N), \mathcal{H}(M) \right] = \left(\mathrm{deg}(\mathcal{P}_{\text{mat}}(v_A)) -1\right ) \cdot  \mathcal{D}_F\left(\mathcal{P}_{\text{mat}}(v_A)^{\mu \alpha}( N\partial_{\mu} M - M \partial_{\mu}N  ) \right),
+    \left[\mathcal{H}(N), \mathcal{H}(M) \right] = \left(\operatorname{deg}(\mathcal{P}_{\text{mat}}(v_A)) -1\right ) \cdot  \mathcal{D}_F\left(\mathcal{P}_{\text{mat}}(v_A)^{\mu \alpha}( N\partial_{\mu} M - M \partial_{\mu}N  ) \right),
 \end{align}
-where $\mathcal{P}_{\text{mat}}(v_A)^{\mu \alpha}$ is a quantity that is obtained from the \textit{\textbf{principal polynomial}} $\mathcal{P}_{\text{mat}}(v_A)$ of the underlying matter theory used as starting point and $\mathrm{deg}(\mathcal{P}_{\text{mat}}(v_A))$ denotes its polynomial degree. Also here the appearance of these field-dependent quantities in the commutation relation results from the field-dependent definition of the vertical vector field in terms of the observer notion that is used for the direct sum split.
+where $\mathcal{P}_{\text{mat}}(v_A)^{\mu \alpha}$ is a quantity that is obtained from the \textit{\textbf{principal polynomial}} $\mathcal{P}_{\text{mat}}(v_A)$ of the underlying matter theory used as starting point and $\operatorname{deg}(\mathcal{P}_{\text{mat}}(v_A))$ denotes its polynomial degree. Also here the appearance of these field-dependent quantities in the commutation relation results from the field-dependent definition of the vertical vector field in terms of the observer notion that is used for the direct sum split.
 \section{Constrained Hamiltonian Dynamics}\label{ConstrainedDyn}
 In the previous section, we have developed the necessary kinematic tools for the canonical treatment of field theories, mainly the notion of a slicing of the spacetime manifold and the associated split of the tangent bundle. With these tools at hand, we will now proceed with our analysis of diffeomorphism invariant field theories by constructing \textbf{\textit{Hamiltonian dynamics}} from a given Lagrangian.
 The diffeomorphism invariance of a given field theory will make its appearance in the Hamiltonian formulation by the form of \textit{\textbf{constraints}} on the conjugate momenta that will then force us to treat the system utilizing the techniques developed by Dirac to ensure consistency of Constrained Hamiltonian dynamics.
@@ -1039,11 +1040,12 @@ for this restriction. As the slicing provides us with a time vector field $\frac
 where we used the priorly derived coordinate expression in charts adapted to the slicing for the last equality. Similarly we define the time derivative for the restrictions of section to the hypersurface as $\dot{G}_{t_0}:= \dot{G} \vert_{\Sigma_{t_0}}$, i.e., the time derivative of restrictions is the restriction of the corresponding time derivative.
 
 The first step in our development of a Hamiltonian formulation of the given Lagrangian field theory consists of reexpressing the Lagrangian $\mathcal{L}(v_A,v_{Ap})$ not in terms of spacetime 1-jets of a given field but in terms of spatial jets, i.e., 3-dimensional 1-jets over $\Sigma_{t_0}$ of the field and its time derivative.
+In other words, we try to lift the decomposition of tangential vectors over $\Sigma_{t_0}$ that we derived from the slicing to a decomposition of the jet bundle. 
 
 To this end, we follow \cite{2004math.ph..11032G} and define the following map:
 \begin{align}
     \begin{aligned}
-    \beta_{t_0} : (J^1F)_{t_0} &\longrightarrow J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0} \\
+    \beta_{t_0} : (J^1F)_{t_0} &\longrightarrow J^1(F_{t_0}) \oplus (\mathcal{V}F)_{t_0} \\
     \beta_{t_0}((j^1_pG)_{t_0}) &\longmapsto (j^1_pG_{t_0}, (\dot{G}_{t_0})_p).
     \end{aligned}
 \end{align}
@@ -1067,14 +1069,14 @@ The map $\beta_{t_0}$ allows us now to decompose a spacetime 1-jet over $\Sigma_
 \begin{align}
     \beta_{t_0}\bigl ( (x^{\mu},(G_{t_0})_A, \partial_m(G_{t_0})_A) \big \vert_p \bigr ) = (x^{\mu},(G_{t_0})_A, \partial_{\mu}(G_{t_0})_A, (\dot{G}_{t_0})_A) \vert _p.
 \end{align}
-We denote adapted coordinates on $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ by $(x^{\mu}, v_A, v_{A{\mu}}, \dot{v}_A)$. It can now be shown that the map $\beta_{t_0}$ provides a bundle isomorphism (see \cite{2004math.ph..11032G}). Hence we can either work with spacetime 1-jets of sections over the embedded hypersurface or we work with spatial 1-jets of a section and its time derivative, $\beta_{t_0}$ and its inverse provide the identification of the two approaches.
+We denote adapted coordinates on $J^1(F_{t_0}) \oplus (\mathcal{V}F)_{t_0}$ by $(x^{\mu}, v_A, v_{A{\mu}}, \dot{v}_A)$. It can now be shown that the map $\beta_{t_0}$ provides a bundle isomorphism (see \cite{2004math.ph..11032G}). Hence we can either work with spacetime 1-jets of sections over the embedded hypersurface or we work with spatial 1-jets of a section and its time derivative, $\beta_{t_0}$ and its inverse provide the identification of the two approaches.
 
 In the following, we use the decomposition map $\beta_{t_0}$ to construct an equivalent version of the Lagrangian that is defined in terms of such spatial 1-jets and time derivatives. 
 \begin{definition}[time dependend Lagrangian]
 Given a Lagrangian $\mathcal{L} : J^1F \rightarrow \Lambda^4M$ and a slicing $\phi : \Sigma \times \mathbb{R} \rightarrow M$ with $\phi_{t_0}(\Sigma) = \Sigma_{t_0}$ we define the \textbf{\textit{time dependent Lagrangian}} at $t_0$ w.r.t. the slicing $\phi$ as:
 \begin{align}
 \begin{aligned}
-    \mathcal{L}_{t_0} &: J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0} \longrightarrow \Lambda^3\Sigma_{t_0}\\
+    \mathcal{L}_{t_0} &: J^1(F_{t_0}) \oplus (\mathcal{V}F)_{t_0} \longrightarrow \Lambda^3\Sigma_{t_0}\\
     \mathcal{L}_{t_0}(j^1pG_{t_0}, (\dot{G}_{t_0})_p) &:= i_{\Sigma_{t_0}}^{\ast} \bigl( \mathcal{L}\circ \beta_{t_0}^{-1}(j^1pG_{t_0}, (\dot{G}_{t_0})_p)(\frac{\partial}{\partial t},-)\bigr). 
 \end{aligned}
 \end{align}
@@ -1094,11 +1096,11 @@ Hence one can construct its dual by standard means and we can thus define the bu
 \end{align}
 Sections of this bundle provide at each $p \in \Sigma_{t_0}$ a $\Lambda^3_pM$-valued linear map on the fiber of $(\mathcal{V}F)_{t_0}$ over $p$.
 
-We are now going to use the given Lagrangian at time $t_0$, $\mathcal{L}_{t_0}$, to construct a bundle isomorphism between $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ and $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}^{\dagger}$ by means of the \textit{\textbf{fiber derivative}}. Details can be found in \cite{abraham2008foundations} and also \cite{FiberDer} for the standard case in particle mechanics and \cite{2000RpMP...45...67G} and \cite{AIF_1973__23_1_203_0} for a more sophisticated treatment.
-As the two bundles at use are in particular products of manifolds, they both define trivial bundles with base space $J^1(F_{t_0})$ and projection being the canonical projection onto the second factor that is provided by the product structure. We now define the fiber derivative w.r.t $\mathcal{L}_{t_0} = L_{t_0}\mathrm{d}^3x$ as bundle map:
+We are now going to use the given Lagrangian at time $t_0$, $\mathcal{L}_{t_0}$, to construct a bundle isomorphism between $J^1(F_{t_0}) \oplus (\mathcal{V}F)_{t_0}$ and $J^1(F_{t_0}) \oplus (\mathcal{V}F)_{t_0}^{\dagger}$ by means of the \textit{\textbf{fiber derivative}}. Details can be found in \cite{abraham2008foundations} and also \cite{FiberDer} for the standard case in particle mechanics and \cite{2000RpMP...45...67G} and \cite{AIF_1973__23_1_203_0} for a more sophisticated treatment.
+As the two bundles at use are in particular Whitney sums, they both define trivial bundles with base space $J^1(F_{t_0})$ and projection being the canonical projection onto the second factor that is provided by their underlying product structure. We now define the fiber derivative w.r.t $\mathcal{L}_{t_0} = L_{t_0}\mathrm{d}^3x$ as bundle map:
 \begin{align}
 \begin{aligned}
-    \mathcal{D}\mathcal{L}_{t_0} : J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0} &\longrightarrow J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}^{\dagger}\\
+    \mathcal{D}\mathcal{L}_{t_0} : J^1(F_{t_0}) \oplus (\mathcal{V}F)_{t_0} &\longrightarrow J^1(F_{t_0}) \oplus (\mathcal{V}F)_{t_0}^{\dagger}\\
     (j^1_pG_{t_0},(\dot{G}_{t_0})_p) &\longmapsto (j^1_pG_{t_0},\pi_{(G_{t_0})_p}), 
 \end{aligned}
 \end{align}
@@ -1106,7 +1108,7 @@ where:
 \begin{align}
 \pi_{(G_{t_0})_p}((\dot{\widetilde{G}}_{t_0})_p) := \frac{\partial L_{t_0}(j_p^1G_{t_0}, (\dot{G}_{t_0})_p+\lambda \cdot (\dot{\widetilde{G}}_{t_0})_p)}{\partial \lambda } \bigg \vert _{\lambda = 0}\mathrm{d}^3x.
 \end{align}
-Given adapted coordinates $(x^{\mu},v_A, v_{A\mu}, \dot{v}_A)$ on $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ we can construct adapted coordinates on $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}^{\dagger}$ by:
+Given adapted coordinates $(x^{\mu},v_A, v_{A\mu}, \dot{v}_A)$ on $J^1(F_{t_0}) \oplus (\mathcal{V}F)_{t_0}$ we can construct adapted coordinates on $J^1(F_{t_0}) \oplus (\mathcal{V}F)_{t_0}^{\dagger}$ by:
 \begin{align}
 (x^\mu,v_A,v_{A\mu},\pi^A\mathrm{d}^3x) \ \ \text{where} \ \ \pi^A := \frac{\partial L_{t_0}}{\partial \dot{v}_A}.
 \end{align}
@@ -1114,17 +1116,17 @@ In the following we call the thus introduced coordinates $\pi^A$ \textit{\textbf
 Using this, we obtain the \textit{\textbf{time dependent Hamiltonian}} as always by:
 \begin{align}\label{Ham}
 \begin{aligned}
-&\mathcal{H}_{t_0} : J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}^{\dagger} \longrightarrow \Lambda^3\Sigma_{t_0} \\
+&\mathcal{H}_{t_0} : J^1(F_{t_0}) \oplus (\mathcal{V}F)_{t_0}^{\dagger} \longrightarrow \Lambda^3\Sigma_{t_0} \\
     &\mathcal{H}_{t_0}(j^1_pG_{t_0},\pi_{(G_{t_0})_p}) = \pi_{(G_{t_0})_p}((\dot{G}_{t_0})_p) - \mathcal{L}_{t_0}(j^1_pG_{t_0},(\dot{G}_{t_0})_p). 
 \end{aligned}
 \end{align}
-Note that, just as the time dependent Lagrangian, the time-dependent Hamiltonian takes values in $\Lambda^3\Sigma_{t_0}$ and thus can be integrated once it is evaluated on a section of  $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}^{\dagger}$.
+Note that, just as the time dependent Lagrangian, the time-dependent Hamiltonian takes values in $\Lambda^3\Sigma_{t_0}$ and thus can be integrated once it is evaluated on a section of  $J^1(F_{t_0}) \oplus (\mathcal{V}F)_{t_0}^{\dagger}$.
 In adapted coordinates, we obtain the following expression for the time-dependent Hamiltonian:
 \begin{align}
     \mathcal{H}_{t_0}(x^\mu, v_A, v_{A\mu},\pi^A) = \pi^A \dot{v}_A \mathrm{d}^3x - L_{t_0}(x^\mu,v_A,v_{A\mu},\dot{v}_A) \mathrm{d}^3x = H_{t_0} \mathrm{d}^3x.
 \end{align}
 
-At this point, we would like to remark that the authors in \cite{2004math.ph..11032G} follow a slightly different route to nevertheless arrive at a similar expression for the Hamiltonian. They first integrate the Lagrangian evaluated for a given section of $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ over $\Sigma_{t_0}$ to define a functional on the space of such sections. Then the fiber derivative is taken with respect to this function to obtain the corresponding integrated version of the Hamiltonian as Legendre transform. 
+At this point, we would like to remark that the authors in \cite{2004math.ph..11032G} follow a slightly different route to nevertheless arrive at a similar expression for the Hamiltonian. They first integrate the Lagrangian evaluated for a given section of $J^1(F_{t_0}) \oplus (\mathcal{V}F)_{t_0}$ over $\Sigma_{t_0}$ to define a functional on the space of such sections. Then the fiber derivative is taken with respect to this function to obtain the corresponding integrated version of the Hamiltonian as Legendre transform. 
 Hence compared with the approach here they start working on the usual canonical phase space\footnote{One usually defines the canonical phase space at a given time $t_0$ as the space of all local sections of the canonical configuration bundle.} and therefore dealing with functionals earlier. 
 
 Although this is the standard approach, we decided to take an alternative route. The reason for this decision lies in our goal of deducing implications of the diffeomorphism invariance of a given Lagrangian on the corresponding Hamiltonian formulation. To be more precise, we are interested in the consequences of the PDE system (\ref{DiffeoEqn}) --- that such a Lagrangian then necessarily has to solve --- for the constructed Hamiltonian. In particular, we would like to make use of these PDEs for the Lagrangian when computing the time evolution a given Hamiltonian provides employing a yet to define Poisson structure. Just as it was the case for the Lagrangian picture, where we were able to avoid working on infinite dimensional spaces of sections we would then like to achieve something similar, i.e., avoid working on the canonical phase space and hence with functionals.
@@ -1134,13 +1136,13 @@ Furthermore, it is worth mentioning that here in our approach, the Legendre tran
 To proceed further, note that both $F_{t_0}$, and $(\mathcal{V}F)_{t_0}^{\dagger}$, define bundles over $\Sigma_{t_0}$. Hence we can construct their jet bundles of some given finite order $q$, $J^q(F_{t_0})$ and $J^q((\mathcal{V}F)_{t_0}^{\dagger})$. 
 We define for all $q>0$:
 \begin{align} 
-\mathcal{K}^q_{t_0} := J^q(F_{t_0})\times J^q((\mathcal{V}F)_{t_0}^{\dagger}),
+\mathcal{K}^q_{t_0} := J^q(F_{t_0})\oplus J^q((\mathcal{V}F)_{t_0}^{\dagger}),
 \end{align}
-and set $\mathcal{K}^0_{t_0} := F_{t_0}\times (\mathcal{V}F)_{t_0}^{\dagger}$.
+and set $\mathcal{K}^0_{t_0} := F_{t_0}\oplus (\mathcal{V}F)_{t_0}^{\dagger}$.
 In the following we will call $\mathcal{K}^q_{t_0}$ the \textit{\textbf{canonical configuration bundle}} at time parameter $t_0$. 
 
 \begin{remark}
-For the following considerations the appropriate setting would be the infinite jet bundle $\mathcal{K}^{\infty}_{t_0} := J^{\infty}(F_{t_0})\times j^{\infty}((\mathcal{V}F)_{t_0}^{\dagger})$ construction which can be obtained as limit of finite jet bundles $\mathcal{K}^q_{t_0}F$ (see for instance \cite{saunders_1989}). The reason for this is that certain operations such as taking \textit{\textbf{total}} and \textit{\textbf{variational derivatives}} increase the differential order of functions that are defined on $\mathcal{K}^{q}_{t_0}$.
+For the following considerations the appropriate setting would be the infinite jet bundle $\mathcal{K}^{\infty}_{t_0} := J^{\infty}(F_{t_0})\oplus j^{\infty}((\mathcal{V}F)_{t_0}^{\dagger})$ construction which can be obtained as limit of finite jet bundles $\mathcal{K}^q_{t_0}F$ (see for instance \cite{saunders_1989}). The reason for this is that certain operations such as taking \textit{\textbf{total}} and \textit{\textbf{variational derivatives}} increase the differential order of functions that are defined on $\mathcal{K}^{q}_{t_0}$.
 
 This subtlety does however not pose a problem for us as any function $f_q$ on $\mathcal{K}^q_{t_0}$ can be equivalently considered as a function that is defined on some higher-order jet bundle $\mathcal{K}^r_{t_0}$ with $r\geq q$ by using the canonical jet bundle projections $\pi_{r,q}$. In other words given such a function $f_q$ we might define an essentially equivalent function on $\mathcal{K}^r_{t_0}$ by $f_r:=f_q \circ \pi_{r,q}$. If $r$ is chosen large enough, we are then guaranteed that taking derivatives of $f_r$ does not leave the $r$th-order jet bundle. Hence we will simply assume that the order $q$ of the canonical configuration bundle $\mathcal{K}^q_{t_0}$ is chosen large enough s.t. all functions in use and all their total and variational derivatives, etc. can, by this identification, be considered as being defined on $\mathcal{K}^q_{t_0}$. 
 \end{remark}
@@ -1170,7 +1172,7 @@ Let $\mathcal{f},\mathcal{g} : \mathcal{K}^q_{t_0} \rightarrow \Lambda^3\Sigma_{
 Here $\frac{\delta}{\delta v_A}$ and $\frac{\delta}{\delta \pi^A}$ denote the variational derivatives as they are defined in (\ref{varDer}) in terms of the total derivative (for the definition see (\ref{totDer})) on $\mathcal{K}^q_{t_0}$:
 \begin{align}
     \begin{aligned}
-    \frac{\delta f}{\delta v_A} &= \frac{\partial f}{\partial v_A} - D_{\mu}(\frac{\partial f}{\partial V_{A\mu}}) + D_{\mu}D_{\nu} (\frac{\partial f}{\partial v_{A\mu\nu}}) - ... \\
+    \frac{\delta f}{\delta v_A} &= \frac{\partial f}{\partial v_A} - D_{\mu}(\frac{\partial f}{\partial v_{A\mu}}) + D_{\mu}D_{\nu} (\frac{\partial f}{\partial v_{A\mu\nu}}) - ... \\
     \frac{\delta f}{\delta \pi^A} &= \frac{\partial f}{\partial \pi^A} - D_{\mu}(\frac{\partial f}{\partial \pi^{A}_{\mu}}) + D_{\mu}D_{\nu} (\frac{\partial f}{\partial \pi^{A}_{\mu\nu}}) - ... \\
     D_\mu f &= \partial _\mu f + \frac{\partial f}{\partial v_A} v_{A\mu} + \frac{\partial f}{\partial \pi^A } \pi ^{A}_{ \mu} + \frac{\partial f}{\partial v_{A\nu}} v_{A\mu \nu} + \frac{\partial f}{\partial \pi^{A}_ {\nu}}\pi^{A}_{ \nu \mu} ... \ \ .
     \end{aligned}
@@ -1209,10 +1211,10 @@ where the product of $\Lambda^3\Sigma_{t_0}$-valued maps is defined by $f \mathr
 
 Our main goal in the following section will be to translate the PDE system (\ref{DiffeoEqn}) that is obtained from the diffeomorphism equivariance of the Lagrangian into a language that allows us to use the resulting equations in the formulation of Hamiltonian dynamics. To this end we chose adapted coordinates on $J^1F$ that additionally satisfy $x^0 = t$ and hence we find $\frac{\partial}{\partial t} = \frac{\partial}{\partial x^0}$ and $\dot{v}_A = v_{A0}$. 
 
-From the expression (\ref{LieJ1}) of the Lie algebra morphism $j^1(\mathcal{f})$ that lifts vector fields $\xi \in \Gamma(TM)$ to vector fields on $J^1F$ we then find that using the decomposition map $\beta_{t_0}$ the lift of vector fields to $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ reads:
+From the expression (\ref{LieJ1}) of the Lie algebra morphism $j^1(\mathcal{f})$ that lifts vector fields $\xi \in \Gamma(TM)$ to vector fields on $J^1F$ we then find that using the decomposition map $\beta_{t_0}$ the lift of vector fields to $J^1(F_{t_0}) \oplus (\mathcal{V}F)_{t_0}$ reads:
 \begin{align}\label{LieJ1Dec}
 \begin{aligned}
-    \xi_{J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}} = \ &\xi^m \frac{\partial}{\partial x^m} + C_{An}^{Bm} v_B \partial_{m} \xi ^n \frac{\partial}{\partial v_A}
+    \xi_{J^1(F_{t_0}) \oplus (\mathcal{V}F)_{t_0}} = \ &\xi^m \frac{\partial}{\partial x^m} + C_{An}^{Bm} v_B \partial_{m} \xi ^n \frac{\partial}{\partial v_A}
     + C_{An}^{Bm} \partial_{m} \xi^n v_{B\nu} \frac{\partial}{\partial v_{A\nu}}\\
     &+ C_{An}^{Bm} \partial_{m} \xi^n \dot{v}_{B} \frac{\partial}{\partial \dot{v}_A} - v_{A\nu} \partial_{\mu} \xi^{\nu} \frac{\partial}{\partial v_{A\mu}} 
      - v_{A\nu} \partial_{0} \xi^{\nu} \frac{\partial}{\partial \dot{v}_{A}} 
@@ -1224,7 +1226,7 @@ From the expression (\ref{LieJ1}) of the Lie algebra morphism $j^1(\mathcal{f})$
     + C_{An}^{B0} v_B \partial_{0} \partial_{0} \xi^n \frac{\partial}{\partial \dot{v}_{A}}.
 \end{aligned}
 \end{align}
-If a given Lagrangian on $J^1F$ is now diffeomorphism invariant from this action of vector fields on the space of functions on $J^1(F_{t_0}) \times (\mathcal{V}F)_{t_0}$ we obtain the following system of PDEs for the corresponding time-dependent Lagrangian with coordinate expression $\mathcal{L}_{t_0} = L_{t_0}\mathrm{d}^3x$:
+If a given Lagrangian on $J^1F$ is now diffeomorphism invariant from this action of vector fields on the space of functions on $J^1(F_{t_0}) \oplus (\mathcal{V}F)_{t_0}$ we obtain the following system of PDEs for the corresponding time-dependent Lagrangian with coordinate expression $\mathcal{L}_{t_0} = L_{t_0}\mathrm{d}^3x$:
 \begin{align}\label{diffeoHam}
     \begin{aligned}
     0 = &\partial_m L_{t_0} \\
