@@ -34,7 +34,7 @@ The formal theory of partial differential equations is phrased in terms of diffe
 
 An introduction to the formal theory of partial differential equations can be found in \cite{saunders_1989}. A comprehensive treatment is provided in \cite{seiler2009involution} were also deeper results regarding the algebraic and homological aspects of the formal PDE theory are included. We will especially follow along the lines of \cite{seiler1994analysis} as there the relevant notions are concisely described with just the right level of rigor that is necessary for our subsequent developments. We start by stating the needed definitions, most of which can be found in \cite{seiler1994analysis}.
 \begin{definition}[PDE]
-Let $(F,\pi_F,M)$ be a bundle and $J^qF$ the $q$th-order jet bundle over $F$. A $q$th-order PDE $R_q$ on $F$ is a  sub manifold of $J^qF$. A solution to a given PDE is a section $G \in \Gamma(F)$ s.t. the jet prolongation $j^q(G)$ lies entirely in $R_q$.  
+Let $(F,\pi_F,M)$ be a bundle and $J^qF$ the $q$th-order jet bundle over $F$. A $q$th-order PDE $R_q$ on $F$ is a  sub manifold of $J^qF$. A solution to a given PDE is a section $G \in \Gamma(F)$ s.t.\ the jet prolongation $j^q(G)$ lies entirely in $R_q$.  
 \end{definition}
 Sometimes one additionally requires $R_q$ to be fibered. Thereby, one ensures that the PDE poses no restrictions on the independent variables, i.e., the base space coordinates on $M$ (this version is for instance used in \cite{seiler1994analysis}).
 For many of the following computations, it is crucial to know the dimension of the jet bundle of order $q$ over a bundle $F$ with base space dimension $m$ and fiber dimension $n$:
@@ -53,7 +53,7 @@ the PDE is described by the individual component  equations:
 \begin{align}
     \Phi^{\tilde{B}}(x^a, v_A, v_{Ap},...v_{AI_q}) = 0.
 \end{align}
-Whenever we will work with such a representation of a PDE, w.l.o.g. we will always assume that the bundle morphism $\Phi^{\tilde{B}}$ is specified such that the individual component equations are really independent, i.e., the bundle morphism is non-degenerate. 
+Whenever we will work with such a representation of a PDE, w.l.o.g.\ we will always assume that the bundle morphism $\Phi^{\tilde{B}}$ is specified such that the individual component equations are really independent, i.e., the bundle morphism is non-degenerate. 
 
 Given such a representation of a PDE, we can apply the usual jet bundle operations to the individual component functions $\Phi^{\tilde{B}}$, i.e., we can \textit{\textbf{prolong}} them to higher derivative orders by taking the previously defined \textit{\textbf{total derivative}} of the representation $\Phi^{\tilde{B}}$ along any base space direction and we can use the jet bundle projections to \textit{\textbf{project}} them to any lower derivative order at wish. We denote the PDE that is described by the combined set of the given equations $\Phi^{\tilde{B}}=0$ and all possible prolongations $D_i\Phi^{\tilde{B}}=0$ by $R_{q+1} \subset J^{q+1}F$. Similarly we denote higher prolongations of a PDE by $R_{q+r}$. We call $R_{q+r}$ the \textit{\textbf{prolongation}} of $R_q$ to $(q+r)$th-order or short the $r$th prolongation of $R_q$. 
 
@@ -65,11 +65,11 @@ Consider the PDE on the first-order jet bundle over the trivial bundle $\mathbb{
                         u_y &= 0.
             \end{cases}
 \end{align}
-prolonging the first equation w.r.t. $y$, i.e., applying the total derivative: 
+prolonging the first equation w.r.t.\ $y$, i.e., applying the total derivative: 
 \begin{align}
 D_y = \partial_y + u_{xy} \cdot \partial_{u_x} + u_{yy} \cdot \partial_{u_y} + u_{yz} \cdot \partial_{u_z}
 \end{align}
-to it we obtain the equation $u_{yz} + y \cdot u_{xy} + u_x =0$. Prolonging the second equation w.r.t. $x$ and $z$, however, shows that all second-order derivatives in the newly obtained equation vanish and we are left with $u_x = 0$. Inserting this equation into the first equation we furthermore find $u_z = 0$. Hence, we find that the prolonged and projected system is given by: 
+to it we obtain the equation $u_{yz} + y \cdot u_{xy} + u_x =0$. Prolonging the second equation w.r.t.\ $x$ and $z$, however, shows that all second-order derivatives in the newly obtained equation vanish and we are left with $u_x = 0$. Inserting this equation into the first equation we furthermore find $u_z = 0$. Hence, we find that the prolonged and projected system is given by: 
 \begin{align}\label{prolo}
     R_1^{(1)} : \begin{cases} u_x = 0 \\
                         u_y = 0\\
@@ -79,7 +79,7 @@ to it we obtain the equation $u_{yz} + y \cdot u_{xy} + u_x =0$. Prolonging the 
 Note that the involved prolongations were mandatory to get this result; the additional equations in (\ref{prolo})  cannot be obtained by purely algebraic manipulations. 
 \end{example}
 Such additional independent equations that can only be obtained by prolonging to a higher-order and then projecting the PDE again to the previous order are called \textit{\textbf{integrability conditions}}. 
-Usually, they might be found by constructing a specific linear combination of prolonged equations and thereby eliminating appropriate terms that contain derivatives of leading order such that one ends up with an equation of sub-maximal derivative order. In our example, we prolonged the first equation w.r.t. $y$ and then subtracted the prolongation of the second equation w.r.t $x$ and $z$ to discard the second derivatives $u_{xy}$ and $u_{yz}$ respectively. 
+Usually, they might be found by constructing a specific linear combination of prolonged equations and thereby eliminating appropriate terms that contain derivatives of leading order such that one ends up with an equation of sub-maximal derivative order. In our example, we prolonged the first equation w.r.t.\ $y$ and then subtracted the prolongation of the second equation w.r.t $x$ and $z$ to discard the second derivatives $u_{xy}$ and $u_{yz}$ respectively. 
 
 If a PDE $R_q$ already contains all its integrability conditions, i.e., if for all $n\geq 0$ it holds that $R_{q+n}^{(1)} = R_{q+n}$ we call it \textit{\textbf{formally integrable}}.
 Formal integrability is of particular importance when computing \textbf{\textit{power series solutions}} to a given PDE. The essence of the computation of power series solutions is making a general power series ansatz with arbitrary expansion coefficients for the solution to the PDE and then, by successively inserting the ansatz into the PDE and all necessary prolongations, and evaluating the resulting equations at the expansion point, deriving linear equations for the expansion coefficients. 
@@ -197,7 +197,7 @@ The following formula relates the manifold dimension of the prolonged and projec
 
 Given this observation, we deduce that we can avoid the possible occurrence of integrability conditions entirely by performing only such prolongations that are certain not to produce rank defects in the prolonged symbol. Such prolongations obviously only constitute a subset of all possible prolongations and hence, in general, do not yield all independent equations of the prolonged PDE. In special cases, they, however, nevertheless contain at least the entire information about the highest derivative order equations in $R_{q+1}$.
 
-We follow \cite{seiler1994analysis} in introducing the \textit{\textbf{class}} of a \textit{\textbf{derivative index}} $I_k$. We label the coordinates of $M$ from $1$ to $m$ and call the label of a specific coordinate $x^j$ its class. The thus introduced notion class labels can be extended to higher derivative indices $I_k$, by defining the label of such an index as the according to the base space coordinate labeling, smallest $i$ s.t. there exist $j_2,...,j_k\geq i$ with $I^{I_k}_{ij_2...j_k} \neq 0$, i.e., the "smallest" base space derivative label that occurs in the higher derivative index $I_k$.
+We follow \cite{seiler1994analysis} in introducing the \textit{\textbf{class}} of a \textit{\textbf{derivative index}} $I_k$. We label the coordinates of $M$ from $1$ to $m$ and call the label of a specific coordinate $x^j$ its class. The thus introduced notion class labels can be extended to higher derivative indices $I_k$, by defining the label of such an index as the according to the base space coordinate labeling, smallest $i$ s.t.\ there exist $j_2,...,j_k\geq i$ with $I^{I_k}_{ij_2...j_k} \neq 0$, i.e., the "smallest" base space derivative label that occurs in the higher derivative index $I_k$.
 
 We proceed by sorting the columns of the solved symbol $M_q$ according to classes without demanding a particular order of the elements inside a given class, i.e., we sort the derivative indices with the largest possible class to the leftmost columns of the matrix and those belonging to the smallest class to its rightmost columns.
 The following considerations only involve linear algebra. Therefore, we are free to apply linear operations to the symbol $M_q$ to equivalently work with its reduced row-echelon form. We call the thus obtained row reduced symbol matrix the solved form of $M_q$. 
@@ -205,10 +205,10 @@ It is crucial that we only perform row-operations on the symbol, such that the c
 We call a row of $M_q$ with pivot\footnote{The pivot of a row is its first non-zero element.} belonging to a column of class $k$ a row of class $k$, and we denote the number of rows in $M_q$ that are of class $k$ by $\beta_q(k)$. Note that there is no deeper meaning to the class of a derivative index. We could, in particular, apply a simple change of coordinates on $J^qF$ to thoroughly mix up the class order. The reason why we nevertheless sort the columns of $M_q$ according to classes is that we will use this labeling to introduce a systematic way of computing all possible prolongations that are guaranteed not to produce rank defects in the symbol and therefore are also certainly free of integrability conditions.
 
 This can be achieved by proceeding as follows:
-Given an equation that corresponds to a row of class $k$, we only prolong it w.r.t. $D_j$ for  $j \leq k$. The corresponding independent variables $x^j$ where $j \leq k$ are then called the \textbf{\textit{multiplicative variables}} of this equation. If we proceed like this for the whole PDE, i.e., prolonging each equation only with respect to its multiplicative variables, we are guaranteed not to produce integrability conditions. All prolongations that are obtained in such a way will have distinct pivot elements in $M_{q+1}$ and hence are independent. Therefore, we get no rank defects in the prolonged symbol and hence no integrability conditions.
+Given an equation that corresponds to a row of class $k$, we only prolong it w.r.t.\ $D_j$ for  $j \leq k$. The corresponding independent variables $x^j$ where $j \leq k$ are then called the \textbf{\textit{multiplicative variables}} of this equation. If we proceed like this for the whole PDE, i.e., prolonging each equation only with respect to its multiplicative variables, we are guaranteed not to produce integrability conditions. All prolongations that are obtained in such a way will have distinct pivot elements in $M_{q+1}$ and hence are independent. Therefore, we get no rank defects in the prolonged symbol and hence no integrability conditions.
 
-For the above reason it would be particularly advantageous to be able to prolong the equations of a given PDE $R_q$ only w.r.t. to their multiplicative variables and nevertheless know that one obtains all independent equations of $R_{q+1}$ by doing so, as this would  guarantee that during the prolongation to order $q+1$ the PDE never generates integrability conditions that are of maximal order, i.e., of order $q+1$.
-Note that prolongations w.r.t. non-multiplicative multiplicative variables might nevertheless contribute independent equations, but these are then necessarily of lower order, i.e., these precisely are integrability conditions.
+For the above reason it would be particularly advantageous to be able to prolong the equations of a given PDE $R_q$ only w.r.t.\ to their multiplicative variables and nevertheless know that one obtains all independent equations of $R_{q+1}$ by doing so, as this would  guarantee that during the prolongation to order $q+1$ the PDE never generates integrability conditions that are of maximal order, i.e., of order $q+1$.
+Note that prolongations w.r.t.\ non-multiplicative multiplicative variables might nevertheless contribute independent equations, but these are then necessarily of lower order, i.e., these precisely are integrability conditions.
 In particular, \textit{\textbf{all}} non-multiplicative prolongations either are redundant or yield integrability conditions.
 The idea to distinguish PDEs $R_q$ for which all independent equations can be obtained by multiplicative prolongations only leads to the notation of an \textit{\textbf{involutive symbol}}. 
 \begin{definition}[involutive symbol]
@@ -224,8 +224,8 @@ We thus have to restrict to $\delta$-regular coordinates for the above definitio
 Hence, for concrete computations in principle, one would have to check that the chosen coordinates are $\delta$-regular.  We will however not be too much concerned by that restriction as in the future developments we will only have to deal with linear PDEs, and for such we will trivially obtain the maximum value of the sum from the dimension of the underlying space of independent variables, without ever having to introduce classes of derivative indices.
 \end{remark}
 Note that the sum of these beta numbers is a lower bound for the rank of the prolonged symbol $M_{q+1}$. $\sum_{k=1}^m \beta(k)$ is precisely the number of independent equations of order $q+1$ that can be obtained by prolongations with respect to multiplicative variables only.  
-Hence, for a PDE with an involutive symbol, we can obtain all independent equations of order $q+1$ by prolongations with respect to multiplicative variables only. Any prolongation w.r.t. a non-multiplicative variable then is necessary either redundant or of sub-maximal order $\geq q$ and produces integrability conditions. 
-Thus, if the symbol of a given PDE is involutive, for each equation, we can split the possible prolongations into two disjoint sets, those w.r.t. a multiplicative variable that are hence free of integrability conditions, and those w.r.t. a non-multiplicative variable which if the resulting equation is independent of the PDE must produce integrability conditions.
+Hence, for a PDE with an involutive symbol, we can obtain all independent equations of order $q+1$ by prolongations with respect to multiplicative variables only. Any prolongation w.r.t.\ a non-multiplicative variable then is necessary either redundant or of sub-maximal order $\geq q$ and produces integrability conditions. 
+Thus, if the symbol of a given PDE is involutive, for each equation, we can split the possible prolongations into two disjoint sets, those w.r.t.\ a multiplicative variable that are hence free of integrability conditions, and those w.r.t.\ a non-multiplicative variable which if the resulting equation is independent of the PDE must produce integrability conditions.
 
 There are further exciting properties of involutive symbols, most of which can be found in \cite{seiler2009involution} and \cite{seiler2009involution}. It is also worth noting that the idea of analyzing the generation of integrability conditions along the lines presented above can be traced back to early works of Janet \cite{janet1920systemes}, \cite{MSM_1927__21__1_0} and Riquier \cite{Riquier} in the context of Janet-Riquier theory.
 
@@ -290,7 +290,7 @@ Here we reordered the rows and removed all zero-rows. The rank of matrix $M_2$ c
 \end{example}
 
 The involution of the symbol of a PDE is of particular importance as it allows for an efficient criterion whether or not the given PDE if formally integrable, i.e., whether or not it generates integrability conditions during its prolongations.
-The basic idea is to distinguish the special class of PDEs $R_q$, for which all equations contained in the prolongation $R_{q+1}$ can be reached by prolongations w.r.t. multiplicative variables only. As such multiplicative prolongations are free of integrability conditions, we then know fur sure that the system does not produce integrability conditions during the prolongation to order $q+1$. The astonishing fact, however, is that this then holds also true for all further prolongations, the PDE is then, in fact, formally integrable. 
+The basic idea is to distinguish the special class of PDEs $R_q$, for which all equations contained in the prolongation $R_{q+1}$ can be reached by prolongations w.r.t.\ multiplicative variables only. As such multiplicative prolongations are free of integrability conditions, we then know fur sure that the system does not produce integrability conditions during the prolongation to order $q+1$. The astonishing fact, however, is that this then holds also true for all further prolongations, the PDE is then, in fact, formally integrable. 
 If a PDE does not only feature an involutive symbol, but further also is formally integrable, we call the \textit{\textbf{PDE involutive}}.
 \begin{definition}[involutive PDE] \label{invol}
 We call a PDE $R_q$ involutive if it is formally integrable and its symbol $M_q$ is involutive.
@@ -320,7 +320,7 @@ Looking at the definition of an involutive PDE we have to proof that the assumpt
 \end{align}
 which completes the proof. 
 \end{proof}
-Hence, to proof involution of a given PDE, which in  particular compromises formal integrability, we only have to proof the involution of the symbol ---which only encompasses standard linear algebra--- and then check whether one further prolongation and projection reveals integrability conditions. Therefore, in concrete applications we proceed as follows: We first compute the symbol $M_q$ and its prolongation to check whether $M_q$ meets the requirement: 
+Hence, to proof involution of a given PDE, which in  particular compromises formal integrability, we only have to proof the involution of the symbol --- which only encompasses standard linear algebra --- and then check whether one further prolongation and projection reveals integrability conditions. Therefore, in concrete applications we proceed as follows: We first compute the symbol $M_q$ and its prolongation to check whether $M_q$ meets the requirement: 
 \begin{align}
         \sum_{k=1}^m k\beta_q(k) = \operatorname{rank}(M_{q+1}).
 \end{align}
@@ -436,7 +436,7 @@ Hence, due to the diffeomorphism symmetry, there exist $4$ independent vectors:
 \begin{align}
    \chi_{An}(k_a) =  C_{An}^{Cm}v_Ck_m
 \end{align}
-that are in the kernel of the principal symbol and $T^{AB}(k)$ is not injective but as a 4-dimensional rank defect\footnote{Note that this is closely related to the previous $4$ constraints that any diffeomorphism invariant field theory necessarily contains amongst its EOM (see chapter \ref{ConstrainedDyn}).}. To compensate for that, we have to require the 1-form $k_a$ to be given s.t. $T^{AB}(k_a)$ is not only non-injective but has at least a 5-dimensional kernel. Then there necessarily exists at least a one dimensional subspace in this kernel of $T^{AB}(k_a)$ that is not gauge-equivalent to the trivial solution $a_A(x^m) = 0$. Hence, $k_a$ represents the wave covector of a physically non-trivial wave solution to the PDE (at least in the $\lambda \rightarrow 0$ limit).
+that are in the kernel of the principal symbol and $T^{AB}(k)$ is not injective but as a 4-dimensional rank defect\footnote{Note that this is closely related to the previous $4$ constraints that any diffeomorphism invariant field theory necessarily contains amongst its EOM (see chapter \ref{ConstrainedDyn}).}. To compensate for that, we have to require the 1-form $k_a$ to be given s.t.\ $T^{AB}(k_a)$ is not only non-injective but has at least a 5-dimensional kernel. Then there necessarily exists at least a one dimensional subspace in this kernel of $T^{AB}(k_a)$ that is not gauge-equivalent to the trivial solution $a_A(x^m) = 0$. Hence, $k_a$ represents the wave covector of a physically non-trivial wave solution to the PDE (at least in the $\lambda \rightarrow 0$ limit).
 
 The condition of having at least a $5$ dimensional kernel of the principal symbol can be expressed more formally by requiring that its adjunct matrix of order $4$ vanishes. Given the $n \times n$ matrix $T^{AB}(k_a)$, its adjunct matrix of order $4$ is the $\binom{n}{4} \times \binom{n}{4}$ square matrix that has entries equal to the order $4$ sub determinants of $T^{AB}(k_a)$:
 \begin{align}\label{MinorDef}
@@ -480,17 +480,17 @@ As explained in \cite{Rivera}, this should really be a fundamental requirement f
 Before we can finally explore the implications of a well-posed initial value problem on the corresponding principal polynomial, we quickly recall the following definition of a hyperbolic polynomial. For further information regarding hyperbolic polynomials see also (\cite{2012arXiv1212.6696K} and \cite{Bauschke98hyperbolicpolynomials}).
 \begin{definition}[hyperbolic polynomial]
 Let $\mathbb{R}[x]$ denote the ring of polynomials in the variables $(x^1,...,x^d)$ with real coefficients.
-A homogeneous degree $d$ polynomial $P \in \mathbb{R}[x]$ is called hyperbolic w.r.t. $h\in \mathbb{R}^d$ with $P(h) \neq 0$ if for all $t\in \mathbb{R}^d$, the univariat polynomial
+A homogeneous degree $d$ polynomial $P \in \mathbb{R}[x]$ is called hyperbolic w.r.t.\ $h\in \mathbb{R}^d$ with $P(h) \neq 0$ if for all $t\in \mathbb{R}^d$, the univariat polynomial
 $P(t + \lambda h) \in \mathbb{R}[\lambda]$ has only real roots, i.e.,
 the equation $P(t + \lambda h)=0$ only has real solutions $\lambda \in \mathbb{R}$.
 \end{definition}
-If a given polynomial $P \in \mathbb{R}[x]$ is hyperbolic and hence, we find such $h\in \mathbb{R}^d$ one actually readily obtains further $\tilde{h}\in \mathbb{R}^d$, such that $P$ is hyperbolic w.r.t. those $\tilde{h}$, as well. In fact one can show (see for instance \cite{Rivera} and \cite{10.2307/24900665}) that $P$ is then also hyperbolic w.r.t any: 
+If a given polynomial $P \in \mathbb{R}[x]$ is hyperbolic and hence, we find such $h\in \mathbb{R}^d$ one actually readily obtains further $\tilde{h}\in \mathbb{R}^d$, such that $P$ is hyperbolic w.r.t.\ those $\tilde{h}$, as well. In fact one can show (see for instance \cite{Rivera} and \cite{10.2307/24900665}) that $P$ is then also hyperbolic w.r.t any: 
 \begin{align}
     C(P,h) := \{ \tilde{h} \in \mathbb{R}^d \ \vert \ P(\tilde{h}- \lambda h) = 0 \implies \lambda > 0\}.
 \end{align}
 We call $C(P,h)$ the \textbf{\textit{hyperbolicity cone}} of $P$, containing $h$. One can also show that $C(P,h)$ indeed constitutes an open and convex cone \cite{10.2307/24900665}.
 
-The set of hyperbolic directions $h\in \mathbb{R}^d$ of a given hyperbolic polynomial $P$ might very well be composed of several connected components. For instance, one can readily show that whenever $P$ is hyperbolic w.r.t. $h\in \mathbb{R}^d$ it necessarily is also hyperbolic w.r.t. $-h$. For further developments, we will thus select one connected component of the set of such hyperbolic directions, and subsequently call it the hyperbolicity cone of $P$: $C(P)$. We will later comment on the deeper physical meaning that such a choice of hyperbolicity cone provides.
+The set of hyperbolic directions $h\in \mathbb{R}^d$ of a given hyperbolic polynomial $P$ might very well be composed of several connected components. For instance, one can readily show that whenever $P$ is hyperbolic w.r.t.\ $h\in \mathbb{R}^d$ it necessarily is also hyperbolic w.r.t.\ $-h$. For further developments, we will thus select one connected component of the set of such hyperbolic directions, and subsequently call it the hyperbolicity cone of $P$: $C(P)$. We will later comment on the deeper physical meaning that such a choice of hyperbolicity cone provides.
 
 The notion of hyperbolic polynomials and the corresponding hyperbolicity cones is best illustrated by a picture (figure \ref{Poly}). 
 \begin{figure}
@@ -555,17 +555,17 @@ The notion of hyperbolic polynomials and the corresponding hyperbolicity cones i
     \caption[Hyperbolic Polynomials of Degree $4$.]{Vanishing sets $V_p$, $\widetilde{V}_p$ and hyperbolicity cones $C_p$, $\widetilde{C}_p$ of two hyperbolic polynomials of degree $4$; in both cases the vanishing sets are given as union of the individual vanishing sets, i.e., the cone surfaces $V_p = V_p^{(1)} \cup V_p^{(2)}$, $\widetilde{V} = \widetilde{V}_p^{(1)} \cup \widetilde{V}_p^{(2)}$, the hyperbolicity cones are provided by the intersection of the individual hyperbolicity cones $C_p = C_p^{(1)} \cap C_p^{(2)}$,  $\widetilde{C}_p = \widetilde{C}_p^{(1)} \cap \widetilde{C}_p^{(2)}$.}
     \label{Poly}
 \end{figure}
-One can now also see the underlying geometric interpretation of  hyperbolic directions  $h\in \mathbb{R}^d$ for a given polynomial $P$. If $P$ is hyperbolic w.r.t. $h$ then any affine line in direction $h$ intersects $\operatorname{deg}(P) = d$ times with the vanishing set $V(P)$.
+One can now also see the underlying geometric interpretation of  hyperbolic directions  $h\in \mathbb{R}^d$ for a given polynomial $P$. If $P$ is hyperbolic w.r.t.\ $h$ then any affine line in direction $h$ intersects $\operatorname{deg}(P) = d$ times with the vanishing set $V(P)$.
 
 Finally, we can state the connection between hyperbolic polynomials and the well-posedness of the Cauchy problem.
 \begin{theorem}
-If the Cauchy problem of a given PDE is well-posed in a region of $M$, then the principal polynomial necessarily restricts to a hyperbolic polynomial on $T_p^{\ast}M$ for every $p$ contained in that region. Furthermore, exactly those hypersurfaces that have at every point a conormal which is hyperbolic w.r.t. $\mathcal{P}$ are admissible \textit{\textbf{initial data hypersurfaces}}, i.e., serve the purpose of specifying initial data.
+If the Cauchy problem of a given PDE is well-posed in a region of $M$, then the principal polynomial necessarily restricts to a hyperbolic polynomial on $T_p^{\ast}M$ for every $p$ contained in that region. Furthermore, exactly those hypersurfaces that have at every point a conormal which is hyperbolic w.r.t.\ $\mathcal{P}$ are admissible \textit{\textbf{initial data hypersurfaces}}, i.e., serve the purpose of specifying initial data.
 \end{theorem}
 \begin{proof}
 The proof can be found in \cite{Hormander1977}\footnote{Much information is also contained in Hörmander's book series on partial differential equations (\cite{hormander1994analysis}, \cite{hormander2004analysis}, \cite{hormander2009analysis}, and \cite{hormander2015analysis}).} and also in \cite{Ivrii_1974}. 
 \end{proof}
 In the following, we proceed as before and select at each spacetime point a connected component of the set of hyperbolic covectors that is encoded by $\mathcal{P}$. We denote the thus provided hyperbolicity cone of the principal polynomial $\mathcal{P}$ at $p \in M$ as $C_p(\mathcal{P}) \subset T_p^{\ast}M$.
-Moreover, we require that the choice of hyperbolicity cone varies smoothly w.r.t. the individual spacetime points, i.e., it is made in such a way that the following map:
+Moreover, we require that the choice of hyperbolicity cone varies smoothly w.r.t.\ the individual spacetime points, i.e., it is made in such a way that the following map:
 \begin{align}
 \begin{aligned}
 \pi_{\mathcal{P}}: \{ C_p(\mathcal{P}) \ \vert \ p \in M\}=: C(\mathcal{P}) &\longrightarrow M\\
@@ -577,7 +577,7 @@ Choosing such a hyperbolicity cone at each spacetime point distinguishes a speci
 The distribution of tangent space cones then encodes feasible future directions at the particular spacetime points.
 Thus, in conclusion,  the choice of hyperbolicity cones endows the spacetime manifold $M$ with a \textit{\textbf{time orientation}} (cf. \cite{2012arXiv1211.1914K} and \cite{Rivera}).
 
-In total, we can sum up the situation as follows: If we are given a predictive PDE ---in the sense that there exist hypersurfaces such that the corresponding Cauchy problem is well-posed--- then we can calculate the principal polynomial of this PDE. This principal polynomial is then necessarily hyperbolic. As shown above, the zero variety of the principal polynomial describes the propagation of waves in the infinite frequency limit. Furthermore, from the principal polynomial, we can compute the hyperbolicity cones. These then precisely encode the admissible initial data hypersurface of the given PDE.
+In total, we can sum up the situation as follows: If we are given a predictive PDE --- in the sense that there exist hypersurfaces such that the corresponding Cauchy problem is well-posed --- then we can calculate the principal polynomial of this PDE. This principal polynomial is then necessarily hyperbolic. As shown above, the zero variety of the principal polynomial describes the propagation of waves in the infinite frequency limit. Furthermore, from the principal polynomial, we can compute the hyperbolicity cones. These then precisely encode the admissible initial data hypersurface of the given PDE.
 
 The above consideration immediately opens up a problem that we are going to outline in the following. During the first chapter of this thesis, we developed the necessary techniques that allowed us to phrase the requirement of diffeomorphism invariance in terms of a linear, first-order PDE. Given a particular spacetime geometry, i.e., given a field bundle $F_{\text{grav}}$, computing solutions to the corresponding equivariance equation (\ref{DiffeoEqn}) would yield a diffeomorphism invariant theory of gravity described by a Lagrangian for the gravitational field and the corresponding gravitational EOM.
 If the theory of gravity is additionally required to be predictive, then the corresponding gravitational principal polynomial $\mathcal{P}_{\text{grav}}$ is hyperbolic.
@@ -590,7 +590,7 @@ As before, gravitational Lagrangian is given by a bundle map:
 \begin{align}
     \mathcal{L}_{\text{grav}} : J^2F_{\text{grav}} \longrightarrow \Lambda^4M
 \end{align}
-Where $F_{\text{grav}}$ is the gravitational field bundle. Additionally we now also have a matter field described by a Lagrangian that depends on the values of the matter field and its first derivatives\footnote{We might also here consider the case where the Lagrangian also depends on second derivatives of the matter field and is thus required to be degenerate s.t. the matter EOM are again of second derivative order, but for simplicity, we restrict to first-order matter Lagrangians.}, but also exploits the spacetime geometry provided by the gravitational field. 
+Where $F_{\text{grav}}$ is the gravitational field bundle. Additionally we now also have a matter field described by a Lagrangian that depends on the values of the matter field and its first derivatives\footnote{We might also here consider the case where the Lagrangian also depends on second derivatives of the matter field and is thus required to be degenerate s.t.\ the matter EOM are again of second derivative order, but for simplicity, we restrict to first-order matter Lagrangians.}, but also exploits the spacetime geometry provided by the gravitational field. 
 We introduce an additional vector bundle $F_{\text{mat}} \subset T^{\tilde{m}}_{\tilde{n}}M$.
 Thus, the matter Lagrangian is a bundle map
 \begin{align}
@@ -603,7 +603,7 @@ where $F_{\text{mat}}$ is called the matter field bundle. In the following, we w
     \mathcal{L}_{\text{tot}} &= \mathcal{L}_{\text{grav}} + \mathcal{L}_{\text{mat}}.
 \end{aligned}
 \end{align}
-We now get two sets of EOM one from taking the variational derivative of $\mathcal{L}_{\text{tot}}$ w.r.t the gravitational field bundle coordinates, i.e., the gravitational EOM and one from taking the variational derivative w.r.t. the matter field bundle coordinates $\phi^{\tilde{A}}$, the matter EOM.
+We now get two sets of EOM one from taking the variational derivative of $\mathcal{L}_{\text{tot}}$ w.r.t the gravitational field bundle coordinates, i.e., the gravitational EOM and one from taking the variational derivative w.r.t.\ the matter field bundle coordinates $\phi^{\tilde{A}}$, the matter EOM.
 The gravitational EOM now feature an inhomogeneous term that describes how matter sources the gravitational field.
 \begin{align}
     0 = \frac{\delta \mathcal{L}_{\text{tot}}}{\delta v_A} = \frac{\delta \mathcal{L}_{\text{grav}}}{\delta v_A} + \frac{\delta \mathcal{L}_{\text{mat}}}{\delta v_A}.
@@ -658,7 +658,7 @@ Solve the equivariance equations (\ref{DiffeoEqn}) to obtain the most general di
 Compute the EOM $\frac{\delta L_{\text{grav}}}{\delta v_A}$.\\
 Consider the most general subtheory that has 2nd-order EOM.\\
 Calculate the principal polynomials $\mathcal{P}_{\text{grav}}$ and $\mathcal{P}_{\text{mat}}$.\\
-Determine the arbitrary quantities in $L_{\text{grav}}$ s.t. for all $p \in M$ : $V_{p,grav} = V_{p,mat}.$
+Determine the arbitrary quantities in $L_{\text{grav}}$ s.t.\ for all $p \in M$ : $V_{p,grav} = V_{p,mat}.$
  \caption{Construction of Gravitational Lagrangian}\label{Algo1}
 \end{algorithm}
 
@@ -680,7 +680,7 @@ We have already gathered the necessary techniques that allow us to construct per
 \begin{align}
 \mathcal{L} : J^2F \longrightarrow \Gamma^4M.
 \end{align}
-We construct the bundle $J^2F \oplus \Lambda^4M$, with base space $J^2F$ and fiber over $j^2_pG \in J^2F$ given by $\Lambda^4_pM$. Note that $J^2F \oplus \Lambda^4M$ could also be made into a bundle over $M$ --- this is what one considers most of the time when constructing the Whitney sum of budles--- here, however, we define the projection as:
+We construct the bundle $J^2F \oplus \Lambda^4M$, with base space $J^2F$ and fiber over $j^2_pG \in J^2F$ given by $\Lambda^4_pM$. Note that $J^2F \oplus \Lambda^4M$ could also be made into a bundle over $M$ --- this is what one considers most of the time when constructing the Whitney sum of bundles --- here, however, we define the projection as:
 \begin{align}
     \begin{aligned}
      \pi_{J^2F \oplus \Lambda^4M} : J^2F \oplus \Lambda^4M &\longrightarrow J^2F \\
@@ -728,7 +728,7 @@ The first step in proving involution of the symbol is computing the sum of beta 
 \end{align}
 $n$ being as before the fiber dimension of $F$. 
 In the following, we are going to assume that $\operatorname{dim}(J^2F)$ is bigger than the number of independent equations in (\ref{DiffeoEqnFormal}) which is given by 140 as otherwise, in general, there will not exist solutions in the first place. 
-The maximum value for the sum of betas is obtained when we transform the coordinates on $J^2F$ s.t. the first equation is solved w.r.t. the derivative coordinate with maximal class $\mathcal{k}$ and the $i$th equation is solved w.r.t. the derivative coordinate of class $\mathcal{k}-i$ such that the last equation is solved w.r.t. the derivative coordinate of class $\mathcal{k}-139$.
+The maximum value for the sum of betas is obtained when we transform the coordinates on $J^2F$ s.t.\ the first equation is solved w.r.t.\ the derivative coordinate with maximal class $\mathcal{k}$ and the $i$th equation is solved w.r.t.\ the derivative coordinate of class $\mathcal{k}-i$ such that the last equation is solved w.r.t.\ the derivative coordinate of class $\mathcal{k}-139$.
 Note that this immediately renders the symbol in solved form.
 To simplify the notation in the following we briefly denote coordinates on $J^2F$ that bring the symbol to this form by $y_a$ for $a = 1,...,\mathcal{k}$, where the ordering is taken as $y_{\sigma} < y_{\tau}$ for $\sigma < \tau$. Moreover, we denote the corresponding derivative coordinates by $l_{\sigma}$. 
 Note that such coordinates always exist. 
@@ -750,19 +750,19 @@ for some $a^{\alpha}_{\tau}$ that are functions on $J^2F$ . The sum of betas can
 \begin{align}
     \sum_{i=1}^{\mathcal{k}} i \beta_1(i) = \sum_{i = 0}^{139} \mathcal{k} - i .
 \end{align}
-We now have to show that this equals the rank of the prolonged symbol $M_2$. By previous arguments, this is the case if we obtain all equations of $2$nd derivative order by prolongations w.r.t. multiplicative variables only. We again consider the symbol solved to the form given by matrix (\ref{symbolMat}). 
+We now have to show that this equals the rank of the prolonged symbol $M_2$. By previous arguments, this is the case if we obtain all equations of $2$nd derivative order by prolongations w.r.t.\ multiplicative variables only. We again consider the symbol solved to the form given by matrix (\ref{symbolMat}). 
 We take an arbitrary row $\sigma$, for $\sigma=1,...,140$, and consider the corresponding equation $E_{\sigma}$. The multiplicative variables of this $\sigma$th equation are $y_1,...,y_{\operatorname{cls}(\sigma)}$ where we introduced: 
 \begin{align}
 \operatorname{cls}(\sigma):= \mathcal{k} - \sigma +1.
 \end{align}
 In other words $\operatorname{cls}$ returns the class of a given row
-We now show that prolonging this equation w.r.t. an arbitrary non-multiplicative variable $y_b$ for $b>\operatorname{cls}(\sigma)$ yields no additional independent contribution to the prolonged symbol. This is achieved by showing that we can add prolongations w.r.t. multiplicative variables to such a non-multiplicative prolongation $D_bE_{\sigma}$ and thereby obtain an equation of first derivative order which is thus not present in $M_2$. Note that in the matrix (\ref{symbolMat}) multiplicative variables of a given row are exactly those corresponding to the columns that are right to the normalized pivot elements (including these) and thus contain the functions $a^{\alpha}_{\tau}$. Non-multiplicative variables correspond to the columns left to the pivots that hence contain only zeros.
+We now show that prolonging this equation w.r.t.\ an arbitrary non-multiplicative variable $y_b$ for $b>\operatorname{cls}(\sigma)$ yields no additional independent contribution to the prolonged symbol. This is achieved by showing that we can add prolongations w.r.t.\ multiplicative variables to such a non-multiplicative prolongation $D_bE_{\sigma}$ and thereby obtain an equation of first derivative order which is thus not present in $M_2$. Note that in the matrix (\ref{symbolMat}) multiplicative variables of a given row are exactly those corresponding to the columns that are right to the normalized pivot elements (including these) and thus contain the functions $a^{\alpha}_{\tau}$. Non-multiplicative variables correspond to the columns left to the pivots that hence contain only zeros.
 
-Prolonging $E_{\sigma}$ w.r.t. such a $y_b$, i.e., computing $D_bE_{\sigma}$ we get second-order derivatives of the form $y_{bc}$ for $c < \operatorname{cls}(\sigma)$, where $y_c$ is multiplicative for $E_{\sigma}$. Considering a particular such $c$ as an example, we can now get rid of this second-order derivative contribution by utilizing the equation with pivot of class $b$. As $b>c$ such an equation necessarily exists; this can easily be seen from the upper triangular structure of the solved symbol. More precisely this equation is explicitly given by $E_{\operatorname{cls}(b)}$.
-Since $c<b$, $y_c$ is multiplicative for $E_{\operatorname{cls}(b)}$. We prolong $E_{\operatorname{cls}(b)}$ w.r.t. $y_c$, scale it appropriately, by the negative of the coefficient of $l_{bc}$ in the previously computed non-multiplicative prolongation $D_bE_{\sigma}$ and add it to this equation. Doing so we remove the entire contribution from $y_{bc}$. Similarly, one can get rid of all further second derivative contributions contained in $D_bE_{\sigma}$. In total we therefore see that we can add multiplicative prolongations to remove the whole second derivative order of such a non-multiplicative prolongation $D_bE_{\sigma}$.
+Prolonging $E_{\sigma}$ w.r.t.\ such a $y_b$, i.e., computing $D_bE_{\sigma}$ we get second-order derivatives of the form $y_{bc}$ for $c < \operatorname{cls}(\sigma)$, where $y_c$ is multiplicative for $E_{\sigma}$. Considering a particular such $c$ as an example, we can now get rid of this second-order derivative contribution by utilizing the equation with pivot of class $b$. As $b>c$ such an equation necessarily exists; this can easily be seen from the upper triangular structure of the solved symbol. More precisely this equation is explicitly given by $E_{\operatorname{cls}(b)}$.
+Since $c<b$, $y_c$ is multiplicative for $E_{\operatorname{cls}(b)}$. We prolong $E_{\operatorname{cls}(b)}$ w.r.t.\ $y_c$, scale it appropriately, by the negative of the coefficient of $l_{bc}$ in the previously computed non-multiplicative prolongation $D_bE_{\sigma}$ and add it to this equation. Doing so we remove the entire contribution from $y_{bc}$. Similarly, one can get rid of all further second derivative contributions contained in $D_bE_{\sigma}$. In total we therefore see that we can add multiplicative prolongations to remove the whole second derivative order of such a non-multiplicative prolongation $D_bE_{\sigma}$.
 Hence, any non-multiplicative prolongation does not contribute an independent new second-derivative-order equation to the prolonged symbol $M_2$ and the symbol. The symbol is, therefore, involutive. 
 
-To proof that not only the symbol but also the PDE (\ref{DiffeoEqnFormal}) itself is involutive, we have to show that the PDE generates no integrability conditions after one prolongation. We have already discussed that prolonging each equation only w.r.t. its multiplicative variables never produces integrability conditions. Furthermore, we have just shown that any prolongation w.r.t. non-multiplicative variables can be reduced to first derivative order by adding further multiplicative prolongations in the way it is outlined above. Hence, the question is if the first-derivative-order contributions that we get from such a procedure are already included in $R_1$ or contribute additional independent equations. 
+To proof that not only the symbol but also the PDE (\ref{DiffeoEqnFormal}) itself is involutive, we have to show that the PDE generates no integrability conditions after one prolongation. We have already discussed that prolonging each equation only w.r.t.\ its multiplicative variables never produces integrability conditions. Furthermore, we have just shown that any prolongation w.r.t.\ non-multiplicative variables can be reduced to first derivative order by adding further multiplicative prolongations in the way it is outlined above. Hence, the question is if the first-derivative-order contributions that we get from such a procedure are already included in $R_1$ or contribute additional independent equations. 
 
 We first consider the homogeneous case. We take again the $m$th equation and work as before in the coordinates $y^a$ on $J^2F$ that solve the symbol $M_1$ to (\ref{symbolMat}). Note that this homogeneous linear first-order PDE can then be concisely written as:
 \begin{align}
@@ -786,9 +786,9 @@ Carefully analyzing the above procedure, we now find that the remaining first-or
 Hence, for the system to not produce integrability conditions, this commutator must now be given by a linear combination of unprolonged equations. For the particular case of the $\zeta_{\sigma}$, this is trivially true as the commutator of two such fields vanishes. This can, however, already be seen from the original system (\ref{DiffeoEqnFormal}).
 Recalling that we obtained homogeneous counterpart to (\ref{DiffeoEqnFormal}) by requiring invariance under the prolonged vector fields $\xi_{J^2F}$ (\ref{LieJ2}) that were in particular constructed via a Lie algebra morphism. It is therefore clear that also these vector fields close under the operation of taking commutators. Hence, no integrability conditions are generated, and the homogeneous system is involutive.
 
-This is no special property of the homogeneous PDE in consideration but is actually general to all linear homogeneous first-order PDEs. Such PDEs that can be described entirely by vector fields are called \textit{\textbf{complete}} if the vector fields that generate the given system form a Lie algebra w.r.t. the commutator. If the vector fields commute, the system is furthermore called a \textit{\textbf{Jacobian}} system. One can show along the same lines that we followed here that in fact, any complete system is involutive. For details regarding the treatment of complete systems and in particular for a proof of this last statement see \cite{seiler1994analysis} and also for further information \cite{Clebsch1866}, \cite{caratheodory1956variationsrechnung} and \cite{lie1970theorie}.
+This is no special property of the homogeneous PDE in consideration but is actually general to all linear homogeneous first-order PDEs. Such PDEs that can be described entirely by vector fields are called \textit{\textbf{complete}} if the vector fields that generate the given system form a Lie algebra w.r.t.\ the commutator. If the vector fields commute, the system is furthermore called a \textit{\textbf{Jacobian}} system. One can show along the same lines that we followed here that in fact, any complete system is involutive. For details regarding the treatment of complete systems and in particular for a proof of this last statement see \cite{seiler1994analysis} and also for further information \cite{Clebsch1866}, \cite{caratheodory1956variationsrechnung} and \cite{lie1970theorie}.
 
-What remains to show is that the presence of the inhomogeneity in $(\ref{DiffeoEqnFormal})$ does not change this observation, i.e., does not generate integrability conditions. We again work in the coordinates $y_a$. The inhomogeneity is only present in the equations $5-20$ and only when the indices in (\ref{DiffeoEqnFormal}) are such that $m = n$. We label the equations s.t. it contributes to equation $5,9,13$ and $17$. In each case, the contribution is simply given by an extra term of $+l$ and the respective equations $\Tilde{E}_{\sigma}$ of the inhomogeneous PDE read now: 
+What remains to show is that the presence of the inhomogeneity in $(\ref{DiffeoEqnFormal})$ does not change this observation, i.e., does not generate integrability conditions. We again work in the coordinates $y_a$. The inhomogeneity is only present in the equations $5-20$ and only when the indices in (\ref{DiffeoEqnFormal}) are such that $m = n$. We label the equations s.t.\ it contributes to equation $5,9,13$ and $17$. In each case, the contribution is simply given by an extra term of $+l$ and the respective equations $\Tilde{E}_{\sigma}$ of the inhomogeneous PDE read now: 
 \begin{align}
      \tilde{E}_{\sigma} = \begin{cases}
      E_{\sigma} + l \ &\text{for} \ \sigma \in \{ 5,9,13,17 \}\\
@@ -878,7 +878,7 @@ We will further treat these ideas in a particular example that we will consider 
 
 Before we concretely work out a general framework for computing perturbative solutions to the equivariance equations we concern ourselves for a moment with the question of what points $p_0 \in J^2F$ might serve as expansion points for such a power series. From the sheer mathematical point of view, there is really no restriction on the possible expansion points. Yet from a physical point of view, the specific expansion point will, in the end, determine the interpretation and foremost the range of validity of the thereby constructed perturbative theory of gravity. 
 
-As we want to work towards the treatment of gravitational waves, we are going to restrict ourselves to certain expansion points that describe a \textit{\textbf{flat}} variant of the theory of gravity at hand. Solutions of the obtained perturbative equations can then be thought of as corrections to that flat background theory with the special case of gravitational waves being wave-like solutions that propagate on the given background. More precisely with a slight adaption of the usual meaning in Riemannian geometry\footnote{In Riemannian geometry one calls a Riemannian manifold flat if the associated Riemannian curvature tensor vanishes everywhere. The existence of coordinates in which the derivatives of the metric are zero is then a consequence (see \cite{petersen2006riemannian}).} we call a section $G \in \Gamma(J^2F)$ \textit{\textbf{flat}} if there exist adapted coordinates on $J^2F$ s.t. the coordinate expression of $G$ satisfies $\partial_mG_{A}=0$.
+As we want to work towards the treatment of gravitational waves, we are going to restrict ourselves to certain expansion points that describe a \textit{\textbf{flat}} variant of the theory of gravity at hand. Solutions of the obtained perturbative equations can then be thought of as corrections to that flat background theory with the special case of gravitational waves being wave-like solutions that propagate on the given background. More precisely with a slight adaption of the usual meaning in Riemannian geometry\footnote{In Riemannian geometry one calls a Riemannian manifold flat if the associated Riemannian curvature tensor vanishes everywhere. The existence of coordinates in which the derivatives of the metric are zero is then a consequence (see \cite{petersen2006riemannian}).} we call a section $G \in \Gamma(J^2F)$ \textit{\textbf{flat}} if there exist adapted coordinates on $J^2F$ s.t.\ the coordinate expression of $G$ satisfies $\partial_mG_{A}=0$.
 Hence, we chose an expansion point with adapted coordinates $(x_0^m,N_A,0,0)$. Note that such a point is essentially already determined by a point in $F$. 
 
 We are in particular interested in the case where the expansion point is not only flat but furthermore supports our intuition that the geometry of spacetime is in quite good approximation provided by the flat Minkowski metric $\eta_{ab} = \operatorname{diag}(-1,+1,+1,+1)$. 
@@ -895,7 +895,7 @@ We start our development of a framework that will allow us to construct perturba
 \begin{align}
     (v_{AI_k}) := (x^m,v_A,v_{Ap},v_{AI}).
 \end{align}
-In order to distinguish the appearing derivative indices $I_k,J_k,...$ that label higher spacetime derivatives from those that label higher derivatives w.r.t. the fiber coordinates of $J^2F$ we denote the latter ones by letters
+In order to distinguish the appearing derivative indices $I_k,J_k,...$ that label higher spacetime derivatives from those that label higher derivatives w.r.t.\ the fiber coordinates of $J^2F$ we denote the latter ones by letters
 $\tilde{I}_k, \tilde{J}_k$, ... . Finally, we introduce the coordinate expression of the deviation from the expansion point: 
 \begin{align}
     (H_{AI_k}) := (v_{AI_k}) - (N_{AI_k}) = (x^m-x_0^m,v_A-N_A,v_{Ap},v_{AI}).
@@ -904,8 +904,8 @@ $\tilde{I}_k, \tilde{J}_k$, ... . Finally, we introduce the coordinate expressio
 Before we write down the concrete expression for the expansion of the Lagrangian note that the first equation in (\ref{DiffeoEqnFormal}) simply states that the Lagrangian must not explicitly depend on $x^m$, hence, we can discard any explicit $x^m$ dependency from the very beginning and therefore also exclude such from the power series expansion. In total, with the introduced notation, a general power series expansion reads as follows: 
 \begin{align} \label{generalPowerSL}
     \begin{aligned}
-    &L_{per}  \mathrm{d}^4x = \mathcal{L}_{per} : J^2F \longrightarrow \Lambda^4M \\
-    &L_{per} = \sum_{n=0}^r \sum_{k_1,...,k_n = 0}^2 a^{\tilde{I}_k} \cdot J_{\tilde{I}_k}^{A_1I_{k_1}...A_nI_{k_n}} H_{A_1I_{k_1}} \cdot ... \cdot H_{A_nI_{k_n}}
+    &L_{\text{per}}  \mathrm{d}^4x = \mathcal{L}_{\text{per}} : J^2F \longrightarrow \Lambda^4M \\
+    &L_{\text{per}} = \sum_{n=0}^r \sum_{k_1,...,k_n = 0}^2 a^{\tilde{I}_k} \cdot J_{\tilde{I}_k}^{A_1I_{k_1}...A_nI_{k_n}} H_{A_1I_{k_1}} \cdot ... \cdot H_{A_nI_{k_n}}
     \end{aligned}
 \end{align}
 
@@ -917,7 +917,7 @@ We further define a second way of displaying these constants:
 In order to clarify this last expression further, we now explicitly provide the first three orders of this expansion. For that particular case, we drop any numerical factors due to the intertwiners as this simply corresponds to redefining the constants. Furthermore, we split the sums over the $v_{AI_{k_i}}$ into the different contributions of $(v_A,v_{Ap},v_{AI})$:
 \begin{align}\label{LPert}
 \begin{aligned}
-    L_{per} = \  &a_0 + a^A H_A + a^{Ap} H_{Ap} + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ABp}H_A H_{Bp} + a^{ABI} H_{A} H_{BI}\\
+    L_{\text{per}} = \  &a_0 + a^A H_A + a^{Ap} H_{Ap} + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ABp}H_A H_{Bp} + a^{ABI} H_{A} H_{BI}\\
     &+a^{ApBI}H_{Ap} H_{BI} + a^{AIBJ} H_{AI}H_{BJ} + a^{ABC} H_a H_B H_C 
     + a^{ABCp} H_A H_B H_{Cp} \\
     &+a^{ABCI} H_A H_B H_{CI} + a^{ABpCq} H_{A}H_{BP}H_{Cq} + a^{ABpCI} H_A H_{Bp} H_{CI}\\
@@ -939,11 +939,11 @@ Conversely evaluating the same equation at the $\eta$-induced expansion point we
     0 = l^A \vert_{p_0} C^{BM}_{An}N_B
 \end{align}
 provides only $10$ independent equations. The reason for this rank defect and foremost, its connection to the observed Lorentz invariance can be observed by considering the expression $K_{m[rs]}^n :=\eta_{m[r}\delta_{s]}^n$. 
-Taking a closer look at the $6$ individual expressions that can be obtained from the $6$ possible values of the anti symmetric index pair  $\{K_{m[rs]}^n \ \vert \ r < s \} $ we find that they all are by construction anti symmetric w.r.t. the Minkowski metric, i.e., they satisfy: 
+Taking a closer look at the $6$ individual expressions that can be obtained from the $6$ possible values of the anti symmetric index pair  $\{K_{m[rs]}^n \ \vert \ r < s \} $ we find that they all are by construction anti symmetric w.r.t.\ the Minkowski metric, i.e., they satisfy: 
 \begin{align}
 K_{m[rs]}^n\eta_{n p} - m \leftrightarrow p = 0.
 \end{align}
-Furthermore, they are all linearly independent when identified as real $4 \times 4$ matrices. Considering the dimension of the vector space of $4 \times 4$ matrices that are anti symmetric w.r.t. the matrix expression of $\eta_{ab}$ we find that  the expressions $K_{m[rs]}^n$ even constitute a basis of the vector space of $\eta$-antisymmetric matrices. 
+Furthermore, they are all linearly independent when identified as real $4 \times 4$ matrices. Considering the dimension of the vector space of $4 \times 4$ matrices that are anti symmetric w.r.t.\ the matrix expression of $\eta_{ab}$ we find that  the expressions $K_{m[rs]}^n$ even constitute a basis of the vector space of $\eta$-antisymmetric matrices. 
 
 One can show that the Lie algebra of the Lorentz group $\operatorname{SO}(1,3)$ is isomorphic to the Lie algebra that is obtained by equipping this vector space of $\eta$-antisymmetric matrices with the standard matrix commutator. Hence, these $6$ matrices actually yield a basis of the Lie algebra $\operatorname{Lie}(\operatorname{SO}(1,3))$. One often calls such matrices the \textit{\textbf{generators}} of the corresponding group as finite group elements can be obtained by applying the exponential map to linear combinations of them. Much information regarding the Lorentz group can be found in \cite{doi:10.1142/p199} and \cite{naimark2014linear}.
 
@@ -955,7 +955,7 @@ as this is nothing but the infinitesimal change of $N_A$ under Lorentz transform
 \begin{align}
     0 = a^A C^{BM}_{An}N_B K_{m[rs]}^n,
 \end{align}
-leaving us with $10$ independent equations. At first sight, it seems as if due to the higher symmetry of the expansion points, the equations are now weaker. This is, however, not true as the Lorentz invariance of the expansion point $N_A$ also influences the power series solution in higher order. To illustrate this effect we consider the prolongation of the second equation in (\ref{DiffeoEqnFormal}) w.r.t. $v_B$, i.e., we apply the total derivative $D_B$ to this equation. We get the second-derivative-order equation:
+leaving us with $10$ independent equations. At first sight, it seems as if due to the higher symmetry of the expansion points, the equations are now weaker. This is, however, not true as the Lorentz invariance of the expansion point $N_A$ also influences the power series solution in higher order. To illustrate this effect we consider the prolongation of the second equation in (\ref{DiffeoEqnFormal}) w.r.t.\ $v_B$, i.e., we apply the total derivative $D_B$ to this equation. We get the second-derivative-order equation:
 \begin{multline}
     0 = l^AC_{An}^{Bm} + l^{AB}C_{An}^{Cm}v_C + l^{BAp} \bigl[ C_{An}^{Cm} \delta_p^q - \delta_A^C \delta_m^n \bigr] v_{Cq}\\
     + l^{BAI} \bigl[ C_{An}^{Cm} \delta_I^J - 2 \delta_A^C J_I^{pm} I^J_{pn}  \bigr] v_{CJ} + l^{B} \delta^m_n.
@@ -976,13 +976,13 @@ Before we proceed with a further investigation of these additional first-order e
 \end{align}
 The general solution is given by $f(x) = x^2 +c$ where $c=const$. We construct a finite power series solution up to some $k \geq 0$ around $x_0 = 0$. Therefore, we insert the following ansatz into the ODE:
 \begin{align}
-    f_{per} = \sum_{i=0}^k a_i x^i.
+    f_{\text{per}} = \sum_{i=0}^k a_i x^i.
 \end{align}
 We evaluate the equation at $x_0=0$ to find in the first order the trivial equation $0=0$. Note that the ODE is of first derivative order. Hence, in general, we would expect to obtain equations for $a_1$ from inserting the power series ansatz. We proceed by prolonging the ODE to obtain the second-derivative-order equation:
 \begin{align}
     0 = f^{\prime}(x) + x \cdot f^{\prime \prime}(x) - 4 x.
 \end{align}
-Inserting the series ansatz and evaluating at $x_0=0$ now yields the equation $a_1=0$. Although the prolonged ODE is of second derivative order, after evaluating it at the expansion point, we now obtained an equation for the first-order expansion coefficient. Proceeding with the next orders we will find $a_2 = 1$ and $a_i = 0$ for $i < 2$. Hence, the power series solution reads $f_{per} = a_0 + x^2$, which obviously is the correct solution. Nevertheless, during each step of the construction of this power series solution, we had to prolong the ODE one order further than it is usually required for the given order of the expansion constants. This was necessary since although the ODE is of first derivative order, at the expansion point $x_0=0$ the only term that contains first-order derivatives vanishes. If we had constructed a power series solution around any other point $x_0 \neq 0$, this would not have happened. Note that this vanishing of the highest derivative order at the expansion point is in one to one correspondence with the rank defects that were featured by (\ref{DiffeoEqnFormal}) when evaluated at the expansion point provided by $N_A$. 
+Inserting the series ansatz and evaluating at $x_0=0$ now yields the equation $a_1=0$. Although the prolonged ODE is of second derivative order, after evaluating it at the expansion point, we now obtained an equation for the first-order expansion coefficient. Proceeding with the next orders we will find $a_2 = 1$ and $a_i = 0$ for $i < 2$. Hence, the power series solution reads $f_{\text{per}} = a_0 + x^2$, which obviously is the correct solution. Nevertheless, during each step of the construction of this power series solution, we had to prolong the ODE one order further than it is usually required for the given order of the expansion constants. This was necessary since although the ODE is of first derivative order, at the expansion point $x_0=0$ the only term that contains first-order derivatives vanishes. If we had constructed a power series solution around any other point $x_0 \neq 0$, this would not have happened. Note that this vanishing of the highest derivative order at the expansion point is in one to one correspondence with the rank defects that were featured by (\ref{DiffeoEqnFormal}) when evaluated at the expansion point provided by $N_A$. 
 
 Returning now to our original problem, the construction of power series solutions to (\ref{DiffeoEqnFormal}), we thus can proceed as usual, by successively prolonging the PDE and inserting the series expansion, we only have to keep in mind that in order to obtain the general solution up to a given order we actually have to prolong to one order higher in order to take the additional lower-order equations stemming from the rank defect at $N_A$ into account. 
 
@@ -1009,7 +1009,7 @@ In the following, we will call this quantity, the total number of derivative ind
 
 After all, we find that the following general expansion remains: 
 \begin{multline}\label{LperRed}
-     L_{per} = a_0 + a^A H_A + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ApBq} H_{Ap}H_{Bq} + a^{ABI} H_{A} H_{BI} \\
+     L_{\text{per}} = a_0 + a^A H_A + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ApBq} H_{Ap}H_{Bq} + a^{ABI} H_{A} H_{BI} \\
     + a^{ABC} H_a H_B H_C + a^{ABpCq} H_{A}H_{Bp}H_{Cq}
     + a^{ABCI} H_A H_B H_{CI} 
     + \mathcal{O}(4).
@@ -1053,7 +1053,7 @@ We assume again that we are handed a matter theory:
 \end{align}
 that exploits the gravitational field as geometric background. Along the previously prescribed lines we can now construct a perturbative expansion of the requested gravitational Lagrangian:
 \begin{align}
-    \mathcal{L}_{grav,per} : J^2F_{\text{grav}} \longrightarrow \Lambda^4M,
+    \mathcal{L}_{\text{grav,per}} : J^2F_{\text{grav}} \longrightarrow \Lambda^4M,
 \end{align}
 and implement the required diffeomorphism invariance by solving the linear systems for the expansion coefficients that are obtained from inserting the power series around $p_0 \in J^2F_{\text{grav}}$ into (\ref{DiffeoEqnFormal}). 
 Following along the lines of the construction recipe algorithm \ref{Algo1} we would now have to compute the matter and gravitational principal polynomials.
@@ -1065,11 +1065,11 @@ To lighten the notation, we will drop the explicit $k$ dependency in the followi
 where $(P_{\text{mat}})_0 = \mathcal{P}_{\text{mat}}(N_A)$, $(P_{\text{mat}})_1^A = \partial^A \mathcal{P}_{\text{mat}} \vert _{N_A}$, and similar for $(P_{\text{mat}})^{AB}_2$. Of course one readily computes similar expression for expansion up to higher order. 
 
 Finding the expansion of the gravitational principal polynomial requires somewhat more work as we do not have access to the full expression for $\mathcal{P}_{\text{grav}}$. All we can provide is the perturbative expansion of the Lagrangian. From this, we can compute perturbative EOM and also a perturbative expression for the principal symbol of the EOM.
-Note that when expanding the Lagrangian up to order $k$ from applying the variational derivative $\frac{\partial}{\partial v_A}$ we will get the corresponding EOM up to order $k-1$. They are then necessarily quasilinear and by requirement of second derivative order. According to definition (\ref{PSym}), we can obtain the principal symbol by deriving the EOM w.r.t. the highest occurring derivative  --- as the EOM are linear in the highest derivative this simply admits to taking the coefficients in front of $v_{AI}$ --- and then contracting with $k_I :=J_I^{pq} k_pk_q$, for $k_p$ being the components of some 1-form on the base manifold $M$. 
+Note that when expanding the Lagrangian up to order $k$ from applying the variational derivative $\frac{\partial}{\partial v_A}$ we will get the corresponding EOM up to order $k-1$. They are then necessarily quasilinear and by requirement of second derivative order. According to definition (\ref{PSym}), we can obtain the principal symbol by deriving the EOM w.r.t.\ the highest occurring derivative  --- as the EOM are linear in the highest derivative this simply admits to taking the coefficients in front of $v_{AI}$ --- and then contracting with $k_I :=J_I^{pq} k_pk_q$, for $k_p$ being the components of some 1-form on the base manifold $M$. 
 The explicit formula for the EOM corresponding to the expansion (\ref{LperRed}) can be computed as:
 \begin{align}\label{EOMPert}
     \begin{aligned}
-    E_{per}^A = \frac{\partial L_{per}}{\partial v_A} &= a^A + 2 a^{AB}H_B + 3a^{ABC}H_B H_C \\
+    E_{\text{per}}^A = \frac{\partial L_{\text{per}}}{\partial v_A} &= a^A + 2 a^{AB}H_B + 3a^{ABC}H_B H_C \\
     &\hphantom{=}+ \left [a^{ABI} + a^{BAI} - 2 a^{ApBq}I_{pq}^I  \right ] H_{BI} \\
     &\hphantom{=}+ \left[a^{ABpCq} -2a^{BApCq} +2a^{BCAI} J_I^{pq} \right]H_{Bp}H_{Cq} \\
     &\hphantom{=}+ \left [2a^{ACBI} -2a^{CApBq}I_{pq}^I + 2a^{BCAI} \right ]H_C H_{BI} \\
@@ -1205,7 +1205,7 @@ Where $\mathcal{P}_{\text{grav}}^{{p_1}...{p_r}}$ is a function on $F$ that is t
 %
 This can be seen by starting from the PDE that the EOM have to satisfy as an implication of the equivariance (\ref{EOM}) and applying the total derivative $D_{AI}$ to obtain a similar PDE for subexpression $\left ( \frac{\partial E^A}{\partial V_{BI}} \right )$ that is involved in the principal symbol. Proceeding along the same lines for the remaining steps that are involved in the computation of the principal polynomial, one then finds the above equation. 
 
-The numerical factor $r/2 = (n-8)$ in front of the $\delta^m_n$ term is obtained as this factor encodes the density weight of the principal polynomial. Using the language of tensor densities, PDE (\ref{EOM}) states that the EOM tensor $E^A$ defines a density of weight one and further prolonging this PDE w.r.t. $v_{AI}$ reveals that also the principal symbol has density weight one. Computing the determinant of a $(n-4) \times (n-4)$ submatrix of the principal symbol changes the weight to $n-4-2$. This can, for instance, be seen when expressing the determinant of the principal symbol w.r.t. the Levi-Civita symbols and then obtaining the order $4$ sub determinant by deriving $4$ times w.r.t. the components of the principal symbol, as explained in (\ref{MinorDef}). To achieve this, we need $n$ copies of the principal symbol, each of which has weight one and two covariant Levi-Civita symbols of dimension $n$ that carry density weight $-1$. This yields a total weight of $n-2$. Deriving $4$ times w.r.t. the components of the principal symbol reduces the factor to $n-6$. Finally, according to (\ref{diffeoMinor}) this sub determinant equals the product between the principal symbol and the corresponding prefactor. This prefactor involves two $4$-dimensional contravariant Levi-Civita symbols that hence contribute $+2$ to the weight. Therefore, the weight of the principal polynomial is given by $n-8$, which thus explains the origin of the numerical factor in the above PDE. 
+The numerical factor $r/2 = (n-8)$ in front of the $\delta^m_n$ term is obtained as this factor encodes the density weight of the principal polynomial. Using the language of tensor densities, PDE (\ref{EOM}) states that the EOM tensor $E^A$ defines a density of weight one and further prolonging this PDE w.r.t.\ $v_{AI}$ reveals that also the principal symbol has density weight one. Computing the determinant of a $(n-4) \times (n-4)$ submatrix of the principal symbol changes the weight to $n-4-2$. This can, for instance, be seen when expressing the determinant of the principal symbol w.r.t.\ the Levi-Civita symbols and then obtaining the order $4$ sub determinant by deriving $4$ times w.r.t.\ the components of the principal symbol, as explained in (\ref{MinorDef}). To achieve this, we need $n$ copies of the principal symbol, each of which has weight one and two covariant Levi-Civita symbols of dimension $n$ that carry density weight $-1$. This yields a total weight of $n-2$. Deriving $4$ times w.r.t.\ the components of the principal symbol reduces the factor to $n-6$. Finally, according to (\ref{diffeoMinor}) this sub determinant equals the product between the principal symbol and the corresponding prefactor. This prefactor involves two $4$-dimensional contravariant Levi-Civita symbols that hence contribute $+2$ to the weight. Therefore, the weight of the principal polynomial is given by $n-8$, which thus explains the origin of the numerical factor in the above PDE. 
 
 The all-important observation is now that any perturbative expansion of the principal symbol around the Lorentz-invariant expansion point $p_0$ that we might obtain necessarily provides a power series solution of the form:
 \begin{align}
@@ -1230,19 +1230,19 @@ With this achievement, the construction of alternative matter theories, at least
 \begin{algorithm}[hbt!]
 \SetAlgoLined
 \KwData{Matter theory: $\mathcal{L}_{\text{mat}} : F_{\text{grav}} \oplus J^1F_{\text{mat}} \rightarrow \Lambda^4M$, expansion order: $k \in \mathbb{N}$, flat Lorentz invariant expansion point: $(x_0^m,N_A)\equiv p_0 \in F_{\text{grav}}$}
-\KwResult{Most general diffeomorphism invariant, causal compatible gravitational Lagrangian expanded as finite power series $\mathcal{L}_{grav,per}$ to order $k$ around $p_0$.}
+\KwResult{Most general diffeomorphism invariant, causal compatible gravitational Lagrangian expanded as finite power series $\mathcal{L}_{\text{grav,per}}$ to order $k$ around $p_0$.}
 Compute the vertical coefficients $C^{Bm}_{An}$ of the infinitesimal diffeomorphism action on $F_{\text{grav}}$. \\
 Expand the Lagrangian as described in (\ref{generalPowerSL}) around $p_0 \equiv (x_0^m,N_A,0,0)$ with expansion coefficients $a^{\tilde{I}_k}$.\\
 Restrict to those $a^{\tilde{I}_k}$ with cumulative derivative order $\leq 2$.\\
 Insert the most general Lorentz invariant expressions for the $a^{\tilde{I}_k}$, (use \cite{sparse-tensor}).\\
-Solve the perturbative equivariance equations such as (\ref{order1}), (\ref{order2}) and (\ref{order3}) for the $a^{\tilde{I}_k}$ by plugging in $L_{grav,per}$ in (\ref{DiffeoEqnFormal}) and all necessary prolongations and evaluating the resulting expressions at $p_0$.\\
+Solve the perturbative equivariance equations such as (\ref{order1}), (\ref{order2}) and (\ref{order3}) for the $a^{\tilde{I}_k}$ by plugging in $L_{\text{grav,per}}$ in (\ref{DiffeoEqnFormal}) and all necessary prolongations and evaluating the resulting expressions at $p_0$.\\
 Compute the induced expansion of the principal symbol.\\
 Choose a $(n-4) \times (n-4)$ full ranked submatrix of the principal symbol by removing rows $(A_1...A_4)$ and columns $(B_1...B_4)$ from it. \\
 Compute the expansion of the determinant of the chosen submatrix.\\
 Compute the induced expansion of the corresponding prefactors $f_{(A_1...A_4)(B_1...B_4)}$. \\
 Compute the expansion of the gravitational principal polynomial with the use of the general expression (\ref{diffeoMinor}) with expansion (\ref{minorPoly}), i.e., by solving (\ref{POLY1}), (\ref{POLY2}), (\ref{POLY3}) and similar for higher orders. \\
 Compute the expansion of the matter principal polynomial up to order $k-2$.\\
-Solve: for all $p\in M : V_{\text{mat},p} = V_{\text{grav},p} + \mathcal{O}(k-2)$ w.r.t. the remaining undetermined constants in $L_{grav,per}$.
+Solve: for all $p\in M : V_{\text{mat},p} = V_{\text{grav},p} + \mathcal{O}(k-2)$ w.r.t.\ the remaining undetermined constants in $L_{\text{grav,per}}$.
  \caption{Perturbative Construction of Gravitational Lagrangian}\label{Algo2}
 \end{algorithm}
 

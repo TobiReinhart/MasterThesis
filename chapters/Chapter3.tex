@@ -11,7 +11,7 @@ In the simplest possible case the matter field is described by a scalar field, i
     \mathcal{L}_{\text{KG}} = \frac{1}{2} \left ( B^{ab} \phi_a \phi_b - m^2 \phi^2\right )\omega \mathrm{d}^4x.
 \end{align}
 This is the so called Lagrangian \textit{\textbf{Klein-Gordon}} Lagrangian. It is important to observe that this really described the most general quadratic, first-order Lagrangian for a scalar field. 
-In particular, note that specifying such a Lagrangian forces us to prescribe $10$ spacetime functions $B^{ab}$ that tell us how the product $\phi_a\cdot \phi_b$ has to be contracted and furthermore one scalar density of weight one $\omega$ that ensures that the Lagrangian really defines a volume form valued bundle map and thus provides us with a well-defined action functional and EOM.
+In particular, note that specifying such a Lagrangian forces us to prescribe $10$ spacetime functions $B^{ab}$ that tell us how the product $\phi_a\cdot \phi_b$ has to be contracted and furthermore one scalar density of weight one $\omega$ that ensures that the Lagrangian really defines a volume-form valued bundle map and thus provides us with a well-defined action functional and EOM.
 These additional ingredients are precisely provided by a metric tensor field $g_{ab}$. We then simply take $B^{ab}$ as the corresponding inverse metric $(g^{-1})^{ab}$. Note that in the case of non-degenerate metrics mapping a metric to its inverse is a smooth bundle isomorphism. Furthermore, one can in fact show that up to an overall constant there is exactly one scalar density of weight $1$ that can be obtained from the metric, namely $\omega = \sqrt{ \vert \operatorname{det}(g) \vert }$. 
 Thus, we see that the simplest possible non-trivial Lagrangian one can write down for a scalar field forces us to additionally provide exactly the amount of structure that is provided by a metric tensor field. If this particular metric, i.e., its the values of $g_{ab}$ at the various spacetime points, is not specified by hand, we need further equations that allow us to determine it.  
 
@@ -28,11 +28,11 @@ and similar for the inverse metric $g^{-1} \in \Gamma(F_{\text{GR}}^{\ast})$.
 Following along the lines described in algorithm \ref{Algo2} we choose $J^2F_{\text{GR}} \ni p_0 \equiv (x_0^m,\eta_A,0,0) =: (N_{AI})$ where $\eta_A = J^{ab}_A \eta_{ab}$ as $\eta$-induced expansion point. Furthermore, we choose to construct the perturbative gravitational Lagrangian up to order $k=3$. 
 Next, we compute the coordinate expression of the Lie derivative of a metric tensor field to obtain the vertical coefficients $C_{An}^{Bm}$. We get:
 \begin{align}
-    \mathcal{L}_{\xi} g_{ab} = \partial_m g_{ab} \cdot \xi^m + \left (-2 \delta_n^{(c\vert} \delta_{(a}^m \delta_{b)}^{\vert d)} \right ) g_{cd} \partial_m \xi^n.
+    \mathcal{L}_{\xi} g_{ab} = \partial_m g_{ab} \cdot \xi^m + \left (2 \delta_n^{(c\vert} \delta_{(a}^m \delta_{b)}^{\vert d)} \right ) g_{cd} \partial_m \xi^n.
 \end{align}
 Inserting $g_{cd} = I^B_{cd} g_B$ further contracting the whole expression with $J^{ab}_A$ to convert the free $ab$ indices to a $A$ index we find:
 \begin{align}
-    \mathcal{L}_{\xi} g_A = \partial_m g_A \xi^m + \left (-2 I^B_{nb}J^{mb}_{A} \right )g_B \partial_m \xi ^n. 
+    \mathcal{L}_{\xi} g_A = \partial_m g_A \xi^m + \left (2 I^B_{nb}J^{mb}_{A} \right )g_B \partial_m \xi ^n. 
 \end{align}
 Here we also used that the two intertwiners $I^A_{ab}$ and $J_A^{ab}$ are symmetric in their spacetime indices. Thus, we can simply read off from the last expression:
 \begin{align}
@@ -58,7 +58,7 @@ Enforcing the symmetries on these $3$ expressions, we find that (i) already feat
 \begin{align}\label{ansatzExample}
     a^{AB} = I^{A}_{ab}I^{B}_{cd} \left ( 8\mu_3 \cdot \eta^{ab}\eta^{cd} + 8\mu_4 \cdot \eta^{c(a} \eta^{b)d}   \right ).
 \end{align}
-Here the factor $8$ is a result of the factor less symmetrization that we implement in our computer program, i.e., when symmetrizing the expression w.r.t. $(ab),(cd)$ and $(ab) \leftrightarrow (cd) $ we do not divide by $2$ each time and hence get an overall factor of $2^3=8$. This approach is equivalent to the symmetrization including these factors as we are free to absorb such factors by redefining the constants. It furthermore provides the advantage that we can then deal with integer factors throughout the whole computation. Details are explained in section (\ref{LorentzGen}).
+Here the factor $8$ is a result of the factor less symmetrization that we implement in our computer program, i.e., when symmetrizing the expression w.r.t.\ $(ab),(cd)$ and $(ab) \leftrightarrow (cd) $ we do not divide by $2$ each time and hence get an overall factor of $2^3=8$. This approach is equivalent to the symmetrization including these factors as we are free to absorb such factors by redefining the constants. It furthermore provides the advantage that we can then deal with integer factors throughout the whole computation. Details are explained in section (\ref{LorentzGen}).
 Thus, we have obtained an expression that features $2$ constants for $a^{AB}$.
 
 Note that computing the remaining expansion coefficients works precisely along the same lines as the above with the only difference being that the expressions will become increasingly involved and thus are best obtained by using computer algebra.
@@ -150,17 +150,17 @@ X &\longmapsto g(X,-) .
 Through this construction we therefore also obtain an isomorphism\footnote{At least if we restrict to the subbundles of non-degenerate, symmetric, $(0,2)$ tensors.} between the field bundle $F_{\text{GR}}$ and its dual $F_{\text{GR}}^{\ast}$ that with a slight abuse of notation will also be called $\flat$. 
 Using the dual coordinates $(x^m,v^A)$ on $F_{\text{GR}}^{\ast}$ we define $v^A_{\flat} := v^A \circ \flat$. Thus, applying $v^A_{\flat}$ on any metric exactly yields the components of its inverse. Using this we get the following explicit expression for $R$ understood as a map on $J^2F$ as:
 \begin{align}
-R = v_{\flat}^A J_A^{ab} \left ( D_p \Gamma^p_{ba} - D_b \Gamma^p_{pa} + \Gamma^p_{pq} \Gamma^q_{ba} - \Gamma^p_{bq} \Gamma^q_{pq} \right ),
+R = v_{\flat}^A J_A^{ab} \left ( D_p \Gamma^p_{ba} - D_b \Gamma^p_{pa} + \Gamma^p_{pq} \Gamma^q_{ba} - \Gamma^p_{bq} \Gamma^q_{pa} \right ),
 \end{align}
 where we also defined the Christoffel symbols that are given by the following functions on $J^1F_{\text{GR}}$:
 \begin{align}
-\Gamma^a_{bc} = \frac{1}{2} v_{\flat}^A J_A^{ap} \left ( I^B_{bq}\delta^p_b + I^B_{cq}\delta^p_c - I^B_{bc}\delta^p_q  \right ) v_{Bq}.
+\Gamma^a_{bc} = \frac{1}{2} v_{\flat}^A J_A^{ap} \left ( I^B_{bp}\delta^q_c + I^B_{cp}\delta^q_b - I^B_{bc}\delta^q_p  \right ) v_{Bq}.
 \end{align}
-To compare the computed gravitational Lagrangian with the Einstein-Hilbert Lagrangian expand $L_{\text{EH}}$ to third-order around the chosen eta-induced expansion point $(N_{AI})$. The expansion of the determinant can be obtained from (\ref{detExp}). Doing so, we find that:
+To compare the computed gravitational Lagrangian with the Einstein-Hilbert Lagrangian we expand $L_{\text{EH}}$ to third-order around the chosen eta-induced expansion point $(N_{AI})$. The expansion of the determinant can be obtained from (\ref{detExp}). Doing so, we find that:
 \begin{align}
    \sqrt{\vert \operatorname{det} \left ( I^A_{pq}v_A \right ) \vert } = 1 + H/2 +1/8 \cdot H^2 - 1/4 \cdot I^A_{ab}I^B_{cd} \eta^{ac} \eta^{bd} H_A H_B + \mathcal{O}(3).   
 \end{align}
-In order to compute the expansion of $v^A_{\flat}$ one uses that $-1/2 \cdot v_{\flat}^AC_{An}^{Bm}v_B = v_{\flat}^A J_A^{nb}I^B_{bm}v_B = \delta^m_n$. Deriving this equation w.r.t. $v_B$ and performing some simplifications one thus finds the usual expression:
+In order to compute the expansion of $v^A_{\flat}$ one uses that $-1/2 \cdot v_{\flat}^AC_{An}^{Bm}v_B = v_{\flat}^A J_A^{nb}I^B_{bm}v_B = \delta^m_n$. Deriving this equation w.r.t.\ $v_B$ and performing some simplifications one thus finds the usual expression:
 \begin{align}
     \partial^Bv_{\flat}^A = 1/4 \cdot C_{Cn}^{Am}C_{Dm}^{Bn}v_{\flat}^C v_{\flat}^{D}.
 \end{align}
@@ -208,7 +208,7 @@ The linear relation between $H$ and $F$ can now be obtained by first using the i
 \begin{align}
     H_{ab} = 1/2 \omega_G \epsilon_{abcd} G^{cdef} F_{ef},
 \end{align}
-Note that in absence of a (pseudo)-Riemanian metric the Hodge star operator requires the choice of a volume form (or equivalently a scalar density of weigh 1) $\omega_G$. One possible such choice is for instance given by $\omega_G = \epsilon^{abcd}G_{abcd}$ which obviously only works if this expression is nowhere vanishing.
+Note that in absence of a (pseudo)-Riemanian metric the Hodge star operator requires the choice of a volume-form (or equivalently a scalar density of weigh 1) $\omega_G$. One possible such choice is for instance given by $\omega_G = \epsilon^{abcd}G_{abcd}$ which obviously only works if this expression is nowhere vanishing.
 
 From considering the appropriate dimensions of $F$ and $H$ one finds that the only viable Lagrangian constructed from $F$ and $H$ is given by $F \wedge H$. Expressing this in terms of the constitutive relation between $H$ and $F$ we finally arrive at the Lagrangian of so-called \textbf{\textit{General Linear Electrodynamics}} (in short GLED):
 \begin{align}
@@ -269,7 +269,7 @@ Thus, expanding the to-be-constructed Lagrangian of area metric gravity around $
 
 We have already stated that we want to construct the perturbative area metric gravity theory up to order $k=3$. Following algorithm \ref{Algo2}, we proceed by computing the coordinate expression of the Lie derivative of $G_{abcd}$ to read of the vertical coefficient tensor $C_{An}^{Bm}$:
 \begin{align}\label{LieArea}
-    \mathcal{L}_{\xi} G_{abcd} = \partial_m G_{abcd} \cdot \xi^n + \left (-4 \delta_n^{[e\vert} \delta_{[\mathnode{a}}^m \delta_{b]}^{\vert \mathnode{f} ]} \delta_{[c}^{[g} \delta_{\mathnode{d}]}^{\mathnode{h}]} \right ) \cdot G_{efgh} \partial_m \xi^n.
+    \mathcal{L}_{\xi} G_{abcd} = \partial_m G_{abcd} \cdot \xi^n + \left (4 \delta_n^{[e\vert} \delta_{[\mathnode{a}}^m \delta_{b]}^{\vert \mathnode{f} ]} \delta_{[c}^{[g} \delta_{\mathnode{d}]}^{\mathnode{h}]} \right ) \cdot G_{efgh} \partial_m \xi^n.
 \end{align}
 \begin{tikzpicture}[overlay]
    \path [>=stealth, <->, shorten <= 3pt, shorten >=3pt]
@@ -278,7 +278,7 @@ We have already stated that we want to construct the perturbative area metric gr
      (f) edge [bend left=80] (h);
 \end{tikzpicture}
 
-Here the additional arrows denote the symmetrization w.r.t. the interchange of the antisymmetric pairs $[ab] \leftrightarrow [cd]$ and $[ef] \leftrightarrow [gh]$ respectively.
+Here the additional arrows denote the symmetrization w.r.t.\ the interchange of the antisymmetric pairs $[ab] \leftrightarrow [cd]$ and $[ef] \leftrightarrow [gh]$ respectively.
 
 Similar to before we now insert several intertwiners $I^A_{abcd}$ and $J_A^{abcd}$ to rewrite the second term in (\ref{LieArea}) in terms of abstract area metric indices $A$. Here we can use the fact that the two intertwiners already feature the full set of area metric symmetries.  Doing so we simply can read of the constant tensor as:
 \begin{align}\label{areaGotayMInter}
