@@ -88,7 +88,7 @@ foldl f x (y:ys) = foldl f (f x y) ys
 \end{center}
 Obviously, there exist many more such functions that allow each particular problem at hand to be treated in a suitable way using a purely functional programming paradigm. Details can be found in the provided literature.
 
-\section{sparse-tensor: A Typesafe Tensor Algebra Library }
+\section{\textit{sparse-tensor}: A Typesafe Tensor Algebra Library }
 With the short introduction to Haskell at hand, we now explain the main ideas that underlie the developed Haskell library sparse-tensor. Ultimately, the aim consists of solving the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}). Recall that these three systems are merely compromised of linear equations. In principle, it should thus be straight forward to re-express these in suitable matrix from and use standard matrix computer algebra to solve them. Practically however extracting the appropriate matrices from the systems is a different question as for doing so one needs to evaluate the tensorial expressions in all free indices and to that end also
 explicitly express all occurring contractions and symmetrizations.
 Thus, using solely standard matrix computer algebra to solve the perturbative equivariance equations is hardly possible.
@@ -173,7 +173,7 @@ To retrieve a value of a tensor of rank \mintinline{haskell}{n} we need to speci
 
 
 \end{tikzpicture}
-\caption{Forest Structure of Rank 2 Spacetime Tensor with Rational Values.}\label{ExampleTens}
+\caption[Forest Structure of a Rank $2$ Spacetime Tensor]{Forest structure of a rank $2$ spacetime tensor with rational values. Nodes represent the different tensor indices of type \mintinline{haskell}{Ind3}; leafs are given by the leaf value constructor \mintinline{haskell}{Scalar} and an additional rational number. Note that each index obeys a well defined position in the forest that also determines its position in the resulting tensor.}\label{ExampleTens}
 \end{figure}
 Providing the non-vanishing components of the displayed tensor forest explicitly the tensor would read:
 \begin{align}
@@ -369,7 +369,7 @@ The two indices w.r.t. which the tensor is transposed are provided by the intege
 
 
 \end{tikzpicture}
-\caption{Forest Structure of the Transpose of Figure \ref{ExampleTens}.}\label{ExampleTensTrans}
+\caption[Forest Structure of the Transpose of Figure \ref{ExampleTens}.]{Forest structure of the transpose of the tensor displayed in figure \ref{ExampleTens}. Note that although transposing a tensor only corresponds to switching the index order in the specified indices, the forest structure of the transpose can be quite different than the one of the original tensor. }\label{ExampleTensTrans}
 \end{figure}
 Now the corresponding values are given as:
 \begin{align}
