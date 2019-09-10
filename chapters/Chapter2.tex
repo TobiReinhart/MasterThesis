@@ -57,12 +57,12 @@ Whenever we will work with such a representation of a PDE, w.l.o.g.\ we will alw
 
 Given such a representation of a PDE, we can apply the usual jet bundle operations to the individual component functions $\Phi^{\tilde{B}}$, i.e., we can \textit{\textbf{prolong}} them to higher derivative orders by taking the previously defined \textit{\textbf{total derivative}} of the representation $\Phi^{\tilde{B}}$ along any base space direction and we can use the jet bundle projections to \textit{\textbf{project}} them to any lower derivative order at wish. We denote the PDE that is described by the combined set of the given equations $\Phi^{\tilde{B}}=0$ and all possible prolongations $D_i\Phi^{\tilde{B}}=0$ by $R_{q+1} \subset J^{q+1}F$. Similarly we denote higher prolongations of a PDE by $R_{q+r}$. We call $R_{q+r}$ the \textit{\textbf{prolongation}} of $R_q$ to $(q+r)$th-order or short the $r$th prolongation of $R_q$. 
 
-Considering this, it is particularly interesting to first prolong a given PDE and then use the jet projections to define $R_q^{(1)} := \pi_{(q+1),q}\left ( R_{q+1} \right ) \subset J^qF $. As the following example taken from \cite{seiler1994analysis} illustrates, this in general does not recover the original equation but only a subset $R_q^{(1)} \subset R_q$, i.e., prolonging and projecting might reveal additional equations that are not explicitly contained in the original equation, yet satisfied by any solution to it. The reason is that these equations will only be explicit in higher prolongation orders of the PDE.
+Considering this, it is particularly interesting to first prolong a given PDE and then use the jet projections to define $R_q^{(1)} := \pi_{q+1,q}\left ( R_{q+1} \right ) \subset J^qF $. As the following example taken from \cite{seiler1994analysis} illustrates, this in general does not recover the original equation but only a subset $R_q^{(1)} \subset R_q$, i.e., prolonging and projecting might reveal additional equations that are not explicitly contained in the original equation, yet satisfied by any solution to it. The reason is that these equations will only become explicit in higher prolongation orders of the PDE.
 \begin{example}\label{ExamplePDE}
 Consider the PDE on the first-order jet bundle over the trivial bundle $\mathbb{R}^3 \times \mathbb{R}$ with jet bundle  coordinates $(x,y,z,u,u_x,u_y,u_z)$ defined by
 \begin{align}
     R_1 : \begin{cases} u_z + y \cdot u_x &= 0 \\
-                        u_y &= 0.
+                        u_y &= 0
             \end{cases}
 \end{align}
 prolonging the first equation w.r.t.\ $y$, i.e., applying the total derivative 
@@ -73,7 +73,7 @@ to it we obtain the equation $u_{yz} + y \cdot u_{xy} + u_x =0$. Prolonging the 
 \begin{align}\label{prolo}
     R_1^{(1)} : \begin{cases} u_x = 0 \\
                         u_y = 0\\
-                        u_z = 0 .
+                        u_z = 0 
             \end{cases}
 \end{align}
 Note that the involved prolongations were mandatory to get this result; the additional equations in (\ref{prolo})  cannot be obtained by purely algebraic manipulations. 
@@ -88,7 +88,7 @@ If for some reason, the individual contributions are known to decrease with an i
 In other words we will consider a \textit{\textbf{perturbative}} treatment of the PDE.
 Thus, we will only construct the power series ansatz\footnote{Such an ansatz should probably better be called a polynomial ansatz, but to emphasize the similarities to the case of computing real power series solutions we will stick to calling it a (finite) power series ansatz.} up to the desired finite order.
 
-Using adapted coordinates on $F$, such a finite power series solution to a given PDE $R_q$, described by the equations $\Phi^{\tilde{A}} = 0$, can be computed as follows: We take a point $p_0 \in M$ ---in the adapted coordinates on $F$ we define: $x^m(p_0) =: x_0^m$--- and construct a general section $G\in\Gamma(F)$ as arbitrary, finite power series around $x_0$:
+Using adapted coordinates on $F$, such a finite power series solution to a given PDE $R_q$, described by the equations $\Phi^{\tilde{A}} = 0$, can be computed as follows: We take a point $p_0 \in M$ ---in the adapted coordinates on $F$ we define: $x^m(p_0) =: x_0^m$--- and construct a general section $G\in\Gamma(F)$ as arbitrary, finite power series around $x_0$
 \begin{align}
 \begin{aligned}
     G_A(x^m) :=  \sum_{k=0}^{r} a_{AI_k}I^{I_k}_{i_1...i_k}(x^{i_1}-x_0^{i_1}) \cdot ... \cdot (x^{i_k}- x_0^{i_k}), 
@@ -239,7 +239,7 @@ There are further exciting properties of involutive symbols, most of which can b
 We consider again the PDE from Example (\ref{ExamplePDE}):
 \begin{align}
     R_1 : \begin{cases} (i)\hphantom{i} \ \ \ \ u_z + y \cdot u_x &= 0\\
-                        (ii) \ \ \ \ u_y &= 0.
+                        (ii) \ \ \ \ u_y &= 0
             \end{cases}
 \end{align}
 We label the coordinates as: $x \equiv 3, y \equiv 2, z \equiv 1$. The symbol matrix $M_1$ of $R_1$ is given as
@@ -320,7 +320,7 @@ A PDE $R_q$ is involutive according to definition (\ref{invol}) if its symbol $M
 \end{theorem}
 \begin{proof}
 The following proof can also be found in (\cite{seiler1994analysis}). As it is quite short we nevertheless also provide it here explicitly.
-Looking at the definition of an involutive PDE we have to prove that the assumption $R_q^{(1)} = R_q$ already guarantees formal integrability, i.e., it holds for all $r \in \mathbb{N}$ that $R_{q+r}^{(1)} = R_{q+r}$. We prove the statement by induction and start with $r=0$. Here the requirement reads $R_q^{(1)}=R_q$ which is precisely the assumption of the theorem. Assuming it holds that $R_{q+r}^{(1)}=R_{q+r}$, as $M_q$ is involutive, theorem (\ref{invoCons}) states that $M_{q+r}$ is involutive too and hence, using again the above theorem (\ref{invoCons}), we find that $R_{q+r+1}^{(1)}= (R_{q+r}^{(1)})_{+1}$. Using the induction hypotheses $(i.h.)$ we thus have in total:
+Looking at the definition of an involutive PDE we have to prove that the assumption $R_q^{(1)} = R_q$ already guarantees formal integrability, i.e., it holds for all $r \in \mathbb{N}$ that $R_{q+r}^{(1)} = R_{q+r}$. We prove the statement by induction and start with $r=0$. Here the requirement reads $R_q^{(1)}=R_q$ which is precisely the assumption of the theorem. Assuming it holds that $R_{q+r}^{(1)}=R_{q+r}$, as $M_q$ is involutive, theorem (\ref{invoCons}) states that $M_{q+r}$ is involutive too and hence, using again the above theorem (\ref{invoCons}), we find that $R_{q+r+1}^{(1)}= (R_{q+r}^{(1)})_{+1}$. Using the induction hypotheses $(i.h.)$ we thus have in total
 \begin{align}
    R_{q+r+1}^{(1)} \overset{(\ref{invoCons})}{=} (R_{q+r}^{(1)})_{+1} \overset{(i.h.)}{=} (R_{q+r})_{+1} = R_{q+r+1} 
 \end{align}
@@ -340,7 +340,7 @@ If this requirement is also met the PDE is involutive and hence in particular fo
 We consider again the PDE from Example (\ref{ExamplePDE}):
 \begin{align}
     R_1 : \begin{cases} u_z + y \cdot u_x &= 0\\
-                        u_y &= 0.
+                        u_y &= 0
             \end{cases}
 \end{align}
 With prolonged system being given as
@@ -431,7 +431,7 @@ Returning to the relevant example of $E^A$ describing the second-derivative-orde
 \begin{align}
     T^{A B} (k_a) = \left (\frac{\partial E^A}{\partial v_{BI}} \right )J_I^{pq} k_p k_q = E^{A: BI} J_I^{pq} k_p k_q.
 \end{align}
-Taking now a closer look at the PDE (\ref{DiffeoEqn}) that such EOM then necessarily  satisfy we find from the last such equation:
+Taking now a closer look at the PDE (\ref{DiffeoEqn}) that such EOM then necessarily  satisfy we find from the last such equation
 \begin{align}\label{symbolDef}
 \begin{aligned}
     T^{A B} (k_a) C_{An}^{Cm}v_Ck_m &= 0 \\
@@ -442,7 +442,7 @@ Hence, due to the diffeomorphism symmetry, there exist $4$ independent vectors
 \begin{align}
    \chi_{An}(k_a) =  C_{An}^{Cm}v_Ck_m
 \end{align}
-that are in the kernel of the principal symbol and $T^{AB}(k)$ is not injective but as a 4-dimensional rank defect\footnote{Note that this is closely related to the previous $4$ constraints that any diffeomorphism invariant field theory necessarily contains amongst its EOM (see chapter \ref{ConstrainedDyn}).}. To compensate for that, we have to require the 1-form $k$ to be given s.t.\ $T^{AB}(k_a)$ is not only non-injective but has at least a 5-dimensional kernel. Then there necessarily exists at least a one dimensional subspace in this kernel of $T^{AB}(k_a)$ that is not gauge-equivalent to the trivial solution $a_A(x^m) = 0$. Hence, $k$ represents the wave covector of a physically non-trivial wave solution to the PDE (at least in the $\lambda \rightarrow 0$ limit).
+that are in the kernel of the principal symbol and $T^{AB}(k_a)$ is not injective but as a 4-dimensional rank defect\footnote{Note that this is closely related to the previous $4$ constraints that any diffeomorphism invariant field theory necessarily contains amongst its EOM (see chapter \ref{ConstrainedDyn}).}. To compensate for that, we have to require the 1-form $k$ to be given s.t.\ $T^{AB}(k_a)$ is not only non-injective but has at least a 5-dimensional kernel. Then there necessarily exists at least a one dimensional subspace in this kernel of $T^{AB}(k_a)$ that is not gauge-equivalent to the trivial solution $a_A(x^m) = 0$. Hence, $k$ represents the wave covector of a physically non-trivial wave solution to the PDE (at least in the $\lambda \rightarrow 0$ limit).
 
 The condition of having at least a $5$ dimensional kernel of the principal symbol can be expressed more formally by requiring that its adjunct matrix of order $4$ vanishes. Given the $n \times n$ matrix $T^{AB}(k_a)$, its adjunct matrix of order $4$ is the $\binom{n}{4} \times \binom{n}{4}$ square matrix that has entries equal to the order $4$ sub determinants of $T^{AB}(k_a)$:
 \begin{align}\label{MinorDef}
@@ -450,7 +450,7 @@ The condition of having at least a $5$ dimensional kernel of the principal symbo
 \end{align}
 Consequently, we index an entry of the order $4$ adjunct matrix $Q_{(A_1...A_4) (B_1...B_4)}(k_a)$ by a symmetric $4$-tuples of rows $(A_1...A_4)$ and columns $(B_1...B_4)$ that encode the rows and columns that are removed from the matrix $T^{AB}(k_a)$ to obtain a certain $(n-4) \times (n-4)$ submatrix of it. The value of $Q_{(A_1...A_4) (B_1...B_4)}(k_a)$ is then given by the determinant of this submatrix. 
 
-One can show (\cite{2018PhRvD..97h4036D} and \cite{2009JPhA...42U5402I}) that the requirement of a vanishing order $4$ adjunct matrix\footnote{Obviously one can obtain similar results for other gauge symmetries \cite{2018PhRvD..97h4036D}. The only difference then lies in the particular expression for the null vectors and the dimension of the rank defect in the symbol.} boils down to the vanishing of a certain homogeneous polynomial in the components $k_a$. More rigorously one obtains the following general expression for the entries of the order $4$ adjunct matrix of the principal symbol that holds for any diffeomorphism invariant field theory at hand:
+One can show (\cite{2018PhRvD..97h4036D} and \cite{2009JPhA...42U5402I}) that the requirement of a vanishing order $4$ adjunct matrix\footnote{Obviously one can obtain similar results for other gauge symmetries \cite{2018PhRvD..97h4036D}. The only difference then lies in the particular expression for the null vectors and the dimension of the rank defect in the symbol.} boils down to the vanishing of a certain homogeneous polynomial in the components $k_a$. More rigorously, one obtains the following general expression for the entries of the order $4$ adjunct matrix of the principal symbol that holds for any diffeomorphism invariant field theory at hand:
 \begin{align}\label{diffeoMinor}
     Q_{(A_1...A_4) (B_1...B_4)}(k_a) = \epsilon^{i_1...i_4} \epsilon^{j_1...j_4} \chi_{A_1i_1}(k_a) \cdot ... \cdot \chi_{A_4i_4}(k_a) \cdot \chi_{B_1j_1}(k_a) \cdot ... \cdot \chi_{B_4j_4}(k_a) \cdot \mathcal{P}(k_a),
 \end{align}
@@ -469,14 +469,14 @@ In particular, the only technical complexity in this computation is provided by 
 Note that if the theory at hand incorporates gauge symmetries different from the discussed case of diffeomorphism invariance, one can obtain similar formulae with the particular order of the appropriate submatrices and the expression for the prefactor obviously depending on the specific form of the gauge symmetry.
 \begin{definition}[principal polynomial of EOM]
 Given a field bundle $(F,\pi_F,M)$ with $n$-dimensional fibers and a Lagrangian on $F$ that generates EOM with derivative order $q$, let  $T^{AB}(k_a)$ be the principal symbol of the EOM. Assume further that the $s$ vectors $(\chi_{A\sigma}(k_a))_{\sigma=1,...,s}$ generate the $s$ independent gauge transformations. The principal polynomial $\mathcal{P}(k_a)$
-is the homogeneous degree $q\cdot n - (q+2)s$ polynomial in the components $k_a$:
+is the homogeneous degree $q\cdot n - (q+2)s$ polynomial
 \begin{align}
 \mathcal{P}(k_a) := \frac{Q_{(A_1...A_s)(B_1...B_s)}(k_a)}{\epsilon^{\sigma_1...\sigma_s} \epsilon^{\tau_1...\tau_s} \chi_{A_1\sigma_1}(k_a)\cdot ... \cdot \chi_{A_s\sigma_s}(k_a) \cdot \chi_{B_1\tau_1}(k_a) \cdot ... \cdot \chi_{B_s\tau_s}(k_a)},
 \end{align}
 where $Q_{(A_1...A_s)(B_1...B_s)}(k_a)$ is any specific, non-vanishing component of the order $s$ adjunct matrix of $T^{AB}(k_a)$.
 \end{definition}
 Hence, for a wave ansatz of the form (\ref{waveAns}) to provide a non-trivial solution to the given PDE, the corresponding gradients $k = - \mathrm{d}S$ must be zeros of the principal polynomial, i.e., yield $\mathcal{P}(k_a) = 0$.
-Such 1-forms are called \textit{\textbf{characteristic}} 1-forms. We denote the set of 1-forms that are characteristic in $p \in M$, i.e., the $k_a \in T_p^{\ast}M$, for which the principal  polynomial $\mathcal{P}(k_a)$ vanishes by $V_p(\mathcal{P})$. Returning to our wave ansatz, we now see that exactly those $k_a \in V_p(\mathcal{P})$ are admissible wave covectors for a non-trivial solution to the given PDE. Hence, the principal polynomial encodes the complete information regarding the propagation of such wave-like solutions in the geometric-optical limit.
+Such 1-forms are called \textit{\textbf{characteristic}} 1-forms. We denote the set of 1-forms that are characteristic in $p \in M$, i.e., the $k \in T_p^{\ast}M$, for which the principal  polynomial $\mathcal{P}(k_a)$ vanishes by $V_p(\mathcal{P})$. Returning to our wave ansatz, we now see that exactly those $k_a \in V_p(\mathcal{P})$ are admissible wave covectors for a non-trivial solution to the given PDE. Hence, the principal polynomial encodes the complete information regarding the propagation of such wave-like solutions in the geometric-optical limit.
 
 In addition to encoding information about the propagation of wave-like solutions of infinite frequency, the principal polynomial also allows one to decide whether or not a given PDE is \textit{\textbf{predictive}}, in the sense that the PDE allows one to specify initial data on a suitable hypersurface of $M$ and then use the PDE to uniquely predict the values of the involved fields away from the initial data hypersurface. We follow along the lines of the second chapter of \cite{Rivera}.
 \begin{definition}[Cauchy problem]
@@ -571,7 +571,7 @@ If the Cauchy problem of a given PDE is well-posed in a region of $M$, then the 
 The proof can be found in \cite{Hormander1977}\footnote{Much information is also contained in Hörmander's book series on partial differential equations (\cite{hormander1994analysis}, \cite{hormander2004analysis}, \cite{hormander2009analysis}, and \cite{hormander2015analysis}).} and also in \cite{Ivrii_1974}. 
 \end{proof}
 In the following, we proceed as before and select at each spacetime point a connected component of the set of hyperbolic covectors that is encoded by $\mathcal{P}$. We denote the thus provided hyperbolicity cone of the principal polynomial $\mathcal{P}$ at $p \in M$ as $C_p(\mathcal{P}) \subset T_p^{\ast}M$.
-Moreover, we require that the choice of hyperbolicity cone varies smoothly w.r.t.\ the individual spacetime points, i.e., it is made in such a way that the following map:
+Moreover, we require that the choice of hyperbolicity cone varies smoothly w.r.t.\ the individual spacetime points, i.e., it is made in such a way that
 \begin{align}
 \begin{aligned}
 \pi_{\mathcal{P}}: \{ C_p(\mathcal{P}) \ \vert \ p \in M\}=: C(\mathcal{P}) &\longrightarrow M\\
@@ -579,7 +579,7 @@ C_p(\mathcal{P}) &\longmapsto p,
 \end{aligned}
 \end{align}
 defines a smooth subbundle $(C(\mathcal{P}), \pi_{\mathcal{P}}, M) \subset T^{\ast}M$.
-Choosing such a hyperbolicity cone at each spacetime point distinguishes a specific, connected subset of possible initial data hypersurface conormals. These then can be used to define a smooth distribution of cones on the tangent bundle $C^{\#} \subset TM$. Details how is construction can be carried out are provided in \cite{Rivera} and also \cite{2012arXiv1211.1914K} for a slightly different approach.
+Choosing such a hyperbolicity cone at each spacetime point distinguishes a specific, connected subset of possible initial data hypersurface conormals. These then can be used to define a smooth distribution of cones on the tangent bundle $C^{\#}(\mathcal{P}) \subset TM$. Details how is construction can be carried out are provided in \cite{Rivera} and also \cite{2012arXiv1211.1914K} for a slightly different approach.
 The distribution of tangent space cones then encodes feasible future directions at the particular spacetime points.
 Thus, in conclusion,  the choice of hyperbolicity cones endows the spacetime manifold $M$ with a \textit{\textbf{time orientation}} (cf. \cite{2012arXiv1211.1914K} and \cite{Rivera}).
 
@@ -602,7 +602,7 @@ Thus, the matter Lagrangian is a bundle map
 \begin{align}
     \mathcal{L}_{\text{mat}} : F_{\text{grav}} \oplus J^1F_{\text{mat}} \longrightarrow \Lambda^4M,
 \end{align}
-where $F_{\text{mat}}$ is called the matter field bundle. In the following, we will denote adapted coordinates on $J^1F_{\text{mat}}$ by $(x^m,\phi^{\tilde{A}},\phi^{\tilde{A}}_m)$ Hence, the total Lagrangian is given by:
+where $F_{\text{mat}}$ is called the matter field bundle. In the following, we will denote adapted coordinates on $J^1F_{\text{mat}}$ by $(x^m,\phi^{\tilde{A}},\phi^{\tilde{A}}_m)$ Hence, the total Lagrangian is given by
 \begin{align}
 \begin{aligned}
     \mathcal{L}_{\text{tot}} : J^2F_{\text{grav}} \oplus J^1F_{\text{mat}} &\longrightarrow \Lambda^4M \\
@@ -644,7 +644,7 @@ This situation is the only option left and henceforth, precisely what we will re
 Note that the requirement $V_{p,grav} = V_{p,mat}$ could be loosened to the point where we only impose that $V_{p,mat} \subset V_{p,grav}$. This would still be consistent with the measured propagation speed of gravitational waves, as then, in particular, every wave covector of the matter theory serves as wave covector of gravitational waves. Further wave covectors that are exclusive to gravitational waves do not necessarily contradict observations. Such waves might have simply not been detected, yet. This could, for instance, be explained if such covectors correspond to massive modes which thus decay faster and therefore are harder to observe in large distances from the source. Nevertheless restricting to $V_{p,grav} = V_{p,mat}$ for the future developments yet to come seems reasonable.
 We will even see that at least in the two perturbative examples that we are going to treat in the next chapter, the two requirements are in fact equivalent.
 \end{remark}
-The previous investigation yields the second and last requirement that we wish to pose on the theory of gravity that we want to construct. We require that given a matter theory that employs the theory of gravity as geometric background, the two theories are \textit{\textbf{compatible}} in their \textit{\textbf{causal structure}} in the sense that the two principal polynomials at each point yield the same vanishing set, i.e., it holds for all $p \in M$ that: 
+The previous investigation yields the second and last requirement that we wish to pose on the theory of gravity that we want to construct. We require that given a matter theory that employs the theory of gravity as geometric background, the two theories are \textit{\textbf{compatible}} in their \textit{\textbf{causal structure}} in the sense that the two principal polynomials at each point yield the same vanishing set, i.e., it holds for all $p \in M$ that
 \begin{align}
     V_{p,grav} = V_{p,mat}.
 \end{align}
@@ -655,9 +655,9 @@ Summing up the previous achievements, it is now conceptually apparent how we mus
 We end this section by formulating this results in terms of a definite construction manual that is displayed as the algorithm \ref{Algo1}.
 \begin{algorithm}[hbt!]
 \SetAlgoLined
-\KwData{Matter theory: $ \mathcal{L}_{\text{mat}} : F_{\text{grav}} \oplus J^1F_{\text{mat}} \longrightarrow \Lambda^4M$.
+\KwData{Matter theory $ \mathcal{L}_{\text{mat}} : F_{\text{grav}} \oplus J^1F_{\text{mat}} \longrightarrow \Lambda^4M$.
 }
-\KwResult{Most general diffeomorphism invariant, causal compatible theory of gravity: $\mathcal{L}_{\text{grav}} : J^2F_{\text{grav}} \longrightarrow \Lambda^4M$ .}
+\KwResult{Most general diffeomorphism invariant, causal compatible theory of gravity $\mathcal{L}_{\text{grav}} : J^2F_{\text{grav}} \longrightarrow \Lambda^4M$ .}
 Compute the vertical coefficients $C^{Bm}_{An}$ of the infinitesimal diffeomorphism action on $F_{\text{grav}}$. \\
 Set up the equivariance equations (\ref{DiffeoEqn}). \\
 Solve the equivariance equations (\ref{DiffeoEqn}) to obtain the most general diffeomorphism invariant $L_{\text{grav}}(x^m,v_A,v_{Am},v_{AI})$.\\
@@ -682,11 +682,11 @@ Regarding this, we are essentially left with one of two options that avoid the m
 Such an approach will be discussed in \cite{NilsPHD}.
 Alternatively ---and this is the path that we will take in the following--- we can perturbatively solve the equivariance equations by employing the previously developed framework for computing \textit{\textbf{power series solution}} in some finite order. We, in particular, chose this path with the treatment of gravitational waves in mind.  The recent developments in the detection of gravitational waves makes them an excellent tool to test alternatives to GR \cite{2010PhRvD..81f4008Y}, \cite{2011PhRvD..83j4022B}, \cite{2017PhRvD..95j4027Z}, \cite{2013LRR....16....9Y}.
 
-We have already gathered the necessary techniques that allow us to construct perturbative solutions to the equivariance equations in a rigorous fashion in the previous section. Primarily we have seen that such an approach only yields meaningful results if the relevant PDE is \textit{\textbf{involutive}}. We are now going to apply these techniques to the equivariance equations (\ref{DiffeoEqn}). To that end, it is necessary to cast PDE (\ref{DiffeoEqn}) into the geometric language that we employed to formulate PDE theory in the last two sections. Recall that the Lagrangian in consideration is given by a bundle map:
+We have already gathered the necessary techniques that allow us to construct perturbative solutions to the equivariance equations in a rigorous fashion in the previous section. Primarily we have seen that such an approach only yields meaningful results if the relevant PDE is \textit{\textbf{involutive}}. We are now going to apply these techniques to the equivariance equations (\ref{DiffeoEqn}). To that end, it is necessary to cast PDE (\ref{DiffeoEqn}) into the geometric language that we employed to formulate PDE theory in the last two sections. Recall that the Lagrangian in consideration is given by a bundle map
 \begin{align}
-\mathcal{L} : J^2F \longrightarrow \Gamma^4M.
+\mathcal{L} : J^2F \longrightarrow \Lambda^4M.
 \end{align}
-We construct the bundle $J^2F \oplus \Lambda^4M$, with base space $J^2F$ and fiber over $j^2_pG \in J^2F$ given by $\Lambda^4_pM$. Note that $J^2F \oplus \Lambda^4M$ could also be made into a bundle over $M$ ---this is what one considers most of the time when constructing the Whitney sum of bundles--- here, however, we define the projection as:
+We construct the bundle $J^2F \oplus \Lambda^4M$, with base space $J^2F$ and fiber over $j^2_pG \in J^2F$ given by $\Lambda^4_pM$. Note that $J^2F \oplus \Lambda^4M$ could also be made into a bundle over $M$ ---this is what one considers most of the time when constructing the Whitney sum of bundles--- here, however, we define the projection as
 \begin{align}
     \begin{aligned}
      \pi_{J^2F \oplus \Lambda^4M} : J^2F \oplus \Lambda^4M &\longrightarrow J^2F \\
@@ -702,14 +702,14 @@ Conversely, given a bundle map $\mathcal{L}$ we can define a section by
 \sigma_{\mathcal{L}}(j^2_pG) := (j^2_pG, \mathcal{L}(j^2_pG)).
 \end{align}
 Thus, the Lagrangian $\mathcal{L}$ can equivalently be considered a section of $J^2F\oplus \Lambda^4M$. 
-Denoting the single coordinate of the $1$-dimensional fibers on $\Lambda^4M$ as $l$ we express adapted coordinates on $J^1(J^2F \oplus \Lambda^4M)$ as:
+Denoting the single coordinate of the $1$-dimensional fibers on $\Lambda^4M$ as $l$, we express adapted coordinates on $J^1(J^2F \oplus \Lambda^4M)$ as
 \begin{align}
-(x^m,v_A,v_{Am},v_{AI},l,l^{m},l^{A},l^{Am},l^{AI}).
+(x^m,v_A,v_{Am},v_{AI},l,l_{m},l^{A},l^{Am},l^{AI}).
 \end{align}
-Finally, we can obtain the formal representation of (\ref{DiffeoEqn}) by replacing the coordinates expression of the bundle map $L$ and the derivatives $L_{:m},L^{:A},...$ with fiber coordinates $l$ and derivative coordinates $l^m,l^A,...$. Hence, in terms of formal PDE theory the equivariance equation reads:
+Finally, we can obtain the formal representation of (\ref{DiffeoEqn}) by replacing the coordinates expression of the bundle map $L$ and the derivatives $L_{:m},L^{:A},...$ with fiber coordinates $l$ and derivative coordinates $l_m,l^A,...$. Hence, in terms of formal PDE theory the equivariance equation reads
 \begin{align}\label{DiffeoEqnFormal}
 \begin{aligned}
-    0 &= l^{m} \\
+    0 &= l_{m} \\
     0 &= l^{A} C_{An}^{Bm} v_B + l^{Ap} \bigl[ C_{An}^{Bm} \delta_p^q - \delta_A^B \delta_n^q\delta^m_p \bigr] v_{Bq} + l^{AI} \bigl[ C_{An}^{Bm} \delta_I^J - 2 \delta_A^B J_I^{pm} I^J_{pn}  \bigr] v_{BJ} + l \delta^m_n \\
     0 &= l^{A(p\vert}C_{An}^{B \vert m)} v_B + l^{ AI} \bigl[ C_{An}^{B(m\vert} 2 J_I^{\vert p) q} - \delta^B_A J_I ^{pm} \delta_n^q \bigr] v_{Bq} \\
     0 &= l^{AI} C_{An}^{B(m\vert} v_B J_I^{\vert p q )}.
@@ -728,11 +728,11 @@ We start by proving that the symbol of the equation (\ref{DiffeoEqnFormal}) is i
 \end{align}
 This homogeneous system describes functions that are invariant under the action of any lifted vector field (\ref{LieJ2}). 
 
-The first step in proving involution of the symbol is computing the sum of beta numbers. We have to pay attention as we have to compute this sum in coordinates that maximize it, i.e., are $\delta$-regular. However, because we are dealing with first-order equations, the classes of the derivative indices all possess exactly one member and range from 1 to $\mathcal{k}$ where: 
+The first step in proving involution of the symbol is computing the sum of beta numbers. We have to pay attention as we have to compute this sum in coordinates that maximize it, i.e., are $\delta$-regular. However, because we are dealing with first-order equations, the classes of the derivative indices all possess exactly one member and range from 1 to $\mathcal{k}$ where
 \begin{align}
     \mathcal{k} := \operatorname{dim}(J^2F) = 4+n+4n+10n,
 \end{align}
-$n$ being as before the fiber dimension of $F$. 
+$n$ being the fiber dimension of $F$. 
 In the following, we are going to assume that $\operatorname{dim}(J^2F)$ is bigger than the number of independent equations in (\ref{DiffeoEqnFormal}) which is given by 140 as otherwise, in general, there will not exist solutions in the first place. 
 The maximum value for the sum of betas is obtained when we transform the coordinates on $J^2F$ s.t.\ the first equation is solved w.r.t.\ the derivative coordinate with maximal class $\mathcal{k}$ and the $i$th equation is solved w.r.t.\ the derivative coordinate of class $\mathcal{k}-i$ such that the last equation is solved w.r.t.\ the derivative coordinate of class $\mathcal{k}-139$.
 Note that this immediately renders the symbol in solved form.
@@ -752,12 +752,12 @@ If we display the symbol $M_1$ as matrix and sort its columns by class starting 
 \underset{\longrightarrow}{\text{coordinate}} & l_{\mathcal{k}} & l_{\mathcal{k} -1} & \hdots & \hdots & \hdots & l_{\mathcal{k}- 140} & \hdots & l_1 &
 \end{blockarray}
 \end{align}
-for some $a^{\alpha}_{\tau}$ that are functions on $J^2F$ . The sum of betas can then be computed to be given by:
+for some $a^{\alpha}_{\tau}$ that are functions on $J^2F$ . The sum of betas can then be computed to be given by
 \begin{align}
     \sum_{i=1}^{\mathcal{k}} i \beta_1(i) = \sum_{i = 0}^{139} \mathcal{k} - i .
 \end{align}
 We now have to show that this equals the rank of the prolonged symbol $M_2$. By previous arguments, this is the case if we obtain all equations of $2$nd derivative order by prolongations w.r.t.\ multiplicative variables only. We again consider the symbol solved to the form given by matrix (\ref{symbolMat}). 
-We take an arbitrary row $\sigma$, for $\sigma=1,...,140$, and consider the corresponding equation $E_{\sigma}$. The multiplicative variables of this $\sigma$th equation are $y_1,...,y_{\operatorname{cls}(\sigma)}$ where we introduced: 
+We take an arbitrary row $\sigma$, for $\sigma=1,...,140$, and consider the corresponding equation $E_{\sigma}$. The multiplicative variables of this $\sigma$th equation are $y_1,...,y_{\operatorname{cls}(\sigma)}$ where we introduced
 \begin{align}
 \operatorname{cls}(\sigma):= \mathcal{k} - \sigma +1.
 \end{align}
@@ -770,7 +770,7 @@ Hence, any non-multiplicative prolongation does not contribute an independent ne
 
 To prove that not only the symbol but also the PDE (\ref{DiffeoEqnFormal}) itself is involutive, we have to show that the PDE generates no integrability conditions after one prolongation. We have already discussed that prolonging each equation only w.r.t.\ its multiplicative variables never produces integrability conditions. Furthermore, we have just shown that any prolongation w.r.t.\ non-multiplicative variables can be reduced to first derivative order by adding further multiplicative prolongations in the way it is outlined above. Hence, the question is if the first-derivative-order contributions that we get from such a procedure are already included in $R_1$ or contribute additional independent equations. 
 
-We first consider the homogeneous case. We take again the $m$th equation and work as before in the coordinates $y^a$ on $J^2F$ that solve the symbol $M_1$ to (\ref{symbolMat}). Note that this homogeneous linear first-order PDE can then be concisely written as:
+We first consider the homogeneous case. We take again the $m$th equation and work as before in the coordinates $y^a$ on $J^2F$ that solve the symbol $M_1$ to (\ref{symbolMat}). Note that this homogeneous linear first-order PDE can then be concisely written as
 \begin{align}
     E_{\sigma} = l_{\operatorname{cls}(\sigma)} + \sum_{i = \sigma+1}^{\mathcal{k}} a^{\sigma}_{\operatorname{cls}(i)} l_{\operatorname{cls}(i) } .
 \end{align}
@@ -785,7 +785,7 @@ In terms of vector fields this corresponds to the fact that the $\zeta_{\sigma}$
     \left [ \zeta_{\sigma}, \zeta_{\tau}\right ] =0.
 \end{align}
 
-Carefully analyzing the above procedure, we now find that the remaining first-order equation that is produced when eliminating all second-order contributions from a non-multiplicative prolongation $D_bE_{\sigma}$ by multiplicative prolongations is simply given by the commutator equation:
+Carefully analyzing the above procedure, we now find that the remaining first-order equation that is produced when eliminating all second-order contributions from a non-multiplicative prolongation $D_bE_{\sigma}$ by multiplicative prolongations is simply given by the commutator equation
 \begin{align}
     \left [\zeta_{\sigma}, \zeta_{\operatorname{cls}(b)} \right] = 0.
 \end{align}
@@ -801,11 +801,11 @@ What remains to show is that the presence of the inhomogeneity in $(\ref{DiffeoE
      E_{\sigma} \ &\text{else}.
      \end{cases}
 \end{align}
-One can now show along the same lines we followed in the homogeneous case that the inhomogeneous system is involutive if for any two such equations $\tilde{E}_{\sigma}$ and $\tilde{E}_{\tau}$ the so-called \textit{\textbf{Jacobi bracket}} or sometimes also called Mayer bracket: 
+One can now show along the same lines we followed in the homogeneous case that the inhomogeneous system is involutive if for any two such equations $\tilde{E}_{\sigma}$ and $\tilde{E}_{\tau}$ the so-called \textit{\textbf{Jacobi bracket}} or sometimes also called Mayer bracket
 \begin{align}
   \llbracket \tilde{E}_{\sigma}, \tilde{E}_{\tau} \rrbracket = \sum _{i = 1}^{\mathcal{k}} \biggl(\frac{\partial \tilde{E}_{\sigma}}{\partial l_i}\biggr) D_{i}\tilde{E}_{\tau} -  \biggl(\frac{\partial \tilde{E}_{\tau}}{\partial l_i}\biggr) D_{i}\tilde{E}_{\sigma} 
 \end{align}
-vanish on $R_1$ (see  \cite{seiler1994analysis} and also Example 2.3.12 in \cite{seiler2009involution}), i.e., can be obtained by linear combinations of unprolonged equations. Comparing this to the previous case where the possible integrability conditions where built from the commutator we now get extra terms whenever either $\sigma$, $\tau$ or both are contained in $\{ 5,9,13,17 \}$. Consider first the case where $\sigma \in \{5,9,13,17\}$ but not $\tau$, then we have $\tilde{E}_{\sigma} = E_{\sigma} + l$ and $\tilde{E}_{\tau} = E_{\tau}$ and hence, using the linearity of the Jacobi bracket:
+vanish on $R_1$ (see  \cite{seiler1994analysis} and also Example 2.3.12 in \cite{seiler2009involution}), i.e., can be obtained by linear combinations of unprolonged equations. Comparing this to the previous case where the possible integrability conditions where built from the commutator we now get extra terms whenever either $\sigma$, $\tau$ or both are contained in $\{ 5,9,13,17 \}$. Consider first the case where $\sigma \in \{5,9,13,17\}$ but not $\tau$, then we have $\tilde{E}_{\sigma} = E_{\sigma} + l$ and $\tilde{E}_{\tau} = E_{\tau}$ and hence, using the linearity of the Jacobi bracket
 \begin{align}
     \llbracket \tilde{E}_{\sigma}, \tilde{E}_{\tau} \rrbracket = \llbracket E_{\sigma}, E_{\tau} \rrbracket - \sum_{i=1}^{\mathcal{k}} \frac{\partial E_{\tau}}{\partial l_i} l_i.
 \end{align}
@@ -817,11 +817,11 @@ We can now apply the previously developed techniques to obtain a power series so
 Note that from the point of view of formal theory, involution of a PDE is not only essential for the construction of power series solutions. Previously we have already stated that one of the key ideas behind a PDE with involutive symbol lies in the fact that one is then able to predict the rank of the prolonged symbol employing (\ref{sumBeta}) without actually having to compute the relevant prolongations. As for an involutive symbol according to (\ref{invoCons}) also all prolonged symbols are involutive one can thus obtain formulae that also allow for the prediction of the ranks of higher-order prolongations of the symbol. Recall that the rank of the symbol $M_q$ essentially determines the number of expansion constants of order $q$ that one might specify arbitrarily when constructing a power series solution to the PDE. Thereby, the various ranks of the symbol govern the entire information regarding the solution space of the given PDE.
 Thus, the involution of the PDE (\ref{DiffeoEqnFormal}) allows us to formulate the following statement about its general solution for arbitrary field bundles $F$.
 \begin{theorem}\label{GeneralSol}
-Given any field bundle $F$ with fiber dimension $n$. The general solution to the invariance equation, i.e., the homogeneous version of (\ref{DiffeoEqnFormal}) admits the form:
+Given any field bundle $F$ with fiber dimension $n$. The general solution to the invariance equation, i.e., the homogeneous version of (\ref{DiffeoEqnFormal}) admits the form
 \begin{align}
     \mathcal{F} \left (\Psi_1,...,\Psi_r \right ),
 \end{align}
-where $r:=\mathcal{k}-140$, $\Psi_1,...\Psi_r$ are $r$ functionally independent solutions of the homogeneous PDE and $\mathcal{F}$ is an arbitrary function of these independent solutions. The general solution to the equivariance equation, i.e., the inhomogeneous PDE (\ref{DiffeoEqnFormal}) is given by:
+where $r:=\mathcal{k}-140$, $\Psi_1,...\Psi_r$ are $r$ functionally independent solutions of the homogeneous PDE and $\mathcal{F}$ is an arbitrary function of these independent solutions. The general solution to the equivariance equation, i.e., the inhomogeneous PDE (\ref{DiffeoEqnFormal}) is given by
 \begin{align}
     \omega \cdot \mathcal{F} \left (\Psi_1,...,\Psi_r \right ),
 \end{align}
@@ -830,22 +830,22 @@ where $\omega$ is any explicit solution to the PDE.
 \begin{proof}
 The proof of the first statement is given by proposition 7.1 in \cite{seiler1994analysis}. Further information can in particular be found in chapter 3 of \cite{seiler2009involution} and \cite{articleCH}. 
 
-The second statement then simply follows from the previously stated fact that given an arbitrary solution $\mathcal{F}$ of the homogeneous PDE, multiplying by any solution $\omega$ of the inhomogeneous system yields again a solution to the inhomogeneous system and vice versa the quotient of any two solutions of the inhomogeneous PDE defines again a solution to the homogeneous system. The first part of this statement is simply a result of the linearity of the given PDE. For simplicity, we consider the case of a single equation: 
+The second statement then simply follows from the previously stated fact that given an arbitrary solution $\mathcal{F}$ of the homogeneous PDE, multiplying by any solution $\omega$ of the inhomogeneous system yields again a solution to the inhomogeneous system and vice versa the quotient of any two solutions of the inhomogeneous PDE defines again a solution to the homogeneous system. The first part of this statement is simply a result of the linearity of the given PDE. For simplicity, we consider the case of a single equation with functions $a^{\sigma} : J^2F \rightarrow \mathbb{R}$
 \begin{align}
-    0=D_i l + l 
+    0=a^{\sigma}D_{\sigma} l + l,
 \end{align}
 and the corresponding homogeneous version. The generalization to finitely many equations is then really straight forward. 
-We assume that we have the general solution to the homogeneous equation, i.e., $0 = D_i \mathcal{F}$ and also an explicit solution to the inhomogeneous version: $0 = D_i \omega + \omega$.
-We first show that $\omega \cdot \mathcal{F}$ then also solves the inhomogeneous system. Inserting $\omega \cdot \mathcal{F}$ into the inhomogeneous PDE we get: 
+We assume that we have the general solution to the homogeneous equation, i.e., $0 = a^{\sigma}D_{\sigma} \mathcal{F}$ and also an explicit solution to the inhomogeneous version: $0 = a^{\sigma}D_{\sigma} \omega + \omega$.
+We first show that $\omega \cdot \mathcal{F}$ then also solves the inhomogeneous system. Inserting $\omega \cdot \mathcal{F}$ into the inhomogeneous PDE, we get
 \begin{align}
-    0 = \left ( D_i \mathcal{F} \right ) \cdot \omega + \mathcal{F} \cdot \left ( D_i \omega \right) + \mathcal{F} \cdot \omega. 
+    0 = \left ( a^{\sigma}D_{\sigma} \mathcal{F} \right ) \cdot \omega + \mathcal{F} \cdot \left (a^{\sigma} D_{\sigma} \omega \right) + \mathcal{F} \cdot \omega. 
 \end{align}
 As $\mathcal{F}$ is supposed to provide a solution to the homogeneous equation, the first term vanishes. As $\omega$ solves the inhomogeneous equation the second term yields $\mathcal{F} \cdot \left ( - \omega \right )$,
-and thus cancels the third term. We thus have shown that $\omega \cdot \mathcal{F}$ solves the inhomogeneous system. To complete the proof we still have to show that any solution to the inhomogeneous PDE necessarily takes this form. We prove this by first taking an arbitrary solution to the inhomogeneous system $\rho$. We now take any other solution $\omega$ and insert the quotient $\rho/\omega$ into the homogeneous PDE:
+and thus cancels the third term. We thus have shown that $\omega \cdot \mathcal{F}$ solves the inhomogeneous system. To complete the proof we still have to show that any solution to the inhomogeneous PDE necessarily takes this form. We prove this by first taking an arbitrary solution to the inhomogeneous system $\rho$. We now take any other solution $\omega$ and insert the quotient $ \displaystyle \frac{\rho}{\sigma}$ into the homogeneous PDE:
 \begin{align}
-    0 = D_i \left (\frac{\rho}{\omega} \right) = - (\frac{\rho}{\omega}) - \frac{\rho}{\omega^2} \cdot (-\omega) ,
+    0 = a^{\sigma}D_{\sigma} \left (\frac{\rho}{\omega} \right) = - (\frac{\rho}{\omega}) - \frac{\rho}{\omega^2} \cdot (-\omega).
 \end{align}
-Where we used $D_i \rho = -\rho$ and the same for $\omega$ as they both are supposed to solve the inhomogeneous system. Hence, the quotient solves the homogeneous system. Obviously, we can write the solution $\rho$ as: 
+Here we used $a^{\sigma}D_{\sigma} \rho = -\rho$, and the same for $\omega$, as they both are supposed to solve the inhomogeneous system. Hence, the quotient solves the homogeneous system. Obviously, we can write the solution $\rho$ as: 
 \begin{align}
     \rho = \omega \cdot  \frac{\rho}{\omega}.
 \end{align}
@@ -853,7 +853,7 @@ However, as the first factor is taken to be a solution to the inhomogeneous syst
 Hence, in total, we have thus shown that any solution to the inhomogeneous PDE is of the form $\omega \cdot \mathcal{F}$.
 The straight forward generalization of this to the case finitely many PDEs then completes the proof.
 \end{proof}
-It is essential to observe that the previous theorem not only tells us the general form any solution to the equivariance or invariance equations respectively will admit but also provides us with information regarding the number of functionally independent solutions to these systems. Concretely for any field bundle, there will be: 
+It is essential to observe that the previous theorem not only tells us the general form any solution to the equivariance or invariance equations respectively will admit but also provides us with information regarding the number of functionally independent solutions to these systems. Concretely for any field bundle, there will be 
 \begin{align}
     \operatorname{dim}(J^2F) - 140 
 \end{align}
@@ -869,7 +869,7 @@ Moreover, note that computing a set of $14$ functionally independent curvature i
 In the context of GR, the curvature invariants and also possibly higher invariants involving higher derivatives of the metric tensor are then mostly used to classify spacetimes. Details can be found in
 \cite{2009CQGra..26b5013C}, \cite{Zakhary1997}, \cite{2002IJMPD..11..827C} and also \cite{doi:10.1063/1.531425}.
 
-With our developed framework, we can easily reproduce the known result of $14$ curvature invariants for GR. The fiber dimension of the bundle of symmetric $(0,2)$ tensors $F_{\text{GR}}$ is obviously ten, yielding for this case: 
+With our developed framework, we can easily reproduce the known result of $14$ curvature invariants for GR. The fiber dimension of the bundle of symmetric $(0,2)$ tensors $F_{\text{GR}}$ is obviously $10$, yielding for this case
 \begin{align}
     \operatorname{dim}(J^2F_{\text{GR}}) = 4 + 10 + 40 + 100 = 154,
 \end{align}
@@ -897,7 +897,7 @@ In most cases this is achieved by constructing $N_A = N_A(\eta_{ab})$ from the M
 
 Note that this clearly restricts the set of field bundles $F$ we can possibly treat to those that are composed of tensors with an even total rank, as we simply cannot write down expressions with odd rank that are solely constructed from $\eta_{ab}$. This will not affect any further developments as in all examples we will treat, the gravitational field is described by an even rank tensor field. There are even certain arguments mainly stemming from QFT that the gravitational field must be of even rank in order to describe an attractive force (see for instance \cite{vecchiato2017variational}). 
 
-We start our development of a framework that will allow us to construct perturbative expansions of diffeomorphism invariant Lagrangians for arbitrary fields by writing down the general finite power series expansion of an arbitrary such Lagrangian up to some order $r > 0$ around a flat expansion point $p_0 \in J^2F$ with adapted coordinates $p_0 \equiv (x_0^m,N_A, 0, 0)$. Note again that such a Lagrangian is already a bundle map on the second-order jet bundle $J^2F$, the equivariance PDE (\ref{DiffeoEqnFormal}) is then constructed as a sub manifold of $J^1(J^2F \oplus \Lambda^4M)$. It is important not to confuse the two different ways the jet bundle construction is involved therein. In order to concisely display such a power series Lagrangian, we need to agree on some further notation. We denote the adapted coordinates on $J^2F$ collectively by:
+We start our development of a framework that will allow us to construct perturbative expansions of diffeomorphism invariant Lagrangians for arbitrary fields by writing down the general finite power series expansion of an arbitrary such Lagrangian up to some order $r > 0$ around a flat expansion point $p_0 \in J^2F$ with adapted coordinates $p_0 \equiv (x_0^m,N_A, 0, 0)$. Note again that such a Lagrangian is already a bundle map on the second-order jet bundle $J^2F$, the equivariance PDE (\ref{DiffeoEqnFormal}) is then constructed as a sub manifold of $J^1(J^2F \oplus \Lambda^4M)$. It is important not to confuse the two different ways the jet bundle construction is involved therein. In order to concisely display such a power series Lagrangian, we need to agree on some further notation. We denote the adapted coordinates on $J^2F$ collectively by
 \begin{align}
     (v_{AI_k}) := (x^m,v_A,v_{Ap},v_{AI}).
 \end{align}
@@ -916,7 +916,7 @@ Before we write down the concrete expression for the expansion of the Lagrangian
 \end{align}
 
 As before the $a^{\tilde{I}_k}$ are constants.
-We further define a second way of displaying these constants:
+We further define a second way of displaying these constants
 \begin{align}
     a^{A_1I_{k_1}...A_nI_{k_n}} := a^{\tilde{I}_k} \cdot J_{\tilde{I}_k}^{A_1I_{k_1}...A_nI_{k_n}}
 \end{align}
@@ -926,51 +926,51 @@ In order to clarify this last expression further, we now explicitly provide the 
     L_{\text{per}} = \  &a_0 + a^A H_A + a^{Ap} H_{Ap} + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ABp}H_A H_{Bp} + a^{ABI} H_{A} H_{BI}\\
     &+a^{ApBI}H_{Ap} H_{BI} + a^{AIBJ} H_{AI}H_{BJ} + a^{ABC} H_a H_B H_C 
     + a^{ABCp} H_A H_B H_{Cp} \\
-    &+a^{ABCI} H_A H_B H_{CI} + a^{ABpCq} H_{A}H_{BP}H_{Cq} + a^{ABpCI} H_A H_{Bp} H_{CI}\\
+    &+a^{ABCI} H_A H_B H_{CI} + a^{ABpCq} H_{A}H_{Bp}H_{Cq} + a^{ABpCI} H_A H_{Bp} H_{CI}\\
     &+ a^{ABICJ} H_A H_{BI}H_{CJ} 
-    + a^{ApBqCm} H_{Ap} H_{Bp} H_{Cm}+ a^{ApBq CI} H_{Ap} H_{BP} H_{CI}\\
+    + a^{ApBqCm} H_{Ap} H_{Bq} H_{Cm}+ a^{ApBq CI} H_{Ap} H_{Bq} H_{CI}\\
     &+ a^{Ap BI CJ} H_{Ap} H_{BI} H_{CJ} + a^{AIBJCK} H_{AI} H_{BJ} H_{CK} + \mathcal{O}(4),
 \end{aligned}
 \end{align}
 where $\mathcal{O}(4)$ denotes terms that are of order $4$ or higher in any $(H_{AI_k})$. We now proceed exactly as outlined before in calculating the perturbative solution to solution to (\ref{DiffeoEqn}) from the above power series ansatz of the Lagrangian. We start by plugging in the expansion (\ref{LPert}) into the PDE (\ref{DiffeoEqnFormal}) and evaluate at the expansion point $p_0$. Note that evaluating at $p_0$ in coordinates corresponds to evaluating at $(H_{AI_k})=0$. This then yields equations for the expansion constants $a_0, a^A, a^{Ap}$ and $a^{AI}$. To obtain equations for the remaining higher-order expansion coefficients, we simply prolong the PDE and again insert the series expansion and evaluate at $p_0$. As we have shown that PDE (\ref{DiffeoEqnFormal}) is involutive, there will not occur any integrability conditions.
 
 There is, however, one obstruction to this procedure that will become noticeable by providing additional lower-order equations that are revealed only after prolongations, yet they have nothing to do with integrability conditions. 
-The reason for this obstruction is that the chosen $\eta$-induced expansion point in general features higher symmetry than an arbitrary point in $J^2F$. More precisely since we required $N_A(\eta_{ab})$ to be constructed from the Minkowski metric through products, sums and possibly contractions, it is \textit{\textbf{Lorentz invariant}}. To further investigate the consequences thereof we consider first an arbitrary flat expansion point $\tilde{p}_0 \in J^2F$ with coordinates $(\tilde{x}_0^m,M_A,0,0)$. Evaluating the second equation in (\ref{DiffeoEqnFormal}) for this point yields:
+The reason for this obstruction is that the chosen $\eta$-induced expansion point in general features higher symmetry than an arbitrary point in $J^2F$. More precisely since we required $N_A(\eta_{ab})$ to be constructed from the Minkowski metric through products, sums and possibly contractions, it is \textit{\textbf{Lorentz invariant}}. To further investigate the consequences thereof we consider first an arbitrary flat expansion point $\tilde{p}_0 \in J^2F$ with coordinates $(\tilde{x}_0^m,M_A,0,0)$. Evaluating the second equation in (\ref{DiffeoEqnFormal}) for on point yields
 \begin{align}
-    0 = l^A \vert _{\tilde{p}_0} C^{Bm}_{An}M_B.
+    0 = l^A \big \vert _{\tilde{p}_0} C^{Bm}_{An}M_B.
 \end{align}
 When evaluated at a general point, these are 16 independent equations. 
-Conversely evaluating the same equation at the $\eta$-induced expansion point we find that:
+Conversely evaluating the same equation at the $\eta$-induced expansion point we find that
 \begin{align}\label{RankDef}
-    0 = l^A \vert_{p_0} C^{BM}_{An}N_B
+    0 = l^A \big \vert_{p_0} C^{Bm}_{An}N_B
 \end{align}
 provides only $10$ independent equations. The reason for this rank defect and foremost, its connection to the observed Lorentz invariance can be observed by considering the expression $K_{m[rs]}^n :=\eta_{m[r}\delta_{s]}^n$. 
-Taking a closer look at the $6$ individual expressions that can be obtained from the $6$ possible values of the anti symmetric index pair  $\{K_{m[rs]}^n \ \vert \ r < s \} $ we find that they all are by construction anti symmetric w.r.t.\ the Minkowski metric, i.e., they satisfy: 
+Taking a closer look at the $6$ individual expressions that can be obtained from the $6$ possible values of the anti symmetric index pair  $\{K_{m[rs]}^n \, \big \vert \, r < s \}$, we find that they all are, by construction, anti symmetric w.r.t.\ the Minkowski metric, i.e., they satisfy 
 \begin{align}
-K_{m[rs]}^n\eta_{n p} - m \leftrightarrow p = 0.
+K_{m[rs]}^n\eta_{n p} + m \leftrightarrow p = 0.
 \end{align}
-Furthermore, they are all linearly independent when identified as real $4 \times 4$ matrices. Considering the dimension of the vector space of $4 \times 4$ matrices that are anti symmetric w.r.t.\ the matrix expression of $\eta_{ab}$ we find that  the expressions $K_{m[rs]}^n$ even constitute a basis of the vector space of $\eta$-antisymmetric matrices. 
+Furthermore, they are all linearly independent when identified as real $4 \times 4$ matrices. Considering the dimension of the vector space of $4 \times 4$ matrices that are anti symmetric w.r.t.\ the matrix expression of $\eta_{ab}$, we find that  the expressions $K_{m[rs]}^n$ even constitute a basis of the vector space of $\eta$-antisymmetric matrices. 
 
 One can show that the Lie algebra of the Lorentz group $\operatorname{SO}(1,3)$ is isomorphic to the Lie algebra that is obtained by equipping this vector space of $\eta$-antisymmetric matrices with the standard matrix commutator. Hence, these $6$ matrices actually yield a basis of the Lie algebra $\operatorname{Lie}(\operatorname{SO}(1,3))$. One often calls such matrices the \textit{\textbf{generators}} of the corresponding group as finite group elements can be obtained by applying the exponential map to linear combinations of them. Much information regarding the Lorentz group can be found in \cite{doi:10.1142/p199} and \cite{naimark2014linear}.
 
-It is now clear that it henceforth holds that:
+It is now clear that it henceforth holds that
 \begin{align}
     0 = C^{Bm}_{An}N_B K_{m[rs]}^n,
 \end{align}
 as this is nothing but the infinitesimal change of $N_A$ under Lorentz transformations, but as $N_A$ is solely constructed from $\eta_{ab}$ and hence Lorentz invariant this infinitesimal change obviously vanishes. As there exist $6$ independent generators of the Lorentz group we can thus obtain $6$ independent vanishing linear combinations of the $16$ equations in (\ref{RankDef}):
 \begin{align}
-    0 = a^A C^{BM}_{An}N_B K_{m[rs]}^n,
+    0 = a^A C^{Bm}_{An}N_B K_{m[rs]}^n,
 \end{align}
-leaving us with $10$ independent equations. At first sight, it seems as if due to the higher symmetry of the expansion points, the equations are now weaker. This is, however, not true as the Lorentz invariance of the expansion point $N_A$ also influences the power series solution in higher order. To illustrate this effect we consider the prolongation of the second equation in (\ref{DiffeoEqnFormal}) w.r.t.\ $v_B$, i.e., we apply the total derivative $D_B$ to this equation. We get the second-derivative-order equation:
+leaving us with $10$ independent equations. At first sight, it seems as if due to the higher symmetry of the expansion points, the equations are now weaker. This is, however, not true as the Lorentz invariance of the expansion point $N_A$ also influences the power series solution in higher order. To illustrate this effect we consider the prolongation of the second equation in (\ref{DiffeoEqnFormal}) w.r.t.\ $v_B$, i.e., we apply the total derivative $D_B$ to this equation. We get the second-derivative-order equation
 \begin{multline}
-    0 = l^AC_{An}^{Bm} + l^{AB}C_{An}^{Cm}v_C + l^{BAp} \bigl[ C_{An}^{Cm} \delta_p^q - \delta_A^C \delta_m^n \bigr] v_{Cq}\\
+    0 = l^AC_{An}^{Bm} + l^{AB}C_{An}^{Cm}v_C + l^{BAp} \bigl[ C_{An}^{Cm} \delta_p^q - \delta_A^C \delta_p^m \delta^q_n \bigr] v_{Cq}\\
     + l^{BAI} \bigl[ C_{An}^{Cm} \delta_I^J - 2 \delta_A^C J_I^{pm} I^J_{pn}  \bigr] v_{CJ} + l^{B} \delta^m_n.
 \end{multline}
-When evaluating at $p_0$ only terms that have no $v_{Ap}$ or $v_{AI}$ contribute and we are left with:
+When evaluating at $p_0$ only terms that have no $v_{Ap}$ or $v_{AI}$ contribute and we are left with
 \begin{align}\label{prolongE}
     0 = a^A C_{An}^{Bm} + a^{AB} C_{An}^{Cm} N_C +  a^B \delta^m_n.
 \end{align}
-If we had chosen a different prolongation, i.e., $D_{Bp}$ or $D_{BI}$, we would have got a similar expression. All these prolongations of the second equation of (\ref{DiffeoEqnFormal}) have in common that the only second-derivative-order contribution is proportional to $C^{Cm}_{An} N_C$ and hence, all allow for the following construction. We simply take the whole prolonged equations (\ref{prolongE}) and contract it with the Lorentz generators $K_{m[rs]}^n$. Note that such a contraction is equivalent to a certain linear combination of equations of the prolonged equations. Then obviously the second-derivative-order contribution vanishes, as already $C_{An}^{Bm} N_B K_{m[rs]}^n = 0$.  Therefore, the resulting equation is now again of first derivative order. Furthermore one readily finds that the contribution from $a^B \delta^m_n K_{m[rs]}^n$ vanishes. Hence, we are left with: 
+If we had chosen a different prolongation, i.e., $D_{Bp}$ or $D_{BI}$, we would have got a similar expression. All these prolongations of the second equation of (\ref{DiffeoEqnFormal}) have in common that the only second-derivative-order contribution is proportional to $C^{Cm}_{An} N_C$ and hence, all allow for the following construction. We simply take the whole prolonged equations (\ref{prolongE}) and contract it with the Lorentz generators $K_{m[rs]}^n$. Note that such a contraction is equivalent to a certain linear combination of equations of the prolonged equations. Then obviously the second-derivative-order contribution vanishes, as already $C_{An}^{Bm} N_B K_{m[rs]}^n = 0$.  Therefore, the resulting equation is now again of first derivative order. Furthermore one readily finds that the contribution from $a^B \delta^m_n K_{m[rs]}^n$ vanishes. Hence, we are left with 
 \begin{align}\label{ansatz1}
     0 = a^A C^{Bm}_{An}  K_{m[rs]}^n.
 \end{align}
@@ -984,7 +984,7 @@ The general solution is given by $f(x) = x^2 +c$ where $c=const$. We construct a
 \begin{align}
     f_{\text{per}} = \sum_{i=0}^k a_i x^i.
 \end{align}
-We evaluate the equation at $x_0=0$ to find in the first order the trivial equation $0=0$. Note that the ODE is of first derivative order. Hence, in general, we would expect to obtain equations for $a_1$ from inserting the power series ansatz. We proceed by prolonging the ODE to obtain the second-derivative-order equation:
+We evaluate the equation at $x_0=0$ to find in the first order the trivial equation $0=0$. Note that the ODE is of first derivative order. Hence, in general, we would expect to obtain equations for $a_1$ from inserting the power series ansatz. We proceed by prolonging the ODE to obtain the second-derivative-order equation
 \begin{align}
     0 = f^{\prime}(x) + x \cdot f^{\prime \prime}(x) - 4 x.
 \end{align}
@@ -1016,7 +1016,7 @@ In the following, we will call this quantity, the total number of derivative ind
 After all, we find that the following general expansion remains: 
 \begin{multline}\label{LperRed}
      L_{\text{per}} = a_0 + a^A H_A + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ApBq} H_{Ap}H_{Bq} + a^{ABI} H_{A} H_{BI} \\
-    + a^{ABC} H_a H_B H_C + a^{ABpCq} H_{A}H_{Bp}H_{Cq}
+    + a^{ABC} H_A H_B H_C + a^{ABpCq} H_{A}H_{Bp}H_{Cq}
     + a^{ABCI} H_A H_B H_{CI} 
     + \mathcal{O}(4).
 \end{multline}
@@ -1064,7 +1064,7 @@ that exploits the gravitational field as geometric background. Along the previou
 and implement the required diffeomorphism invariance by solving the linear systems for the expansion coefficients that are obtained from inserting the power series around $p_0 \in J^2F_{\text{grav}}$ into (\ref{DiffeoEqnFormal}). 
 Following along the lines of the construction recipe algorithm \ref{Algo1} we would now have to compute the matter and gravitational principal polynomials.
 These obviously must now also be computed perturbatively. 
-To lighten the notation, we will drop the explicit $k$ dependency in the following and write $\mathcal{P}_{\text{mat}}$ instead of $\mathcal{P}_{\text{mat}}(k)$ and analogously for the gravitational principal polynomial. It is straight forward how we can expand $\mathcal{P}_{\text{mat}}$ in coordinates around the chosen expansion point $p_0$ up to some arbitrary order, as we can easily derive the corresponding full, i.e., non-perturbative expression $\mathcal{P}_{\text{mat}}$ from the matter EOM. We get the following expansion of $\mathcal{P}_{\text{mat}}$ up to and including the quadratic order in $H_A$:
+To lighten the notation, we will drop the explicit $k$ dependency in the following and write $\mathcal{P}_{\text{mat}}$ instead of $\mathcal{P}_{\text{mat}}(k_a)$ and analogously for the gravitational principal polynomial. It is straight forward how we can expand $\mathcal{P}_{\text{mat}}$ in coordinates around the chosen expansion point $p_0$ up to some arbitrary order, as we can easily derive the corresponding full, i.e., non-perturbative expression $\mathcal{P}_{\text{mat}}$ from the matter EOM. We get the following expansion of $\mathcal{P}_{\text{mat}}$ up to and including the quadratic order in $H_A$:
 \begin{align}
     \mathcal{P}_{\text{mat}}(v_A) = (P_{\text{mat}})_{0} + (P_{\text{mat}})^A_1 H_A+ (P_{\text{mat}})^{AB}_2 H_A H_B +\mathcal{O}(3),
 \end{align}

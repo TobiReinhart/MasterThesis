@@ -25,7 +25,7 @@ In the following, we will refer to the bundle $F$ as $\textit{\textbf{field bund
 
 Given a field bundle $(F, \pi_F, M)$, we can define the corresponding $\textit{\textbf{dual field bundle}}$ $(F^{\ast}, \pi_{F^{\ast}},M)$ as its vector bundle dual. We quickly recall the definition of the vector bundle dual and the dual of a linear map.
 \begin{definition}[dual linear map] \label{dual}
-Given vector spaces $V$ and $W$, and a linear map, i.e., a morphism of vector spaces $f : V \rightarrow W$, the dual linear map $f^{\ast} : W^{\ast} \rightarrow V^{\ast}$ is defined by the requirement:
+Given vector spaces $V$ and $W$, and a linear map, i.e., a morphism of vector spaces $f : V \rightarrow W$, the dual linear map $f^{\ast} : W^{\ast} \rightarrow V^{\ast}$ is defined by the requirement
 \begin{align}
     \forall v \in V, \forall \omega \in W^{\ast} : \omega (f(v)) = f^{\ast}(\omega) (v).
 \end{align}
@@ -136,7 +136,7 @@ In practise one can specify the coordinate expressions $I^{A a_1 ... a_m}_{b_1 .
     v^A &:= I^{A a_1 ... a_m}_{b_1 ... b_n} \cdot  v^{b_1 ... b_n}_{a_1 ... a_m} .
     \end{aligned}
 \end{align}
-This approach can, for instance, be used if the tensor field at hand, $G \in \Gamma(F)$, is defined by requiring it to obey a specific symmetry\footnote{Symmetries that are defined in the following way cover most of the cases of symmetric tensor fields in classical field theory and certainly all cases that we will encounter in this thesis.}. More precisely, one requires that a certain subgroup of the direct product of permutation groups, $\operatorname{Sym}(G) \subset S_m \times S_n$, acts on its tensor indices by multiplication with a sign, i.e., it holds that:
+This approach can, for instance, be used if the tensor field at hand, $G \in \Gamma(F)$, is defined by requiring it to obey a specific symmetry\footnote{Symmetries that are defined in the following way cover most of the cases of symmetric tensor fields in classical field theory and certainly all cases that we will encounter in this thesis.}. More precisely, one requires that a certain subgroup of the direct product of permutation groups, $\operatorname{Sym}(G) \subset S_m \times S_n$, acts on its tensor indices by multiplication with a sign, i.e., it holds that
 \begin{align}
     \text{for all } (\rho, \tau) \in \operatorname{Sym}(G) : G^{a_{\rho(1)}...a_{\rho(m)}}_{b_{\tau(1)}...b_{\tau(n)}} = \pm G^{a_1...a_m}_{b_1...b_n}.
 \end{align}
@@ -346,7 +346,7 @@ Given a function $f \in C^{\infty}(F)$, with coordinate expression $f(x^m, v_A)$
 \begin{align}\label{totDer}
     D_j g = \sum _{k = 0}^{q}  v_{AI_{k+1}}I^{I_{k+1}}_{ji_1...i_k}J_{J_k}^{i_1...i_k}\partial^{AJ_k} g.
 \end{align}
-Moreover, we can also define higher-order total derivatives:
+Moreover, we can also define higher-order total derivatives
 \begin{align}\label{highrTotder}
     D_{I_k} = J_{I_k}^{i_1...i_k}D_{i_1} ...  D_{i_k}.
 \end{align}
@@ -355,10 +355,10 @@ When computing several such higher-order total derivatives, we can combine them 
 D_{I_k} \circ D_{J_m} = J_{I_k}^{i_1...i_k}J_{J_m}^{j_1...j_m}D_{i_1}  ...  D_{i_k}  D_{j_1}  ...  D_{j_m}.
 \end{align}
 Note that the intertwiners $J_{I_k}^{i_1...i_k}$ and $J_{J_m}^{j_1...j_m}$ encode the total symmetry in the two sets of spacetime indices $\{i_1,...,i_k\}$ and $\{j_i,...,j_m\}$, respectively, but not the additional total symmetry w.r.t.\ any permutation of spacetime indices that mixes the two sets, that is enforced by the contraction against $D_{i_1}  ...  D_{i_k}  D_{j_1}  ...  D_{j_m}$.
-To further account for such additional symmetries, we need to combine the two sets of spacetime indices in a new derivative index of order $k+m$. This suggests the definition of an additional intertwiner map that relates a derivative index of order $k+m$ with a pair of derivative indices of order $k$ and $m$:
+To further account for such additional symmetries, we need to combine the two sets of spacetime indices in a new derivative index of order $k+m$. This suggests the definition of an additional intertwiner map that relates a derivative index of order $k+m$ with a pair of derivative indices of order $k$ and $m$. Given any object $u_{I_{k}}$ that carries such derivative indices ---for instance, the higher-order total derivative $D_{I_k}$--- we introduce
 \begin{align}
-   v_{AI_{k+m}} := v_{AI_k} v_{AI_m}
-   \underbrace{I^{I_K}_{i_1...i_k}I^{I_m}_{j_1...j_m}J^{i_1...i_k j_1...j_m}_{I_{k+m}}}_{=: J^{I_k I_m}_{I_{k+m}}}  \   ,
+   u_{I_{k+m}} := u_{I_k} u_{I_m}
+   \underbrace{I^{I_k}_{i_1...i_k}I^{I_m}_{j_1...j_m}J^{i_1...i_k j_1...j_m}_{I_{k+m}}}_{=: J^{I_k I_m}_{I_{k+m}}}  \   ,
 \end{align}
 where the last intertwiner $J^{i_1...i_k j_1...j_m}_{I_{k+m}}$ is simply the standard intertwiner for indices of order $k+m$.
 Similarly, we define
@@ -378,7 +378,7 @@ Lastly, with the definition of the total derivative at hand, given a function on
 \begin{align}\label{varDer}
 \frac{\delta f}{\delta v_A} := \partial^{A}g + \sum _{k = 1}^q (-1)^k D_{I_k}(\partial^{AI_k}f).
 \end{align}
-Note that in particular the variational derivative of a function on the $q$th-order jet bundle in general yields a function on the $2q$th-order jet bundle.
+Note that the variational derivative of a function on the $q$th-order jet bundle in general yields a function on the $2q$th-order jet bundle.
 
 Now we have finally developed the necessary structure to give a precise definition of a \textbf{\textit{Lagrangian}} for a field theory whose dynamical objects are sections of the field bundle $(F, \pi_F,M)$.
 \begin{definition}[Lagrangian]
@@ -443,7 +443,7 @@ To shorten the notation we will refer to actions of $\operatorname{Diff}(M)$ on 
 Given $\phi \in \operatorname{Diff}(M)$, by this construction, we can obtain the corresponding action by bundle isomorphisms on any tensor bundle over $M$. As we have identified the field bundle $F$ with a subbundle of some $T^m_nM$ we can restrict the bundle isomorphisms to $F$ to get an action of $\operatorname{Diff}(M)$ on the field bundle in particular. 
 To further lift the action of $\operatorname{Diff}(M)$ to the first jet bundle $J^1F$ and the second jet bundle $J^2F$,respectively, we need to develop additional techniques, the primary tool being the \textbf{\textit{prolongation of bundle morphisms}}. 
 \begin{definition}[prolongation of morphisms]
-Let $(F_1,\pi_{F_1},M)$ and $(F_2,\pi_{F_2},N)$ be bundles, $\phi : M \rightarrow N$ a diffeomorphism, $f : F_1 \rightarrow F_2$ a bundle morphism covering $\phi$ and $J^1F_1$, $J^1F_2$ the first-order jet bundles over $F_1$ and $F_2$, respectively. The first jet bundle lift or prolongation of the bundle morphism $(f,\phi)$ is given by the unique map\footnote{Just as it is the case with bundle morphisms being denoted by pairs $(f,\phi)$ their prolongation should be denoted by triples $(j^1(f),f,\phi)$. However, we will lighten their notation to simply $j^1(f)$ if the two remaining maps are clear from the given context.} $j^1(f)$ that lets the diagram in figure \ref{ProlongMorph} commute.
+Let $(F_1,\pi_{F_1},M)$ and $(F_2,\pi_{F_2},N)$ be bundles, $\phi : M \rightarrow N$ a diffeomorphism, $f : F_1 \rightarrow F_2$ a bundle morphism covering $\phi$ and $J^1F_1$, $J^1F_2$ the first-order jet bundles over $F_1$ and $F_2$, respectively. The first jet bundle lift or prolongation of $(f,\phi)$ is given by the unique bundle morphism\footnote{Just as it is the case with bundle morphisms being denoted by pairs $(f,\phi)$ their prolongation should be denoted by triples $(j^1(f),f,\phi)$. However, we will lighten their notation to simply $j^1(f)$ if the two remaining maps are clear from the given context.} $j^1(f)$ that lets the diagram in figure \ref{ProlongMorph} commute.
 \begin{figure}[hbt!]
 \centering
 \begin{tikzpicture}
@@ -465,10 +465,12 @@ Let $(F_1,\pi_{F_1},M)$ and $(F_2,\pi_{F_2},N)$ be bundles, $\phi : M \rightarro
 \caption{Commutative Diagram: Prolongation of Bundle Morphisms to First Jet Bundle.}\label{ProlongMorph}
 \end{figure}
 \end{definition}
+\begin{comment}
 The explicit expression for the prolongation of $(f,\phi)$ is then given by
 \begin{align}
     j^1(f)(j^1_pG) = j^1_{\phi(p)}(f\circ G).
 \end{align}
+\end{comment}
 We can now investigate how the prolongation $j^1(f)$ acts on the prolongation of sections of $F_1$.
 Given a section $G \in \Gamma(F_1)$ we can map it to a section of $F_2$ by making use of the required invertibility of $\phi$:
 \begin{align}
@@ -1217,7 +1219,7 @@ One in particular finds that the bracket satisfies the Leipniz rule and hence de
 \begin{align}
 \left \{\mathcal{f}, \mathcal{g}\cdot \mathcal{h} \right \} = \mathcal{g} \cdot \left \{ \mathcal{f}, \mathcal{h} \right \} + \left \{ \mathcal{f} , \mathcal{g}\right \} \cdot \mathcal{h},
 \end{align}
-where the product of $\Lambda^3\Sigma_{t_0}$-valued maps is defined by $f \mathrm{d}^3x \cdot g\mathrm{d}^3x = (fg)\mathrm{d}^3x$ (for details see \cite{1997hep.th....9164B} and \cite{Barnich1998}). Furthermore one readily computes: 
+where the product of $\Lambda^3\Sigma_{t_0}$-valued maps is defined by $f \mathrm{d}^3x \cdot g\mathrm{d}^3x = (fg)\mathrm{d}^3x$ (for details see \cite{1997hep.th....9164B} and \cite{Barnich1998}). Furthermore one readily computes
 \begin{align}
 \left \{ v_A, \pi^B\right \} = \delta_A^B.
 \end{align}
