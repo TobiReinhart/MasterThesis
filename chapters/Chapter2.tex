@@ -392,7 +392,7 @@ Let $ k \in T^{\ast}M$ be a  1-form. In holonomic coordinates on $T^{\ast}M$ we 
 \begin{remark}
 Note that it is essential to complete a given PDE to its equivalent involutive form before one can obtain its principal symbol in a meaningful way. The reason for that lies in the fact that lower-derivative-order terms that, a priory, are not present in the principal symbol might nevertheless generate integrability conditions that contribute to the highest derivative order. Obviously, the completion to involution depends on the given PDE. Hence, in the following treatment, we will assume that all involved PDEs are already involutive.
 \end{remark}
-The principal symbol does not only depend on the 1-form $k$ but of course also defines a map on $J^qF$. Thus, we should more appropriately write
+The principal symbol does not only depend on the 1-form $k$, but also defines a map on $J^qF$. Thus, we should more appropriately write
 \begin{align}
     T^{A\tilde{B}} = T^{A\tilde{B}}\underbrace{(k_a,x^m,v_A,...,v_{AI_q})}_{T^{\ast}M \oplus J^qF},
 \end{align}
@@ -417,7 +417,7 @@ where now $k = -\mathrm{d}S$ is the wave covector\footnote{The wave covector $k_
 Therefore, if we want to obtain non-trivial solutions with $a_A(x^m) \neq 0$ the principal symbol
 $T^{\tilde{A} B}(k_a)$, with $k_a$ being the components of the wave covector of the ansatz, must be non-injective.
 
-Non-injectivity of a general, non-square matrix can be expressed by the vanishing of several of its sub determinants. As we will restrict attention to PDEs that are obtained as Euler-Lagrange equations of a given Lagrangian, we will, however, have the special situation where the principal symbol matrix is square. We thus can write
+Non-injectivity of a general, non-square matrix can be expressed by the vanishing of several of its subdeterminants. As we will restrict attention to PDEs that are obtained as Euler-Lagrange equations of a given Lagrangian, we will, however, have the special situation where the principal symbol matrix is square. We thus can write
 \begin{align}
 T^{A B}(k_a) =  \left ( \frac{\partial E^{A}}{\partial v_{BI_q}} \right ) J_{I_q}^{i_1...i_q} k_{i_1} \cdot ... \cdot k_{i_q}.
 \end{align}
@@ -444,7 +444,7 @@ Hence, due to the diffeomorphism symmetry, there exist $4$ independent vectors
 \end{align}
 that are in the kernel of the principal symbol and $T^{AB}(k_a)$ is not injective but as a 4-dimensional rank defect\footnote{Note that this is closely related to the previous $4$ constraints that any diffeomorphism invariant field theory necessarily contains amongst its EOM (see chapter \ref{ConstrainedDyn}).}. To compensate for that, we have to require the 1-form $k$ to be given s.t.\ $T^{AB}(k_a)$ is not only non-injective but has at least a 5-dimensional kernel. Then there necessarily exists at least a one dimensional subspace in this kernel of $T^{AB}(k_a)$ that is not gauge-equivalent to the trivial solution $a_A(x^m) = 0$. Hence, $k$ represents the wave covector of a physically non-trivial wave solution to the PDE (at least in the $\lambda \rightarrow 0$ limit).
 
-The condition of having at least a $5$ dimensional kernel of the principal symbol can be expressed more formally by requiring that its adjunct matrix of order $4$ vanishes. Given the $n \times n$ matrix $T^{AB}(k_a)$, its adjunct matrix of order $4$ is the $\binom{n}{4} \times \binom{n}{4}$ square matrix that has entries equal to the order $4$ sub determinants of $T^{AB}(k_a)$:
+The condition of having at least a $5$ dimensional kernel of the principal symbol can be expressed more formally by requiring that its adjunct matrix of order $4$ vanishes. Given the $n \times n$ matrix $T^{AB}(k_a)$, its adjunct matrix of order $4$ is the $\binom{n}{4} \times \binom{n}{4}$ square matrix that has entries equal to the order $4$ subdeterminants of $T^{AB}(k_a)$:
 \begin{align}\label{MinorDef}
     Q_{(A_1...A_4) (B_1...B_4)}(k_a) := \frac{\partial^4 (\operatorname{det}(T^{AB}(k_a)))}{\partial T^{A_1 B_1}(k_a) ... \partial T^{A_4 B_4}(k_a)}.
 \end{align}
@@ -999,11 +999,11 @@ As we are dealing with linear equations, it suffices to construct a basis of the
 
 Applying this to the special case of the Lorentz group $\operatorname{SO}(1,3)$ at hand we find that for a given kind of expansion coefficient, for instance $a^{AB}$ we can obtain a basis of Lorentz invariant expressions by first writing down the most general expression for $a^{AB}$ that can be constructed from the invariant metric $\eta_{ab}$, its inverse $\eta^{ab}$, $\epsilon_{abcd}$ and $\epsilon^{abcd}$ that is consistent with the symmetries and the index structure of $a^{AB}$. To that end it is best to transform $a^{AB}$ back to the form involving spacetime indices for instance $a^{abcdefgh} := a^{AB}J_A^{abcd}J_B^{efgh}$, if the gravitational field is described by a rank $(0,4)$ tensor field. It is then straight forward to reduce the most general expression obtained in this fashion to a basis by removing linear dependencies.
 
-Details regarding how one needs to proceed step by step to achieve the above are provided when we discuss particular examples. As this endeavor is straight forward but extensively laborious, it is best done relying on computer algebra. For precisely that purpose, we developed a highly performant computer program. 
+Details regarding how one needs to proceed step-by-step to achieve the above are provided when we discuss particular examples. As this endeavor is straight forward but extensively laborious, it is best done relying on computer algebra. For precisely that purpose, we developed a highly performant computer program. 
 %cite own computer program here
 Further information regarding the underlying mathematics but also the concrete implementation and a short how-to-use guide can be found in chapter \ref{computerAlg}. 
 
-Finally, we would like to emphasize the practical advantage of this approach. When computing power series solutions to (\ref{DiffeoEqnFormal}), the arising linear equations rapidly increase in size. Assuming $F$ has fiber dimension $21$ to provide an example that we will, in fact, treat in the next chapter the PDE consits of $136$ equations for a function of $315$ independent variables\footnote{When the explicit $x^m$ dependency is dismissed from the very beginning and hence the first equation in (\ref{DiffeoEqnFormal}) removed.}.  When inserting the power series ansatz into the prolonged PDE obviously some of the obtained linear equations for the expansion constants decouple into subsystems that can be solved independently. Nevertheless, due to the sheer dimensionality of the expansion constants, even solving the obtained subsystems poses a real problem. In our example, for instance, we would encounter the expression $a^{AIBJCK}$, which now includes $210\cdot 211\cdot212/6=1565620$ constants. Hence, even if the obtained linear system decouples in such a way that allows us to treat all expressions that involve $a^{AIBJCK}$ independently from the rest, we still have to solve a linear system with roughly $1.5$ million constants. On the other hand, the space of Lorentz invariant expressions that we can obtain for $a^{AIBJCK}$ only has a dimension of several hundred. Hence, working with the Lorentz invariant expression from the very beginning reduces the size of the problem from roughly $1.5$ million involved constants to several hundred. 
+Finally, we would like to emphasize the practical advantage of this approach. When computing power series solutions to (\ref{DiffeoEqnFormal}), the arising linear equations rapidly increase in size. Assuming $F$ has fiber dimension $21$ to provide an example that we will, in fact, treat in the next chapter the PDE consists of $136$ equations for a function of $315$ independent variables\footnote{When the explicit $x^m$ dependency is dismissed from the very beginning and hence the first equation in (\ref{DiffeoEqnFormal}) removed.}.  When inserting the power series ansatz into the prolonged PDE obviously some of the obtained linear equations for the expansion constants decouple into subsystems that can be solved independently. Nevertheless, due to the sheer dimension of the expansion constants, even solving the obtained subsystems poses a real problem. In our example, for instance, we would encounter the expression $a^{AIBJCK}$, which now includes $210\cdot 211\cdot212/6=1565620$ constants. Hence, even if the obtained linear system decouples in such a way that allows us to treat all expressions that involve $a^{AIBJCK}$ independently from the rest, we still have to solve a linear system with roughly $1.5$ million constants. On the other hand, the space of Lorentz invariant expressions that we can obtain for $a^{AIBJCK}$ only has a dimension of several hundred. Hence, working with the Lorentz invariant expression from the very beginning reduces the size of the problem from roughly $1.5$ million involved constants to several hundred. 
 
 Moreover, the additional restriction to Lorentz invariant expansion coefficients also reduces the number of terms that are present in the power series Lagrangian (\ref{LPert}). Any Lorentz-invariant tensor must necessarily be of even rank, i.e., in our case have an even number of spacetime indices. As we further assumed the gravitational field to be of even rank, we can reduce the power series expansion by dismissing all terms that contain an odd number of spacetime derivative indices.
 
@@ -1020,14 +1020,14 @@ After all, we find that the following general expansion remains:
     + a^{ABCI} H_A H_B H_{CI} 
     + \mathcal{O}(4).
 \end{multline}
-Inserting this in the last 3 equations of the PDE (\ref{DiffeoEqnFormal}) and evaluating at the flat expansion point yields:
+Inserting this in the last 3 equations of the PDE (\ref{DiffeoEqnFormal}) and evaluating at the flat expansion point yields
 \begin{align}\label{order1}
     \begin{aligned}
     &0 = a^A C_{An}^{Bm}N_B + a_0 \delta^m_n\\
     &0 = a^{AI}C_{An}^{B(m\vert }N_B J^{\vert pq)}_I.
     \end{aligned}
 \end{align}
-Doing the same for the prolonged PDE we find: 
+Doing the same for the prolonged PDE we find
 \begin{align}\label{order2}
     \begin{aligned}
     &0 = a^A C_{An}^{Bm} + 2 a^{AB}C_{An}^{Cm}N_C + a^B\delta^m_n\\
@@ -1036,7 +1036,7 @@ Doing the same for the prolonged PDE we find:
     &0 = a^{BAI}C_{An}^{C(m\vert}N_CJ_I^{\vert pq)} + a^{AI}C_{An}^{B(m \vert} J_I^{\vert pq)}.
     \end{aligned}
 \end{align}
-Finally, prolonging the PDE to third derivative order inserting the power series ansatz and evaluating at $p_0$ yields:
+Finally, prolonging the PDE to third derivative order inserting the power series ansatz and evaluating at $p_0$ yields
 \begin{align}\label{order3}
 \begin{aligned}
 &0 = 2 a^{AC}C_{An}^{Bm} + 2a^{AB}C_{An}^{Cm} + 6 a^{ABC}C_{An}^{Dm} N_D + 2a^{BC} \delta^m_n\\
@@ -1053,26 +1053,26 @@ Note that we could now easily derive a similar expression for the higher-order c
 Besides, these equations take precisely this form no matter what specific field is in consideration. The only quantities in the above linear equations (\ref{order1}), (\ref{order2}) and (\ref{order3}) that explicitly depend on the chosen field bundle are the vertical coefficients $C^{Bm}_{An}$ of the infinitesimal diffeomorphism action on $F$. For that reason, we have also cast the treatment of such equations into a computer program. Once we have specified the particular field bundle that we wish to work on and the expansion point we therefore only need to set up the computer with the expression for $C_{An}^{Bm}$ and the appropriate ranges for the fiber indices of the field bundle $A$ as initial input, the construction of the appropriate Lorentz invariant expansion coefficients and the subsequent solution to the above linear equations is then treated fully automatically. Details can again be found in chapter \ref{computerAlg}. 
 
 We end this chapter by examining how we can incorporate the requirement of causal compatibility of matter and gravitational equations in the perturbative approach.
-We assume again that we are handed a matter theory: 
+We assume again that we are handed a matter theory 
 \begin{align}
     \mathcal{L}_{\text{mat}} : F_{\text{grav}} \oplus J^1F_{\text{mat}} \longrightarrow \Lambda^4M,
 \end{align}
-that exploits the gravitational field as geometric background. Along the previously prescribed lines we can now construct a perturbative expansion of the requested gravitational Lagrangian:
+that exploits the gravitational field as geometric background. Along the previously prescribed lines we can now construct a perturbative expansion of the requested gravitational Lagrangian
 \begin{align}
     \mathcal{L}_{\text{grav,per}} : J^2F_{\text{grav}} \longrightarrow \Lambda^4M,
 \end{align}
 and implement the required diffeomorphism invariance by solving the linear systems for the expansion coefficients that are obtained from inserting the power series around $p_0 \in J^2F_{\text{grav}}$ into (\ref{DiffeoEqnFormal}). 
 Following along the lines of the construction recipe algorithm \ref{Algo1} we would now have to compute the matter and gravitational principal polynomials.
 These obviously must now also be computed perturbatively. 
-To lighten the notation, we will drop the explicit $k$ dependency in the following and write $\mathcal{P}_{\text{mat}}$ instead of $\mathcal{P}_{\text{mat}}(k_a)$ and analogously for the gravitational principal polynomial. It is straight forward how we can expand $\mathcal{P}_{\text{mat}}$ in coordinates around the chosen expansion point $p_0$ up to some arbitrary order, as we can easily derive the corresponding full, i.e., non-perturbative expression $\mathcal{P}_{\text{mat}}$ from the matter EOM. We get the following expansion of $\mathcal{P}_{\text{mat}}$ up to and including the quadratic order in $H_A$:
+To lighten the notation, we will drop the explicit $k$ dependency in the following and write $\mathcal{P}_{\text{mat}}$ instead of $\mathcal{P}_{\text{mat}}(k_a)$ and analogously for the gravitational principal polynomial. It is straight forward how we can expand $\mathcal{P}_{\text{mat}}$ in coordinates around the chosen expansion point $p_0$ up to some arbitrary order, as we can easily derive the corresponding full, i.e., non-perturbative expression $\mathcal{P}_{\text{mat}}$ from the matter EOM. We get the following expansion\footnote{Note that, as we have expanded the Lagrangian up to order $k=2$, we actually only need the subsequent formulae up to order $k=1$. We nevertheless will provide each formula up to order $k=2$, for possible future purpose.} of $\mathcal{P}_{\text{mat}}$ up to and including the quadratic order in $H_A$:
 \begin{align}
     \mathcal{P}_{\text{mat}}(v_A) = (P_{\text{mat}})_{0} + (P_{\text{mat}})^A_1 H_A+ (P_{\text{mat}})^{AB}_2 H_A H_B +\mathcal{O}(3),
 \end{align}
-where $(P_{\text{mat}})_0 = \mathcal{P}_{\text{mat}}(N_A)$, $(P_{\text{mat}})_1^A = \partial^A \mathcal{P}_{\text{mat}} \vert _{N_A}$, and similar for $(P_{\text{mat}})^{AB}_2$. Of course one readily computes similar expression for expansion up to higher order. 
+where $(P_{\text{mat}})_0 = \mathcal{P}_{\text{mat}}(N_A)$, $(P_{\text{mat}})_1^A = \partial^A \mathcal{P}_{\text{mat}}\big \vert _{N_A}$, and similar for $(P_{\text{mat}})^{AB}_2$. Of course, one readily computes similar expressions for expansion up to higher order. 
 
 Finding the expansion of the gravitational principal polynomial requires somewhat more work as we do not have access to the full expression for $\mathcal{P}_{\text{grav}}$. All we can provide is the perturbative expansion of the Lagrangian. From this, we can compute perturbative EOM and also a perturbative expression for the principal symbol of the EOM.
 Note that when expanding the Lagrangian up to order $k$ from applying the variational derivative $\frac{\partial}{\partial v_A}$ we will get the corresponding EOM up to order $k-1$. They are then necessarily quasilinear and by requirement of second derivative order. According to definition (\ref{PSym}), we can obtain the principal symbol by deriving the EOM w.r.t.\ the highest occurring derivative  ---as the EOM are linear in the highest derivative this simply amounts to taking the coefficients in front of $v_{AI}$--- and then contracting with $k_I :=J_I^{pq} k_pk_q$, for $k_p$ being the components of some 1-form on the base manifold $M$. 
-The explicit formula for the EOM corresponding to the expansion (\ref{LperRed}) can be computed as:
+The explicit formula for the EOM corresponding to the expansion (\ref{LperRed}) can be computed as
 \begin{align}\label{EOMPert}
     \begin{aligned}
     E_{\text{per}}^A = \frac{\delta L_{\text{per}}}{\delta v_A} &= a^A + 2 a^{AB}H_B + 3a^{ABC}H_B H_C \\
@@ -1083,11 +1083,11 @@ The explicit formula for the EOM corresponding to the expansion (\ref{LperRed}) 
     \end{aligned}
 \end{align}
 where we used the symmetries of the expansion coefficients that are enforced by the way they are contracted in (\ref{LperRed}).
-In particular, observe that the thus obtained principal symbol is now given up to order $k-2$. Therefore, we can only compute the principal polynomial up to order $k-2$. In the following\footnote{Note that we when expand the Lagrangian up to order $k=2$ we actually only need the subsequent formulae up to order $k=1$. We nevertheless will provide each formula up to order $k=2$, for possible future purpose.}, we denote the thereby obtained expansion of the principal symbol by: 
+In particular, observe that the thus obtained principal symbol is now given up to order $k-2$. Therefore, we can only compute the principal polynomial up to order $k-2$. In the following, we denote the thereby obtained expansion of the principal symbol by
 \begin{align}
-    T(v_A) = T_0 + T_1^CH_C + T_2^{CD}H_CH_D + \mathcal{O}(3).
+    T^{AB}(v_A) = T^{AB}_0 + (T^{AB}_1)^CH_C + (T^{AB}_2)^{CD}H_CH_D + \mathcal{O}(3).
 \end{align}
-Reading of the values in constant and linear order from the expansion of the EOM we find:
+Reading of the values in constant and linear order from the expansion of the EOM we find
 \begin{align}
     \begin{aligned}
     T_0^{AB} &= \left [a^{ABI} + a^{BAI} - 2 a^{ApBq}I_{pq}^I  \right ] \cdot k_I\\
@@ -1105,19 +1105,19 @@ Reading of the values in constant and linear order from the expansion of the EOM
 % check this !
 Note that the principal symbol and thus also the principal polynomial could in general also depend on the coordinates $v_{Ap}$ as the EOM would then be still of second derivative order. We however excluded such contributions already in the general power series Lagrangian (\ref{LperRed}),  as the matter polynomial cannot contain such and in the end we want to require that the two polynomials describe at each $p \in M$ the same vanishing set. 
 
-Recall that before in the exact setting we obtained the principal polynomial from the principal symbol by computing any non-vanishing order $4$ sub determinant that was obtained by removing rows $(A_1...A_4)$ and columns $(B_1...B_4)$ from the symbol, and then dividing the expression by the appropriate prefactor (\ref{prefacF}).
-Note that also the expression $\chi_{An}(v_A) = C_{An}^{Bm}v_Bk_m$ is linear in $v_A$ and hence, also the prefactor contributes in different orders. We expand $\chi_{An}$ around $p_0$ to obtain:
+Recall that before in the exact setting we obtained the principal polynomial from the principal symbol by computing any non-vanishing order $4$ subdeterminant that was obtained by removing rows $(A_1...A_4)$ and columns $(B_1...B_4)$ from the symbol, and then dividing the expression by the appropriate prefactor (\ref{prefacF}).
+Note that also the expression $\chi_{An}(v_A) = C_{An}^{Bm}v_Bk_m$ is linear in $v_A$ and hence, also the prefactor contributes in different orders. We expand $\chi_{An}$ around $p_0$ to obtain
 \begin{align}
 \chi_{An}(v_A) =  C^{Bm}_{An} N_B k_m + C^{Bm}_{An} H_B k_m =: (\chi_0)_{An} + (\chi_1)^B_{An}H_B.
 \end{align}
-Inserting this into (\ref{prefacF}) we denote the thereby induced expansion by:
+Inserting this into (\ref{prefacF}) we denote the thereby induced expansion by
 \begin{multline}\label{prefacExp}
     f_{(A_1...A_4)(B_1...B_4)}(v_A) = (f_0)_{(A_1...A_4)(B_1...B_4)} + (f_1)^C_{(A_1...A_4)(B_1...B_4)}H_C\\ + (f_2)^{CD}_{(A_1...A_4)(B_1...B_4)}H_CH_D
     + \mathcal{O}(3).
 \end{multline}
 The determinant of a $(n-4) \times (n-4)$ submatrix of the expansion of the principal symbol with entries being $m$th-order expressions in $H_A$ will in general be of order $m\cdot(n-4)$. This would in general pose no problem as we could simply compute the closed-form expression of the determinant of this submatrix end then again expand the result up to the required order in $H_A$. This method, however, will generate technical problems. When solving the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}), the thus computed Lagrangian and therefore also the corresponding principal symbol in general contain undetermined constants. Hence, the entries of the principal symbol are not only expressions that are linear in $H_A$ but also contain additional constants. Using standard computer algebra to calculate an algebraic expression for the determinant of such a matrix that contains symbolic entries one usually reaches a limit of either the available memory or the required computation time once the dimension of the matrix exceeds $15 \times 15$, with the precise limit obviously depending on the used machine, the precise form of the matrix and the specific algorithms at use. 
 
-Note that all these complications only arise once we try to compute the closed form of the determinant. This is not even what we try to achieve as we are only interested in the expansion of the determinant up to some order. Hence, we can at least partly avoid such technical problems by directly expanding the determinant. Recall that when interpreted as a map on the column vectors that specify a given matrix, the determinant is multilinear. Therefore, we can simply expand it (see for instance \cite{2008CoTPh..49..801Z} and also the following nice collection of matrix formulae \cite{IMM2012-03274}), with an expansion around the identity matrix taking the particularly simple form:
+Note that all these complications only arise once we try to compute the closed form of the determinant. This is not even what we try to achieve as we are only interested in the expansion of the determinant up to some order. Hence, we can at least partly avoid such technical problems by directly expanding the determinant. Recall that when interpreted as a map on the column vectors that specify a given matrix, the determinant is multilinear. Therefore, we can simply expand it (see for instance \cite{2008CoTPh..49..801Z} and also the following nice collection of matrix formulae \cite{IMM2012-03274}), with an expansion around the identity matrix taking the particularly simple form
 \begin{align}\label{detExp}
     \operatorname{det}(I+M) = 1 + \operatorname{Tr}(M) + \frac{(\operatorname{Tr}(M))^2- \operatorname{Tr}(M^2)}{2} + \mathcal{O}(3). 
 \end{align}
@@ -1127,27 +1127,27 @@ the constant order of this submatrix will also be invertible.
 \begin{remark}
 Obviously concretely finding such a submatrix involves some trial and error. Nevertheless, as here we are only interested in the distinction of whether the determinant is zero or not, the involved computations do not yield technical problems. This is true as we can simply evaluate all symbolic entries of the matrix on random bounded integers\footnote{Preventing of course, the occurrence of too large numbers. For instance we can take the integers between $-1000$ and $+1000$.} and compute its rank using, for instance, a fraction free implementation of Gaussian elimination. The thus computed rank always provides a lower bound for the true symbolic rank. In the worst case by randomly evaluating the symbolic entries, we generate additional linear dependencies of the rows or columns of the matrix. Hence, when the randomly evaluated matrix has full rank, we know that the symbolic matrix must have non-zero determinant. This is a huge advantage over computing the rank symbolically as now the computation only involves integer arithmetic which is not only much more efficient than performing symbolic computations but also remarkably stable, as no round offs are performed.
 \end{remark}
-We denote the chosen submatrix and the corresponding expansion by:
+We denote the chosen submatrix and the corresponding expansion by
 \begin{multline}
     T_{(A_1...A_4)(B_1...B_4)}(v_A) = (T_0)_{(A_1...A_4)(B_1...B_4)} + (T_1)_{(A_1...A_4)(B_1...B_4)}^{C} H_C \\
     +(T_2)_{(A_1...A_4)(B_1...B_4)}^{CD} H_C H_D + \mathcal{O}(3),
 \end{multline}
-where the symmetric 4-tuples $(A_1...A_4)$ and $(B_1...B_4)$ denote the removed rows and columns respectively. The inverse of the constant order is then given by $(T_0)^{-1}_{(A_1...A_4)(B_1...B_4)}$. We can now compute the determinant of this submatrix as follows:
+where the symmetric 4-tuples $(A_1...A_4)$ and $(B_1...B_4)$ denote the removed rows and columns, respectively. For simplicity, we suppress the matrix indices in the notation. The inverse of the constant order is then given by $(T_0)^{-1}_{(A_1...A_4)(B_1...B_4)}$. We can compute the determinant of this submatrix as follows:
 \begin{multline}
     \operatorname{det}\left(T_{(A_1...A_4)(B_1...B_4)}(v_A)\right)
     = \operatorname{det}\left((T_0)_{(A_1...A_4)(B_1...B_4)}\right)\\ 
     \cdot \operatorname{det}\left (I +(T_0)^{-1}_{(A_1...A_4)(B_1...B_4)}
     \cdot \left [ (T_1)_{(A_1...A_4)(B_1...B_4)}^{C} H_C+(T_2)_{(A_1...A_4)(B_1...B_4)}^{CD} H_C H_D \right ]  \right ) \\
-    + \mathcal{O}(3)  
+    + \mathcal{O}(3)  .
 \end{multline}
 Using now the expansion of the determinant around the identity matrix for the second factor in the above expression and the linearity and cyclicity of the trace we
-find the following expansion for this order-$4$ sub determinant:
+find the following expansion for this order-$4$ subdeterminant:
 \begin{multline}
     \operatorname{det}\left(T_{(A_1...A_4)(B_1...B_4)}(v_A)\right) = (D_0)_{(A_1...A_4)(B_1...B_4)} + (D_1)^C_{(A_1...A_4)(B_1...B_4)}H_C\\
     +(D_2)^{CD}_{(A_1...A_4)(B_1...B_4)}H_CH_D
     + \mathcal{O}(3),
 \end{multline}
-with the contributions in the individual orders being given as: 
+with the contributions in the individual orders being given as 
 \begin{align}\label{polyMatrices}
 \begin{aligned}
   (D_0)_{(A_1...A_4)(B_1...B_4)} &=  \operatorname{det}\left((T_0)_{(A_1...A_4)(B_1...B_4)}\right) \\
@@ -1165,7 +1165,7 @@ with the contributions in the individual orders being given as:
     - \operatorname{Tr}\Bigl  (((T_0)^{-1}_{(A_1...A_4)(B_1...B_4)})^2 \cdot (T_1)_{(A_1...A_4)(B_1...B_4)}^{C} \cdot (T_1)_{(A_1...A_4)(B_1...B_4)}^{D}  \Bigr )    \Bigr \} \Bigr ]
     \end{aligned}
 \end{align}
-On the other hand, using (\ref{diffeoMinor}) we can express the different-order contributions to the determinant of such a submatrix by means of an expansion of the gravitational principal polynomial:
+On the other hand, using (\ref{diffeoMinor}), we can express the different-order contributions to the determinant of this submatrix by means of an expansion of the gravitational principal polynomial:
 \begin{align}
     \mathcal{P}_{\text{grav}}(v_A) = (P_{\text{grav}})_{0} + (P_{\text{grav}})^A_1 H_A+ (P_{\text{grav}})^{AB}_2 H_A H_B +\mathcal{O}(3).
 \end{align}
@@ -1181,15 +1181,15 @@ Together with the expansion of the prefactor (\ref{prefacExp}), we thus get from
      (f_1)^C_{(A_1...A_4)(B_1...B_4)} \cdot (P_{\text{grav}})_1^D +(f_2)^{CD}_{(A_1...A_4)(B_1...B_4)} \cdot (P_{\text{grav}})_0 
     \end{aligned}
 \end{align}
-Hence, once we know the removed rows and columns $(A_1...A_4)$ and $(B_1...B_4)$ we can compute the constant, linear and quadratic-order contributions to $f_{(A_1...A_4)(B_1...B_4)}(v_A)$, and the constant, linear and quadratic-order contributions to the determinant of the submatrix and from these obtain the constant order of the gravitational principal polynomial as:
+Hence, once we know the removed rows and columns $(A_1...A_4)$ and $(B_1...B_4)$ we can compute the constant, linear and quadratic-order contributions to $f_{(A_1...A_4)(B_1...B_4)}(v_A)$, and the constant, linear and quadratic-order contributions to the determinant of the submatrix, and from these obtain the constant order of the gravitational principal polynomial as
 \begin{align}\label{POLY1}
 (P_{\text{grav}})_0 = \frac{(D_0)_{(A_1...A_4)(B_1...B_4)}}{(f_0)_{(A_1...A_4)(B_1...B_4)}}.
 \end{align}
-Using now the constant-order principal polynomial that we thus obtain we get the linear order by:
+Using now the constant-order principal polynomial that we thus obtain we get the linear order by
 \begin{align}\label{POLY2}
     (P_{\text{grav}})^C_1= \frac{(D_1)^C_{(A_1...A_4)(B_1...B_4)} - (f_1)^C_{(A_1...A_4)(B_1...B_4)} \cdot (P_{\text{grav}})_0}{(f_0)_{(A_1...A_4)(B_1...B_4)}}.
 \end{align}
-Moreover, from this expression for the linear order, we can obtain the quadratic order of the gravitational principal polynomial by:
+Moreover, from this expression for the linear order, we can obtain the quadratic order of the gravitational principal polynomial by
 \begin{multline}\label{POLY3}
     (P_{\text{grav}})_2 = \\
     \frac{(D_2)^{CD}_{(A_1...A_4)(B_1...B_4)}-\left [ (f_1)^C_{(A_1...A_4)(B_1...B_4)} \cdot (P_{\text{grav}})^D_1  +(f_2)^{CD}_{(A_1...A_4)(B_1...B_4)} \cdot (P_{\text{grav}})_0 \right ]}{(f_0)_{(A_1...A_4)(B_1...B_4)}}.
@@ -1197,11 +1197,11 @@ Moreover, from this expression for the linear order, we can obtain the quadratic
 In total proceeding as outlined above, we there obtain the expansion of the gravitational principal polynomial from the power series expansion of the Lagrangian.
 Note that we could now proceed along the same lines to obtain the corresponding contributions to the principal polynomial in higher order. This is in principal straight forward with the only exception being that the expressions get increasingly involved. For that reason, we did not provide these here. When tackling practical problems in most cases constructing the perturbative Lagrangian beyond $4$th order is computationally intractable and hence, providing the formulae for computation of the principal polynomial up to second order almost always suffices.
 
-Before we proceed further, we would like to quickly remark on some consequences of the Lorentz invariance of the chosen expansion point $p_0$ on the possible values that we can obtain for the contributions to the gravitational principal polynomial in the individual orders. Recall that for second-derivative-order, diffeomorphism invariant theories the principal polynomial is a homogeneous polynomial in the components of some 1-form $k_m$ on $M$ in degree $r := 2n-16$. We hence can write it as:
+Before we proceed further, we would like to quickly remark on some consequences of the Lorentz invariance of the chosen expansion point $p_0$ on the possible values that we can obtain for the contributions to the gravitational principal polynomial in the individual orders. Recall that for second-derivative-order, diffeomorphism invariant theories the principal polynomial is a homogeneous polynomial in the components of some 1-form $k_m$ on $M$ in degree $r := 2n-16$. Here, $n$ is the fiber dimension of the field bundle. Hence, we can write the principal polynomial as
 \begin{align}
     \mathcal{P}_{\text{grav}} = \mathcal{P}_{\text{grav}}^{{p_1}...{p_{r}}} k_{p_1} \cdot ... \cdot k_{p_r}.
 \end{align}
-Where $\mathcal{P}_{\text{grav}}^{{p_1}...{p_r}}$ is a function on $F$ that is totally symmetric in $(p_1...p_r)$. As a consequence of the required equivariance of the Lagrangian it holds that:
+Here $\mathcal{P}_{\text{grav}}^{{p_1}...{p_r}}$ is a function on $F$ that is totally symmetric in $(p_1...p_r)$. As a consequence of the required equivariance of the Lagrangian it holds that:
 \begin{align}\label{polyEqn}
     0 = \partial^A\mathcal{P}_{\text{grav}}^{{p_1}...{p_r}}C_{An}^{Bm}v_B - r \cdot \mathcal{P}_{\text{grav}}^{({p_1}...\vert m} \delta_{n}^{\vert p_r) }  + (r/2) \cdot \mathcal{P}_{\text{grav}}^{{p_1}...{p_r}} \delta^m_n.
 \end{align}
@@ -1211,13 +1211,13 @@ Where $\mathcal{P}_{\text{grav}}^{{p_1}...{p_r}}$ is a function on $F$ that is t
 %
 This can be seen by starting from the PDE that the EOM have to satisfy as an implication of the equivariance (\ref{EOM}) and applying the total derivative $D_{AI}$ to obtain a similar PDE for subexpression $\left ( \frac{\partial E^A}{\partial V_{BI}} \right )$ that is involved in the principal symbol. Proceeding along the same lines for the remaining steps that are involved in the computation of the principal polynomial, one then finds the above equation. 
 
-The numerical factor $r/2 = (n-8)$ in front of the $\delta^m_n$ term is obtained as this factor encodes the density weight of the principal polynomial. Using the language of tensor densities, PDE (\ref{EOM}) states that the EOM tensor $E^A$ defines a density of weight one and further prolonging this PDE w.r.t.\ $v_{AI}$ reveals that also the principal symbol has density weight one. Computing the determinant of a $(n-4) \times (n-4)$ submatrix of the principal symbol changes the weight to $n-4-2$. This can, for instance, be seen when expressing the determinant of the principal symbol w.r.t.\ the Levi-Civita symbols and then obtaining the order $4$ sub determinant by deriving $4$ times w.r.t.\ the components of the principal symbol, as explained in (\ref{MinorDef}). To achieve this, we need $n$ copies of the principal symbol, each of which has weight one and two covariant Levi-Civita symbols of dimension $n$ that carry density weight $-1$. This yields a total weight of $n-2$. Deriving $4$ times w.r.t.\ the components of the principal symbol reduces the factor to $n-6$. Finally, according to (\ref{diffeoMinor}) this sub determinant equals the product between the principal symbol and the corresponding prefactor. This prefactor involves two $4$-dimensional contravariant Levi-Civita symbols that hence contribute $+2$ to the weight. Therefore, the weight of the principal polynomial is given by $n-8$, which thus explains the origin of the numerical factor in the above PDE. 
+The numerical factor $r/2 = (n-8)$ in front of the $\delta^m_n$ term encodes the density weight of the principal polynomial. Using the language of tensor densities, PDE (\ref{EOM}) states that the EOM tensor $E^A$ defines a density of weight one. Further prolonging this PDE w.r.t.\ $v_{AI}$ reveals that also the principal symbol has density weight one. Computing the determinant of a $(n-4) \times (n-4)$ submatrix of the principal symbol changes the weight to $n-4-2$. This can, for instance, be seen when expressing the determinant of the principal symbol w.r.t.\ the Levi-Civita symbols and then obtaining the order $4$ subdeterminant by deriving $4$ times w.r.t.\ the components of the principal symbol, as explained in (\ref{MinorDef}). To achieve this, we need $n$ copies of the principal symbol, each of which has weight one and two covariant Levi-Civita symbols of dimension $n$ that carry density weight $-1$. This yields a total weight of $n-2$. Deriving $4$ times w.r.t.\ the components of the principal symbol reduces the factor to $n-6$. Finally, according to (\ref{diffeoMinor}), this subdeterminant equals the product between the principal symbol and the corresponding prefactor. This prefactor involves two $4$-dimensional contravariant Levi-Civita symbols that hence contribute $+2$ to the weight. Therefore, the weight of the principal polynomial is given by $n-8$, which thus explains the origin of the numerical factor in the above PDE. 
 
-The all-important observation is now that any perturbative expansion of the principal symbol around the Lorentz-invariant expansion point $p_0$ that we might obtain necessarily provides a power series solution of the form:
+The all-important observation is now that any perturbative expansion of the principal symbol around the Lorentz-invariant expansion point $p_0$ that we might obtain necessarily provides a power series solution of the form
 \begin{align}
     \mathcal{P}_{\text{grav}}^{{p_1}...{p_{r}}} = (P_{\text{grav}})^{{p_1}...{p_{r}}}_0 + (P_{\text{grav}})_1^{C{p_1}...{p_{r}}} H_C + \mathcal{O}(2)
 \end{align}
-to the above PDE ($\ref{polyEqn}$). Therefore, we can apply the same prolongation trick as before to deduce that the expansion coefficients $(P_{\text{grav}})_0, (P_{\text{grav}})_1^C,...$ must by given as components of constant Lorentz invariant tensors. Hence, as before, we can try to construct them utilizing $\eta_{ab}$, $\epsilon_{abcd}$ and the corresponding contravariant expressions. As now, however, the expansion coefficients are totally symmetric in the indices $p_1...p_r$, the requirement of Lorentz invariance is much stronger than in the general case. The total symmetry, for instance, hugely restricts possible ways $\epsilon_{abcd}$ can contribute to the expansion coefficients. In particular, for any theory at hand $(P_{\text{grav}})_0^{{p_1}...{p_{r}}}$ cannot contain any contribution from $\epsilon^{abcd}$ and in fact one readily finds that the only Lorentz invariant totally symmetric tensor is a totally symmetrized product of inverse Minkowski metrics $\eta^{ab}$. Hence, due to the required diffeomorphism invariance of the theory of gravity, for any gravitational field at wish already the Lorentz invariant expansion point fixes the constant-order contribution to the principal polynomial and therefore the causal structure of the linearized EOM uniquely.
+to the above PDE ($\ref{polyEqn}$). Therefore, we can apply the same prolongation trick as before to deduce that the expansion coefficients $(P_{\text{grav}})_0, (P_{\text{grav}})_1^C,...$ must by given as components of constant, Lorentz invariant tensors. Hence, as before, we can try to construct them utilizing $\eta_{ab}$, $\epsilon_{abcd}$ and the corresponding contravariant expressions. As now, however, the expansion coefficients are totally symmetric in the indices $p_1...p_r$, the requirement of Lorentz invariance is much stronger than in the general case. The total symmetry, for instance, hugely restricts possible ways $\epsilon_{abcd}$ can contribute to the expansion coefficients. In particular, for any theory at hand $(P_{\text{grav}})_0^{{p_1}...{p_{r}}}$ cannot contain any contribution from $\epsilon^{abcd}$ and in fact one readily finds that the only Lorentz invariant totally symmetric tensor is a totally symmetrized product of inverse Minkowski metrics $\eta^{ab}$. Hence, due to the required diffeomorphism invariance of the theory of gravity, for any gravitational field at wish already the Lorentz invariant expansion point fixes the constant-order contribution to the principal polynomial and therefore the causal structure of the linearized EOM uniquely.
 
 Note that although the above discovery nicely illustrates the astonishing influence of the required diffeomorphism invariance on the causal structure of the linearized theory of gravity ---recall that such a linearized theory of gravity, for instance, already contains enough information to predict the propagation of gravitational waves--- there is no way how we can use this fact to obtain a computational advantage. In contrast to the case before, where we noticed that we might use the Lorentz invariance of the expansion coefficients of the gravitational Lagrangian to reduce the dimensionality of the arising linear systems now the further Lorentz invariance of the expansion coefficients of $\mathcal{P}^{p_1...p_r}$ is not deduced as consequence of a requirement that we wish to impose but stems from a  requirement that we already have imposed. If up to this point, we made no mistakes, this simply will come out. It thus can serve as a nice consistency check of any perturbative EOM that we might construct.
 
@@ -1235,7 +1235,7 @@ Unlike the full construction algorithm (\ref{Algo1}), which suffered from the di
 With this achievement, the construction of alternative matter theories, at least perturbatively, boils down to choosing physically meaningful gravitational field bundles for the description of the gravitational field, computing the appropriate dynamics then merely corresponds to feeding the algorithm with the necessary input data.  
 \begin{algorithm}[hbt!]
 \SetAlgoLined
-\KwData{Matter theory: $\mathcal{L}_{\text{mat}} : F_{\text{grav}} \oplus J^1F_{\text{mat}} \rightarrow \Lambda^4M$, expansion order: $k \in \mathbb{N}$, flat Lorentz invariant expansion point: $(x_0^m,N_A)\equiv p_0 \in F_{\text{grav}}$}
+\KwData{Matter theory $\mathcal{L}_{\text{mat}} : F_{\text{grav}} \oplus J^1F_{\text{mat}} \rightarrow \Lambda^4M$, expansion order $k \in \mathbb{N}$, flat Lorentz invariant expansion point $(x_0^m,N_A)\equiv p_0 \in F_{\text{grav}}$}
 \KwResult{Most general diffeomorphism invariant, causal compatible gravitational Lagrangian expanded as finite power series $\mathcal{L}_{\text{grav,per}}$ to order $k$ around $p_0$.}
 Compute the vertical coefficients $C^{Bm}_{An}$ of the infinitesimal diffeomorphism action on $F_{\text{grav}}$. \\
 Expand the Lagrangian as described in (\ref{generalPowerSL}) around $p_0 \equiv (x_0^m,N_A,0,0)$ with expansion coefficients $a^{\tilde{I}_k}$.\\

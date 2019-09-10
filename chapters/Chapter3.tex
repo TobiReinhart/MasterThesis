@@ -6,12 +6,12 @@ As a first example, we consider the case where the gravitational field is provid
 
 Note that the case of gravity being described by a metric tensor field is not only the standard example and hence excellent for testing our framework, but from the point of view of Constructive Gravity it is also unique as the metric tensor is the "smallest" structure ---in the sense that the corresponding field bundle has the least dimensional fibers--- that allows for the support of a non-trivial matter theory.
 
-In the simplest possible case the matter field is described by a scalar field, i.e., a spacetime function $\phi \in C^{\infty}(M,\mathbb{R})$ which corresponds to the trivial matter field bundle $M \times \mathbb{R}$. We are again restricting to matter theories that are described by first-derivative-order Lagrangians and hence generate second-derivative-order EOM. In the simplest case, the matter EOM are linear. This corresponds to a quadratic matter Lagrangian. Denoting adapted coordinates on $J^1(M \times \mathbb{R})$ by $(x^m,\phi,\phi_m)$ the most general, such matter Lagrangian is given as:
+In the simplest possible case the matter field is described by a scalar field, i.e., a spacetime function $\phi \in C^{\infty}(M,\mathbb{R})$ which corresponds to the trivial matter field bundle $M \times \mathbb{R}$. We are again restricting to matter theories that are described by first-derivative-order Lagrangians and hence generate second-derivative-order EOM. In the simplest case, the matter EOM are linear. This corresponds to a quadratic matter Lagrangian. Denoting adapted coordinates on $J^1(M \times \mathbb{R})$ by $(x^m,\phi,\phi_m)$ the most general, such matter Lagrangian is given as
 \begin{align}\label{KGL}
     \mathcal{L}_{\text{KG}} = \frac{1}{2} \left ( B^{ab} \phi_a \phi_b - m^2 \phi^2\right )\omega \mathrm{d}^4x.
 \end{align}
-This is the so called Lagrangian \textit{\textbf{Klein-Gordon}} Lagrangian. It is important to observe that this really described the most general quadratic, first-order Lagrangian for a scalar field. 
-In particular, note that specifying such a Lagrangian forces us to prescribe $10$ spacetime functions $B^{ab}$ that tell us how the product $\phi_a\cdot \phi_b$ has to be contracted and furthermore one scalar density of weight one $\omega$ that ensures that the Lagrangian really defines a volume-form valued bundle map and thus provides us with a well-defined action functional and EOM.
+This is the so called \textit{\textbf{Klein-Gordon}} Lagrangian. It is important to observe that this really describes the most comprehensive quadratic, first-order Lagrangian for a scalar field. 
+In particular, note that specifying such a Lagrangian forces us to prescribe $10$ spacetime functions $B^{ab}$ that constitute the components of a $T_2^0M$ tensor field ---due to the symmetry $\phi_a \phi_b = \phi_{(a} \phi_{b)}$ we only need $10$ instead of $16$ such functions. These functions tell us how the product $\phi_a\cdot \phi_b$ has to be contracted. Furthermore, one needs an additional scalar density of weight one $\omega$ that ensures that the Lagrangian really defines a volume-form valued bundle map and thus provides us with a well-defined action functional.
 These additional ingredients are precisely provided by a metric tensor field $g_{ab}$. We then simply take $B^{ab}$ as the corresponding inverse metric $(g^{-1})^{ab}$. Note that in the case of non-degenerate metrics mapping a metric to its inverse is a smooth bundle isomorphism. Furthermore, one can in fact show that up to an overall constant there is exactly one scalar density of weight $1$ that can be obtained from the metric, namely $\omega = \sqrt{ \vert \operatorname{det}(g) \vert }$. 
 Thus, we see that the simplest possible non-trivial Lagrangian one can write down for a scalar field forces us to additionally provide exactly the amount of structure that is provided by a metric tensor field. If this particular metric, i.e., its the values of $g_{ab}$ at the various spacetime points, is not specified by hand, we need further equations that allow us to determine it.  
 
@@ -20,28 +20,28 @@ We have already remarked that for the field bundle $F_{\text{GR}}$ there exist p
 Hence, we expect from our perturbative construction recipe to precisely recover a perturbative expansion of the Einstein-Hilbert Lagrangian from first principles. Note that thereby, we get an excellent test for our framework. 
 
 
-We start by introducing the necessary structure on $F_{\text{GR}}$. We have already seen that a pair of intertwiners for this field bundle can simply be obtained by the matrices  (\ref{interIMet}) and (\ref{interJMet}). These are, of course exactly the same intertwiners as the ones we use for describing second spacetime derivatives. We thus obtain coordinates on $J^2F_{\text{GR}}$ as $(x^m,v_A,v_{Ap},v_{AI})$ where now both $A$ and $I$ run from 0 to 9. For a metric tensor, i.e., a section $g \in \Gamma(F_{\text{GR}})$ we further get the relations:
+We start by introducing the necessary structure on $F_{\text{GR}}$. We have already seen that a pair of intertwiners for this field bundle can simply be obtained by the matrices  (\ref{interIMet}) and (\ref{interJMet}). These are, of course exactly the same intertwiners as the ones we use for describing second spacetime derivatives. We thus obtain coordinates on $J^2F_{\text{GR}}$ as $(x^m,v_A,v_{Ap},v_{AI})$ where now both $A$ and $I$ run from 0 to 9. For a metric tensor, i.e., a section $g \in \Gamma(F_{\text{GR}})$ we further get the relations
 \begin{align}
     g_{ab} = I^A _{ab} g_A \ \ \text{and} \ \ g_A = J^{ab}_{A} g_{ab},
 \end{align}
 and similar for the inverse metric $g^{-1} \in \Gamma(F_{\text{GR}}^{\ast})$.
 Following along the lines described in algorithm \ref{Algo2} we choose $J^2F_{\text{GR}} \ni p_0 \equiv (x_0^m,\eta_A,0,0) =: (N_{AI})$ where $\eta_A = J^{ab}_A \eta_{ab}$ as $\eta$-induced expansion point. Furthermore, we choose to construct the perturbative gravitational Lagrangian up to order $k=3$. 
-Next, we compute the coordinate expression of the Lie derivative of a metric tensor field to obtain the vertical coefficients $C_{An}^{Bm}$. We get:
+Next, we compute the coordinate expression of the Lie derivative of a metric tensor field to obtain the vertical coefficients $C_{An}^{Bm}$. We get
 \begin{align}
     \mathcal{L}_{\xi} g_{ab} = \partial_m g_{ab} \cdot \xi^m + \left (2 \delta_n^{(c\vert} \delta_{(a}^m \delta_{b)}^{\vert d)} \right ) g_{cd} \partial_m \xi^n.
 \end{align}
-Inserting $g_{cd} = I^B_{cd} g_B$ further contracting the whole expression with $J^{ab}_A$ to convert the free $ab$ indices to a $A$ index we find:
+Inserting $g_{cd} = I^B_{cd} g_B$ further contracting the whole expression with $J^{ab}_A$ to convert the free $ab$ indices to a $A$ index we find
 \begin{align}
     \mathcal{L}_{\xi} g_A = \partial_m g_A \xi^m + \left (2 I^B_{nb}J^{mb}_{A} \right )g_B \partial_m \xi ^n. 
 \end{align}
-Here we also used that the two intertwiners $I^A_{ab}$ and $J_A^{ab}$ are symmetric in their spacetime indices. Thus, we can simply read off from the last expression:
+Here we also used that the two intertwiners $I^A_{ab}$ and $J_A^{ab}$ are symmetric in their spacetime indices. Thus, we can simply read off from the last expression
 \begin{align}
     C_{An}^{Bm} = -2 I^B_{nb}J_A^{mb}.
 \end{align}
-As before, we define $(H_{AI}) := (v_{AI}) - (N_{AI})$ to obtain the most general expansion of the Lagrangian that generates second-derivative-order EOM by:
+As before, we define $(H_{AI}) := (v_{AI}) - (N_{AI})$ to obtain the most general expansion of the Lagrangian that generates second-derivative-order EOM by
 \begin{align}\label{LGR}
     L_{\text{GR,per}} =  a_0 + a^A H_A + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ApBq} H_{Ap}H_{Bq} + a^{ABI} H_{A} H_{BI} \\
-    + a^{ABC} H_a H_B H_C + a^{ABpCq} H_{A}H_{Bp}H_{Cq} +
+    + a^{ABC} H_A H_B H_C + a^{ABpCq} H_{A}H_{Bp}H_{Cq} +
     + a^{ABCI} H_A H_B H_{CI} 
     + \mathcal{O}(4).
 \end{align}
@@ -54,7 +54,7 @@ Nevertheless, providing an illustrative example, we consider the expansion coeff
     \item[(ii)] $\eta^{ac} \eta^{bd}$ 
     \item[(iii)] $\eta^{ad} \eta^{bc}$.
 \end{itemize}
-Enforcing the symmetries on these $3$ expressions, we find that (i) already features the desired symmetries and (ii) and (iii) both provide the symmetry once we symmetrize in $(ab)$. These two terms then are precisely the same. We thus find that:
+Enforcing the symmetries on these $3$ expressions, we find that (i) already features the desired symmetries and (ii) and (iii) both provide the symmetry once we symmetrize in $(ab)$. These two terms then are precisely the same. We thus find that
 \begin{align}\label{ansatzExample}
     a^{AB} = I^{A}_{ab}I^{B}_{cd} \left ( 8\mu_3 \cdot \eta^{ab}\eta^{cd} + 8\mu_4 \cdot \eta^{c(a} \eta^{b)d}   \right ).
 \end{align}
@@ -83,15 +83,15 @@ Here we separated the appearing constants in those that appear in front of terms
 
 According to algorithm \ref{Algo2} the next step consists of inserting these expansion coefficients and the previously computed expression for the constant tensor $C_{An}^{Bm}$ into the perturbative equivariance equations (\ref{order1}), (\ref{order2}) and (\ref{order3}). These are then linear equations for the unknown constants $\{ \mu_1,...,\mu_7\}$ and $\{\nu_1,...,\nu_{47}\}$. The solution we get from doing this by using our computer program is displayed in equation (\ref{GRSol}) in the appendix. Note that the expansion (\ref{LGR}) in general features $15.906$ undetermined constants in the $9$ expansion coefficients. The restriction to those that define the components of Lorentz invariant tensor that is demanded by the perturbative equivariance equations reduces these to $54$ constants. Solving the perturbative equivariance equations then further decreases the number of undetermined parameters to $2$. Also, observe that there is no contribution from terms that involve $\epsilon^{abcd}$ to the solution. In fact, the constant parameters in front of expansion coefficients that contain the Levi-Civita symbol are the only ones that the equivariance equations set to zero.  
 
-We continue with construction algorithm \ref{Algo2} by computing the perturbative expansion of the gravitational principal polynomial. Inserting the solution for the expansion coefficients (\ref{GRSol}) into (\ref{LGR}) now yields the most general diffeomorphism invariant perturbative Lagrangian. Normally, we would now proceed by plugging the solved expansion coefficients into the perturbative EOM (\ref{EOMPert}) and then compute the corresponding expansion of the principal symbol and polynomial as outlined in the last chapter. It is, however, worth noting that for the simple case of the gravitational field being provided by a metric tensor it is actually not necessary to follow along with these general steps. We can, in fact, save ourselves much work by taking a closer look at equation (\ref{polyEqn}) that the principal polynomial has to satisfy as a consequence of the diffeomorphism equivariance. For the metric tensor field, this equation takes the particularly simple form:
+We continue with construction algorithm \ref{Algo2} by computing the perturbative expansion of the gravitational principal polynomial. Inserting the solution for the expansion coefficients (\ref{GRSol}) into (\ref{LGR}) now yields the most general diffeomorphism invariant perturbative Lagrangian. Normally, we would now proceed by plugging the solved expansion coefficients into the perturbative EOM (\ref{EOMPert}) and then compute the corresponding expansion of the principal symbol and polynomial as outlined in the last chapter. It is, however, worth noting that for the simple case of the gravitational field being provided by a metric tensor it is actually not necessary to follow along with these general steps. We can, in fact, save ourselves much work by taking a closer look at equation (\ref{polyEqn}) that the principal polynomial has to satisfy as a consequence of the diffeomorphism equivariance. For the metric tensor field, this equation takes the particularly simple form
 \begin{align}\label{metricPoly}
     0 = \partial^A \mathcal{P}_{\text{GR}}^{abcd} C_{An}^{Bm} v_B - 4\mathcal{P}_{\text{GR}}^{(abc\vert m} \delta_n^{\vert d)} + 2 \mathcal{P}_{\text{GR}}^{abcd} \delta^m_n.
 \end{align}
-We now expand $\mathcal{P}_{\text{GR}}^{abcd}$ around $(N_{A}) = (x_0^m, \eta_A)$ and construct a power series solution to (\ref{metricPoly}). From before we know that given the expansion of the Lagrangian up to third order we only need to expand the polynomial up to first order and hence, also the totally symmetric expression $\mathcal{P}_{\text{GR}}^{abcd}$ is expanded up to linear order. We get:
+We now expand $\mathcal{P}_{\text{GR}}^{abcd}$ around $(N_{A}) = (x_0^m, \eta_A)$ and construct a power series solution to (\ref{metricPoly}). From before we know that given the expansion of the Lagrangian up to third order we only need to expand the polynomial up to first order and hence, also the totally symmetric expression $\mathcal{P}_{\text{GR}}^{abcd}$ is expanded up to linear order. We get
 \begin{align}
     \mathcal{P}_{\text{GR}}^{abcd} = (P_0)_{\text{GR}}^{abcd} + (P_1)_{\text{GR}}^{abcdA} H_A + \mathcal{O}(2).
 \end{align}
-Evaluating equation (\ref{metricPoly}) and its first prolongation at the expansion point $\eta_A$ and contracting it against the Lorentz generators yields additional zero and first-order equations that state that the expansion constants must be the components of constant Lorentz invariant tensors. One readily finds that for the constant-order expansion coefficient, there exists exactly one such expression, namely:
+Evaluating equation (\ref{metricPoly}) and its first prolongation at the expansion point $\eta_A$ and contracting it against the Lorentz generators yields additional zero and first-order equations that state that the expansion constants must be the components of constant Lorentz invariant tensors. One readily finds that for the constant-order expansion coefficient, there exists exactly one such expression, namely
 \begin{align}
    (P_0)_{\text{GR}}^{abcd} = a \cdot \eta^{(ab} \eta^{cd)}. 
 \end{align}
@@ -99,7 +99,7 @@ For the linear-order coefficients we obtain the following two possible expressio
 \begin{align}
     (P_1)_{\text{GR}}^{abcdA} = I^A_{ef} \left (b \cdot \eta^{(ab} \eta^{cd)}  \eta^{ef} + c \cdot \eta^{(ab} \eta^{c \vert e} \eta^{f \vert d)} \right ).
 \end{align}
-Upon inserting the thereby obtained expansion in (\ref{metricPoly}) and evaluating at the expansion point $(N_A)$, we get:
+Upon inserting the thereby obtained expansion in (\ref{metricPoly}) and evaluating at the expansion point $(N_A)$, we get
 \begin{align}
     b = a \ \ \text{and} \ \ c = -2a.
 \end{align}
@@ -108,7 +108,7 @@ Inserting this into $\mathcal{P}_{\text{GR}}^{abcd}$ and contracting again again
 \begin{aligned}
     \mathcal{P}_{\text{GR}} &= a \cdot  \eta(k) \cdot \left [\eta(k) + H \cdot \eta(k)  -
     2 \cdot  \eta(k) H(k) \right ] + \mathcal{O}(2)\\
-    &= a \cdot (1 + H) \cdot (\eta(k) - H(k))^2 + \mathcal{O}(2).
+    &= a \cdot (1 + H) \cdot (\eta(k) - H(k))^2 + \mathcal{O}(2),
 \end{aligned}
 \end{align}
 where  $H:=\eta^{ab} I^A_{ab} H_{A}$ and $H(k) := \eta^{ap} \eta^{bq} I_{pq}^A H_A k_a k_b$ and $\eta(k) := \eta^{ab}k_a k_b$. 
@@ -129,26 +129,26 @@ To relate the perturbative vanishing sets of $\mathcal{P}_{\text{GR,per}}$ and $
 \begin{align}
     f_{\text{dens}}(n) := \vert \operatorname{det}\left (I^A_{pq}v_A \right )\vert ^n = 1 + nH + \mathcal{O}(2).
 \end{align}
-This obviously does not alter the vanishing set described by either one of the polynomials. Thus, multiplying the gravitational polynomial by $f_{\text{dens}}(-1)$ and dividing by the prefactor $a$ and multiplying the matter polynomial by $f_{\text{dens}}(-1/2)$, we find:
+This obviously does not alter the vanishing set described by either one of the polynomials. Thus, multiplying the gravitational polynomial by $f_{\text{dens}}(-1)$ and dividing by the prefactor $a$ and multiplying the matter polynomial by $f_{\text{dens}}(-1/2)$, we find
 \begin{align}
     \mathcal{P}_{\text{GR,per}} = (\eta(k)-H(k))^2 = \mathcal{P}_{\text{KG}}^2.
 \end{align}
 Therefore, the matter and gravitational polynomial $\mathcal{P}_{\text{KG}}$ and $\mathcal{P}_{\text{GR,per}}$ define the same vanishing set in linear order.
 Hence, the two theories are causal compatible and our construction procedure terminates. We are left with a perturbative Lagrangian that contains $2$ undetermined constants describing a $2$ parameter family of perturbative metric gravity theories.  
 
-As mentioned earlier in this section, Lovelock has shown that the only diffeomorphism invariant metric theory of gravity with second-order EOM is provided by the \textit{\textbf{Einstein-Hilbert}} Lagrangian (\cite{Lovelock1969}, \cite{doi:10.1063/1.1665613}, \cite{doi:10.1063/1.1666069}) that reads:
+As mentioned earlier in this section, Lovelock has shown that the only diffeomorphism invariant metric theory of gravity with second-order EOM is provided by the \textit{\textbf{Einstein-Hilbert}} Lagrangian (\cite{Lovelock1969}, \cite{doi:10.1063/1.1665613}, \cite{doi:10.1063/1.1666069}) that reads
 \begin{align}
     L_{\text{EH}} := \kappa \sqrt{\vert \operatorname{det} \left ( I^A_{pq}v_A \right ) \vert }  \left( R + \Lambda \right ),
 \end{align}
-where the two constant parameters, $\kappa$ and $\Lambda$ are called gravitational constant and cosmological constant respectively. Here $R$ is the so-called Ricci scalar. As we have mentioned earlier in this thesis, one usually first constructs the Riemann tensor, the curvature  $2$-form of the unique metric compatible connection on the frame bundle over $M$. From this, one obtains the Ricci tensor by computing its trace. Finally, one contracts the Ricci-tensor with the inverse metric to end up with the Ricci scalar $R$. From the point of view of classical field theory, all the deeper connections to Riemannian geometry that are present in the above procedure are, however, actually not necessary. The only relevant fact one really needs is that the Ricci scalar defines a function on $J^2F_{\text{GR}}$. To that end recall that any non-degenerate metric defines a smooth bundle isomorphism:
+where the two constant parameters, $\kappa$ and $\Lambda$ are called gravitational constant and cosmological constant respectively. Here $R$ is the so-called Ricci scalar. As we have mentioned earlier in this thesis, one usually first constructs the Riemann tensor, the curvature  $2$-form of the unique metric compatible connection on the frame bundle over $M$. From this, one obtains the Ricci tensor by computing its trace. Finally, one contracts the Ricci tensor with the inverse metric to end up with the Ricci scalar $R$. From the point of view of classical field theory, all the deeper connections to Riemannian geometry that are present in the above procedure are, however, actually not necessary. The only relevant fact one really needs is that the Ricci scalar defines a function on $J^2F_{\text{GR}}$. To that end recall that any non-degenerate metric defines a vector bundle isomorphism
 \begin{align}\label{music}
 \begin{aligned}
 \flat : TM &\longrightarrow T^{\ast}M\\
 X &\longmapsto g(X,-) .
 \end{aligned}
 \end{align}
-Through this construction we therefore also obtain an isomorphism\footnote{At least if we restrict to the subbundles of non-degenerate, symmetric, $(0,2)$ tensors.} between the field bundle $F_{\text{GR}}$ and its dual $F_{\text{GR}}^{\ast}$ that with a slight abuse of notation will also be called $\flat$. 
-Using the dual coordinates $(x^m,v^A)$ on $F_{\text{GR}}^{\ast}$ we define $v^A_{\flat} := v^A \circ \flat$. Thus, applying $v^A_{\flat}$ on any metric exactly yields the components of its inverse. Using this we get the following explicit expression for $R$ understood as a map on $J^2F$ as:
+Through this construction, we therefore also obtain an isomorphism\footnote{At least if we restrict to the subbundles of non-degenerate, symmetric, $(0,2)$ tensors.} between the field bundle $F_{\text{GR}}$ and its dual $F_{\text{GR}}^{\ast}$ that with a slight abuse of notation will also be called $\flat$. 
+Using the dual coordinates $(x^m,v^A)$ on $F_{\text{GR}}^{\ast}$ we define $v^A_{\flat} := v^A \circ \flat$. Thus, applying $v^A_{\flat}$ on any metric exactly yields the components of its inverse. Using this we get the explicit expression for $R$ understood as a map on $J^2F$ as
 \begin{align}
 R = v_{\flat}^A J_A^{ab} \left ( D_p \Gamma^p_{ba} - D_b \Gamma^p_{pa} + \Gamma^p_{pq} \Gamma^q_{ba} - \Gamma^p_{bq} \Gamma^q_{pa} \right ),
 \end{align}
@@ -156,11 +156,11 @@ where we also defined the Christoffel symbols that are given by the following fu
 \begin{align}
 \Gamma^a_{bc} = \frac{1}{2} v_{\flat}^A J_A^{ap} \left ( I^B_{bp}\delta^q_c + I^B_{cp}\delta^q_b - I^B_{bc}\delta^q_p  \right ) v_{Bq}.
 \end{align}
-To compare the computed gravitational Lagrangian with the Einstein-Hilbert Lagrangian we expand $L_{\text{EH}}$ to third-order around the chosen eta-induced expansion point $(N_{AI})$. The expansion of the determinant can be obtained from (\ref{detExp}). Doing so, we find that:
+To compare the computed gravitational Lagrangian with the Einstein-Hilbert Lagrangian, we expand $L_{\text{EH}}$ to third-order around the chosen eta-induced expansion point $(N_{AI})$. The expansion of the determinant can be obtained from (\ref{detExp}). Doing so, we find that
 \begin{align}
    \sqrt{\vert \operatorname{det} \left ( I^A_{pq}v_A \right ) \vert } = 1 + H/2 +1/8 \cdot H^2 - 1/4 \cdot I^A_{ab}I^B_{cd} \eta^{ac} \eta^{bd} H_A H_B + \mathcal{O}(3).   
 \end{align}
-In order to compute the expansion of $v^A_{\flat}$ one uses that $-1/2 \cdot v_{\flat}^AC_{An}^{Bm}v_B = v_{\flat}^A J_A^{nb}I^B_{bm}v_B = \delta^m_n$. Deriving this equation w.r.t.\ $v_B$ and performing some simplifications one thus finds the usual expression:
+In order to compute the expansion of $v^A_{\flat}$ one uses that $-1/2 \cdot v_{\flat}^AC_{An}^{Bm}v_B = v_{\flat}^A J_A^{nb}I^B_{bm}v_B = \delta^m_n$. Deriving this equation w.r.t.\ $v_B$ and performing some simplifications one thus finds the expression
 \begin{align}
     \partial^Bv_{\flat}^A = 1/4 \cdot C_{Cn}^{Am}C_{Dm}^{Bn}v_{\flat}^C v_{\flat}^{D}.
 \end{align}
@@ -168,12 +168,12 @@ Using this one obtains the following perturbative expansion for $v_{\flat}^A$:
 \begin{align}
     v_{\flat}^A = \eta^A - \eta^{ap}\eta^{bq} I^B_{ab} I^A_{pq} \cdot H_B + \eta^{ac}\eta^{bd}\eta^{ef} I^B_{ab} I^C_{ce} I^A_{df} \cdot H_BH_C + \mathcal{O}(3).  
 \end{align}
-With these results computing, this expansion is straight forward yet quite laborious.
-Starting with the linear order of the Einstein-Hilbert Lagrangian, we find:
+With these results computing, the expansion of $L_{\text{EH}}$ is straight forward, yet quite laborious.
+Starting with the linear order of the Einstein-Hilbert Lagrangian, we find
 \begin{align}
         L_{\text{EH}} = \kappa \cdot (\eta^{ap}\eta^{bq} - \eta^{ab}\eta^{pq}) I^{A}_{ab}I^{I}_{pq} H_{AI} + \kappa \Lambda \cdot (1 + 1/2 \cdot \eta^{ab} I_{ab}^A H_A) + \mathcal{O}(2).
 \end{align}
-On the other hand inserting the explicit Lorentz invariant expressions for the expansion coefficients (\ref{LorentzGR1}) with the appropriate multiplicities from the factorless symmetrizations and the computed solution to the perturbative equivariance equations (\ref{GRSol}) into $\mathcal{L}_{\text{GR,per}}$, we find:
+On the other hand, inserting the explicit Lorentz invariant expressions for the expansion coefficients (\ref{LorentzGR1}) with the appropriate multiplicities from the factorless symmetrizations and the computed solution to the perturbative equivariance equations (\ref{GRSol}) into $\mathcal{L}_{\text{GR,per}}$, we find:
 \begin{align}
     \mathcal{L}_{\text{GR,per}} = \mu_1(1 + 1/2 \cdot \eta^{ab} I_{ab}^A H_A) - 8 \nu_1 \left(\eta^{ap}\eta^{bq} - \eta^{ab}\eta^{pq} \right )I^{A}_{ab}I^{I}_{pq} H_{AI} + \mathcal{O}(2).
 \end{align}
@@ -182,15 +182,15 @@ Concluding, we constructed a $3$rd-order perturbative expansion of the most gene
 Further, we saw that, except for the restriction to EOM with principal symbol depending only on the metric, not its derivatives, for this particular case the requirement of causal compatibility did not yield further conditions on top of the imposed diffeomorphism invariance on the metric theory of gravity.
 Already the requirement of diffeomorphism invariant dynamics sufficed to recover the perturbative expansion of the Einstein-Hilbert Lagrangian.
 
-\section{Perturbative Area Metric Gravity around a Flat Minkowski Induced Spacetime}
+\section{Perturbative Area Metric Gravity around a Flat Minkowski-Induced Spacetime}
 Whereas the first example theory we constructed mainly served the purpose of testing our framework, the perturbative theory of gravity that we are going to construct now really is intended to provide a viable alternative to GR in describing the geometry of our spacetime.  
 To that end, we are going to construct a perturbative theory of gravity that is compatible with the most general linear theory of Electrodynamics. 
 
-We start by providing some results from the premetric treatment of Electrodynamics that can be found in \cite{1999PhLB..458..466O}, \cite{1999gr.qc....11096H}, (\cite{hehl2003foundations}, \cite{2006physics..10221H}, \cite{2004PhRvD..70j5022L} and also \cite{Hehl2005}. The basic idea of this premetric approach lies in describing all fields that are involved in the treatment of Electrodynamics without referring to an additional spacetime geometry. This is most easily illustrated using the calculus of exterior forms. One starts by introducing the 4-dimensional electric charge current density $J$. As one wishes to integrate $J$ over 3 dimensional submanifold $\Omega$ of the spacetime $M$ to obtain the total electric charge current ---the total electrical current flowing through the boundary of $\Omega$ and the electric charge inside--- that is confined therein the current density is most naturally described as a 3-form $J \in \Gamma(\Lambda^3M)$. Demanding charge conservation in the sense that the integral of $J$ over any closed 3-dimensional submanifold of $M$ vanishes, by using the theorem of stokes on arrives at the requirement $dJ =0$. By de Rham's first theorem we then find that $J$ is necessarily given as exterior derivative of some 2-form $H \in \Gamma(\Lambda^2M)$:
+We start by providing some results from the premetric treatment of Electrodynamics that can be found in \cite{1999PhLB..458..466O}, \cite{1999gr.qc....11096H}, (\cite{hehl2003foundations}, \cite{2006physics..10221H}, \cite{2004PhRvD..70j5022L} and also \cite{Hehl2005}. The basic idea of this premetric approach lies in describing all fields that are involved in the treatment of Electrodynamics without referring to an additional spacetime geometry. This is most easily illustrated using the calculus of exterior forms. One starts by introducing the 4-dimensional electric charge current density $J$. As one wishes to integrate $J$ over 3 dimensional submanifold $\Omega$ of the spacetime $M$ to obtain the total electric charge current ---the total electrical current flowing through the boundary of $\Omega$ and the electric charge inside--- that is confined therein the current density is most naturally described as a 3-form $J \in \Gamma(\Lambda^3M)$. Demanding charge conservation in the sense that the integral of $J$ over any closed 3-dimensional submanifold of $M$ vanishes, by using the theorem of stokes on arrives at the requirement $dJ =0$. By de Rham's first theorem we then find that $J$ is necessarily given as exterior derivative of some 2-form $H \in \Gamma(\Lambda^2M)$
 \begin{align}
     J = d H.
 \end{align}
-From considerations involving the Lorentz force one similarly obtains that the magnetic analog to $J$ the field strength $F$ which plays the role of a 4-dimensional magnetic flux current density should be described by a 2 form $F \in \Gamma(\Lambda^2M)$. Its integral over a 2 dimensional submanifold $C \subset M$ describes the total magnetic flux current in terms of the total magnetic flux flowing through $C$ and the total magnetic flux current\footnote{Note that by this interpretation rewriting $F$ in terms of a 3+1 split of spacetime and the usual $E$ and $B$ field the magnetic flux is as usual given by $B$ whereas $E$ is now interpreted as the corresponding magnetic flux current (see \cite{2006physics..10221H}).} flowing through the boundary of $C$. The corresponding conversation law deduced in similar fashion as before then reads $dF =0$. Thus, we conclude using again de Rham's first theorem the existence of a 1 form $A \in \Gamma(\Lambda^1M)$ that satisfies:
+From considerations involving the Lorentz force one similarly obtains that the magnetic analog to $J$ the field strength $F$ which plays the role of a 4-dimensional magnetic flux current density, and should thus be described by a 2 form $F \in \Gamma(\Lambda^2M)$. Its integral over a 2 dimensional submanifold $C \subset M$ describes the total magnetic flux ---the total magnetic flux flowing through $C$ and the total magnetic flux current\footnote{Note that by this interpretation rewriting $F$ in terms of a 3+1 split of spacetime and the usual $E$ and $B$ field the magnetic flux is as usual given by $B$ whereas $E$ is now interpreted as the corresponding magnetic flux current (see \cite{2006physics..10221H}).} flowing through the boundary of $C$. The corresponding conversation law, deduced in similar fashion as before then reads $dF =0$. Thus we infer, using again de Rham's first theorem, the existence of a 1 form $A \in \Gamma(\Lambda^1M)$ that satisfies
 \begin{align}
     F = d A.
 \end{align}
@@ -198,17 +198,17 @@ Finally, one assumes that the two 2-forms $F$ and $H$ are related via a local an
 \begin{align}\label{areaSym}
     G_{abcd} = -G_{bacd} = G_{cdab}.
 \end{align}
-Note that such a tensor field at each spacetime point $p\in M$ defines a symmetric inner product on the space of $2$-forms $\Lambda^2_pM$. Consequently we will call such a tensor field an \textbf{\textit{area metric}} tensor field and denote the bundle of these area metric tensors by $F_{\text{Area}}$. Due to (\ref{areaSym}) one need $21$ independent component functions to uniquely specify such an area metric. Thus, $F_{\text{Area}}$ has $21$ dimensional fibers. In the following, we restrict the bundle of such area metric tensor fields $G$ by requiring that the inner product they define is non-degenerate for all $p$ in the sense that $G$ provides us with a bundle isomorphism: 
+Note that such a tensor field at each spacetime point $p\in M$ defines a symmetric inner product on the space of $2$-forms $\Lambda^2_pM$. Consequently we will call such a tensor field an \textbf{\textit{area metric}} tensor field and denote the bundle of these area metric tensors by $F_{\text{Area}}$. Due to (\ref{areaSym}) one need $21$ independent component functions to uniquely specify such an area metric. Thus, $F_{\text{Area}}$ has $21$ dimensional fibers. In the following, we restrict the bundle of such area metric tensor fields $G$ by requiring that the inner product they define is non-degenerate for all $p$. in the sense that $G$ provides a bundle isomorphism 
 \begin{align}
 \flat_{\text{Area}} : \Lambda^2M \longrightarrow (\Lambda^2M)^{\ast} = A^2_0M,
 \end{align}
 that is defined exactly the same way as in the metric case (\ref{music}). Here $A^2_0M$ denotes the bundle of antisymmetric $(2,0)$ tensors. 
 
-The linear relation between $H$ and $F$ can now be obtained by first using the isomorphism provided by the area metric to map the 2-form $F$ to an antisymmetric $(2,0)$ vector field and then applying the Hodge star operator\footnote{Details regarding the construction and properties of the Hodge start operator can be found in \cite{Abraham:1988:MTA:50877}, and also in \cite{nlab:Hodge}.} to again end up with a 2 form. In coordinates we therefore get:
+The linear relation between $H$ and $F$ can now be obtained, by first using the isomorphism provided by the area metric to map the 2-form $F$ to an antisymmetric $(2,0)$ vector field and then applying the Hodge star operator\footnote{Details regarding the construction and properties of the Hodge start operator can be found in \cite{Abraham:1988:MTA:50877}, and also in \cite{nlab:Hodge}.} to again end up with a 2 form. In coordinates we therefore get
 \begin{align}
-    H_{ab} = \frac{1}{2} \omega_G \, \epsilon_{abcd} \, G^{cdef} \, F_{ef},
+    H_{ab} = \frac{1}{2} \omega_G \, \epsilon_{abcd} \, G^{cdef} \, F_{ef}.
 \end{align}
-Note that in absence of a (pseudo)-Riemanian metric the Hodge star operator requires the choice of a volume-form (or equivalently a scalar density of weight 1) $\omega_G$. One possible such choice is for instance given by $\omega_G = \epsilon^{abcd}G_{abcd}$ which obviously only works if this expression is nowhere vanishing.
+Note that in absence of a metric the Hodge star operator requires the choice of a volume-form (or equivalently a scalar density of weight 1) $\omega_G$. One possible such choice is for instance given by $\omega_G = \epsilon^{abcd}G_{abcd}$ which obviously only works if this expression is nowhere vanishing.
 
 From considering the appropriate dimensions of $F$ and $H$ one finds that the only viable Lagrangian constructed from $F$ and $H$ is given by $F \wedge H$. Expressing this in terms of the constitutive relation between $H$ and $F$ we finally arrive at the Lagrangian of so-called \textbf{\textit{General Linear Electrodynamics}} (in short GLED):
 \begin{align}
@@ -219,17 +219,17 @@ Note that this really defines the most general quadratic Lagrangian which thus g
 Just as it was the case for the Klein-Gordon Lagrangian for the Lagrangian of GLED there exist now two possibilities: Either one specifies the area metric tensor field by hand, or ---and this is the route that we want to take--- one supplements the GLED matter theory with a suitable theory of area metric gravity that then allows one to determine the area metric by solving the corresponding area metric gravity EOM. 
 In the following, we are going to construct the perturbative expansion of such a theory of area metric gravity by following our construction recipe algorithm \ref{Algo2}.
 
-To that end we quickly want to translate $\mathcal{L}_{\text{GLED}}$ into the language of jet bundles. Note that the electromagnetic field strength can be expressed in terms of the 1-form $A \in \Gamma(\Lambda^1(M))$ as:
+To that end we quickly want to translate $\mathcal{L}_{\text{GLED}}$ into the language of jet bundles. Note that the electromagnetic field strength can be expressed in terms of the 1-form $A \in \Gamma(\Lambda^1(M))$ as
 \begin{align}
 F = F_{ab} \cdot  \mathrm{d}x^a \otimes \mathrm{d}x^b = 2 \partial_{[a} A_{b]} \cdot \mathrm{d}x^a \otimes \mathrm{d}x^b.
 \end{align}
-Thus, $F$ can be understood as a function on the first-order jet bundle $J^1(\Lambda^1M)$. We again use adapted coordinate $(x^m,A_a,A_{am})$ on this bundle. Together with the area metric field bundle $F_{\text{Area}}$ and the bundle isomorphism $\flat_{\text{Area}}$ we thus see that the GLED Lagrangian describes a bundle map:
+Thus, $F$ can be understood as a function on the first-order jet bundle $J^1(\Lambda^1M)$. We again use adapted coordinate $(x^m,A_a,A_{am})$ on this bundle. Together with the area metric field bundle $F_{\text{Area}}$ and the bundle isomorphism $\flat_{\text{Area}}$ we thus see that the GLED Lagrangian describes a bundle map
 \begin{align}
 \mathcal{L}_{\text{GLED}} : F_{\text{Area}} \oplus J^1(\Lambda^1M) \rightarrow \Lambda^4M,
 \end{align}
 where now also $\omega_G$ is understood as a bundle map on $\Lambda^1M$.  
 
-We start the derivation of perturbative area metric gravity by constructing the pair of intertwiners for the area metric field bundle $F_{\text{Area}} \subset T^0_4M$. Recall from chapter 1 that given coordinates $(x^m)$ on $M$ one can obtain a pair of intertwiners for such a subbundle of $T^0_4M$ by dividing the set of the $4^4$ fiber coordinates of $T^0_4M$ $v_{abcd}=\frac{\partial}{\partial x^a} \otimes ... \otimes \frac{\partial}{\partial x^d}$ in equivalence classes defined by the symmetries (\ref{areaSym}) sorting them according to some order relation and then constructing the pair of intertwiners as described in (\ref{defI}) and (\ref{defJ}). We will use the following ordered set of $21$ equivalence classes $[v]$ that are specified in terms of their representative $v$ as:
+We start the derivation of perturbative area metric gravity by constructing the pair of intertwiners for the area metric field bundle $F_{\text{Area}} \subset T^0_4M$. Recall from chapter 1 that given coordinates $(x^m)$ on $M$, one can obtain a pair of intertwiners for such a subbundle of $T^0_4M$ by dividing the set of the $4^4$ fiber coordinates of $T^0_4M$, $v_{abcd}=\frac{\partial}{\partial x^a} \otimes ... \otimes \frac{\partial}{\partial x^d}$ into equivalence classes, defined by the symmetries (\ref{areaSym}), sorting them according to some order relation and then constructing the pair of intertwiners as described in (\ref{defI}) and (\ref{defJ}). We will use the following ordered set of $21$ equivalence classes $[v]$ 
 \begin{align}
 \begin{aligned}
     \bigl [ [v_{0101}], [v_{0102}], [v_{0103}], [v_{0112}], [v_{0113}], [v_{0123}], [v_{0202}], [v_{0203}], [v_{0212}], [v_{0213}], [v_{0223}],\\
@@ -242,11 +242,11 @@ There are now two possibilities for the individual classes: Either we have an eq
     [v_{ijij}] = \{ v_{ijij}, v_{jiji}, -v_{ijji}, -v_{jiij} \}.
 \end{align}
 Thus, the multiplicity $\sigma$ is $4$ for these classes.
-The other possibility is given when the representative of the equivalence class takes the general form $v_{ijkl}$ where $i<j$ or $(i=j) \land (k<l)$. The equivalence class then consists of $8$ elements:
+The other possibility is given when the representative of the equivalence class takes the general form $v_{ijkl}$, where $i<j$ or $(i=j) \land (k<l)$. The equivalence class then consists of the $8$ elements
 \begin{align}
     [v_{ijkl}] = \{v_{ijkl},v_{jikl}, v_{klij}, v_{lkji}, -v_{jikl}, -v_{ijlk}, -v_{lkij}, v_{klji} \}.
 \end{align}
-Such classes have multiplicity 8. The intertwiners $I^A_{abcd}$ and $J_A^{abcd}$ can now be constructed according to (\ref{defI}) and (\ref{defJ}). The explicit non-vanishing components of these intertwiners are displayed in the appendix (\ref{AreaI}) and (\ref{AreaJ}). Using these we define the new adapted coordinate functions on $F_{\text{Area}}$ and its dual $F_{\text{Area}}^{\ast}$:
+Such classes have multiplicity 8. The intertwiners $I^A_{abcd}$ and $J_A^{abcd}$ can now be constructed according to (\ref{defI}) and (\ref{defJ}). The explicit non-vanishing components of these intertwiners are displayed in the appendix (\ref{AreaI}) and (\ref{AreaJ}). Using these, we define the new adapted coordinate functions on $F_{\text{Area}}$ and its dual $F_{\text{Area}}^{\ast}$
 \begin{align}
     \begin{aligned}
     v_A = J_A^{abcd}v_{abcd} \\
@@ -257,19 +257,19 @@ As usual we are going to label the corresponding adapted coordinates on $J^2F_{\
 Note that from the fact that the fiber dimension of $F_{\text{Area}}$ equals $21$ whereas $F_{\text{GR}}$ only has fiber dimension $10$ one readily sees that the area metric indeed describes a richer structure than the metric. It is, however, not a priory clear if this is also reflected in the corresponding theory of gravity. Recall that the metric allowed for $14$ functionally independent curvature scalars on $J^2F_{\text{GR}}$ and hence also for $14$ functionally independent diffeomorphism invariant Lagrangians. With theorem (\ref{GeneralSol}) at hand, we can now immediately compute the corresponding quantity for the area metric. Doing so we find that there exist $179$ functionally independent diffeomorphism invariant Lagrangians that can be constructed from the area metric and its first two derivatives. Thus, in general, we expect the perturbative theory of area metric gravity to contain more undetermined parameters than the gravitational and cosmological constant that we obtained for the metric case.
 
 
-Next we are going to choose the $\eta$-induced expansion point $(N_{AI}) = (x_0^m, N_A, 0,0)$ to be provided by:
+Next, we choose the $\eta$-induced expansion point $(N_{AI}) = (x_0^m, N_A, 0,0)$ as
 \begin{align}
 N_A := 2 \eta_{c[a} \eta_{b]d} - \epsilon_{abcd}.
 \end{align}
-Note that assuming $\omega_G(N_A) = \text{const} \neq 0$ and inserting $N_A$ into $\mathcal{L}_{\text{GLED}}$, one really obtains the Lagrangian of standard Maxwell Electrodynamics on a flat Minkowskian background:
+Note that, assuming the density is taken such that $\omega_G(N_A) = \text{const} \neq 0$, when inserting $N_A$ into $\mathcal{L}_{\text{GLED}}$, one really obtains the Lagrangian of standard Maxwell Electrodynamics on a flat Minkowskian background
 \begin{align}
-    \mathcal{L}_{\text{GLED}}\bigl((N_{AI})\bigr ) = 2 \omega_G(N_A) \eta^{ac}\eta^{bd}F_{ab}F_{cd} \mathrm{d}^4x.
+    \mathcal{L}_{\text{GLED}}\bigl(N_{A},A_m,A_{mp}\bigr ) = 2 \omega_G(N_A) \eta^{ac}\eta^{bd}F_{ab}F_{cd} \mathrm{d}^4x.
 \end{align}
-Thus, expanding the to-be-constructed Lagrangian of area metric gravity around $(N_{AI})$ serves the purpose of interpreting the result as perturbative theory around a flat spacetime. Note that we included the totally antisymmetric $\epsilon_{abcd}$ in the definition of $N_A$ to ensure that  the possible density choice $\omega_G = \epsilon^{abcd}G_{abcd}$ does not vanish when evaluated at the flat $\eta$-induced background. 
+Thus, expanding the to-be-constructed Lagrangian of area metric gravity around $(N_{AI})$ serves the purpose of interpreting the result as perturbative theory around a flat spacetime. We included $\epsilon_{abcd}$ in the definition of $N_A$ to ensure that the possible density choice $\omega_G = \epsilon^{abcd}G_{abcd}$ does not vanish when evaluated at $N_A$. 
 
-We have already stated that we want to construct the perturbative area metric gravity theory up to order $k=3$. Following algorithm \ref{Algo2}, we proceed by computing the coordinate expression of the Lie derivative of $G_{abcd}$ to read off the vertical coefficient tensor $C_{An}^{Bm}$:
+We want to construct the perturbative area metric gravity theory up to order $k=3$. Following algorithm \ref{Algo2}, we proceed by computing the coordinate expression of the Lie derivative of $G_{abcd}$ to read off the vertical coefficient tensor $C_{An}^{Bm}$:
 \begin{align}\label{LieArea}
-    \mathcal{L}_{\xi} G_{abcd} = \partial_m G_{abcd} \cdot \xi^n + \left (4 \delta_n^{[e\vert} \delta_{[\mathnode{a}}^m \delta_{b]}^{\vert \mathnode{f} ]} \delta_{[c}^{[g} \delta_{\mathnode{d}]}^{\mathnode{h}]} \right ) \cdot G_{efgh} \partial_m \xi^n.
+    \mathcal{L}_{\xi} G_{abcd} = \partial_m G_{abcd} \cdot \xi^m + \left (4 \delta_n^{[e\vert} \delta_{[\mathnode{a}}^m \delta_{b]}^{\vert \mathnode{f} ]} \delta_{[c}^{[g} \delta_{\mathnode{d}]}^{\mathnode{h}]} \right ) \cdot G_{efgh} \partial_m \xi^n.
 \end{align}
 \begin{tikzpicture}[overlay]
    \path [>=stealth, <->, shorten <= 3pt, shorten >=3pt]
@@ -280,22 +280,22 @@ We have already stated that we want to construct the perturbative area metric gr
 
 Here the additional arrows denote the symmetrization w.r.t.\ the interchange of the antisymmetric pairs $[ab] \leftrightarrow [cd]$ and $[ef] \leftrightarrow [gh]$ respectively.
 
-Similar to before we now insert several intertwiners $I^A_{abcd}$ and $J_A^{abcd}$ to rewrite the second term in (\ref{LieArea}) in terms of abstract area metric indices $A$. Here we can use the fact that the two intertwiners already feature the full set of area metric symmetries.  Doing so we simply can read off the constant tensor as:
+Similar to before we now insert several intertwiners $I^A_{abcd}$ and $J_A^{abcd}$ to rewrite the second term in (\ref{LieArea}) in terms of abstract area metric indices $A$. Here we can use the fact that the two intertwiners already feature the full set of area metric symmetries.  Doing so, we simply can read off the constant tensor
 \begin{align}\label{areaGotayMInter}
     C_{An}^{Bm} = -4 I^B_{nbcd} J_A^{mbcd}.
 \end{align}
-The most general power series expansion of $\mathcal{L}_{\text{Area,per}} = L_{\text{Area,per}}\mathrm{d}^4x$ that generates second-derivative-order EOM is again given by:
+The most general power series expansion of $\mathcal{L}_{\text{Area,per}} = L_{\text{Area,per}}\mathrm{d}^4x$ that generates second-derivative-order EOM is given by
 \begin{align}\label{LArea}
     L_{\text{Area,per}} =  a_0 + a^A H_A + a^{AI}H_{AI} + a^{AB} H_{A}H_{B} + a^{ApBq} H_{Ap}H_{Bq} + a^{ABI} H_{A} H_{BI} \\
-    + a^{ABC} H_a H_B H_C + a^{ABpCq} H_{A}H_{Bp}H_{Cq} +
+    + a^{ABC} H_A H_B H_C + a^{ABpCq} H_{A}H_{Bp}H_{Cq} +
     + a^{ABCI} H_A H_B H_{CI} 
     + \mathcal{O}(4),
 \end{align}
-where as before we introduced the coordinate deviation from the expansion point: 
+where we introduced the coordinate deviation from the expansion point
 \begin{align}
 (H_{AI}) = (x^m,H_A,H_{Ap},H_{AI}) = (v_{AI}) - (N_{AI}).
 \end{align}
-Note that although we use the same symbols as in $L_{\text{GR,per}}$ to denote $L_{\text{Area,per}}$ this Lagrangian defines a fundamentally different object. In particular, the $21$ dimensional fibers of  $F_{\text{Area}}$ result in the fact that there will be more freedom in constructing the expansion coefficients of (\ref{LArea}). Again the perturbative equivariance equations demand that these expansion coefficients define the components of constant Lorentz invariant tensors. The corresponding expressions that we obtained by means of our computer program are displayed in the appendix in table \ref{LorentzArea}. The dimensions and parameters of the individual expansion coefficients are displayed in table \ref{AreaExp}.
+Note that, although we use the same symbols as in $L_{\text{GR,per}}$ to denote $L_{\text{Area,per}}$, this Lagrangian defines a fundamentally different object. In particular, the $21$ dimensional fibers of  $F_{\text{Area}}$ result in the fact that there will be more freedom in constructing the expansion coefficients of (\ref{LArea}). Again the perturbative equivariance equations demand that these expansion coefficients define the components of constant Lorentz invariant tensors. The corresponding expressions that we obtained by means of our computer program are displayed in the appendix in table \ref{LorentzArea}. The dimensions and parameters of the individual expansion coefficients are displayed in table \ref{AreaExp}.
 \begin{table}
 \centering 
 \begin{tabular}{lll} \toprule
@@ -324,7 +324,7 @@ Following algorithm \ref{Algo2} we now compute the principal polynomials of the 
                 &= \bigl\{  \bigl[ 1 - \frac{1}{2} A \eta(H) - \frac{1}{4} A \epsilon(H) +  \frac{1}{24} \epsilon(H) \bigr] \eta(k) - \frac{1}{2} H(k)       \bigr\}^2 + \mathcal{O}(2).
 \end{aligned}
 \end{align}
-Here we defined $v_{\flat_{\text{Area}}}^A = v^A \circ \flat_{\text{Area}}$ and used $v_{\flat_{\text{Area}}}^A J_A^{abcd} I^B_{cdef}v_B = 4 \delta^{[a}_e \delta^{b]}_f$ to expand $v^A_{\flat_{\text{Area}}}$ around $N_A$. Further, we defined:
+Here we defined $v_{\flat_{\text{Area}}}^A = v^A \circ \flat_{\text{Area}}$ and used $v_{\flat_{\text{Area}}}^A J_A^{abcd} I^B_{cdef}v_B = 4 \delta^{[a}_e \delta^{b]}_f$ to expand $v^A_{\flat_{\text{Area}}}$ around $N_A$. Further, we defined
 \begin{align}
 \begin{aligned}
 \eta(H) &:= \eta^{ac}\eta^{bd} I^A_{abcd} H_A, \\ 
@@ -346,38 +346,38 @@ To explain this further first note that since there still appear $52$ constant p
 
 Nevertheless, with the available resources, the program did not terminate in adequate time. Thus, the only way we nevertheless were able to obtain an expression for the polynomial was by evaluating the $7$ parameters that appear in $T_0$ at randomly generated integer values and then only computing the principal polynomial with the remaining parameters from the two third-order coefficients $a^{ABpCq}$ and $a^{ABCI}$. Taking a closer look at (\ref{polyMatrices}) these parameters only appear in traces, not in determinants or inverses. We then proceeded by performing this computation to obtain the principal polynomial several times, each time taking newly obtained random integers for the $7$ parameters in $T_0$. Doing so, we observed that they only contribute an overall factor to the principal polynomial (\ref{AreaPoly}). We have to admit that this was not done often enough to rigorously interpolate the precise way the prefactor depends on these $7$ parameters. This is however not necessary as we are only interested in the vanishing set of the area metric gravity polynomial. 
 
-Note that, as we are only interested in the vanishing set of the principal polynomial, we can multiply a given polynomial with a non-vanishing scalar density of arbitrary weight. The expansion to linear order of such a density admits the general form:
+Note that, as we are only interested in the vanishing set of the principal polynomial, we can multiply a given polynomial with a non-vanishing scalar density of arbitrary weight. The expansion to linear order of such a density admits the general form
 \begin{align}\label{dens}
 \omega = 1+ b_1 \cdot (\eta(H) + \frac{1}{2} \epsilon(H)) + \frac{b_2}{12}\epsilon(H) + \mathcal{O}(2),
 \end{align}
 for arbitrary constants $b_1$ and $b_2$.
-Multiplying  (\ref{GLEDPoly}) with such a density we see that perturbatively the GLED polynomial describes the same vanishing set as:
+Multiplying  (\ref{GLEDPoly}) with such a density we see that perturbatively, the GLED polynomial describes the same vanishing set as
 \begin{align} \label{GLEDPoly2}
 \begin{aligned}
-    \widetilde{\mathcal{P}}_{\text{GLED}}(k) = \omega \cdot \mathcal{P}_{\text{GLED}} = 
+    \widetilde{\mathcal{P}}_{\text{GLED}} = \omega \cdot \mathcal{P}_{\text{GLED}} = 
     \bigl\{  \bigl[ 1 - \frac{1}{2} (A-b_1) \eta(H) - \frac{1}{4} (A-b_1) \epsilon(H)) + \\ \frac{1+b_2}{24} \epsilon(H) \bigr] \eta(k)
     -\frac{1}{2} H(k)       \bigr\}^2 + \mathcal{O}(2).
 \end{aligned}
 \end{align}
-Comparing this expression with the previously obtained area metric gravity polynomial (\ref{AreaPoly}), we find that multiplying the GLED polynomial with a density with constants $b_1 = A -C$ and $b_2 = \frac{1}{13}$, the two polynomials are products of the same factor and therefore, in particular, describe the same vanishing set in $\mathcal{O}(2)$. Thus, also for the case of area metric gravity requiring causal compatibility with the GLED matter theory in addition to diffeomorphism invariance at least perturbatively yields no further conditions for the parameters of $\mathcal{L}_{\text{Area,per}}$.
+Comparing this expression with the previously obtained area metric gravity polynomial (\ref{AreaPoly}), we find that multiplying the GLED polynomial with a density with constants $b_1 = A -C$ and $b_2 = \frac{1}{13}$, the two polynomials are products of the same factors and therefore, in particular, describe the same vanishing set in $\mathcal{O}(2)$. Thus, also for the case of area metric gravity requiring causal compatibility with the GLED matter theory in addition to diffeomorphism invariance at least perturbatively yields no further conditions for the parameters of $\mathcal{L}_{\text{Area,per}}$.
 
 Finally, we wish to investigate if this was, in fact, a coincidence of the chosen GLED matter theory or a general feature of perturbative area metric gravity independent on the specific matter theory. To this end, we take a closer look at the consequences of the required diffeomorphism invariance on the causal structure of the corresponding area metric gravity EOM by studying general solutions to (\ref{polyEqn}). This equation now takes the following form:
 \begin{align}\label{AreaPolyEqn}
     0 = \partial^A \mathcal{P}_{\text{Area}}^{p_1...p_{26}} C_{An}^{Bm} v_B - 26\mathcal{P}_{\text{Area}}^{(p_1...p_{25}\vert m} \delta_n^{\vert p_{26})} + 13 \mathcal{P}_{\text{Area}}^{p_1...p_{26}} \delta^m_n.
 \end{align}
 Proceeding as before for the metric in computing the general power series solution up to linear order in $H_A$ for this equation and contracting it against $k_{p_1} \cdot k_{p_{26}}$ we get the most general linear-order expansion of $\mathcal{P}_{\text{Area}}$ that is consistent with the required diffeomorphism invariance:
-\begin{align}
+\begin{align}\label{GenDif}
 \begin{aligned}
     \mathcal{P}_{\text{Area}} &= a \cdot \bigl \{  \eta(k)^{13} + \tilde{b} \cdot \eta(H) \cdot \eta(k) - \frac{13}{2} \cdot  H(k) \cdot \eta(k)^{12} + (\frac{\tilde{b}}{2}+\frac{14}{24}) \cdot \epsilon(H) \eta(k)^{13}  \bigr \} + \mathcal{O}(2)\\
     &=a \cdot \bigl\{  \bigl[ 1 + b \eta(H) + \frac{b}{2} \epsilon(H) +  \frac{7}{12\cdot13} \epsilon(H) \bigr] \eta(k) - \frac{1}{2} H(k)       \bigr\}^{13} + \mathcal{O}(2),
 \end{aligned}
 \end{align}
-with constants $a$, $b$ and $\tilde{b} = 13b$. It is clear that the overall constant $a$ does not influence the vanishing set. Additionally we can multiply this expression with the general form of a non-vanishing scalar density of arbitrary weight (\ref{dens}) that in linear order allows for $2$ arbitrary parameters $b_1$ and $b_2$. Doing so we find:
+with constants $a$, $b$ and $\tilde{b} = 13b$. It is clear that the overall constant $a$ does not influence the vanishing set. Additionally we can multiply this expression with the general form of a non-vanishing scalar density of arbitrary weight (\ref{dens}) that in linear order allows for $2$ arbitrary parameters $b_1$ and $b_2$. Doing so we find
 \begin{multline}
     \tilde{\mathcal{P}}_{\text{Area}} = \bigl\{  \bigl[ 1 + (b+ b_1) \eta(H) + \frac{b+b_1}{2} \epsilon(H) +  (\frac{7}{12\cdot13}+b_2) \epsilon(H) \bigr] \eta(k) - \frac{1}{2} H(k)       \bigr\}^{13} \\
     + \mathcal{O}(2).
 \end{multline}
-This polynomial now obviously perturbatively describes the same vanishing set. However, now we see that we can, in fact, specify the remaining constant $b$ at wish just by multiplying with an appropriate density and hence, in particular, without changing the vanishing set. 
+Perturbatively, this polynomial describes the same vanishing set as (\ref{GenDif}). However, we now see see that we can, in fact, specify the remaining constant $b$ at wish just by multiplying with an appropriate density and hence, in particular, without changing the vanishing set. 
 Thus, the fact that the requirement of causal compatibility between area metric gravity and GLED let to no further condition was no coincidence but a general feature of the perturbative expansion of area metric gravity.
 We conclude that for the case of the third-order perturbative area metric gravity Lagrangian already the required diffeomorphism invariance determines the vanishing set of the principal polynomial and thereby the causal structure if the theory uniquely. 
 
